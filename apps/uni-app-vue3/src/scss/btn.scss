@@ -1,0 +1,79 @@
+.mp-reset-button {
+  padding: 0;
+  background-color: transparent;
+  /* #ifndef APP-PLUS */
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  /* #endif */
+  /* #ifdef APP-NVUE */
+  border-width: 0;
+  /* #endif */
+}
+
+/* #ifndef APP-NVUE */
+.mp-reset-button::after {
+  border: none;
+}
+/* #endif */
+
+.btn {
+  &-primary {
+  }
+
+  &-success {
+  }
+
+  &-warning {
+  }
+
+  &-error {
+  }
+
+  &-ghost {
+  }
+
+  &-link {
+  }
+
+  &-outline {
+  }
+
+  &-active {
+  }
+
+  &-disabled {
+  }
+
+  &-lg {
+  }
+
+  &-md {
+  }
+
+  &-sm {
+  }
+
+  &-xs {
+  }
+
+  &-wide {
+  }
+
+  &-block {
+  }
+
+  &-square {
+  }
+
+  &-circle {
+  }
+
+  & {
+    .glass {
+    }
+
+    .no-animation {
+    }
+  }
+}

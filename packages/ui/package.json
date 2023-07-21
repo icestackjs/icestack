@@ -17,7 +17,8 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "assets"
   ],
   "scripts": {
     "build": "unbuild",
@@ -26,7 +27,8 @@
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
     "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
-    "test": "pnpm lint && vitest run --coverage"
+    "test": "pnpm lint && vitest run --coverage",
+    "build-scss": "ts-node --esm scripts/build-scss.ts"
   },
   "keywords": [],
   "author": ""

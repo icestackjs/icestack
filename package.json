@@ -13,13 +13,19 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "@types/klaw": "^3.0.3",
     "eslint": "^8.45.0",
     "eslint-config-icebreaker": "^1.2.1",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-prettier": "^5.0.0",
+    "klaw": "^4.1.0",
+    "postcss": "^8.4.26",
+    "postcss-js": "^4.0.1",
     "prettier": "^3.0.0",
+    "sass": "^1.64.0",
     "tailwind-css-variables-theme-generator": "^0.4.0",
     "tailwindcss": "^3.3.3",
+    "ts-node": "^10.9.1",
     "turbo": "^1.10.9",
     "typescript": "^5.1.6",
     "unbuild": "^1.2.1"

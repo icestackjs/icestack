@@ -19,15 +19,19 @@
 
 .btn {
   &-primary {
+    @apply border-primary bg-primary text-primary-content outline-primary;
   }
 
   &-success {
+    @apply bg-success;
   }
 
   &-warning {
+    @apply bg-warning;
   }
 
   &-error {
+    @apply bg-error;
   }
 
   &-ghost {

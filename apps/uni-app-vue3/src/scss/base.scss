@@ -1,0 +1,8 @@
+@use "./color.scss" as C;
+@use "./util.scss" as Util;
+
+:root {
+  @each $var, $color in C.$root-vars {
+    #{$var}: Util.getRgbString($color);
+  }
+}

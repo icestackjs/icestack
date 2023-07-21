@@ -70,7 +70,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-react": "^7.33.0",
     "eslint-plugin-react-hooks": "^4.6.0",
-    "postcss": "^8.4.26",
+    "postcss": "^8.4.27",
     "react-refresh": "^0.14.0",
     "stylelint": "^15.10.2",
     "ts-node": "^10.9.1",

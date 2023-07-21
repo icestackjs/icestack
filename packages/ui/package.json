@@ -1,0 +1,33 @@
+{
+  "name": "ice-mobile-ui",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./scss": "./index.scss"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --watch",
+    "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
+    "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
+    "prepack": "pnpm run build",
+    "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
+    "test": "pnpm lint && vitest run --coverage"
+  },
+  "keywords": [],
+  "author": ""
+}

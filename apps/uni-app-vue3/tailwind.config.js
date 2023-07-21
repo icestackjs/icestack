@@ -1,5 +1,6 @@
 const color = require('tailwindcss/colors')
 const plugin = require('tailwindcss/plugin')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./index.html', './src/**/*.{html,js,ts,jsx,tsx,vue}'],
@@ -18,7 +19,7 @@ module.exports = {
       'primary-content': 'rgb(var(--primary-color) / <alpha-value>)'
     }
   },
-  plugins: [],
+  plugins: [require('ice-mobile-ui')({})],
   corePlugins: {
     preflight: false
   }

@@ -13,5 +13,5 @@ onHide(() => {
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
-@import './scss/index.scss';
+// @import './scss/index.scss';
 </style>

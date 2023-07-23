@@ -1,0 +1,3 @@
+describe('main', () => {
+  it('default', () => {})
+})

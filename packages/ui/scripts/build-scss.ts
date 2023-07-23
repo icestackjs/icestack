@@ -37,7 +37,7 @@ async function main() {
 
       const jsPath = path.resolve(jsDir, relPath)
       await ensureDir(path.dirname(jsPath))
-      const { css } = await postcss([
+      const { css, root } = await postcss([
         tailwindcss({
           content: [{ raw: '' }],
           theme: {
@@ -60,10 +60,13 @@ async function main() {
         })
         // @tailwind base;\n
         // @ts-ignore
-      ]).process('@tailwind components;\n@tailwind utilities;\n' + result.css)
-      const root = postcss.parse(css)
+      ]).process('@tailwind components;\n@tailwind utilities;\n' + result.css + '}', {
+        from: undefined
+      })
+      // .process('@tailwind components;\n@tailwind utilities;\n@layer components {\n' + result.css + '\n}')
+      // const root = postcss.parse(css)
 
-      const data = 'module.exports = ' + JSON.stringify(postcssJs.objectify(root), null, 2)
+      const data = 'module.exports = ' + JSON.stringify(postcssJs.objectify(root as postcss.Root), null, 2)
       await fs.writeFile(jsPath.replace(/scss$/, 'js'), data, 'utf8')
       // console.log(t)
       // result.css

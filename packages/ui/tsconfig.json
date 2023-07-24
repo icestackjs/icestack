@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "NodeNext",
     "moduleResolution": "Node",
     "esModuleInterop": true,
+    "allowJs": true,
     "strict": true,
     "baseUrl": ".",
     "paths": {
@@ -20,6 +21,7 @@
   },
   "include": [
     "src",
-    "test"
+    "test",
+    "scripts"
   ]
 }

@@ -4,7 +4,7 @@
   "description": "",
   "license": "MIT",
   "sideEffects": false,
-  "type": "module",
+  "type": "commonjs",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -29,7 +29,8 @@
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "vitest run",
     "test:dev": "vitest",
-    "build-scss": "ts-node --esm scripts/build-scss.ts"
+    "build-scss": "ts-node --esm scripts/build-scss.ts",
+    "raw": "ts-node --esm scripts/colors.ts"
   },
   "keywords": [],
   "author": ""

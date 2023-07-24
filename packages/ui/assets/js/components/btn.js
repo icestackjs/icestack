@@ -1,14 +1,23 @@
 module.exports = {
   ".btn-primary": {
-    "@apply border-primary bg-primary text-primary-content outline-primary": true
+    "--tw-border-opacity": "1",
+    "borderColor": "rgb(var(--primary) / var(--tw-border-opacity))",
+    "--tw-bg-opacity": "1",
+    "backgroundColor": "rgb(var(--primary) / var(--tw-bg-opacity))",
+    "--tw-text-opacity": "1",
+    "color": "rgb(var(--primary-content) / var(--tw-text-opacity))",
+    "outlineColor": "rgb(var(--primary) / 1)"
   },
   ".btn-success": {
-    "@apply bg-success": true
+    "--tw-bg-opacity": "1",
+    "backgroundColor": "rgb(var(--success) / var(--tw-bg-opacity))"
   },
   ".btn-warning": {
-    "@apply bg-warning": true
+    "--tw-bg-opacity": "1",
+    "backgroundColor": "rgb(var(--warning) / var(--tw-bg-opacity))"
   },
   ".btn-error": {
-    "@apply bg-error": true
+    "--tw-bg-opacity": "1",
+    "backgroundColor": "rgb(var(--error) / var(--tw-bg-opacity))"
   }
 }

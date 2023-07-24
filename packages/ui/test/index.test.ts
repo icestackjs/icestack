@@ -24,4 +24,21 @@ describe('main', () => {
     })
     expect(result.css).toMatchSnapshot()
   })
+
+  it('custom theme', async () => {
+    const result = await getCss({
+      css: `.btn{
+        @apply bg-primary text-primary-content;
+      }`,
+      theme: {
+        extend: {
+          colors: {
+            primary: 'rgb(var(--primary) / <alpha-value>)',
+            'primary-content': 'rgb(var(--primary-color) / <alpha-value>)'
+          }
+        }
+      }
+    })
+    expect(result.css).toMatchSnapshot()
+  })
 })

@@ -1,13 +1,15 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+// import { fileURLToPath } from 'node:url'
+import type { Stats } from 'node:fs'
 import * as sass from 'sass'
 import postcss from 'postcss'
 import postcssJs from 'postcss-js'
-import klaw from 'klaw'
-import tailwindcss from 'tailwindcss'
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url))
+// import klaw from 'klaw'
+import tailwindcss, { Config } from 'tailwindcss'
+import chokidar from 'chokidar'
+import { colors } from '../src/colors'
+// const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 async function ensureDir(p: string) {
   try {
@@ -26,52 +28,80 @@ async function main() {
   const cssDir = path.resolve(assetsDir, 'css')
   await ensureDir(jsDir)
   await ensureDir(cssDir)
-  for await (const file of klaw(scssDir)) {
-    if (file.stats.isFile() && /\.scss$/.test(file.path)) {
-      const result = sass.compile(file.path)
-      // console.log(result)
-      const relPath = path.relative(scssDir, file.path)
-      const cssPath = path.resolve(cssDir, relPath)
-      await ensureDir(path.dirname(cssPath))
-      await fs.writeFile(cssPath.replace(/scss$/, 'css'), result.css, 'utf8')
+  // const { colors } = await import('./colors')
+  function getCssPath(relPath: string) {
+    const cssPath = path.resolve(cssDir, relPath)
+    return cssPath.replace(/scss$/, 'css')
+  }
 
-      const jsPath = path.resolve(jsDir, relPath)
+  function getJsPath(relPath: string) {
+    const jsPath = path.resolve(jsDir, relPath)
+    return jsPath.replace(/scss$/, 'js')
+  }
+
+  async function buildScss(p: string, stats?: Stats) {
+    if (stats && stats.isFile() && /\.scss$/.test(p)) {
+      const result = sass.compile(p)
+      // console.log(result)
+      const relPath = path.relative(scssDir, p)
+      const cssPath = getCssPath(relPath)
+      const jsPath = getJsPath(relPath)
+      await ensureDir(path.dirname(cssPath))
       await ensureDir(path.dirname(jsPath))
-      const { css, root } = await postcss([
-        tailwindcss({
-          content: [{ raw: '' }],
-          theme: {
-            extend: {
-              // inherit: 'inherit',
-              // current: 'currentColor',
-              // transparent: 'transparent',
-              // black: '#000',
-              // white: '#fff',
-              primary: 'rgb(var(--primary) / <alpha-value>)',
-              success: 'rgb(var(--success) / <alpha-value>)',
-              error: 'rgb(var(--error) / <alpha-value>)',
-              warning: 'rgb(var(--warning) / <alpha-value>)',
-              'primary-content': 'rgb(var(--primary-color) / <alpha-value>)'
+      await fs.writeFile(cssPath, result.css, 'utf8')
+      const config: Config = {
+        content: [{ raw: '' }],
+        theme: {
+          extend: {
+            colors: {
+              ...colors
             }
-          },
-          corePlugins: {
-            preflight: false
           }
-        })
+        },
+        corePlugins: {
+          preflight: false
+        }
+      }
+      const tw = tailwindcss(config)
+      const { root } = await postcss([tw])
         // @tailwind base;\n
         // @ts-ignore
-      ]).process('@tailwind components;\n@tailwind utilities;\n' + result.css + '}', {
-        from: undefined
-      })
-      // .process('@tailwind components;\n@tailwind utilities;\n@layer components {\n' + result.css + '\n}')
-      // const root = postcss.parse(css)
+        .process('@tailwind components;\n@tailwind utilities;\n' + result.css, {
+          from: undefined
+        })
 
       const data = 'module.exports = ' + JSON.stringify(postcssJs.objectify(root as postcss.Root), null, 2)
-      await fs.writeFile(jsPath.replace(/scss$/, 'js'), data, 'utf8')
-      // console.log(t)
-      // result.css
+      await fs.writeFile(jsPath, data, 'utf8')
     }
   }
+
+  // async function klawAndBuildScss() {
+  //   for await (const file of klaw(scssDir)) {
+  //     if (file.stats.isFile() && /\.scss$/.test(file.path)) {
+  //       await buildScss(file.path, file.stats)
+  //     }
+  //   }
+  // }
+
+  chokidar
+    .watch(scssDir, {
+      alwaysStat: true
+    })
+    .on('add', async (p, stats) => {
+      console.log(`building: ${p}`)
+      await buildScss(p, stats)
+    })
+    .on('change', async (p, stats) => {
+      console.log(`building: ${p}`)
+      await buildScss(p, stats)
+    })
+    .on('unlink', async (p: string) => {
+      const relPath = path.relative(scssDir, p)
+      const cssPath = getCssPath(relPath)
+      const jsPath = getJsPath(relPath)
+      await fs.unlink(cssPath)
+      await fs.unlink(jsPath)
+    })
 }
 
 main()

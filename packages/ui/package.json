@@ -27,7 +27,8 @@
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
     "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
-    "test": "pnpm lint && vitest run --coverage",
+    "test": "vitest run",
+    "test:dev": "vitest",
     "build-scss": "ts-node --esm scripts/build-scss.ts"
   },
   "keywords": [],

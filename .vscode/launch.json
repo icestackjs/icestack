@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "command": "npm run test:dev",
+      "name": "[UI] test watch",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/packages/ui"
+    },
+    {
       "command": "npm run build-scss",
       "name": "[UI] build-scss",
       "request": "launch",

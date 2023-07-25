@@ -53,7 +53,7 @@
     "@dcloudio/uni-mp-weixin": "3.0.0-3080720230703001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-3080720230703001",
     "@vue/shared": "^3.3.4",
-    "pinia": "~2.0.36",
+    "pinia": "~2.1.4",
     "vue": "^3.3.4",
     "vue-i18n": "^9.2.2",
     "vuex": "^4.1.0"
@@ -66,8 +66,8 @@
     "@dcloudio/vite-plugin-uni": "3.0.0-3080720230703001",
     "@rollup/plugin-commonjs": "^25.0.3",
     "@types/node": "^20.4.4",
-    "@typescript-eslint/eslint-plugin": "^6.1.0",
-    "@typescript-eslint/parser": "^6.1.0",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
     "autoprefixer": "^10.4.14",
     "eslint": "^8.45.0",
     "eslint-config-prettier": "^8.8.0",
@@ -88,7 +88,7 @@
     "typescript": "^5.1.6",
     "unplugin-auto-import": "^0.16.6",
     "unplugin-vue-components": "^0.25.1",
-    "vite": "4.4.6",
+    "vite": "4.4.7",
     "vue-eslint-parser": "^9.3.1",
     "weapp-ide-cli": "^1.0.1",
     "weapp-tailwindcss": "^2.6.2"

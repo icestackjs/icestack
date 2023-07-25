@@ -1,3 +1,5 @@
+const path = require('path')
+
 const config = {
   projectName: 'taro-app',
   date: '2023-7-13',
@@ -22,6 +24,13 @@ const config = {
   compiler: 'webpack5',
   cache: {
     enable: false // Webpack 持久化缓存配置，建议开启。默认配置请参考：https://docs.taro.zone/docs/config-detail#cache
+  },
+  alias: {
+    '@styled-system': path.resolve(__dirname, '..', 'src/styled-system'),
+    '@/': path.resolve(__dirname, '..', 'src')
+  },
+  terser: {
+    enable: false
   },
   mini: {
     postcss: {

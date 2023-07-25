@@ -6,10 +6,16 @@
     <view class="flex">
       <button class="btn btn-primary">button</button>
       <button class="btn">button</button>
+      <!-- <button :class="bgRed">bgRed</button> -->
     </view>
   </view>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+// import { css } from '@linaria/vite'
+// const bgRed = css`
+//   background: red;
+// `
+</script>
 
 <style lang="scss" scoped></style>

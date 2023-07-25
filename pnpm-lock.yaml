@@ -56,6 +56,9 @@ importers:
       chokidar:
         specifier: ^3.5.3
         version: 3.5.3
+      clsx:
+        specifier: ^2.0.0
+        version: 2.0.0
       defu:
         specifier: ^6.1.2
         version: 6.1.2
@@ -8475,6 +8478,11 @@ packages:
       inherits: 2.0.4
       process-nextick-args: 2.0.1
       readable-stream: 2.3.8
+    dev: true
+
+  /clsx@2.0.0:
+    resolution: {integrity: sha512-rQ1+kcj+ttHG0MKVGBUXwayCCF1oh39BF5COIpRzuCEv8Mwjv0XucrI2ExNTOn9IlLifGClWQcU9BrZORvtw6Q==}
+    engines: {node: '>=6'}
     dev: true
 
   /co@4.6.0:

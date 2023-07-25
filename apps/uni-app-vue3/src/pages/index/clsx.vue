@@ -12,16 +12,9 @@
 </template>
 
 <script setup lang="ts">
-// import { css } from '@/styled-system/css'
-// :class="cls"
-// const cls = css({
-//   bgColor: 'amber.700',
-//   color: 'gray.100'
-// })
-// import { css } from '@linaria/vite'
-// const bgRed = css`
-//   background: red;
-// `
+import { clsx } from 'clsx'
+
+const btn = clsx('bg-primary text-primary-content')
 </script>
 
 <style lang="scss" scoped></style>

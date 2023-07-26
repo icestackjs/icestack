@@ -1,5 +1,5 @@
 import { defineConfig } from "@pandacss/dev"
-
+// *:not(#\#)
 export default defineConfig({
   // Whether to use css reset
   preflight: true,
@@ -17,6 +17,17 @@ export default defineConfig({
 
   // The output directory for your css system
   outdir: "src/styled-system",
+
+  staticCss: {
+    css: [
+      {
+        properties: {
+          color: ['red.300']
+        }
+      }
+    ]
+  },
+  jsxFramework: 'react'
 
 
 })

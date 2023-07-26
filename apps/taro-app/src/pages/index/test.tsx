@@ -1,20 +1,9 @@
-// import { css } from '@linaria/core'
 import { View, Text, Button } from '@tarojs/components'
 import { useLoad } from '@tarojs/taro'
 import { useState } from 'react'
 // import { css } from '../../../styled-system/css'
 import { css } from '@styled-system/css'
 import { token } from '@styled-system/tokens'
-import './index.scss'
-
-// import {styled} from '@linaria/react'
-// import { css } from '@linaria/core'
-// const AAA = styled.h2`
-// color:red;
-// `
-// const titleCls = css`
-//   background: red;
-// `
 
 const Component = (props) => {
   return (
@@ -33,13 +22,8 @@ const Component = (props) => {
   )
 }
 
-export default function Index() {
-  useLoad(() => {
-    console.log('Page loaded.')
-  })
-  const [color, setColor] = useState('red.300')
+export default function Test() {
   const [runtimeColor, setRuntimeColor] = useState('pink.300')
-
   return (
     <View>
       <Text
@@ -51,27 +35,7 @@ export default function Index() {
       >
         Hello world!
       </Text>
-      <Text
-        className={css({
-          color
-        })}
-      >
-        red.300
-      </Text>
-      {/* <Button className='btn'>Button</Button> */}
-      {/* <AAA>AAA</AAA> */}
       <Component color={runtimeColor}></Component>
-      <Button
-        onClick={() => {
-          if (runtimeColor === 'blue.300') {
-            setRuntimeColor('pink.300')
-          } else {
-            setRuntimeColor('blue.300')
-          }
-        }}
-      >
-        click
-      </Button>
     </View>
   )
 }

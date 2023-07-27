@@ -38,6 +38,9 @@ importers:
       '@linaria/webpack-loader':
         specifier: ^4.5.4
         version: 4.5.4
+      '@pandacss/config':
+        specifier: ^0.8.0
+        version: 0.8.0
       '@pandacss/dev':
         specifier: ^0.8.0
         version: 0.8.0(@internationalized/date@3.3.0)(@types/node@20.4.5)(@types/react-dom@18.2.7)(@types/react@18.2.17)(astro@2.9.3)(sass@1.64.1)(ts-node@10.9.1)(typescript@5.1.6)
@@ -89,6 +92,9 @@ importers:
       postcss-js:
         specifier: ^4.0.1
         version: 4.0.1(postcss@8.4.27)
+      postcss-load-config:
+        specifier: ^4.0.1
+        version: 4.0.1(postcss@8.4.27)(ts-node@10.9.1)
       prettier:
         specifier: ^3.0.0
         version: 3.0.0

@@ -10,7 +10,8 @@
     "build": "turbo run build -F=./packages/*",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\""
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "test": "vitest run"
   },
   "devDependencies": {
     "@babel/generator": "^7.22.9",
@@ -23,6 +24,7 @@
     "@linaria/react": "^4.5.4",
     "@linaria/vite": "^4.5.4",
     "@linaria/webpack-loader": "^4.5.4",
+    "@pandacss/config": "^0.8.0",
     "@pandacss/dev": "^0.8.0",
     "@types/babel__generator": "^7.6.4",
     "@types/babel__traverse": "^7.20.1",
@@ -40,6 +42,7 @@
     "polished": "^4.2.2",
     "postcss": "^8.4.27",
     "postcss-js": "^4.0.1",
+    "postcss-load-config": "^4.0.1",
     "prettier": "^3.0.0",
     "sass": "^1.64.1",
     "tailwind-css-variables-theme-generator": "^0.4.0",

@@ -63,7 +63,7 @@
     "@tarojs/taro-loader": "3.6.10",
     "@tarojs/webpack5-runner": "3.6.10",
     "@types/node": "^20.4.5",
-    "@types/react": "^18.2.16",
+    "@types/react": "^18.2.17",
     "@types/webpack-env": "^1.18.1",
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",

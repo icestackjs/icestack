@@ -6,6 +6,6 @@ module.exports = {
       framework: 'react',
       ts: true
     }],
-    // "@linaria"
+    "@linaria"
   ]
 }

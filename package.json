@@ -22,6 +22,7 @@
     "@linaria/core": "^4.5.4",
     "@linaria/react": "^4.5.4",
     "@linaria/vite": "^4.5.4",
+    "@linaria/webpack-loader": "^4.5.4",
     "@pandacss/dev": "^0.8.0",
     "@types/babel__generator": "^7.6.4",
     "@types/babel__traverse": "^7.20.1",

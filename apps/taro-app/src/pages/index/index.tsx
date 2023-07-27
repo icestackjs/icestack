@@ -1,12 +1,24 @@
 // import { css } from '@linaria/core'
-import { View, Text, Button } from '@tarojs/components'
+import { View, Text, Button, ViewProps } from '@tarojs/components'
+// import { styled } from '@linaria/react'
 import { useLoad } from '@tarojs/taro'
-import { useState } from 'react'
+import React, { useState } from 'react'
 // import { css } from '../../../styled-system/css'
 import { css } from '@styled-system/css'
 import { token } from '@styled-system/tokens'
 import './index.scss'
 
+// declare type Component<TProps> =
+//   | ((props: TProps) => any)
+//   | {
+//       new (props: TProps): any
+//     }
+
+// type VPS = ViewProps & { style?: React.CSSProperties }
+// type TP = VPS & { color: string }
+// const Title = styled<TP, VPS, Component<TP>>(View)`
+//   color: ${(props) => props.color};
+// `
 // import {styled} from '@linaria/react'
 // import { css } from '@linaria/core'
 // const AAA = styled.h2`

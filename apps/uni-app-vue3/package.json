@@ -37,7 +37,7 @@
     "upload:dev": "weapp upload -p dist/dev/mp-weixin -v 1.0.0 -d \"dev version\"",
     "upload:build": "weapp upload -p dist/build/mp-weixin -v 1.0.0 -d \"release version\"",
     "postinstall": "weapp-tw patch",
-    "prepare": "panda codegen"
+    "prepare": "panda codegen && weapp-panda codegen"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-3080720230703001",
@@ -70,10 +70,10 @@
     "@typescript-eslint/eslint-plugin": "^6.2.0",
     "@typescript-eslint/parser": "^6.2.0",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.45.0",
+    "eslint": "^8.46.0",
     "eslint-config-prettier": "^8.9.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "2.27.5",
+    "eslint-plugin-import": "2.28.0",
     "eslint-plugin-jest": "^27.2.3",
     "eslint-plugin-n": "^16.0.1",
     "eslint-plugin-prettier": "^5.0.0",

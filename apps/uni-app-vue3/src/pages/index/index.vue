@@ -6,18 +6,20 @@
     <view class="flex">
       <button class="btn btn-primary">button</button>
       <button class="btn">button</button>
-      <!-- <button :class="bgRed">bgRed</button> -->
+      <!-- <button :class="cls">cls</button> -->
     </view>
+
+    <view :class="cls">cls</view>
   </view>
 </template>
 
 <script setup lang="ts">
-// import { css } from '@/styled-system/css'
+import { css } from '@/styled-system/css'
 // :class="cls"
-// const cls = css({
-//   bgColor: 'amber.700',
-//   color: 'gray.100'
-// })
+const cls = css({
+  bg: 'amber.700',
+  color: 'gray.100'
+})
 // import { css } from '@linaria/vite'
 // const bgRed = css`
 //   background: red;

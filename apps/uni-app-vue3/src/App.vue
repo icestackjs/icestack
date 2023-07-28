@@ -10,9 +10,9 @@ onHide(() => {
 })
 </script>
 <style lang="scss">
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+// @import 'tailwindcss/base';
+// @import 'tailwindcss/components';
+// @import 'tailwindcss/utilities';
 
 @layer reset,
 base,

@@ -140,6 +140,9 @@ importers:
       '@babel/runtime':
         specifier: ^7.22.11
         version: 7.22.11
+      '@icestack/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@tarojs/components':
         specifier: 3.6.15
         version: 3.6.15(@types/react@18.2.21)(postcss@8.4.29)(react@18.2.0)
@@ -182,9 +185,6 @@ importers:
       '@tarojs/taro':
         specifier: 3.6.15
         version: 3.6.15(@types/react@18.2.21)(postcss@8.4.29)
-      ice-ui:
-        specifier: workspace:*
-        version: link:../../packages/ui
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -337,6 +337,9 @@ importers:
       '@dcloudio/vite-plugin-uni':
         specifier: 3.0.0-3081220230817001
         version: 3.0.0-3081220230817001(postcss@8.4.29)(ts-node@10.9.1)(vite@4.1.4)(vue@3.3.4)
+      '@icestack/ui':
+        specifier: workspace:*
+        version: link:../../packages/ui
       '@rollup/plugin-commonjs':
         specifier: ^25.0.4
         version: 25.0.4(rollup@3.28.1)
@@ -379,9 +382,6 @@ importers:
       eslint-plugin-vue:
         specifier: ^9.17.0
         version: 9.17.0(eslint@8.48.0)
-      ice-ui:
-        specifier: workspace:*
-        version: link:../../packages/ui
       postcss:
         specifier: ^8.4.29
         version: 8.4.29

@@ -79,7 +79,7 @@
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-promise": "6.1.1",
     "eslint-plugin-vue": "^9.17.0",
-    "ice-ui": "workspace:*",
+    "@icestack/ui": "workspace:*",
     "postcss": "^8.4.29",
     "postcss-js": "^4.0.1",
     "postcss-rem-to-responsive-pixel": "^5.1.3",

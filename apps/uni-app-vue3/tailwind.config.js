@@ -5,7 +5,7 @@ module.exports = {
     extend: {},
     colors: {}
   },
-  plugins: [require('ice-ui')({})],
+  plugins: [require('@icestack/ui')({})],
   corePlugins: {
     preflight: false
   }

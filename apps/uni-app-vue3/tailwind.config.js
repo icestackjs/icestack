@@ -5,7 +5,7 @@ module.exports = {
     extend: {},
     colors: {}
   },
-  plugins: [require('ice-mobile-ui')({})],
+  plugins: [require('ice-ui')({})],
   corePlugins: {
     preflight: false
   }

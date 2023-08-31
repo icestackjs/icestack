@@ -1,0 +1,39 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    }
+  },
+  "include": [
+    "src",
+    "test",
+    "scripts"
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "target": "ESNext",
+      "module": "NodeNext",
+      "moduleResolution": "Node",
+      "esModuleInterop": true,
+      "allowJs": true,
+      "strict": true,
+      "baseUrl": ".",
+      "paths": {
+        "@/*": [
+          "src/*"
+        ],
+        "#test/*": [
+          "test/*"
+        ],
+      },
+      "types": [
+        "vitest/globals"
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.btn-primary {
+  @apply border-primary bg-primary text-primary-content outline-primary;
+}
+.btn-success {
+  @apply bg-success;
+}
+.btn-warning {
+  @apply bg-warning;
+}
+.btn-error {
+  @apply bg-error;
+}

@@ -1,73 +1,17 @@
-# pnpm-turbo-monorepo-template
+# ice-ui （WIP）
 
-This is a empty pnpm starter turborepo for me.
+长久以来我一直在思考，到底什么组件可以满足不同端不同业务的需求
 
-## What's inside?
+比如我写 react 的时候用 antd, 写 vue 的时候用 element-ui/plus / ant-design-vue
 
-This turborepo uses [pnpm](https://pnpm.io) as a package manager. It includes the following packages/apps:
+写移动端的时候用 antd mobile 原生再用 rn, 或者 vant
 
-### Apps and Packages
+小程序又是一大堆 ui 库，有原生的，有 uni-app 版本的，有 taro 版本的
 
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `ui`: a stub React component library shared by both `web` and `docs` applications
-- `eslint-config-custom`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+好烦躁，为什么没有一个原子化的 ui 库，可以自由组合原子化的 样式和交互逻辑来生成组件呢？
 
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+当然，这个库显然没有那种专供于某个平台那样的 ui 库开箱即用，但是好处是你可以方便的自定义的扩展你的组件行为，显然这就不适合新手
 
-### Utilities
+你可以把这个库，看作成一个 ui 库的范式，然后往里面自由的进行组合，方便进行二次封装来构建出你独一无二的版本
 
-This turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run build
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-pnpm run dev
-```
-
-### Remote Caching
-
-Turborepo can use a technique known as [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
-
-```
-cd my-turborepo
-pnpm dlx turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
-
-```
-pnpm dlx turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Pipelines](https://turbo.build/repo/docs/core-concepts/monorepos/running-tasks)
-- [Caching](https://turbo.build/repo/docs/core-concepts/caching)
-- [Remote Caching](https://turbo.build/repo/docs/core-concepts/remote-caching)
-- [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
-- [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
-- [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+灵感来自于 `tailwindcss`/`headless ui`/`react-use`/`vueuse`/`daisyui`

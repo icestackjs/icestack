@@ -8,11 +8,15 @@ import { UnifiedViteWeappTailwindcssPlugin as uvtw } from 'weapp-tailwindcss/vit
 import rem2px from 'postcss-rem-to-responsive-pixel'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
+const postcssConfig = require('./postcss.config.cjs')
+// import linaria from '@linaria/vite'
 const isH5 = process.env.UNI_PLATFORM === 'h5'
 const isApp = process.env.UNI_PLATFORM === 'app'
 const WeappTailwindcssDisabled = isH5 || isApp
 
-const postcssPlugins = [tailwindcss(), autoprefixer()]
+// const additionalPlugins = require('./postcss.config.cjs').plugins
+
+const postcssPlugins = [tailwindcss(), autoprefixer()] //, ...additionalPlugins]
 
 if (!WeappTailwindcssDisabled) {
   postcssPlugins.push(
@@ -38,6 +42,8 @@ export default defineConfig({
         enabled: true
       }
     })
+    // https://github.com/callstack/linaria/issues/1250
+    // linaria()
     // uni-app vite 中不起作用，不知道为啥
     // Components({
     //   dts: './src/components.d.ts'
@@ -46,7 +52,7 @@ export default defineConfig({
   // 内联 postcss 注册 tailwindcss
   css: {
     postcss: {
-      plugins: postcssPlugins
+      plugins: postcssConfig.plugins // postcssPlugins
     }
   }
 })

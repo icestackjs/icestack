@@ -17,10 +17,10 @@
     "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
-    "@babel/generator": "^7.22.10",
-    "@babel/parser": "^7.22.14",
-    "@babel/traverse": "^7.22.11",
-    "@babel/types": "^7.22.11",
+    "@babel/generator": "^7.22.15",
+    "@babel/parser": "^7.22.15",
+    "@babel/traverse": "^7.22.15",
+    "@babel/types": "^7.22.15",
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.2",
     "@csstools/postcss-cascade-layers": "^4.0.0",

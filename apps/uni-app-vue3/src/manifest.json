@@ -56,7 +56,8 @@
     },
     "usingComponents": true,
     "lazyCodeLoading": "requiredComponents",
-    "darkmode": true
+    "darkmode": true,
+    "mergeVirtualHostAttributes": true
   },
   "mp-alipay": {
     "usingComponents": true

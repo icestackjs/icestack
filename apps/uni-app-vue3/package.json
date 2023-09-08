@@ -37,7 +37,7 @@
     "upload:dev": "weapp upload -p dist/dev/mp-weixin -v 1.0.0 -d \"dev version\"",
     "upload:build": "weapp upload -p dist/build/mp-weixin -v 1.0.0 -d \"release version\"",
     "postinstall": "weapp-tw patch",
-    "prepare": "panda codegen && weapp-panda codegen"
+    "_prepare": "panda codegen && weapp-panda codegen"
   },
   "dependencies": {
     "@dcloudio/uni-app": "3.0.0-3081220230817001",
@@ -54,7 +54,7 @@
     "@dcloudio/uni-mp-weixin": "3.0.0-3081220230817001",
     "@dcloudio/uni-quickapp-webview": "3.0.0-3081220230817001",
     "@vue/shared": "^3.3.4",
-    "pinia": "~2.1.6",
+    "pinia": "~2.0.36",
     "vue": "^3.3.4",
     "vue-i18n": "^9.3.0",
     "vuex": "^4.1.0"
@@ -92,6 +92,6 @@
     "vite": "4.4.9",
     "vue-eslint-parser": "^9.3.1",
     "weapp-ide-cli": "^1.0.1",
-    "weapp-tailwindcss": "^2.8.2"
+    "weapp-tailwindcss": "^2.8.3"
   }
 }

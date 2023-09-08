@@ -8,7 +8,7 @@ import { UnifiedViteWeappTailwindcssPlugin as uvtw } from 'weapp-tailwindcss/vit
 import rem2px from 'postcss-rem-to-responsive-pixel'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
-const postcssConfig = require('./postcss.config.cjs')
+// const postcssConfig = require('./postcss.config.cjs')
 // import linaria from '@linaria/vite'
 const isH5 = process.env.UNI_PLATFORM === 'h5'
 const isApp = process.env.UNI_PLATFORM === 'app'
@@ -52,7 +52,7 @@ export default defineConfig({
   // 内联 postcss 注册 tailwindcss
   css: {
     postcss: {
-      plugins: postcssConfig.plugins // postcssPlugins
+      plugins: postcssPlugins // postcssConfig.plugins // postcssPlugins
     }
   }
 })

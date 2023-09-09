@@ -2,8 +2,8 @@
 // https://github.com/postcss/postcss-load-config#ordering
 module.exports = {
   plugins: {
-    '@pandacss/dev/postcss': {},
-    'weapp-pandacss/postcss': {}
+    // '@pandacss/dev/postcss': {},
+    // 'weapp-pandacss/postcss': {}
   }
   // [
   //   require('@pandacss/dev/postcss')(),

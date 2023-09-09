@@ -3,6 +3,7 @@ import { useLaunch } from '@tarojs/taro'
 import './app.scss'
 import { WeappWebSocket } from 'weapp-websocket'
 
+console.log(globalThis, global, window, self)
 window.WebSocket = WeappWebSocket
 
 function App({ children }: PropsWithChildren) {

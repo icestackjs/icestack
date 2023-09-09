@@ -57,7 +57,9 @@
     "pinia": "~2.0.36",
     "vue": "^3.3.4",
     "vue-i18n": "^9.3.0",
-    "vuex": "^4.1.0"
+    "vuex": "^4.1.0",
+    "weapp-websocket": "^1.0.1",
+    "weapp-xmlhttprequest": "^1.0.0"
   },
   "devDependencies": {
     "@dcloudio/types": "^3.3.3",
@@ -71,6 +73,7 @@
     "@typescript-eslint/eslint-plugin": "^6.6.0",
     "@typescript-eslint/parser": "^6.6.0",
     "autoprefixer": "^10.4.15",
+    "engine.io-client": "^6.5.2",
     "eslint": "^8.49.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-config-standard": "^17.1.0",

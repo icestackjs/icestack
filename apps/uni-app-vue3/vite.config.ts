@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
 import AutoImport from 'unplugin-auto-import/vite'
+import replace from '@rollup/plugin-replace'
+
 // import Components from 'unplugin-vue-components/vite'
 // 假如要加载一些 commonjs 模块，需要引入这个插件，很多地图的sdk都是 commonjs，假如引用报错需要引入它并添加到 `plugins` 里
 // import commonjs from "@rollup/plugin-commonjs";
@@ -41,6 +43,13 @@ export default defineConfig({
       eslintrc: {
         enabled: true
       }
+    }),
+    replace({
+      values: {
+        window: 'globalThis' // JSON.stringify('globalThis')
+      },
+      include: [/socket\.io-client/, /engine\.io-client/],
+      preventAssignment: true
     })
     // https://github.com/callstack/linaria/issues/1250
     // linaria()

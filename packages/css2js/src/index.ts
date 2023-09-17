@@ -1,4 +1,4 @@
-import fs from 'node:fs'
+// import fs from 'node:fs'
 import fsp from 'node:fs/promises'
 import pathLib from 'node:path'
 import postcss from 'postcss'
@@ -20,6 +20,10 @@ export type CssFilePathInput = {
 
 export type UserDefinedOption = RawCssInput | CssFilePathInput
 
+function tryLoadSass() {
+  return import('sass')
+}
+
 export function createContext(options: UserDefinedOption) {
   const { plugins, processOptions, css, path } = defu<Partial<RawCssInput & CssFilePathInput>, Partial<UserDefinedOption>[]>(options, {
     plugins: [],
@@ -39,17 +43,17 @@ export function createContext(options: UserDefinedOption) {
       }
       throw new TypeError('css or path option should be pass!')
     },
-    getCssSync(): string {
-      if (css !== undefined) {
-        return css
-      }
-      if (path !== undefined) {
-        const extname = pathLib.extname(path)
-        const rawCss = fs.readFileSync(path, 'utf8')
-        return rawCss
-      }
-      throw new TypeError('css or path option should be pass!')
-    },
+    // getCssSync(): string {
+    //   if (css !== undefined) {
+    //     return css
+    //   }
+    //   if (path !== undefined) {
+    //     const extname = pathLib.extname(path)
+    //     const rawCss = fs.readFileSync(path, 'utf8')
+    //     return rawCss
+    //   }
+    //   throw new TypeError('css or path option should be pass!')
+    // },
     processOptions,
     plugins
   }
@@ -64,11 +68,11 @@ export async function css2js(options: UserDefinedOption) {
   return postcssJs.objectify(root as Root)
 }
 
-export function css2jsSync(options: UserDefinedOption) {
-  const { plugins, getCssSync, processOptions } = createContext(options)
-  const css = getCssSync()
-  // @ts-ignore
-  const { root } = postcss(plugins).process(css, processOptions)
+// export function css2jsSync(options: UserDefinedOption) {
+//   const { plugins, getCssSync, processOptions } = createContext(options)
+//   const css = getCssSync()
+//   // @ts-ignore
+//   const { root } = postcss(plugins).process(css, processOptions)
 
-  return postcssJs.objectify(root as Root)
-}
+//   return postcssJs.objectify(root as Root)
+// }

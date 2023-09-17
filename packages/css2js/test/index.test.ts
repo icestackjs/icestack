@@ -1,4 +1,4 @@
-import { css2js, css2jsSync } from '@/index'
+import { css2js } from '@/index'
 
 describe('index', () => {
   it('css2js case', async () => {
@@ -8,14 +8,14 @@ describe('index', () => {
         color: 'red'
       }
     }
-    let obj
-    obj = await css2js({
+
+    const obj = await css2js({
       css
     })
     expect(obj).toEqual(expected)
-    obj = css2jsSync({
-      css
-    })
-    expect(obj).toEqual(expected)
+    // obj = css2jsSync({
+    //   css
+    // })
+    // expect(obj).toEqual(expected)
   })
 })

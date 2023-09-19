@@ -1,7 +1,7 @@
 {
   "name": "css-to-tailwindcss-plugin",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.0.0",
+  "description": "WIP",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",

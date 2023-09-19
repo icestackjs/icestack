@@ -1,6 +1,6 @@
 {
-  "name": "theme-algorithm",
-  "version": "1.0.0",
+  "name": "@icestack/theme-algorithm",
+  "version": "0.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {

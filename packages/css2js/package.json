@@ -30,7 +30,7 @@
     "test:dev": "vitest"
   },
   "dependencies": {
-    "postcss": "^8.4.29",
+    "postcss": "^8.4.30",
     "postcss-js": "^4.0.1"
   },
   "devDependencies": {
@@ -40,7 +40,7 @@
   },
   "optionalDependencies": {
     "less": "^4.2.0",
-    "sass": "^1.66.1",
+    "sass": "^1.67.0",
     "stylus": "^0.60.0"
   }
 }

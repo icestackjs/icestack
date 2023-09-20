@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`index > css2js path Extend/Inheritance case 1`] = `
+{
+  ".error": {
+    "borderColor": "red",
+  },
+  ".success": {
+    "borderColor": "green",
+  },
+  ".warning": {
+    "borderColor": "yellow",
+  },
+  ".warning, .error, .success, .message": {
+    "border": "1px solid #ccc",
+    "color": "#333",
+    "padding": "10px",
+  },
+}
+`;
+
+exports[`index > css2js path OperatorsOperators case 1`] = `
+{
+  ".container": {
+    "display": "flex",
+  },
+  "article[role=main]": {
+    "width": "62.5%",
+  },
+  "aside[role=complementary]": {
+    "marginLeft": "auto",
+    "width": "31.25%",
+  },
+}
+`;

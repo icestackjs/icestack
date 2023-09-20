@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+}
+
+article[role=main] {
+  width: 62.5%;
+}
+
+aside[role=complementary] {
+  width: 31.25%;
+  margin-left: auto;
+}

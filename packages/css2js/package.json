@@ -1,7 +1,7 @@
 {
   "name": "@icestack/css2js",
-  "version": "0.0.1",
-  "description": "css2js utils",
+  "version": "0.0.0",
+  "description": "css2js utils, support scss and css to js object",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -27,7 +27,8 @@
     "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "vitest run",
-    "test:dev": "vitest"
+    "test:dev": "vitest",
+    "raw": "sass --watch test/fixtures/extend.scss test/fixtures/extend.css"
   },
   "dependencies": {
     "postcss": "^8.4.30",

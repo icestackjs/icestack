@@ -1,29 +1,47 @@
 <template>
-  <view>
-    <view>Button</view>
-    <view>reset</view>
-    <view><button class="mp-reset-button">button</button></view>
-    <view class="flex">
-      <button class="btn btn-primary">button</button>
-      <button class="btn">button</button>
-      <!-- <button :class="cls">cls</button> -->
+  <BaseLayout>
+    <view
+      class="text-[#5cab3d] deep:text-red-300 dark:text-red-600 fantasy:text-red-900">
+      111
     </view>
-
-    <view :class="cls">cls</view>
-  </view>
+  </BaseLayout>
 </template>
 
 <script setup lang="ts">
-import { css } from '@/styled-system/css'
-// :class="cls"
-const cls = css({
-  bg: 'amber.700',
-  color: 'gray.100'
+import { io } from 'socket.io-client'
+import BaseLayout from '@/components/BaseLayout.vue'
+
+onLoad(() => {
+  const socket = io('http://localhost:3000/events', {
+    reconnectionDelayMax: 10000,
+    auth: {
+      token: '123'
+    },
+    query: {
+      'my-key': 'my-value'
+    },
+    transports: ['polling', 'websocket']
+  })
+  socket.on('connect', function () {
+    console.log('Connected')
+
+    socket.emit('events', { test: 'test' })
+    socket.emit('identity', 0, (response) => console.log('Identity:', response))
+  })
+  socket.on('events', function (data) {
+    console.log('event', data)
+  })
+  socket.on('exception', function (data) {
+    console.log('event', data)
+  })
+  socket.on('disconnect', function () {
+    console.log('Disconnected')
+  })
+
+  socket.on('connect_error', (error) => {
+    console.error(error)
+  })
 })
-// import { css } from '@linaria/vite'
-// const bgRed = css`
-//   background: red;
-// `
 </script>
 
 <style lang="scss" scoped></style>

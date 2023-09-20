@@ -1,6 +1,8 @@
 import { defineConfig } from 'vite'
 import uni from '@dcloudio/vite-plugin-uni'
 import AutoImport from 'unplugin-auto-import/vite'
+import replace from '@rollup/plugin-replace'
+
 // import Components from 'unplugin-vue-components/vite'
 // 假如要加载一些 commonjs 模块，需要引入这个插件，很多地图的sdk都是 commonjs，假如引用报错需要引入它并添加到 `plugins` 里
 // import commonjs from "@rollup/plugin-commonjs";
@@ -8,7 +10,7 @@ import { UnifiedViteWeappTailwindcssPlugin as uvtw } from 'weapp-tailwindcss/vit
 import rem2px from 'postcss-rem-to-responsive-pixel'
 import tailwindcss from 'tailwindcss'
 import autoprefixer from 'autoprefixer'
-const postcssConfig = require('./postcss.config.cjs')
+// const postcssConfig = require('./postcss.config.cjs')
 // import linaria from '@linaria/vite'
 const isH5 = process.env.UNI_PLATFORM === 'h5'
 const isApp = process.env.UNI_PLATFORM === 'app'
@@ -41,6 +43,13 @@ export default defineConfig({
       eslintrc: {
         enabled: true
       }
+    }),
+    replace({
+      values: {
+        window: 'globalThis' // JSON.stringify('globalThis')
+      },
+      include: [/socket\.io-client/, /engine\.io-client/],
+      preventAssignment: true
     })
     // https://github.com/callstack/linaria/issues/1250
     // linaria()
@@ -52,7 +61,7 @@ export default defineConfig({
   // 内联 postcss 注册 tailwindcss
   css: {
     postcss: {
-      plugins: postcssConfig.plugins // postcssPlugins
+      plugins: postcssPlugins // postcssConfig.plugins // postcssPlugins
     }
   }
 })

@@ -12,9 +12,9 @@
 </template>
 
 <script setup lang="ts">
-import { clsx } from 'clsx'
+// import { clsx } from 'clsx'
 
-const btn = clsx('bg-primary text-primary-content')
+// const btn = clsx('bg-primary text-primary-content')
 </script>
 
 <style lang="scss" scoped></style>

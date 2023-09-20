@@ -12,6 +12,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "test": "vitest run",
+    "test2": "turbo run test",
     "release": "turbo run release",
     "publish-packages": "turbo run build lint test && changeset version && changeset publish",
     "preinstall": "npx only-allow pnpm"
@@ -29,8 +30,8 @@
     "@linaria/react": "^4.5.4",
     "@linaria/vite": "^4.5.4",
     "@linaria/webpack-loader": "^4.5.4",
-    "@pandacss/config": "^0.15.0",
-    "@pandacss/dev": "^0.15.0",
+    "@pandacss/config": "^0.15.1",
+    "@pandacss/dev": "^0.15.1",
     "@types/babel__generator": "^7.6.5",
     "@types/babel__traverse": "^7.20.2",
     "@types/klaw": "^3.0.4",

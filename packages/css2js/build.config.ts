@@ -21,5 +21,5 @@ export default defineBuildConfig({
   },
   // dts
   declaration: true,
-  externals: [/^tailwindcss/]
+  externals: ['sass']
 })

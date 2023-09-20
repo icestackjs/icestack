@@ -16,7 +16,7 @@ export function createContext(options: UserDefinedOption) {
     }
   })
   return {
-    async getCss(): Promise<postcssJs.CssInJs | void> {
+    async getCss(): Promise<postcssJs.CssInJs | undefined> {
       let rawSource: string
       if (css !== undefined) {
         if (isLangSass(lang)) {

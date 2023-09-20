@@ -14,7 +14,7 @@
     "test": "turbo run test",
     "test2": "vitest run",
     "release": "turbo run release",
-    "publish-packages": "turbo run build lint test && changeset version && changeset publish",
+    "publish-packages": "turbo run build test && changeset version && changeset publish",
     "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {

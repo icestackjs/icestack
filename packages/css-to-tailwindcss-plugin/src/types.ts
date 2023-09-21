@@ -1,6 +1,6 @@
 import { Options } from 'sass'
 import type { Config } from 'tailwindcss'
-// import type { AtImportOptions } from 'postcss-import'
+import type { AtImportOptions } from 'postcss-import'
 export interface IProcessOptions {
   tailwindcssConfig?:
     | string
@@ -11,5 +11,5 @@ export interface IProcessOptions {
     | undefined
   sassOptions?: Options<'sync'>
 
-  // atImportOptions?: AtImportOptions
+  atImportOptions?: AtImportOptions
 }

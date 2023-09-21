@@ -149,6 +149,9 @@ importers:
       dedent:
         specifier: ^1.5.1
         version: 1.5.1
+      object-hash:
+        specifier: ^3.0.0
+        version: 3.0.0
       postcss:
         specifier: ^8.4.30
         version: 8.4.30
@@ -156,6 +159,9 @@ importers:
       '@types/babel__generator':
         specifier: ^7.6.5
         version: 7.6.5
+      '@types/object-hash':
+        specifier: ^3.0.4
+        version: 3.0.4
       tailwindcss:
         specifier: ^3.3.3
         version: 3.3.3(ts-node@10.9.1)
@@ -3412,6 +3418,10 @@ packages:
 
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
+    dev: true
+
+  /@types/object-hash@3.0.4:
+    resolution: {integrity: sha512-w4fEy2suq1bepUxHoJRCBHJz0vS5DPAYpSbcgNwOahljxwyJsiKmi8qyes2/TJc+4Avd7fsgP+ZgUuXZjPvdug==}
     dev: true
 
   /@types/parse5@6.0.3:
@@ -7993,7 +8003,6 @@ packages:
   /object-hash@3.0.0:
     resolution: {integrity: sha512-RSn9F68PjH9HqtltsSnqYC1XXoWe9Bju5+213R98cNGttag9q9yAOTzdbsqvIa7aNm5WffBZFpWYr2aWrklWAw==}
     engines: {node: '>= 6'}
-    dev: true
 
   /object-inspect@1.12.3:
     resolution: {integrity: sha512-geUvdk7c+eizMNUDkRpW1wJwgfOiOeHbxBR/hLXK1aT6zmVSO0jsQcs7fj6MGw89jC/cjGfLcNOrtMYtGqm81g==}

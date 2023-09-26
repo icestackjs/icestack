@@ -32,6 +32,35 @@ describe('context', () => {
       })
     )
     expect(ctx.getNodes('base').length).toBe(1)
+    // @ts-ignore
+    expect(ctx.getNodes('xxx').length).toBe(0)
+
+    ctx.append(
+      // @ts-ignore
+      'xxx',
+      [
+        rule({
+          selector: '.a',
+          nodes: [
+            decl({
+              prop: 'color',
+              value: 'red'
+            })
+          ]
+        }),
+        rule({
+          selector: '.b',
+          nodes: [
+            decl({
+              prop: 'color',
+              value: 'red'
+            })
+          ]
+        })
+      ]
+    )
+    // @ts-ignore
+    expect(ctx.getNodes('xxx').length).toBe(2)
   })
 
   it('process common.css', async () => {

@@ -71,13 +71,13 @@ export function createContext(opts?: IProcessOptions) {
         css = await sassCompile(entry, sassOptions)
       } else {
         css = await fs.readFile(entry, 'utf8')
-        plugins.push(atImport(atImportOptions))
+        atImportOptions.root = path.dirname(entry)
+        plugins.unshift(atImport(atImportOptions))
       }
 
-      await postcss(plugins).process(css, {
+      return await postcss(plugins).process(css, {
         from: undefined
       })
-      return this
     },
     generate: function () {
       return generator.generate(this)

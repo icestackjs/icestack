@@ -1,7 +1,7 @@
 {
   "name": "css-to-tailwindcss-plugin",
-  "version": "0.0.0",
-  "description": "WIP",
+  "version": "0.0.1",
+  "description": "css-to-tailwindcss-plugin, transform your `css/scss` to `tailwindcss plugin`",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -27,8 +27,8 @@
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
     "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
-    "test": "vitest run",
-    "test:dev": "vitest",
+    "test": "vitest run --coverage",
+    "test:dev": "vitest --coverage",
     "raw": "node bin/css2plugin.js build ./file.css aaa.scss --out ./twplugins",
     "raw0": "node bin/css2plugin.js build theme-mutiple.css common.css --out ./twplugins --cwd ./test/fixtures"
   },
@@ -36,9 +36,18 @@
     "css2plugin": "bin/css2plugin.js",
     "css2twplugin": "bin/css2plugin.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "tailwindcss",
+    "transform",
+    "css",
+    "plugin"
+  ],
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack/tree/main/packages/css-to-tailwindcss-plugin"
+  },
+  "homepage": "https://github.com/sonofmagic/icestack/tree/main/packages/css-to-tailwindcss-plugin",
   "dependencies": {
     "@babel/generator": "^7.22.15",
     "@babel/types": "^7.22.19",

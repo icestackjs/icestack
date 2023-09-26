@@ -1,6 +1,6 @@
 {
   "name": "css-to-tailwindcss-plugin",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "css-to-tailwindcss-plugin, transform your `css/scss` to `tailwindcss plugin`",
   "exports": {
     ".": {
@@ -36,6 +36,10 @@
     "css2plugin": "bin/css2plugin.js",
     "css2twplugin": "bin/css2plugin.js"
   },
+  "files": [
+    "bin",
+    "dist"
+  ],
   "keywords": [
     "tailwindcss",
     "transform",
@@ -48,6 +52,10 @@
     "url": "https://github.com/sonofmagic/icestack/tree/main/packages/css-to-tailwindcss-plugin"
   },
   "homepage": "https://github.com/sonofmagic/icestack/tree/main/packages/css-to-tailwindcss-plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  },
   "dependencies": {
     "@babel/generator": "^7.22.15",
     "@babel/types": "^7.22.19",

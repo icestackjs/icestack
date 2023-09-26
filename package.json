@@ -15,7 +15,8 @@
     "test2": "vitest run",
     "release": "turbo run release",
     "publish-packages": "turbo run build test && changeset version && changeset publish",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npx only-allow pnpm",
+    "sync": "cnpm sync css-to-tailwindcss-plugin"
   },
   "devDependencies": {
     "@babel/generator": "^7.22.15",

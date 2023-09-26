@@ -2,6 +2,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "command": "npm run raw",
+      "name": "[css-to-tailwindcss-plugin] run raw",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/packages/css-to-tailwindcss-plugin"
+    },
+    {
+      "command": "npm run raw0",
+      "name": "[css-to-tailwindcss-plugin] run raw0",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/packages/css-to-tailwindcss-plugin"
+    },
+    {
       "command": "npm run dev:h5",
       "name": "[Taro] dev:h5",
       "request": "launch",

@@ -12,15 +12,29 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
   "scripts": {
     "build": "unbuild",
-    "dev": "unbuild --watch",
+    "dev": "unbuild --watch --sourcemap",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
     "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "vitest run",
-    "test:dev": "vitest"
+    "test:dev": "vitest",
+    "raw": "node bin/css2plugin.js build ./file.css aaa.scss --out ./twplugins",
+    "raw0": "node bin/css2plugin.js build theme-mutiple.css common.css --out ./twplugins --cwd ./test/fixtures"
+  },
+  "bin": {
+    "css2plugin": "bin/css2plugin.js",
+    "css2twplugin": "bin/css2plugin.js"
   },
   "keywords": [],
   "author": "",

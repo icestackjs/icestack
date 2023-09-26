@@ -1,0 +1,9 @@
+@layer components {
+  .content-area0 {
+    height: calc(100vh - theme(spacing.12));
+  }
+
+  .content-area1 {
+    height: calc(100vh - theme(spacing[2.5]));
+  }
+}

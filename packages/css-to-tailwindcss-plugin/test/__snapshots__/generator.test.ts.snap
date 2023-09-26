@@ -1,0 +1,168 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`generator > generate 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const css2TwPlugin = _plugin(function ({
+  addBase: addBase,
+  addComponents: addComponents,
+  addUtilities: addUtilities,
+  theme: theme,
+  addVariant: addVariant,
+  config: config,
+  corePlugins: corePlugins,
+  e: e,
+  matchComponents: matchComponents,
+  matchUtilities: matchUtilities,
+  matchVariant: matchVariant
+}) {
+  addBase({});
+  addComponents({});
+  addUtilities({});
+});
+module.exports = css2TwPlugin;"
+`;
+
+exports[`generator > generate case 0 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const css2TwPlugin = _plugin(function ({
+  addBase: addBase,
+  addComponents: addComponents,
+  addUtilities: addUtilities,
+  theme: theme,
+  addVariant: addVariant,
+  config: config,
+  corePlugins: corePlugins,
+  e: e,
+  matchComponents: matchComponents,
+  matchUtilities: matchUtilities,
+  matchVariant: matchVariant
+}) {
+  addBase({
+    \\"h1\\": {
+      \\"font-size\\": theme(\\"fontSize.2xl\\")
+    },
+    \\"h2\\": {
+      \\"font-size\\": theme(\\"fontSize.xl\\")
+    }
+  });
+  addComponents({
+    \\".card\\": {
+      \\"background-color\\": theme(\\"colors.white\\"),
+      \\"border-radius\\": theme(\\"borderRadius.lg\\"),
+      \\"padding\\": theme(\\"spacing.6\\"),
+      \\"box-shadow\\": theme(\\"boxShadow.xl\\")
+    }
+  });
+  addUtilities({
+    \\".content-auto\\": {
+      \\"content-visibility\\": \\"\\\\\\"auto\\\\\\"\\"
+    }
+  });
+});
+module.exports = css2TwPlugin;"
+`;
+
+exports[`generator > generate case 1 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const css2TwPlugin = _plugin(function ({
+  addBase: addBase,
+  addComponents: addComponents,
+  addUtilities: addUtilities,
+  theme: theme,
+  addVariant: addVariant,
+  config: config,
+  corePlugins: corePlugins,
+  e: e,
+  matchComponents: matchComponents,
+  matchUtilities: matchUtilities,
+  matchVariant: matchVariant
+}) {
+  addBase({});
+  addComponents({
+    \\".card0\\": {
+      \\"background-color\\": theme(\\"colors.white\\"),
+      \\"border-radius\\": theme(\\"borderRadius.lg\\"),
+      \\"padding\\": theme(\\"spacing.6\\"),
+      \\"box-shadow\\": theme(\\"boxShadow.xl\\")
+    },
+    \\".card1\\": {
+      \\"background-color\\": theme(\\"colors.white\\"),
+      \\"border-radius\\": theme(\\"borderRadius.lg\\"),
+      \\"padding\\": theme(\\"spacing.6\\"),
+      \\"box-shadow\\": theme(\\"boxShadow.xl\\")
+    },
+    \\".content-area0\\": {
+      \\"height\\": \`calc(100vh - \${theme(\\"spacing.12\\")})\`
+    },
+    \\".content-area1\\": {
+      \\"height\\": \`calc(100vh - \${theme(\\"spacing[2.5]\\")})\`
+    },
+    \\".btn-blue0\\": {
+      \\"background-color\\": theme(\\"colors.blue.500\\")
+    },
+    \\".btn-blue1\\": {
+      \\"background-color\\": theme(\\"colors.blue.500 / 75%\\")
+    }
+  });
+  addUtilities({});
+});
+module.exports = css2TwPlugin;"
+`;
+
+exports[`generator > theme case 0 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const css2TwPlugin = _plugin(function ({
+  addBase: addBase,
+  addComponents: addComponents,
+  addUtilities: addUtilities,
+  theme: theme,
+  addVariant: addVariant,
+  config: config,
+  corePlugins: corePlugins,
+  e: e,
+  matchComponents: matchComponents,
+  matchUtilities: matchUtilities,
+  matchVariant: matchVariant
+}) {
+  addBase({});
+  addComponents({
+    \\".content-area0\\": {
+      \\"height\\": \`calc(100vh - \${theme(\\"spacing.12\\")})\`
+    },
+    \\".content-area1\\": {
+      \\"height\\": \`calc(100vh - \${theme(\\"spacing[2.5]\\")})\`
+    }
+  });
+  addUtilities({});
+});
+module.exports = css2TwPlugin;"
+`;
+
+exports[`generator > theme case 1 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const css2TwPlugin = _plugin(function ({
+  addBase: addBase,
+  addComponents: addComponents,
+  addUtilities: addUtilities,
+  theme: theme,
+  addVariant: addVariant,
+  config: config,
+  corePlugins: corePlugins,
+  e: e,
+  matchComponents: matchComponents,
+  matchUtilities: matchUtilities,
+  matchVariant: matchVariant
+}) {
+  addBase({});
+  addComponents({
+    \\".content-area0\\": {
+      \\"height\\": \`calc(100vh - \${theme(\\"spacing.12\\")} - \${theme(\\"spacing.1\\")})\`
+    },
+    \\".content-area1\\": {
+      \\"height\\": \`calc(100vh - \${theme(\\"spacing[2.5]\\")} + \${theme(\\"spacing.6\\")})\`
+    }
+  });
+  addUtilities({});
+});
+module.exports = css2TwPlugin;"
+`;

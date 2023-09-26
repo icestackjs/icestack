@@ -6,11 +6,14 @@ import postcss from 'postcss'
 import atImport from 'postcss-import'
 import { extractLayerPlugin, markLayerPlugin } from './extract-layer'
 import { isExtSassFile, sassCompile } from './sass'
+import { createGenerator } from './generator'
 import { IProcessOptions } from '@/types'
+import { getOptions } from '@/options'
 
 export type NodeMapKeys = 'base' | 'components' | 'utilities'
 
-export function createContext(options?: IProcessOptions) {
+export function createContext(opts?: IProcessOptions) {
+  const options = getOptions(opts)
   const layersMap = new Map<NodeMapKeys, Node[]>()
 
   function resetLayersMap() {
@@ -21,7 +24,6 @@ export function createContext(options?: IProcessOptions) {
 
   resetLayersMap()
 
-  const optionsRef = options
   function getNodes(key: NodeMapKeys) {
     const arrRef = layersMap.get(key)
     if (Array.isArray(arrRef)) {
@@ -41,11 +43,13 @@ export function createContext(options?: IProcessOptions) {
     }
   }
 
+  const generator = createGenerator()
+
   return {
     append,
     getNodes,
-    async getPlugins(options: IProcessOptions = {}) {
-      const { tailwindcssConfig = optionsRef?.tailwindcssConfig } = options
+    async getPlugins() {
+      const { tailwindcssConfig } = options
       const opt = { ctx: this }
       const plugins: AcceptedPlugin[] = [markLayerPlugin(opt)]
       if (tailwindcssConfig) {
@@ -55,11 +59,9 @@ export function createContext(options?: IProcessOptions) {
       plugins.push(extractLayerPlugin(opt))
       return plugins
     },
-    async process(entry: string, options: IProcessOptions = {}) {
-      const { sassOptions = optionsRef?.sassOptions, tailwindcssConfig = optionsRef?.tailwindcssConfig } = options
-      const plugins = await this.getPlugins({
-        tailwindcssConfig
-      })
+    async process(entry: string) {
+      const { sassOptions, atImportOptions } = options
+      const plugins = await this.getPlugins()
       let css: string
       const extname = path.extname(entry)
 
@@ -69,12 +71,16 @@ export function createContext(options?: IProcessOptions) {
         css = await sassCompile(entry, sassOptions)
       } else {
         css = await fs.readFile(entry, 'utf8')
+        plugins.push(atImport(atImportOptions))
       }
 
       await postcss(plugins).process(css, {
         from: undefined
       })
       return this
+    },
+    generate: function () {
+      return generator.generate(this)
     }
   }
 }

@@ -11,10 +11,8 @@ describe('context', () => {
   it('getPlugins length', async () => {
     let plugins = await ctx.getPlugins()
     expect(plugins.length).toBe(2)
-    plugins = await ctx.getPlugins({
-      tailwindcssConfig: defaultTailwindConfig
-    })
-    expect(plugins.length).toBe(3)
+    plugins = await ctx.getPlugins()
+    expect(plugins.length).toBe(2)
   })
 
   it('getNodes', () => {
@@ -51,19 +49,7 @@ describe('context', () => {
   })
 
   it('process common-import.scss', async () => {
-    await ctx.process(fixturesResolve('common-import.scss'), {
-      sassOptions: {
-        importers: [
-          {
-            // https://github.com/webpack-contrib/sass-loader/blob/master/src/index.js#L55
-            findFileUrl(url) {
-              const twUrl = pathToFileURL(path.resolve(__dirname, '../node_modules', url))
-              return new URL(twUrl)
-            }
-          }
-        ]
-      }
-    })
+    await ctx.process(fixturesResolve('common-import.scss'))
     expect(ctx.getNodes('base').length).toBe(2)
     expect(ctx.getNodes('components').length).toBe(1)
     expect(ctx.getNodes('utilities').length).toBe(1)

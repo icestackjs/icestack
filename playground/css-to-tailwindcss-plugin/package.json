@@ -18,9 +18,11 @@
     "@uiw/codemirror-theme-vscode": "^4.21.18",
     "@uiw/codemirror-themes": "^4.21.18",
     "codemirror": "^6.0.1",
+    "md5": "^2.3.0",
     "vue": "^3.3.4"
   },
   "devDependencies": {
+    "@types/md5": "^2.3.2",
     "@vitejs/plugin-vue": "^4.2.3",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.49.0",

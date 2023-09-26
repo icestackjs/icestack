@@ -2,6 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "command": "npm run test:dev",
+      "name": "[css-to-tailwindcss-plugin] test:dev",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/packages/css-to-tailwindcss-plugin"
+    },
+    {
       "command": "npm run raw",
       "name": "[css-to-tailwindcss-plugin] run raw",
       "request": "launch",

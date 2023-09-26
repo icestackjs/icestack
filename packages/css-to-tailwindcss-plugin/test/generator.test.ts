@@ -1,4 +1,4 @@
-import { fixturesResolve, defaultTailwindConfig } from './utils'
+import { fixturesResolve, defaultTailwindConfig, getTwCtx } from './utils'
 import { createContext } from '@/core'
 import { unwrapThemeFunctionArg } from '@/core/generator'
 describe('generator', () => {
@@ -50,6 +50,15 @@ describe('generator', () => {
 
   it('import case 0 with tailwindcss config', async () => {
     await twCtx.process(fixturesResolve('import-case.css'))
-    expect(ctx.generate()).toMatchSnapshot()
+    expect(twCtx.generate()).toMatchSnapshot()
+  })
+
+  it('import case 0 with tailwindcss config case', async () => {
+    const twCtx0 = getTwCtx()
+    const { css } = await twCtx0.process(fixturesResolve('import-case.css'))
+    expect(twCtx0.getNodes('base').length).toBeGreaterThan(0)
+    // expect(twCtx0.layersMap).toMatchSnapshot('layersMap')
+    expect(twCtx0.generate()).toMatchSnapshot('generate')
+    expect(css).toMatchSnapshot('css')
   })
 })

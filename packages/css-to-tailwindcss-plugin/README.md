@@ -162,6 +162,8 @@ you should install `tailwindcss`, then pass `tailwind.config.js` file path or `i
 import { createContext } from 'css-to-tailwindcss-plugin'
 
 const ctx = createContext({
+  // should set to true
+  tailwindcssResolved: true,
   // tailwind.config.js path `string` or tailwind Config
   // for tailwindcss resolve (like theme() and @apply etc....)
   tailwindcssConfig: 'path/to/your/tailwind.config.js'
@@ -169,6 +171,8 @@ const ctx = createContext({
 ```
 
 then `theme()` and `@apply` will be resolved.
+
+> if `tailwindcssResolved` is false, `css theme function` will be transform to `js theme function` and `@apply` will be abandoned.
 
 ## License
 

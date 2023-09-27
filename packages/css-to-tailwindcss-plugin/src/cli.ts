@@ -11,25 +11,36 @@ cli
   .command('build [...files]', 'Build files')
   .option('--out <dir>', 'Output directory')
   .option('--cwd <cwd>', 'Current working directory')
-  .action(async (files: string[], options: { out: string; cwd: string }) => {
-    const { cwd, out } = options
-    for (const file of files) {
-      const entry = resolvePath(file, resolvePath(cwd, defaultCwd))
-      if (!fs.existsSync(entry)) {
-        console.log(`${file} isn't existed! skipped`)
-        continue
+  .option('--resolved, --tailwindcssResolved', 'If Resolved tailwindcss ')
+  .option('-c, --config, --tailwindcssConfig <config>', 'Tailwindcss config path')
+  .action(
+    async (
+      files: string[],
+      options: { out: string; cwd: string; outSideLayerCss: 'base' | 'components' | 'utilities'; tailwindcssResolved: boolean; tailwindcssConfig: string }
+    ) => {
+      const { cwd, out, outSideLayerCss, tailwindcssResolved, tailwindcssConfig } = options
+      for (const file of files) {
+        const entry = resolvePath(file, resolvePath(cwd, defaultCwd))
+        if (!fs.existsSync(entry)) {
+          console.log(`${file} isn't existed! skipped`)
+          continue
+        }
+        const ctx = createContext({
+          outSideLayerCss,
+          tailwindcssResolved,
+          tailwindcssConfig
+        })
+        await ctx.process(entry)
+        const code = ctx.generate()
+        const filename = path.basename(entry, path.extname(entry))
+        const outDir = out ? resolvePath(out, cwd) : path.dirname(entry)
+        ensureDir(outDir)
+        const target = path.resolve(outDir, filename + '.js')
+        fs.writeFileSync(target, code, 'utf8')
+        console.log(`build successfully! file: ${target}`)
       }
-      const ctx = createContext()
-      await ctx.process(entry)
-      const code = ctx.generate()
-      const filename = path.basename(entry, path.extname(entry))
-      const outDir = out ? resolvePath(out, cwd) : path.dirname(entry)
-      ensureDir(outDir)
-      const target = path.resolve(outDir, filename + '.js')
-      fs.writeFileSync(target, code, 'utf8')
-      console.log(`build successfully! file: ${target}`)
     }
-  })
+  )
 
 cli.help()
 

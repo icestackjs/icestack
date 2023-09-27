@@ -52,6 +52,11 @@ describe('generator', () => {
     expect(ctx.generate()).toMatchSnapshot()
   })
 
+  it('theme case 2', async () => {
+    await ctx.process(fixturesResolve('apply-without.scss'))
+    expect(ctx.generate()).toMatchSnapshot()
+  })
+
   it('import case 0', async () => {
     await ctx.process(fixturesResolve('import-case.css'))
     expect(ctx.generate()).toMatchSnapshot()
@@ -85,6 +90,20 @@ describe('generator', () => {
   it('apply case 0', async () => {
     const twCtx = getTwCtx()
     const { css } = await twCtx.process(fixturesResolve('apply.css'))
+    expect(twCtx.generate()).toMatchSnapshot('generate')
+    expect(css).toMatchSnapshot('css')
+  })
+
+  it('apply case 1', async () => {
+    const twCtx = getTwCtx()
+    const { css } = await twCtx.process(fixturesResolve('apply.scss'))
+    expect(twCtx.generate()).toMatchSnapshot('generate')
+    expect(css).toMatchSnapshot('css')
+  })
+
+  it('apply case 2', async () => {
+    const twCtx = getTwCtx()
+    const { css } = await twCtx.process(fixturesResolve('apply-without.scss'))
     expect(twCtx.generate()).toMatchSnapshot('generate')
     expect(css).toMatchSnapshot('css')
   })

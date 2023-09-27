@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .a {
+    @apply text-[#123456] bg-[#123456];
+    font-size: theme("fontSize.xl");
+  }
+}

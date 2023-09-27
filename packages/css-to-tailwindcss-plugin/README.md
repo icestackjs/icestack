@@ -128,9 +128,10 @@ const path = require('node:path')
 module.exports = {
   // ...
   plugins: [
-    require('css-to-tailwindcss-plugin/tailwindcss')({
+    // don't forget to use `...` to expand all plugins
+    ...require('css-to-tailwindcss-plugin/tailwindcss')({
       entries: [
-        // your css
+        // your css entry path
         path.resolve(__dirname, './theme-mutiple.css'), 
         path.resolve(__dirname, './common.scss'
       )]

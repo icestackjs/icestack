@@ -1,11 +1,12 @@
 import path from 'node:path'
 import fs from 'node:fs'
 import md5 from 'md5'
+import type { Config } from 'tailwindcss'
 import { createContext } from './core'
 import { TailwindcssPluginOptions } from './types'
 import { ensureDir } from './utils'
 // https://tailwindcss.com/docs/plugins
-
+// https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L723
 function generateTempPlugin(entry: string, p: string) {
   const ctx = createContext()
   ctx.processSync(entry)
@@ -20,7 +21,7 @@ function getDefaultCacheDir() {
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L784
 
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L784
-export default (options: TailwindcssPluginOptions) => {
+export default (options: TailwindcssPluginOptions): Config['plugins'] => {
   const cacheDir = options.cacheDir ?? getDefaultCacheDir()
   ensureDir(cacheDir)
 
@@ -62,15 +63,7 @@ export default (options: TailwindcssPluginOptions) => {
     }
     targetPlugins.push(p)
   }
-  // process.nextTick(() => {
 
-  // })
-  // for (const tmpPlugin of targetPlugins) {
-  //   const fn = require(tmpPlugin)
-  //   if (typeof fn === 'function') {
-  //     fn()
-  //   }
-  // }
   writeCacheIndexFile(hashMap)
 
   return targetPlugins.map((x) => require(x))

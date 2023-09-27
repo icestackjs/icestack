@@ -3,7 +3,7 @@ import { pathToFileURL } from 'node:url'
 import defu from 'defu'
 import type { IProcessOptions } from './types'
 
-export function getDefaults(): Required<IProcessOptions> {
+export function getDefaults(): IProcessOptions {
   const pkgPath = require.resolve('tailwindcss/package.json')
   const nodeModulesPath = path.dirname(path.dirname(pkgPath))
   return {
@@ -20,10 +20,13 @@ export function getDefaults(): Required<IProcessOptions> {
       ]
     },
     tailwindcssConfig: '',
-    generatorOptions: {}
+    generatorOptions: {},
+    tailwindcssResolved: false,
+    // 'abandon'
+    outSideLayerCss: undefined //
   }
 }
 
 export function getOptions(opts?: IProcessOptions): Required<IProcessOptions> {
-  return defu(opts, getDefaults())
+  return defu(opts, getDefaults()) as Required<IProcessOptions>
 }

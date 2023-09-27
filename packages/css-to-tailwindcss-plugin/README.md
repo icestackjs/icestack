@@ -102,13 +102,19 @@ const ctx = createContext({
 
   sassOptions: {},
   // tailwind.config.js path `string` or tailwind Config
-  // for tailwindcss resolve (like theme() and @apply etc....)
   tailwindcssConfig: '',
+  // if resolve tailwindcss Functions & Directives  (like theme() and @apply etc....)
+  // should be used with `tailwindcssConfig`
+  tailwindcssResolved: false,
   // pass options to babel generator
-  generatorOptions: {}
+  generatorOptions: {},
+  // default throw all css outside @layer
+  outSideLayerCss: 'base' | 'components' | 'utilities' | ((root: Root, ctx: IContext) => void)
 })
 
 await ctx.process('path/to/your.css')
+
+ctx.processSync('path/to/your.scss')
 
 ctx.generate() // return code then you can fs.writeFile
 ```

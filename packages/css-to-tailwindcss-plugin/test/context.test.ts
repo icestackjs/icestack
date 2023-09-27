@@ -10,12 +10,12 @@ describe('context', () => {
   })
   it('getPlugins length', async () => {
     let plugins = await ctx.getPlugins()
-    expect(plugins.length).toBe(2)
+    expect(plugins.length).toBe(3)
     plugins = await ctx.getPlugins()
-    expect(plugins.length).toBe(2)
+    expect(plugins.length).toBe(3)
 
     plugins = ctx.getPluginsSync()
-    expect(plugins.length).toBe(2)
+    expect(plugins.length).toBe(3)
   })
 
   it('getNodes', () => {

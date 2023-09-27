@@ -7,6 +7,7 @@ describe('generator', () => {
   beforeEach(() => {
     ctx = createContext()
     twCtx = createContext({
+      tailwindcssResolved: true,
       tailwindcssConfig: defaultTailwindConfig
     })
   })
@@ -33,6 +34,14 @@ describe('generator', () => {
     expect(ctx.generate()).toMatchSnapshot()
   })
 
+  it('generate case 2', async () => {
+    const ctx = createContext({
+      outSideLayerCss: 'base'
+    })
+    await ctx.process(fixturesResolve('common-outside.scss'))
+    expect(ctx.generate()).toMatchSnapshot()
+  })
+
   it('theme case 0', async () => {
     await ctx.process(fixturesResolve('theme-compose.css'))
     expect(ctx.generate()).toMatchSnapshot()
@@ -56,9 +65,27 @@ describe('generator', () => {
   it('import case 0 with tailwindcss config case', async () => {
     const twCtx0 = getTwCtx()
     const { css } = await twCtx0.process(fixturesResolve('import-case.css'))
-    expect(twCtx0.getNodes('base').length).toBeGreaterThan(0)
-    // expect(twCtx0.layersMap).toMatchSnapshot('layersMap')
     expect(twCtx0.generate()).toMatchSnapshot('generate')
+    expect(css).toMatchSnapshot('css')
+  })
+
+  it('import case 0 with tailwindcss config case with content', async () => {
+    const twCtx0 = getTwCtx({
+      content: [
+        {
+          raw: 'card content-auto'
+        }
+      ]
+    })
+    const { css } = await twCtx0.process(fixturesResolve('import-case.css'))
+    expect(twCtx0.generate()).toMatchSnapshot('generate')
+    expect(css).toMatchSnapshot('css')
+  })
+
+  it('apply case 0', async () => {
+    const twCtx = getTwCtx()
+    const { css } = await twCtx.process(fixturesResolve('apply.css'))
+    expect(twCtx.generate()).toMatchSnapshot('generate')
     expect(css).toMatchSnapshot('css')
   })
 })

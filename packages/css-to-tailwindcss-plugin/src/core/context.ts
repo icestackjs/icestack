@@ -5,7 +5,7 @@ import path from 'node:path'
 import type { AcceptedPlugin, Node } from 'postcss'
 import postcss from 'postcss'
 import atImport from 'postcss-import'
-import { extractLayerPlugin, markLayerPlugin } from './extract-layer'
+import { extractLayerPlugin, markLayerPlugin, atRulesRenamePlugin } from './extract-layer'
 import { isExtSassFile, sassCompile, sassCompileSync } from './sass'
 import { createGenerator } from './generator'
 import { IProcessOptions } from '@/types'
@@ -47,28 +47,31 @@ export function createContext(opts?: IProcessOptions) {
   const generator = createGenerator()
 
   return {
+    options,
     layersMap,
     append,
     getNodes,
     getPluginsSync() {
-      const { tailwindcssConfig } = options
+      const { tailwindcssConfig, tailwindcssResolved } = options
       const opt = { ctx: this }
-      const plugins: AcceptedPlugin[] = [markLayerPlugin(opt)]
-      if (tailwindcssConfig) {
+      const plugins: AcceptedPlugin[] = [atRulesRenamePlugin(opt)]
+      if (tailwindcssResolved && tailwindcssConfig) {
         const tailwindcss = require('tailwindcss')
         plugins.push(tailwindcss(tailwindcssConfig))
       }
+      plugins.push(markLayerPlugin(opt))
       plugins.push(extractLayerPlugin(opt))
       return plugins
     },
     async getPlugins() {
-      const { tailwindcssConfig } = options
+      const { tailwindcssConfig, tailwindcssResolved } = options
       const opt = { ctx: this }
-      const plugins: AcceptedPlugin[] = [markLayerPlugin(opt)]
-      if (tailwindcssConfig) {
+      const plugins: AcceptedPlugin[] = [atRulesRenamePlugin(opt)]
+      if (tailwindcssResolved && tailwindcssConfig) {
         const { default: tailwindcss } = await import('tailwindcss')
         plugins.push(tailwindcss(tailwindcssConfig))
       }
+      plugins.push(markLayerPlugin(opt))
       plugins.push(extractLayerPlugin(opt))
       return plugins
     },

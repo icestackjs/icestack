@@ -1,17 +1,32 @@
-import type { PluginCreator } from 'postcss'
+import { type PluginCreator } from 'postcss'
+import { IProcessOptions } from '../types'
 import type { IContext, NodeMapKeys } from './context'
 import { layerNodesKeys, markedLayerKey } from '@/constants'
-
 export interface SharedOptions {
   ctx: IContext
 }
 
-export const markLayerPlugin: PluginCreator<SharedOptions> = () => {
-  // const { ctx } = options!
+const atRulesNameFilter = 'twlayer'
+
+export const atRulesRenamePlugin: PluginCreator<SharedOptions> = () => {
+  return {
+    postcssPlugin: 'postcss-css-to-tailwindcss-plugin-at-rule-rename-plugin',
+    Once(root) {
+      root.walkAtRules('layer', (rule) => {
+        rule.name = atRulesNameFilter
+      })
+    }
+  }
+}
+
+atRulesRenamePlugin.postcss = true
+
+export const markLayerPlugin: PluginCreator<SharedOptions> = (options) => {
+  const { ctx } = options!
   return {
     postcssPlugin: 'postcss-css-to-tailwindcss-plugin-mark-layer-plugin',
     Once(root) {
-      root.walkAtRules('layer', (rule) => {
+      root.walkAtRules(atRulesNameFilter, (rule) => {
         if (layerNodesKeys.includes(rule.params)) {
           const layerName = rule.params as NodeMapKeys
           for (const node of rule.nodes) {
@@ -28,6 +43,19 @@ export const markLayerPlugin: PluginCreator<SharedOptions> = () => {
           rule.remove()
         }
       })
+      if (ctx.options.outSideLayerCss !== undefined) {
+        root.walkRules((rule) => {
+          // @ts-ignore
+          const layerName = rule[markedLayerKey]
+          if (!layerName) {
+            Object.defineProperty(rule, markedLayerKey, {
+              value: ctx.options.outSideLayerCss,
+              enumerable: false,
+              configurable: true
+            })
+          }
+        })
+      }
     }
   }
 }
@@ -36,6 +64,7 @@ markLayerPlugin.postcss = true
 
 export const extractLayerPlugin: PluginCreator<SharedOptions> = (options) => {
   const { ctx } = options!
+
   return {
     postcssPlugin: 'postcss-css-to-tailwindcss-plugin-extract-layer-plugin',
     OnceExit(root) {
@@ -46,6 +75,10 @@ export const extractLayerPlugin: PluginCreator<SharedOptions> = (options) => {
           ctx.append(layerName, rule)
         }
       })
+      if (typeof ctx.options.outSideLayerCss === 'function') {
+        ctx.options.outSideLayerCss(root, ctx)
+      }
+
       // console.log(root)
     }
   }

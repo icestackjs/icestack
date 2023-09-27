@@ -5,6 +5,7 @@ import type { Config } from 'tailwindcss'
 import { createContext } from './core'
 import { TailwindcssPluginOptions } from './types'
 import { ensureDir } from './utils'
+import { version } from './constants'
 // https://tailwindcss.com/docs/plugins
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L723
 function generateTempPlugin(entry: string, p: string) {
@@ -39,18 +40,20 @@ export default (options: TailwindcssPluginOptions): Config['plugins'] => {
   }
 
   function writeCacheIndexFile(data: Record<string, string>) {
+    data.version = version
     fs.writeFileSync(indexFilePath, JSON.stringify(data), 'utf8')
   }
 
   loadCache()
 
   const targetPlugins: string[] = []
+  const isSameVersion = hashMap.version === version
   for (const entry of options.entries) {
     const fileHash = md5(entry)
     const cssHash = md5(fs.readFileSync(entry))
     const p = path.resolve(cacheDir, fileHash) + '.js'
     // plugin existed
-    if (fs.existsSync(p)) {
+    if (isSameVersion && fs.existsSync(p)) {
       // css entry content changed
       if (hashMap[fileHash] !== cssHash) {
         generateTempPlugin(entry, p)

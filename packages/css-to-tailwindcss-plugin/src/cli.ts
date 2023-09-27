@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import createCac from 'cac'
 import { createContext } from './core'
 import { ensureDir, resolvePath } from './utils'
+import { version } from '@/constants'
 const cli = createCac()
 
 const defaultCwd = process.cwd()
@@ -44,6 +45,6 @@ cli
 
 cli.help()
 
-cli.version('0.0.0')
+cli.version(version)
 
 cli.parse()

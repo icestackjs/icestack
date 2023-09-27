@@ -1,5 +1,4 @@
 import { type PluginCreator } from 'postcss'
-import { IProcessOptions } from '../types'
 import type { IContext, NodeMapKeys } from './context'
 import { layerNodesKeys, markedLayerKey } from '@/constants'
 export interface SharedOptions {
@@ -75,11 +74,11 @@ export const extractLayerPlugin: PluginCreator<SharedOptions> = (options) => {
           ctx.append(layerName, rule)
         }
       })
-      if (typeof ctx.options.outSideLayerCss === 'function') {
-        ctx.options.outSideLayerCss(root, ctx)
-      }
 
-      // console.log(root)
+      if (ctx.options?.interceptors?.css)
+        for (const fn of ctx.options.interceptors.css) {
+          fn(root, ctx)
+        }
     }
   }
 }

@@ -49,6 +49,7 @@ function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
   // plugin
   // https://github.com/tailwindlabs/tailwindcss/blob/master/src/util/createPlugin.js
   // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L298
+  // resolvePlugins
   return nodes.reduce<t.ObjectProperty[]>((acc, _cur) => {
     if (_cur.type === 'rule') {
       const cur = _cur as Rule
@@ -144,37 +145,36 @@ export function createGenerator() {
   // note equal 'plugin'
   const callFnId = '_plugin'
   const pluginName = 'css2TwPlugin'
+  const withOptionsParamsId = '_options'
   const requireStatement = t.variableDeclaration('const', [
     t.variableDeclarator(t.identifier(callFnId), t.callExpression(t.identifier('require'), [t.stringLiteral('tailwindcss/plugin')]))
   ])
   const exportsStatement = t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('module'), t.identifier('exports')), t.identifier(pluginName)))
   function generate(ctx: IContext, opt?: GeneratorOptions) {
-    const ast = t.file(
-      t.program([
-        requireStatement,
-        t.variableDeclaration('const', [
-          t.variableDeclarator(
-            t.identifier(pluginName),
-            t.callExpression(t.identifier(callFnId), [
-              t.functionExpression(
-                null,
-                [t.objectPattern(expandAPI())],
+    function getPluginBody() {
+      const innerPluginAst = t.functionExpression(
+        null,
+        [t.objectPattern(expandAPI())],
 
-                t.blockStatement([
-                  // addBase
-                  t.expressionStatement(t.callExpression(t.identifier('addBase'), [t.objectExpression(makeObjectExpression(ctx.getNodes('base')))])),
-                  // addComponents
-                  t.expressionStatement(t.callExpression(t.identifier('addComponents'), [t.objectExpression(makeObjectExpression(ctx.getNodes('components')))])),
-                  // addUtilities
-                  t.expressionStatement(t.callExpression(t.identifier('addUtilities'), [t.objectExpression(makeObjectExpression(ctx.getNodes('utilities')))]))
-                ])
-              )
-            ])
-          )
-        ]),
-        exportsStatement
-      ])
-    )
+        t.blockStatement([
+          // addBase
+          t.expressionStatement(t.callExpression(t.identifier('addBase'), [t.objectExpression(makeObjectExpression(ctx.getNodes('base')))])),
+          // addComponents
+          t.expressionStatement(t.callExpression(t.identifier('addComponents'), [t.objectExpression(makeObjectExpression(ctx.getNodes('components')))])),
+          // addUtilities
+          t.expressionStatement(t.callExpression(t.identifier('addUtilities'), [t.objectExpression(makeObjectExpression(ctx.getNodes('utilities')))]))
+        ])
+      )
+      if (ctx.options.withOptions) {
+        return t.callExpression(t.memberExpression(t.identifier(callFnId), t.identifier('withOptions')), [
+          t.functionExpression(null, [t.identifier(withOptionsParamsId)], t.blockStatement([t.returnStatement(innerPluginAst)])),
+          t.functionExpression(null, [t.identifier(withOptionsParamsId)], t.blockStatement([t.returnStatement(t.objectExpression([]))]))
+        ])
+      }
+      return t.callExpression(t.identifier(callFnId), [innerPluginAst])
+    }
+
+    const ast = t.file(t.program([requireStatement, t.variableDeclaration('const', [t.variableDeclarator(t.identifier(pluginName), getPluginBody())]), exportsStatement]))
     const res = babelGenerate(ast, opt)
     return res.code
   }

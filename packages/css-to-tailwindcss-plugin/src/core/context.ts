@@ -51,16 +51,20 @@ export function createContext(opts?: IProcessOptions) {
     layersMap,
     append,
     getNodes,
+    // not
     getPluginsSync() {
-      const { tailwindcssConfig, tailwindcssResolved } = options
+      // const { tailwindcssConfig, tailwindcssResolved } = options
       const opt = { ctx: this }
       const plugins: AcceptedPlugin[] = [atRulesRenamePlugin(opt)]
-      if (tailwindcssResolved && tailwindcssConfig) {
-        const tailwindcss = require('tailwindcss')
-        plugins.push(tailwindcss(tailwindcssConfig))
-      }
+      // tailwindcss is an sync plugin and both postcss-import
+
+      // if (tailwindcssResolved && tailwindcssConfig) {
+      //   const tailwindcss = require('tailwindcss')
+      //   plugins.push(tailwindcss(tailwindcssConfig))
+      // }
       plugins.push(markLayerPlugin(opt))
       plugins.push(extractLayerPlugin(opt))
+      options.postcssPlugins?.(plugins)
       return plugins
     },
     async getPlugins() {
@@ -73,6 +77,7 @@ export function createContext(opts?: IProcessOptions) {
       }
       plugins.push(markLayerPlugin(opt))
       plugins.push(extractLayerPlugin(opt))
+      options.postcssPlugins?.(plugins)
       return plugins
     },
     async process(entry: string) {
@@ -102,7 +107,7 @@ export function createContext(opts?: IProcessOptions) {
       return res
     },
     processSync(entry: string) {
-      const { sassOptions, atImportOptions } = options
+      const { sassOptions } = options
       const plugins = this.getPluginsSync()
       let css: string
       const extname = path.extname(entry)
@@ -117,7 +122,7 @@ export function createContext(opts?: IProcessOptions) {
         }
       } else {
         css = fss.readFileSync(entry, 'utf8')
-        atImportOptions.root = path.dirname(entry)
+        // atImportOptions.root = path.dirname(entry)
         // plugins.unshift(atImport(atImportOptions))
       }
       const res = postcss(plugins).process(css).sync()

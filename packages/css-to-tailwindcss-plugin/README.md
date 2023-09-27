@@ -1,6 +1,6 @@
 # css-to-tailwindcss-plugin
 
-> transform your `css/scss` to `tailwindcss plugin`
+> Transform your `css/scss` to `tailwindcss plugin`
 
 - [css-to-tailwindcss-plugin](#css-to-tailwindcss-plugin)
   - [Input \& Output](#input--output)
@@ -45,9 +45,13 @@ you have a css file like below:
     content-visibility: "auto";
   }
 }
+/* this will be abandoned unless you set the `outSideLayerCss` option */
+.btn{
+  background: #ffffff;
+}
 ```
 
-then it's will transform to `tailwindcss plugin` like this:
+then it will transform to `tailwindcss plugin` like this:
 
 ```js
 const _plugin = require('tailwindcss/plugin')
@@ -91,6 +95,8 @@ module.exports = css2TwPlugin
 css2plugin build path/to/your.css --out ./tw-plugins
 ```
 
+> `css2plugin build -h` for more options
+
 ### Nodejs Api
 
 ```js
@@ -99,7 +105,7 @@ import { createContext } from 'css-to-tailwindcss-plugin'
 const ctx = createContext({
   // pass options to postcss-import
   atImportOptions: {},
-
+  // pass to sass options
   sassOptions: {},
   // tailwind.config.js path `string` or tailwind Config
   tailwindcssConfig: '',
@@ -109,12 +115,25 @@ const ctx = createContext({
   // pass options to babel generator
   generatorOptions: {},
   // default throw all css outside @layer
-  outSideLayerCss: 'base' | 'components' | 'utilities' | ((root: Root, ctx: IContext) => void)
+  // 'base' | 'components' | 'utilities'
+  outSideLayerCss: 'components',
+  // generate tailwindcss plugin with `plugin` api or `plugin.withOptions` api
+  withOptions: true,
+  // custom handler
+  interceptors: {css:[
+    (root,ctx)=>{
+
+    }
+  ]},
+
+  postcssPlugins:(plugins)=>{
+
+  }
 })
 
 await ctx.process('path/to/your.css')
 
-ctx.processSync('path/to/your.scss')
+await ctx.process('path/to/your.scss')
 
 ctx.generate() // return code then you can fs.writeFile
 ```
@@ -128,11 +147,11 @@ const path = require('node:path')
 module.exports = {
   // ...
   plugins: [
-    // don't forget to use `...` to expand all plugins
+    //Don't forget to use `...` to expand all plugins
     ...require('css-to-tailwindcss-plugin/tailwindcss')({
       entries: [
         // your css entry path
-        path.resolve(__dirname, './theme-mutiple.css'), 
+        path.resolve(__dirname, './theme-multiple.css'), 
         path.resolve(__dirname, './common.scss'
       )]
     })
@@ -141,7 +160,7 @@ module.exports = {
 }
 ```
 
-> note: now `@import`/`@use` only support with `.scss`, `.css` is not support because of `postcss-import` is an async plugin, but `tailwindcss plugin` **MUST** be sync!
+> note: now `@import`/`@use` only supports with `.scss`, `.css` is not support because `postcss-import` is an async plugin, but `tailwindcss plugin` **MUST** be sync!
 
 ## `scss/sass` support
 
@@ -163,7 +182,7 @@ you should install `tailwindcss`, then pass `tailwind.config.js` file path or `i
 import { createContext } from 'css-to-tailwindcss-plugin'
 
 const ctx = createContext({
-  // should set to true
+  // should be set to true
   tailwindcssResolved: true,
   // tailwind.config.js path `string` or tailwind Config
   // for tailwindcss resolve (like theme() and @apply etc....)
@@ -173,7 +192,8 @@ const ctx = createContext({
 
 then `theme()` and `@apply` will be resolved.
 
-> if `tailwindcssResolved` is false, `css theme function` will be transform to `js theme function` and `@apply` will be abandoned.
+> if `tailwindcssResolved` is false, `css theme function` will be transformed to `js theme function`, and `@apply` will be abandoned.
+> Context Sync API is incomplete because `tailwindcss` and `postcss-import` should be used async.
 
 ## License
 

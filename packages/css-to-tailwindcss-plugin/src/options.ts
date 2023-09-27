@@ -19,11 +19,8 @@ export function getDefaults(): IProcessOptions {
         }
       ]
     },
-    tailwindcssConfig: '',
-    generatorOptions: {},
     tailwindcssResolved: false,
-    // 'abandon'
-    outSideLayerCss: undefined //
+    withOptions: true
   }
 }
 

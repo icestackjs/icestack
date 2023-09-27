@@ -2,7 +2,7 @@ import type { Options } from 'sass'
 import type { Config } from 'tailwindcss'
 import type { AtImportOptions } from 'postcss-import'
 import type { GeneratorOptions } from '@babel/generator'
-import type { Root } from 'postcss'
+import type { AcceptedPlugin, Root } from 'postcss'
 import type { IContext } from './core'
 export interface IProcessOptions {
   tailwindcssResolved?: boolean
@@ -20,7 +20,16 @@ export interface IProcessOptions {
 
   generatorOptions?: GeneratorOptions
 
-  outSideLayerCss?: 'base' | 'components' | 'utilities' | ((root: Root, ctx: IContext) => void)
+  outSideLayerCss?: 'base' | 'components' | 'utilities'
+
+  interceptors?: {
+    css?: ((root: Root, ctx: IContext) => void)[]
+  }
+
+  withOptions?: boolean
+
+  postcssPlugins?: (plugins: AcceptedPlugin[]) => void
+  // |
 }
 
 export type TailwindcssPluginOptions = {

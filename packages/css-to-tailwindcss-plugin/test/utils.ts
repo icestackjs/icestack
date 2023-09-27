@@ -28,7 +28,8 @@ export function mergeConfig(cfg: Config): Config {
 export function getTwCtx(config?: Config) {
   return createContext({
     tailwindcssResolved: true,
-    tailwindcssConfig: defu(config, defaultTailwindConfig)
+    tailwindcssConfig: defu(config, defaultTailwindConfig),
+    withOptions: false
   })
 }
 

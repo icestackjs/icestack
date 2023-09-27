@@ -1,5 +1,52 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`generator > add another postcss plugin 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const css2TwPlugin = _plugin.withOptions(function (_options) {
+  return function ({
+    addBase: addBase,
+    addComponents: addComponents,
+    addUtilities: addUtilities,
+    theme: theme,
+    addVariant: addVariant,
+    config: config,
+    corePlugins: corePlugins,
+    e: e,
+    matchComponents: matchComponents,
+    matchUtilities: matchUtilities,
+    matchVariant: matchVariant
+  }) {
+    addBase({
+      \\"h1\\": {
+        \\"font-size\\": theme(\\"fontSize.2xl\\")
+      },
+      \\"h2\\": {
+        \\"font-size\\": theme(\\"fontSize.xl\\")
+      }
+    });
+    addComponents({
+      \\".card\\": {
+        \\"background-color\\": theme(\\"colors.white\\"),
+        \\"border-radius\\": theme(\\"borderRadius.lg\\"),
+        \\"padding\\": theme(\\"spacing.6\\"),
+        \\"box-shadow\\": theme(\\"boxShadow.xl\\")
+      },
+      \\".test\\": {
+        \\"font-size\\": \\"99.6px\\"
+      }
+    });
+    addUtilities({
+      \\".content-auto\\": {
+        \\"content-visibility\\": \\"\\\\\\"auto\\\\\\"\\"
+      }
+    });
+  };
+}, function (_options) {
+  return {};
+});
+module.exports = css2TwPlugin;"
+`;
+
 exports[`generator > apply case 0 > css 1`] = `
 "*, ::before, ::after {
     --tw-border-spacing-x: 0;
@@ -376,6 +423,90 @@ const css2TwPlugin = _plugin(function ({
       \\"content-visibility\\": \\"\\\\\\"auto\\\\\\"\\"
     }
   });
+});
+module.exports = css2TwPlugin;"
+`;
+
+exports[`generator > generate case 0 sync 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const css2TwPlugin = _plugin(function ({
+  addBase: addBase,
+  addComponents: addComponents,
+  addUtilities: addUtilities,
+  theme: theme,
+  addVariant: addVariant,
+  config: config,
+  corePlugins: corePlugins,
+  e: e,
+  matchComponents: matchComponents,
+  matchUtilities: matchUtilities,
+  matchVariant: matchVariant
+}) {
+  addBase({
+    \\"h1\\": {
+      \\"font-size\\": theme(\\"fontSize.2xl\\")
+    },
+    \\"h2\\": {
+      \\"font-size\\": theme(\\"fontSize.xl\\")
+    }
+  });
+  addComponents({
+    \\".card\\": {
+      \\"background-color\\": theme(\\"colors.white\\"),
+      \\"border-radius\\": theme(\\"borderRadius.lg\\"),
+      \\"padding\\": theme(\\"spacing.6\\"),
+      \\"box-shadow\\": theme(\\"boxShadow.xl\\")
+    }
+  });
+  addUtilities({
+    \\".content-auto\\": {
+      \\"content-visibility\\": \\"\\\\\\"auto\\\\\\"\\"
+    }
+  });
+});
+module.exports = css2TwPlugin;"
+`;
+
+exports[`generator > generate case 0 withOptions 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const css2TwPlugin = _plugin.withOptions(function (_options) {
+  return function ({
+    addBase: addBase,
+    addComponents: addComponents,
+    addUtilities: addUtilities,
+    theme: theme,
+    addVariant: addVariant,
+    config: config,
+    corePlugins: corePlugins,
+    e: e,
+    matchComponents: matchComponents,
+    matchUtilities: matchUtilities,
+    matchVariant: matchVariant
+  }) {
+    addBase({
+      \\"h1\\": {
+        \\"font-size\\": theme(\\"fontSize.2xl\\")
+      },
+      \\"h2\\": {
+        \\"font-size\\": theme(\\"fontSize.xl\\")
+      }
+    });
+    addComponents({
+      \\".card\\": {
+        \\"background-color\\": theme(\\"colors.white\\"),
+        \\"border-radius\\": theme(\\"borderRadius.lg\\"),
+        \\"padding\\": theme(\\"spacing.6\\"),
+        \\"box-shadow\\": theme(\\"boxShadow.xl\\")
+      }
+    });
+    addUtilities({
+      \\".content-auto\\": {
+        \\"content-visibility\\": \\"\\\\\\"auto\\\\\\"\\"
+      }
+    });
+  };
+}, function (_options) {
+  return {};
 });
 module.exports = css2TwPlugin;"
 `;
@@ -947,6 +1078,49 @@ const css2TwPlugin = _plugin(function ({
     \\".content-auto-imported\\": {
       \\"content-visibility\\": \\"\\\\\\"auto\\\\\\"\\"
     },
+    \\".content-auto\\": {
+      \\"content-visibility\\": \\"\\\\\\"auto\\\\\\"\\"
+    }
+  });
+});
+module.exports = css2TwPlugin;"
+`;
+
+exports[`generator > interceptors css 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const css2TwPlugin = _plugin(function ({
+  addBase: addBase,
+  addComponents: addComponents,
+  addUtilities: addUtilities,
+  theme: theme,
+  addVariant: addVariant,
+  config: config,
+  corePlugins: corePlugins,
+  e: e,
+  matchComponents: matchComponents,
+  matchUtilities: matchUtilities,
+  matchVariant: matchVariant
+}) {
+  addBase({
+    \\"h1\\": {
+      \\"font-size\\": theme(\\"fontSize.2xl\\")
+    },
+    \\"h2\\": {
+      \\"font-size\\": theme(\\"fontSize.xl\\")
+    },
+    \\".test\\": {
+      \\"font-size\\": \\"99.6px\\"
+    }
+  });
+  addComponents({
+    \\".card\\": {
+      \\"background-color\\": theme(\\"colors.white\\"),
+      \\"border-radius\\": theme(\\"borderRadius.lg\\"),
+      \\"padding\\": theme(\\"spacing.6\\"),
+      \\"box-shadow\\": theme(\\"boxShadow.xl\\")
+    }
+  });
+  addUtilities({
     \\".content-auto\\": {
       \\"content-visibility\\": \\"\\\\\\"auto\\\\\\"\\"
     }

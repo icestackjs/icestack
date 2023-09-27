@@ -1,3 +1,4 @@
+import postcss from 'postcss'
 import { fixturesResolve, defaultTailwindConfig, getTwCtx } from './utils'
 import { createContext } from '@/core'
 import { unwrapThemeFunctionArg } from '@/core/generator'
@@ -5,10 +6,13 @@ describe('generator', () => {
   let ctx: ReturnType<typeof createContext>
   let twCtx: ReturnType<typeof createContext>
   beforeEach(() => {
-    ctx = createContext()
+    ctx = createContext({
+      withOptions: false
+    })
     twCtx = createContext({
       tailwindcssResolved: true,
-      tailwindcssConfig: defaultTailwindConfig
+      tailwindcssConfig: defaultTailwindConfig,
+      withOptions: false
     })
   })
 
@@ -29,6 +33,19 @@ describe('generator', () => {
     expect(ctx.generate()).toMatchSnapshot()
   })
 
+  it('generate case 0 sync', () => {
+    ctx.processSync(fixturesResolve('common.scss'))
+    expect(ctx.generate()).toMatchSnapshot()
+  })
+
+  it('generate case 0 withOptions', async () => {
+    const ctx = createContext({
+      withOptions: true
+    })
+    await ctx.process(fixturesResolve('common.scss'))
+    expect(ctx.generate()).toMatchSnapshot()
+  })
+
   it('generate case 1', async () => {
     await ctx.process(fixturesResolve('theme.css'))
     expect(ctx.generate()).toMatchSnapshot()
@@ -36,7 +53,8 @@ describe('generator', () => {
 
   it('generate case 2', async () => {
     const ctx = createContext({
-      outSideLayerCss: 'base'
+      outSideLayerCss: 'base',
+      withOptions: false
     })
     await ctx.process(fixturesResolve('common-outside.scss'))
     expect(ctx.generate()).toMatchSnapshot()
@@ -106,5 +124,57 @@ describe('generator', () => {
     const { css } = await twCtx.process(fixturesResolve('apply-without.scss'))
     expect(twCtx.generate()).toMatchSnapshot('generate')
     expect(css).toMatchSnapshot('css')
+  })
+
+  it('interceptors css', async () => {
+    const ctx = createContext({
+      withOptions: false,
+      interceptors: {
+        css: [
+          (root, ctx) => {
+            ctx.append(
+              'base',
+              postcss.rule({
+                selector: '.test',
+                nodes: [
+                  postcss.decl({
+                    prop: 'font-size',
+                    value: '99.6px'
+                  })
+                ]
+              })
+            )
+          }
+        ]
+      }
+    })
+    await ctx.process(fixturesResolve('common.scss'))
+    expect(ctx.generate()).toMatchSnapshot()
+  })
+
+  it('add another postcss plugin', async () => {
+    const ctx = createContext({
+      outSideLayerCss: 'components',
+      postcssPlugins(plugins) {
+        plugins.unshift({
+          postcssPlugin: 'test',
+          Once(root) {
+            root.append(
+              postcss.rule({
+                selector: '.test',
+                nodes: [
+                  postcss.decl({
+                    prop: 'font-size',
+                    value: '99.6px'
+                  })
+                ]
+              })
+            )
+          }
+        })
+      }
+    })
+    await ctx.process(fixturesResolve('common.scss'))
+    expect(ctx.generate()).toMatchSnapshot()
   })
 })

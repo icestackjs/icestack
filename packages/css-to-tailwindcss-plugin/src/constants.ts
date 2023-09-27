@@ -5,6 +5,6 @@ export const layerNodes = {
   // variants: null
 }
 
-export const markedLayerKey = '__tw_layer_name__'
+export const markedLayerKey = Symbol('__tw_layer_name__')
 
 export const layerNodesKeys = Object.keys(layerNodes)

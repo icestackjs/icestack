@@ -19,4 +19,5 @@ export interface IProcessOptions {
 
 export type TailwindcssPluginOptions = {
   entries: string[]
+  cacheDir?: string
 } & IProcessOptions

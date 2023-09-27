@@ -1,10 +1,22 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { withPluginTailwindConfigPath, getCssByConfigPath } from './utils'
+import { deleteAsync } from 'del'
+import { withPluginTailwindConfig, getCss, fixturesResolve } from './utils'
 describe('tw-plugin', () => {
   it('run plugin', async () => {
-    await getCssByConfigPath(withPluginTailwindConfigPath)
-    const cacheDir = path.resolve(__dirname, '../node_modules/.css-to-tailwindcss-plugin')
+    // const dir = path.dirname(require.resolve('css-to-tailwindcss-plugin/package.json'))
+    // console.log(dir)
+
+    const cacheDir = fixturesResolve('.cache')
+    await deleteAsync([cacheDir])
+    withPluginTailwindConfig.plugins.push(
+      require('../dist/tailwindcss.cjs')({
+        entries: [fixturesResolve('theme-mutiple.css'), fixturesResolve('common.scss')],
+        cacheDir
+      })
+    )
+    await getCss(withPluginTailwindConfig)
+
     const dirExisted = fs.existsSync(cacheDir)
     expect(dirExisted).toBe(true)
 

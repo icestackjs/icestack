@@ -19,6 +19,8 @@ export const defaultTailwindConfig = require(fixturesResolve('config/tailwind.co
 
 export const withPluginTailwindConfigPath = fixturesResolve('config/tailwind-with-plugin.config.js')
 
+export const withPluginTailwindConfig = require(withPluginTailwindConfigPath)
+
 export function mergeConfig(cfg: Config): Config {
   return Object.assign<Config, Config>(cfg, defaultTailwindConfig)
 }
@@ -29,7 +31,7 @@ export function getTwCtx(config?: Config) {
   })
 }
 
-export function getCssByConfigPath(config: string) {
+export function getCss(config: string | Config) {
   return postcss([
     tailwindcss({
       config

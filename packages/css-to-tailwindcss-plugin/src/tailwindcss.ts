@@ -12,14 +12,20 @@ function generateTempPlugin(entry: string, p: string) {
   ctx.processSync(entry)
   const code = ctx.generate()
   fs.writeFileSync(p, code, 'utf8')
+  return code
+}
+
+function getDefaultCacheDir() {
+  return path.resolve(process.cwd(), 'node_modules', '.css-to-tailwindcss-plugin')
 }
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L784
 export default plugin.withOptions(
   (options: TailwindcssPluginOptions) => {
-    const cacheDir = path.resolve(process.cwd(), 'node_modules', '.css-to-tailwindcss-plugin')
+    const cacheDir = options.cacheDir ?? getDefaultCacheDir()
     ensureDir(cacheDir)
 
     const indexFilePath = path.resolve(cacheDir, 'index.json')
+    // css filename hash and content hash
     let hashMap: Record<string, string> = {}
     function loadCache() {
       if (fs.existsSync(indexFilePath)) {
@@ -40,28 +46,32 @@ export default plugin.withOptions(
       const targetPlugins: string[] = []
       for (const entry of options.entries) {
         const fileHash = md5(entry)
+        const cssHash = md5(fs.readFileSync(entry))
         const p = path.resolve(cacheDir, fileHash) + '.js'
-        const contentHash = md5(fs.readFileSync(p))
+        // plugin existed
         if (fs.existsSync(p)) {
-          if (hashMap[fileHash] !== contentHash) {
+          // css entry content changed
+          if (hashMap[fileHash] !== cssHash) {
             generateTempPlugin(entry, p)
-            hashMap[fileHash] = contentHash
+            hashMap[fileHash] = cssHash
           }
         } else {
+          // css entry content add
           generateTempPlugin(entry, p)
-          hashMap[fileHash] = contentHash
+          hashMap[fileHash] = cssHash
         }
         targetPlugins.push(p)
       }
-      process.nextTick(() => {
-        writeCacheIndexFile(hashMap)
-      })
+      // process.nextTick(() => {
+
+      // })
       for (const tmpPlugin of targetPlugins) {
         const fn = require(tmpPlugin)
         if (typeof fn === 'function') {
           fn(api)
         }
       }
+      writeCacheIndexFile(hashMap)
     }
   },
   () => {

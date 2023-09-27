@@ -75,6 +75,11 @@ describe('generator', () => {
     expect(ctx.generate()).toMatchSnapshot()
   })
 
+  it('theme case 3', async () => {
+    await ctx.process(fixturesResolve('theme-important.scss'))
+    expect(ctx.generate()).toMatchSnapshot()
+  })
+
   it('import case 0', async () => {
     await ctx.process(fixturesResolve('import-case.css'))
     expect(ctx.generate()).toMatchSnapshot()
@@ -180,6 +185,11 @@ describe('generator', () => {
 
   it('repeat css case 0', async () => {
     await ctx.process(fixturesResolve('repeat.css'))
+    expect(ctx.generate()).toMatchSnapshot()
+  })
+
+  it('repeat css case 1', async () => {
+    await ctx.process(fixturesResolve('repeat.scss'))
     expect(ctx.generate()).toMatchSnapshot()
   })
 })

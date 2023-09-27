@@ -33,6 +33,13 @@ function makeObjectProperty(key: string, value: t.Expression | t.PatternLike) {
   return t.objectProperty(t.stringLiteral(key), value)
 }
 
+function addSuffix(value: string, important: boolean) {
+  if (typeof value === 'string') {
+    return value + (important ? ' !important' : '')
+  }
+  return value
+}
+
 function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
   // console.log(nodes)
   // @apply
@@ -50,14 +57,28 @@ function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
   // https://github.com/tailwindlabs/tailwindcss/blob/master/src/util/createPlugin.js
   // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L298
   // resolvePlugins
+  // const rawObj = nodes.reduce<Record<string, Record<string, any>>>((acc, _cur) => {
+  //   if (_cur.type === 'rule') {
+  //     const cur = _cur as Rule
+  //     const selector = cur.selector
+  //     if (acc[selector]) {
+  //       cur.nodes.reduce()
+  //     } else {
+  //       acc[selector] = {}
+  //     }
+  //   }
+  //   return acc
+  // }, {})
 
   const res = nodes.reduce<Record<string, t.ObjectProperty[]>>((acc, _cur) => {
     if (_cur.type === 'rule') {
       const cur = _cur as Rule
       const key = cur.selector
-      const value = cur.nodes.reduce<t.ObjectProperty[]>((cacc, ccur) => {
+      const value = cur.nodes.reduce<Record<string, t.BinaryExpression | t.StringLiteral | t.TemplateLiteral | t.CallExpression>>((cacc, ccur) => {
         if (ccur.type === 'decl') {
           const v = ccur.value
+          const important = ccur.important
+          const prop = ccur.prop
           // https://tailwindcss.com/docs/adding-custom-styles#adding-component-classes
           // https://tailwindcss.com/docs/functions-and-directives#theme
           const arr = [...v.matchAll(/theme\(([^()]+?)\)/g)]
@@ -65,7 +86,8 @@ function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
             // if (arr.length === 1) {
             const first = arr[0]
             if (first[0] === v) {
-              cacc.push(makeObjectProperty(ccur.prop, t.callExpression(t.identifier('theme'), [t.stringLiteral(unwrapThemeFunctionArg(first[1]))])))
+              const ccc = t.callExpression(t.identifier('theme'), [t.stringLiteral(unwrapThemeFunctionArg(first[1]))])
+              cacc[prop] = important ? t.binaryExpression('+', ccc, t.stringLiteral(' !important')) : ccc
             } else {
               let p = 0
               const quasis: t.TemplateElement[] = []
@@ -80,25 +102,30 @@ function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
                   quasis.push(t.templateElement({ raw }))
                   expressions.push(t.callExpression(t.identifier('theme'), [t.stringLiteral(unwrapThemeFunctionArg(hit[1]))]))
                   if (i === arr.length - 1) {
-                    quasis.push(t.templateElement({ raw: v.slice(p) }))
+                    quasis.push(t.templateElement({ raw: addSuffix(v.slice(p), important) }))
                   }
                 }
               }
-
-              cacc.push(makeObjectProperty(ccur.prop, t.templateLiteral(quasis, expressions)))
+              cacc[prop] = t.templateLiteral(quasis, expressions)
             }
           } else {
-            cacc.push(makeObjectProperty(ccur.prop, t.stringLiteral(v)))
+            cacc[prop] = t.stringLiteral(addSuffix(v, important))
           }
         }
         return cacc //
-      }, [])
+      }, {})
 
       // merge the same selector
       if (acc[key]) {
-        acc[key].push(...value)
+        acc[key].push(
+          ...Object.entries(value).map(([prop, value]) => {
+            return makeObjectProperty(prop, value)
+          })
+        )
       } else {
-        acc[key] = value
+        acc[key] = Object.entries(value).map(([prop, value]) => {
+          return makeObjectProperty(prop, value)
+        })
       }
     }
 
@@ -106,7 +133,19 @@ function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
   }, {})
 
   return Object.entries(res).map(([key, value]) => {
-    return t.objectProperty(t.stringLiteral(key), t.objectExpression(value))
+    return t.objectProperty(
+      t.stringLiteral(key),
+      t.objectExpression(
+        Object.values(
+          value.reduce<Record<string, t.ObjectProperty>>((acc, cur) => {
+            if (cur.key.type === 'StringLiteral') {
+              acc[cur.key.value] = cur
+            }
+            return acc
+          }, {})
+        )
+      )
+    )
   })
 }
 

@@ -89,10 +89,12 @@ export function createContext(opts?: IProcessOptions) {
       // for more langs support
       // eslint-disable-next-line unicorn/prefer-ternary
       if (isExtSassFile(extname)) {
+        // eslint-disable-next-line no-useless-catch
         try {
           css = await sassCompile(entry, sassOptions)
-        } catch {
-          throw new Error(`file: ${path} is skipped. please confirm you have installed \`sass\`!`)
+        } catch (error) {
+          throw error
+          // new Error(`file: ${path} is skipped. please confirm you have installed \`sass\`!`)
           // console.log(`file: ${path} is skipped. please confirm you have installed \`sass\`!`)
           // return
         }
@@ -115,10 +117,12 @@ export function createContext(opts?: IProcessOptions) {
       // for more langs support
       // eslint-disable-next-line unicorn/prefer-ternary
       if (isExtSassFile(extname)) {
+        // eslint-disable-next-line no-useless-catch
         try {
           css = sassCompileSync(entry, sassOptions)
-        } catch {
-          throw new Error(`file: ${path} is skipped. please confirm you have installed \`sass\`!`)
+        } catch (error) {
+          throw error
+          // throw new Error(`file: ${path} is skipped. please confirm you have installed \`sass\`!`)
         }
       } else {
         css = fss.readFileSync(entry, 'utf8')

@@ -1,0 +1,11 @@
+@layer components {
+  .a {
+    font-size: theme("fontSize.2xl") !important;
+  }
+}
+
+@layer components {
+  .a {
+    font-size: theme("fontSize.3xl") !important;
+  }
+}

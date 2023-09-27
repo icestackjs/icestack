@@ -1149,8 +1149,47 @@ const css2TwPlugin = _plugin(function ({
     \\".a\\": {
       \\"width\\": \\"100%\\",
       \\"font-size\\": \\"100px\\",
-      \\"color\\": \\"#989898\\",
-      \\"background\\": \\"#cccccc\\"
+      \\"color\\": \\"#989898 !important\\",
+      \\"background\\": \\"#cccccc !important\\"
+    }
+  });
+  addUtilities({});
+});
+module.exports = css2TwPlugin;"
+`;
+
+exports[`generator > repeat css case 1 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const css2TwPlugin = _plugin(function ({
+  addBase: addBase,
+  addComponents: addComponents,
+  addUtilities: addUtilities,
+  theme: theme,
+  addVariant: addVariant,
+  config: config,
+  corePlugins: corePlugins,
+  e: e,
+  matchComponents: matchComponents,
+  matchUtilities: matchUtilities,
+  matchVariant: matchVariant
+}) {
+  addBase({});
+  addComponents({
+    \\".a\\": {
+      \\"width\\": \\"100%\\",
+      \\"transition\\": \\"transform 0.3 ease-in-out\\",
+      \\"font-size\\": \\"100px\\",
+      \\"color\\": \\"#989898 !important\\",
+      \\"background\\": \\"#cccccc !important\\"
+    },
+    \\".a:focus\\": {
+      \\"background\\": \\"#000\\"
+    },
+    \\".a:hover\\": {
+      \\"transform\\": \\"scale(-10px)\\"
+    },
+    \\".a > .a\\": {
+      \\"margin-top\\": \\"10px\\"
     }
   });
   addUtilities({});
@@ -1238,6 +1277,32 @@ const css2TwPlugin = _plugin(function ({
       \\"font-size\\": theme(\\"fontSize.xl\\")
     }
   });
+});
+module.exports = css2TwPlugin;"
+`;
+
+exports[`generator > theme case 3 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const css2TwPlugin = _plugin(function ({
+  addBase: addBase,
+  addComponents: addComponents,
+  addUtilities: addUtilities,
+  theme: theme,
+  addVariant: addVariant,
+  config: config,
+  corePlugins: corePlugins,
+  e: e,
+  matchComponents: matchComponents,
+  matchUtilities: matchUtilities,
+  matchVariant: matchVariant
+}) {
+  addBase({});
+  addComponents({
+    \\".a\\": {
+      \\"font-size\\": theme(\\"fontSize.3xl\\") + \\" !important\\"
+    }
+  });
+  addUtilities({});
 });
 module.exports = css2TwPlugin;"
 `;

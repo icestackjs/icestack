@@ -1,12 +1,17 @@
 {
   "name": "css-to-tailwindcss-plugin",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "css-to-tailwindcss-plugin, transform your `css/scss` to `tailwindcss plugin`",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
+    },
+    "./tailwindcss": {
+      "types": "./dist/tailwindcss.d.ts",
+      "require": "./dist/tailwindcss.cjs",
+      "import": "./dist/tailwindcss.mjs"
     }
   },
   "main": "./dist/index.cjs",
@@ -41,10 +46,13 @@
     "dist"
   ],
   "keywords": [
+    "css-to-tailwindcss-plugin",
     "tailwindcss",
+    "plugin",
     "transform",
     "css",
-    "plugin"
+    "sass",
+    "scss"
   ],
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
@@ -59,18 +67,19 @@
   "dependencies": {
     "@babel/generator": "^7.22.15",
     "@babel/types": "^7.22.19",
-    "c12": "^1.4.2",
     "cac": "^6.7.14",
-    "dedent": "^1.5.1",
+    "md5": "^2.3.0",
     "postcss": "^8.4.30",
     "postcss-import": "^15.1.0"
   },
   "devDependencies": {
+    "@types/md5": "^2.3.2",
     "@types/babel__generator": "^7.6.5",
     "@types/object-hash": "^3.0.4",
     "@types/postcss-import": "^14.0.0",
     "object-hash": "^3.0.0",
     "sass": "^1.67.0",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.3",
+    "c12": "^1.4.2"
   }
 }

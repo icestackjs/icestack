@@ -19,7 +19,8 @@ export function getDefaults(): Required<IProcessOptions> {
         }
       ]
     },
-    tailwindcssConfig: ''
+    tailwindcssConfig: '',
+    generatorOptions: {}
   }
 }
 

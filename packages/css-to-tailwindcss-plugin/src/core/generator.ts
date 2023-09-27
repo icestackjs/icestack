@@ -1,6 +1,7 @@
 import * as t from '@babel/types'
 import babelGenerate from '@babel/generator'
 import type { Node, Rule } from 'postcss'
+import type { GeneratorOptions } from '@babel/generator'
 import { IContext } from './context'
 // addBase, addComponents, addUtilities, theme, addVariant, config, corePlugins, e, matchComponents, matchUtilities, matchVariant
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L287
@@ -147,7 +148,7 @@ export function createGenerator() {
     t.variableDeclarator(t.identifier(callFnId), t.callExpression(t.identifier('require'), [t.stringLiteral('tailwindcss/plugin')]))
   ])
   const exportsStatement = t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('module'), t.identifier('exports')), t.identifier(pluginName)))
-  function generate(ctx: IContext) {
+  function generate(ctx: IContext, opt?: GeneratorOptions) {
     const ast = t.file(
       t.program([
         requireStatement,
@@ -174,7 +175,7 @@ export function createGenerator() {
         exportsStatement
       ])
     )
-    const res = babelGenerate(ast)
+    const res = babelGenerate(ast, opt)
     return res.code
   }
   return {

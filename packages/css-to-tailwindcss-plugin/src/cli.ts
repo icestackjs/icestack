@@ -2,12 +2,10 @@ import path from 'node:path'
 import fs from 'node:fs'
 import createCac from 'cac'
 import { createContext } from './core'
+import { ensureDir, resolvePath } from './utils'
 const cli = createCac()
-const defaultCwd = process.cwd()
 
-function resolvePath(p: string, cwd: string = defaultCwd) {
-  return path.isAbsolute(p) ? p : path.resolve(cwd, p)
-}
+const defaultCwd = process.cwd()
 
 cli
   .command('build [...files]', 'Build files')
@@ -16,7 +14,7 @@ cli
   .action(async (files: string[], options: { out: string; cwd: string }) => {
     const { cwd, out } = options
     for (const file of files) {
-      const entry = resolvePath(file, resolvePath(cwd))
+      const entry = resolvePath(file, resolvePath(cwd, defaultCwd))
       if (!fs.existsSync(entry)) {
         console.log(`${file} isn't existed! skipped`)
         continue
@@ -26,9 +24,7 @@ cli
       const code = ctx.generate()
       const filename = path.basename(entry, path.extname(entry))
       const outDir = out ? resolvePath(out, cwd) : path.dirname(entry)
-      if (!fs.existsSync(outDir)) {
-        fs.mkdirSync(outDir)
-      }
+      ensureDir(outDir)
       const target = path.resolve(outDir, filename + '.js')
       fs.writeFileSync(target, code, 'utf8')
       console.log(`build successfully! file: ${target}`)

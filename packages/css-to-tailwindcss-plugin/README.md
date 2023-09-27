@@ -8,6 +8,7 @@
   - [Usage](#usage)
     - [Cli](#cli)
     - [Nodejs Api](#nodejs-api)
+    - [tailwindcss plugin](#tailwindcss-plugin)
   - [`scss/sass` support](#scsssass-support)
   - [tailwindcss `theme()` and `@apply` resolved](#tailwindcss-theme-and-apply-resolved)
   - [License](#license)
@@ -102,13 +103,38 @@ const ctx = createContext({
   sassOptions: {},
   // tailwind.config.js path `string` or tailwind Config
   // for tailwindcss resolve (like theme() and @apply etc....)
-  tailwindcssConfig: ''
+  tailwindcssConfig: '',
+  // pass options to babel generator
+  generatorOptions: {}
 })
 
 await ctx.process('path/to/your.css')
 
 ctx.generate() // return code then you can fs.writeFile
 ```
+
+### tailwindcss plugin
+
+```js
+const path = require('node:path')
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // ...
+  plugins: [
+    require('css-to-tailwindcss-plugin/tailwindcss')({
+      entries: [
+        // your css
+        path.resolve(__dirname, './theme-mutiple.css'), 
+        path.resolve(__dirname, './common.scss'
+      )]
+    })
+  ],
+  // ...
+}
+```
+
+> note: now `@import`/`@use` only support with `.scss`, `.css` is not support because of `postcss-import` is an async plugin, but `tailwindcss plugin` **MUST** be sync!
 
 ## `scss/sass` support
 

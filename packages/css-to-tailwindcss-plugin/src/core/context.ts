@@ -122,7 +122,8 @@ export function createContext(opts?: IProcessOptions) {
       return res
     },
     generate: function () {
-      return generator.generate(this)
+      const { generatorOptions } = options
+      return generator.generate(this, generatorOptions)
     }
   }
 }

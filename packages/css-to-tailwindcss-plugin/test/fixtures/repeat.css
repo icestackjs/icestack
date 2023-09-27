@@ -1,0 +1,17 @@
+@layer components {
+  .a {
+    width: 100%;
+  }
+  .a {
+    font-size: 100px;
+  }
+}
+
+@layer components {
+  .a {
+    color: #989898 !important;
+  }
+  .a {
+    background: #cccccc !important;
+  }
+}

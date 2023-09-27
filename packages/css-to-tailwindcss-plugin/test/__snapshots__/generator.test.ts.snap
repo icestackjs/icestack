@@ -1129,6 +1129,35 @@ const css2TwPlugin = _plugin(function ({
 module.exports = css2TwPlugin;"
 `;
 
+exports[`generator > repeat css case 0 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const css2TwPlugin = _plugin(function ({
+  addBase: addBase,
+  addComponents: addComponents,
+  addUtilities: addUtilities,
+  theme: theme,
+  addVariant: addVariant,
+  config: config,
+  corePlugins: corePlugins,
+  e: e,
+  matchComponents: matchComponents,
+  matchUtilities: matchUtilities,
+  matchVariant: matchVariant
+}) {
+  addBase({});
+  addComponents({
+    \\".a\\": {
+      \\"width\\": \\"100%\\",
+      \\"font-size\\": \\"100px\\",
+      \\"color\\": \\"#989898\\",
+      \\"background\\": \\"#cccccc\\"
+    }
+  });
+  addUtilities({});
+});
+module.exports = css2TwPlugin;"
+`;
+
 exports[`generator > theme case 0 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
 const css2TwPlugin = _plugin(function ({

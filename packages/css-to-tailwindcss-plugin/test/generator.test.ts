@@ -177,4 +177,9 @@ describe('generator', () => {
     await ctx.process(fixturesResolve('common.scss'))
     expect(ctx.generate()).toMatchSnapshot()
   })
+
+  it('repeat css case 0', async () => {
+    await ctx.process(fixturesResolve('repeat.css'))
+    expect(ctx.generate()).toMatchSnapshot()
+  })
 })

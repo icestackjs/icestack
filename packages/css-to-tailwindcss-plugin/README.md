@@ -3,24 +3,20 @@
 > Transform your `css/scss` to `tailwindcss plugin`
 
 - [css-to-tailwindcss-plugin](#css-to-tailwindcss-plugin)
-  - [Input \& Output](#input--output)
+  - [Input \& Output Sample](#input--output-sample)
   - [Install](#install)
   - [Usage](#usage)
     - [Cli](#cli)
     - [Nodejs Api](#nodejs-api)
-    - [tailwindcss plugin](#tailwindcss-plugin)
+    - [Tailwindcss Plugin](#tailwindcss-plugin)
   - [tailwindcss `theme()` and `@apply` resolved](#tailwindcss-theme-and-apply-resolved)
   - [License](#license)
 
-## Input & Output
+## Input & Output Sample
 
 you have a css file like below:
 
 ```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @layer base {
   h1 {
     font-size: theme("fontSize.2xl");
@@ -54,29 +50,50 @@ then it will transform to `tailwindcss plugin` like this:
 
 ```js
 const _plugin = require('tailwindcss/plugin')
-const css2TwPlugin = _plugin(function ({ addBase, addComponents, addUtilities, theme, addVariant, config, corePlugins, e, matchComponents, matchUtilities, matchVariant }) {
-  addBase({
-    'h1': {
-      'font-size': theme('fontSize.2xl')
-    },
-    'h2': {
-      'font-size': theme('fontSize.xl')
+const returnSelfNoop = (x) => x
+const css2TwPlugin = _plugin.withOptions(
+  function (_options = {}) {
+    const { withOptionsWalkCSSRuleObject = returnSelfNoop } = _options
+    return function ({ addBase, addComponents, addUtilities, theme, addVariant, config, corePlugins, e, matchComponents, matchUtilities, matchVariant }) {
+      const _baseCss = withOptionsWalkCSSRuleObject(
+        {
+          h1: {
+            'font-size': theme('fontSize.2xl')
+          },
+          h2: {
+            'font-size': theme('fontSize.xl')
+          }
+        },
+        'base'
+      )
+      addBase(_baseCss)
+      const _componentsCss = withOptionsWalkCSSRuleObject(
+        {
+          '.card': {
+            'background-color': theme('colors.white'),
+            'border-radius': theme('borderRadius.lg'),
+            padding: theme('spacing.6'),
+            'box-shadow': theme('boxShadow.xl')
+          }
+        },
+        'components'
+      )
+      addComponents(_componentsCss)
+      const _utilitiesCss = withOptionsWalkCSSRuleObject(
+        {
+          '.content-auto': {
+            'content-visibility': '"auto"'
+          }
+        },
+        'utilities'
+      )
+      addUtilities(_utilitiesCss)
     }
-  })
-  addComponents({
-    '.card': {
-      'background-color': theme('colors.white'),
-      'border-radius': theme('borderRadius.lg'),
-      'padding': theme('spacing.6'),
-      'box-shadow': theme('boxShadow.xl')
-    }
-  })
-  addUtilities({
-    '.content-auto': {
-      'content-visibility': '"auto"'
-    }
-  })
-})
+  },
+  function (_options) {
+    return {}
+  }
+)
 module.exports = css2TwPlugin
 ```
 
@@ -101,6 +118,8 @@ also `scss/sass` support need to install `sass`, then this package can handle `.
 ```bash
 css2plugin build path/to/your.css path/to/your-another.scss --out ./tw-plugins
 ```
+
+Then a js file called `<css-file-name>.js` will be generated in the `tw-plugins` dir.
 
 > `css2plugin build -h` for more options
 
@@ -138,15 +157,15 @@ const ctx = createContext({
     // plugins.push / splice ...
   }
 })
-
+// load css node into context map
 await ctx.process('path/to/your.css')
 
 await ctx.process('path/to/your.scss')
 
-ctx.generate() // return code then you can fs.writeFile
+const code = ctx.generate() // return code then you can fs.writeFile
 ```
 
-### tailwindcss plugin
+### Tailwindcss Plugin
 
 ```js
 const path = require('node:path')

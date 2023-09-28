@@ -1,22 +1,22 @@
 # css-to-tailwindcss-plugin
 
-> Transform your `css/scss` to `tailwindcss plugin`
+> 把你的 `css/scss` 文件转化成 `tailwindcss plugin`
 
-[中文](./README-zh.md)
+[English](./README.md)
 
 - [css-to-tailwindcss-plugin](#css-to-tailwindcss-plugin)
-  - [Input \& Output Sample](#input--output-sample)
-  - [Install](#install)
-  - [Usage](#usage)
+  - [输入输出示例](#输入输出示例)
+  - [安装](#安装)
+  - [使用方式](#使用方式)
     - [Cli](#cli)
     - [Nodejs Api](#nodejs-api)
     - [Tailwindcss Plugin](#tailwindcss-plugin)
-  - [tailwindcss `theme()` and `@apply` resolved](#tailwindcss-theme-and-apply-resolved)
+  - [处理 tailwindcss `theme()` 方法和 `@apply` 指令](#处理-tailwindcss-theme-方法和-apply-指令)
   - [License](#license)
 
-## Input & Output Sample
+## 输入输出示例
 
-you have a css file like below:
+你的 `css/scss` 可能像下面这样👇:
 
 ```css
 @layer base {
@@ -43,12 +43,13 @@ you have a css file like below:
   }
 }
 /* this will be abandoned unless you set the `outSideLayerCss` option */
+/* 默认情况下，不在@layer里的会被抛弃，除非设置了 `outSideLayerCss` 配置项 */
 .btn{
   background: #ffffff;
 }
 ```
 
-then it will transform to `tailwindcss plugin` like this:
+上方文件会被这个工具转化成一个 `tailwindcss plugin`，类似下方这样:
 
 ```js
 const _plugin = require('tailwindcss/plugin')
@@ -99,17 +100,17 @@ const css2TwPlugin = _plugin.withOptions(
 module.exports = css2TwPlugin
 ```
 
-## Install
+## 安装
 
 ```bash
-<npm/yarn/pnpm> i -D css-to-tailwindcss-plugin
+<npm / yarn / pnpm> i -D css-to-tailwindcss-plugin
 ```
 
-> if you want to resolve `tailwindcss's Functions & Directives`, you should install `tailwindcss`.
+> 假如你想要处理 `tailwindcss's Functions & Directives`，你必须安装 `tailwindcss`。
 >
-> also `scss/sass` support need to install `sass`, then this package can handle `.scss` files.
+> 同样为了支持 `scss/sass` 文件处理，你必须要安装 `sass`。
 
-## Usage
+## 使用方式
 
 ### Cli
 
@@ -117,11 +118,13 @@ module.exports = css2TwPlugin
 css2plugin build path/to/your.css path/to/your-another.scss --out ./tw-plugins
 ```
 
-Then a js file called `<css-file-name>.js` will be generated in the `tw-plugins` dir.
+执行命令后，一个 `<css-file-name>.js` 文件将被生成在 `out` 指定的 `tw-plugins` 目录中。
 
 > `css2plugin build -h` for more options
 
 ### Nodejs Api
+
+使用方式以及选项对应的用途:
 
 ```js
 import { createContext } from 'css-to-tailwindcss-plugin'
@@ -163,7 +166,7 @@ await ctx.process('path/to/your.scss')
 const code = ctx.generate() // return code then you can fs.writeFile
 ```
 
-> Context Sync API (`processSync`) is incomplete because `tailwindcss` and `postcss-import` are async plugins.
+> Context 同步 API 功能是残缺的，这是因为 `tailwindcss` 和 `postcss-import` 是异步的 `postcss` 插件，没法同步调用.
 
 ### Tailwindcss Plugin
 
@@ -202,19 +205,19 @@ module.exports = {
 }
 ```
 
-> now `@import`/`@use` only supports `.scss` files.
+> 目前 `@import`/`@use` 只支持 `.scss` 文件
 >
-> `.css` files are not supported because `tailwindcss` and `postcss-import` are async plugins, while `tailwindcss plugin` **MUST** be sync!
+> `.css` 文件目前`Tailwindcss Plugin`使用方式中不支持引入，因为 `tailwindcss` 和 `postcss-import` 都是异步的插件, 然而 `tailwindcss plugin` 必须是同步的!
+>
+> 当然, `CLI` 和 `Nodejs Api` 没有这样的限制
 
-## tailwindcss `theme()` and `@apply` resolved
+## 处理 tailwindcss `theme()` 方法和 `@apply` 指令
 
-you should install `tailwindcss`, then set `tailwindcssResolved` to `true` and pass `tailwind.config.js` file path or `inline Config` to this lib.
+你必须安装 `tailwindcss`，然后设置 `tailwindcssResolved` 为 `true`，同时再传当前的 `tailwind.config.js` 路径或者内联 `Config` 对象.
 
 ```bash
-<npm/yarn/pnpm> i -D tailwindcss
+<npm / yarn / pnpm> i -D tailwindcss
 ```
-
-Then run in Nodejs.
 
 ```js
 import { createContext } from 'css-to-tailwindcss-plugin'
@@ -228,9 +231,9 @@ const ctx = createContext({
 })
 ```
 
-then `theme()` and `@apply` will be resolved.
+然后 `theme()` 方法和 `@apply` 会被处理。
 
-> if `tailwindcssResolved` is false, `css theme function` will be transformed to `js theme function`, and `@apply` will be abandoned.
+> 假如 `tailwindcssResolved` 是 `false`，那么 `css` 里的 `theme` 方法会被转化成插件里的 `js theme` 方法，而 `@apply` 那些写法会被丢弃。
 
 ## License
 

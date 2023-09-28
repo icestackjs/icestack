@@ -85,7 +85,7 @@ export default (opts: TailwindcssPluginOptions): PluginsConfig => {
       generateTempPlugin(entry, p, options)
       hashMap[fileHash] = cssHash
     }
-    targetPlugins.push(makePlugin(p))
+    targetPlugins.push(makePlugin(p, options))
   }
 
   writeCacheIndexFile(hashMap)

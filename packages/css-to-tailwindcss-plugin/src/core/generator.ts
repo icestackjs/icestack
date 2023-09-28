@@ -2,6 +2,8 @@ import * as t from '@babel/types'
 import babelGenerate from '@babel/generator'
 import type { Node, Rule } from 'postcss'
 import type { GeneratorOptions } from '@babel/generator'
+import { layerNodesKeys } from '../constants'
+import type { LayerEnumType } from '../constants'
 import { IContext } from './context'
 // addBase, addComponents, addUtilities, theme, addVariant, config, corePlugins, e, matchComponents, matchUtilities, matchVariant
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L287
@@ -149,40 +151,97 @@ function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
   })
 }
 
+function getVarName(layer: LayerEnumType) {
+  return `_${layer}Css`
+}
+
+const pluginNameMap: Record<LayerEnumType, string> = {
+  base: 'addBase',
+  components: 'addComponents',
+  utilities: 'addUtilities'
+}
+
+function getFnName(key: LayerEnumType) {
+  return pluginNameMap[key]
+}
+
+function getLegacyStatement(key: LayerEnumType, ctx: IContext) {
+  return t.expressionStatement(t.callExpression(t.identifier(getFnName(key)), [t.objectExpression(makeObjectExpression(ctx.getNodes(key)))]))
+}
+
+const returnSelfArrowFnAst = t.arrowFunctionExpression([t.identifier('x')], t.identifier('x'))
+
+const declReturnSelfArrowFnName = 'returnSelfNoop'
+
+const declReturnSelfArrowFnAst = t.variableDeclaration('const', [t.variableDeclarator(t.identifier(declReturnSelfArrowFnName), returnSelfArrowFnAst)])
+
 export function createGenerator() {
   // note equal 'plugin'
   const callFnId = '_plugin'
   const pluginName = 'css2TwPlugin'
   const withOptionsParamsId = '_options'
+  const traverseMethodName = 'withOptionsWalkCSSRuleObject'
   const requireStatement = t.variableDeclaration('const', [
     t.variableDeclarator(t.identifier(callFnId), t.callExpression(t.identifier('require'), [t.stringLiteral('tailwindcss/plugin')]))
   ])
   const exportsStatement = t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('module'), t.identifier('exports')), t.identifier(pluginName)))
+
+  function getLatestStatement(key: LayerEnumType, ctx: IContext) {
+    const varName = getVarName(key)
+    const fnName = getFnName(key)
+    return [
+      t.variableDeclaration('const', [
+        t.variableDeclarator(
+          t.identifier(varName),
+          t.callExpression(t.identifier(traverseMethodName), [t.objectExpression(makeObjectExpression(ctx.getNodes(key))), t.stringLiteral(key)])
+        )
+      ]),
+      t.expressionStatement(t.callExpression(t.identifier(fnName), [t.identifier(varName)]))
+    ]
+  }
   function generate(ctx: IContext, opt?: GeneratorOptions) {
     function getPluginBody() {
+      const statements = ctx.options.withOptions
+        ? layerNodesKeys.flatMap((layer) => {
+            return getLatestStatement(layer, ctx)
+          })
+        : layerNodesKeys.map((layer) => {
+            return getLegacyStatement(layer, ctx)
+          })
+
       const innerPluginAst = t.functionExpression(
         null,
         [t.objectPattern(expandAPI())],
 
-        t.blockStatement([
-          // addBase
-          t.expressionStatement(t.callExpression(t.identifier('addBase'), [t.objectExpression(makeObjectExpression(ctx.getNodes('base')))])),
-          // addComponents
-          t.expressionStatement(t.callExpression(t.identifier('addComponents'), [t.objectExpression(makeObjectExpression(ctx.getNodes('components')))])),
-          // addUtilities
-          t.expressionStatement(t.callExpression(t.identifier('addUtilities'), [t.objectExpression(makeObjectExpression(ctx.getNodes('utilities')))]))
-        ])
+        t.blockStatement(statements)
       )
       if (ctx.options.withOptions) {
         return t.callExpression(t.memberExpression(t.identifier(callFnId), t.identifier('withOptions')), [
-          t.functionExpression(null, [t.identifier(withOptionsParamsId)], t.blockStatement([t.returnStatement(innerPluginAst)])),
+          t.functionExpression(
+            null,
+            [t.assignmentPattern(t.identifier(withOptionsParamsId), t.objectExpression([]))],
+            t.blockStatement([
+              // const { withOptionsWalkCSSRuleObject = (x)=>x } = _options
+              t.variableDeclaration('const', [
+                t.variableDeclarator(
+                  t.objectPattern([
+                    t.objectProperty(t.identifier(traverseMethodName), t.assignmentPattern(t.identifier(traverseMethodName), t.identifier(declReturnSelfArrowFnName)))
+                  ]),
+                  t.identifier(withOptionsParamsId)
+                )
+              ]),
+              t.returnStatement(innerPluginAst)
+            ])
+          ),
           t.functionExpression(null, [t.identifier(withOptionsParamsId)], t.blockStatement([t.returnStatement(t.objectExpression([]))]))
         ])
       }
       return t.callExpression(t.identifier(callFnId), [innerPluginAst])
     }
 
-    const ast = t.file(t.program([requireStatement, t.variableDeclaration('const', [t.variableDeclarator(t.identifier(pluginName), getPluginBody())]), exportsStatement]))
+    const ast = t.file(
+      t.program([requireStatement, declReturnSelfArrowFnAst, t.variableDeclaration('const', [t.variableDeclarator(t.identifier(pluginName), getPluginBody())]), exportsStatement])
+    )
     const res = babelGenerate(ast, opt)
     return res.code
   }

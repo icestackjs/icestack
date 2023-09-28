@@ -2,7 +2,11 @@
 
 exports[`generator > add another postcss plugin 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
-const css2TwPlugin = _plugin.withOptions(function (_options) {
+const returnSelfNoop = x => x;
+const css2TwPlugin = _plugin.withOptions(function (_options = {}) {
+  const {
+    withOptionsWalkCSSRuleObject = returnSelfNoop
+  } = _options;
   return function ({
     addBase: addBase,
     addComponents: addComponents,
@@ -16,15 +20,16 @@ const css2TwPlugin = _plugin.withOptions(function (_options) {
     matchUtilities: matchUtilities,
     matchVariant: matchVariant
   }) {
-    addBase({
+    const _baseCss = withOptionsWalkCSSRuleObject({
       \\"h1\\": {
         \\"font-size\\": theme(\\"fontSize.2xl\\")
       },
       \\"h2\\": {
         \\"font-size\\": theme(\\"fontSize.xl\\")
       }
-    });
-    addComponents({
+    }, \\"base\\");
+    addBase(_baseCss);
+    const _componentsCss = withOptionsWalkCSSRuleObject({
       \\".card\\": {
         \\"background-color\\": theme(\\"colors.white\\"),
         \\"border-radius\\": theme(\\"borderRadius.lg\\"),
@@ -34,12 +39,14 @@ const css2TwPlugin = _plugin.withOptions(function (_options) {
       \\".test\\": {
         \\"font-size\\": \\"99.6px\\"
       }
-    });
-    addUtilities({
+    }, \\"components\\");
+    addComponents(_componentsCss);
+    const _utilitiesCss = withOptionsWalkCSSRuleObject({
       \\".content-auto\\": {
         \\"content-visibility\\": \\"\\\\\\"auto\\\\\\"\\"
       }
-    });
+    }, \\"utilities\\");
+    addUtilities(_utilitiesCss);
   };
 }, function (_options) {
   return {};
@@ -158,6 +165,7 @@ exports[`generator > apply case 0 > css 1`] = `
 
 exports[`generator > apply case 0 > generate 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -296,6 +304,7 @@ exports[`generator > apply case 1 > css 1`] = `
 
 exports[`generator > apply case 1 > generate 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -337,6 +346,7 @@ exports[`generator > apply case 2 > css 1`] = `
 
 exports[`generator > apply case 2 > generate 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -367,6 +377,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > generate 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -389,6 +400,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > generate case 0 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -429,6 +441,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > generate case 0 sync 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -469,7 +482,11 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > generate case 0 withOptions 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
-const css2TwPlugin = _plugin.withOptions(function (_options) {
+const returnSelfNoop = x => x;
+const css2TwPlugin = _plugin.withOptions(function (_options = {}) {
+  const {
+    withOptionsWalkCSSRuleObject = returnSelfNoop
+  } = _options;
   return function ({
     addBase: addBase,
     addComponents: addComponents,
@@ -483,27 +500,30 @@ const css2TwPlugin = _plugin.withOptions(function (_options) {
     matchUtilities: matchUtilities,
     matchVariant: matchVariant
   }) {
-    addBase({
+    const _baseCss = withOptionsWalkCSSRuleObject({
       \\"h1\\": {
         \\"font-size\\": theme(\\"fontSize.2xl\\")
       },
       \\"h2\\": {
         \\"font-size\\": theme(\\"fontSize.xl\\")
       }
-    });
-    addComponents({
+    }, \\"base\\");
+    addBase(_baseCss);
+    const _componentsCss = withOptionsWalkCSSRuleObject({
       \\".card\\": {
         \\"background-color\\": theme(\\"colors.white\\"),
         \\"border-radius\\": theme(\\"borderRadius.lg\\"),
         \\"padding\\": theme(\\"spacing.6\\"),
         \\"box-shadow\\": theme(\\"boxShadow.xl\\")
       }
-    });
-    addUtilities({
+    }, \\"components\\");
+    addComponents(_componentsCss);
+    const _utilitiesCss = withOptionsWalkCSSRuleObject({
       \\".content-auto\\": {
         \\"content-visibility\\": \\"\\\\\\"auto\\\\\\"\\"
       }
-    });
+    }, \\"utilities\\");
+    addUtilities(_utilitiesCss);
   };
 }, function (_options) {
   return {};
@@ -513,6 +533,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > generate case 1 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -560,6 +581,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > generate case 2 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -602,8 +624,60 @@ const css2TwPlugin = _plugin(function ({
 module.exports = css2TwPlugin;"
 `;
 
+exports[`generator > generate common.scss 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
+const css2TwPlugin = _plugin.withOptions(function (_options = {}) {
+  const {
+    withOptionsWalkCSSRuleObject = returnSelfNoop
+  } = _options;
+  return function ({
+    addBase: addBase,
+    addComponents: addComponents,
+    addUtilities: addUtilities,
+    theme: theme,
+    addVariant: addVariant,
+    config: config,
+    corePlugins: corePlugins,
+    e: e,
+    matchComponents: matchComponents,
+    matchUtilities: matchUtilities,
+    matchVariant: matchVariant
+  }) {
+    const _baseCss = withOptionsWalkCSSRuleObject({
+      \\"h1\\": {
+        \\"font-size\\": theme(\\"fontSize.2xl\\")
+      },
+      \\"h2\\": {
+        \\"font-size\\": theme(\\"fontSize.xl\\")
+      }
+    }, \\"base\\");
+    addBase(_baseCss);
+    const _componentsCss = withOptionsWalkCSSRuleObject({
+      \\".card\\": {
+        \\"background-color\\": theme(\\"colors.white\\"),
+        \\"border-radius\\": theme(\\"borderRadius.lg\\"),
+        \\"padding\\": theme(\\"spacing.6\\"),
+        \\"box-shadow\\": theme(\\"boxShadow.xl\\")
+      }
+    }, \\"components\\");
+    addComponents(_componentsCss);
+    const _utilitiesCss = withOptionsWalkCSSRuleObject({
+      \\".content-auto\\": {
+        \\"content-visibility\\": \\"\\\\\\"auto\\\\\\"\\"
+      }
+    }, \\"utilities\\");
+    addUtilities(_utilitiesCss);
+  };
+}, function (_options) {
+  return {};
+});
+module.exports = css2TwPlugin;"
+`;
+
 exports[`generator > import case 0 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -659,6 +733,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > import case 0 with tailwindcss config 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -846,6 +921,7 @@ h2 {
 
 exports[`generator > import case 0 with tailwindcss config case > generate 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -1033,6 +1109,7 @@ h2 {
 
 exports[`generator > import case 0 with tailwindcss config case with content > generate 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -1088,6 +1165,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > interceptors css 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -1131,6 +1209,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > repeat css case 0 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -1160,6 +1239,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > repeat css case 1 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -1199,6 +1279,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > theme case 0 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -1228,6 +1309,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > theme case 1 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -1257,6 +1339,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > theme case 2 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,
@@ -1283,6 +1366,7 @@ module.exports = css2TwPlugin;"
 
 exports[`generator > theme case 3 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
   addBase: addBase,
   addComponents: addComponents,

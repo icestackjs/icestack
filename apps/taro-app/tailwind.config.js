@@ -10,6 +10,10 @@ module.exports = {
     entries: [
       './scss/index.scss'
     ],
+    withOptionsWalkCSSRuleObject(x, layer) {
+      console.log(x, layer)
+      return x
+    }
   })],
   corePlugins: {
     preflight: false

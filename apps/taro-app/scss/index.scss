@@ -8,5 +8,6 @@
   .card {
     display: flex;
     border-radius: theme("borderRadius.2xl");
+    color: theme("colors.red.800");
   }
 }

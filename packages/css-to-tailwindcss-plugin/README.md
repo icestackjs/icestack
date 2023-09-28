@@ -168,6 +168,15 @@ module.exports = {
       // other options same to createContext
       // ...options
       // note: `tailwindcssResolved` is invalid in `tailwindcss plugin`, because `tailwindcss` is an async postcss plugin, while `tailwindcss plugin` **MUST** be sync!
+      
+
+      // you can use this method to intercept plugin with `withOptions`
+      withOptionsWalkCSSRuleObject(cssObj, layer) {
+        console.log(cssObj, layer)
+        // don't forget to return it
+        // this will replace origin css obj so you can add prefix here!
+        return cssObj
+      }
     })
   ],
   // ...

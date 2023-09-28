@@ -28,6 +28,12 @@ describe('generator', () => {
     expect(ctx.generate()).toMatchSnapshot()
   })
 
+  it('generate common.scss', async () => {
+    const ctx = createContext()
+    await ctx.process(fixturesResolve('common.scss'))
+    expect(ctx.generate()).toMatchSnapshot()
+  })
+
   it('generate case 0', async () => {
     await ctx.process(fixturesResolve('common.scss'))
     expect(ctx.generate()).toMatchSnapshot()

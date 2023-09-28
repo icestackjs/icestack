@@ -15,9 +15,9 @@ cli
   .option('--resolved, --tailwindcssResolved', 'If Resolved tailwindcss ')
   .option('-c, --config, --tailwindcssConfig <config>', 'Tailwindcss config path')
   .action(async (files: string[], options: { out: string; cwd: string; outSideLayerCss: LayerEnumType; tailwindcssResolved: boolean; tailwindcssConfig: string }) => {
-    const { cwd, out, outSideLayerCss, tailwindcssResolved, tailwindcssConfig } = options
+    const { cwd = defaultCwd, out, outSideLayerCss, tailwindcssResolved, tailwindcssConfig } = options
     for (const file of files) {
-      const entry = resolvePath(file, resolvePath(cwd, defaultCwd))
+      const entry = resolvePath(file, cwd)
       if (!fs.existsSync(entry)) {
         console.log(`${file} isn't existed! skipped`)
         continue

@@ -9,7 +9,6 @@
     - [Cli](#cli)
     - [Nodejs Api](#nodejs-api)
     - [tailwindcss plugin](#tailwindcss-plugin)
-  - [`scss/sass` support](#scsssass-support)
   - [tailwindcss `theme()` and `@apply` resolved](#tailwindcss-theme-and-apply-resolved)
   - [License](#license)
 
@@ -87,12 +86,20 @@ module.exports = css2TwPlugin
 <npm / yarn / pnpm> i -D css-to-tailwindcss-plugin
 ```
 
+if you want to resolve `tailwindcss's Functions & Directives`, you should install `tailwindcss`.
+
+also `scss/sass` support need to install `sass`, then this package can handle `.scss` files.
+
+```bash
+<npm / yarn / pnpm> i -D tailwindcss sass
+```
+
 ## Usage
 
 ### Cli
 
 ```bash
-css2plugin build path/to/your.css --out ./tw-plugins
+css2plugin build path/to/your.css path/to/your-another.scss --out ./tw-plugins
 ```
 
 > `css2plugin build -h` for more options
@@ -120,14 +127,15 @@ const ctx = createContext({
   // generate tailwindcss plugin with `plugin` api or `plugin.withOptions` api
   withOptions: true,
   // custom handler
-  interceptors: {css:[
+  interceptors: {
+    css:[
     (root,ctx)=>{
-
+      // do sth
     }
   ]},
 
   postcssPlugins:(plugins)=>{
-
+    // plugins.push / splice ...
   }
 })
 
@@ -153,22 +161,22 @@ module.exports = {
         // your css entry path
         path.resolve(__dirname, './theme-multiple.css'), 
         path.resolve(__dirname, './common.scss'
-      )]
+      )],
+      // tmp plugins cache dir, default path is `process.cwd() + node_modules/.css-to-tailwindcss-plugin`
+      // cacheDir: string
+
+      // other options same to createContext
+      // ...options
+      // note: `tailwindcssResolved` is invalid in `tailwindcss plugin`, because `tailwindcss` is an async postcss plugin, while `tailwindcss plugin` **MUST** be sync!
     })
   ],
   // ...
 }
 ```
 
-> note: now `@import`/`@use` only supports with `.scss`, `.css` is not support because `postcss-import` is an async plugin, but `tailwindcss plugin` **MUST** be sync!
-
-## `scss/sass` support
-
-you should install `sass`, then this package can handle `.scss` files.
-
-```bash
-<npm / yarn / pnpm> i -D sass
-```
+> now `@import`/`@use` only supports `.scss` files.
+>
+> `.css` files are not supported because `tailwindcss` and `postcss-import` are async plugins, while `tailwindcss plugin` **MUST** be sync!
 
 ## tailwindcss `theme()` and `@apply` resolved
 

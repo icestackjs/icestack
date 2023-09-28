@@ -1,15 +1,17 @@
 import path from 'node:path'
 import fs from 'node:fs'
 import md5 from 'md5'
-import type { Config } from 'tailwindcss'
+// import type { Config } from 'tailwindcss'
+import type { PluginsConfig } from 'tailwindcss/types/config'
 import { createContext } from './core'
-import { TailwindcssPluginOptions } from './types'
+import { IProcessOptions, TailwindcssPluginOptions } from './types'
 import { ensureDir } from './utils'
 import { version } from './constants'
+import { getOptions } from './options'
 // https://tailwindcss.com/docs/plugins
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L723
-function generateTempPlugin(entry: string, p: string) {
-  const ctx = createContext()
+function generateTempPlugin(entry: string, p: string, opts?: IProcessOptions) {
+  const ctx = createContext(opts)
   ctx.processSync(entry)
   const code = ctx.generate()
   fs.writeFileSync(p, code, 'utf8')
@@ -19,10 +21,21 @@ function generateTempPlugin(entry: string, p: string) {
 function getDefaultCacheDir() {
   return path.resolve(process.cwd(), 'node_modules', '.css-to-tailwindcss-plugin')
 }
+
+function makePlugin(x: string, options: TailwindcssPluginOptions): PluginsConfig[number] {
+  const p = require(x)
+  if (p.__isOptionsFunction && typeof p === 'function') {
+    return p(options)
+  }
+  return p
+}
+
+let cached = false
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L784
 
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L784
-export default (options: TailwindcssPluginOptions): Config['plugins'] => {
+export default (opts: TailwindcssPluginOptions): PluginsConfig => {
+  const options = getOptions(opts)
   const cacheDir = options.cacheDir ?? getDefaultCacheDir()
   ensureDir(cacheDir)
 
@@ -43,12 +56,20 @@ export default (options: TailwindcssPluginOptions): Config['plugins'] => {
     data.version = version
     fs.writeFileSync(indexFilePath, JSON.stringify(data), 'utf8')
   }
+  if (cached === true) {
+    loadCache()
+    cached = true
+  }
 
-  loadCache()
-
-  const targetPlugins: string[] = []
+  const targetPlugins: PluginsConfig = []
   const isSameVersion = hashMap.version === version
   for (const entry of options.entries) {
+    if (!fs.existsSync(entry)) {
+      console.log(`entry: ${entry} is not existed`)
+      continue
+    }
+
+    // as key
     const fileHash = md5(entry)
     const cssHash = md5(fs.readFileSync(entry))
     const p = path.resolve(cacheDir, fileHash) + '.js'
@@ -56,18 +77,18 @@ export default (options: TailwindcssPluginOptions): Config['plugins'] => {
     if (isSameVersion && fs.existsSync(p)) {
       // css entry content changed
       if (hashMap[fileHash] !== cssHash) {
-        generateTempPlugin(entry, p)
+        generateTempPlugin(entry, p, options)
         hashMap[fileHash] = cssHash
       }
     } else {
       // css entry content add
-      generateTempPlugin(entry, p)
+      generateTempPlugin(entry, p, options)
       hashMap[fileHash] = cssHash
     }
-    targetPlugins.push(p)
+    targetPlugins.push(makePlugin(p))
   }
 
   writeCacheIndexFile(hashMap)
-
-  return targetPlugins.map((x) => require(x))
+  // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L735C38-L735C38
+  return targetPlugins
 }

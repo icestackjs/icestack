@@ -10,12 +10,11 @@ import { isExtSassFile, sassCompile, sassCompileSync } from './sass'
 import { createGenerator } from './generator'
 import { IProcessOptions } from '@/types'
 import { getOptions } from '@/options'
-
-export type NodeMapKeys = 'base' | 'components' | 'utilities'
+import { LayerEnumType } from '@/constants'
 
 export function createContext(opts?: IProcessOptions) {
   const options = getOptions(opts)
-  const layersMap = new Map<NodeMapKeys, Node[]>()
+  const layersMap = new Map<LayerEnumType, Node[]>()
 
   function resetLayersMap() {
     layersMap.set('base', [])
@@ -25,7 +24,7 @@ export function createContext(opts?: IProcessOptions) {
 
   resetLayersMap()
 
-  function getNodes(key: NodeMapKeys) {
+  function getNodes(key: LayerEnumType) {
     const arrRef = layersMap.get(key)
     if (Array.isArray(arrRef)) {
       return arrRef
@@ -35,7 +34,7 @@ export function createContext(opts?: IProcessOptions) {
     return arr
   }
 
-  function append(key: NodeMapKeys, nodes: Node | Node[]) {
+  function append(key: LayerEnumType, nodes: Node | Node[]) {
     const arr = getNodes(key)
     if (Array.isArray(nodes)) {
       arr.push(...nodes)

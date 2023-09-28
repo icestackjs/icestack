@@ -1,0 +1,12 @@
+@layer components {
+  .card {
+    padding: theme("padding.4");
+  }
+}
+
+@layer components {
+  .card {
+    display: flex;
+    border-radius: theme("borderRadius.2xl");
+  }
+}

@@ -1,9 +1,13 @@
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
 import defu from 'defu'
-import type { IProcessOptions } from './types'
+import type { IProcessOptions, TailwindcssPluginOptions } from './types'
 
-export function getDefaults(): IProcessOptions {
+function getDefaultCacheDir() {
+  return path.resolve(process.cwd(), 'node_modules', '.css-to-tailwindcss-plugin')
+}
+
+export function getDefaults(): IProcessOptions & { cacheDir?: string } {
   const pkgPath = require.resolve('tailwindcss/package.json')
   const nodeModulesPath = path.dirname(path.dirname(pkgPath))
   return {
@@ -20,10 +24,14 @@ export function getDefaults(): IProcessOptions {
       ]
     },
     tailwindcssResolved: false,
-    withOptions: true
+    withOptions: true,
+    withOptionsWalkCSSRuleObject(obj) {
+      return obj
+    },
+    cacheDir: getDefaultCacheDir()
   }
 }
 
-export function getOptions(opts?: IProcessOptions): Required<IProcessOptions> {
-  return defu(opts, getDefaults()) as Required<IProcessOptions>
+export function getOptions(opts?: IProcessOptions) {
+  return defu(opts, getDefaults()) as Required<TailwindcssPluginOptions>
 }

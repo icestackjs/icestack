@@ -30,6 +30,13 @@
       "cwd": "${workspaceFolder}/apps/taro-app"
     },
     {
+      "command": "npm run dev:weapp",
+      "name": "[Taro] dev:weapp",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/apps/taro-app"
+    },
+    {
       "command": "npm run test:dev",
       "name": "[UI] test watch",
       "request": "launch",

@@ -5,6 +5,7 @@ export const layerNodes = {
   // variants: null
 }
 
+export type LayerEnumType = 'base' | 'components' | 'utilities'
 // export const packageJson = require('../package.json')
 
 // packageJson.version as string

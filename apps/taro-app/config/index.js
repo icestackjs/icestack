@@ -1,5 +1,5 @@
 const path = require('path')
-
+const { UnifiedWebpackPluginV5 } = require('weapp-tailwindcss/webpack')
 const config = {
   projectName: 'taro-app',
   date: '2023-7-13',
@@ -68,6 +68,16 @@ const config = {
       //   .options({
       //     sourceMap: process.env.NODE_ENV !== 'production',
       //   })
+      chain.merge({
+        plugin: {
+          install: {
+            plugin: UnifiedWebpackPluginV5,
+            args: [{
+              appType: 'taro'
+            }]
+          }
+        }
+      })
     },
   },
   h5: {

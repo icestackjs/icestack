@@ -31,7 +31,7 @@
     "raw": "sass --watch test/fixtures/extend.scss test/fixtures/extend.css"
   },
   "dependencies": {
-    "postcss": "^8.4.30",
+    "postcss": "^8.4.31",
     "postcss-js": "^4.0.1"
   },
   "devDependencies": {
@@ -41,7 +41,7 @@
   },
   "optionalDependencies": {
     "less": "^4.2.0",
-    "sass": "^1.67.0",
+    "sass": "^1.68.0",
     "stylus": "^0.60.0"
   }
 }

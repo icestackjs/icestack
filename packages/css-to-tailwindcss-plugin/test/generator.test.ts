@@ -198,4 +198,9 @@ describe('generator', () => {
     await ctx.process(fixturesResolve('repeat.scss'))
     expect(ctx.generate()).toMatchSnapshot()
   })
+
+  it('double-bug', async () => {
+    await ctx.process(fixturesResolve('double-bug.css'))
+    expect(ctx.generate()).toMatchSnapshot()
+  })
 })

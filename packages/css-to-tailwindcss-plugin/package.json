@@ -1,6 +1,6 @@
 {
   "name": "css-to-tailwindcss-plugin",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "css-to-tailwindcss-plugin, transform your `css/scss` to `tailwindcss plugin`",
   "exports": {
     ".": {
@@ -81,7 +81,9 @@
     "postcss-import": "^15.1.0"
   },
   "devDependencies": {
+    "@babel/standalone": "^7.23.1",
     "@types/babel__generator": "^7.6.5",
+    "@types/babel__standalone": "^7.1.5",
     "@types/md5": "^2.3.3",
     "@types/object-hash": "^3.0.4",
     "@types/postcss-import": "^14.0.1",

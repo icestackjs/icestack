@@ -1,10 +1,15 @@
 import * as t from '@babel/types'
-import babelGenerate from '@babel/generator'
+import _babelGenerate from '@babel/generator'
 import type { Node, Rule } from 'postcss'
 import type { GeneratorOptions } from '@babel/generator'
 import { layerNodesKeys } from '../constants'
 import type { LayerEnumType } from '../constants'
 import type { BaseContext } from './base-context'
+// https://github.com/babel/babel/issues/15269
+function _interopDefaultCompat(e: any) {
+  return e && typeof e === 'object' && 'default' in e ? e.default : e
+}
+const babelGenerate = _interopDefaultCompat(_babelGenerate) as typeof _babelGenerate // (_babelGenerate as any).default as typeof _babelGenerate
 // addBase, addComponents, addUtilities, theme, addVariant, config, corePlugins, e, matchComponents, matchUtilities, matchVariant
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L287
 // resolveThemeValue

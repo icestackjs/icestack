@@ -375,6 +375,33 @@ const css2TwPlugin = _plugin(function ({
 module.exports = css2TwPlugin;"
 `;
 
+exports[`generator > double-bug 1`] = `
+"const _plugin = require(\\"tailwindcss/plugin\\");
+const returnSelfNoop = x => x;
+const css2TwPlugin = _plugin(function ({
+  addBase: addBase,
+  addComponents: addComponents,
+  addUtilities: addUtilities,
+  theme: theme,
+  addVariant: addVariant,
+  config: config,
+  corePlugins: corePlugins,
+  e: e,
+  matchComponents: matchComponents,
+  matchUtilities: matchUtilities,
+  matchVariant: matchVariant
+}) {
+  addBase({});
+  addComponents({});
+  addUtilities({
+    \\".content-auto\\": {
+      \\"content-visibility\\": \\"\\\\\\"auto\\\\\\"\\"
+    }
+  });
+});
+module.exports = css2TwPlugin;"
+`;
+
 exports[`generator > generate 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
 const returnSelfNoop = x => x;

@@ -43,8 +43,9 @@ export default defineBuildConfig([
       // 别名
       '@': path.resolve(__dirname, './src')
     },
+
     // dts
     declaration: true,
-    externals: [/^tailwindcss/, 'sass']
+    externals: [/^tailwindcss/, 'sass', '@babel/standalone']
   }
 ])

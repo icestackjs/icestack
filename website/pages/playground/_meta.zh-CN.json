@@ -1,3 +1,14 @@
 {
-  "css2plugin": "css-to-tailwindcss-plugin"
+  "css2plugin": {
+    "title": "css-to-tailwindcss-plugin",
+    "theme": {
+      "layout": "full",
+      "breadcrumb": false,
+      "footer": false,
+      "sidebar": true,
+      "toc": false,
+      "pagination": false,
+      "timestamp": false
+    }
+  }
 }

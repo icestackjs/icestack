@@ -473,9 +473,15 @@ importers:
         specifier: ^15.1.0
         version: 15.1.0(postcss@8.4.31)
     devDependencies:
+      '@babel/standalone':
+        specifier: ^7.23.1
+        version: 7.23.1
       '@types/babel__generator':
         specifier: ^7.6.5
         version: 7.6.5
+      '@types/babel__standalone':
+        specifier: ^7.1.5
+        version: 7.1.5
       '@types/md5':
         specifier: ^2.3.3
         version: 2.3.3
@@ -568,6 +574,12 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
     devDependencies:
+      '@babel/standalone':
+        specifier: ^7.23.1
+        version: 7.23.1
+      '@types/babel__standalone':
+        specifier: ^7.1.5
+        version: 7.1.5
       '@types/lodash-es':
         specifier: ^4.17.9
         version: 4.17.9
@@ -1033,7 +1045,7 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
     dependencies:
-      '@babel/types': 7.22.19
+      '@babel/types': 7.23.0
 
   /@babel/parser@7.22.5:
     resolution: {integrity: sha512-DFZMC9LJUG9PLOclRC32G63UXwzqS2koQC8dkx+PLdmt1xSePYpbT/NbsrJy8Q/muXz7o/h/d4A7Fuyixm559Q==}
@@ -2132,8 +2144,8 @@ packages:
     dependencies:
       regenerator-runtime: 0.14.0
 
-  /@babel/standalone@7.22.14:
-    resolution: {integrity: sha512-i61lDNe0nRm44nZj05g+1HNb0EVfDGaTI6PkoeUMUSel3GTG6T1OM3BdjZIXghnnFB8bSWbmfS1lkBQgNUdu5w==}
+  /@babel/standalone@7.23.1:
+    resolution: {integrity: sha512-a4muOYz1qUaSoybuUKwK90mRG4sf5rBeUbuzpuGLzG32ZDE/Y2YEebHDODFJN+BtyOKi19hrLfq2qbNyKMx0TA==}
     engines: {node: '>=6.9.0'}
     dev: true
 
@@ -6514,6 +6526,14 @@ packages:
       '@babel/types': 7.23.0
     dev: true
 
+  /@types/babel__standalone@7.1.5:
+    resolution: {integrity: sha512-hvnktcGmz73/WwkAT8BpOagDNiJX56/TGOllWi604PBP7xw7Wz+rdFjKhE5p9EFCcNZMv+LkOVD0wgOdYqtMDA==}
+    dependencies:
+      '@babel/core': 7.23.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@types/babel__template@7.4.2:
     resolution: {integrity: sha512-/AVzPICMhMOMYoSx9MoKpGDKdBRsIXMNByh1PXSZoa+v6ZoLa8xxtsT/uLQ/NJm0XVAWl/BvId4MlDeXJaeIZQ==}
     dependencies:
@@ -9531,8 +9551,8 @@ packages:
   /caniuse-api@3.0.0:
     resolution: {integrity: sha512-bsTwuIg/BZZK/vreVTYYbSWoe2F+71P7K5QGEX+pT250DZbfU1MQ5prOKpPR+LL6uWKK3KMwMCAS74QB3Um1uw==}
     dependencies:
-      browserslist: 4.21.10
-      caniuse-lite: 1.0.30001538
+      browserslist: 4.22.1
+      caniuse-lite: 1.0.30001541
       lodash.memoize: 4.1.2
       lodash.uniq: 4.5.0
     dev: true
@@ -18798,7 +18818,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
-      browserslist: 4.22.0
+      browserslist: 4.22.1
       caniuse-api: 3.0.0
       colord: 2.9.3
       postcss: 8.4.31
@@ -18811,7 +18831,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
-      browserslist: 4.22.0
+      browserslist: 4.22.1
       postcss: 8.4.31
       postcss-value-parser: 4.2.0
     dev: true
@@ -18977,7 +18997,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
-      browserslist: 4.22.0
+      browserslist: 4.22.1
       caniuse-api: 3.0.0
       cssnano-utils: 3.1.0(postcss@8.4.31)
       postcss: 8.4.31
@@ -19025,7 +19045,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
-      browserslist: 4.22.0
+      browserslist: 4.22.1
       cssnano-utils: 3.1.0(postcss@8.4.31)
       postcss: 8.4.31
       postcss-value-parser: 4.2.0
@@ -19188,7 +19208,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
-      browserslist: 4.22.0
+      browserslist: 4.22.1
       postcss: 8.4.31
       postcss-value-parser: 4.2.0
     dev: true
@@ -19257,7 +19277,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
-      browserslist: 4.22.0
+      browserslist: 4.22.1
       caniuse-api: 3.0.0
       postcss: 8.4.31
     dev: true
@@ -21263,7 +21283,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.15
     dependencies:
-      browserslist: 4.22.0
+      browserslist: 4.22.1
       postcss: 8.4.31
       postcss-selector-parser: 6.0.13
     dev: true
@@ -22539,7 +22559,7 @@ packages:
     hasBin: true
     dependencies:
       '@babel/core': 7.23.0
-      '@babel/standalone': 7.22.14
+      '@babel/standalone': 7.23.1
       '@babel/types': 7.23.0
       defu: 6.1.2
       jiti: 1.20.0

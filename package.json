@@ -7,10 +7,10 @@
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "test": "turbo run test",
+    "test": "turbo run test --filter='./packages/*'",
     "test2": "vitest run",
     "release": "turbo run release",
-    "publish-packages": "turbo run build test && changeset version && changeset publish",
+    "publish-packages": "turbo run build test --filter='./packages/*' && changeset version && changeset publish",
     "preinstall": "npx only-allow pnpm",
     "sync": "cnpm sync css-to-tailwindcss-plugin"
   },

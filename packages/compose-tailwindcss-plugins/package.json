@@ -1,0 +1,68 @@
+{
+  "name": "compose-tailwindcss-plugins",
+  "version": "0.0.0",
+  "description": "compose your tailwindcss plugins into one",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./*": "./*"
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --watch --sourcemap",
+    "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
+    "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
+    "prepack": "pnpm run build",
+    "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
+    "test": "vitest run --coverage",
+    "test:dev": "vitest --coverage"
+  },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "compose-tailwindcss-plugins",
+    "css-to-tailwindcss",
+    "generate",
+    "css-to-tailwindcss-plugin",
+    "tailwindcss",
+    "plugin",
+    "transform",
+    "css",
+    "sass",
+    "scss"
+  ],
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack/tree/main/packages/css-to-tailwindcss-plugin"
+  },
+  "homepage": "https://github.com/sonofmagic/icestack/tree/main/packages/css-to-tailwindcss-plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/container-queries": "^0.1.1",
+    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/typography": "^0.5.10",
+    "merge": "^2.1.1",
+    "postcss": "^8.4.31",
+    "tailwindcss": "^3.3.3"
+  }
+}

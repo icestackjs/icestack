@@ -4,7 +4,7 @@ import type { Node, Rule } from 'postcss'
 import type { GeneratorOptions } from '@babel/generator'
 import { layerNodesKeys } from '../constants'
 import type { LayerEnumType } from '../constants'
-import { IContext } from './context'
+import type { BaseContext } from './base-context'
 // addBase, addComponents, addUtilities, theme, addVariant, config, corePlugins, e, matchComponents, matchUtilities, matchVariant
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L287
 // resolveThemeValue
@@ -165,7 +165,7 @@ function getFnName(key: LayerEnumType) {
   return pluginNameMap[key]
 }
 
-function getLegacyStatement(key: LayerEnumType, ctx: IContext) {
+function getLegacyStatement(key: LayerEnumType, ctx: BaseContext) {
   return t.expressionStatement(t.callExpression(t.identifier(getFnName(key)), [t.objectExpression(makeObjectExpression(ctx.getNodes(key)))]))
 }
 
@@ -186,7 +186,7 @@ export function createGenerator() {
   ])
   const exportsStatement = t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('module'), t.identifier('exports')), t.identifier(pluginName)))
 
-  function getLatestStatement(key: LayerEnumType, ctx: IContext) {
+  function getLatestStatement(key: LayerEnumType, ctx: BaseContext) {
     const varName = getVarName(key)
     const fnName = getFnName(key)
     return [
@@ -199,9 +199,9 @@ export function createGenerator() {
       t.expressionStatement(t.callExpression(t.identifier(fnName), [t.identifier(varName)]))
     ]
   }
-  function generate(ctx: IContext, opt?: GeneratorOptions) {
+  function generate(ctx: BaseContext, opt?: GeneratorOptions) {
     function getPluginBody() {
-      const statements = ctx.options.withOptions
+      const statements = ctx.options?.withOptions
         ? layerNodesKeys.flatMap((layer) => {
             return getLatestStatement(layer, ctx)
           })
@@ -215,7 +215,7 @@ export function createGenerator() {
 
         t.blockStatement(statements)
       )
-      if (ctx.options.withOptions) {
+      if (ctx.options?.withOptions) {
         return t.callExpression(t.memberExpression(t.identifier(callFnId), t.identifier('withOptions')), [
           t.functionExpression(
             null,

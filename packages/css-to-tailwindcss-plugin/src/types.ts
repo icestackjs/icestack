@@ -4,7 +4,7 @@ import type { AtImportOptions } from 'postcss-import'
 import type { GeneratorOptions } from '@babel/generator'
 import type { AcceptedPlugin, Root } from 'postcss'
 import type { CSSRuleObject } from 'tailwindcss/types/config'
-import type { IContext } from './core'
+import type { BaseContext } from './core/base-context'
 import { LayerEnumType } from './constants'
 export interface IProcessOptions {
   tailwindcssResolved?: boolean
@@ -25,7 +25,7 @@ export interface IProcessOptions {
   outSideLayerCss?: LayerEnumType
 
   interceptors?: {
-    css?: ((root: Root, ctx: IContext) => void)[]
+    css?: ((root: Root, ctx: BaseContext) => void)[]
   }
 
   withOptions?: boolean

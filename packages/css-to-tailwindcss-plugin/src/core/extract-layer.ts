@@ -1,8 +1,9 @@
 import { type PluginCreator } from 'postcss'
-import type { IContext, NodeMapKeys } from './context'
-import { layerNodesKeys, markedLayerKey } from '@/constants'
+import type { BaseContext } from './base-context'
+
+import { LayerEnumType, layerNodesKeys, markedLayerKey } from '@/constants'
 export interface SharedOptions {
-  ctx: IContext
+  ctx: BaseContext
 }
 
 const atRulesNameFilter = 'twlayer'
@@ -26,8 +27,8 @@ export const markLayerPlugin: PluginCreator<SharedOptions> = (options) => {
     postcssPlugin: 'postcss-css-to-tailwindcss-plugin-mark-layer-plugin',
     Once(root) {
       root.walkAtRules(atRulesNameFilter, (rule) => {
-        if (layerNodesKeys.includes(rule.params)) {
-          const layerName = rule.params as NodeMapKeys
+        if (layerNodesKeys.includes(rule.params as LayerEnumType)) {
+          const layerName = rule.params
           for (const node of rule.nodes) {
             Object.defineProperty(node, markedLayerKey, {
               value: layerName,
@@ -42,13 +43,13 @@ export const markLayerPlugin: PluginCreator<SharedOptions> = (options) => {
           rule.remove()
         }
       })
-      if (ctx.options.outSideLayerCss !== undefined) {
+      if (ctx.options?.outSideLayerCss !== undefined) {
         root.walkRules((rule) => {
           // @ts-ignore
           const layerName = rule[markedLayerKey]
           if (!layerName) {
             Object.defineProperty(rule, markedLayerKey, {
-              value: ctx.options.outSideLayerCss,
+              value: ctx.options?.outSideLayerCss,
               enumerable: false,
               configurable: true
             })

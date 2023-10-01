@@ -1,0 +1,14 @@
+{
+  "index": {
+    "title": "主页",
+    "type": "page"
+  },
+  "components": {
+    "title": "组件",
+    "type": "page"
+  },
+  "playground": {
+    "title": "尝试一下",
+    "type": "page"
+  }
+}

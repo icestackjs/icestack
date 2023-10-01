@@ -2,58 +2,27 @@
 import fs from 'node:fs/promises'
 import fss from 'node:fs'
 import path from 'node:path'
-import type { AcceptedPlugin, Node } from 'postcss'
+import type { AcceptedPlugin } from 'postcss'
 import postcss from 'postcss'
 import atImport from 'postcss-import'
 import { extractLayerPlugin, markLayerPlugin, atRulesRenamePlugin } from './extract-layer'
-import { isExtSassFile, sassCompile, sassCompileSync } from './sass'
-import { createGenerator } from './generator'
+import { isExtSassFile, sassCompile, sassCompileSync, sassCompileString } from './sass'
+import { BaseContext } from './base-context'
 import { IProcessOptions } from '@/types'
 import { getOptions } from '@/options'
-import { LayerEnumType } from '@/constants'
 
 export function createContext(opts?: IProcessOptions) {
+  const ctx = new BaseContext()
+
   const options = getOptions(opts)
-  const layersMap = new Map<LayerEnumType, Node[]>()
-
-  function resetLayersMap() {
-    layersMap.set('base', [])
-    layersMap.set('components', [])
-    layersMap.set('utilities', [])
-  }
-
-  resetLayersMap()
-
-  function getNodes(key: LayerEnumType) {
-    const arrRef = layersMap.get(key)
-    if (Array.isArray(arrRef)) {
-      return arrRef
-    }
-    const arr: Node[] = []
-    layersMap.set(key, arr)
-    return arr
-  }
-
-  function append(key: LayerEnumType, nodes: Node | Node[]) {
-    const arr = getNodes(key)
-    if (Array.isArray(nodes)) {
-      arr.push(...nodes)
-    } else {
-      arr.push(nodes)
-    }
-  }
-
-  const generator = createGenerator()
+  ctx.options = options
 
   return {
-    options,
-    layersMap,
-    append,
-    getNodes,
+    ctx,
     // not
     getPluginsSync() {
       // const { tailwindcssConfig, tailwindcssResolved } = options
-      const opt = { ctx: this }
+      const opt = { ctx }
       const plugins: AcceptedPlugin[] = [atRulesRenamePlugin(opt)]
       // tailwindcss is an sync plugin and both postcss-import
 
@@ -68,7 +37,7 @@ export function createContext(opts?: IProcessOptions) {
     },
     async getPlugins() {
       const { tailwindcssConfig, tailwindcssResolved } = options
-      const opt = { ctx: this }
+      const opt = { ctx }
       const plugins: AcceptedPlugin[] = [atRulesRenamePlugin(opt)]
       if (tailwindcssResolved && tailwindcssConfig) {
         const { default: tailwindcss } = await import('tailwindcss')
@@ -132,9 +101,19 @@ export function createContext(opts?: IProcessOptions) {
 
       return res
     },
+    async processString(rawCss: string) {
+      const { sassOptions } = options
+      const plugins = await this.getPlugins()
+      const css = await sassCompileString(rawCss, sassOptions)
+      // for more langs support
+      const res = await postcss(plugins).process(css, {
+        from: undefined
+      })
+      return res
+    },
     generate: function () {
       const { generatorOptions } = options
-      return generator.generate(this, generatorOptions)
+      return ctx.generator.generate(ctx, generatorOptions)
     }
   }
 }

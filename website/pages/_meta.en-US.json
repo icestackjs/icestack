@@ -1,0 +1,14 @@
+{
+  "index": {
+    "title": "Home",
+    "type": "page"
+  },
+  "components": {
+    "title": "Components",
+    "type": "page"
+  },
+  "playground": {
+    "title": "Playground",
+    "type": "page"
+  }
+}

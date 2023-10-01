@@ -29,7 +29,11 @@ export function composePlugins(...plugins: PluginsConfig | PluginsConfig[]): Ret
     () => {
       return (api) => {
         for (const p of userPlugins) {
-          p(api)
+          try {
+            p(api)
+          } catch (error) {
+            console.log('[compose-tailwindcss-plugins]', error)
+          }
         }
       }
     },

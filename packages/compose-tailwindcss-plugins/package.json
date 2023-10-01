@@ -1,6 +1,6 @@
 {
   "name": "compose-tailwindcss-plugins",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "compose your tailwindcss plugins into one",
   "exports": {
     ".": {
@@ -49,9 +49,9 @@
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/sonofmagic/icestack/tree/main/packages/css-to-tailwindcss-plugin"
+    "url": "https://github.com/sonofmagic/icestack/tree/main/packages/compose-tailwindcss-plugins"
   },
-  "homepage": "https://github.com/sonofmagic/icestack/tree/main/packages/css-to-tailwindcss-plugin",
+  "homepage": "https://github.com/sonofmagic/icestack/tree/main/packages/compose-tailwindcss-plugins",
   "repository": {
     "type": "git",
     "url": "https://github.com/sonofmagic/icestack"

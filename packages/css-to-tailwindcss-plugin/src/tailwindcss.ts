@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import md5 from 'md5'
 // import type { Config } from 'tailwindcss'
 import type { PluginsConfig } from 'tailwindcss/types/config'
+import { composePlugins } from 'compose-tailwindcss-plugins'
 import { createContext } from './core'
 import { IProcessOptions, TailwindcssPluginOptions } from './types'
 import { ensureDir } from './utils'
@@ -34,7 +35,7 @@ let cached = false
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L784
 
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L784
-export default (opts: TailwindcssPluginOptions): PluginsConfig => {
+export default (opts: TailwindcssPluginOptions) => {
   const options = getOptions(opts)
   const cacheDir = options.cacheDir ?? getDefaultCacheDir()
   ensureDir(cacheDir)
@@ -90,5 +91,5 @@ export default (opts: TailwindcssPluginOptions): PluginsConfig => {
 
   writeCacheIndexFile(hashMap)
   // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L735C38-L735C38
-  return targetPlugins
+  return composePlugins(targetPlugins)
 }

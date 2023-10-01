@@ -34,7 +34,8 @@ export function composePlugins(...plugins: PluginsConfig | PluginsConfig[]): Ret
       }
     },
     () => {
-      return merge.recursive(allConfigs)
+      const config = merge.recursive(true, ...allConfigs)
+      return config
     }
   )
 }

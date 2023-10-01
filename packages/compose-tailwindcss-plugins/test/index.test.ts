@@ -225,4 +225,47 @@ describe('index', () => {
       }
     }
   })
+
+  it('getCss normal', async () => {
+    const raw = [
+      'prose lg:prose-xl',
+      `<select class="px-4 py-3 rounded-full">
+    <!-- ... -->
+  </select>`,
+      '<input type="checkbox" class="rounded text-pink-500" />',
+      `<div class="aspect-w-16 aspect-h-9">
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>`,
+      `<div class="@container">
+    <div class="@lg:text-sky-400">
+      <!-- ... -->
+    </div>
+  </div>`
+    ].join('\n')
+    const { css } = await getCss({
+      content: [
+        {
+          raw
+        }
+      ],
+      plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms'), require('@tailwindcss/aspect-ratio'), require('@tailwindcss/container-queries')],
+      corePlugins: {
+        preflight: false
+      }
+    })
+    expect(css).matchSnapshot()
+
+    const { css: _css } = await getCss({
+      content: [
+        {
+          raw
+        }
+      ],
+      plugins: [composePlugins(require('@tailwindcss/typography'), require('@tailwindcss/forms'), require('@tailwindcss/aspect-ratio'), require('@tailwindcss/container-queries'))],
+      corePlugins: {
+        preflight: false
+      }
+    })
+    expect(css).toBe(_css)
+  })
 })

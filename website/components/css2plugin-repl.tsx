@@ -1,10 +1,10 @@
-import { FC, useCallback, useState, useRef, useEffect } from 'react'
+import { FC, useCallback, useState, useEffect } from 'react'
 import CodeMirror from '@uiw/react-codemirror'
 import { javascript } from '@codemirror/lang-javascript'
 import { css } from '@codemirror/lang-css'
 import { vscodeDark } from '@uiw/codemirror-theme-vscode'
 import { createContext } from 'css-to-tailwindcss-plugin/browser'
-import { debounce } from 'lodash-es'
+// import { debounce } from 'lodash-es'
 const initCss = `@layer base {
   h1 {
     font-size: theme("fontSize.2xl");
@@ -49,7 +49,7 @@ const Repl: FC = () => {
       try {
         const ctx = createContext()
         await ctx.processString(val)
-        const jsCode = ctx.generate(val)
+        const jsCode = ctx.generate()
 
         setJsOutput(jsCode)
       } catch (error) {
@@ -59,7 +59,7 @@ const Repl: FC = () => {
     }
   }, [])
   const onChange = useCallback(
-    async (val, viewUpdate) => {
+    async (val) => {
       await generateJs(val)
       setCss(val)
     },

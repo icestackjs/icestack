@@ -139,6 +139,10 @@ const withOptionsPlugin = plugin.withOptions(
   }
 )
 
+const throwErrorPlugin = plugin(() => {
+  throw new Error('error')
+})
+
 const rawPlugin: PluginCreator = ({ addUtilities }) => {
   addUtilities({
     '.content-auto': {
@@ -224,6 +228,14 @@ describe('index', () => {
         expect(called).toBe(false)
       }
     }
+  })
+
+  it('throw error plugin', () => {
+    const allPlugins = composePlugins(throwErrorPlugin)
+
+    expect(() => {
+      allPlugins?.({})?.handler(api)
+    }).not.toThrow()
   })
 
   it('getCss normal', async () => {

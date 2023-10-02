@@ -4,12 +4,9 @@ import merge from 'merge'
 
 export interface UserDefinedOptions {}
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L736
-
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/util/resolveConfig.js#L237
 
 // type PluginItem = PluginsConfig[number]
-
-// type GetPluginItemType<T> = T extends PluginCreator ? PluginCreator : Exclude<PluginItem, PluginCreator>
 
 export function composePlugins(...plugins: PluginsConfig | PluginsConfig[]): ReturnType<typeof plugin.withOptions> {
   const _plugins = plugins.flat()
@@ -28,12 +25,12 @@ export function composePlugins(...plugins: PluginsConfig | PluginsConfig[]): Ret
   return plugin.withOptions(
     () => {
       return (api) => {
-        for (const p of userPlugins) {
-          try {
+        try {
+          for (const p of userPlugins) {
             p(api)
-          } catch (error) {
-            console.log('[compose-tailwindcss-plugins]', error)
           }
+        } catch (error) {
+          console.log('[compose-tailwindcss-plugins]', error)
         }
       }
     },

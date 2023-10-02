@@ -11,7 +11,10 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
-    "./scss": "./index.scss"
+    "./scss/*": "./dist/assets/scss/*",
+    "./css/*": "./dist/assets/css/*",
+    "./js/*": "./dist/assets/js/*",
+    "./*": "./*"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",

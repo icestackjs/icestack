@@ -280,4 +280,85 @@ describe('index', () => {
     })
     expect(css).toBe(_css)
   })
+
+  it('prefix', async () => {
+    const raw = 'ice-card ice-flex'
+    const { css } = await getCss({
+      content: [
+        {
+          raw
+        }
+      ],
+      corePlugins: {
+        preflight: false
+      }
+    })
+    expect(css).not.toContain('ice-card')
+    expect(css).not.toContain('ice-flex')
+
+    const { css: css0 } = await getCss({
+      prefix: 'ice-',
+      content: [
+        {
+          raw
+        }
+      ],
+      corePlugins: {
+        preflight: false
+      }
+    })
+    expect(css0).not.toContain('ice-card')
+    expect(css0).toContain('ice-flex')
+
+    const { css: css1 } = await getCss({
+      prefix: 'ice-',
+      content: [
+        {
+          raw
+        }
+      ],
+      corePlugins: {
+        preflight: false
+      },
+      plugins: [
+        plugin(({ addComponents }) => {
+          addComponents([
+            {
+              '.card': {
+                padding: '100px'
+              }
+            }
+          ])
+        })
+      ]
+    })
+    expect(css1).toContain('ice-card')
+    expect(css1).toContain('ice-flex')
+
+    const { css: css2 } = await getCss({
+      prefix: 'ice-',
+      content: [
+        {
+          raw: raw + ' ice-tw-card'
+        }
+      ],
+      corePlugins: {
+        preflight: false
+      },
+      plugins: [
+        plugin(({ addComponents }) => {
+          addComponents([
+            {
+              '.tw-card': {
+                padding: '100px'
+              }
+            }
+          ])
+        })
+      ]
+    })
+    expect(css2).not.toContain('ice-card')
+    expect(css2).toContain('ice-tw-card')
+    expect(css2).toContain('ice-flex')
+  })
 })

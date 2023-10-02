@@ -25,7 +25,7 @@ const initCss = `@layer base {
 
 @layer utilities {
   .content-auto {
-    content-visibility: "auto";
+    content-visibility: auto;
   }
 }
 /* this will be abandoned unless you set the \`outSideLayerCss\` option */

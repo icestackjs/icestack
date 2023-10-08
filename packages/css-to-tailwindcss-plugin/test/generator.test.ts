@@ -1,7 +1,8 @@
 import postcss from 'postcss'
+import * as t from '@babel/types'
 import { fixturesResolve, defaultTailwindConfig, getTwCtx } from './utils'
 import { createContext } from '@/core'
-import { unwrapThemeFunctionArg } from '@/core/generator'
+import { unwrapThemeFunctionArg, makeObjectExpression, babelGenerate } from '@/core/generator'
 describe('generator', () => {
   let ctx: ReturnType<typeof createContext>
   let twCtx: ReturnType<typeof createContext>
@@ -202,5 +203,11 @@ describe('generator', () => {
   it('double-bug', async () => {
     await ctx.process(fixturesResolve('double-bug.css'))
     expect(ctx.generate()).toMatchSnapshot()
+  })
+
+  it('makeObjectExpression case 0', async () => {
+    await ctx.process(fixturesResolve('common.scss'))
+
+    expect(babelGenerate(t.objectExpression(makeObjectExpression(ctx.ctx.getNodes('base')))).code).toMatchSnapshot()
   })
 })

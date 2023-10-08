@@ -19,7 +19,9 @@ export function createContext(opts?: IProcessOptions) {
 
   return {
     ctx,
-    // not
+    /**
+     * @description Not recommended
+     */
     getPluginsSync() {
       // const { tailwindcssConfig, tailwindcssResolved } = options
       const opt = { ctx }
@@ -71,11 +73,16 @@ export function createContext(opts?: IProcessOptions) {
         atImportOptions.root = path.dirname(entry)
         plugins.unshift(atImport(atImportOptions))
       }
-      const res = await postcss(plugins).process(css, {
-        from: undefined
-      })
+      const res = await postcss(plugins)
+        .process(css, {
+          from: undefined
+        })
+        .async()
       return res
     },
+    /**
+     * @description Not recommended
+     */
     processSync(entry: string) {
       const { sassOptions } = options
       const plugins = this.getPluginsSync()
@@ -101,14 +108,19 @@ export function createContext(opts?: IProcessOptions) {
 
       return res
     },
+    /**
+     * @description Not recommended
+     */
     async processString(rawCss: string) {
       const { sassOptions } = options
       const plugins = await this.getPlugins()
       const css = await sassCompileString(rawCss, sassOptions)
       // for more langs support
-      const res = await postcss(plugins).process(css, {
-        from: undefined
-      })
+      const res = await postcss(plugins)
+        .process(css, {
+          from: undefined
+        })
+        .async()
       return res
     },
     generate: function () {

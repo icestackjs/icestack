@@ -9,7 +9,7 @@ import type { BaseContext } from './base-context'
 function _interopDefaultCompat(e: any) {
   return e && typeof e === 'object' && 'default' in e ? e.default : e
 }
-const babelGenerate = _interopDefaultCompat(_babelGenerate) as typeof _babelGenerate // (_babelGenerate as any).default as typeof _babelGenerate
+export const babelGenerate = _interopDefaultCompat(_babelGenerate) as typeof _babelGenerate // (_babelGenerate as any).default as typeof _babelGenerate
 // addBase, addComponents, addUtilities, theme, addVariant, config, corePlugins, e, matchComponents, matchUtilities, matchVariant
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L287
 // resolveThemeValue
@@ -47,36 +47,19 @@ function addSuffix(value: string, important: boolean) {
   return value
 }
 
-function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
-  // console.log(nodes)
-  // @apply
-  // theme('colors.white');
+// theme: <TDefaultValue = Config['theme']>(
+//   path?: string,
+//   defaultValue?: TDefaultValue
+// ) => TDefaultValue
 
-  // theme: <TDefaultValue = Config['theme']>(
-  //   path?: string,
-  //   defaultValue?: TDefaultValue
-  // ) => TDefaultValue
+// css
+// https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/evaluateTailwindFunctions.js
 
-  // css
-  // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/evaluateTailwindFunctions.js
-
-  // plugin
-  // https://github.com/tailwindlabs/tailwindcss/blob/master/src/util/createPlugin.js
-  // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L298
-  // resolvePlugins
-  // const rawObj = nodes.reduce<Record<string, Record<string, any>>>((acc, _cur) => {
-  //   if (_cur.type === 'rule') {
-  //     const cur = _cur as Rule
-  //     const selector = cur.selector
-  //     if (acc[selector]) {
-  //       cur.nodes.reduce()
-  //     } else {
-  //       acc[selector] = {}
-  //     }
-  //   }
-  //   return acc
-  // }, {})
-
+// plugin
+// https://github.com/tailwindlabs/tailwindcss/blob/master/src/util/createPlugin.js
+// https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L298
+// resolvePlugins
+export function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
   const res = nodes.reduce<Record<string, t.ObjectProperty[]>>((acc, _cur) => {
     if (_cur.type === 'rule') {
       const cur = _cur as Rule

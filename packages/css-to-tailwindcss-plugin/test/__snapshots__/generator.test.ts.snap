@@ -1234,6 +1234,17 @@ const css2TwPlugin = _plugin(function ({
 module.exports = css2TwPlugin;"
 `;
 
+exports[`generator > makeObjectExpression case 0 1`] = `
+"{
+  \\"h1\\": {
+    \\"font-size\\": theme(\\"fontSize.2xl\\")
+  },
+  \\"h2\\": {
+    \\"font-size\\": theme(\\"fontSize.xl\\")
+  }
+}"
+`;
+
 exports[`generator > repeat css case 0 1`] = `
 "const _plugin = require(\\"tailwindcss/plugin\\");
 const returnSelfNoop = x => x;

@@ -555,7 +555,11 @@ importers:
 
   packages/tailwindcss: {}
 
-  packages/theme-algorithm: {}
+  packages/theme-algorithm:
+    dependencies:
+      '@ctrl/tinycolor':
+        specifier: ^4.0.2
+        version: 4.0.2
 
   packages/ui:
     dependencies:
@@ -2676,6 +2680,11 @@ packages:
     dependencies:
       postcss-selector-parser: 6.0.13
     dev: true
+
+  /@ctrl/tinycolor@4.0.2:
+    resolution: {integrity: sha512-fKQinXE9pJ83J1n+C3rDl2xNLJwfoYNvXLRy5cYZA9hBJJw2q+sbb/AOSNKmLxnTWyNTmy4994dueSwP4opi5g==}
+    engines: {node: '>=14'}
+    dev: false
 
   /@dcloudio/types@3.4.0:
     resolution: {integrity: sha512-xZMK+Su2dRT5h/INOyyqj3kYHzvEcryjk+01ZYcEwa8dqohk6U7ndcQFC/FjRBOHNB01yJWREgnDB5aThVtYjA==}

@@ -11,10 +11,18 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
-    "./scss/*": "./dist/assets/scss/*",
-    "./css/*": "./dist/assets/css/*",
-    "./js/*": "./dist/assets/js/*",
+    "./scss/*": "./assets/scss/*",
+    "./css/*": "./assets/css/*",
+    "./js/*": "./assets/js/*",
     "./*": "./*"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -36,5 +44,10 @@
     "raw": "ts-node --esm scripts/colors.ts"
   },
   "keywords": [],
-  "author": ""
+  "author": "",
+  "dependencies": {
+    "@icestack/css2js": "workspace:^",
+    "compose-tailwindcss-plugins": "workspace:^",
+    "css-to-tailwindcss-plugin": "workspace:^"
+  }
 }

@@ -11,7 +11,7 @@ import chokidar from 'chokidar'
 import { set } from 'lodash'
 import klaw from 'klaw'
 import { composePlugins } from 'compose-tailwindcss-plugins'
-
+import dedent from 'dedent'
 async function ensureDir(p: string) {
   try {
     await fs.access(p)
@@ -124,9 +124,22 @@ async function main() {
       break
     }
     case 'utilities': {
-      for await (const file of klaw(path.resolve(scssDir, 'utilities'))) {
+      const utilitiesPath = path.resolve(scssDir, 'utilities')
+      const basenameArray = []
+      for await (const file of klaw(utilitiesPath)) {
+        if (file.stats.isFile() && /\.scss$/.test(file.path)) {
+          basenameArray.push(path.basename(file.path, '.scss'))
+        }
         await buildScss(file.path, file.stats)
       }
+      const utilitiesJsOutputPath = path.resolve(jsDir, 'utilities')
+      await fs.writeFile(
+        path.resolve(utilitiesJsOutputPath, 'index.js'),
+        dedent`module.exports = {\n${basenameArray.map((x) => {
+          return `"${x}":require("./${x}.js")`
+        })}\n}`
+      )
+
       break
     }
     case 'components': {
@@ -138,12 +151,23 @@ async function main() {
           return require(path.resolve(utilitiesPlugins, x))
         })
       )
+      const basenameArray = []
       for await (const file of klaw(path.resolve(scssDir, 'components'))) {
+        if (file.stats.isFile() && /\.scss$/.test(file.path)) {
+          basenameArray.push(path.basename(file.path, '.scss'))
+        }
         await buildScss(file.path, file.stats, (config) => {
           set(config, 'theme.extend.colors', colors)
           config.plugins = [allInOnePlugin]
         })
       }
+      const componentsJsOutputPath = path.resolve(jsDir, 'components')
+      await fs.writeFile(
+        path.resolve(componentsJsOutputPath, 'index.js'),
+        dedent`module.exports = {\n${basenameArray.map((x) => {
+          return `"${x}":require("./${x}.js")`
+        })}\n}`
+      )
       break
     }
     default: {

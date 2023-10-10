@@ -30,6 +30,7 @@
   },
   "devDependencies": {
     "@babel/standalone": "^7.23.1",
+    "@icestack/ui": "workspace:^",
     "@types/babel__standalone": "^7.1.5",
     "@types/lodash-es": "^4.17.9",
     "@types/node": "^20.8.3",

@@ -12,7 +12,9 @@
       "require": "./dist/index.cjs"
     },
     "./tailwindcss": {
-      "require": "./src/tailwindcss.js"
+      "types": "./dist/tailwindcss.d.ts",
+      "import": "./dist/tailwindcss.mjs",
+      "require": "./dist/tailwindcss.cjs"
     },
     "./scss/*": "./assets/scss/*",
     "./css/*": "./assets/css/*",
@@ -36,7 +38,7 @@
     "assets"
   ],
   "scripts": {
-    "build": "npm run clean && npm run build:base && npm run build:utilities && npm run build:components",
+    "build": "npm run clean && npm run build:base && npm run build:utilities && npm run build:components && unbuild",
     "___": "unbuild",
     "clean": "del assets/{css,js,plugins}",
     "dev": "unbuild --watch",
@@ -63,6 +65,7 @@
   "devDependencies": {
     "@types/klaw": "^3.0.4",
     "@types/lodash": "^4.14.199",
+    "dedent": "^1.5.1",
     "del-cli": "^5.1.0",
     "klaw": "^4.1.0",
     "lodash": "^4.17.21",

@@ -49,6 +49,27 @@
       "request": "launch",
       "type": "node-terminal",
       "cwd": "${workspaceFolder}/packages/ui"
+    },
+    {
+      "command": "npm run build:base",
+      "name": "[UI] build:base",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/packages/ui"
+    },
+    {
+      "command": "npm run build:components",
+      "name": "[UI] build:components",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/packages/ui"
+    },
+    {
+      "command": "npm run build:utilities",
+      "name": "[UI] build:utilities",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/packages/ui"
     }
   ]
 }

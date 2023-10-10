@@ -1,0 +1,16 @@
+.alert {
+  @apply rounded-box text-base-content border-base-200 border p-4;
+
+  &-info {
+    @apply text-info-content border-info/20 bg-info;
+  }
+  &-success {
+    @apply text-success-content border-success/20 bg-success;
+  }
+  &-warning {
+    @apply text-warning-content border-warning/20 bg-warning;
+  }
+  &-error {
+    @apply text-error-content border-error/20 bg-error;
+  }
+}

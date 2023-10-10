@@ -1,0 +1,9 @@
+.join {
+  @apply rounded-btn;
+  & > :where(*:not(:first-child)) {
+    @apply my-0 -ml-px;
+  }
+  &-item:focus {
+    @apply isolate;
+  }
+}

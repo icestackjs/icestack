@@ -1,0 +1,75 @@
+.progress {
+  @apply rounded-box bg-base-content/20 h-2;
+  &::-moz-progress-bar {
+    @apply bg-base-content rounded-box;
+  }
+  &-primary::-moz-progress-bar {
+    @apply bg-primary rounded-box;
+  }
+  &-info::-moz-progress-bar {
+    @apply bg-info rounded-box;
+  }
+  &-success::-moz-progress-bar {
+    @apply bg-success rounded-box;
+  }
+  &-warning::-moz-progress-bar {
+    @apply bg-warning rounded-box;
+  }
+  &-error::-moz-progress-bar {
+    @apply bg-error rounded-box;
+  }
+
+  &::-webkit-progress-bar {
+    @apply rounded-box bg-transparent;
+  }
+  &::-webkit-progress-value {
+    @apply bg-base-content rounded-box;
+  }
+  &-primary::-webkit-progress-value {
+    @apply bg-primary;
+  }
+  &-info::-webkit-progress-value {
+    @apply bg-info;
+  }
+  &-success::-webkit-progress-value {
+    @apply bg-success;
+  }
+  &-warning::-webkit-progress-value {
+    @apply bg-warning;
+  }
+  &-error::-webkit-progress-value {
+    @apply bg-error;
+  }
+}
+
+.progress:indeterminate {
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--progress-color) -1%,
+    var(--progress-color) 10%,
+    transparent 10%,
+    transparent 90%
+  );
+  background-size: 200%;
+  background-position-x: 15%;
+  animation: progress-loading 5s ease-in-out infinite;
+}
+.progress:indeterminate::-moz-progress-bar {
+  @apply bg-transparent;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--progress-color) -1%,
+    var(--progress-color) 10%,
+    transparent 10%,
+    transparent 90%
+  );
+  background-size: 200%;
+  background-position-x: 15%;
+  animation: progress-loading 5s ease-in-out infinite;
+}
+
+@keyframes progress-loading {
+  50% {
+    background-position-x: -115%;
+  }
+}

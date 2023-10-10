@@ -4,7 +4,7 @@ const { colors } = require('./src/colors')
 module.exports = {
   content: [],
   theme: {
-    // colors:{}
+    colors: {},
     extend: {
       colors: {
         ...colors

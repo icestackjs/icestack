@@ -11,6 +11,9 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
+    "./tailwindcss": {
+      "require": "./src/tailwindcss.js"
+    },
     "./scss/*": "./assets/scss/*",
     "./css/*": "./assets/css/*",
     "./js/*": "./assets/js/*",
@@ -33,7 +36,9 @@
     "assets"
   ],
   "scripts": {
-    "build": "npm run build:base && npm run build-scss && unbuild",
+    "build": "npm run clean && npm run build:base && npm run build:utilities && npm run build:components",
+    "___": "unbuild",
+    "clean": "del assets/{css,js,plugins}",
     "dev": "unbuild --watch",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
@@ -43,6 +48,8 @@
     "test:dev": "vitest",
     "build:scss": "ts-node --esm scripts/build-scss.ts",
     "build:base": "ts-node --esm scripts/build-scss.ts base",
+    "build:utilities": "ts-node --esm scripts/build-scss.ts utilities",
+    "build:components": "ts-node --esm scripts/build-scss.ts components",
     "raw": "ts-node --esm scripts/colors.ts",
     "tailwind-config-viewer": "tailwind-config-viewer -o"
   },
@@ -54,10 +61,11 @@
     "css-to-tailwindcss-plugin": "workspace:^"
   },
   "devDependencies": {
+    "@types/klaw": "^3.0.4",
     "@types/lodash": "^4.14.199",
-    "@types/lodash-es": "^4.17.9",
+    "del-cli": "^5.1.0",
+    "klaw": "^4.1.0",
     "lodash": "^4.17.21",
-    "lodash-es": "^4.17.21",
     "tailwind-config-viewer": "^1.7.2"
   }
 }

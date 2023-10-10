@@ -9,6 +9,8 @@ import postcss from 'postcss'
 import tailwindcss, { Config } from 'tailwindcss'
 import chokidar from 'chokidar'
 import { set } from 'lodash'
+import klaw from 'klaw'
+import { composePlugins } from 'compose-tailwindcss-plugins'
 
 async function ensureDir(p: string) {
   try {
@@ -43,7 +45,7 @@ function getPluginsPath(relPath: string) {
 
 const target = process.argv.slice(2)[0]
 
-async function buildScss(p: string, stats?: Stats) {
+async function buildScss(p: string, stats?: Stats, resolveConfig?: (config: Config) => void) {
   if (stats === undefined) {
     stats = await fs.stat(p)
   }
@@ -67,12 +69,8 @@ async function buildScss(p: string, stats?: Stats) {
         preflight: false
       }
     }
-    try {
-      const { colors } = await import('../src/colors')
-      set(config, 'theme.extend.colors', colors)
-    } catch {
-      console.log('no colors')
-    }
+
+    resolveConfig?.(config)
 
     // console.log(thisPluginDir)
     const outSideLayerCss = path.basename(thisPluginDir)
@@ -117,28 +115,58 @@ async function main() {
   await ensureDir(jsDir)
   await ensureDir(cssDir)
   await ensureDir(pluginsDir)
-  if (target === 'base') {
-    await buildScss(path.resolve(scssDir, 'base/index.scss'))
-  } else {
-    chokidar
-      .watch(scssDir, {
-        alwaysStat: true
-      })
-      .on('add', async (p, stats) => {
-        console.log(`building: ${p}`)
-        await buildScss(p, stats)
-      })
-      .on('change', async (p, stats) => {
-        console.log(`building: ${p}`)
-        await buildScss(p, stats)
-      })
-      .on('unlink', async (p: string) => {
-        const relPath = path.relative(scssDir, p)
-        const cssPath = getCssPath(relPath)
-        const jsPath = getJsPath(relPath)
-        await fs.unlink(cssPath)
-        await fs.unlink(jsPath)
-      })
+  switch (target) {
+    case 'base': {
+      for await (const file of klaw(path.resolve(scssDir, 'base'))) {
+        await buildScss(file.path, file.stats)
+      }
+
+      break
+    }
+    case 'utilities': {
+      for await (const file of klaw(path.resolve(scssDir, 'utilities'))) {
+        await buildScss(file.path, file.stats)
+      }
+      break
+    }
+    case 'components': {
+      const { colors } = await import('../src/colors')
+      const utilitiesPlugins = path.resolve(pluginsDir, 'utilities')
+      const filenames = await fs.readdir(utilitiesPlugins)
+      const allInOnePlugin = composePlugins(
+        filenames.map((x) => {
+          return require(path.resolve(utilitiesPlugins, x))
+        })
+      )
+      for await (const file of klaw(path.resolve(scssDir, 'components'))) {
+        await buildScss(file.path, file.stats, (config) => {
+          set(config, 'theme.extend.colors', colors)
+          config.plugins = [allInOnePlugin]
+        })
+      }
+      break
+    }
+    default: {
+      chokidar
+        .watch(scssDir, {
+          alwaysStat: true
+        })
+        .on('add', async (p, stats) => {
+          console.log(`building: ${p}`)
+          await buildScss(p, stats)
+        })
+        .on('change', async (p, stats) => {
+          console.log(`building: ${p}`)
+          await buildScss(p, stats)
+        })
+        .on('unlink', async (p: string) => {
+          const relPath = path.relative(scssDir, p)
+          const cssPath = getCssPath(relPath)
+          const jsPath = getJsPath(relPath)
+          await fs.unlink(cssPath)
+          await fs.unlink(jsPath)
+        })
+    }
   }
 }
 

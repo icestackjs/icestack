@@ -245,7 +245,7 @@ importers:
         version: 3.6.17(@babel/core@7.23.0)(eslint@8.51.0)(typescript@5.2.2)
       eslint-plugin-import:
         specifier: ^2.28.1
-        version: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.6.1)(eslint@8.51.0)
+        version: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.5.5)(eslint@8.51.0)
       eslint-plugin-react:
         specifier: ^7.33.2
         version: 7.33.2(eslint@8.51.0)
@@ -396,7 +396,7 @@ importers:
         version: 17.1.0(eslint-plugin-import@2.28.1)(eslint-plugin-n@16.1.0)(eslint-plugin-promise@6.1.1)(eslint@8.51.0)
       eslint-plugin-import:
         specifier: 2.28.1
-        version: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.6.1)(eslint@8.51.0)
+        version: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.5.5)(eslint@8.51.0)
       eslint-plugin-jest:
         specifier: ^27.4.2
         version: 27.4.2(@typescript-eslint/eslint-plugin@6.7.4)(eslint@8.51.0)(jest@27.0.4)(typescript@5.2.2)
@@ -573,16 +573,19 @@ importers:
         specifier: workspace:^
         version: link:../css-to-tailwindcss-plugin
     devDependencies:
+      '@types/klaw':
+        specifier: ^3.0.4
+        version: 3.0.4
       '@types/lodash':
         specifier: ^4.14.199
         version: 4.14.199
-      '@types/lodash-es':
-        specifier: ^4.17.9
-        version: 4.17.9
+      del-cli:
+        specifier: ^5.1.0
+        version: 5.1.0
+      klaw:
+        specifier: ^4.1.0
+        version: 4.1.0
       lodash:
-        specifier: ^4.17.21
-        version: 4.17.21
-      lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
       tailwind-config-viewer:
@@ -11399,6 +11402,15 @@ packages:
     resolution: {integrity: sha512-+uO4+qr7msjNNWKYPHqN/3+Dx3NFkmIzayk2L1MyZQlvgZb/J1A0fo410dpKrN2SnqFjt8n4JL8fDJE0wIgjFQ==}
     dev: true
 
+  /del-cli@5.1.0:
+    resolution: {integrity: sha512-xwMeh2acluWeccsfzE7VLsG3yTr7nWikbfw+xhMnpRrF15pGSkw+3/vJZWlGoE4I86UiLRNHicmKt4tkIX9Jtg==}
+    engines: {node: '>=14.16'}
+    hasBin: true
+    dependencies:
+      del: 7.1.0
+      meow: 10.1.5
+    dev: true
+
   /del@7.1.0:
     resolution: {integrity: sha512-v2KyNk7efxhlyHpjEvfyxaAihKKK0nWCuf6ZtqZcFFpQRG0bJ12Qsr0RpvsICMjAAZ8DOVCxrlqpxISlMHC4Kg==}
     engines: {node: '>=14.16'}
@@ -12368,7 +12380,7 @@ packages:
       eslint-config-prettier: 8.10.0(eslint@8.51.0)
       eslint-config-standard: 17.1.0(eslint-plugin-import@2.28.1)(eslint-plugin-n@16.1.0)(eslint-plugin-promise@6.1.1)(eslint@8.51.0)
       eslint-import-resolver-typescript: 3.5.5(@typescript-eslint/parser@6.7.4)(eslint-plugin-import@2.28.1)(eslint@8.51.0)
-      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.6.1)(eslint@8.51.0)
+      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.5.5)(eslint@8.51.0)
       eslint-plugin-n: 16.1.0(eslint@8.51.0)
       eslint-plugin-node: 11.1.0(eslint@8.51.0)
       eslint-plugin-promise: 6.1.1(eslint@8.51.0)
@@ -12395,7 +12407,7 @@ packages:
       eslint: 8.51.0
       eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-node@0.3.9)(eslint-plugin-import@2.28.1)(eslint@8.51.0)
-      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.6.1)(eslint@8.51.0)
+      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.5.5)(eslint@8.51.0)
       eslint-plugin-jsx-a11y: 6.7.1(eslint@8.51.0)
       eslint-plugin-react: 7.33.2(eslint@8.51.0)
       eslint-plugin-react-hooks: 4.6.0(eslint@8.51.0)
@@ -12433,7 +12445,7 @@ packages:
       eslint-plugin-promise: ^6.0.0
     dependencies:
       eslint: 8.51.0
-      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.6.1)(eslint@8.51.0)
+      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.5.5)(eslint@8.51.0)
       eslint-plugin-n: 16.1.0(eslint@8.51.0)
       eslint-plugin-promise: 6.1.1(eslint@8.51.0)
     dev: true
@@ -12473,7 +12485,7 @@ packages:
       enhanced-resolve: 5.15.0
       eslint: 8.51.0
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.5.5)(eslint@8.51.0)
-      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.6.1)(eslint@8.51.0)
+      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.5.5)(eslint@8.51.0)
       get-tsconfig: 4.7.2
       globby: 13.2.2
       is-core-module: 2.13.0
@@ -12497,7 +12509,7 @@ packages:
       enhanced-resolve: 5.15.0
       eslint: 8.51.0
       eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.51.0)
-      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.6.1)(eslint@8.51.0)
+      eslint-plugin-import: 2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.5.5)(eslint@8.51.0)
       fast-glob: 3.3.1
       get-tsconfig: 4.7.2
       is-core-module: 2.13.0
@@ -12591,7 +12603,7 @@ packages:
       regexpp: 3.2.0
     dev: true
 
-  /eslint-plugin-import@2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.6.1)(eslint@8.51.0):
+  /eslint-plugin-import@2.28.1(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-typescript@3.5.5)(eslint@8.51.0):
     resolution: {integrity: sha512-9I9hFlITvOV55alzoKBI+K9q74kv0iKMeY6av5+umsNwayt59fz692daGyjR+oStBQgx6nwR9rXldDev3Clw+A==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -12610,7 +12622,7 @@ packages:
       doctrine: 2.1.0
       eslint: 8.51.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.51.0)
+      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.7.4)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.5.5)(eslint@8.51.0)
       has: 1.0.3
       is-core-module: 2.13.0
       is-glob: 4.0.3
@@ -17037,7 +17049,7 @@ packages:
     resolution: {integrity: sha512-/d+PQ4GKmGvM9Bee/DPa8z3mXs/pkvJE2KEThngVNOqtmljC6K7NMPxtc2JeZYTmpWb9k/TmxjeL18ez3h7vCw==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
-      '@types/minimist': 1.2.2
+      '@types/minimist': 1.2.3
       camelcase-keys: 7.0.2
       decamelize: 5.0.1
       decamelize-keys: 1.1.1

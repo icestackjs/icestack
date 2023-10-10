@@ -1,0 +1,27 @@
+.link {
+  &-primary {
+    @apply text-primary [@media(hover:hover)]:hover:text-primary-focus;
+  }
+  &-neutral {
+    @apply text-neutral [@media(hover:hover)]:hover:text-neutral-focus;
+  }
+  &-success {
+    @apply text-success [@media(hover:hover)]:hover:text-success;
+  }
+  &-info {
+    @apply text-info [@media(hover:hover)]:hover:text-info;
+  }
+  &-warning {
+    @apply text-warning [@media(hover:hover)]:hover:text-warning;
+  }
+  &-error {
+    @apply text-error [@media(hover:hover)]:hover:text-error;
+  }
+  &:focus {
+    @apply outline-none;
+  }
+  &:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+}

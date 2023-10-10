@@ -1,14 +1,14 @@
 @use "../utils/index.scss" as Util;
-@use "../colors.scss" as Colors;
+@use "../vars.scss" as V;
 
 :root {
-  @each $var, $color in Colors.$root-vars {
+  @each $var, $color in V.$root-vars {
     #{$var}: Util.getRgbaString($color);
   }
 }
 
-[data-theme="dark"] {
-  @each $var, $color in Colors.$dark-root-vars {
-    #{$var}: Util.getRgbaString($color);
-  }
-}
+// [data-theme="dark"] {
+//   @each $var, $color in V.$dark-root-vars {
+//     #{$var}: Util.getRgbaString($color);
+//   }
+// }

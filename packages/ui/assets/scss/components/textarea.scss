@@ -1,0 +1,51 @@
+.textarea {
+  @apply border-base-content bg-base-100 rounded-btn border border-opacity-0;
+  &-bordered {
+    @apply border-opacity-20;
+  }
+  &:focus {
+    @apply outline-base-content/20 outline outline-2 outline-offset-2;
+  }
+  &-ghost {
+    @apply bg-opacity-5;
+    &:focus {
+      @apply text-base-content bg-opacity-100;
+      box-shadow: none;
+    }
+  }
+  &-primary {
+    @apply border-primary;
+    &:focus {
+      @apply outline-primary;
+    }
+  }
+  &-info {
+    @apply border-info;
+    &:focus {
+      @apply outline-info;
+    }
+  }
+  &-success {
+    @apply border-success;
+    &:focus {
+      @apply outline-success;
+    }
+  }
+  &-warning {
+    @apply border-warning;
+    &:focus {
+      @apply outline-warning;
+    }
+  }
+  &-error {
+    @apply border-error;
+    &:focus {
+      @apply outline-error;
+    }
+  }
+  &-disabled,
+  &:disabled,
+  &[disabled] {
+    @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
+  }
+}

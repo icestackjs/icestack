@@ -7,20 +7,12 @@ import { compileString } from '@icestack/css2js'
 import { createContext } from 'css-to-tailwindcss-plugin'
 import postcss from 'postcss'
 import tailwindcss, { Config } from 'tailwindcss'
-import chokidar from 'chokidar'
+// import chokidar from 'chokidar'
 import { set } from 'lodash'
 import klaw from 'klaw'
 import { composePlugins } from 'compose-tailwindcss-plugins'
 import dedent from 'dedent'
-async function ensureDir(p: string) {
-  try {
-    await fs.access(p)
-  } catch {
-    await fs.mkdir(p, {
-      recursive: true
-    })
-  }
-}
+import { ensureDir } from './util'
 
 const assetsDir = path.resolve(__dirname, '../assets')
 const scssDir = path.resolve(assetsDir, 'scss')
@@ -43,16 +35,22 @@ function getPluginsPath(relPath: string) {
   return jsPath.replace(/scss$/, 'js')
 }
 
-const target = process.argv.slice(2)[0]
+const outSideLayerCss = process.argv.slice(2)[0]
 
-async function buildScss(p: string, stats?: Stats, resolveConfig?: (config: Config) => void) {
-  if (stats === undefined) {
-    stats = await fs.stat(p)
-  }
-  if (stats && stats.isFile() && /\.scss$/.test(p)) {
-    const result = sass.compile(p)
-    // console.log(result)
-    const relPath = path.relative(scssDir, p)
+interface IBuildScssOptions {
+  filename: string
+  stats?: Stats
+  resolveConfig?: (config: Config) => void
+  outSideLayerCss: 'base' | 'components' | 'utilities'
+}
+
+async function buildScss(options: IBuildScssOptions) {
+  const { filename, outSideLayerCss, resolveConfig, stats = await fs.stat(filename) } = options
+
+  if (stats && stats.isFile() && /\.scss$/.test(filename)) {
+    const result = sass.compile(filename)
+
+    const relPath = path.relative(scssDir, filename)
     const cssPath = getCssPath(relPath)
     const jsPath = getJsPath(relPath)
     const pluginPath = getPluginsPath(relPath)
@@ -72,15 +70,13 @@ async function buildScss(p: string, stats?: Stats, resolveConfig?: (config: Conf
 
     resolveConfig?.(config)
 
-    // console.log(thisPluginDir)
-    const outSideLayerCss = path.basename(thisPluginDir)
     if (['base', 'components', 'utilities'].includes(outSideLayerCss)) {
       const ctx = createContext({
         tailwindcssConfig: config,
         tailwindcssResolved: true,
-        outSideLayerCss: outSideLayerCss as 'base' | 'components' | 'utilities'
+        outSideLayerCss
       })
-      await ctx.process(p)
+      await ctx.process(filename)
       const code = ctx.generate()
       // scss -> plugin
       await fs.writeFile(pluginPath, code, 'utf8')
@@ -115,10 +111,14 @@ async function main() {
   await ensureDir(jsDir)
   await ensureDir(cssDir)
   await ensureDir(pluginsDir)
-  switch (target) {
+  switch (outSideLayerCss) {
     case 'base': {
       for await (const file of klaw(path.resolve(scssDir, 'base'))) {
-        await buildScss(file.path, file.stats)
+        await buildScss({
+          filename: file.path,
+          stats: file.stats,
+          outSideLayerCss
+        })
       }
 
       break
@@ -130,7 +130,11 @@ async function main() {
         if (file.stats.isFile() && /\.scss$/.test(file.path)) {
           basenameArray.push(path.basename(file.path, '.scss'))
         }
-        await buildScss(file.path, file.stats)
+        await buildScss({
+          filename: file.path,
+          stats: file.stats,
+          outSideLayerCss
+        })
       }
       const utilitiesJsOutputPath = path.resolve(jsDir, 'utilities')
       await fs.writeFile(
@@ -156,9 +160,14 @@ async function main() {
         if (file.stats.isFile() && /\.scss$/.test(file.path)) {
           basenameArray.push(path.basename(file.path, '.scss'))
         }
-        await buildScss(file.path, file.stats, (config) => {
-          set(config, 'theme.extend.colors', colors)
-          config.plugins = [allInOnePlugin]
+        await buildScss({
+          filename: file.path,
+          stats: file.stats,
+          resolveConfig: (config) => {
+            set(config, 'theme.extend.colors', colors)
+            config.plugins = [allInOnePlugin]
+          },
+          outSideLayerCss
         })
       }
       const componentsJsOutputPath = path.resolve(jsDir, 'components')
@@ -170,27 +179,26 @@ async function main() {
       )
       break
     }
-    default: {
-      chokidar
-        .watch(scssDir, {
-          alwaysStat: true
-        })
-        .on('add', async (p, stats) => {
-          console.log(`building: ${p}`)
-          await buildScss(p, stats)
-        })
-        .on('change', async (p, stats) => {
-          console.log(`building: ${p}`)
-          await buildScss(p, stats)
-        })
-        .on('unlink', async (p: string) => {
-          const relPath = path.relative(scssDir, p)
-          const cssPath = getCssPath(relPath)
-          const jsPath = getJsPath(relPath)
-          await fs.unlink(cssPath)
-          await fs.unlink(jsPath)
-        })
-    }
+    default:
+    // chokidar
+    //   .watch(scssDir, {
+    //     alwaysStat: true
+    //   })
+    //   .on('add', async (p, stats) => {
+    //     console.log(`building: ${p}`)
+    //     await buildScss(p, stats)
+    //   })
+    //   .on('change', async (p, stats) => {
+    //     console.log(`building: ${p}`)
+    //     await buildScss(p, stats)
+    //   })
+    //   .on('unlink', async (p: string) => {
+    //     const relPath = path.relative(scssDir, p)
+    //     const cssPath = getCssPath(relPath)
+    //     const jsPath = getJsPath(relPath)
+    //     await fs.unlink(cssPath)
+    //     await fs.unlink(jsPath)
+    //   })
   }
 }
 

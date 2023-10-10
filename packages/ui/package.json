@@ -62,13 +62,5 @@
     "compose-tailwindcss-plugins": "workspace:^",
     "css-to-tailwindcss-plugin": "workspace:^"
   },
-  "devDependencies": {
-    "@types/klaw": "^3.0.4",
-    "@types/lodash": "^4.14.199",
-    "dedent": "^1.5.1",
-    "del-cli": "^5.1.0",
-    "klaw": "^4.1.0",
-    "lodash": "^4.17.21",
-    "tailwind-config-viewer": "^1.7.2"
-  }
+  "devDependencies": {}
 }

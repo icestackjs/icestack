@@ -9,7 +9,8 @@ const colors = {
   current: 'currentColor',
   ...Object.entries(base[':root']).reduce((acc, [key, value]) => {
     // remove -- var prefix
-    const varName = key.slice(2)
+    // "ice-"
+    const varName = key.slice('--ice-'.length)
     acc[varName] = isRgba(value) ? `rgba(var(${key}))` : `rgba(var(${key}) / <alpha-value>)`
 
     return acc

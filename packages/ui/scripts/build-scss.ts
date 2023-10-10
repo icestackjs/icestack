@@ -156,9 +156,10 @@ async function main() {
         })
       )
       const basenameArray = []
-      for await (const file of klaw(path.resolve(scssDir, 'components'))) {
+      const fromDir = path.resolve(scssDir, 'components')
+      for await (const file of klaw(fromDir)) {
         if (file.stats.isFile() && /\.scss$/.test(file.path)) {
-          basenameArray.push(path.basename(file.path, '.scss'))
+          basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
         }
         await buildScss({
           filename: file.path,

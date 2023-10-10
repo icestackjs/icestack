@@ -3,6 +3,7 @@ const base = require('../assets/js/base/index.js')
 const components = require('../assets/js/components/index.js')
 const utilities = require('../assets/js/utilities/index.js')
 const { colors } = require('./colors.js')
+
 module.exports = plugin.withOptions(
   function () {
     return function ({ addBase, addComponents, addUtilities }) {

@@ -12,6 +12,8 @@ import { set } from 'lodash'
 import klaw from 'klaw'
 import { composePlugins } from 'compose-tailwindcss-plugins'
 import dedent from 'dedent'
+import { Value } from 'sass'
+import { defaultVarPrefix } from '../src/constants'
 import { ensureDir } from './util'
 
 const assetsDir = path.resolve(__dirname, '../assets')
@@ -44,11 +46,21 @@ interface IBuildScssOptions {
   outSideLayerCss: 'base' | 'components' | 'utilities'
 }
 
+const sassOptions = {
+  functions: {
+    'addVarPrefix($varName)': (args: Value[]) => {
+      const varName = args[0].assertString('varName')
+
+      return new sass.SassString(defaultVarPrefix + varName.toString())
+    }
+  }
+}
+
 async function buildScss(options: IBuildScssOptions) {
   const { filename, outSideLayerCss, resolveConfig, stats = await fs.stat(filename) } = options
 
   if (stats && stats.isFile() && /\.scss$/.test(filename)) {
-    const result = sass.compile(filename)
+    const result = sass.compile(filename, sassOptions)
 
     const relPath = path.relative(scssDir, filename)
     const cssPath = getCssPath(relPath)
@@ -70,17 +82,16 @@ async function buildScss(options: IBuildScssOptions) {
 
     resolveConfig?.(config)
 
-    if (['base', 'components', 'utilities'].includes(outSideLayerCss)) {
-      const ctx = createContext({
-        tailwindcssConfig: config,
-        tailwindcssResolved: true,
-        outSideLayerCss
-      })
-      await ctx.process(filename)
-      const code = ctx.generate()
-      // scss -> plugin
-      await fs.writeFile(pluginPath, code, 'utf8')
-    }
+    const ctx = createContext({
+      tailwindcssConfig: config,
+      tailwindcssResolved: true,
+      outSideLayerCss,
+      sassOptions
+    })
+    await ctx.process(filename)
+    const code = ctx.generate()
+    // scss -> plugin
+    await fs.writeFile(pluginPath, code, 'utf8')
 
     // scss -> css
     await fs.writeFile(cssPath, result.css, 'utf8')

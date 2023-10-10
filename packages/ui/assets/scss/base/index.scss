@@ -1,11 +1,10 @@
 @use "../utils/index.scss" as Util;
 @use "../vars.scss" as V;
 
-$prefix: "ice-";
-
 :root {
   @each $var, $color in V.$root-vars {
-    --#{$prefix}#{$var}: #{Util.getRgbaString($color)};
+    $prefix: addVarPrefix(#{$var});
+    #{$prefix}: #{Util.getRgbaString($color)};
   }
 }
 

@@ -33,7 +33,7 @@
     "assets"
   ],
   "scripts": {
-    "build": "npm run build-scss && unbuild",
+    "build": "npm run build:base && npm run build-scss && unbuild",
     "dev": "unbuild --watch",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
@@ -41,8 +41,10 @@
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "vitest run",
     "test:dev": "vitest",
-    "build-scss": "ts-node --esm scripts/build-scss.ts",
-    "raw": "ts-node --esm scripts/colors.ts"
+    "build:scss": "ts-node --esm scripts/build-scss.ts",
+    "build:base": "ts-node --esm scripts/build-scss.ts base",
+    "raw": "ts-node --esm scripts/colors.ts",
+    "tailwind-config-viewer": "tailwind-config-viewer -o"
   },
   "keywords": [],
   "author": "",
@@ -50,5 +52,12 @@
     "@icestack/css2js": "workspace:^",
     "compose-tailwindcss-plugins": "workspace:^",
     "css-to-tailwindcss-plugin": "workspace:^"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.199",
+    "@types/lodash-es": "^4.17.9",
+    "lodash": "^4.17.21",
+    "lodash-es": "^4.17.21",
+    "tailwind-config-viewer": "^1.7.2"
   }
 }

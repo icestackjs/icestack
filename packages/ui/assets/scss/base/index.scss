@@ -3,6 +3,12 @@
 
 :root {
   @each $var, $color in Colors.$root-vars {
-    #{$var}: Util.getRgbString($color);
+    #{$var}: Util.getRgbaString($color);
+  }
+}
+
+[data-theme="dark"] {
+  @each $var, $color in Colors.$dark-root-vars {
+    #{$var}: Util.getRgbaString($color);
   }
 }

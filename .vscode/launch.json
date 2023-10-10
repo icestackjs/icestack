@@ -44,8 +44,8 @@
       "cwd": "${workspaceFolder}/packages/ui"
     },
     {
-      "command": "npm run build-scss",
-      "name": "[UI] build-scss",
+      "command": "npm run build:scss",
+      "name": "[UI] build:scss",
       "request": "launch",
       "type": "node-terminal",
       "cwd": "${workspaceFolder}/packages/ui"

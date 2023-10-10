@@ -1,10 +1,16 @@
 @use "sass:color";
 @use "sass:meta";
-
+@use "sass:math";
 // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb()
 @function getRgbaString($color) {
   @if (meta.type-of($color) == color) {
-    @return #{color.red($color) color.green($color) color.blue($color) / color.alpha($color)};
+    $alpha: color.alpha($color);
+    
+    @if ($alpha == 1 or $alpha == 0) {
+      @return #{color.red($color) color.green($color) color.blue($color)};
+    } @else {
+      @return #{color.red($color) color.green($color) color.blue($color) "/" color.alpha($color)};
+    }
   } @else {
     @return $color;
   }

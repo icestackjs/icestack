@@ -51,4 +51,24 @@ describe('tailwindcss', () => {
     expect(entries).toBeTruthy()
     // expect(entries).toMatchSnapshot('common')
   })
+
+  it('utilitiesEntries', () => {
+    const utilitiesEntries = Object.entries(
+      groupBy(Object.entries(utilities), ([name]) => {
+        let com = name
+        if (com.includes('/')) {
+          com = name.split('/')[1]
+        }
+        return com
+      })
+    ).map(([key, arr]) => {
+      return [key, arr.map((x) => x[1])]
+    })
+
+    for (const [name, u] of utilitiesEntries) {
+      if (Array.isArray(u)) {
+        expect(merge.recursive(true, ...u)).toMatchSnapshot()
+      }
+    }
+  })
 })

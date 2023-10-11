@@ -154,19 +154,54 @@ async function main() {
       break
     }
     case 'utilities': {
+      const { colors } = await import('../src/colors')
       const utilitiesPath = path.resolve(scssDir, 'utilities')
       const basenameArray = []
+      const fromDir = path.resolve(scssDir, 'utilities')
+      const utilitiesJsOutputPath = path.resolve(jsDir, 'utilities')
+      for await (const file of klaw(path.resolve(utilitiesPath, 'global'))) {
+        if (file.stats.isFile() && /\.scss$/.test(file.path)) {
+          basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
+          await buildScss({
+            filename: file.path,
+            stats: file.stats,
+            outSideLayerCss,
+            resolveConfig(config) {
+              set(config, 'theme.extend.colors', colors)
+            }
+          })
+        }
+      }
+      await fs.writeFile(
+        path.resolve(utilitiesJsOutputPath, 'index.js'),
+        dedent`module.exports = {\n${basenameArray.map((x) => {
+          return `"${x}":require("./${x}.js")`
+        })}\n}`
+      )
+      basenameArray.length = 0
+      const utilitiesPlugins = path.resolve(pluginsDir, 'utilities')
+      const globalUtilitiesPlugins = path.resolve(utilitiesPlugins, 'global')
+      const filenames = await fs.readdir(globalUtilitiesPlugins)
+      const allInOnePlugin = composePlugins(
+        filenames.map((x) => {
+          return require(path.resolve(globalUtilitiesPlugins, x))
+        })
+      )
       for await (const file of klaw(utilitiesPath)) {
         if (file.stats.isFile() && /\.scss$/.test(file.path)) {
-          basenameArray.push(path.basename(file.path, '.scss'))
+          basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
+          await buildScss({
+            filename: file.path,
+            stats: file.stats,
+            outSideLayerCss,
+            resolveConfig(config) {
+              set(config, 'theme.extend.colors', colors)
+              config.plugins = [allInOnePlugin]
+            }
+          })
         }
-        await buildScss({
-          filename: file.path,
-          stats: file.stats,
-          outSideLayerCss
-        })
       }
-      const utilitiesJsOutputPath = path.resolve(jsDir, 'utilities')
+
       await fs.writeFile(
         path.resolve(utilitiesJsOutputPath, 'index.js'),
         dedent`module.exports = {\n${basenameArray.map((x) => {
@@ -179,10 +214,11 @@ async function main() {
     case 'components': {
       const { colors } = await import('../src/colors')
       const utilitiesPlugins = path.resolve(pluginsDir, 'utilities')
-      const filenames = await fs.readdir(utilitiesPlugins)
+      const globalUtilitiesPlugins = path.resolve(utilitiesPlugins, 'global')
+      const filenames = await fs.readdir(globalUtilitiesPlugins)
       const allInOnePlugin = composePlugins(
         filenames.map((x) => {
-          return require(path.resolve(utilitiesPlugins, x))
+          return require(path.resolve(globalUtilitiesPlugins, x))
         })
       )
       const basenameArray = []

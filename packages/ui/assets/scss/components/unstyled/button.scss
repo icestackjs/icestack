@@ -20,17 +20,6 @@
   }
 }
 
-/* group */
-.btn-group {
-  @apply inline-flex;
-  & > input[type="radio"].btn {
-    @apply appearance-none;
-  }
-  & > input[type="radio"].btn:before {
-    content: attr(data-title);
-  }
-}
-
 /* radio input and checkbox as button */
 .btn:is(input[type="checkbox"]),
 .btn:is(input[type="radio"]) {

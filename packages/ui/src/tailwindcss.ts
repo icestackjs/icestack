@@ -27,8 +27,23 @@ export default plugin.withOptions(
           addComponents(merge.recursive(true, ...c))
         }
       }
-      for (const [name, utility] of Object.entries(utilities)) {
-        addUtilities(utility)
+
+      const utilitiesEntries = Object.entries(
+        groupBy(Object.entries(utilities), ([name]) => {
+          let com = name
+          if (com.includes('/')) {
+            com = name.split('/')[1]
+          }
+          return com
+        })
+      ).map(([key, arr]) => {
+        return [key, arr.map((x) => x[1])]
+      })
+
+      for (const [name, u] of utilitiesEntries) {
+        if (Array.isArray(u)) {
+          addUtilities(merge.recursive(true, ...u))
+        }
       }
     }
   },

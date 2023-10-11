@@ -62,5 +62,7 @@
     "compose-tailwindcss-plugins": "workspace:^",
     "css-to-tailwindcss-plugin": "workspace:^"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "merge": "^2.1.1"
+  }
 }

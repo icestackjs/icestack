@@ -1,32 +1,41 @@
 // 统一加变量前缀
-
+// https://ant.design/docs/spec/colors-cn
+// - Neutral Color Start -
 $root-vars: (
+  // 6
   primary: #1677ff,
   // primary-selected: #e6f4ff,
+  // hover
+  // 5
   primary-focus: #4096ff,
-  // primary-click: #0958d9,
+  // 7
+  primary-click: #0958d9,
   primary-content: #ffffff,
   // -
   success-content: #ffffff,
-  success: #07c160,
+  success: #52c41a,
   success-focus: #73d13d,
-
-  error-content: #ffffff,
-  error: #ee0a24,
-  error-focus: #ff4d4f,
+  success-click: #389e0d,
 
   warning-content: #ffffff,
-  warning: #ff976a,
+  warning: #faad14,
   warning-focus: #ffc53d,
+  warning-click: #d48806,
+
+  error-content: #ffffff,
+  error: #f5222d,
+  error-focus: #ff4d4f,
+  error-click: #cf1322,
 
   info: #1677ff,
   info-content: #ffffff,
   info-focus: #4096ff,
+  info-click: #0958d9,
 
-  neutral: rgb(43, 52, 64),
+  neutral: #bfbfbf,
   neutral-content: rgb(216, 221, 228),
-  neutral-focus: rgb(36, 43, 51),
-  // - Neutral Color Start -
+  neutral-focus: #d9d9d9,
+  neutral-click: #8c8c8c,
   // 900
   heading-text: #171717,
   // 700

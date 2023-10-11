@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 // override nextrc style
-[tabindex]:not([tabindex="-1"]),
-a,
-button,
-input,
-summary {
-  outline-offset: unset !important;
-  outline: unset !important;
-}
+// [tabindex]:not([tabindex="-1"]),
+// a,
+// button,
+// input,
+// summary {
+//   outline-offset: unset !important;
+//   outline: unset !important;
+// }

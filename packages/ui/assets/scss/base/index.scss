@@ -3,7 +3,7 @@
 
 :root {
   @each $var, $color in V.$root-vars {
-    $prefix: addVarPrefix(#{$var});
+    $prefix: avp(#{$var});
     #{$prefix}: #{Util.getRgbaString($color)};
   }
 }

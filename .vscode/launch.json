@@ -70,6 +70,13 @@
       "request": "launch",
       "type": "node-terminal",
       "cwd": "${workspaceFolder}/packages/ui"
+    },
+    {
+      "command": "npm run dev",
+      "name": "website dev",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/website"
     }
   ]
 }

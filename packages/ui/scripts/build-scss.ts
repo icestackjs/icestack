@@ -8,7 +8,7 @@ import { createContext } from 'css-to-tailwindcss-plugin'
 import postcss from 'postcss'
 import tailwindcss, { Config } from 'tailwindcss'
 // import chokidar from 'chokidar'
-import { set } from 'lodash'
+import { set, trimStart } from 'lodash'
 import klaw from 'klaw'
 import { composePlugins } from 'compose-tailwindcss-plugins'
 import dedent from 'dedent'
@@ -46,13 +46,32 @@ interface IBuildScssOptions {
   outSideLayerCss: 'base' | 'components' | 'utilities'
 }
 
+function addVarPrefix(args: Value[]) {
+  const varName = args[0].assertString('varName')
+  return new sass.SassString(defaultVarPrefix + trimStart(varName.toString(), '-'), {
+    quotes: false
+  })
+}
+
 const sassOptions = {
   functions: {
-    'addVarPrefix($varName)': (args: Value[]) => {
-      const varName = args[0].assertString('varName')
+    'addVarPrefix($varName)': addVarPrefix,
+    'avp($varName)': addVarPrefix,
+    "var($varName,$default:'')": (args: Value[]) => {
+      const str = addVarPrefix(args)
+      const defaultValue = args[1].toString()
 
-      return new sass.SassString(defaultVarPrefix + varName.toString())
+      const result = defaultValue ? `var(${str.toString()},${defaultValue})` : `var(${str.toString()})`
+      return new sass.SassString(result, {
+        quotes: false
+      })
     }
+    // 'var($varName)': (args: Value[]) => {
+    //   const str = addVarPrefix(args)
+    //   return new sass.SassString(`var(${str.toString()})`, {
+    //     quotes: false
+    //   })
+    // }
   }
 }
 

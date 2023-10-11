@@ -15,6 +15,7 @@ import dedent from 'dedent'
 import { Value } from 'sass'
 import { defaultVarPrefix } from '../src/constants'
 import { ensureDir } from './util'
+import { postcssCustomPropertyPrefixer } from './postcssCustomPropertyPrefixer'
 
 const assetsDir = path.resolve(__dirname, '../assets')
 const scssDir = path.resolve(assetsDir, 'scss')
@@ -55,8 +56,13 @@ function addVarPrefix(args: Value[]) {
 
 const sassOptions = {
   functions: {
-    'addVarPrefix($varName)': addVarPrefix,
-    'avp($varName)': addVarPrefix,
+    // 'addVarPrefix($varName)': addVarPrefix,
+    'avp($varName)': (args: Value[]) => {
+      const varName = args[0].assertString('varName')
+      return new sass.SassString('--' + trimStart(varName.toString(), '-'), {
+        quotes: false
+      })
+    },
     "var($varName,$default:'')": (args: Value[]) => {
       const str = addVarPrefix(args)
       const defaultValue = args[1].toString()
@@ -80,7 +86,21 @@ async function buildScss(options: IBuildScssOptions) {
 
   if (stats && stats.isFile() && /\.scss$/.test(filename)) {
     const result = sass.compile(filename, sassOptions)
-
+    const { css: cssOutput } = await postcss([
+      postcssCustomPropertyPrefixer({
+        prefix: defaultVarPrefix.slice(2),
+        ignore: (prop) => {
+          if (prop.startsWith('--tw-')) {
+            return true
+          }
+        }
+      })
+    ])
+      // @ts-ignore
+      .process(result.css, {
+        from: undefined
+      })
+      .async()
     const relPath = path.relative(scssDir, filename)
     const cssPath = getCssPath(relPath)
     const jsPath = getJsPath(relPath)
@@ -113,15 +133,16 @@ async function buildScss(options: IBuildScssOptions) {
     await fs.writeFile(pluginPath, code, 'utf8')
 
     // scss -> css
-    await fs.writeFile(cssPath, result.css, 'utf8')
+    await fs.writeFile(cssPath, cssOutput, 'utf8')
 
     const tw = tailwindcss(config)
     const { css } = await postcss([tw])
       // @tailwind base;\n
       // @ts-ignore
-      .process('@tailwind components;\n@tailwind utilities;\n' + result.css, {
+      .process('@tailwind components;\n@tailwind utilities;\n' + cssOutput, {
         from: undefined
       })
+      .async()
 
     const data =
       'module.exports = ' +

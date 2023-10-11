@@ -9,6 +9,9 @@ import { CodePreview } from '@/components/CodePreview'
     <button className="btn btn-primary">Primary</button>
     <button className="btn btn-ghost">Ghost</button>
     <button className="btn btn-link">Link</button>
+    <button className="btn btn-success">Success</button>
+    <button className="btn btn-warning">Warning</button>
+    <button className="btn btn-error">Error</button>
   </>
   ```html
   <button class="btn">Button</button>
@@ -16,6 +19,9 @@ import { CodePreview } from '@/components/CodePreview'
   <button class="btn btn-primary">Primary</button>
   <button class="btn btn-ghost">Ghost</button>
   <button class="btn btn-link">Link</button>
+  <button class="btn btn-success">Success</button>
+  <button class="btn btn-warning">Warning</button>
+  <button class="btn btn-error">Error</button>
   ```
   <></>
   ```jsx
@@ -24,23 +30,36 @@ import { CodePreview } from '@/components/CodePreview'
   <button className="btn btn-primary">Primary</button>
   <button className="btn btn-ghost">Ghost</button>
   <button className="btn btn-link">Link</button>
+  <button className="btn btn-success">Success</button>
+  <button className="btn btn-warning">Warning</button>
+  <button className="btn btn-error">Error</button>
   ```
 </CodePreview>
 
-
-
-<button className="btn btn-info">Info</button>
-<button className="btn btn-success">Success</button>
-<button className="btn btn-warning">Warning</button>
-<button className="btn btn-error">Error</button>
-
-<button className="btn btn-outline">Default</button>
-<button className="btn btn-outline btn-primary">Primary</button>
-
-<button className="btn btn-outline btn-info">Info</button>
-<button className="btn btn-outline btn-success">Success</button>
-<button className="btn btn-outline btn-warning">Warning</button>
-<button className="btn btn-outline btn-error">Error</button>
+<CodePreview>
+  <>
+    <button className="btn btn-outline">Default</button>
+    <button className="btn btn-outline btn-primary">Primary</button>
+    <button className="btn btn-outline btn-success">Success</button>
+    <button className="btn btn-outline btn-warning">Warning</button>
+    <button className="btn btn-outline btn-error">Error</button>
+  </>
+  ```html
+  <button class="btn btn-outline">Default</button>
+  <button class="btn btn-outline btn-primary">Primary</button>
+  <button class="btn btn-outline btn-success">Success</button>
+  <button class="btn btn-outline btn-warning">Warning</button>
+  <button class="btn btn-outline btn-error">Error</button>
+  ```
+  <></>
+  ```jsx
+  <button className="btn btn-outline">Default</button>
+  <button className="btn btn-outline btn-primary">Primary</button>
+  <button className="btn btn-outline btn-success">Success</button>
+  <button className="btn btn-outline btn-warning">Warning</button>
+  <button className="btn btn-outline btn-error">Error</button>
+  ```
+</CodePreview>
 
 <button className="btn btn-lg">Large</button>
 <button className="btn">Normal</button>
@@ -103,11 +122,11 @@ import { CodePreview } from '@/components/CodePreview'
       d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
     />
   </svg>
-  Button
+  <span>Button</span>
 </button>
 
 <button className="btn">
-  Button
+  <span>Button</span>
   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path
       strokeLinecap="round"
@@ -130,4 +149,3 @@ import { CodePreview } from '@/components/CodePreview'
 </button>
 
 <button class="btn no-animation">I don't have click animation</button>
-````

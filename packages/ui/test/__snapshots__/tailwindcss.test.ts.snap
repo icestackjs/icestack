@@ -597,8 +597,8 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "outlineColor": "currentColor",
   },
   ".btn.glass.btn-active": {
-    "--glass-border-opacity": "15%",
-    "--glass-opacity": "25%",
+    "--ice-glass-border-opacity": "15%",
+    "--ice-glass-opacity": "25%",
   },
   ".btn:active:hover, .btn:active:focus": {
     "animation": "button-pop 0s ease-out",
@@ -702,8 +702,8 @@ exports[`tailwindcss > entries components > merged 6`] = `
     },
     {
       ".btn.glass:hover": {
-        "--glass-border-opacity": "15%",
-        "--glass-opacity": "25%",
+        "--ice-glass-border-opacity": "15%",
+        "--ice-glass-opacity": "25%",
       },
     },
     {
@@ -2864,9 +2864,9 @@ exports[`tailwindcss > entries components > merged 30`] = `
 exports[`tailwindcss > entries components > merged 31`] = `
 {
   ".radial-progress": {
-    "--size": "5rem",
-    "--thickness": "calc(var(--size) / 10)",
-    "--value": "0",
+    "--ice-size": "5rem",
+    "--ice-thickness": "calc(var(--size) / 10)",
+    "--ice-value": "0",
     "backgroundColor": "transparent",
     "borderRadius": "9999px",
     "boxSizing": "content-box",
@@ -3303,10 +3303,10 @@ exports[`tailwindcss > entries components > merged 39`] = `
 exports[`tailwindcss > entries components > merged 40`] = `
 {
   ".tab": {
-    "--tab-bg": "hsl(var(--b1) / var(--tw-bg-opacity, 1))",
-    "--tab-border-color": "hsl(var(--b3) / var(--tw-bg-opacity, 1))",
-    "--tab-color": "hsl(var(--bc) / var(--tw-text-opacity, 1))",
-    "--tab-padding": "1rem
+    "--ice-tab-bg": "hsl(var(--b1) / var(--tw-bg-opacity, 1))",
+    "--ice-tab-border-color": "hsl(var(--b3) / var(--tw-bg-opacity, 1))",
+    "--ice-tab-color": "hsl(var(--bc) / var(--tw-text-opacity, 1))",
+    "--ice-tab-padding": "1rem
 ",
     "--tw-text-opacity": "0.5",
     "alignItems": "center",
@@ -3363,24 +3363,24 @@ exports[`tailwindcss > entries components > merged 40`] = `
     "background": "none",
   },
   ".tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after": {
-    "--circle-pos": "top right",
+    "--ice-circle-pos": "top right",
     "backgroundImage": "var(--ice-tab-corner-bg,\\"\\")",
     "right": "calc(var(--ice-tab-radius,0.5rem) * -1)",
   },
   ".tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before": {
-    "--circle-pos": "top left",
+    "--ice-circle-pos": "top left",
     "backgroundImage": "var(--ice-tab-corner-bg,\\"\\")",
     "left": "calc(var(--ice-tab-radius,0.5rem) * -1)",
   },
   ".tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before, .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after": {
-    "--tab-corner-bg": "radial-gradient(
+    "--ice-tab-corner-bg": "radial-gradient(
     circle at var(--circle-pos),
     transparent var(--tab-grad),
     var(--tab-border-color) calc(var(--tab-grad) + 0.3px),
     var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)),
     var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.3px)
   )",
-    "--tab-grad": "calc(68% - var(--tab-border, 1px))",
+    "--ice-tab-grad": "calc(68% - var(--tab-border, 1px))",
     "bottom": "0",
     "content": "\\"\\"",
     "display": "block",
@@ -3453,10 +3453,10 @@ exports[`tailwindcss > entries components > merged 40`] = `
     },
   ],
   "[dir=rtl] .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after": {
-    "--circle-pos": "top left",
+    "--ice-circle-pos": "top left",
   },
   "[dir=rtl] .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before": {
-    "--circle-pos": "top right",
+    "--ice-circle-pos": "top right",
   },
 }
 `;
@@ -3804,27 +3804,27 @@ exports[`tailwindcss > utilitiesEntries 4`] = `
 exports[`tailwindcss > utilitiesEntries 5`] = `
 {
   ".no-animation": {
-    "--animation-btn": "0",
-    "--animation-input": "0",
-    "--btn-focus-scale": "1",
+    "--ice-animation-btn": "0",
+    "--ice-animation-input": "0",
+    "--ice-btn-focus-scale": "1",
   },
   ".tab-border": {
-    "--tab-border": "1px",
+    "--ice-tab-border": "1px",
   },
   ".tab-border-2": {
-    "--tab-border": "2px",
+    "--ice-tab-border": "2px",
   },
   ".tab-border-3": {
-    "--tab-border": "3px",
+    "--ice-tab-border": "3px",
   },
   ".tab-border-none": {
-    "--tab-border": "0px",
+    "--ice-tab-border": "0px",
   },
   ".tab-rounded-lg": {
-    "--tab-radius": "0.5rem",
+    "--ice-tab-radius": "0.5rem",
   },
   ".tab-rounded-none": {
-    "--tab-radius": "0",
+    "--ice-tab-radius": "0",
   },
 }
 `;
@@ -4462,18 +4462,18 @@ exports[`tailwindcss > utilitiesEntries 17`] = `
 exports[`tailwindcss > utilitiesEntries 18`] = `
 {
   ".tooltip": {
-    "--tooltip-color": "hsl(var(--n))",
-    "--tooltip-offset": "calc(100% + 1px + var(--tooltip-tail, 0px))",
-    "--tooltip-tail": "0.1875rem",
-    "--tooltip-tail-offset": "calc(100% + 0.0625rem - var(--tooltip-tail))",
-    "--tooltip-text-color": "hsl(var(--nc))",
+    "--ice-tooltip-color": "hsl(var(--n))",
+    "--ice-tooltip-offset": "calc(100% + 1px + var(--tooltip-tail, 0px))",
+    "--ice-tooltip-tail": "0.1875rem",
+    "--ice-tooltip-tail-offset": "calc(100% + 0.0625rem - var(--tooltip-tail))",
+    "--ice-tooltip-text-color": "hsl(var(--nc))",
     "display": "inline-block",
     "position": "relative",
     "textAlign": "center",
   },
   ".tooltip-accent": {
-    "--tooltip-color": "hsl(var(--a))",
-    "--tooltip-text-color": "hsl(var(--ac))",
+    "--ice-tooltip-color": "hsl(var(--a))",
+    "--ice-tooltip-text-color": "hsl(var(--ac))",
   },
   ".tooltip-bottom:after": {
     "borderColor": "transparent transparent var(--ice-tooltip-color,\\"\\") transparent",
@@ -4491,12 +4491,12 @@ exports[`tailwindcss > utilitiesEntries 18`] = `
     "transform": "translateX(-50%)",
   },
   ".tooltip-error": {
-    "--tooltip-color": "hsl(var(--er))",
-    "--tooltip-text-color": "hsl(var(--erc))",
+    "--ice-tooltip-color": "hsl(var(--er))",
+    "--ice-tooltip-text-color": "hsl(var(--erc))",
   },
   ".tooltip-info": {
-    "--tooltip-color": "hsl(var(--in))",
-    "--tooltip-text-color": "hsl(var(--inc))",
+    "--ice-tooltip-color": "hsl(var(--in))",
+    "--ice-tooltip-text-color": "hsl(var(--inc))",
   },
   ".tooltip-left:after": {
     "borderColor": "transparent transparent transparent var(--ice-tooltip-color,\\"\\")",
@@ -4514,8 +4514,8 @@ exports[`tailwindcss > utilitiesEntries 18`] = `
     "transform": "translateY(-50%)",
   },
   ".tooltip-primary": {
-    "--tooltip-color": "hsl(var(--p))",
-    "--tooltip-text-color": "hsl(var(--pc))",
+    "--ice-tooltip-color": "hsl(var(--p))",
+    "--ice-tooltip-text-color": "hsl(var(--pc))",
   },
   ".tooltip-right:after": {
     "borderColor": "transparent var(--ice-tooltip-color,\\"\\") transparent transparent",
@@ -4533,16 +4533,16 @@ exports[`tailwindcss > utilitiesEntries 18`] = `
     "transform": "translateY(-50%)",
   },
   ".tooltip-secondary": {
-    "--tooltip-color": "hsl(var(--s))",
-    "--tooltip-text-color": "hsl(var(--sc))",
+    "--ice-tooltip-color": "hsl(var(--s))",
+    "--ice-tooltip-text-color": "hsl(var(--sc))",
   },
   ".tooltip-success": {
-    "--tooltip-color": "hsl(var(--su))",
-    "--tooltip-text-color": "hsl(var(--suc))",
+    "--ice-tooltip-color": "hsl(var(--su))",
+    "--ice-tooltip-text-color": "hsl(var(--suc))",
   },
   ".tooltip-warning": {
-    "--tooltip-color": "hsl(var(--wa))",
-    "--tooltip-text-color": "hsl(var(--wac))",
+    "--ice-tooltip-color": "hsl(var(--wa))",
+    "--ice-tooltip-text-color": "hsl(var(--wac))",
   },
   ".tooltip.tooltip-open:before,
 .tooltip.tooltip-open:after,
@@ -4928,7 +4928,7 @@ exports[`tailwindcss > utilitiesEntries 27`] = `
     "height": "2rem",
   },
   ".range-lg::-moz-range-thumb": {
-    "--filler-offset": "1rem
+    "--ice-filler-offset": "1rem
 ",
     "height": "2rem",
     "width": "2rem",
@@ -4940,7 +4940,7 @@ exports[`tailwindcss > utilitiesEntries 27`] = `
     "height": "1rem",
   },
   ".range-lg::-webkit-slider-thumb": {
-    "--filler-offset": "1rem
+    "--ice-filler-offset": "1rem
 ",
     "height": "2rem",
     "width": "2rem",
@@ -4949,7 +4949,7 @@ exports[`tailwindcss > utilitiesEntries 27`] = `
     "height": "1.5rem",
   },
   ".range-md::-moz-range-thumb": {
-    "--filler-offset": "0.6rem
+    "--ice-filler-offset": "0.6rem
 ",
     "height": "1.5rem",
     "width": "1.5rem",
@@ -4961,7 +4961,7 @@ exports[`tailwindcss > utilitiesEntries 27`] = `
     "height": "0.5rem",
   },
   ".range-md::-webkit-slider-thumb": {
-    "--filler-offset": "0.6rem
+    "--ice-filler-offset": "0.6rem
 ",
     "height": "1.5rem",
     "width": "1.5rem",
@@ -4970,7 +4970,7 @@ exports[`tailwindcss > utilitiesEntries 27`] = `
     "height": "1.25rem",
   },
   ".range-sm::-moz-range-thumb": {
-    "--filler-offset": "0.5rem
+    "--ice-filler-offset": "0.5rem
 ",
     "height": "1.25rem",
     "width": "1.25rem",
@@ -4982,7 +4982,7 @@ exports[`tailwindcss > utilitiesEntries 27`] = `
     "height": "0.25rem",
   },
   ".range-sm::-webkit-slider-thumb": {
-    "--filler-offset": "0.5rem
+    "--ice-filler-offset": "0.5rem
 ",
     "height": "1.25rem",
     "width": "1.25rem",
@@ -4991,7 +4991,7 @@ exports[`tailwindcss > utilitiesEntries 27`] = `
     "height": "1rem",
   },
   ".range-xs::-moz-range-thumb": {
-    "--filler-offset": "0.4rem
+    "--ice-filler-offset": "0.4rem
 ",
     "height": "1rem",
     "width": "1rem",
@@ -5003,7 +5003,7 @@ exports[`tailwindcss > utilitiesEntries 27`] = `
     "height": "0.25rem",
   },
   ".range-xs::-webkit-slider-thumb": {
-    "--filler-offset": "0.4rem
+    "--ice-filler-offset": "0.4rem
 ",
     "height": "1rem",
     "width": "1rem",
@@ -5109,7 +5109,7 @@ exports[`tailwindcss > utilitiesEntries 29`] = `
 exports[`tailwindcss > utilitiesEntries 30`] = `
 {
   ".tab-lg": {
-    "--tab-padding": "1.25rem
+    "--ice-tab-padding": "1.25rem
 ",
     "fontSize": "1.125rem",
     "height": "3rem",
@@ -5119,7 +5119,7 @@ exports[`tailwindcss > utilitiesEntries 30`] = `
     ],
   },
   ".tab-md": {
-    "--tab-padding": "1rem
+    "--ice-tab-padding": "1rem
 ",
     "fontSize": "0.875rem",
     "height": "2rem",
@@ -5129,14 +5129,14 @@ exports[`tailwindcss > utilitiesEntries 30`] = `
     ],
   },
   ".tab-sm": {
-    "--tab-padding": "0.75rem
+    "--ice-tab-padding": "0.75rem
 ",
     "fontSize": "0.875rem",
     "height": "1.5rem",
     "lineHeight": ".75rem",
   },
   ".tab-xs": {
-    "--tab-padding": "0.5rem
+    "--ice-tab-padding": "0.5rem
 ",
     "fontSize": "0.75rem",
     "height": "1.25rem",
@@ -5244,22 +5244,22 @@ exports[`tailwindcss > utilitiesEntries 32`] = `
 exports[`tailwindcss > utilitiesEntries 33`] = `
 {
   ".toggle-lg": {
-    "--handleoffset": "2rem",
+    "--ice-handleoffset": "2rem",
     "height": "2rem",
     "width": "4rem",
   },
   ".toggle-md": {
-    "--handleoffset": "1.5rem",
+    "--ice-handleoffset": "1.5rem",
     "height": "1.5rem",
     "width": "3rem",
   },
   ".toggle-sm": {
-    "--handleoffset": "0.75rem",
+    "--ice-handleoffset": "0.75rem",
     "height": "1.25rem",
     "width": "2rem",
   },
   ".toggle-xs": {
-    "--handleoffset": "0.5rem",
+    "--ice-handleoffset": "0.5rem",
     "height": "1rem",
     "width": "1.5rem",
   },

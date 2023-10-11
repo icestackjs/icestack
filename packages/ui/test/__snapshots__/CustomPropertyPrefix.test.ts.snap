@@ -1,0 +1,39 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CustomPropertyPrefix.test > add Prefix 1`] = `
+".no-animation {
+        --ice-btn-focus-scale: 1;
+        --ice-animation-btn: 0;
+        --ice-animation-input: 0;
+      }
+      .tab-border-none {
+        --ice-tab-border: 0px;
+      }
+      .tab-border {
+        --ice-tab-border: 1px;
+      }
+      .tab-border-2 {
+        --ice-tab-border: 2px;
+      }
+      .tab-border-3 {
+        --ice-tab-border: 3px;
+      }
+      .tab-rounded-none {
+        --ice-tab-radius: 0;
+      }
+      .tab-rounded-lg {
+        --ice-tab-radius: 0.5rem;
+      }
+      "
+`;
+
+exports[`CustomPropertyPrefix.test > ignore option 1`] = `
+".no-animation {
+        --ice-btn-focus-scale: 1;
+        --ice-animation-btn: 0;
+        --ice-animation-input: 0;
+        --tw-a:0;
+        --tw-b:1;
+      }
+      "
+`;

@@ -1,4 +1,4 @@
-import { getCss } from '../scripts/util'
+import { getCss } from '@/utils'
 
 describe('main', () => {
   it('default', async () => {

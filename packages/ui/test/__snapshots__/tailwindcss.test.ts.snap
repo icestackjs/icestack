@@ -744,18 +744,16 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "borderColor": "rgba(var(--ice-primary) / var(--tw-border-opacity))",
     "color": "rgba(var(--ice-primary-content) / var(--tw-text-opacity))",
   },
+  ".btn:is(input[type=checkbox]:checked):active,
+.btn:is(input[type=radio]:checked):active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-primary-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-primary-focus) / var(--tw-border-opacity))",
+  },
   ".btn:is(input[type=checkbox]:checked):focus-visible,
 .btn:is(input[type=radio]:checked):focus-visible": {
     "outlineColor": "rgba(var(--ice-primary) / 1)",
-  },
-  "@media (hover: hover)": {
-    ".btn:is(input[type=checkbox]:checked):hover,
-  .btn:is(input[type=radio]:checked):hover": {
-      "--tw-bg-opacity": "1",
-      "--tw-border-opacity": "1",
-      "backgroundColor": "rgba(var(--ice-primary-focus) / var(--tw-bg-opacity))",
-      "borderColor": "rgba(var(--ice-primary-focus) / var(--tw-border-opacity))",
-    },
   },
 }
 `;

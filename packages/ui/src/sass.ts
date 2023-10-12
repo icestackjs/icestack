@@ -1,9 +1,17 @@
+import fs from 'node:fs/promises'
+import type { Stats } from 'node:fs'
+import path from 'node:path'
 import * as sass from 'sass'
 import postcss from 'postcss'
 import { trimStart } from 'lodash'
+import { compileString } from '@icestack/css2js'
+import tailwindcss, { Config } from 'tailwindcss'
 import { defaultVarPrefix } from './constants'
 import { postcssCustomPropertyPrefixer } from './postcssCustomPropertyPrefixer'
 import { sassValueVarsMap } from './css-vars'
+import { ensureDir } from './utils'
+import { cssDir, getCssPath, getJsPath, getPluginsPath, jsDir, scssDir } from './dirs'
+
 function addVarPrefix(args: sass.Value[]) {
   const varName = args[0].assertString('varName')
   return new sass.SassString(defaultVarPrefix + trimStart(varName.toString(), '-'), {
@@ -60,4 +68,73 @@ export async function compileScss(filename: string) {
     .async()
 
   return css
+}
+
+interface IBuildScssOptions {
+  filename: string
+  stats?: Stats
+  resolveConfig?: (config: Config) => void
+  outSideLayerCss: 'base' | 'components' | 'utilities'
+}
+
+export async function buildScss(options: IBuildScssOptions) {
+  const { filename, resolveConfig, stats = await fs.stat(filename) } = options
+  if (stats && stats.isFile() && /\.scss$/.test(filename)) {
+    const cssOutput = await compileScss(filename)
+
+    const relPath = path.relative(scssDir, filename)
+    const cssPath = getCssPath(relPath)
+    const jsPath = getJsPath(relPath)
+    const pluginPath = getPluginsPath(relPath)
+    await ensureDir(path.dirname(cssPath))
+    await ensureDir(path.dirname(jsPath))
+    const thisPluginDir = path.dirname(pluginPath)
+    await ensureDir(thisPluginDir)
+    const config: Config = {
+      content: [{ raw: '' }],
+      theme: {
+        extend: {}
+      },
+      corePlugins: {
+        preflight: false
+      }
+    }
+
+    resolveConfig?.(config)
+
+    // const ctx = createContext({
+    //   tailwindcssConfig: config,
+    //   tailwindcssResolved: true,
+    //   outSideLayerCss,
+    //   sassOptions
+    // })
+    // await ctx.process(filename)
+    // const code = ctx.generate()
+    // scss -> plugin
+    // await fs.writeFile(pluginPath, code, 'utf8')
+
+    // scss -> css
+    await fs.writeFile(cssPath, cssOutput, 'utf8')
+
+    const tw = tailwindcss(config)
+    const { css } = await postcss([tw])
+      // @tailwind base;\n
+      // @ts-ignore
+      .process('@tailwind components;\n@tailwind utilities;\n' + cssOutput, {
+        from: undefined
+      })
+      .async()
+
+    const data =
+      'module.exports = ' +
+      JSON.stringify(
+        await compileString({
+          css
+        }),
+        null,
+        2
+      )
+    // css -> js
+    await fs.writeFile(jsPath, data, 'utf8')
+  }
 }

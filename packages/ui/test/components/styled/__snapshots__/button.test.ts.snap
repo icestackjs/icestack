@@ -88,21 +88,17 @@ exports[`button > snap 1`] = `
 .btn-ghost {
   @apply border border-transparent bg-transparent text-current shadow-none outline-current;
 }
-@media (hover: hover) {
-  .btn-ghost:hover {
-    @apply bg-base-content border-opacity-0 bg-opacity-20;
-  }
+.btn-ghost:active {
+  @apply border-opacity-0 bg-base-content bg-opacity-20;
 }
 .btn-ghost.btn-active {
-  @apply bg-base-content border-opacity-0 bg-opacity-20;
+  @apply border-opacity-0 bg-base-content bg-opacity-20;
 }
 .btn-link {
   @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
 }
-@media (hover: hover) {
-  .btn-link:hover {
-    @apply border-transparent bg-transparent underline;
-  }
+.btn-link:active {
+  @apply border-transparent bg-transparent underline;
 }
 .btn-link.btn-active {
   @apply border-transparent bg-transparent underline;
@@ -178,7 +174,6 @@ exports[`button > snap 1`] = `
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
 }
 
-/* radio input and checkbox as button */
 .btn:is(input[type=checkbox]:checked),
 .btn:is(input[type=radio]:checked) {
   @apply border-primary bg-primary text-primary-content;

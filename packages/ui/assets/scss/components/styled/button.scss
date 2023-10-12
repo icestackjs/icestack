@@ -13,27 +13,31 @@ $TypeMap: (
 );
 
 //Mixins may not contain mixin declarations.
-@mixin button-active($typeName, $append: "", $pseudo: "active", $withoutMedia: false) {
+@mixin button-active($bgRef, $borderRef: null, $append: "", $pseudo: "active", $withoutMedia: false) {
+  @if ($borderRef == null) {
+    $borderRef: $bgRef;
+  }
+  $applyStr: "border-#{$borderRef} bg-#{$bgRef} #{$append}";
   @if ($withoutMedia) {
     &:#{$pseudo} {
-      @apply border-#{$typeName} bg-#{$typeName} #{$append};
+      @apply #{$applyStr};
     }
   } @else {
     @if ($pseudo == "hover") {
       @media (hover: hover) {
         &:hover {
-          @apply border-#{$typeName} bg-#{$typeName} #{$append};
+          @apply #{$applyStr};
         }
       }
     } @else {
       &:#{$pseudo} {
-        @apply border-#{$typeName} bg-#{$typeName} #{$append};
+        @apply #{$applyStr};
       }
     }
   }
 
   &.btn-active {
-    @apply border-#{$typeName} bg-#{$typeName} #{$append};
+    @apply #{$applyStr};
   }
 }
 
@@ -86,26 +90,12 @@ $TypeMap: (
 
   &-ghost {
     @apply border border-transparent bg-transparent text-current shadow-none outline-current;
-    @media (hover: hover) {
-      &:hover {
-        @apply bg-base-content border-opacity-0 bg-opacity-20;
-      }
-    }
-    &.btn-active {
-      @apply bg-base-content border-opacity-0 bg-opacity-20;
-    }
+    @include button-active(base-content, opacity-0, bg-opacity-20);
   }
 
   &-link {
     @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
-    @media (hover: hover) {
-      &:hover {
-        @apply border-transparent bg-transparent underline;
-      }
-    }
-    &.btn-active {
-      @apply border-transparent bg-transparent underline;
-    }
+    @include button-active(transparent, transparent, underline);
   }
 
   /* outline */
@@ -185,16 +175,8 @@ $TypeMap: (
   &:disabled {
     @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
   }
-  // @media (hover: hover) {
-  //   &-disabled:hover,
-  //   &[disabled]:hover,
-  //   &:disabled:hover {
-  //     @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
-  //   }
-  // }
 }
 
-/* radio input and checkbox as button */
 .btn:is(input[type="checkbox"]:checked),
 .btn:is(input[type="radio"]:checked) {
   @apply border-primary bg-primary text-primary-content;

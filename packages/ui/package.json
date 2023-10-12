@@ -63,6 +63,7 @@
     "css-to-tailwindcss-plugin": "workspace:^"
   },
   "devDependencies": {
-    "merge": "^2.1.1"
+    "merge": "^2.1.1",
+    "sass-true": "^7.0.0"
   }
 }

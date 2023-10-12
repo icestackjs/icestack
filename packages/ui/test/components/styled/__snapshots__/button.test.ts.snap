@@ -4,7 +4,6 @@ exports[`button > snap 1`] = `
 ".btn {
   @apply gap-2 font-semibold no-underline;
   border-width: var(--ice-border-btn,1px);
-  text-transform: var(--ice-btn-text-case,uppercase);
   /* default btn */
   /* brand colors */
   /* btn with state colors */

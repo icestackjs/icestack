@@ -1,8 +1,34 @@
+@use "sass:list";
+@use "sass:map";
+
+$TypeMap: (
+  "default": base-200 base-content base-300,
+  "primary": primary primary-content primary-focus,
+  "neutral": neutral neutral-content neutral-focus
+);
+
+@mixin button-hover($typeName, $withoutMedia: false) {
+  @if ($withoutMedia) {
+    &:hover {
+      @apply border-#{$typeName} bg-#{$typeName};
+    }
+  } @else {
+    @media (hover: hover) {
+      &:hover {
+        @apply border-#{$typeName} bg-#{$typeName};
+      }
+    }
+  }
+}
+
 .btn {
   @apply gap-2 font-semibold no-underline;
   border-width: var(--border-btn, 1px);
   // animation: button-pop var(--animation-btn, 0.25s) ease-out;
-  text-transform: var(--btn-text-case, uppercase);
+
+  // default uppercase
+  // text-transform: var(--btn-text-case, uppercase);
+
   // &:active:hover,
   // &:active:focus {
   //   // animation: button-pop 0s ease-out;
@@ -12,11 +38,9 @@
   /* default btn */
   & {
     @apply border-base-200 bg-base-200 text-base-content outline-base-content no-underline;
-    @media (hover: hover) {
-      &:hover {
-        @apply border-base-300 bg-base-300;
-      }
-    }
+
+    @include button-hover(base-300);
+
     &.btn-active {
       @apply border-base-300 bg-base-300;
     }
@@ -27,11 +51,9 @@
   /* brand colors */
   &-primary {
     @apply border-primary bg-primary text-primary-content outline-primary;
-    @media (hover: hover) {
-      &:hover {
-        @apply border-primary-focus bg-primary-focus;
-      }
-    }
+
+    @include button-hover(primary-focus);
+
     &.btn-active {
       @apply border-primary-focus bg-primary-focus;
     }
@@ -39,11 +61,9 @@
 
   &-neutral {
     @apply border-neutral bg-neutral text-neutral-content outline-neutral;
-    @media (hover: hover) {
-      &:hover {
-        @apply border-neutral-focus bg-neutral-focus;
-      }
-    }
+
+    @include button-hover(neutral-focus);
+
     &.btn-active {
       @apply border-neutral-focus bg-neutral-focus;
     }
@@ -52,11 +72,9 @@
   /* btn with state colors */
   &-info {
     @apply border-info bg-info text-info-content outline-info;
-    @media (hover: hover) {
-      &:hover {
-        @apply border-info bg-info;
-      }
-    }
+
+    @include button-hover(info);
+
     &.btn-active {
       @apply border-info bg-info;
     }

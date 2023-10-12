@@ -15,7 +15,9 @@ export async function getCss(config?: Partial<Config> & { css?: string }) {
       })
     )
     // @ts-ignore
-  ]).process('@tailwind base;@tailwind components;@tailwind utilities;' + (typeof config?.css === 'string' ? config.css : ''))
+  ]).process('@tailwind base;@tailwind components;@tailwind utilities;' + (typeof config?.css === 'string' ? config.css : ''), {
+    from: undefined
+  })
   return res
 }
 

@@ -334,7 +334,6 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "--tw-border-opacity": "1",
     "--tw-text-opacity": "1",
     "alignItems": "center",
-    "animation": "button-pop var(--ice-animation-btn,0.25s) ease-out",
     "backgroundColor": "rgba(var(--ice-base-200) / var(--tw-bg-opacity))",
     "borderColor": "transparent",
     "borderRadius": "var(--ice-rounded-btn,0.5rem)",
@@ -345,18 +344,15 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "flexShrink": 0,
     "flexWrap": "wrap",
     "fontSize": "0.875rem",
-    "fontWeight": 600,
-    "gap": "0.5rem",
     "height": "3rem",
     "justifyContent": "center",
     "lineHeight": "1em",
     "minHeight": "3rem",
-    "outlineColor": "rgba(var(--ice-base-content) / 1)",
+    "outlineColor": "rgba(var(--ice-base-200) / 1)",
     "paddingLeft": "1rem",
     "paddingRight": "1rem",
     "textAlign": "center",
     "textDecorationLine": "none",
-    "textTransform": "var(--ice-btn-text-case,uppercase)",
     "transitionDuration": "200ms",
     "transitionProperty": "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
     "transitionTimingFunction": [
@@ -364,12 +360,6 @@ exports[`tailwindcss > entries components > merged 6`] = `
       "cubic-bezier(0, 0, 0.2, 1)",
     ],
     "userSelect": "none",
-  },
-  ".btn-active": {
-    "--tw-bg-opacity": "1",
-    "--tw-border-opacity": "1",
-    "backgroundColor": "rgba(var(--ice-base-300) / var(--tw-bg-opacity))",
-    "borderColor": "rgba(var(--ice-base-300) / var(--tw-border-opacity))",
   },
   ".btn-circle": {
     "borderRadius": "9999px",
@@ -392,8 +382,14 @@ exports[`tailwindcss > entries components > merged 6`] = `
   ".btn-error.btn-active": {
     "--tw-bg-opacity": "1",
     "--tw-border-opacity": "1",
-    "backgroundColor": "rgba(var(--ice-error) / var(--tw-bg-opacity))",
-    "borderColor": "rgba(var(--ice-error) / var(--tw-border-opacity))",
+    "backgroundColor": "rgba(var(--ice-error-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-error-focus) / var(--tw-border-opacity))",
+  },
+  ".btn-error:active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-error-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-error-focus) / var(--tw-border-opacity))",
   },
   ".btn-ghost": {
     "--tw-shadow": "0 0 #0000",
@@ -422,8 +418,14 @@ exports[`tailwindcss > entries components > merged 6`] = `
   ".btn-info.btn-active": {
     "--tw-bg-opacity": "1",
     "--tw-border-opacity": "1",
-    "backgroundColor": "rgba(var(--ice-info) / var(--tw-bg-opacity))",
-    "borderColor": "rgba(var(--ice-info) / var(--tw-border-opacity))",
+    "backgroundColor": "rgba(var(--ice-info-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-info-focus) / var(--tw-border-opacity))",
+  },
+  ".btn-info:active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-info-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-info-focus) / var(--tw-border-opacity))",
   },
   ".btn-link": {
     "--tw-shadow": "0 0 #0000",
@@ -451,6 +453,12 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "outlineColor": "rgba(var(--ice-neutral) / 1)",
   },
   ".btn-neutral.btn-active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-neutral-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-neutral-focus) / var(--tw-border-opacity))",
+  },
+  ".btn-neutral:active": {
     "--tw-bg-opacity": "1",
     "--tw-border-opacity": "1",
     "backgroundColor": "rgba(var(--ice-neutral-focus) / var(--tw-bg-opacity))",
@@ -548,6 +556,12 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "backgroundColor": "rgba(var(--ice-primary-focus) / var(--tw-bg-opacity))",
     "borderColor": "rgba(var(--ice-primary-focus) / var(--tw-border-opacity))",
   },
+  ".btn-primary:active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-primary-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-primary-focus) / var(--tw-border-opacity))",
+  },
   ".btn-square": {
     "height": "3rem",
     "padding": "0px",
@@ -565,8 +579,14 @@ exports[`tailwindcss > entries components > merged 6`] = `
   ".btn-success.btn-active": {
     "--tw-bg-opacity": "1",
     "--tw-border-opacity": "1",
-    "backgroundColor": "rgba(var(--ice-success) / var(--tw-bg-opacity))",
-    "borderColor": "rgba(var(--ice-success) / var(--tw-border-opacity))",
+    "backgroundColor": "rgba(var(--ice-success-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-success-focus) / var(--tw-border-opacity))",
+  },
+  ".btn-success:active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-success-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-success-focus) / var(--tw-border-opacity))",
   },
   ".btn-warning": {
     "--tw-bg-opacity": "1",
@@ -580,8 +600,20 @@ exports[`tailwindcss > entries components > merged 6`] = `
   ".btn-warning.btn-active": {
     "--tw-bg-opacity": "1",
     "--tw-border-opacity": "1",
-    "backgroundColor": "rgba(var(--ice-warning) / var(--tw-bg-opacity))",
-    "borderColor": "rgba(var(--ice-warning) / var(--tw-border-opacity))",
+    "backgroundColor": "rgba(var(--ice-warning-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-warning-focus) / var(--tw-border-opacity))",
+  },
+  ".btn-warning:active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-warning-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-warning-focus) / var(--tw-border-opacity))",
+  },
+  ".btn.btn-active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-base-300) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-base-300) / var(--tw-border-opacity))",
   },
   ".btn.btn-disabled, .btn[disabled], .btn:disabled": {
     "--tw-bg-opacity": "0.2",
@@ -600,9 +632,11 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "--ice-glass-border-opacity": "15%",
     "--ice-glass-opacity": "25%",
   },
-  ".btn:active:hover, .btn:active:focus": {
-    "animation": "button-pop 0s ease-out",
-    "transform": "scale(var(--ice-btn-focus-scale,0.97))",
+  ".btn:active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-base-300) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-base-300) / var(--tw-border-opacity))",
   },
   ".btn:focus-visible": {
     "outlineOffset": "2px",
@@ -632,74 +666,7 @@ exports[`tailwindcss > entries components > merged 6`] = `
 .btn:is(input[type=radio]:checked):focus-visible": {
     "outlineColor": "rgba(var(--ice-primary) / 1)",
   },
-  "@keyframes button-pop": {
-    "0%": {
-      "transform": "scale(var(--ice-btn-focus-scale,0.98))",
-    },
-    "100%": {
-      "transform": "scale(1)",
-    },
-    "40%": {
-      "transform": "scale(1.02)",
-    },
-  },
   "@media (hover: hover)": [
-    {
-      ".btn:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-base-300) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-base-300) / var(--tw-border-opacity))",
-      },
-    },
-    {
-      ".btn-primary:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-primary-focus) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-primary-focus) / var(--tw-border-opacity))",
-      },
-    },
-    {
-      ".btn-neutral:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-neutral-focus) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-neutral-focus) / var(--tw-border-opacity))",
-      },
-    },
-    {
-      ".btn-info:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-info) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-info) / var(--tw-border-opacity))",
-      },
-    },
-    {
-      ".btn-success:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-success) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-success) / var(--tw-border-opacity))",
-      },
-    },
-    {
-      ".btn-warning:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-warning) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-warning) / var(--tw-border-opacity))",
-      },
-    },
-    {
-      ".btn-error:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-error) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-error) / var(--tw-border-opacity))",
-      },
-    },
     {
       ".btn.glass:hover": {
         "--ice-glass-border-opacity": "15%",

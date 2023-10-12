@@ -1,12 +1,18 @@
 @use "sass:list";
 @use "sass:map";
 
+// type: bg/border , content , active bg/border
 $TypeMap: (
   "": base-200 base-content base-300,
   "primary": primary primary-content primary-focus,
-  "neutral": neutral neutral-content neutral-focus
+  "neutral": neutral neutral-content neutral-focus,
+  "info": info info-content info-focus,
+  "success": success success-content success-focus,
+  "warning": warning warning-content warning-focus,
+  "error": error error-content error-focus
 );
 
+//Mixins may not contain mixin declarations.
 @mixin button-active($typeName, $pseudo: "active", $withoutMedia: false) {
   @if ($withoutMedia) {
     &:#{$pseudo} {
@@ -31,80 +37,35 @@ $TypeMap: (
   }
 }
 
+@function getSelector($type: "") {
+  @if ($type == "") {
+    @return "";
+  } @else {
+    @return "-#{$type}";
+  }
+}
+
+@mixin default-style($default, $content) {
+  // outline may be $default or $content
+  @apply border-#{$default} bg-#{$default} text-#{$content} outline-#{$default};
+}
+
 .btn {
-  @apply gap-2 font-semibold no-underline;
+  @apply no-underline; // @apply gap-2 font-semibold no-underline;
   border-width: var(--border-btn, 1px);
-  // animation: button-pop var(--animation-btn, 0.25s) ease-out;
-
-  // default uppercase
-  // text-transform: var(--btn-text-case, uppercase);
-
-  // &:active:hover,
-  // &:active:focus {
-  //   // animation: button-pop 0s ease-out;
-  //   // transform: scale(var(--btn-focus-scale, 0.97));
-  // }
-
-  /* default btn */
-  & {
-    @apply border-base-200 bg-base-200 text-base-content outline-base-content no-underline;
-
-    @include button-active(base-300);
-
-    &:focus-visible {
-      @apply outline outline-2 outline-offset-2;
-    }
+  &:focus-visible {
+    @apply outline outline-2 outline-offset-2;
   }
-  /* brand colors */
-  &-primary {
-    @apply border-primary bg-primary text-primary-content outline-primary;
+  @each $typeName, $list in $TypeMap {
+    $d: list.nth($list, 1);
+    $c: list.nth($list, 2);
+    $f: list.nth($list, 3);
 
-    @include button-active(primary-focus);
-  }
+    $selector: getSelector($typeName);
 
-  &-neutral {
-    @apply border-neutral bg-neutral text-neutral-content outline-neutral;
-
-    @include button-active(neutral-focus);
-  }
-
-  /* btn with state colors */
-  &-info {
-    @apply border-info bg-info text-info-content outline-info;
-
-    @include button-active(info);
-  }
-  &-success {
-    @apply border-success bg-success text-success-content outline-success;
-    @media (hover: hover) {
-      &:hover {
-        @apply border-success bg-success;
-      }
-    }
-    &.btn-active {
-      @apply border-success bg-success;
-    }
-  }
-  &-warning {
-    @apply border-warning bg-warning text-warning-content outline-warning;
-    @media (hover: hover) {
-      &:hover {
-        @apply border-warning bg-warning;
-      }
-    }
-    &.btn-active {
-      @apply border-warning bg-warning;
-    }
-  }
-  &-error {
-    @apply border-error bg-error text-error-content outline-error;
-    @media (hover: hover) {
-      &:hover {
-        @apply border-error bg-error;
-      }
-    }
-    &.btn-active {
-      @apply border-error bg-error;
+    &#{$selector} {
+      @include default-style($d, $c);
+      @include button-active($f);
     }
   }
 
@@ -223,13 +184,13 @@ $TypeMap: (
   &:disabled {
     @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
   }
-  @media (hover: hover) {
-    &-disabled:hover,
-    &[disabled]:hover,
-    &:disabled:hover {
-      @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
-    }
-  }
+  // @media (hover: hover) {
+  //   &-disabled:hover,
+  //   &[disabled]:hover,
+  //   &:disabled:hover {
+  //     @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+  //   }
+  // }
 }
 
 /* radio input and checkbox as button */
@@ -245,15 +206,3 @@ $TypeMap: (
     @apply outline-primary;
   }
 }
-
-// @keyframes button-pop {
-//   0% {
-//     transform: scale(var(--btn-focus-scale, 0.98));
-//   }
-//   40% {
-//     transform: scale(1.02);
-//   }
-//   100% {
-//     transform: scale(1);
-//   }
-// }

@@ -19,8 +19,6 @@
     "useRef": true,
     "useState": true,
     "useSyncExternalStore": true,
-    "useTransition": true,
-    "CodePreview": true,
-    "css2pluginRepl": true
+    "useTransition": true
   }
 }

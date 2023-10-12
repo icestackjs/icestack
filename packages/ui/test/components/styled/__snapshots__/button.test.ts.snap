@@ -2,27 +2,24 @@
 
 exports[`button > snap 1`] = `
 ".btn {
-  @apply gap-2 font-semibold no-underline;
+  @apply no-underline;
   border-width: var(--ice-border-btn,1px);
-  /* default btn */
-  /* brand colors */
-  /* btn with state colors */
   /* glass */
   /* btn variants */
   /* outline */
   /* disabled */
 }
+.btn:focus-visible {
+  @apply outline outline-2 outline-offset-2;
+}
 .btn {
-  @apply border-base-200 bg-base-200 text-base-content outline-base-content no-underline;
+  @apply border-base-200 bg-base-200 text-base-content outline-base-200;
 }
 .btn:active {
   @apply border-base-300 bg-base-300;
 }
 .btn.btn-active {
   @apply border-base-300 bg-base-300;
-}
-.btn:focus-visible {
-  @apply outline outline-2 outline-offset-2;
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -46,43 +43,37 @@ exports[`button > snap 1`] = `
   @apply border-info bg-info text-info-content outline-info;
 }
 .btn-info:active {
-  @apply border-info bg-info;
+  @apply border-info-focus bg-info-focus;
 }
 .btn-info.btn-active {
-  @apply border-info bg-info;
+  @apply border-info-focus bg-info-focus;
 }
 .btn-success {
   @apply border-success bg-success text-success-content outline-success;
 }
-@media (hover: hover) {
-  .btn-success:hover {
-    @apply border-success bg-success;
-  }
+.btn-success:active {
+  @apply border-success-focus bg-success-focus;
 }
 .btn-success.btn-active {
-  @apply border-success bg-success;
+  @apply border-success-focus bg-success-focus;
 }
 .btn-warning {
   @apply border-warning bg-warning text-warning-content outline-warning;
 }
-@media (hover: hover) {
-  .btn-warning:hover {
-    @apply border-warning bg-warning;
-  }
+.btn-warning:active {
+  @apply border-warning-focus bg-warning-focus;
 }
 .btn-warning.btn-active {
-  @apply border-warning bg-warning;
+  @apply border-warning-focus bg-warning-focus;
 }
 .btn-error {
   @apply border-error bg-error text-error-content outline-error;
 }
-@media (hover: hover) {
-  .btn-error:hover {
-    @apply border-error bg-error;
-  }
+.btn-error:active {
+  @apply border-error-focus bg-error-focus;
 }
 .btn-error.btn-active {
-  @apply border-error bg-error;
+  @apply border-error-focus bg-error-focus;
 }
 .btn.glass {
   @apply shadow-none outline-current;
@@ -187,11 +178,6 @@ exports[`button > snap 1`] = `
 }
 .btn.btn-disabled, .btn[disabled], .btn:disabled {
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
-}
-@media (hover: hover) {
-  .btn-disabled:hover, .btn[disabled]:hover, .btn:disabled:hover {
-    @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
-  }
 }
 
 /* radio input and checkbox as button */

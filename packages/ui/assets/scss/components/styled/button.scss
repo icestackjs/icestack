@@ -13,27 +13,27 @@ $TypeMap: (
 );
 
 //Mixins may not contain mixin declarations.
-@mixin button-active($typeName, $pseudo: "active", $withoutMedia: false) {
+@mixin button-active($typeName, $append: "", $pseudo: "active", $withoutMedia: false) {
   @if ($withoutMedia) {
     &:#{$pseudo} {
-      @apply border-#{$typeName} bg-#{$typeName};
+      @apply border-#{$typeName} bg-#{$typeName} #{$append};
     }
   } @else {
     @if ($pseudo == "hover") {
       @media (hover: hover) {
         &:hover {
-          @apply border-#{$typeName} bg-#{$typeName};
+          @apply border-#{$typeName} bg-#{$typeName} #{$append};
         }
       }
     } @else {
       &:#{$pseudo} {
-        @apply border-#{$typeName} bg-#{$typeName};
+        @apply border-#{$typeName} bg-#{$typeName} #{$append};
       }
     }
   }
 
   &.btn-active {
-    @apply border-#{$typeName} bg-#{$typeName};
+    @apply border-#{$typeName} bg-#{$typeName} #{$append};
   }
 }
 
@@ -72,19 +72,18 @@ $TypeMap: (
   /* glass */
   &.glass {
     @apply shadow-none outline-current;
-    @media (hover: hover) {
-      &:hover {
-        --glass-opacity: 25%;
-        --glass-border-opacity: 15%;
-      }
+
+    &:active {
+      --glass-opacity: 25%;
+      --glass-border-opacity: 15%;
     }
+
     &.btn-active {
       --glass-opacity: 25%;
       --glass-border-opacity: 15%;
     }
   }
 
-  /* btn variants */
   &-ghost {
     @apply border border-transparent bg-transparent text-current shadow-none outline-current;
     @media (hover: hover) {
@@ -111,7 +110,9 @@ $TypeMap: (
 
   /* outline */
   &-outline {
-    @apply text-base-content border-current bg-transparent shadow-none;
+    @apply border-current bg-transparent shadow-none;
+    @apply text-base-content;
+
     @media (hover: hover) {
       &:hover {
         @apply border-base-content bg-base-content text-base-100;

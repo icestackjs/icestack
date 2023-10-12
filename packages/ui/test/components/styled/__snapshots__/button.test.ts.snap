@@ -5,7 +5,6 @@ exports[`button > snap 1`] = `
   @apply no-underline;
   border-width: var(--ice-border-btn,1px);
   /* glass */
-  /* btn variants */
   /* outline */
   /* disabled */
 }
@@ -78,11 +77,9 @@ exports[`button > snap 1`] = `
 .btn.glass {
   @apply shadow-none outline-current;
 }
-@media (hover: hover) {
-  .btn.glass:hover {
-    --ice-glass-opacity: 25%;
-    --ice-glass-border-opacity: 15%;
-  }
+.btn.glass:active {
+  --ice-glass-opacity: 25%;
+  --ice-glass-border-opacity: 15%;
 }
 .btn.glass.btn-active {
   --ice-glass-opacity: 25%;
@@ -111,7 +108,8 @@ exports[`button > snap 1`] = `
   @apply border-transparent bg-transparent underline;
 }
 .btn-outline {
-  @apply text-base-content border-current bg-transparent shadow-none;
+  @apply border-current bg-transparent shadow-none;
+  @apply text-base-content;
 }
 @media (hover: hover) {
   .btn-outline:hover {

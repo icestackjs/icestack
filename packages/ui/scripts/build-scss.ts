@@ -2,41 +2,18 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 // import { fileURLToPath } from 'node:url'
 import type { Stats } from 'node:fs'
-import * as sass from 'sass'
 import { compileString } from '@icestack/css2js'
 import { createContext } from 'css-to-tailwindcss-plugin'
 import postcss from 'postcss'
 import tailwindcss, { Config } from 'tailwindcss'
 // import chokidar from 'chokidar'
-import { set, trimStart } from 'lodash'
+import { set } from 'lodash'
 import klaw from 'klaw'
 import { composePlugins } from 'compose-tailwindcss-plugins'
 import dedent from 'dedent'
-import { Value } from 'sass'
-import { defaultVarPrefix } from '../src/constants'
+import { compileScss, sassOptions } from '../src/sass'
+import { cssDir, getCssPath, getJsPath, getPluginsPath, jsDir, pluginsDir, scssDir } from '../src/dirs'
 import { ensureDir } from './util'
-import { postcssCustomPropertyPrefixer } from './postcssCustomPropertyPrefixer'
-
-const assetsDir = path.resolve(__dirname, '../assets')
-const scssDir = path.resolve(assetsDir, 'scss')
-const jsDir = path.resolve(assetsDir, 'js')
-const cssDir = path.resolve(assetsDir, 'css')
-const pluginsDir = path.resolve(assetsDir, 'plugins')
-
-function getCssPath(relPath: string) {
-  const cssPath = path.resolve(cssDir, relPath)
-  return cssPath.replace(/scss$/, 'css')
-}
-
-function getJsPath(relPath: string) {
-  const jsPath = path.resolve(jsDir, relPath)
-  return jsPath.replace(/scss$/, 'js')
-}
-
-function getPluginsPath(relPath: string) {
-  const jsPath = path.resolve(pluginsDir, relPath)
-  return jsPath.replace(/scss$/, 'js')
-}
 
 const outSideLayerCss = process.argv.slice(2)[0]
 
@@ -47,60 +24,12 @@ interface IBuildScssOptions {
   outSideLayerCss: 'base' | 'components' | 'utilities'
 }
 
-function addVarPrefix(args: Value[]) {
-  const varName = args[0].assertString('varName')
-  return new sass.SassString(defaultVarPrefix + trimStart(varName.toString(), '-'), {
-    quotes: false
-  })
-}
-
-const sassOptions = {
-  functions: {
-    // 'addVarPrefix($varName)': addVarPrefix,
-    'avp($varName)': (args: Value[]) => {
-      const varName = args[0].assertString('varName')
-      return new sass.SassString('--' + trimStart(varName.toString(), '-'), {
-        quotes: false
-      })
-    },
-    "var($varName,$default:'')": (args: Value[]) => {
-      const str = addVarPrefix(args)
-      const defaultValue = args[1].toString()
-
-      const result = defaultValue ? `var(${str.toString()},${defaultValue})` : `var(${str.toString()})`
-      return new sass.SassString(result, {
-        quotes: false
-      })
-    }
-    // 'var($varName)': (args: Value[]) => {
-    //   const str = addVarPrefix(args)
-    //   return new sass.SassString(`var(${str.toString()})`, {
-    //     quotes: false
-    //   })
-    // }
-  }
-}
-
 async function buildScss(options: IBuildScssOptions) {
   const { filename, outSideLayerCss, resolveConfig, stats = await fs.stat(filename) } = options
 
   if (stats && stats.isFile() && /\.scss$/.test(filename)) {
-    const result = sass.compile(filename, sassOptions)
-    const { css: cssOutput } = await postcss([
-      postcssCustomPropertyPrefixer({
-        prefix: defaultVarPrefix.slice(2),
-        ignore: (prop) => {
-          if (prop.startsWith('--tw-')) {
-            return true
-          }
-        }
-      })
-    ])
-      // @ts-ignore
-      .process(result.css, {
-        from: undefined
-      })
-      .async()
+    const cssOutput = await compileScss(filename)
+
     const relPath = path.relative(scssDir, filename)
     const cssPath = getCssPath(relPath)
     const jsPath = getJsPath(relPath)
@@ -182,6 +111,9 @@ async function main() {
       const utilitiesJsOutputPath = path.resolve(jsDir, 'utilities')
       for await (const file of klaw(path.resolve(utilitiesPath, 'global'))) {
         if (file.stats.isFile() && /\.scss$/.test(file.path)) {
+          if (path.basename(file.path).startsWith('_')) {
+            continue
+          }
           basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
           await buildScss({
             filename: file.path,
@@ -210,6 +142,10 @@ async function main() {
       )
       for await (const file of klaw(utilitiesPath)) {
         if (file.stats.isFile() && /\.scss$/.test(file.path)) {
+          if (path.basename(file.path).startsWith('_')) {
+            continue
+          }
+
           basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
           await buildScss({
             filename: file.path,
@@ -246,17 +182,20 @@ async function main() {
       const fromDir = path.resolve(scssDir, 'components')
       for await (const file of klaw(fromDir)) {
         if (file.stats.isFile() && /\.scss$/.test(file.path)) {
+          if (path.basename(file.path).startsWith('_')) {
+            continue
+          }
           basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
+          await buildScss({
+            filename: file.path,
+            stats: file.stats,
+            resolveConfig: (config) => {
+              set(config, 'theme.extend.colors', colors)
+              config.plugins = [allInOnePlugin]
+            },
+            outSideLayerCss
+          })
         }
-        await buildScss({
-          filename: file.path,
-          stats: file.stats,
-          resolveConfig: (config) => {
-            set(config, 'theme.extend.colors', colors)
-            config.plugins = [allInOnePlugin]
-          },
-          outSideLayerCss
-        })
       }
       const componentsJsOutputPath = path.resolve(jsDir, 'components')
       await fs.writeFile(

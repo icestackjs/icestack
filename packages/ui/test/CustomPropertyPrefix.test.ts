@@ -1,5 +1,5 @@
 import postcss from 'postcss'
-import { postcssCustomPropertyPrefixer } from '../scripts/postcssCustomPropertyPrefixer'
+import { postcssCustomPropertyPrefixer } from '@/postcssCustomPropertyPrefixer'
 import { defaultVarPrefix } from '@/constants'
 
 describe('CustomPropertyPrefix.test', () => {

@@ -122,6 +122,7 @@
       @apply bg-base-content border-opacity-0 bg-opacity-20;
     }
   }
+
   &-link {
     @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
     @media (hover: hover) {

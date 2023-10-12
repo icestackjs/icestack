@@ -7,6 +7,10 @@ export default defineProject({
       {
         find: '@',
         replacement: path.resolve(__dirname, './src')
+      },
+      {
+        find: '#test',
+        replacement: path.resolve(__dirname, './test')
       }
     ],
     globals: true,

@@ -1,6 +1,8 @@
-# Button
+# 按钮 Button
 
 import { CodePreview } from '@/components/CodePreview'
+
+## 按钮主题
 
 <CodePreview>
   <>
@@ -36,6 +38,8 @@ import { CodePreview } from '@/components/CodePreview'
   ```
 </CodePreview>
 
+## 朴素按钮
+
 <CodePreview>
   <>
     <button className="btn btn-outline">Default</button>
@@ -61,10 +65,27 @@ import { CodePreview } from '@/components/CodePreview'
   ```
 </CodePreview>
 
-<button className="btn btn-lg">Large</button>
-<button className="btn">Normal</button>
-<button className="btn btn-sm">Small</button>
-<button className="btn btn-xs">Tiny</button>
+<CodePreview>
+  <>
+    <button className="btn btn-lg">Large</button>
+    <button className="btn">Normal</button>
+    <button className="btn btn-sm">Small</button>
+    <button className="btn btn-xs">Tiny</button>
+  </>
+  ```html
+  <button class="btn btn-lg">Large</button>
+  <button class="btn">Normal</button>
+  <button class="btn btn-sm">Small</button>
+  <button class="btn btn-xs">Tiny</button>
+  ```
+  <></>
+  ```jsx
+  <button className="btn btn-lg">Large</button>
+  <button className="btn">Normal</button>
+  <button className="btn btn-sm">Small</button>
+  <button className="btn btn-xs">Tiny</button>
+  ```
+</CodePreview>
 
 <button className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Responsive</button>
 
@@ -92,49 +113,27 @@ import { CodePreview } from '@/components/CodePreview'
 </button>
 
 <button className="btn btn-square">
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-  </svg>
+  <i className="i-mdi-close h-6 w-6" />
 </button>
 <button className="btn btn-square btn-outline">
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-  </svg>
+  <i className="i-mdi-close h-6 w-6" />
 </button>
 
 <button className="btn btn-circle">
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-  </svg>
+  <i className="i-mdi-close h-6 w-6" />
 </button>
 <button className="btn btn-circle btn-outline">
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-  </svg>
+  <i className="i-mdi-close h-6 w-6" />
 </button>
 
 <button className="btn">
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-    />
-  </svg>
+  <i className="i-mdi-cards-heart-outline h-6 w-6"></i>
   <span>Button</span>
 </button>
 
 <button className="btn">
   <span>Button</span>
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      strokeWidth="2"
-      d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-    />
-  </svg>
+  <i className="i-mdi-cards-heart-outline h-6 w-6"></i>
 </button>
 
 <button className="btn btn-block">block</button>

@@ -1,0 +1,238 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`button > snap 1`] = `
+".btn {
+  @apply gap-2 font-semibold no-underline;
+  border-width: var(--ice-border-btn,1px);
+  animation: button-pop var(--ice-animation-btn,0.25s) ease-out;
+  text-transform: var(--ice-btn-text-case,uppercase);
+  /* default btn */
+  /* brand colors */
+  /* btn with state colors */
+  /* glass */
+  /* btn variants */
+  /* outline */
+  /* disabled */
+}
+.btn:active:hover, .btn:active:focus {
+  animation: button-pop 0s ease-out;
+  transform: scale(var(--ice-btn-focus-scale,0.97));
+}
+.btn {
+  @apply border-base-200 bg-base-200 text-base-content outline-base-content no-underline;
+}
+@media (hover: hover) {
+  .btn:hover {
+    @apply border-base-300 bg-base-300;
+  }
+}
+.btn-active {
+  @apply border-base-300 bg-base-300;
+}
+.btn:focus-visible {
+  @apply outline outline-2 outline-offset-2;
+}
+.btn-primary {
+  @apply border-primary bg-primary text-primary-content outline-primary;
+}
+@media (hover: hover) {
+  .btn-primary:hover {
+    @apply border-primary-focus bg-primary-focus;
+  }
+}
+.btn-primary.btn-active {
+  @apply border-primary-focus bg-primary-focus;
+}
+.btn-neutral {
+  @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+}
+@media (hover: hover) {
+  .btn-neutral:hover {
+    @apply border-neutral-focus bg-neutral-focus;
+  }
+}
+.btn-neutral.btn-active {
+  @apply border-neutral-focus bg-neutral-focus;
+}
+.btn-info {
+  @apply border-info bg-info text-info-content outline-info;
+}
+@media (hover: hover) {
+  .btn-info:hover {
+    @apply border-info bg-info;
+  }
+}
+.btn-info.btn-active {
+  @apply border-info bg-info;
+}
+.btn-success {
+  @apply border-success bg-success text-success-content outline-success;
+}
+@media (hover: hover) {
+  .btn-success:hover {
+    @apply border-success bg-success;
+  }
+}
+.btn-success.btn-active {
+  @apply border-success bg-success;
+}
+.btn-warning {
+  @apply border-warning bg-warning text-warning-content outline-warning;
+}
+@media (hover: hover) {
+  .btn-warning:hover {
+    @apply border-warning bg-warning;
+  }
+}
+.btn-warning.btn-active {
+  @apply border-warning bg-warning;
+}
+.btn-error {
+  @apply border-error bg-error text-error-content outline-error;
+}
+@media (hover: hover) {
+  .btn-error:hover {
+    @apply border-error bg-error;
+  }
+}
+.btn-error.btn-active {
+  @apply border-error bg-error;
+}
+.btn.glass {
+  @apply shadow-none outline-current;
+}
+@media (hover: hover) {
+  .btn.glass:hover {
+    --ice-glass-opacity: 25%;
+    --ice-glass-border-opacity: 15%;
+  }
+}
+.btn.glass.btn-active {
+  --ice-glass-opacity: 25%;
+  --ice-glass-border-opacity: 15%;
+}
+.btn-ghost {
+  @apply border border-transparent bg-transparent text-current shadow-none outline-current;
+}
+@media (hover: hover) {
+  .btn-ghost:hover {
+    @apply bg-base-content border-opacity-0 bg-opacity-20;
+  }
+}
+.btn-ghost.btn-active {
+  @apply bg-base-content border-opacity-0 bg-opacity-20;
+}
+.btn-link {
+  @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+}
+@media (hover: hover) {
+  .btn-link:hover {
+    @apply border-transparent bg-transparent underline;
+  }
+}
+.btn-link.btn-active {
+  @apply border-transparent bg-transparent underline;
+}
+.btn-outline {
+  @apply text-base-content border-current bg-transparent shadow-none;
+}
+@media (hover: hover) {
+  .btn-outline:hover {
+    @apply border-base-content bg-base-content text-base-100;
+  }
+}
+.btn-outline.btn-active {
+  @apply border-base-content bg-base-content text-base-100;
+}
+.btn-outline.btn-primary {
+  @apply text-primary;
+}
+@media (hover: hover) {
+  .btn-outline.btn-primary:hover {
+    @apply border-primary-focus bg-primary-focus text-primary-content;
+  }
+}
+.btn-outline.btn-primary.btn-active {
+  @apply border-primary-focus bg-primary-focus text-primary-content;
+}
+.btn-outline.btn-success {
+  @apply text-success;
+}
+@media (hover: hover) {
+  .btn-outline.btn-success:hover {
+    @apply border-success bg-success text-success-content;
+  }
+}
+.btn-outline.btn-success.btn-active {
+  @apply border-success bg-success text-success-content;
+}
+.btn-outline.btn-info {
+  @apply text-info;
+}
+@media (hover: hover) {
+  .btn-outline.btn-info:hover {
+    @apply border-info bg-info text-info-content;
+  }
+}
+.btn-outline.btn-info.btn-active {
+  @apply border-info bg-info text-info-content;
+}
+.btn-outline.btn-warning {
+  @apply text-warning;
+}
+@media (hover: hover) {
+  .btn-outline.btn-warning:hover {
+    @apply border-warning bg-warning text-warning-content;
+  }
+}
+.btn-outline.btn-warning.btn-active {
+  @apply border-warning bg-warning text-warning-content;
+}
+.btn-outline.btn-error {
+  @apply text-error;
+}
+@media (hover: hover) {
+  .btn-outline.btn-error:hover {
+    @apply border-error bg-error text-error-content;
+  }
+}
+.btn-outline.btn-error.btn-active {
+  @apply border-error bg-error text-error-content;
+}
+.btn.btn-disabled, .btn[disabled], .btn:disabled {
+  @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+}
+@media (hover: hover) {
+  .btn-disabled:hover, .btn[disabled]:hover, .btn:disabled:hover {
+    @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+  }
+}
+
+/* radio input and checkbox as button */
+.btn:is(input[type=checkbox]:checked),
+.btn:is(input[type=radio]:checked) {
+  @apply border-primary bg-primary text-primary-content;
+}
+@media (hover: hover) {
+  .btn:is(input[type=checkbox]:checked):hover,
+  .btn:is(input[type=radio]:checked):hover {
+    @apply border-primary-focus bg-primary-focus;
+  }
+}
+.btn:is(input[type=checkbox]:checked):focus-visible,
+.btn:is(input[type=radio]:checked):focus-visible {
+  @apply outline-primary;
+}
+
+@keyframes button-pop {
+  0% {
+    transform: scale(var(--ice-btn-focus-scale,0.98));
+  }
+  40% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}"
+`;

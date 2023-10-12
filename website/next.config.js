@@ -9,7 +9,7 @@ const withNextra = require('nextra')({
  **/
 const opt = {
   i18n: {
-    locales: ['en-US', 'zh-CN'],
+    locales: ['zh-CN'], // 'en-US',
     defaultLocale: 'zh-CN',
     localeDetection: false
   },

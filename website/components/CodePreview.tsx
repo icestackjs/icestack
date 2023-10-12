@@ -6,11 +6,13 @@ export const CodePreview: FC = (props: PropsWithChildren) => {
   const { children } = props
 
   const dic = useMemo(() => {
-    if (Array.isArray(children)) {
-      return groupBy<ReactElement>(children, (x) => {
-        return x.props['data-language'] ?? 'preview'
-      })
+    let c = children
+    if (!Array.isArray(c)) {
+      c = [children]
     }
+    return groupBy<ReactElement>(c as ReactElement[], (x) => {
+      return x.props['data-language'] ?? 'preview'
+    })
   }, [children])
 
   const tabItems = useMemo(() => {

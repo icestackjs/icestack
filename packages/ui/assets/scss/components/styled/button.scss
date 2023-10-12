@@ -2,16 +2,8 @@
 @use "sass:map";
 
 // type: bg/border , content , active bg/border
-$TypeMap: (
-  "": base-200 base-content base-300,
-  "primary": primary primary-content primary-focus,
-  "neutral": neutral neutral-content neutral-focus,
-  "info": info info-content info-focus,
-  "success": success success-content success-focus,
-  "warning": warning warning-content warning-focus,
-  "error": error error-content error-focus
-);
-
+$TypeMap: injectBtnColors();
+@debug $TypeMap;
 //Mixins may not contain mixin declarations.
 @mixin button-active($bgRef, $borderRef: null, $append: "", $pseudo: "active", $withoutMedia: false) {
   @if ($borderRef == null) {

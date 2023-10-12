@@ -1,8 +1,4 @@
-import { OrderedMap } from 'immutable'
-import * as sass from 'sass'
-import { TinyColor } from '@ctrl/tinycolor'
-
-export const defaultVarsMap = {
+export const defaultVarsEntries = Object.entries({
   primary: '#1677ff',
   'primary-focus': '#4096ff',
   'primary-content': '#ffffff',
@@ -43,36 +39,14 @@ export const defaultVarsMap = {
   // heading-text: #171717,
   // text-100: #171717,
   // text-200: #404040,
-}
+}).map(([key, value]) => {
+  return ['--' + key, value]
+}) as [string, string][]
 
 // function isValidColor(str: string) {
 //   const color = new TinyColor(str)
 //   return color.isValid
 // }
-
-export const sassValueVarsMap = OrderedMap<sass.Value, sass.Value>(
-  Object.entries(defaultVarsMap).map(([varName, value]) => {
-    const color = new TinyColor(value)
-    let v: sass.Value
-    if (color.isValid) {
-      let str = ''
-      str = color.a < 1 && color.a > 0 ? `${color.r} ${color.g} ${color.b} / ${color.a}` : `${color.r} ${color.g} ${color.b}`
-      v = new sass.SassString(str, {
-        quotes: false
-      })
-    } else {
-      v = new sass.SassString(value, {
-        quotes: false
-      })
-    }
-    return [
-      new sass.SassString('--' + varName, {
-        quotes: false
-      }),
-      v
-    ]
-  })
-)
 
 // for (const [varName, value] of Object.entries(defaultVarsMap)) {
 //   sassValueMap.set(

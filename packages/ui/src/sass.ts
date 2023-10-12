@@ -6,11 +6,58 @@ import postcss from 'postcss'
 import { trimStart } from 'lodash'
 import { compileString } from '@icestack/css2js'
 import tailwindcss, { Config } from 'tailwindcss'
+import { OrderedMap } from 'immutable'
+import { TinyColor } from '@ctrl/tinycolor'
 import { defaultVarPrefix } from './constants'
 import { postcssCustomPropertyPrefixer } from './postcssCustomPropertyPrefixer'
-import { sassValueVarsMap } from './css-vars'
+import { defaultVarsEntries } from './css-vars'
 import { ensureDir } from './utils'
-import { cssDir, getCssPath, getJsPath, getPluginsPath, jsDir, scssDir } from './dirs'
+import { getCssPath, getJsPath, getPluginsPath, scssDir } from './dirs'
+
+export function transformJsVToSassV(entries: [string, string][]): [sass.Value, sass.Value][] {
+  return entries.map(([varName, value]) => {
+    const color = new TinyColor(value)
+    let v: sass.Value
+    if (color.isValid) {
+      let str = ''
+      str = color.a < 1 && color.a > 0 ? `${color.r} ${color.g} ${color.b} / ${color.a}` : `${color.r} ${color.g} ${color.b}`
+      v = new sass.SassString(str, {
+        quotes: false
+      })
+    } else {
+      v = new sass.SassString(value, {
+        quotes: false
+      })
+    }
+    return [
+      new sass.SassString(varName, {
+        quotes: false
+      }),
+      v
+    ]
+  })
+}
+
+export function transformJsVToSassMapList(entries: [string, string][]): [sass.Value, sass.Value][] {
+  return entries.map(([varName, value]) => {
+    const v = new sass.SassList(
+      value.split(' ').map(
+        (x) =>
+          new sass.SassString(x, {
+            quotes: false
+          })
+      )
+    )
+    return [
+      new sass.SassString(varName, {
+        quotes: false
+      }),
+      v
+    ]
+  })
+}
+
+export const sassValueVarsMap = OrderedMap<sass.Value, sass.Value>(transformJsVToSassV(defaultVarsEntries))
 
 function addVarPrefix(args: sass.Value[]) {
   const varName = args[0].assertString('varName')
@@ -39,6 +86,18 @@ export const sassOptions = {
     },
     'injectCssVars()': () => {
       return new sass.SassMap(sassValueVarsMap)
+    },
+    'injectBtnColors()': () => {
+      const colorsMap = {
+        '': 'base-200 base-content base-300',
+        primary: 'primary primary-content primary-focus',
+        neutral: 'neutral neutral-content neutral-focus',
+        info: 'info info-content info-focus',
+        success: 'success success-content success-focus',
+        warning: 'warning warning-content warning-focus',
+        error: 'error error-content error-focus'
+      }
+      return new sass.SassMap(OrderedMap<sass.Value, sass.Value>(transformJsVToSassMapList(Object.entries(colorsMap))))
     }
     // 'var($varName)': (args: Value[]) => {
     //   const str = addVarPrefix(args)

@@ -26,6 +26,7 @@ const opt = {
     )
     return config
   }
+
   //  redirects() {
   //     return [
   //       {

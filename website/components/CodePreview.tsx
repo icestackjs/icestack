@@ -1,5 +1,5 @@
 import { Tabs } from 'nextra/components'
-import type { FC, PropsWithChildren, ReactElement, ReactNode } from 'react'
+import type { FC, PropsWithChildren, ReactElement } from 'react'
 import { useMemo } from 'react'
 import { groupBy, upperFirst } from 'lodash-es'
 export const CodePreview: FC = (props: PropsWithChildren) => {

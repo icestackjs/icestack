@@ -2,22 +2,32 @@
 @use "sass:map";
 
 $TypeMap: (
-  "default": base-200 base-content base-300,
+  "": base-200 base-content base-300,
   "primary": primary primary-content primary-focus,
   "neutral": neutral neutral-content neutral-focus
 );
 
-@mixin button-hover($typeName, $withoutMedia: false) {
+@mixin button-active($typeName, $pseudo: "active", $withoutMedia: false) {
   @if ($withoutMedia) {
-    &:hover {
+    &:#{$pseudo} {
       @apply border-#{$typeName} bg-#{$typeName};
     }
   } @else {
-    @media (hover: hover) {
-      &:hover {
+    @if ($pseudo == "hover") {
+      @media (hover: hover) {
+        &:hover {
+          @apply border-#{$typeName} bg-#{$typeName};
+        }
+      }
+    } @else {
+      &:#{$pseudo} {
         @apply border-#{$typeName} bg-#{$typeName};
       }
     }
+  }
+
+  &.btn-active {
+    @apply border-#{$typeName} bg-#{$typeName};
   }
 }
 
@@ -39,11 +49,8 @@ $TypeMap: (
   & {
     @apply border-base-200 bg-base-200 text-base-content outline-base-content no-underline;
 
-    @include button-hover(base-300);
+    @include button-active(base-300);
 
-    &.btn-active {
-      @apply border-base-300 bg-base-300;
-    }
     &:focus-visible {
       @apply outline outline-2 outline-offset-2;
     }
@@ -52,32 +59,20 @@ $TypeMap: (
   &-primary {
     @apply border-primary bg-primary text-primary-content outline-primary;
 
-    @include button-hover(primary-focus);
-
-    &.btn-active {
-      @apply border-primary-focus bg-primary-focus;
-    }
+    @include button-active(primary-focus);
   }
 
   &-neutral {
     @apply border-neutral bg-neutral text-neutral-content outline-neutral;
 
-    @include button-hover(neutral-focus);
-
-    &.btn-active {
-      @apply border-neutral-focus bg-neutral-focus;
-    }
+    @include button-active(neutral-focus);
   }
 
   /* btn with state colors */
   &-info {
     @apply border-info bg-info text-info-content outline-info;
 
-    @include button-hover(info);
-
-    &.btn-active {
-      @apply border-info bg-info;
-    }
+    @include button-active(info);
   }
   &-success {
     @apply border-success bg-success text-success-content outline-success;

@@ -15,10 +15,8 @@ exports[`button > snap 1`] = `
 .btn {
   @apply border-base-200 bg-base-200 text-base-content outline-base-content no-underline;
 }
-@media (hover: hover) {
-  .btn:hover {
-    @apply border-base-300 bg-base-300;
-  }
+.btn:active {
+  @apply border-base-300 bg-base-300;
 }
 .btn.btn-active {
   @apply border-base-300 bg-base-300;
@@ -29,10 +27,8 @@ exports[`button > snap 1`] = `
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
 }
-@media (hover: hover) {
-  .btn-primary:hover {
-    @apply border-primary-focus bg-primary-focus;
-  }
+.btn-primary:active {
+  @apply border-primary-focus bg-primary-focus;
 }
 .btn-primary.btn-active {
   @apply border-primary-focus bg-primary-focus;
@@ -40,10 +36,8 @@ exports[`button > snap 1`] = `
 .btn-neutral {
   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
 }
-@media (hover: hover) {
-  .btn-neutral:hover {
-    @apply border-neutral-focus bg-neutral-focus;
-  }
+.btn-neutral:active {
+  @apply border-neutral-focus bg-neutral-focus;
 }
 .btn-neutral.btn-active {
   @apply border-neutral-focus bg-neutral-focus;
@@ -51,10 +45,8 @@ exports[`button > snap 1`] = `
 .btn-info {
   @apply border-info bg-info text-info-content outline-info;
 }
-@media (hover: hover) {
-  .btn-info:hover {
-    @apply border-info bg-info;
-  }
+.btn-info:active {
+  @apply border-info bg-info;
 }
 .btn-info.btn-active {
   @apply border-info bg-info;

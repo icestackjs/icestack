@@ -4,7 +4,6 @@ exports[`button > snap 1`] = `
 ".btn {
   @apply gap-2 font-semibold no-underline;
   border-width: var(--ice-border-btn,1px);
-  animation: button-pop var(--ice-animation-btn,0.25s) ease-out;
   text-transform: var(--ice-btn-text-case,uppercase);
   /* default btn */
   /* brand colors */
@@ -14,10 +13,6 @@ exports[`button > snap 1`] = `
   /* outline */
   /* disabled */
 }
-.btn:active:hover, .btn:active:focus {
-  animation: button-pop 0s ease-out;
-  transform: scale(var(--ice-btn-focus-scale,0.97));
-}
 .btn {
   @apply border-base-200 bg-base-200 text-base-content outline-base-content no-underline;
 }
@@ -26,7 +21,7 @@ exports[`button > snap 1`] = `
     @apply border-base-300 bg-base-300;
   }
 }
-.btn-active {
+.btn.btn-active {
   @apply border-base-300 bg-base-300;
 }
 .btn:focus-visible {
@@ -222,17 +217,5 @@ exports[`button > snap 1`] = `
 .btn:is(input[type=checkbox]:checked):focus-visible,
 .btn:is(input[type=radio]:checked):focus-visible {
   @apply outline-primary;
-}
-
-@keyframes button-pop {
-  0% {
-    transform: scale(var(--ice-btn-focus-scale,0.98));
-  }
-  40% {
-    transform: scale(1.02);
-  }
-  100% {
-    transform: scale(1);
-  }
 }"
 `;

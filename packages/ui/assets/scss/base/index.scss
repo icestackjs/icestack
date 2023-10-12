@@ -1,10 +1,12 @@
 @use "../utils/index.scss" as Util;
-@use "../vars.scss" as V;
+// @use "../vars.scss" as V;
+
+$root-vars: injectCssVars();
 
 :root {
-  @each $var, $color in V.$root-vars {
-    $prefix: avp(#{$var});
-    #{$prefix}: #{Util.getRgbaString($color)};
+  @each $var, $value in $root-vars {
+    // $prefix: avp(#{$var});
+    #{$var}: $value; // #{Util.getRgbaString($color)};
   }
 }
 

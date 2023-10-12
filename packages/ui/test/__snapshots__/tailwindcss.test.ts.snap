@@ -406,6 +406,11 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "--tw-border-opacity": "0",
     "backgroundColor": "rgba(var(--ice-base-content) / var(--tw-bg-opacity))",
   },
+  ".btn-ghost:active": {
+    "--tw-bg-opacity": "0.2",
+    "--tw-border-opacity": "0",
+    "backgroundColor": "rgba(var(--ice-base-content) / var(--tw-bg-opacity))",
+  },
   ".btn-info": {
     "--tw-bg-opacity": "1",
     "--tw-border-opacity": "1",
@@ -439,6 +444,11 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "textDecorationLine": "underline",
   },
   ".btn-link.btn-active": {
+    "backgroundColor": "transparent",
+    "borderColor": "transparent",
+    "textDecorationLine": "underline",
+  },
+  ".btn-link:active": {
     "backgroundColor": "transparent",
     "borderColor": "transparent",
     "textDecorationLine": "underline",
@@ -489,8 +499,16 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "--tw-bg-opacity": "1",
     "--tw-border-opacity": "1",
     "--tw-text-opacity": "1",
-    "backgroundColor": "rgba(var(--ice-error) / var(--tw-bg-opacity))",
-    "borderColor": "rgba(var(--ice-error) / var(--tw-border-opacity))",
+    "backgroundColor": "rgba(var(--ice-error-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-error-focus) / var(--tw-border-opacity))",
+    "color": "rgba(var(--ice-error-content) / var(--tw-text-opacity))",
+  },
+  ".btn-outline.btn-error:active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "--tw-text-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-error-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-error-focus) / var(--tw-border-opacity))",
     "color": "rgba(var(--ice-error-content) / var(--tw-text-opacity))",
   },
   ".btn-outline.btn-info": {
@@ -501,15 +519,51 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "--tw-bg-opacity": "1",
     "--tw-border-opacity": "1",
     "--tw-text-opacity": "1",
-    "backgroundColor": "rgba(var(--ice-info) / var(--tw-bg-opacity))",
-    "borderColor": "rgba(var(--ice-info) / var(--tw-border-opacity))",
+    "backgroundColor": "rgba(var(--ice-info-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-info-focus) / var(--tw-border-opacity))",
     "color": "rgba(var(--ice-info-content) / var(--tw-text-opacity))",
+  },
+  ".btn-outline.btn-info:active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "--tw-text-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-info-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-info-focus) / var(--tw-border-opacity))",
+    "color": "rgba(var(--ice-info-content) / var(--tw-text-opacity))",
+  },
+  ".btn-outline.btn-neutral": {
+    "--tw-text-opacity": "1",
+    "color": "rgba(var(--ice-neutral) / var(--tw-text-opacity))",
+  },
+  ".btn-outline.btn-neutral.btn-active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "--tw-text-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-neutral-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-neutral-focus) / var(--tw-border-opacity))",
+    "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+  },
+  ".btn-outline.btn-neutral:active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "--tw-text-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-neutral-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-neutral-focus) / var(--tw-border-opacity))",
+    "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
   },
   ".btn-outline.btn-primary": {
     "--tw-text-opacity": "1",
     "color": "rgba(var(--ice-primary) / var(--tw-text-opacity))",
   },
   ".btn-outline.btn-primary.btn-active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "--tw-text-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-primary-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-primary-focus) / var(--tw-border-opacity))",
+    "color": "rgba(var(--ice-primary-content) / var(--tw-text-opacity))",
+  },
+  ".btn-outline.btn-primary:active": {
     "--tw-bg-opacity": "1",
     "--tw-border-opacity": "1",
     "--tw-text-opacity": "1",
@@ -525,8 +579,16 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "--tw-bg-opacity": "1",
     "--tw-border-opacity": "1",
     "--tw-text-opacity": "1",
-    "backgroundColor": "rgba(var(--ice-success) / var(--tw-bg-opacity))",
-    "borderColor": "rgba(var(--ice-success) / var(--tw-border-opacity))",
+    "backgroundColor": "rgba(var(--ice-success-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-success-focus) / var(--tw-border-opacity))",
+    "color": "rgba(var(--ice-success-content) / var(--tw-text-opacity))",
+  },
+  ".btn-outline.btn-success:active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "--tw-text-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-success-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-success-focus) / var(--tw-border-opacity))",
     "color": "rgba(var(--ice-success-content) / var(--tw-text-opacity))",
   },
   ".btn-outline.btn-warning": {
@@ -537,9 +599,25 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "--tw-bg-opacity": "1",
     "--tw-border-opacity": "1",
     "--tw-text-opacity": "1",
-    "backgroundColor": "rgba(var(--ice-warning) / var(--tw-bg-opacity))",
-    "borderColor": "rgba(var(--ice-warning) / var(--tw-border-opacity))",
+    "backgroundColor": "rgba(var(--ice-warning-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-warning-focus) / var(--tw-border-opacity))",
     "color": "rgba(var(--ice-warning-content) / var(--tw-text-opacity))",
+  },
+  ".btn-outline.btn-warning:active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "--tw-text-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-warning-focus) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-warning-focus) / var(--tw-border-opacity))",
+    "color": "rgba(var(--ice-warning-content) / var(--tw-text-opacity))",
+  },
+  ".btn-outline:active": {
+    "--tw-bg-opacity": "1",
+    "--tw-border-opacity": "1",
+    "--tw-text-opacity": "1",
+    "backgroundColor": "rgba(var(--ice-base-content) / var(--tw-bg-opacity))",
+    "borderColor": "rgba(var(--ice-base-content) / var(--tw-border-opacity))",
+    "color": "rgba(var(--ice-base-100) / var(--tw-text-opacity))",
   },
   ".btn-primary": {
     "--tw-bg-opacity": "1",
@@ -632,6 +710,10 @@ exports[`tailwindcss > entries components > merged 6`] = `
     "--ice-glass-border-opacity": "15%",
     "--ice-glass-opacity": "25%",
   },
+  ".btn.glass:active": {
+    "--ice-glass-border-opacity": "15%",
+    "--ice-glass-opacity": "25%",
+  },
   ".btn:active": {
     "--tw-bg-opacity": "1",
     "--tw-border-opacity": "1",
@@ -666,106 +748,15 @@ exports[`tailwindcss > entries components > merged 6`] = `
 .btn:is(input[type=radio]:checked):focus-visible": {
     "outlineColor": "rgba(var(--ice-primary) / 1)",
   },
-  "@media (hover: hover)": [
-    {
-      ".btn.glass:hover": {
-        "--ice-glass-border-opacity": "15%",
-        "--ice-glass-opacity": "25%",
-      },
-    },
-    {
-      ".btn-ghost:hover": {
-        "--tw-bg-opacity": "0.2",
-        "--tw-border-opacity": "0",
-        "backgroundColor": "rgba(var(--ice-base-content) / var(--tw-bg-opacity))",
-      },
-    },
-    {
-      ".btn-link:hover": {
-        "backgroundColor": "transparent",
-        "borderColor": "transparent",
-        "textDecorationLine": "underline",
-      },
-    },
-    {
-      ".btn-outline:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "--tw-text-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-base-content) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-base-content) / var(--tw-border-opacity))",
-        "color": "rgba(var(--ice-base-100) / var(--tw-text-opacity))",
-      },
-    },
-    {
-      ".btn-outline.btn-primary:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "--tw-text-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-primary-focus) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-primary-focus) / var(--tw-border-opacity))",
-        "color": "rgba(var(--ice-primary-content) / var(--tw-text-opacity))",
-      },
-    },
-    {
-      ".btn-outline.btn-success:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "--tw-text-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-success) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-success) / var(--tw-border-opacity))",
-        "color": "rgba(var(--ice-success-content) / var(--tw-text-opacity))",
-      },
-    },
-    {
-      ".btn-outline.btn-info:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "--tw-text-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-info) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-info) / var(--tw-border-opacity))",
-        "color": "rgba(var(--ice-info-content) / var(--tw-text-opacity))",
-      },
-    },
-    {
-      ".btn-outline.btn-warning:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "--tw-text-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-warning) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-warning) / var(--tw-border-opacity))",
-        "color": "rgba(var(--ice-warning-content) / var(--tw-text-opacity))",
-      },
-    },
-    {
-      ".btn-outline.btn-error:hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "--tw-text-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-error) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-error) / var(--tw-border-opacity))",
-        "color": "rgba(var(--ice-error-content) / var(--tw-text-opacity))",
-      },
-    },
-    {
-      ".btn-disabled:hover, .btn[disabled]:hover, .btn:disabled:hover": {
-        "--tw-bg-opacity": "0.2",
-        "--tw-border-opacity": "0",
-        "--tw-text-opacity": "0.2",
-        "backgroundColor": "rgba(var(--ice-neutral) / var(--tw-bg-opacity))",
-        "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
-      },
-    },
-    {
-      ".btn:is(input[type=checkbox]:checked):hover,
+  "@media (hover: hover)": {
+    ".btn:is(input[type=checkbox]:checked):hover,
   .btn:is(input[type=radio]:checked):hover": {
-        "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-primary-focus) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-primary-focus) / var(--tw-border-opacity))",
-      },
+      "--tw-bg-opacity": "1",
+      "--tw-border-opacity": "1",
+      "backgroundColor": "rgba(var(--ice-primary-focus) / var(--tw-bg-opacity))",
+      "borderColor": "rgba(var(--ice-primary-focus) / var(--tw-border-opacity))",
     },
-  ],
+  },
 }
 `;
 

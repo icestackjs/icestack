@@ -3,6 +3,7 @@ import postcss from 'postcss'
 import { trimStart } from 'lodash'
 import { defaultVarPrefix } from './constants'
 import { postcssCustomPropertyPrefixer } from './postcssCustomPropertyPrefixer'
+import { sassValueVarsMap } from './css-vars'
 function addVarPrefix(args: sass.Value[]) {
   const varName = args[0].assertString('varName')
   return new sass.SassString(defaultVarPrefix + trimStart(varName.toString(), '-'), {
@@ -13,12 +14,12 @@ function addVarPrefix(args: sass.Value[]) {
 export const sassOptions = {
   functions: {
     // 'addVarPrefix($varName)': addVarPrefix,
-    'avp($varName)': (args: sass.Value[]) => {
-      const varName = args[0].assertString('varName')
-      return new sass.SassString('--' + trimStart(varName.toString(), '-'), {
-        quotes: false
-      })
-    },
+    // 'avp($varName)': (args: sass.Value[]) => {
+    //   const varName = args[0].assertString('varName')
+    //   return new sass.SassString('--' + trimStart(varName.toString(), '-'), {
+    //     quotes: false
+    //   })
+    // },
     "var($varName,$default:'')": (args: sass.Value[]) => {
       const str = addVarPrefix(args)
       const defaultValue = args[1].toString()
@@ -27,6 +28,9 @@ export const sassOptions = {
       return new sass.SassString(result, {
         quotes: false
       })
+    },
+    'injectCssVars()': () => {
+      return new sass.SassMap(sassValueVarsMap)
     }
     // 'var($varName)': (args: Value[]) => {
     //   const str = addVarPrefix(args)

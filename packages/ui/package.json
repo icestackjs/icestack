@@ -59,9 +59,12 @@
   "keywords": [],
   "author": "",
   "dependencies": {
+    "@ctrl/tinycolor": "^4.0.2",
     "@icestack/css2js": "workspace:^",
     "compose-tailwindcss-plugins": "workspace:^",
-    "css-to-tailwindcss-plugin": "workspace:^"
+    "css-to-tailwindcss-plugin": "workspace:^",
+    "immutable": "^4.0.0",
+    "sass": "^1.69.3"
   },
   "devDependencies": {
     "merge": "^2.1.1",

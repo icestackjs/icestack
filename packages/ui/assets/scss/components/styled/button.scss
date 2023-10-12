@@ -41,7 +41,7 @@ $TypeMap: (
   }
 }
 
-@function getSelector($type: "") {
+@function getBtnSelector($type: "") {
   @if ($type == "") {
     @return "";
   } @else {
@@ -65,7 +65,7 @@ $TypeMap: (
     $c: list.nth($list, 2);
     $f: list.nth($list, 3);
 
-    $selector: getSelector($typeName);
+    $selector: getBtnSelector($typeName);
 
     &#{$selector} {
       @include default-style($d, $c);
@@ -100,71 +100,30 @@ $TypeMap: (
 
   /* outline */
   &-outline {
-    @apply border-current bg-transparent shadow-none;
-    @apply text-base-content;
-
-    @media (hover: hover) {
-      &:hover {
-        @apply border-base-content bg-base-content text-base-100;
-      }
-    }
-    &.btn-active {
-      @apply border-base-content bg-base-content text-base-100;
-    }
-    &.btn-primary {
-      @apply text-primary;
-      @media (hover: hover) {
-        &:hover {
-          @apply border-primary-focus bg-primary-focus text-primary-content;
-        }
-      }
-      &.btn-active {
-        @apply border-primary-focus bg-primary-focus text-primary-content;
+    @function getOutlineSelector($type: "") {
+      @if ($type == "") {
+        @return "";
+      } @else {
+        @return ".btn-#{$type}";
       }
     }
 
-    &.btn-success {
-      @apply text-success;
-      @media (hover: hover) {
-        &:hover {
-          @apply border-success bg-success text-success-content;
+    @each $typeName, $list in $TypeMap {
+      $d: list.nth($list, 1);
+      $c: list.nth($list, 2);
+      $f: list.nth($list, 3);
+
+      $selector: getOutlineSelector($typeName);
+
+      &#{$selector} {
+        @if ($typeName == "") {
+          @apply border-current bg-transparent shadow-none;
+          @apply text-base-content;
+          @include button-active(base-content, base-content, text-base-100);
+        } @else {
+          @apply text-#{$d};
+          @include button-active($f, $f, text-#{$c});
         }
-      }
-      &.btn-active {
-        @apply border-success bg-success text-success-content;
-      }
-    }
-    &.btn-info {
-      @apply text-info;
-      @media (hover: hover) {
-        &:hover {
-          @apply border-info bg-info text-info-content;
-        }
-      }
-      &.btn-active {
-        @apply border-info bg-info text-info-content;
-      }
-    }
-    &.btn-warning {
-      @apply text-warning;
-      @media (hover: hover) {
-        &:hover {
-          @apply border-warning bg-warning text-warning-content;
-        }
-      }
-      &.btn-active {
-        @apply border-warning bg-warning text-warning-content;
-      }
-    }
-    &.btn-error {
-      @apply text-error;
-      @media (hover: hover) {
-        &:hover {
-          @apply border-error bg-error text-error-content;
-        }
-      }
-      &.btn-active {
-        @apply border-error bg-error text-error-content;
       }
     }
   }
@@ -180,10 +139,8 @@ $TypeMap: (
 .btn:is(input[type="checkbox"]:checked),
 .btn:is(input[type="radio"]:checked) {
   @apply border-primary bg-primary text-primary-content;
-  @media (hover: hover) {
-    &:hover {
-      @apply border-primary-focus bg-primary-focus;
-    }
+  &:active {
+    @apply border-primary-focus bg-primary-focus;
   }
   &:focus-visible {
     @apply outline-primary;

@@ -563,7 +563,7 @@ importers:
         version: 4.2.0
       sass:
         specifier: ^1.69.0
-        version: 1.69.2
+        version: 1.69.3
       stylus:
         specifier: ^0.60.0
         version: 0.60.0
@@ -578,6 +578,9 @@ importers:
 
   packages/ui:
     dependencies:
+      '@ctrl/tinycolor':
+        specifier: ^4.0.2
+        version: 4.0.2
       '@icestack/css2js':
         specifier: workspace:^
         version: link:../css2js
@@ -587,13 +590,19 @@ importers:
       css-to-tailwindcss-plugin:
         specifier: workspace:^
         version: link:../css-to-tailwindcss-plugin
+      immutable:
+        specifier: ^4.0.0
+        version: 4.3.4
+      sass:
+        specifier: ^1.69.3
+        version: 1.69.3
     devDependencies:
       merge:
         specifier: ^2.1.1
         version: 2.1.1
       sass-true:
         specifier: ^7.0.0
-        version: 7.0.0(sass@1.69.2)
+        version: 7.0.0(sass@1.69.3)
 
   website:
     dependencies:
@@ -7273,7 +7282,7 @@ packages:
     resolution: {integrity: sha512-jn7qwGFmJHwUSphV8zZneO3GmtlgLsmhs/LQyVvQbIIa+fzGMUiHI4HXJZL3FT8MJmgXWbLGiVVY7ElvHq6vDA==}
     deprecated: This is a stub types definition. sass provides its own type definitions, so you do not need this installed.
     dependencies:
-      sass: 1.50.0
+      sass: 1.69.3
     dev: true
 
   /@types/scheduler@0.16.4:
@@ -21144,7 +21153,7 @@ packages:
       webpack: 5.88.2(@swc/core@1.3.23)
     dev: true
 
-  /sass-true@7.0.0(sass@1.69.2):
+  /sass-true@7.0.0(sass@1.69.3):
     resolution: {integrity: sha512-sRdXX7MrrYdg+lPRm+/vIr8wVvDrNtWj3ttOVyIMHZQ8vNoV67+YjZKTsY9+B4Ecee+/U3ryXKJLi1YcMEkaJQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
     peerDependencies:
@@ -21154,7 +21163,7 @@ packages:
       css: 3.0.0
       jest-diff: 29.7.0
       lodash: 4.17.21
-      sass: 1.69.2
+      sass: 1.69.3
     dev: true
 
   /sass@1.50.0:
@@ -21178,6 +21187,15 @@ packages:
 
   /sass@1.69.2:
     resolution: {integrity: sha512-48lDtG/9OuSQZ9oNmJMUXI2QdCakAWrAGjpX/Fy6j4Og8dEAyE598x5GqCqnHkwV7+I5w8DJpqjm581q5HNh3w==}
+    engines: {node: '>=14.0.0'}
+    hasBin: true
+    dependencies:
+      chokidar: 3.5.3
+      immutable: 4.3.4
+      source-map-js: 1.0.2
+
+  /sass@1.69.3:
+    resolution: {integrity: sha512-X99+a2iGdXkdWn1akFPs0ZmelUzyAQfvqYc2P/MPTrJRuIRoTffGzT9W9nFqG00S+c8hXzVmgxhUuHFdrwxkhQ==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
@@ -21270,7 +21288,7 @@ packages:
       loglevel: 1.8.1
       loglevel-plugin-prefix: 0.8.4
       pretty-bytes: 5.6.0
-      sass: 1.50.0
+      sass: 1.69.3
       tslib: 1.14.1
     dev: true
 

@@ -107,10 +107,8 @@ exports[`button > snap 1`] = `
   @apply border-current bg-transparent shadow-none;
   @apply text-base-content;
 }
-@media (hover: hover) {
-  .btn-outline:hover {
-    @apply border-base-content bg-base-content text-base-100;
-  }
+.btn-outline:active {
+  @apply border-base-content bg-base-content text-base-100;
 }
 .btn-outline.btn-active {
   @apply border-base-content bg-base-content text-base-100;
@@ -118,57 +116,56 @@ exports[`button > snap 1`] = `
 .btn-outline.btn-primary {
   @apply text-primary;
 }
-@media (hover: hover) {
-  .btn-outline.btn-primary:hover {
-    @apply border-primary-focus bg-primary-focus text-primary-content;
-  }
+.btn-outline.btn-primary:active {
+  @apply border-primary-focus bg-primary-focus text-primary-content;
 }
 .btn-outline.btn-primary.btn-active {
   @apply border-primary-focus bg-primary-focus text-primary-content;
 }
-.btn-outline.btn-success {
-  @apply text-success;
+.btn-outline.btn-neutral {
+  @apply text-neutral;
 }
-@media (hover: hover) {
-  .btn-outline.btn-success:hover {
-    @apply border-success bg-success text-success-content;
-  }
+.btn-outline.btn-neutral:active {
+  @apply border-neutral-focus bg-neutral-focus text-neutral-content;
 }
-.btn-outline.btn-success.btn-active {
-  @apply border-success bg-success text-success-content;
+.btn-outline.btn-neutral.btn-active {
+  @apply border-neutral-focus bg-neutral-focus text-neutral-content;
 }
 .btn-outline.btn-info {
   @apply text-info;
 }
-@media (hover: hover) {
-  .btn-outline.btn-info:hover {
-    @apply border-info bg-info text-info-content;
-  }
+.btn-outline.btn-info:active {
+  @apply border-info-focus bg-info-focus text-info-content;
 }
 .btn-outline.btn-info.btn-active {
-  @apply border-info bg-info text-info-content;
+  @apply border-info-focus bg-info-focus text-info-content;
+}
+.btn-outline.btn-success {
+  @apply text-success;
+}
+.btn-outline.btn-success:active {
+  @apply border-success-focus bg-success-focus text-success-content;
+}
+.btn-outline.btn-success.btn-active {
+  @apply border-success-focus bg-success-focus text-success-content;
 }
 .btn-outline.btn-warning {
   @apply text-warning;
 }
-@media (hover: hover) {
-  .btn-outline.btn-warning:hover {
-    @apply border-warning bg-warning text-warning-content;
-  }
+.btn-outline.btn-warning:active {
+  @apply border-warning-focus bg-warning-focus text-warning-content;
 }
 .btn-outline.btn-warning.btn-active {
-  @apply border-warning bg-warning text-warning-content;
+  @apply border-warning-focus bg-warning-focus text-warning-content;
 }
 .btn-outline.btn-error {
   @apply text-error;
 }
-@media (hover: hover) {
-  .btn-outline.btn-error:hover {
-    @apply border-error bg-error text-error-content;
-  }
+.btn-outline.btn-error:active {
+  @apply border-error-focus bg-error-focus text-error-content;
 }
 .btn-outline.btn-error.btn-active {
-  @apply border-error bg-error text-error-content;
+  @apply border-error-focus bg-error-focus text-error-content;
 }
 .btn.btn-disabled, .btn[disabled], .btn:disabled {
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
@@ -178,11 +175,9 @@ exports[`button > snap 1`] = `
 .btn:is(input[type=radio]:checked) {
   @apply border-primary bg-primary text-primary-content;
 }
-@media (hover: hover) {
-  .btn:is(input[type=checkbox]:checked):hover,
-  .btn:is(input[type=radio]:checked):hover {
-    @apply border-primary-focus bg-primary-focus;
-  }
+.btn:is(input[type=checkbox]:checked):active,
+.btn:is(input[type=radio]:checked):active {
+  @apply border-primary-focus bg-primary-focus;
 }
 .btn:is(input[type=checkbox]:checked):focus-visible,
 .btn:is(input[type=radio]:checked):focus-visible {

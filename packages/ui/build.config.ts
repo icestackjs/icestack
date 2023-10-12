@@ -13,7 +13,22 @@ export default defineBuildConfig({
     dts: {
       // https://github.com/unjs/unbuild/issues/135
       respectExternal: false
+    },
+    commonjs: {
+      ignore: (id) => {
+        return id.startsWith('../assets/')
+      }
     }
+    // resolve: {
+    //   resolveOnly: (module) => !module.startsWith('../assets/')
+    // }
+    // output: {
+    //   manualChunks(id) {
+    //     if (id.includes('node_modules')) {
+    //       return 'vendor'
+    //     }
+    //   }
+    // }
   },
   alias: {
     // 别名
@@ -21,5 +36,5 @@ export default defineBuildConfig({
   },
   // dts
   declaration: true,
-  externals: [/^tailwindcss/]
+  externals: [/^tailwindcss/, /^\.\.\/assets\//]
 })

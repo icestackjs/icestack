@@ -38,8 +38,9 @@
     "assets"
   ],
   "scripts": {
-    "build": "npm run clean && npm run build:base && npm run build:utilities && npm run build:components && unbuild",
-    "___": "unbuild",
+    "build": "npm run clean && npm run build:base && npm run build:utilities && npm run build:components && npm run build:plugin",
+    "build:plugin": "unbuild",
+    "_build:plugin": "unbuild",
     "clean": "del assets/{css,js,plugins}",
     "dev": "unbuild --watch",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",

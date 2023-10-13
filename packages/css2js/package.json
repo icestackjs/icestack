@@ -1,6 +1,6 @@
 {
   "name": "@icestack/css2js",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "css2js utils, support scss and css to js object",
   "exports": {
     ".": {
@@ -41,7 +41,7 @@
   },
   "optionalDependencies": {
     "less": "^4.2.0",
-    "sass": "^1.69.0",
+    "sass": "^1.69.3",
     "stylus": "^0.60.0"
   }
 }

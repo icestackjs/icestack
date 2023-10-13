@@ -63,7 +63,7 @@
     "@icestack/css2js": "workspace:^",
     "compose-tailwindcss-plugins": "workspace:^",
     "css-to-tailwindcss-plugin": "workspace:^",
-    "immutable": "^4.0.0",
+    "immutable": "5.0.0-beta.4",
     "sass": "^1.69.3"
   },
   "devDependencies": {

@@ -1,13 +1,14 @@
 @use "../utils/index.scss" as *;
-
+@use "sass:map";
 $TypeMap: injectAlertColors();
 
 .alert {
   @apply rounded-box border p-4;
 
-  @each $typeName, $applyStr in $TypeMap {
+  @each $typeName, $map in $TypeMap {
+    $d: map.get($map, "default");
     &#{getSelector($typeName)} {
-      @apply #{$applyStr};
+      @apply #{$d};
     }
   }
 }

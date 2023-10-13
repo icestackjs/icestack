@@ -57,6 +57,35 @@ export function transformJsVToSassMapList(entries: [string, string][]): [sass.Va
   })
 }
 
+export function transformJsVToSassMapMap(entries: [string, Record<string, string>][]): sass.SassMap {
+  return new sass.SassMap(
+    OrderedMap(
+      entries.map(([varName, value]) => {
+        const v = new sass.SassMap(
+          OrderedMap(
+            Object.entries(value).map(([key, value]) => {
+              return [
+                new sass.SassString(key, {
+                  quotes: false
+                }),
+                new sass.SassString(value, {
+                  quotes: false
+                })
+              ]
+            })
+          )
+        )
+        return [
+          new sass.SassString(varName, {
+            quotes: false
+          }),
+          v
+        ]
+      })
+    )
+  )
+}
+
 export const sassValueVarsMap = OrderedMap<sass.Value, sass.Value>(transformJsVToSassV(defaultVarsEntries))
 
 function addVarPrefix(args: sass.Value[]) {
@@ -64,6 +93,15 @@ function addVarPrefix(args: sass.Value[]) {
   return new sass.SassString(defaultVarPrefix + trimStart(varName.toString(), '-'), {
     quotes: false
   })
+}
+
+function generateBtnInjectVars(type: string) {
+  return {
+    'primary-color': type,
+    default: `border-${type} bg-${type} text-${type}-content outline-${type}`,
+    active: `border-${type}-focus bg-${type}-focus`,
+    'outline-active': `border-${type}-focus bg-${type}-focus text-${type}-content`
+  }
 }
 
 export const sassOptions = {
@@ -89,25 +127,40 @@ export const sassOptions = {
     },
     'injectBtnColors()': () => {
       const colorsMap = {
-        '': 'base-200 base-content base-300',
-        primary: 'primary primary-content primary-focus',
-        neutral: 'neutral neutral-content neutral-focus',
-        info: 'info info-content info-focus',
-        success: 'success success-content success-focus',
-        warning: 'warning warning-content warning-focus',
-        error: 'error error-content error-focus'
+        '': {
+          'primary-color': 'base-200',
+          default: 'border-base-200 bg-base-200 text-base-content outline-base-200',
+          active: 'border-base-300 bg-base-300',
+          'outline-active': 'border-base-content bg-base-content text-base-100'
+        },
+        primary: generateBtnInjectVars('primary'),
+        neutral: generateBtnInjectVars('neutral'),
+        info: generateBtnInjectVars('info'),
+        success: generateBtnInjectVars('success'),
+        warning: generateBtnInjectVars('warning'),
+        error: generateBtnInjectVars('error')
       }
-      return new sass.SassMap(OrderedMap<sass.Value, sass.Value>(transformJsVToSassMapList(Object.entries(colorsMap))))
+      return transformJsVToSassMapMap(Object.entries(colorsMap))
     },
     'injectAlertColors()': () => {
       const colorsMap = {
-        '': 'text-base-content border-base-200',
-        info: 'text-info-content border-info/20 bg-info',
-        success: 'text-success-content border-success/20 bg-success',
-        warning: 'text-warning-content border-warning/20 bg-warning',
-        error: 'text-error-content border-error/20 bg-error'
+        '': {
+          default: 'text-base-content border-base-200'
+        },
+        info: {
+          default: 'text-info-content border-info/20 bg-info'
+        },
+        success: {
+          default: 'text-success-content border-success/20 bg-success'
+        },
+        warning: {
+          default: 'text-warning-content border-warning/20 bg-warning'
+        },
+        error: {
+          default: 'text-error-content border-error/20 bg-error'
+        }
       }
-      return new sass.SassMap(OrderedMap<sass.Value, sass.Value>(transformJsVToSassV(Object.entries(colorsMap))))
+      return transformJsVToSassMapMap(Object.entries(colorsMap))
     }
     // 'var($varName)': (args: Value[]) => {
     //   const str = addVarPrefix(args)

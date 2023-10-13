@@ -1,5 +1,6 @@
 import postcss from 'postcss'
-import creator, { matchCustomPropertyFromValue } from '@/index'
+import creator from '@/index'
+import { matchCustomPropertyFromValue } from '@/utils'
 
 const defaultVarPrefix = '--ice-'
 

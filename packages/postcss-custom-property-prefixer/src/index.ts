@@ -1,31 +1,8 @@
 import { PluginCreator } from 'postcss'
 import { defu } from 'defu'
-import { InternalOptions, UserDefinedOptions, PrefixFunction } from './types'
+import { InternalOptions, UserDefinedOptions } from './types'
 import { PropResolvedMarkSymbol, ValueResolvedMarkSymbol, addMark, getMark } from './symbol'
-
-export function matchCustomPropertyFromValue(str: string, cb: (arr: RegExpExecArray, index: number) => void) {
-  let arr: RegExpExecArray | null
-  let index = 0
-  const regex = /var\(\s*(--\w[\w-]*)/g
-  while ((arr = regex.exec(str)) !== null) {
-    cb(arr, index)
-    index++
-  }
-}
-
-export function makeCustomProperty(customProperty: string, prefix: string) {
-  return `--${prefix}${customProperty.slice(2)}`
-}
-
-export const postcssPlugin = 'postcss-custom-property-prefixer'
-
-export function makePrefixFunction(prefix: UserDefinedOptions['prefix']): PrefixFunction {
-  return typeof prefix === 'string'
-    ? () => {
-        return prefix
-      }
-    : prefix
-}
+import { makeCustomProperty, makePrefixFunction, matchCustomPropertyFromValue, postcssPlugin } from './utils'
 
 const postcssCustomPropertyPrefixer: PluginCreator<UserDefinedOptions> = (options) => {
   const {
@@ -77,6 +54,8 @@ const postcssCustomPropertyPrefixer: PluginCreator<UserDefinedOptions> = (option
     }
   }
 }
+
+// module.exports = postcssCustomPropertyPrefixer
 
 postcssCustomPropertyPrefixer.postcss = true
 

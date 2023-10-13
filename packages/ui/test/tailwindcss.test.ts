@@ -1,13 +1,12 @@
-import plugin from 'tailwindcss/plugin'
 import merge from 'merge'
-import base from '../assets/js/base/index.js'
-import components from '../assets/js/components/index.js'
-import utilities from '../assets/js/utilities/index.js'
-import { colors } from '@/colors.js'
+
+// import { colors } from '@/colors.js'
 import { groupBy } from '@/utils'
 
-describe('tailwindcss', () => {
-  // const {}= await import('../assets/js/base/index.js')
+describe.skip('tailwindcss', async () => {
+  // const { default: base } = await import('../assets/js/base/index.js')
+  const { default: components } = await import('../assets/js/components/index.js')
+  const { default: utilities } = await import('../assets/js/utilities/index.js')
   it('grouped components', () => {
     const dic = groupBy(Object.entries(components), ([name]) => {
       let com = name

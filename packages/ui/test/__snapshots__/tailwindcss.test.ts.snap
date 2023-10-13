@@ -3659,6 +3659,8 @@ exports[`tailwindcss > entries components > merged 47`] = `
 
 exports[`tailwindcss > entries components > merged 48`] = `{}`;
 
+exports[`tailwindcss > entries components > merged 49`] = `{}`;
+
 exports[`tailwindcss > utilitiesEntries 1`] = `
 {
   ".glass, .glass.btn-active": {
@@ -3893,89 +3895,6 @@ exports[`tailwindcss > utilitiesEntries 7`] = `
 
 exports[`tailwindcss > utilitiesEntries 8`] = `
 {
-  ".btn-block": {
-    "width": "100%",
-  },
-  ".btn-circle:where(.btn-lg)": {
-    "borderRadius": "9999px",
-    "height": "4rem",
-    "padding": "0px",
-    "width": "4rem",
-  },
-  ".btn-circle:where(.btn-md)": {
-    "borderRadius": "9999px",
-    "height": "3rem",
-    "padding": "0px",
-    "width": "3rem",
-  },
-  ".btn-circle:where(.btn-sm)": {
-    "borderRadius": "9999px",
-    "height": "2rem",
-    "padding": "0px",
-    "width": "2rem",
-  },
-  ".btn-circle:where(.btn-xs)": {
-    "borderRadius": "9999px",
-    "height": "1.5rem",
-    "padding": "0px",
-    "width": "1.5rem",
-  },
-  ".btn-lg": {
-    "fontSize": "1.125rem",
-    "height": "4rem",
-    "minHeight": "4rem",
-    "paddingLeft": "1.5rem",
-    "paddingRight": "1.5rem",
-  },
-  ".btn-md": {
-    "fontSize": "0.875rem",
-    "height": "3rem",
-    "minHeight": "3rem",
-    "paddingLeft": "1rem",
-    "paddingRight": "1rem",
-  },
-  ".btn-sm": {
-    "fontSize": "0.875rem",
-    "height": "2rem",
-    "minHeight": "2rem",
-    "paddingLeft": "0.75rem",
-    "paddingRight": "0.75rem",
-  },
-  ".btn-square:where(.btn-lg)": {
-    "height": "4rem",
-    "padding": "0px",
-    "width": "4rem",
-  },
-  ".btn-square:where(.btn-md)": {
-    "height": "3rem",
-    "padding": "0px",
-    "width": "3rem",
-  },
-  ".btn-square:where(.btn-sm)": {
-    "height": "2rem",
-    "padding": "0px",
-    "width": "2rem",
-  },
-  ".btn-square:where(.btn-xs)": {
-    "height": "1.5rem",
-    "padding": "0px",
-    "width": "1.5rem",
-  },
-  ".btn-wide": {
-    "width": "16rem",
-  },
-  ".btn-xs": {
-    "fontSize": "0.75rem",
-    "height": "1.5rem",
-    "minHeight": "1.5rem",
-    "paddingLeft": "0.5rem",
-    "paddingRight": "0.5rem",
-  },
-}
-`;
-
-exports[`tailwindcss > utilitiesEntries 9`] = `
-{
   ".card-compact .card-body": {
     "fontSize": "0.875rem",
     "lineHeight": "1.25rem",
@@ -4021,7 +3940,7 @@ exports[`tailwindcss > utilitiesEntries 9`] = `
 }
 `;
 
-exports[`tailwindcss > utilitiesEntries 10`] = `
+exports[`tailwindcss > utilitiesEntries 9`] = `
 {
   ".divider-horizontal": {
     "flexDirection": "column",
@@ -4060,7 +3979,7 @@ exports[`tailwindcss > utilitiesEntries 10`] = `
 }
 `;
 
-exports[`tailwindcss > utilitiesEntries 11`] = `
+exports[`tailwindcss > utilitiesEntries 10`] = `
 {
   ".drawer-open > .drawer-toggle": {
     "display": "none",
@@ -4090,7 +4009,7 @@ exports[`tailwindcss > utilitiesEntries 11`] = `
 }
 `;
 
-exports[`tailwindcss > utilitiesEntries 12`] = `
+exports[`tailwindcss > utilitiesEntries 11`] = `
 {
   ".join.join-horizontal": {
     "flexDirection": "row",
@@ -4135,7 +4054,7 @@ exports[`tailwindcss > utilitiesEntries 12`] = `
 }
 `;
 
-exports[`tailwindcss > utilitiesEntries 13`] = `
+exports[`tailwindcss > utilitiesEntries 12`] = `
 {
   ".menu-horizontal": {
     "display": "inline-flex",
@@ -4239,7 +4158,7 @@ exports[`tailwindcss > utilitiesEntries 13`] = `
 }
 `;
 
-exports[`tailwindcss > utilitiesEntries 14`] = `
+exports[`tailwindcss > utilitiesEntries 13`] = `
 {
   ".modal-bottom": {
     "placeItems": "end",
@@ -4289,7 +4208,7 @@ exports[`tailwindcss > utilitiesEntries 14`] = `
 }
 `;
 
-exports[`tailwindcss > utilitiesEntries 15`] = `
+exports[`tailwindcss > utilitiesEntries 14`] = `
 {
   ".stats-horizontal": {
     "gridAutoFlow": "column",
@@ -4318,7 +4237,7 @@ exports[`tailwindcss > utilitiesEntries 15`] = `
 }
 `;
 
-exports[`tailwindcss > utilitiesEntries 16`] = `
+exports[`tailwindcss > utilitiesEntries 15`] = `
 {
   ".steps-horizontal": {
     "display": "inline-grid",
@@ -4370,7 +4289,7 @@ exports[`tailwindcss > utilitiesEntries 16`] = `
 }
 `;
 
-exports[`tailwindcss > utilitiesEntries 17`] = `
+exports[`tailwindcss > utilitiesEntries 16`] = `
 {
   ".table-lg :not(thead):not(tfoot) tr": {
     "fontSize": "1rem",
@@ -4415,7 +4334,7 @@ exports[`tailwindcss > utilitiesEntries 17`] = `
 }
 `;
 
-exports[`tailwindcss > utilitiesEntries 18`] = `
+exports[`tailwindcss > utilitiesEntries 17`] = `
 {
   ".tooltip": {
     "--ice-tooltip-color": "hsl(var(--n))",
@@ -4572,7 +4491,7 @@ exports[`tailwindcss > utilitiesEntries 18`] = `
 }
 `;
 
-exports[`tailwindcss > utilitiesEntries 19`] = `
+exports[`tailwindcss > utilitiesEntries 18`] = `
 {
   ".badge-lg": {
     "fontSize": "1rem",
@@ -4605,7 +4524,7 @@ exports[`tailwindcss > utilitiesEntries 19`] = `
 }
 `;
 
-exports[`tailwindcss > utilitiesEntries 20`] = `
+exports[`tailwindcss > utilitiesEntries 19`] = `
 {
   ".btm-nav-lg": {
     "height": "5rem",
@@ -4646,6 +4565,89 @@ exports[`tailwindcss > utilitiesEntries 20`] = `
   },
   ".btm-nav-xs > *:where(.active)": {
     "borderTopWidth": "1px",
+  },
+}
+`;
+
+exports[`tailwindcss > utilitiesEntries 20`] = `
+{
+  ".btn-block": {
+    "width": "100%",
+  },
+  ".btn-circle:where(.btn-lg)": {
+    "borderRadius": "9999px",
+    "height": "4rem",
+    "padding": "0px",
+    "width": "4rem",
+  },
+  ".btn-circle:where(.btn-md)": {
+    "borderRadius": "9999px",
+    "height": "3rem",
+    "padding": "0px",
+    "width": "3rem",
+  },
+  ".btn-circle:where(.btn-sm)": {
+    "borderRadius": "9999px",
+    "height": "2rem",
+    "padding": "0px",
+    "width": "2rem",
+  },
+  ".btn-circle:where(.btn-xs)": {
+    "borderRadius": "9999px",
+    "height": "1.5rem",
+    "padding": "0px",
+    "width": "1.5rem",
+  },
+  ".btn-lg": {
+    "fontSize": "1.125rem",
+    "height": "4rem",
+    "minHeight": "4rem",
+    "paddingLeft": "1.5rem",
+    "paddingRight": "1.5rem",
+  },
+  ".btn-md": {
+    "fontSize": "0.875rem",
+    "height": "3rem",
+    "minHeight": "3rem",
+    "paddingLeft": "1rem",
+    "paddingRight": "1rem",
+  },
+  ".btn-sm": {
+    "fontSize": "0.875rem",
+    "height": "2rem",
+    "minHeight": "2rem",
+    "paddingLeft": "0.75rem",
+    "paddingRight": "0.75rem",
+  },
+  ".btn-square:where(.btn-lg)": {
+    "height": "4rem",
+    "padding": "0px",
+    "width": "4rem",
+  },
+  ".btn-square:where(.btn-md)": {
+    "height": "3rem",
+    "padding": "0px",
+    "width": "3rem",
+  },
+  ".btn-square:where(.btn-sm)": {
+    "height": "2rem",
+    "padding": "0px",
+    "width": "2rem",
+  },
+  ".btn-square:where(.btn-xs)": {
+    "height": "1.5rem",
+    "padding": "0px",
+    "width": "1.5rem",
+  },
+  ".btn-wide": {
+    "width": "16rem",
+  },
+  ".btn-xs": {
+    "fontSize": "0.75rem",
+    "height": "1.5rem",
+    "minHeight": "1.5rem",
+    "paddingLeft": "0.5rem",
+    "paddingRight": "0.5rem",
   },
 }
 `;

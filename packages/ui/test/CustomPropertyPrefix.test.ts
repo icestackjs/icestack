@@ -48,7 +48,7 @@ describe('CustomPropertyPrefix.test', () => {
     const { css } = await postcss([
       postcssCustomPropertyPrefixer({
         prefix: defaultVarPrefix.slice(2),
-        ignore: (prop) => {
+        ignoreProp: (prop) => {
           if (prop.startsWith('--tw-')) {
             return true
           }

@@ -1,0 +1,101 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`postcssCustomPropertyPrefixer > add Prefix 1`] = `
+".no-animation {
+        --ice-btn-focus-scale: 1;
+        --ice-animation-btn: 0;
+        --ice-animation-input: 0;
+      }
+      .tab-border-none {
+        --ice-tab-border: 0px;
+      }
+      .tab-border {
+        --ice-tab-border: 1px;
+      }
+      .tab-border-2 {
+        --ice-tab-border: 2px;
+      }
+      .tab-border-3 {
+        --ice-tab-border: 3px;
+      }
+      .tab-rounded-none {
+        --ice-tab-radius: 0;
+      }
+      .tab-rounded-lg {
+        --ice-tab-radius: 0.5rem;
+      }
+      "
+`;
+
+exports[`postcssCustomPropertyPrefixer > add Prefix case 0 1`] = `
+".a {
+          --ice-tab-color: hsl(var(--ice-bc) / var(--ice-tw-text-opacity, 1));
+          --ice-tab-bg: hsl(var(--ice-b1) / var(--ice-tw-bg-opacity, 1));
+          --ice-tab-border-color: hsl(var(--ice-b3) / var(--ice-tw-bg-opacity, 1));
+      }
+      "
+`;
+
+exports[`postcssCustomPropertyPrefixer > different prefix 1`] = `
+".a {
+          --xx-tab-color: hsl(var(--ice-bc) / var(--tw-text-opacity, 1));
+          --xx-tab-bg: hsl(var(--ice-b1) / var(--tw-bg-opacity, 1));
+          --xx-tab-border-color: hsl(var(--ice-b3) / var(--tw-bg-opacity, 1));
+      }
+      "
+`;
+
+exports[`postcssCustomPropertyPrefixer > ignoreDecl case 0 1`] = `
+".a {
+          --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1));
+          --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1));
+          --xx-tab-border-color: hsl(var(--ice-b3) / var(--tw-bg-opacity, 1));
+      }
+      "
+`;
+
+exports[`postcssCustomPropertyPrefixer > ignoreProp case 0 1`] = `
+".a {
+          --tab-color: hsl(var(--ice-bc) / var(--tw-text-opacity, 1));
+          --xx-tab-bg: hsl(var(--ice-b1) / var(--tw-bg-opacity, 1));
+          --xx-tab-border-color: hsl(var(--ice-b3) / var(--tw-bg-opacity, 1));
+      }
+      "
+`;
+
+exports[`postcssCustomPropertyPrefixer > ignoreProp case 1 1`] = `
+".no-animation {
+        --ice-btn-focus-scale: 1;
+        --ice-animation-btn: 0;
+        --ice-animation-input: 0;
+        --tw-a:0;
+        --tw-b:1;
+      }
+      "
+`;
+
+exports[`postcssCustomPropertyPrefixer > ignoreValue case 0 1`] = `
+".a {
+          --xx-tab-color: hsl(var(--ice-bc) / var(--tw-text-opacity, 1));
+          --xx-tab-bg: hsl(var(--ice-b1) / var(--tw-bg-opacity, 1));
+          --xx-tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1));
+      }
+      "
+`;
+
+exports[`postcssCustomPropertyPrefixer > ignoreValueCustomProperty case 0 1`] = `
+".a {
+          --ice-tab-color: hsl(var(--ice-bc) / var(--tw-text-opacity, 1));
+          --ice-tab-bg: hsl(var(--ice-b1) / var(--tw-bg-opacity, 1));
+          --ice-tab-border-color: hsl(var(--ice-b3) / var(--tw-bg-opacity, 1));
+      }
+      "
+`;
+
+exports[`postcssCustomPropertyPrefixer > prefix function 1`] = `
+".a {
+          --aaa-bg-red: hsl(var(--text-red-100));
+          --text-red: hsl(var(--bbb-text-red-500));
+      }
+      "
+`;

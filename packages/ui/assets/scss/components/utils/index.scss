@@ -1,7 +1,26 @@
+@use "sass:string";
+@use "sass:math";
+
 @function getSelector($type, $prefix: "-") {
   @if ($type == "") {
     @return "";
   } @else {
     @return "#{$prefix}#{$type}";
   }
+}
+
+@function removeBorderPrefix($str) {
+  @return removePrefix($str, "border-");
+}
+
+@function removeBgPrefix($str) {
+  @return removePrefix($str, "bg-");
+}
+
+@function removeTextPrefix($str) {
+  @return removePrefix($str, "text-");
+}
+
+@function removePrefix($str, $prefix) {
+  @return string.slice($str, string.length($prefix) + 1);
 }

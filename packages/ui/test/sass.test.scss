@@ -1,0 +1,31 @@
+@use "true" as *;
+@use "../assets//scss/components/utils/index.scss" as *;
+// https://www.oddbird.net/true/docs/
+@include test-module("sass") {
+  @include test("removePrefix") {
+    // Assert the expected results
+    @include assert-equal(removePrefix(border-content, border-), content);
+  }
+
+  @include test("removeBorderPrefix") {
+    // Assert the expected results
+    @include assert-equal(removeBorderPrefix(border-content), content);
+  }
+
+  @include test("removeBgPrefix") {
+    // Assert the expected results
+    @include assert-equal(removeBgPrefix(bg-content), content);
+  }
+
+  @include test("removeTextPrefix") {
+    // Assert the expected results
+    @include assert-equal(removeTextPrefix(text-content), content);
+  }
+
+  // @include test("Zip") {
+  //   // Assert the expected results
+  //   @include assert-equal(zip(a b c, 1 2 2), (a 1, b 2, c 3));
+  // }
+}
+
+// @include report;

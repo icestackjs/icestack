@@ -5,9 +5,9 @@ $TypeMap: injectAlertColors();
 .alert {
   @apply rounded-box border p-4;
 
-  @each $typeName, $list in $TypeMap {
+  @each $typeName, $applyStr in $TypeMap {
     &#{getSelector($typeName)} {
-      @apply #{$list};
+      @apply #{$applyStr};
     }
   }
 }

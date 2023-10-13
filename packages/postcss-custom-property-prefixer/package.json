@@ -1,7 +1,7 @@
 {
   "name": "postcss-custom-property-prefixer",
   "version": "1.0.0",
-  "description": "add prefix to your css custom-property",
+  "description": "Add prefix to your css custom-property",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -14,7 +14,9 @@
   "types": "./dist/index.d.ts",
   "keywords": [
     "prefixer",
+    "custom",
     "custom-property",
+    "plugin",
     "css",
     "postcss"
   ],
@@ -23,6 +25,7 @@
     "type": "git",
     "url": "git+https://github.com/sonofmagic/icestack.git"
   },
+  "homepage": "https://github.com/sonofmagic/icestack/tree/main/packages/postcss-custom-property-prefixer",
   "license": "MIT",
   "scripts": {
     "build": "unbuild",

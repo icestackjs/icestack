@@ -3,13 +3,13 @@ import type { Stats } from 'node:fs'
 import path from 'node:path'
 import * as sass from 'sass'
 import postcss from 'postcss'
-import { trimStart } from 'lodash'
+// import { trimStart } from 'lodash'
 import { compileString } from '@icestack/css2js'
 import tailwindcss, { Config } from 'tailwindcss'
 import { OrderedMap } from 'immutable'
 import { TinyColor } from '@ctrl/tinycolor'
+import creator from 'postcss-custom-property-prefixer'
 import { defaultVarPrefix } from './constants'
-import { postcssCustomPropertyPrefixer } from './postcssCustomPropertyPrefixer'
 import { defaultVarsEntries } from './css-vars'
 import { ensureDir } from './utils'
 import { getCssPath, getJsPath, getPluginsPath, scssDir } from './dirs'
@@ -88,12 +88,12 @@ export function transformJsVToSassMapMap(entries: [string, Record<string, string
 
 export const sassValueVarsMap = OrderedMap<sass.Value, sass.Value>(transformJsVToSassV(defaultVarsEntries))
 
-function addVarPrefix(args: sass.Value[]) {
-  const varName = args[0].assertString('varName')
-  return new sass.SassString(defaultVarPrefix + trimStart(varName.toString(), '-'), {
-    quotes: false
-  })
-}
+// function addVarPrefix(args: sass.Value[]) {
+//   const varName = args[0].assertString('varName')
+//   return new sass.SassString(defaultVarPrefix + trimStart(varName.toString(), '-'), {
+//     quotes: false
+//   })
+// }
 
 function generateBtnInjectVars(type: string) {
   return {
@@ -113,15 +113,15 @@ export const sassOptions = {
     //     quotes: false
     //   })
     // },
-    "var($varName,$default:'')": (args: sass.Value[]) => {
-      const str = addVarPrefix(args)
-      const defaultValue = args[1].toString()
+    // "var($varName,$default:'')": (args: sass.Value[]) => {
+    //   const str = addVarPrefix(args)
+    //   const defaultValue = args[1].toString()
 
-      const result = defaultValue ? `var(${str.toString()},${defaultValue})` : `var(${str.toString()})`
-      return new sass.SassString(result, {
-        quotes: false
-      })
-    },
+    //   const result = defaultValue ? `var(${str.toString()},${defaultValue})` : `var(${str.toString()})`
+    //   return new sass.SassString(result, {
+    //     quotes: false
+    //   })
+    // },
     'injectCssVars()': () => {
       return new sass.SassMap(sassValueVarsMap)
     },
@@ -174,10 +174,15 @@ export const sassOptions = {
 export async function compileScss(filename: string) {
   const result = sass.compile(filename, sassOptions)
   const { css } = await postcss([
-    postcssCustomPropertyPrefixer({
+    creator({
       prefix: defaultVarPrefix.slice(2),
-      ignore: (prop) => {
-        if (prop.startsWith('--tw-')) {
+      ignoreProp: (decl) => {
+        if (decl.prop.startsWith('--tw-')) {
+          return true
+        }
+      },
+      ignoreValueCustomProperty(customProperty) {
+        if (customProperty.startsWith('--tw-')) {
           return true
         }
       }

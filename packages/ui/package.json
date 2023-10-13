@@ -68,6 +68,7 @@
   },
   "devDependencies": {
     "merge": "^2.1.1",
+    "postcss-custom-property-prefixer": "workspace:^",
     "sass-true": "^7.0.0"
   }
 }

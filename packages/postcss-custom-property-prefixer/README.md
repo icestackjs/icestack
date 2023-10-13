@@ -1,6 +1,6 @@
 # postcss-custom-property-prefixer
 
-> add prefix to your css custom-property
+> Add prefix to your css custom-property
 
 - [postcss-custom-property-prefixer](#postcss-custom-property-prefixer)
   - [Usage](#usage)
@@ -21,7 +21,7 @@
 <npm/yarn/pnpm> i -D postcss-custom-property-prefixer
 ```
 
-Then regist this plugin into your `postcss.config.js`:
+Then register this plugin into your `postcss.config.js`:
 
 ```js
 module.exports = {

@@ -19,7 +19,7 @@
     "@codemirror/lang-javascript": "^6.2.1",
     "@mdx-js/runtime": "^1.6.22",
     "@uiw/codemirror-theme-vscode": "^4.21.20",
-    "@uiw/react-codemirror": "^4.21.19",
+    "@uiw/react-codemirror": "^4.21.20",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "css-to-tailwindcss-plugin": "workspace:^",

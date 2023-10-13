@@ -1,0 +1,7 @@
+@function getSelector($type, $prefix: "-") {
+  @if ($type == "") {
+    @return "";
+  } @else {
+    @return "#{$prefix}#{$type}";
+  }
+}

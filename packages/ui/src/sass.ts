@@ -98,6 +98,16 @@ export const sassOptions = {
         error: 'error error-content error-focus'
       }
       return new sass.SassMap(OrderedMap<sass.Value, sass.Value>(transformJsVToSassMapList(Object.entries(colorsMap))))
+    },
+    'injectAlertColors()': () => {
+      const colorsMap = {
+        '': 'text-base-content border-base-200',
+        info: 'text-info-content border-info/20 bg-info',
+        success: 'text-success-content border-success/20 bg-success',
+        warning: 'text-warning-content border-warning/20 bg-warning',
+        error: 'text-error-content border-error/20 bg-error'
+      }
+      return new sass.SassMap(OrderedMap<sass.Value, sass.Value>(transformJsVToSassV(Object.entries(colorsMap))))
     }
     // 'var($varName)': (args: Value[]) => {
     //   const str = addVarPrefix(args)

@@ -4,6 +4,7 @@
 
 - [postcss-custom-property-prefixer](#postcss-custom-property-prefixer)
   - [Usage](#usage)
+  - [Demo](#demo)
   - [Options](#options)
     - [ignoreValueCustomProperty](#ignorevaluecustomproperty)
     - [ignoreDecl](#ignoredecl)
@@ -36,7 +37,7 @@ module.exports = {
 }
 ```
 
-Then:
+## Demo
 
 ```css
 .a {
@@ -79,8 +80,11 @@ Before:
 
 ```css
 .a {
+  /*                              ⬇ --tw-* */
   --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1));
+  /*                            ⬇ --tw-* */
   --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1));
+  /*                                      ⬇ --tw-* */
   --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1));
 }
 ```
@@ -95,7 +99,7 @@ After:
 }
 ```
 
-See! all css decl's value's custom properties which start with `--tw-` are ignored!
+See! All css decl's value's custom properties which start with `--tw-` are ignored!
 
 ### ignoreDecl
 
@@ -117,9 +121,12 @@ Before:
 
 ```css
 .a {
-  --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1)); /* prop === --tab-color , will be ignored */
-  --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1)); /* value.includes('hsl(var(--b1)') , will be ignored */
-  --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1)); /* transform */
+  /* prop === --tab-color , this decl will be ignored */
+  --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1)); 
+  /* value.includes('hsl(var(--b1)') , this will be ignored */
+  --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1)); 
+  /* will be transformed */
+  --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1)); 
 }
 ```
 
@@ -151,7 +158,8 @@ Before:
 
 ```css
 .a {
-  --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1)); /* only ignore the prop */
+  /* ⬇ only ignore the prop , not value ⬇ */
+  --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1)); 
   --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1)); 
   --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1)); 
 }
@@ -161,6 +169,7 @@ After:
 
 ```css
 .a {
+  /* ⬇ target prop */
   --tab-color: hsl(var(--ice-bc) / var(--tw-text-opacity, 1));
   --ice-tab-bg: hsl(var(--ice-b1) / var(--tw-bg-opacity, 1));
   --ice-tab-border-color: hsl(var(--ice-b3) / var(--tw-bg-opacity, 1));
@@ -187,7 +196,8 @@ Before:
 .a {
   --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1)); 
   --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1));  
-  --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1)); /* only ignore the value */
+  /*                       ⬇ target value , ignored*/
+  --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1));
 }
 ```
 

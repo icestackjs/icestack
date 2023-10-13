@@ -1,6 +1,6 @@
 {
   "name": "postcss-custom-property-prefixer",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Add prefix to your css custom-property",
   "exports": {
     ".": {

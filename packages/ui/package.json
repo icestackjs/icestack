@@ -65,11 +65,11 @@
     "css-to-tailwindcss-plugin": "workspace:^",
     "immutable": "^4.0.0",
     "postcss": "^8.4.31",
-    "sass": "^1.69.3"
+    "sass": "^1.69.3",
+    "postcss-custom-property-prefixer": "workspace:^"
   },
   "devDependencies": {
     "merge": "^2.1.1",
-    "postcss-custom-property-prefixer": "workspace:^",
     "sass-true": "^7.0.0"
   }
 }

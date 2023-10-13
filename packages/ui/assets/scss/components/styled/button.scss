@@ -1,7 +1,7 @@
 @use "../utils/index.scss" as *;
 @use "sass:map";
 
-$TypeMap: injectBtnColors();
+$TypeMap: injectButtonColors();
 
 //Mixins may not contain mixin declarations.
 @mixin button-active($applyStr, $pseudo: "active", $withoutMedia: false) {

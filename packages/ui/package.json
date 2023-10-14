@@ -65,8 +65,9 @@
     "css-to-tailwindcss-plugin": "workspace:^",
     "immutable": "^4.0.0",
     "postcss": "^8.4.31",
+    "postcss-custom-property-prefixer": "workspace:^",
     "sass": "^1.69.3",
-    "postcss-custom-property-prefixer": "workspace:^"
+    "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
     "merge": "^2.1.1",

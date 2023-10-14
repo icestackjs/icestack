@@ -1,0 +1,49 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`badge > snap 1`] = `
+".badge {
+  @apply border-base-200 bg-base-100 text-base-content rounded-badge border;
+}
+.badge-neutral {
+  @apply border-neutral bg-neutral text-neutral-content;
+}
+.badge-primary {
+  @apply border-primary bg-primary text-primary-content;
+}
+.badge-info {
+  @apply bg-info text-info-content border-transparent;
+}
+.badge-success {
+  @apply bg-success text-success-content border-transparent;
+}
+.badge-warning {
+  @apply bg-warning text-warning-content border-transparent;
+}
+.badge-error {
+  @apply bg-error text-error-content border-transparent;
+}
+.badge-ghost {
+  @apply border-base-200 bg-base-200 text-base-content;
+}
+.badge-outline {
+  @apply border-current border-opacity-50 bg-transparent text-current;
+}
+.badge-outline.badge-neutral {
+  @apply text-neutral;
+}
+.badge-outline.badge-primary {
+  @apply text-primary;
+}
+.badge-outline.badge-info {
+  @apply text-info;
+}
+.badge-outline.badge-success {
+  @apply text-success;
+}
+.badge-outline.badge-warning {
+  @apply text-warning;
+}
+.badge-outline.badge-error {
+  @apply text-error;
+}"
+`;

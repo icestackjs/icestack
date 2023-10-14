@@ -7,6 +7,9 @@ import * as badge from '@/components/badge'
 import * as chat from '@/components/chat'
 import * as checkbox from '@/components/checkbox'
 import * as fileInput from '@/components/file-input'
+import * as input from '@/components/input'
+import * as link from '@/components/link'
+import * as progress from '@/components/progress'
 
 export const functions: Options<'sync'>['functions'] = {
   ...base.inject,
@@ -15,5 +18,8 @@ export const functions: Options<'sync'>['functions'] = {
   ...badge.inject,
   ...chat.inject,
   ...checkbox.inject,
-  ...fileInput.inject
+  ...fileInput.inject,
+  ...input.inject,
+  ...link.inject,
+  ...progress.inject
 }

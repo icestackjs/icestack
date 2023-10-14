@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`link > snap 1`] = `
+".link-primary {
+  @apply text-primary [@media(hover:hover)]:hover:text-primary-focus;
+}
+.link-neutral {
+  @apply text-neutral [@media(hover:hover)]:hover:text-neutral-focus;
+}
+.link-info {
+  @apply text-info [@media(hover:hover)]:hover:text-info-focus;
+}
+.link-success {
+  @apply text-success [@media(hover:hover)]:hover:text-success-focus;
+}
+.link-warning {
+  @apply text-warning [@media(hover:hover)]:hover:text-warning-focus;
+}
+.link-error {
+  @apply text-error [@media(hover:hover)]:hover:text-error-focus;
+}
+.link:focus {
+  @apply outline-none;
+}
+.link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}"
+`;

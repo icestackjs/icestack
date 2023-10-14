@@ -1,22 +1,16 @@
+@use "../utils/index.scss" as *;
+@use "sass:map";
+$TypeMap: injectLinkColors();
+
 .link {
-  &-primary {
-    @apply text-primary [@media(hover:hover)]:hover:text-primary-focus;
+  @each $typeName, $map in $TypeMap {
+    // $d: map.get($map, "default");
+    &#{getSelector($typeName)} {
+      // #{$typeName}
+      @apply text-#{$typeName} [@media(hover:hover)]:hover:text-#{$typeName}-focus;
+    }
   }
-  &-neutral {
-    @apply text-neutral [@media(hover:hover)]:hover:text-neutral-focus;
-  }
-  &-success {
-    @apply text-success [@media(hover:hover)]:hover:text-success;
-  }
-  &-info {
-    @apply text-info [@media(hover:hover)]:hover:text-info;
-  }
-  &-warning {
-    @apply text-warning [@media(hover:hover)]:hover:text-warning;
-  }
-  &-error {
-    @apply text-error [@media(hover:hover)]:hover:text-error;
-  }
+
   &:focus {
     @apply outline-none;
   }

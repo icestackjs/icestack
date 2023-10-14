@@ -2,7 +2,10 @@
 
 exports[`badge > snap 1`] = `
 ".badge {
-  @apply border-base-200 bg-base-100 text-base-content rounded-badge border;
+  @apply rounded-badge border;
+}
+.badge {
+  @apply border-base-200 bg-base-100 text-base-content;
 }
 .badge-neutral {
   @apply border-neutral bg-neutral text-neutral-content;

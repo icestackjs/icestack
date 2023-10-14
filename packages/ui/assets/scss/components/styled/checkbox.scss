@@ -1,3 +1,7 @@
+@use "../utils/index.scss" as *;
+@use "sass:map";
+$TypeMap: injectCheckboxColors();
+
 .checkbox {
   @apply border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20;
   &:focus-visible {
@@ -13,62 +17,21 @@
     @apply bg-base-content bg-no-repeat;
     animation: checkmark var(--animation-input, 0.2s) ease-out;
   }
-  &-primary {
-    @apply border-primary [@media(hover:hover)]:hover:border-primary;
-    &:focus-visible {
-      @apply outline-primary;
-    }
-    &:checked,
-    &[checked="true"],
-    &[aria-checked="true"] {
-      @apply border-primary bg-primary text-primary-content;
+  @each $typeName, $map in $TypeMap {
+    // $d: map.get($map, "default");
+    &#{getSelector($typeName)} {
+      @apply border-#{$typeName} [@media(hover:hover)]:hover:border-#{$typeName};
+      &:focus-visible {
+        @apply outline-#{$typeName};
+      }
+      &:checked,
+      &[checked="true"],
+      &[aria-checked="true"] {
+        @apply border-#{$typeName} bg-#{$typeName} text-#{$typeName}-content;
+      }
     }
   }
 
-  &-success {
-    @apply border-success [@media(hover:hover)]:hover:border-success;
-    &:focus-visible {
-      @apply outline-success;
-    }
-    &:checked,
-    &[checked="true"],
-    &[aria-checked="true"] {
-      @apply border-success bg-success text-success-content;
-    }
-  }
-  &-warning {
-    @apply border-warning [@media(hover:hover)]:hover:border-warning;
-    &:focus-visible {
-      @apply outline-warning;
-    }
-    &:checked,
-    &[checked="true"],
-    &[aria-checked="true"] {
-      @apply border-warning bg-warning text-warning-content;
-    }
-  }
-  &-info {
-    @apply border-info [@media(hover:hover)]:hover:border-info;
-    &:focus-visible {
-      @apply outline-info;
-    }
-    &:checked,
-    &[checked="true"],
-    &[aria-checked="true"] {
-      @apply border-info bg-info text-info-content;
-    }
-  }
-  &-error {
-    @apply border-error [@media(hover:hover)]:hover:border-error;
-    &:focus-visible {
-      @apply outline-error;
-    }
-    &:checked,
-    &[checked="true"],
-    &[aria-checked="true"] {
-      @apply border-error bg-error text-error-content;
-    }
-  }
   &:disabled {
     @apply bg-base-content cursor-not-allowed border-transparent opacity-20;
   }

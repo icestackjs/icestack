@@ -1,3 +1,7 @@
+@use "../utils/index.scss" as *;
+@use "sass:map";
+$TypeMap: injectFileInputColors();
+
 .file-input {
   @apply border-base-content bg-base-100 rounded-btn overflow-hidden border border-opacity-0 text-base;
   &::file-selector-button {
@@ -23,52 +27,20 @@
       @apply border border-transparent bg-transparent text-current;
     }
   }
-  &-primary {
-    @apply border-primary;
-    &:focus {
-      @apply outline-primary;
-    }
-    &::file-selector-button {
-      @apply border-primary bg-primary text-primary-content;
+
+  @each $typeName, $map in $TypeMap {
+    // $d: map.get($map, "default");
+    &#{getSelector($typeName)} {
+      @apply border-#{$typeName};
+      &:focus {
+        @apply outline-#{$typeName};
+      }
+      &::file-selector-button {
+        @apply border-#{$typeName} bg-#{$typeName} text-#{$typeName}-content;
+      }
     }
   }
 
-  &-info {
-    @apply border-info;
-    &:focus {
-      @apply outline-info;
-    }
-    &::file-selector-button {
-      @apply border-info bg-info text-info-content;
-    }
-  }
-  &-success {
-    @apply border-success;
-    &:focus {
-      @apply outline-success;
-    }
-    &::file-selector-button {
-      @apply border-success bg-success text-success-content;
-    }
-  }
-  &-warning {
-    @apply border-warning;
-    &:focus {
-      @apply outline-warning;
-    }
-    &::file-selector-button {
-      @apply border-warning bg-warning text-warning-content;
-    }
-  }
-  &-error {
-    @apply border-error;
-    &:focus {
-      @apply outline-error;
-    }
-    &::file-selector-button {
-      @apply border-error bg-error text-error-content;
-    }
-  }
   &-disabled,
   &[disabled] {
     @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;

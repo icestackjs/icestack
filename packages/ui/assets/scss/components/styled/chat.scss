@@ -1,30 +1,18 @@
+@use "../utils/index.scss" as *;
+@use "sass:map";
+$TypeMap: injectChatColors();
+
 .chat {
   &-bubble {
     @apply rounded-box;
     min-height: 2.75rem;
     min-width: 2.75rem;
 
-    /* default */
-    & {
-      @apply bg-neutral text-neutral-content;
-    }
-
-    /* brand colors */
-    &-primary {
-      @apply bg-primary text-primary-content;
-    }
-    /* state colors */
-    &-info {
-      @apply bg-info text-info-content;
-    }
-    &-success {
-      @apply bg-success text-success-content;
-    }
-    &-warning {
-      @apply bg-warning text-warning-content;
-    }
-    &-error {
-      @apply bg-error text-error-content;
+    @each $typeName, $map in $TypeMap {
+      $d: map.get($map, "default");
+      &#{getSelector($typeName)} {
+        @apply #{$d};
+      }
     }
   }
 

@@ -1,0 +1,82 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`checkbox > snap 1`] = `
+".checkbox {
+  @apply border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20;
+}
+.checkbox:focus-visible {
+  @apply outline-base-content outline outline-2 outline-offset-2;
+}
+.checkbox:checked, .checkbox[checked=true], .checkbox[aria-checked=true] {
+  @apply bg-base-content bg-no-repeat;
+  animation: checkmark var(--ice-animation-input, 0.2s) ease-out;
+}
+.checkbox:indeterminate {
+  @apply bg-base-content bg-no-repeat;
+  animation: checkmark var(--ice-animation-input, 0.2s) ease-out;
+}
+.checkbox-primary {
+  @apply border-primary [@media(hover:hover)]:hover:border-primary;
+}
+.checkbox-primary:focus-visible {
+  @apply outline-primary;
+}
+.checkbox-primary:checked, .checkbox-primary[checked=true], .checkbox-primary[aria-checked=true] {
+  @apply border-primary bg-primary text-primary-content;
+}
+.checkbox-info {
+  @apply border-info [@media(hover:hover)]:hover:border-info;
+}
+.checkbox-info:focus-visible {
+  @apply outline-info;
+}
+.checkbox-info:checked, .checkbox-info[checked=true], .checkbox-info[aria-checked=true] {
+  @apply border-info bg-info text-info-content;
+}
+.checkbox-success {
+  @apply border-success [@media(hover:hover)]:hover:border-success;
+}
+.checkbox-success:focus-visible {
+  @apply outline-success;
+}
+.checkbox-success:checked, .checkbox-success[checked=true], .checkbox-success[aria-checked=true] {
+  @apply border-success bg-success text-success-content;
+}
+.checkbox-warning {
+  @apply border-warning [@media(hover:hover)]:hover:border-warning;
+}
+.checkbox-warning:focus-visible {
+  @apply outline-warning;
+}
+.checkbox-warning:checked, .checkbox-warning[checked=true], .checkbox-warning[aria-checked=true] {
+  @apply border-warning bg-warning text-warning-content;
+}
+.checkbox-error {
+  @apply border-error [@media(hover:hover)]:hover:border-error;
+}
+.checkbox-error:focus-visible {
+  @apply outline-error;
+}
+.checkbox-error:checked, .checkbox-error[checked=true], .checkbox-error[aria-checked=true] {
+  @apply border-error bg-error text-error-content;
+}
+.checkbox:disabled {
+  @apply bg-base-content cursor-not-allowed border-transparent opacity-20;
+}
+
+@keyframes checkmark {
+  0% {
+    background-position-y: 5px;
+  }
+  50% {
+    background-position-y: -2px;
+  }
+  100% {
+    background-position-y: 0;
+  }
+}
+/* backward compatibility */
+.checkbox-mark {
+  @apply hidden;
+}"
+`;

@@ -9,7 +9,7 @@ import creator from 'postcss-custom-property-prefixer'
 import { functions } from './functions'
 import { defaultVarPrefix } from '@/constants'
 import { ensureDir } from '@/utils'
-import { getCssPath, getJsPath, getPluginsPath, scssDir } from '@/dirs'
+import { getCssPath, getJsPath, getPluginsPath, scssDir, getCssResolvedpath } from '@/dirs'
 
 export const sassOptions: sass.Options<'sync'> = {
   functions
@@ -52,9 +52,11 @@ export async function buildScss(options: IBuildScssOptions) {
     const relPath = path.relative(scssDir, filename)
     const cssPath = getCssPath(relPath)
     const jsPath = getJsPath(relPath)
+    const cssResolvedPath = getCssResolvedpath(relPath)
     const pluginPath = getPluginsPath(relPath)
     await ensureDir(path.dirname(cssPath))
     await ensureDir(path.dirname(jsPath))
+    await ensureDir(path.dirname(cssResolvedPath))
     const thisPluginDir = path.dirname(pluginPath)
     await ensureDir(thisPluginDir)
     const config: Config = {
@@ -91,7 +93,8 @@ export async function buildScss(options: IBuildScssOptions) {
         from: undefined
       })
       .async()
-
+    // css-resolved
+    await fs.writeFile(cssResolvedPath, css, 'utf8')
     const data =
       'module.exports = ' +
       JSON.stringify(

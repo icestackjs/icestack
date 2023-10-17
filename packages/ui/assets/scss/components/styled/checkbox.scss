@@ -18,16 +18,18 @@ $TypeMap: injectCheckboxColors();
     animation: checkmark var(--animation-input, 0.2s) ease-out;
   }
   @each $typeName, $map in $TypeMap {
-    // $d: map.get($map, "default");
+    $d: map.get($map, "default");
+    $f: map.get($map, "focus");
+    $c: map.get($map, "checked");
     &#{getSelector($typeName)} {
-      @apply border-#{$typeName} [@media(hover:hover)]:hover:border-#{$typeName};
+      @apply #{$d};
       &:focus-visible {
-        @apply outline-#{$typeName};
+        @apply #{$f};
       }
       &:checked,
       &[checked="true"],
       &[aria-checked="true"] {
-        @apply border-#{$typeName} bg-#{$typeName} text-#{$typeName}-content;
+        @apply #{$c};
       }
     }
   }

@@ -72,6 +72,15 @@ exports[`file-input > snap 1`] = `
 .file-input-error::file-selector-button {
   @apply border-error bg-error text-error-content;
 }
+.file-input-neutral {
+  @apply border-neutral;
+}
+.file-input-neutral:focus {
+  @apply outline-neutral;
+}
+.file-input-neutral::file-selector-button {
+  @apply border-neutral bg-neutral text-neutral-content;
+}
 .file-input-disabled, .file-input[disabled] {
   @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
 }

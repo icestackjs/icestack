@@ -4,10 +4,10 @@ $TypeMap: injectLinkColors();
 
 .link {
   @each $typeName, $map in $TypeMap {
-    // $d: map.get($map, "default");
+    $d: map.get($map, "default");
     &#{getSelector($typeName)} {
       // #{$typeName}
-      @apply text-#{$typeName} [@media(hover:hover)]:hover:text-#{$typeName}-focus;
+      @apply #{$d};
     }
   }
 

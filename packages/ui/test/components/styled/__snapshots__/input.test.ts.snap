@@ -56,6 +56,12 @@ exports[`input > snap 1`] = `
 .input-error:focus, .input-error:focus-within {
   @apply outline-error;
 }
+.input-neutral {
+  @apply border-neutral;
+}
+.input-neutral:focus, .input-neutral:focus-within {
+  @apply outline-neutral;
+}
 .input-disabled, .input:disabled, .input[disabled] {
   @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
 }"

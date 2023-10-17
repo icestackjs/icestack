@@ -16,8 +16,14 @@
       "import": "./dist/tailwindcss.mjs",
       "require": "./dist/tailwindcss.cjs"
     },
+    "./unocss": {
+      "types": "./dist/unocss.d.ts",
+      "import": "./dist/unocss.mjs",
+      "require": "./dist/unocss.cjs"
+    },
     "./scss/*": "./assets/scss/*",
     "./css/*": "./assets/css/*",
+    "./css-resolved/*": "./assets/css-resolved/*",
     "./js/*": "./assets/js/*",
     "./plugins/*": "./assets/plugins/*",
     "./*": "./*"
@@ -71,6 +77,7 @@
   },
   "devDependencies": {
     "merge": "^2.1.1",
-    "sass-true": "^7.0.0"
+    "sass-true": "^7.0.0",
+    "unocss": "^0.56.5"
   }
 }

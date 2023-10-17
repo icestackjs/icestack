@@ -60,6 +60,15 @@ exports[`checkbox > snap 1`] = `
 .checkbox-error:checked, .checkbox-error[checked=true], .checkbox-error[aria-checked=true] {
   @apply border-error bg-error text-error-content;
 }
+.checkbox-neutral {
+  @apply border-neutral [@media(hover:hover)]:hover:border-neutral;
+}
+.checkbox-neutral:focus-visible {
+  @apply outline-neutral;
+}
+.checkbox-neutral:checked, .checkbox-neutral[checked=true], .checkbox-neutral[aria-checked=true] {
+  @apply border-neutral bg-neutral text-neutral-content;
+}
 .checkbox:disabled {
   @apply bg-base-content cursor-not-allowed border-transparent opacity-20;
 }

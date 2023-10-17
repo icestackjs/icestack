@@ -7,40 +7,50 @@ import utilities from '../assets/js/utilities/index.js'
 
 import { colors } from './colors.js'
 import { groupBy } from './utils'
+
+interface UserDefinedOptions {
+  components: {
+    override: object
+    extend: object
+  }
+  global: {
+    atMedia: boolean
+  }
+}
+
 export default plugin.withOptions(
   function () {
+    const componentsEntries = Object.entries(
+      groupBy(Object.entries(components), ([name]) => {
+        let com = name
+        if (com.includes('/')) {
+          com = name.split('/')[1]
+        }
+        return com
+      })
+    ).map(([key, arr]) => {
+      return [key, arr.map((x) => x[1])]
+    })
+
+    const utilitiesEntries = Object.entries(
+      groupBy(Object.entries(utilities), ([name]) => {
+        let com = name
+        if (com.includes('/')) {
+          com = name.split('/')[1]
+        }
+        return com
+      })
+    ).map(([key, arr]) => {
+      return [key, arr.map((x) => x[1])]
+    })
     return function ({ addBase, addComponents, addUtilities }) {
       addBase([base])
 
-      const entries = Object.entries(
-        groupBy(Object.entries(components), ([name]) => {
-          let com = name
-          if (com.includes('/')) {
-            com = name.split('/')[1]
-          }
-          return com
-        })
-      ).map(([key, arr]) => {
-        return [key, arr.map((x) => x[1])]
-      })
-
-      for (const [name, c] of entries) {
+      for (const [name, c] of componentsEntries) {
         if (Array.isArray(c)) {
           addComponents(merge.recursive(true, ...c))
         }
       }
-
-      const utilitiesEntries = Object.entries(
-        groupBy(Object.entries(utilities), ([name]) => {
-          let com = name
-          if (com.includes('/')) {
-            com = name.split('/')[1]
-          }
-          return com
-        })
-      ).map(([key, arr]) => {
-        return [key, arr.map((x) => x[1])]
-      })
 
       for (const [name, u] of utilitiesEntries) {
         if (Array.isArray(u)) {

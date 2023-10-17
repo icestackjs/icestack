@@ -8,8 +8,7 @@ import klaw from 'klaw'
 
 import dedent from 'dedent'
 import { buildScss } from '../src/sass'
-import { cssDir, jsDir, scssDir } from '../src/dirs'
-import { ensureDir } from '../src/utils'
+import { jsDir, scssDir } from '../src/dirs'
 
 // import { fileURLToPath } from 'node:url'
 // import { createContext } from 'css-to-tailwindcss-plugin'
@@ -19,8 +18,6 @@ import { ensureDir } from '../src/utils'
 const outSideLayerCss = process.argv.slice(2)[0]
 
 async function main() {
-  await ensureDir(jsDir)
-  await ensureDir(cssDir)
   // await ensureDir(pluginsDir)
   switch (outSideLayerCss) {
     case 'base': {

@@ -34,6 +34,9 @@
       "types": [
         "vitest/globals"
       ]
-    }
+    },
+    "require": [
+      "tsconfig-paths/register"
+    ]
   }
 }

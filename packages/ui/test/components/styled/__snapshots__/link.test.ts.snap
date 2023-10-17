@@ -4,9 +4,6 @@ exports[`link > snap 1`] = `
 ".link-primary {
   @apply text-primary [@media(hover:hover)]:hover:text-primary-focus;
 }
-.link-neutral {
-  @apply text-neutral [@media(hover:hover)]:hover:text-neutral-focus;
-}
 .link-info {
   @apply text-info [@media(hover:hover)]:hover:text-info-focus;
 }
@@ -18,6 +15,9 @@ exports[`link > snap 1`] = `
 }
 .link-error {
   @apply text-error [@media(hover:hover)]:hover:text-error-focus;
+}
+.link-neutral {
+  @apply text-neutral [@media(hover:hover)]:hover:text-neutral-focus;
 }
 .link:focus {
   @apply outline-none;

@@ -22,6 +22,9 @@ exports[`progress > snap 1`] = `
 .progress-error::-moz-progress-bar {
   @apply bg-error rounded-box;
 }
+.progress-neutral::-moz-progress-bar {
+  @apply bg-neutral rounded-box;
+}
 .progress::-webkit-progress-bar {
   @apply rounded-box bg-transparent;
 }
@@ -42,6 +45,9 @@ exports[`progress > snap 1`] = `
 }
 .progress-error::-webkit-progress-value {
   @apply bg-error;
+}
+.progress-neutral::-webkit-progress-value {
+  @apply bg-neutral;
 }
 
 .progress:indeterminate {

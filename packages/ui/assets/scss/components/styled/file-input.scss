@@ -29,14 +29,17 @@ $TypeMap: injectFileInputColors();
   }
 
   @each $typeName, $map in $TypeMap {
-    // $d: map.get($map, "default");
+    $d: map.get($map, "default");
+    $f: map.get($map, "focus");
+    $fsb: map.get($map, "fileSelectorButton");
     &#{getSelector($typeName)} {
-      @apply border-#{$typeName};
+      @apply #{$d};
       &:focus {
-        @apply outline-#{$typeName};
+        @apply #{$f};
       }
+      // fileSelectorButton
       &::file-selector-button {
-        @apply border-#{$typeName} bg-#{$typeName} text-#{$typeName}-content;
+        @apply #{$fsb};
       }
     }
   }

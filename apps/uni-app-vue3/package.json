@@ -71,9 +71,9 @@
     "@icestack/ui": "workspace:*",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-replace": "^5.0.2",
-    "@types/node": "^20.8.5",
-    "@typescript-eslint/eslint-plugin": "^6.7.5",
-    "@typescript-eslint/parser": "^6.7.5",
+    "@types/node": "^20.8.6",
+    "@typescript-eslint/eslint-plugin": "^6.8.0",
+    "@typescript-eslint/parser": "^6.8.0",
     "autoprefixer": "^10.4.16",
     "engine.io-client": "^6.5.2",
     "eslint": "^8.51.0",
@@ -97,6 +97,6 @@
     "vite": "4.4.11",
     "vue-eslint-parser": "^9.3.2",
     "weapp-ide-cli": "^1.0.1",
-    "weapp-tailwindcss": "^2.8.3"
+    "weapp-tailwindcss": "^2.10.1"
   }
 }

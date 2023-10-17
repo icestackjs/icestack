@@ -27,13 +27,14 @@ $TypeMap: injectInputColors();
   }
 
   @each $typeName, $map in $TypeMap {
-    // $d: map.get($map, "default");
+    $d: map.get($map, "default");
+    $f: map.get($map, "focus");
     &#{getSelector($typeName)} {
       // #{$typeName}
-      @apply border-#{$typeName};
+      @apply #{$d};
       &:focus,
       &:focus-within {
-        @apply outline-#{$typeName};
+        @apply #{$f};
       }
     }
   }

@@ -25,10 +25,10 @@ $TypeMap: injectProgressColors();
   }
 
   @each $typeName, $map in $TypeMap {
-    // $d: map.get($map, "default");
+    $d: map.get($map, "default");
     &#{getSelector($typeName)}::-webkit-progress-value {
       // #{$typeName}
-      @apply bg-#{$typeName};
+      @apply #{$d};
     }
   }
 }

@@ -1,0 +1,86 @@
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#page {
+  overflow: hidden;
+}
+
+#page .page-header {
+  position: fixed
+}
+
+.btn {
+  display: flex;
+}
+
+.btn.btn--small {
+  display: flex;
+}
+
+.btn span {
+  display: inline;
+}
+
+.btn:hover, .btn:active, .btn:focus {
+  background-color: #fff;
+}
+
+.wrapper > .container {
+  display: flex;
+}
+
+[class="icon-"],
+[class*="icon-"],
+[class^="icon-"],
+[class~="icon-"],
+[class|="icon-"],
+[class$="icon-"] {
+  display: inline;
+}
+
+span:not(.icon),
+button:not(.btn),
+div:not(.container),
+div:not([class^="col-"]) {
+  display: none;
+}
+
+.container[data-attr="some-value"] {
+  display: inline;
+}
+
+.container[class*=" icon-"] {
+  display: inline;
+}
+
+.container[class*="icon- "] {
+  display: inline;
+}
+
+.container[data-attr='some-value'] {
+  display: inline;
+}
+
+.container[class*=' icon-'] {
+  display: inline;
+}
+
+.container[class*='icon- '] {
+  display: inline;
+}
+
+.hello:not([class*="left labeled"]) {
+  border-radius: 3rem;
+}
+
+a:not([href]):not([class]),
+a:not([href]):not([class]):hover {
+  color: inherit;
+  text-decoration: none;
+}

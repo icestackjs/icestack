@@ -1,4 +1,4 @@
-import { pascalCase } from './pascalCase'
+import { pascalCase } from '@/utils'
 
 export function createInjectName(componentName: string) {
   const name = pascalCase(componentName)

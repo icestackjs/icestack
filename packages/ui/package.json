@@ -59,7 +59,7 @@
     "build:base": "ts-node --esm scripts/build-scss.ts base",
     "build:utilities": "ts-node --esm scripts/build-scss.ts utilities",
     "build:components": "ts-node --esm scripts/build-scss.ts components",
-    "raw": "ts-node --esm scripts/colors.ts",
+    "get-coms": "ts-node --esm scripts/get-coms.ts",
     "tailwind-config-viewer": "tailwind-config-viewer -o"
   },
   "keywords": [],
@@ -68,15 +68,18 @@
     "@ctrl/tinycolor": "^4.0.2",
     "@icestack/css2js": "workspace:^",
     "compose-tailwindcss-plugins": "workspace:^",
+    "css-selector-tokenizer": "^0.8.0",
     "css-to-tailwindcss-plugin": "workspace:^",
     "immutable": "^4.0.0",
     "postcss": "^8.4.31",
     "postcss-custom-property-prefixer": "workspace:^",
     "postcss-js": "^4.0.1",
+    "postcss-selector-parser": "^6.0.13",
     "sass": "^1.69.3",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
+    "@types/css-selector-tokenizer": "^0.7.2",
     "@types/postcss-js": "^4.0.2",
     "@unocss/core": "^0.56.5",
     "merge": "^2.1.1",

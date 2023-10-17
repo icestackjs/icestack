@@ -596,6 +596,9 @@ importers:
       compose-tailwindcss-plugins:
         specifier: workspace:^
         version: link:../compose-tailwindcss-plugins
+      css-selector-tokenizer:
+        specifier: ^0.8.0
+        version: 0.8.0
       css-to-tailwindcss-plugin:
         specifier: workspace:^
         version: link:../css-to-tailwindcss-plugin
@@ -611,6 +614,9 @@ importers:
       postcss-js:
         specifier: ^4.0.1
         version: 4.0.1(postcss@8.4.31)
+      postcss-selector-parser:
+        specifier: ^6.0.13
+        version: 6.0.13
       sass:
         specifier: ^1.69.3
         version: 1.69.3
@@ -618,6 +624,9 @@ importers:
         specifier: ^3.3.3
         version: 3.3.3(ts-node@10.9.1)
     devDependencies:
+      '@types/css-selector-tokenizer':
+        specifier: ^0.7.2
+        version: 0.7.2
       '@types/postcss-js':
         specifier: ^4.0.2
         version: 4.0.2
@@ -9842,6 +9851,10 @@ packages:
       '@types/node': 20.8.6
     dev: true
 
+  /@types/css-selector-tokenizer@0.7.2:
+    resolution: {integrity: sha512-A4qDojfgYrQOsoqgrt657/MskGgBOtDyuXVqqitafDgkdAeJk0XJsOlXI1IfuOLrvNvP7XDIRfNTmY7KZ0WRcw==}
+    dev: true
+
   /@types/css@0.0.33:
     resolution: {integrity: sha512-qjeDgh86R0LIeEM588q65yatc8Yyo/VvSIYFqq8JOIHDolhGNX0rz7k/OuxqDpnpqlefoHj8X4Ai/6hT9IWtKQ==}
     dev: true
@@ -14239,6 +14252,13 @@ packages:
       nth-check: 2.1.1
     dev: true
 
+  /css-selector-tokenizer@0.8.0:
+    resolution: {integrity: sha512-Jd6Ig3/pe62/qe5SBPTN8h8LeUg/pT4lLgtavPf7updwwHpvFzxvOQBHYj2LZDMjUnBzgvIUSjRcf6oT5HzHFg==}
+    dependencies:
+      cssesc: 3.0.0
+      fastparse: 1.1.2
+    dev: false
+
   /css-system-font-keywords@1.0.0:
     resolution: {integrity: sha512-1umTtVd/fXS25ftfjB71eASCrYhilmEsvDEI6wG/QplnmlfmVM5HkZ/ZX46DT5K3eblFPgLUHt5BRCb0YXkSFA==}
     dev: false
@@ -17019,6 +17039,10 @@ packages:
     resolution: {integrity: sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==}
     engines: {node: '>= 4.9.1'}
     dev: true
+
+  /fastparse@1.1.2:
+    resolution: {integrity: sha512-483XLLxTVIwWK3QTrMGRqUfUpoOs/0hbQrl2oz4J0pAcm3A3bu84wxTFqGqkJzewCLdME38xJLJAxBABfQT8sQ==}
+    dev: false
 
   /fastq@1.15.0:
     resolution: {integrity: sha512-wBrocU2LCXXa+lWBt8RoIRD89Fi8OdABODa/kEnyeyjS5aZO5/GNvI5sEINADqP/h8M29UHTHUb53sUu5Ihqdw==}

@@ -8,16 +8,6 @@ import utilities from '../assets/js/utilities/index.js'
 import { colors } from './colors.js'
 import { groupBy } from './utils'
 
-interface UserDefinedOptions {
-  components: {
-    override: object
-    extend: object
-  }
-  global: {
-    atMedia: boolean
-  }
-}
-
 export default plugin.withOptions(
   function () {
     const componentsEntries = Object.entries(

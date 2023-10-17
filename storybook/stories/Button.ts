@@ -1,9 +1,9 @@
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-
+import { expands, typePrefix } from './share'
 export type ButtonProps = VariantProps<typeof button> & { textContent?: string }
 
-export const allTypes = ['btn-primary', 'btn-neutral', 'btn-info', 'btn-success', 'btn-warning', 'btn-error']
+export const allTypes = typePrefix('btn-')
 
 export const allSizes = ['btn-xs', 'btn-sm', 'btn-md', 'btn-lg', 'btn-wide', 'btn-block']
 
@@ -11,18 +11,12 @@ export const allShapes = ['btn-square', 'btn-circle']
 
 const button = cva(['btn'], {
   variants: {
-    type: allTypes.reduce<Record<string, string>>((acc, cur) => {
-      acc[cur] = cur
-      return acc
-    }, {}),
+    type: expands(allTypes),
     outline: {
       true: 'btn-outline',
       false: ''
     },
-    size: allSizes.reduce<Record<string, string>>((acc, cur) => {
-      acc[cur] = cur
-      return acc
-    }, {}),
+    size: expands(allSizes),
     glass: {
       true: 'glass',
       false: ''
@@ -31,10 +25,7 @@ const button = cva(['btn'], {
       true: 'btn-disabled',
       false: ''
     },
-    shape: allShapes.reduce<Record<string, string>>((acc, cur) => {
-      acc[cur] = cur
-      return acc
-    }, {})
+    shape: expands(allShapes)
     // block: {
     //   true: 'btn-block',
     //   false: ''

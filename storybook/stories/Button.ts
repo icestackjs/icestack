@@ -1,43 +1,53 @@
-export interface ButtonProps {
-  /**
-   * Is this the principal call to action on the page?
-   */
-  primary?: boolean
-  /**
-   * What background color to use
-   */
-  backgroundColor?: string
-  /**
-   * How large should the button be?
-   */
-  size?: 'small' | 'medium' | 'large'
-  /**
-   * Button contents
-   */
-  label: string
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void
-}
+import { cva } from 'class-variance-authority'
+import type { VariantProps } from 'class-variance-authority'
 
-/**
- * Primary UI component for user interaction
- */
-export const createButton = ({ primary = false, size = 'medium', backgroundColor, label, onClick }: ButtonProps) => {
-  const btn = document.createElement('button')
-  btn.type = 'button'
-  btn.textContent = label
-  if (onClick) {
-    btn.addEventListener('click', onClick)
+export type ButtonProps = VariantProps<typeof button> & { textContent?: string }
+
+export const allTypes = ['btn-primary', 'btn-neutral', 'btn-info', 'btn-success', 'btn-warning', 'btn-error']
+
+export const allSizes = ['btn-xs', 'btn-sm', 'btn-md', 'btn-lg', 'btn-wide', 'btn-block']
+
+export const allShapes = ['btn-square', 'btn-circle']
+
+const button = cva(['btn'], {
+  variants: {
+    type: allTypes.reduce<Record<string, string>>((acc, cur) => {
+      acc[cur] = cur
+      return acc
+    }, {}),
+    outline: {
+      true: 'btn-outline',
+      false: ''
+    },
+    size: allSizes.reduce<Record<string, string>>((acc, cur) => {
+      acc[cur] = cur
+      return acc
+    }, {}),
+    glass: {
+      true: 'glass',
+      false: ''
+    },
+    disabled: {
+      true: 'btn-disabled',
+      false: ''
+    },
+    shape: allShapes.reduce<Record<string, string>>((acc, cur) => {
+      acc[cur] = cur
+      return acc
+    }, {})
+    // block: {
+    //   true: 'btn-block',
+    //   false: ''
+    // }
+  },
+  defaultVariants: {
+    // size: 'btn-md'
   }
+})
 
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary'
-  btn.className = ['bg-[red]', 'text-[blue]', 'storybook-button', `storybook-button--${size}`, mode].join(' ')
-
-  // if (backgroundColor) {
-  //   btn.style.backgroundColor = backgroundColor
-  // }
-
+export const createButton = (props: ButtonProps) => {
+  const btn = document.createElement('button')
+  btn.textContent = props.textContent ?? 'Button'
+  btn.className = button(props)
   return btn
 }

@@ -639,6 +639,9 @@ importers:
       '@icestack/ui':
         specifier: workspace:^
         version: link:../packages/ui
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
     devDependencies:
       '@storybook/addon-essentials':
         specifier: ^7.5.0

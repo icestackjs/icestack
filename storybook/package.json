@@ -35,6 +35,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
-    "@icestack/ui": "workspace:^"
+    "@icestack/ui": "workspace:^",
+    "class-variance-authority": "^0.7.0"
   }
 }

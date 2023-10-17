@@ -3,9 +3,10 @@
 exports[`alert > snap 1`] = `
 ".alert {
   @apply rounded-box border p-4;
-}
-.alert {
   @apply text-base-content border-base-200;
+}
+.alert-primary {
+  @apply text-primary-content border-primary/20 bg-primary;
 }
 .alert-info {
   @apply text-info-content border-info/20 bg-info;
@@ -18,5 +19,8 @@ exports[`alert > snap 1`] = `
 }
 .alert-error {
   @apply text-error-content border-error/20 bg-error;
+}
+.alert-neutral {
+  @apply text-neutral-content border-neutral/20 bg-neutral;
 }"
 `;

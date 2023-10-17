@@ -2,7 +2,7 @@
 @use "sass:map";
 
 $TypeMap: injectButtonColors();
-
+$DefaultMap: injectButtonDefaults();
 //Mixins may not contain mixin declarations.
 @mixin button-active($applyStr, $pseudo: "active", $withoutMedia: false) {
   @if ($withoutMedia) {
@@ -34,6 +34,11 @@ $TypeMap: injectButtonColors();
   &:focus-visible {
     @apply outline outline-2 outline-offset-2;
   }
+  $default: map.get($DefaultMap, "default");
+  $active: map.get($DefaultMap, "active");
+  @apply #{$default};
+  @include button-active($active);
+
   @each $typeName, $map in $TypeMap {
     $d: map.get($map, "default");
     $a: map.get($map, "active");
@@ -71,6 +76,10 @@ $TypeMap: injectButtonColors();
   }
 
   &-outline {
+    @apply border-current bg-transparent shadow-none;
+    @apply text-base-content;
+    $outlineActive: map.get($DefaultMap, "outline-active");
+    @include button-active($outlineActive);
     @each $typeName, $map in $TypeMap {
       $d: map.get($map, "default");
       $a: map.get($map, "outline-active");
@@ -78,14 +87,8 @@ $TypeMap: injectButtonColors();
       $selector: getSelector($typeName, ".btn-");
 
       &#{$selector} {
-        @if ($typeName == "") {
-          @apply border-current bg-transparent shadow-none;
-          @apply text-base-content;
-          @include button-active($a);
-        } @else {
-          @apply text-#{$pc};
-          @include button-active($a);
-        }
+        @apply text-#{$pc};
+        @include button-active($a);
       }
     }
   }

@@ -1,4 +1,4 @@
-import { Types } from './shared/types'
+import { Types, expandColorsMap } from './shared'
 import { transformJsVToSassMapMap } from '@/sass/utils'
 
 function generateDefault(typeName: string) {
@@ -9,21 +9,12 @@ function generateFocus(typeName: string) {
   return `outline-${typeName}`
 }
 
-const colorsMap = Types.reduce<
-  Record<
-    string,
-    {
-      default: string
-      focus: string
-    }
-  >
->((acc, cur) => {
-  acc[cur] = {
+const colorsMap = expandColorsMap(Types, (cur) => {
+  return {
     default: generateDefault(cur),
     focus: generateFocus(cur)
   }
-  return acc
-}, {})
+})
 
 export const inject = {
   'injectInputColors()': () => {

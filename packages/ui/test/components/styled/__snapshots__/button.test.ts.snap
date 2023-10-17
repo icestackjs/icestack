@@ -4,12 +4,10 @@ exports[`button > snap 1`] = `
 ".btn {
   @apply no-underline;
   border-width: var(--ice-border-btn, 1px);
+  @apply border-base-200 bg-base-200 text-base-content outline-base-200;
 }
 .btn:focus-visible {
   @apply outline outline-2 outline-offset-2;
-}
-.btn {
-  @apply border-base-200 bg-base-200 text-base-content outline-base-200;
 }
 .btn:active {
   @apply border-base-300 bg-base-300;
@@ -25,15 +23,6 @@ exports[`button > snap 1`] = `
 }
 .btn-primary.btn-active {
   @apply border-primary-focus bg-primary-focus;
-}
-.btn-neutral {
-  @apply border-neutral bg-neutral text-neutral-content outline-neutral;
-}
-.btn-neutral:active {
-  @apply border-neutral-focus bg-neutral-focus;
-}
-.btn-neutral.btn-active {
-  @apply border-neutral-focus bg-neutral-focus;
 }
 .btn-info {
   @apply border-info bg-info text-info-content outline-info;
@@ -70,6 +59,15 @@ exports[`button > snap 1`] = `
 }
 .btn-error.btn-active {
   @apply border-error-focus bg-error-focus;
+}
+.btn-neutral {
+  @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+}
+.btn-neutral:active {
+  @apply border-neutral-focus bg-neutral-focus;
+}
+.btn-neutral.btn-active {
+  @apply border-neutral-focus bg-neutral-focus;
 }
 .btn.glass {
   @apply shadow-none outline-current;
@@ -119,15 +117,6 @@ exports[`button > snap 1`] = `
 .btn-outline.btn-primary.btn-active {
   @apply border-primary-focus bg-primary-focus text-primary-content;
 }
-.btn-outline.btn-neutral {
-  @apply text-neutral;
-}
-.btn-outline.btn-neutral:active {
-  @apply border-neutral-focus bg-neutral-focus text-neutral-content;
-}
-.btn-outline.btn-neutral.btn-active {
-  @apply border-neutral-focus bg-neutral-focus text-neutral-content;
-}
 .btn-outline.btn-info {
   @apply text-info;
 }
@@ -163,6 +152,15 @@ exports[`button > snap 1`] = `
 }
 .btn-outline.btn-error.btn-active {
   @apply border-error-focus bg-error-focus text-error-content;
+}
+.btn-outline.btn-neutral {
+  @apply text-neutral;
+}
+.btn-outline.btn-neutral:active {
+  @apply border-neutral-focus bg-neutral-focus text-neutral-content;
+}
+.btn-outline.btn-neutral.btn-active {
+  @apply border-neutral-focus bg-neutral-focus text-neutral-content;
 }
 .btn.btn-disabled, .btn[disabled], .btn:disabled {
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;

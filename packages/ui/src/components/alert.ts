@@ -1,24 +1,24 @@
-import { transformJsVToSassMapMap } from '@/sass/utils'
-
-const colorsMap = {
-  '': {
-    default: 'text-base-content border-base-200'
-  },
-  info: {
-    default: 'text-info-content border-info/20 bg-info'
-  },
-  success: {
-    default: 'text-success-content border-success/20 bg-success'
-  },
-  warning: {
-    default: 'text-warning-content border-warning/20 bg-warning'
-  },
-  error: {
-    default: 'text-error-content border-error/20 bg-error'
-  }
+import { Types, createInjectName, expandColorsMap } from './shared'
+import { transformJsVToSassMap, transformJsVToSassMapMap } from '@/sass/utils'
+function generateDefault(typeName: string) {
+  return `text-${typeName}-content border-${typeName}/20 bg-${typeName}`
 }
+
+const colorsMap = expandColorsMap(Types, (cur) => {
+  return {
+    default: generateDefault(cur)
+  }
+})
+
+const defaults = {
+  default: 'text-base-content border-base-200'
+}
+const injectName = createInjectName('alert')
 export const inject = {
-  'injectAlertColors()': () => {
+  [injectName.colors]: () => {
     return transformJsVToSassMapMap(Object.entries(colorsMap))
+  },
+  [injectName.defaults]: () => {
+    return transformJsVToSassMap(Object.entries(defaults))
   }
 }

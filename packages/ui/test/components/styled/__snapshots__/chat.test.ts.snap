@@ -5,8 +5,6 @@ exports[`chat > snap 1`] = `
   @apply rounded-box;
   min-height: 2.75rem;
   min-width: 2.75rem;
-}
-.chat-bubble {
   @apply bg-neutral text-neutral-content;
 }
 .chat-bubble-primary {
@@ -23,6 +21,9 @@ exports[`chat > snap 1`] = `
 }
 .chat-bubble-error {
   @apply bg-error text-error-content;
+}
+.chat-bubble-neutral {
+  @apply bg-neutral text-neutral-content;
 }
 .chat-start .chat-bubble {
   @apply rounded-bl-none;

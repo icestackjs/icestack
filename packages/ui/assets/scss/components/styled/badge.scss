@@ -1,10 +1,13 @@
 @use "../utils/index.scss" as *;
 @use "sass:map";
+
 $TypeMap: injectBadgeColors();
+$DefaultMap: injectBadgeDefaults();
 
 .badge {
   @apply rounded-badge border;
-
+  $default: map.get($DefaultMap, "default");
+  @apply #{$default};
   @each $typeName, $map in $TypeMap {
     $d: map.get($map, "default");
     &#{getSelector($typeName)} {
@@ -17,6 +20,8 @@ $TypeMap: injectBadgeColors();
   }
 
   &-outline {
+    $outline: map.get($DefaultMap, "outline");
+    @apply #{$outline};
     @each $typeName, $map in $TypeMap {
       $d: map.get($map, "outline");
       &#{getSelector($typeName,".badge-")} {

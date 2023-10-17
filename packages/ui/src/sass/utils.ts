@@ -73,3 +73,20 @@ export function transformJsVToSassMapMap(entries: [string, Record<string, string
     )
   )
 }
+
+export function transformJsVToSassMap(entries: [string, string][]): sass.SassMap {
+  return new sass.SassMap(
+    OrderedMap(
+      entries.map(([varName, value]) => {
+        return [
+          new sass.SassString(varName, {
+            quotes: false
+          }),
+          new sass.SassString(value, {
+            quotes: false
+          })
+        ]
+      })
+    )
+  )
+}

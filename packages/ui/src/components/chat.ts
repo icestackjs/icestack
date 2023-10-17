@@ -1,27 +1,22 @@
-import { transformJsVToSassMapMap } from '@/sass/utils'
-
-const colorsMap = {
-  '': {
-    default: 'bg-neutral text-neutral-content'
-  },
-  primary: {
-    default: 'bg-primary text-primary-content'
-  },
-  info: {
-    default: 'bg-info text-info-content'
-  },
-  success: {
-    default: 'bg-success text-success-content'
-  },
-  warning: {
-    default: 'bg-warning text-warning-content'
-  },
-  error: {
-    default: 'bg-error text-error-content'
+import { createInjectName, Types, expandColorsMap } from './shared'
+import { transformJsVToSassMapMap, transformJsVToSassMap } from '@/sass/utils'
+const colorsMap = expandColorsMap(Types, (t) => {
+  return {
+    default: `bg-${t} text-${t}-content`
   }
+})
+
+const injectName = createInjectName('chat')
+
+const defaults = {
+  default: 'bg-neutral text-neutral-content'
 }
+
 export const inject = {
-  'injectChatColors()': () => {
+  [injectName.colors]: () => {
     return transformJsVToSassMapMap(Object.entries(colorsMap))
+  },
+  [injectName.defaults]: () => {
+    return transformJsVToSassMap(Object.entries(defaults))
   }
 }

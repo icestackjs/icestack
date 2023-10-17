@@ -3,7 +3,7 @@
 import Tokenizer from 'css-selector-tokenizer'
 import type { PluginCreator } from 'postcss'
 import defu from 'defu'
-interface Options {
+export interface Options {
   prefix?: string
 
   ignore?: ReadonlyArray<RegExp | string>

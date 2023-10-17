@@ -21,57 +21,43 @@ const mocks = {
 
 describe('Prefixer', () => {
   test('should not prefix selectors when prefix is undefined', () => {
-    const { css } = postcss().use(postcssPrefixer()).process(mocks.default.source)
+    const { css } = postcss([postcssPrefixer()]).process(mocks.default.source)
 
     expect(css).toEqual(mocks.default.source)
   })
 
   test('should throw when passing invalid prefix type', () => {
-    expect(() =>
-      postcss()
-        .use(postcssPrefixer({ prefix: 123, ignore: [] }))
-        .process(mocks.default.source)
-    ).toThrow()
+    expect(() => postcss([postcssPrefixer({ prefix: 123, ignore: [] })]).process(mocks.default.source)).toThrow()
   })
 
   test('should throw when passing invalid ignore type', () => {
-    expect(() =>
-      postcss()
-        .use(postcssPrefixer({ prefix: 'prefix-', ignore: '.to-ignore' }))
-        .process(mocks.default.source)
-    ).toThrow()
+    expect(() => postcss([postcssPrefixer({ prefix: 'prefix-', ignore: '.to-ignore' })]).process(mocks.default.source)).toThrow()
   })
 
   test('should prefix all selectors', () => {
-    const { css } = postcss()
-      .use(postcssPrefixer({ prefix: 'prefix-' }))
-      .process(mocks.default.source)
+    const { css } = postcss([postcssPrefixer({ prefix: 'prefix-' })]).process(mocks.default.source)
 
     expect(css).toEqual(mocks.default.expected)
   })
 
   test('should ignore selectors from ignore array option', () => {
-    const { css } = postcss()
-      .use(
-        postcssPrefixer({
-          prefix: 'prefix-',
-          ignore: [/col-/, /component/, '.container', '.icon', '#page']
-        })
-      )
-      .process(mocks.ignore.source)
+    const { css } = postcss([
+      postcssPrefixer({
+        prefix: 'prefix-',
+        ignore: [/col-/, /component/, '.container', '.icon', '#page']
+      })
+    ]).process(mocks.ignore.source)
 
     expect(css).toEqual(mocks.ignore.expected)
   })
 
   test('should not fail if ignore values are functions or numbers', () => {
-    const { css } = postcss()
-      .use(
-        postcssPrefixer({
-          prefix: 'prefix-',
-          ignore: [1, console.log, /col-/, /component/, '.container', '.icon', '#page']
-        })
-      )
-      .process(mocks.ignore.source)
+    const { css } = postcss([
+      postcssPrefixer({
+        prefix: 'prefix-',
+        ignore: [1, console.log, /col-/, /component/, '.container', '.icon', '#page']
+      })
+    ]).process(mocks.ignore.source)
 
     expect(css).toEqual(mocks.ignore.expected)
   })

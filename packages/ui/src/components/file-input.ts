@@ -1,4 +1,4 @@
-import { Types, expandColorsMap } from './shared'
+import { Types, createInjectName, expandColorsMap } from './shared'
 import { transformJsVToSassMapMap } from '@/sass/utils'
 function generateDefault(typeName: string) {
   return `border-${typeName}`
@@ -19,9 +19,9 @@ const colorsMap = expandColorsMap(Types, (cur) => {
     fileSelectorButton: generateFileSelectorButton(cur)
   }
 })
-
+const injectName = createInjectName('file-input')
 export const inject = {
-  'injectFileInputColors()': () => {
+  [injectName.colors]: () => {
     return transformJsVToSassMapMap(Object.entries(colorsMap))
   }
 }

@@ -1,4 +1,4 @@
-import { Types, expandColorsMap } from './shared'
+import { Types, createInjectName, expandColorsMap } from './shared'
 import { transformJsVToSassMapMap } from '@/sass/utils'
 function generateDefault(typeName: string) {
   return `border-${typeName} [@media(hover:hover)]:hover:border-${typeName}`
@@ -19,9 +19,9 @@ const colorsMap = expandColorsMap(Types, (cur) => {
     checked: generateChecked(cur)
   }
 })
-
+const injectName = createInjectName('checkbox')
 export const inject = {
-  'injectCheckboxColors()': () => {
+  [injectName.colors]: () => {
     return transformJsVToSassMapMap(Object.entries(colorsMap))
   }
 }

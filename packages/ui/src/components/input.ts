@@ -1,4 +1,4 @@
-import { Types, expandColorsMap } from './shared'
+import { Types, createInjectName, expandColorsMap } from './shared'
 import { transformJsVToSassMapMap } from '@/sass/utils'
 
 function generateDefault(typeName: string) {
@@ -16,8 +16,10 @@ const colorsMap = expandColorsMap(Types, (cur) => {
   }
 })
 
+const injectName = createInjectName('input')
+
 export const inject = {
-  'injectInputColors()': () => {
+  [injectName.colors]: () => {
     return transformJsVToSassMapMap(Object.entries(colorsMap))
   }
 }

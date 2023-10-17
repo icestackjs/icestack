@@ -11,3 +11,12 @@
 //   outline-offset: unset !important;
 //   outline: unset !important;
 // }
+.component-preview {
+  background-image: repeating-linear-gradient(
+    45deg,
+    rgba(var(--ice-base-100)),
+    rgba(var(--ice-base-100)) 13px,
+    rgba(var(--ice-base-200)) 13px,
+    rgba(var(--ice-base-200)) 14px
+  );
+}

@@ -21,7 +21,11 @@ export const CodePreview: FC = (props: PropsWithChildren) => {
 
   return (
     <Tabs items={tabItems}>
-      {dic.preview ? <Tabs.Tab>{dic.preview}</Tabs.Tab> : undefined}
+      {dic.preview ? (
+        <Tabs.Tab>
+          <div className="space-x-2">{dic.preview}</div>
+        </Tabs.Tab>
+      ) : undefined}
       {dic.html ? <Tabs.Tab>{dic.html}</Tabs.Tab> : undefined}
       {dic.jsx ? <Tabs.Tab>{dic.jsx}</Tabs.Tab> : undefined}
     </Tabs>

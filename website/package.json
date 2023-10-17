@@ -24,7 +24,7 @@
     "clsx": "^2.0.0",
     "css-to-tailwindcss-plugin": "workspace:^",
     "lodash-es": "^4.17.21",
-    "next": "^13.5.4",
+    "next": "^13.5.5",
     "nextra": "^2.13.2",
     "nextra-theme-docs": "^2.13.2",
     "react": "^18.2.0",

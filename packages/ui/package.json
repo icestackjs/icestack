@@ -72,10 +72,13 @@
     "immutable": "^4.0.0",
     "postcss": "^8.4.31",
     "postcss-custom-property-prefixer": "workspace:^",
+    "postcss-js": "^4.0.1",
     "sass": "^1.69.3",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
+    "@types/postcss-js": "^4.0.2",
+    "@unocss/core": "^0.56.5",
     "merge": "^2.1.1",
     "sass-true": "^7.0.0",
     "unocss": "^0.56.5"

@@ -1,4 +1,6 @@
 {
-  "button": "按钮 Button",
-  "alert": "警告提示 Alert"
+  "button": "Button 按钮",
+  "alert": "Alert 警告提示",
+  "avatar": "Avatar 头像",
+  "badge": "Badge 徽标"
 }

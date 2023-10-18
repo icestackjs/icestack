@@ -8,24 +8,24 @@ $DefaultMap: map.get(injectButtonDefaults(), "styled");
 @mixin button-active($applyStr, $pseudo: "active", $withoutMedia: false) {
   @if ($withoutMedia) {
     &:#{$pseudo} {
-      @apply #{$applyStr};
+      @include resolve($applyStr);
     }
   } @else {
     @if ($pseudo == "hover") {
-      @media (hover: hover) {
+      @include AtMediaHover {
         &:hover {
-          @apply #{$applyStr};
+          @include resolve($applyStr);
         }
       }
     } @else {
       &:#{$pseudo} {
-        @apply #{$applyStr};
+        @include resolve($applyStr);
       }
     }
   }
 
   &.btn-active {
-    @apply #{$applyStr};
+    @include resolve($applyStr);
   }
 }
 
@@ -52,28 +52,16 @@ $DefaultMap: map.get(injectButtonDefaults(), "styled");
     }
   }
 
-  &.glass {
-    @apply #{map.get($DefaultMap, "glass")};
-
-    &:active {
-      --glass-opacity: 25%;
-      --glass-border-opacity: 15%;
+  $vars: (
+    "&.glass": "glass",
+    "&-ghost": "ghost",
+    "&-link": "link"
+  );
+  @each $s, $t in $vars {
+    #{$s} {
+      @apply #{map.get($DefaultMap, $t)};
+      @include button-active(map.get($DefaultMap, "#{$t}Active"));
     }
-
-    &.btn-active {
-      --glass-opacity: 25%;
-      --glass-border-opacity: 15%;
-    }
-  }
-
-  &-ghost {
-    @apply #{map.get($DefaultMap, "ghost")};
-    @include button-active(#{map.get($DefaultMap, "ghostActive")});
-  }
-
-  &-link {
-    @apply #{map.get($DefaultMap, "link")};
-    @include button-active(#{map.get($DefaultMap, "linkActive")});
   }
 
   &-outline {
@@ -102,7 +90,7 @@ $DefaultMap: map.get(injectButtonDefaults(), "styled");
   }
 }
 
-// fallback
+// for input element
 .btn:is(input[type="checkbox"]:checked),
 .btn:is(input[type="radio"]:checked) {
   @apply border-primary bg-primary text-primary-content;

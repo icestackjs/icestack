@@ -35,10 +35,17 @@
     @include assert-equal($a, "111");
   }
 
-  // @include test("Zip") {
-  //   // Assert the expected results
-  //   @include assert-equal(zip(a b c, 1 2 2), (a 1, b 2, c 3));
-  // }
+  @include it("resolve case 1") {
+    $arg: "a b c d";
+    @include assert {
+      @include output {
+        // @include resolve($arg);
+      }
+      @include expect {
+        // @apply #{$arg};
+      }
+    }
+  }
 }
 
 // @include report;

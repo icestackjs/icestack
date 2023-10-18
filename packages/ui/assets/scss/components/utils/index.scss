@@ -1,5 +1,7 @@
 @use "sass:string";
 @use "sass:math";
+@use "sass:meta";
+@use "sass:map";
 
 $globalAtMediaHover: globalAtMediaHover();
 
@@ -34,5 +36,24 @@ $globalAtMediaHover: globalAtMediaHover();
     }
   } @else {
     @content;
+  }
+}
+
+@mixin resolve($arg) {
+  $type: meta.type-of($arg);
+  @if ($type == string) {
+    $arg: (
+      apply: $arg
+    );
+  }
+  $apply: map.get($arg, "apply");
+  $css: map.get($arg, "css");
+  @if ($apply != null and meta.type-of($apply) == string) {
+    @apply #{$apply};
+  }
+  @if ($css!=null and meta.type-of($css) == map) {
+    @each $name, $value in $css {
+      #{$name}: $value;
+    }
   }
 }

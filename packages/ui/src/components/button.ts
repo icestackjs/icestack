@@ -26,7 +26,14 @@ const defaults = {
     link: 'text-primary border-transparent bg-transparent underline shadow-none outline-current',
     linkActive: 'border-transparent bg-transparent underline',
     disabled: 'bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20',
-    glass: 'shadow-none outline-current'
+    glass: 'shadow-none outline-current',
+    glassActive: {
+      // apply:'',
+      css: {
+        '--glass-opacity': '25%',
+        '--glass-border-opacity': '15%'
+      }
+    }
   },
   unstyled: {}
 }

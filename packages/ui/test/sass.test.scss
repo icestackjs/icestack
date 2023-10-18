@@ -1,6 +1,6 @@
 @use "true" as *;
 @use "sass:meta";
-@use "../assets//scss/components/utils/index.scss" as *;
+@use "../assets/scss/utils/index.scss" as *;
 // https://www.oddbird.net/true/docs/
 @include test-module("sass") {
   @include test("removePrefix") {
@@ -35,17 +35,17 @@
     @include assert-equal($a, "111");
   }
 
-  @include it("resolve case 1") {
-    $arg: "a b c d";
-    @include assert {
-      @include output {
-        // @include resolve($arg);
-      }
-      @include expect {
-        // @apply #{$arg};
-      }
-    }
-  }
+  // @include it("resolve case 1") {
+  //   $arg: "a b c d";
+  //   @include assert {
+  //     @include output {
+  //       // @include resolve($arg);
+  //     }
+  //     @include expect {
+  //       // @apply #{$arg};
+  //     }
+  //   }
+  // }
 }
 
 // @include report;

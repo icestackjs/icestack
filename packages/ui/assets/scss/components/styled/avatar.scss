@@ -1,3 +1,4 @@
+@use "../../utils/index.scss" as *;
 @use "sass:map";
 
 $DefaultMap: map.get(injectAvatarDefaults(), "styled");

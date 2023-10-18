@@ -1,11 +1,12 @@
-@use "sass:color";
-@use "sass:meta";
+@use "sass:string";
 @use "sass:math";
+@use "sass:meta";
+@use "sass:map";
 // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb()
 @function getRgbaString($color) {
   @if (meta.type-of($color) == color) {
     $alpha: color.alpha($color);
-    
+
     @if ($alpha == 1 or $alpha == 0) {
       @return #{color.red($color) color.green($color) color.blue($color)};
     } @else {
@@ -21,5 +22,60 @@
     @return #{color.red($color) color.green($color) color.blue($color)};
   } @else {
     @return $color;
+  }
+}
+
+$globalAtMediaHover: globalAtMediaHover();
+
+@function getSelector($type, $prefix: "-") {
+  @if ($type == "") {
+    @return "";
+  } @else {
+    @return "#{$prefix}#{$type}";
+  }
+}
+
+@function removeBorderPrefix($str) {
+  @return removePrefix($str, "border-");
+}
+
+@function removeBgPrefix($str) {
+  @return removePrefix($str, "bg-");
+}
+
+@function removeTextPrefix($str) {
+  @return removePrefix($str, "text-");
+}
+
+@function removePrefix($str, $prefix) {
+  @return string.slice($str, string.length($prefix) + 1);
+}
+
+@mixin AtMediaHover {
+  @if ($globalAtMediaHover) {
+    @media (hover: hover) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+@mixin resolve($arg) {
+  $type: meta.type-of($arg);
+  @if ($type == string) {
+    $arg: (
+      apply: $arg
+    );
+  }
+  $apply: map.get($arg, "apply");
+  $css: map.get($arg, "css");
+  @if ($apply != null and meta.type-of($apply) == string) {
+    @apply #{$apply};
+  }
+  @if ($css!=null and meta.type-of($css) == map) {
+    @each $name, $value in $css {
+      #{$name}: $value;
+    }
   }
 }

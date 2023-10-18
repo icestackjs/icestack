@@ -1,3 +1,5 @@
+@use "../../utils/index.scss" as *;
+
 .dropdown:is(:not(details)) .dropdown-content {
   @apply origin-top scale-95 transform transition duration-200 ease-out;
 }

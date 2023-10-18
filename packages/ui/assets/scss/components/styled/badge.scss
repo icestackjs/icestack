@@ -1,4 +1,4 @@
-@use "../utils/index.scss" as *;
+@use "../../utils/index.scss" as *;
 @use "sass:map";
 
 $TypeMap: injectBadgeColors();

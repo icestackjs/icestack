@@ -1,3 +1,5 @@
+@use "../../utils/index.scss" as *;
+
 .card {
   @apply rounded-box;
   :where(figure:first-child) {

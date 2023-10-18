@@ -1,3 +1,5 @@
+@use "../../utils/index.scss" as *;
+
 .breadcrumbs {
   @apply py-2;
   & > ul,

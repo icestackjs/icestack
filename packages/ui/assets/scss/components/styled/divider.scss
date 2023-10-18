@@ -1,3 +1,5 @@
+@use "../../utils/index.scss" as *;
+
 .divider {
   @apply my-4 h-4 whitespace-nowrap;
   &:before {

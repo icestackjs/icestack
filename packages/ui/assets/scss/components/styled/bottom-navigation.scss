@@ -1,29 +1,35 @@
+@use "../utils/index.scss" as *;
+@use "sass:map";
+$DefaultMap: map.get(injectBottomNavigationDefaults(), "styled");
+$ChildrenMap: map.get($DefaultMap, "children");
 .btm-nav {
-  @apply bg-base-100 h-16 text-current;
+  @apply #{map.get($DefaultMap,'default')};
   & > * {
-    @apply border-current;
+    @apply #{map.get($ChildrenMap,'default')};
 
     &:not(.active) {
-      @apply pt-0.5;
+      @apply #{map.get($ChildrenMap,'notActive')};
     }
 
     &:where(.active) {
-      @apply bg-base-100 border-t-2;
+      @apply #{map.get($ChildrenMap,'active')};
     }
 
     /* disabled */
     &.disabled,
     &[disabled] {
-      @apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;
+      @apply #{map.get($ChildrenMap,'disabled')};
     }
-    @media (hover: hover) {
+
+    @include AtMediaHover {
       &.disabled:hover,
       &[disabled]:hover {
-        @apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;
+        @apply #{map.get($ChildrenMap,'disabledHover')};
       }
     }
+
     .label {
-      @apply text-base;
+      @apply #{map.get($ChildrenMap,'label')};
     }
   }
 }

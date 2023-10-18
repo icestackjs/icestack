@@ -1,6 +1,10 @@
+@use "sass:map";
+
+$DefaultMap: map.get(injectAvatarDefaults(), "styled");
+
 .avatar-group {
-  @apply flex overflow-hidden;
+  @apply #{map.get($DefaultMap,'group')};
   :where(.avatar) {
-    @apply border-base-100 overflow-hidden rounded-full border-4;
+    @apply #{map.get($DefaultMap,'default')};
   }
 }

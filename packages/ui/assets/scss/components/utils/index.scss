@@ -1,6 +1,8 @@
 @use "sass:string";
 @use "sass:math";
 
+$globalAtMediaHover: globalAtMediaHover();
+
 @function getSelector($type, $prefix: "-") {
   @if ($type == "") {
     @return "";
@@ -23,4 +25,14 @@
 
 @function removePrefix($str, $prefix) {
   @return string.slice($str, string.length($prefix) + 1);
+}
+
+@mixin AtMediaHover {
+  @if ($globalAtMediaHover) {
+    @media (hover: hover) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
 }

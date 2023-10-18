@@ -1,3 +1,8 @@
+@use "../utils/index.scss" as *;
+@use "sass:map";
+
+$TypeMap: injectTextareaColors();
+
 .textarea {
   @apply border-base-content bg-base-100 rounded-btn border border-opacity-0;
   &-bordered {
@@ -13,36 +18,18 @@
       box-shadow: none;
     }
   }
-  &-primary {
-    @apply border-primary;
-    &:focus {
-      @apply outline-primary;
+
+  @each $typeName, $map in $TypeMap {
+    $d: map.get($map, "default");
+    $f: map.get($map, "focus");
+    &#{getSelector($typeName)} {
+      @apply #{$d};
+      &:focus {
+        @apply #{$f};
+      }
     }
   }
-  &-info {
-    @apply border-info;
-    &:focus {
-      @apply outline-info;
-    }
-  }
-  &-success {
-    @apply border-success;
-    &:focus {
-      @apply outline-success;
-    }
-  }
-  &-warning {
-    @apply border-warning;
-    &:focus {
-      @apply outline-warning;
-    }
-  }
-  &-error {
-    @apply border-error;
-    &:focus {
-      @apply outline-error;
-    }
-  }
+
   &-disabled,
   &:disabled,
   &[disabled] {

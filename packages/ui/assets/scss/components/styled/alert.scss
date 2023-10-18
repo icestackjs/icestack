@@ -3,7 +3,6 @@
 $TypeMap: injectAlertColors();
 $DefaultMap: injectAlertDefaults();
 .alert {
-  @apply rounded-box border p-4;
   $default: map.get($DefaultMap, "default");
   @apply #{$default};
   @each $typeName, $map in $TypeMap {

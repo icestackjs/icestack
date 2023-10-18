@@ -11,7 +11,7 @@ const colorsMap = expandColorsMap(Types, (cur) => {
 })
 
 const defaults = {
-  default: 'text-base-content border-base-200'
+  default: 'rounded-box border p-4 text-base-content border-base-200'
 }
 const injectName = createInjectName('alert')
 export const inject = {

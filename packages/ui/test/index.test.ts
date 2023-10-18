@@ -1,3 +1,4 @@
+import merge from 'merge'
 import { getCss } from '@/utils'
 
 describe('main', () => {
@@ -40,5 +41,10 @@ describe('main', () => {
       }
     })
     expect(result.css).toMatchSnapshot()
+  })
+
+  it('merge case 0', () => {
+    const obj = merge.recursive(true, undefined, { a: 1 }, undefined)
+    expect(obj).toEqual({ a: 1 })
   })
 })

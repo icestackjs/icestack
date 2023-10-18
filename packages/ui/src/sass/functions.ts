@@ -1,5 +1,5 @@
 import type { Options } from 'sass'
-
+// import { sassTrue, sassFalse } from 'sass'
 import * as base from '@/base'
 import * as button from '@/components/button'
 import * as alert from '@/components/alert'
@@ -10,6 +10,7 @@ import * as fileInput from '@/components/file-input'
 import * as input from '@/components/input'
 import * as link from '@/components/link'
 import * as progress from '@/components/progress'
+import * as textarea from '@/components/textarea'
 
 export const functions: Options<'sync'>['functions'] = {
   ...base.inject,
@@ -21,5 +22,9 @@ export const functions: Options<'sync'>['functions'] = {
   ...fileInput.inject,
   ...input.inject,
   ...link.inject,
-  ...progress.inject
+  ...progress.inject,
+  ...textarea.inject
+  // 'globalAtMediaHover()': () => {
+  //   return sassTrue
+  // }
 }

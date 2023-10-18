@@ -7,8 +7,9 @@ import { set } from 'lodash'
 import klaw from 'klaw'
 
 import dedent from 'dedent'
-import { buildScss } from '../src/sass'
-import { jsDir, scssDir } from '../src/dirs'
+import { buildScss } from '@/sass'
+import { jsDir, scssDir } from '@/dirs'
+import { generateIndexCode } from '@/gen'
 
 // import { fileURLToPath } from 'node:url'
 // import { createContext } from 'css-to-tailwindcss-plugin'
@@ -55,9 +56,11 @@ async function main() {
       }
       await fs.writeFile(
         path.resolve(utilitiesJsOutputPath, 'index.js'),
-        dedent`module.exports = {\n${basenameArray.map((x) => {
-          return `"${x}":require("./${x}.js")`
-        })}\n}`
+        generateIndexCode(basenameArray),
+        'utf8'
+        // dedent`module.exports = {\n${basenameArray.map((x) => {
+        //   return `"${x}":require("./${x}.js")`
+        // })}\n}`
       )
       basenameArray.length = 0
       const utilitiesJs = path.resolve(jsDir, 'utilities')
@@ -89,9 +92,11 @@ async function main() {
 
       await fs.writeFile(
         path.resolve(utilitiesJsOutputPath, 'index.js'),
-        dedent`module.exports = {\n${basenameArray.map((x) => {
-          return `"${x}":require("./${x}.js")`
-        })}\n}`
+        generateIndexCode(basenameArray),
+        'utf8'
+        // dedent`module.exports = {\n${basenameArray.map((x) => {
+        //   return `"${x}":require("./${x}.js")`
+        // })}\n}`
       )
 
       break
@@ -128,9 +133,11 @@ async function main() {
       const componentsJsOutputPath = path.resolve(jsDir, 'components')
       await fs.writeFile(
         path.resolve(componentsJsOutputPath, 'index.js'),
-        dedent`module.exports = {\n${basenameArray.map((x) => {
-          return `"${x}":require("./${x}.js")`
-        })}\n}`
+        generateIndexCode(basenameArray),
+        'utf8'
+        // dedent`module.exports = {\n${basenameArray.map((x) => {
+        //   return `"${x}":require("./${x}.js")`
+        // })}\n}`
       )
       break
     }

@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`global > at media hover 1`] = `
+"
+      &:hover {
+        color:red;
+      }"
+`;
+
+exports[`global > universal selector case 0 1`] = `
+".btm-nav>view {
+      border-color: currentColor
+    }"
+`;

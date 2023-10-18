@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`gen > case 0 1`] = `
+"module.exports = {
+  \\"glass\\": {
+    \\"global\\": require(\\"./global/glass.js\\")
+  },
+  \\"artboard\\": {
+    \\"styled\\": require(\\"./styled/artboard.js\\")
+  },
+  \\"button\\": {
+    \\"unstyled\\": require(\\"./unstyled/button.js\\")
+  }
+};"
+`;
+
+exports[`gen > case 1 1`] = `
+"module.exports = {
+  \\"glass\\": {
+    \\"global\\": require(\\"./global/glass.js\\"),
+    \\"styled\\": require(\\"./styled/glass.js\\"),
+    \\"unstyled\\": require(\\"./unstyled/glass.js\\")
+  }
+};"
+`;

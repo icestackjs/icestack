@@ -1,4 +1,5 @@
 import type { ConfigOptions } from 'rtlcss'
+import type { AcceptedPlugin } from 'postcss'
 import type allComponents from './allComponents'
 import type { Options as PrefixerOptions } from '@/postcss/prefixer'
 export interface UserDefinedOptions {
@@ -7,12 +8,25 @@ export interface UserDefinedOptions {
     {
       override: object
       extend: object
-      postcss: object
+      postcss: {
+        plugins: AcceptedPlugin[]
+      }
     }
   >
   global: {
     atMedia: {
-      hover: boolean
+      // default false
+      hover?: boolean
+    }
+    pseudo: {
+      // default true
+      where?: boolean
+    }
+    selector: {
+      // default *
+      universal?: string | (() => string)
+      // default global
+      globalKeyword?: string
     }
   }
   styled: boolean

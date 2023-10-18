@@ -2,8 +2,7 @@
 
 exports[`alert > snap 1`] = `
 ".alert {
-  @apply rounded-box border p-4;
-  @apply text-base-content border-base-200;
+  @apply rounded-box border p-4 text-base-content border-base-200;
 }
 .alert-primary {
   @apply text-primary-content border-primary/20 bg-primary;

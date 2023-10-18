@@ -65,8 +65,12 @@
   "keywords": [],
   "author": "",
   "dependencies": {
+    "@babel/generator": "^7.23.0",
+    "@babel/types": "^7.23.0",
     "@ctrl/tinycolor": "^4.0.2",
     "@icestack/css2js": "workspace:^",
+    "c12": "^1.4.2",
+    "cac": "^6.7.14",
     "compose-tailwindcss-plugins": "workspace:^",
     "css-selector-tokenizer": "^0.8.0",
     "css-to-tailwindcss-plugin": "workspace:^",

@@ -19,7 +19,8 @@ const colorsMap = expandColorsMap(Types, (cur) => {
 const defaults = {
   styled: {
     default: 'border-base-200 bg-base-100 text-base-content',
-    outline: 'border-current border-opacity-50 bg-transparent text-current'
+    outline: 'border-current border-opacity-50 bg-transparent text-current',
+    ghost: 'border-base-200 bg-base-200 text-base-content'
   },
   unstyled: {
     default: 'inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem]'

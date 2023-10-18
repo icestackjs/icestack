@@ -99,8 +99,7 @@ exports[`button > snap 1`] = `
   @apply border-transparent bg-transparent underline;
 }
 .btn-outline {
-  @apply border-current bg-transparent shadow-none;
-  @apply text-base-content;
+  @apply border-current bg-transparent shadow-none text-base-content;
 }
 .btn-outline:active {
   @apply border-base-content bg-base-content text-base-100;

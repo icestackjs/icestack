@@ -16,7 +16,7 @@ $DefaultMap: map.get(injectBadgeDefaults(), "styled");
   }
 
   &-ghost {
-    @apply border-base-200 bg-base-200 text-base-content;
+    @apply #{map.get($DefaultMap, "ghost")};
   }
 
   &-outline {

@@ -2,7 +2,7 @@
 @use "sass:map";
 
 $TypeMap: injectButtonColors();
-$DefaultMap: injectButtonDefaults();
+$DefaultMap: map.get(injectButtonDefaults(), "styled");
 //Mixins may not contain mixin declarations.
 @mixin button-active($applyStr, $pseudo: "active", $withoutMedia: false) {
   @if ($withoutMedia) {
@@ -52,7 +52,7 @@ $DefaultMap: injectButtonDefaults();
   }
 
   &.glass {
-    @apply shadow-none outline-current;
+    @apply #{map.get($DefaultMap, "glass")};
 
     &:active {
       --glass-opacity: 25%;
@@ -66,28 +66,29 @@ $DefaultMap: injectButtonDefaults();
   }
 
   &-ghost {
-    @apply border border-transparent bg-transparent text-current shadow-none outline-current;
-    @include button-active(border-opacity-0 bg-base-content bg-opacity-20);
+    @apply #{map.get($DefaultMap, "ghost")};
+    @include button-active(#{map.get($DefaultMap, "ghostActive")});
   }
 
   &-link {
-    @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
-    @include button-active(border-transparent bg-transparent underline);
+    @apply #{map.get($DefaultMap, "link")};
+    @include button-active(#{map.get($DefaultMap, "linkActive")});
   }
 
   &-outline {
-    @apply border-current bg-transparent shadow-none;
-    @apply text-base-content;
-    $outlineActive: map.get($DefaultMap, "outline-active");
+    $outline: map.get($DefaultMap, "outline");
+    @apply #{$outline};
+
+    $outlineActive: map.get($DefaultMap, "outlineActive");
     @include button-active($outlineActive);
     @each $typeName, $map in $TypeMap {
       $d: map.get($map, "default");
-      $a: map.get($map, "outline-active");
-      $pc: map.get($map, "primary-color");
+      $a: map.get($map, "outlineActive");
+      $o: map.get($map, "outline");
       $selector: getSelector($typeName, ".btn-");
 
       &#{$selector} {
-        @apply text-#{$pc};
+        @apply #{$o};
         @include button-active($a);
       }
     }
@@ -96,10 +97,11 @@ $DefaultMap: injectButtonDefaults();
   &.btn-disabled,
   &[disabled],
   &:disabled {
-    @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+    @apply #{map.get($DefaultMap, "disabled")};
   }
 }
 
+// fallback
 .btn:is(input[type="checkbox"]:checked),
 .btn:is(input[type="radio"]:checked) {
   @apply border-primary bg-primary text-primary-content;

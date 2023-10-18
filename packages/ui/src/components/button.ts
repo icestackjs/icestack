@@ -1,11 +1,11 @@
 import { Types, createInjectName, expandColorsMap } from './shared'
-import { transformJsVToSassMapMap, transformJsVToSassMap } from '@/sass/utils'
+import { transformJsVToSassMapMap } from '@/sass/utils'
 export function generateBtnInjectVars(type: string) {
   return {
-    'primary-color': type,
+    outline: `text-${type}`,
     default: `border-${type} bg-${type} text-${type}-content outline-${type}`,
     active: `border-${type}-focus bg-${type}-focus`,
-    'outline-active': `border-${type}-focus bg-${type}-focus text-${type}-content`
+    outlineActive: `border-${type}-focus bg-${type}-focus text-${type}-content`
   }
 }
 
@@ -16,10 +16,19 @@ const colorsMap = expandColorsMap(Types, (cur) => {
 const injectName = createInjectName('button')
 
 const defaults = {
-  'primary-color': 'base-200',
-  default: 'border-base-200 bg-base-200 text-base-content outline-base-200',
-  active: 'border-base-300 bg-base-300',
-  'outline-active': 'border-base-content bg-base-content text-base-100'
+  styled: {
+    default: 'border-base-200 bg-base-200 text-base-content outline-base-200',
+    active: 'border-base-300 bg-base-300',
+    outline: 'border-current bg-transparent shadow-none text-base-content',
+    outlineActive: 'border-base-content bg-base-content text-base-100',
+    ghost: 'border border-transparent bg-transparent text-current shadow-none outline-current',
+    ghostActive: 'border-opacity-0 bg-base-content bg-opacity-20',
+    link: 'text-primary border-transparent bg-transparent underline shadow-none outline-current',
+    linkActive: 'border-transparent bg-transparent underline',
+    disabled: 'bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20',
+    glass: 'shadow-none outline-current'
+  },
+  unstyled: {}
 }
 
 export const inject = {
@@ -27,7 +36,7 @@ export const inject = {
     return transformJsVToSassMapMap(Object.entries(colorsMap))
   },
   [injectName.defaults]: () => {
-    return transformJsVToSassMap(Object.entries(defaults))
+    return transformJsVToSassMapMap(Object.entries(defaults))
   }
 }
 

@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`checkbox > snap 1`] = `
+".checkbox {
+  @apply shrink-0;
+}"
+`;

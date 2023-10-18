@@ -7,12 +7,12 @@ import rtlcss from 'rtlcss'
 import base from '../assets/js/base/index.js'
 import components from '../assets/js/components/index.js'
 import utilities from '../assets/js/utilities/index.js'
-
 import postcssPrefix from './postcss/prefixer'
 
 import { colors } from './colors.js'
 
 import type { UserDefinedOptions } from './types'
+import globalPostcss from '@/postcss/global'
 
 export default plugin.withOptions(
   function (options: UserDefinedOptions) {
@@ -29,6 +29,8 @@ export default plugin.withOptions(
     if (rtl) {
       postcssPlugins.push(rtlcss(typeof rtl === 'boolean' ? undefined : rtl))
     }
+
+    postcssPlugins.push(globalPostcss(options))
 
     try {
       postcssJsProcess = postcssJs.sync(postcssPlugins)

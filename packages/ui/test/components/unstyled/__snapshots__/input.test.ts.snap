@@ -1,0 +1,8 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`input > snap 1`] = `
+".input {
+  @apply flex-shrink;
+  @apply h-12 px-4 text-sm leading-loose;
+}"
+`;

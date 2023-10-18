@@ -20,3 +20,8 @@ export const inject = {
     return transformJsVToSassMap(Object.entries(defaults))
   }
 }
+
+export const options = {
+  colors: colorsMap,
+  defaults
+}

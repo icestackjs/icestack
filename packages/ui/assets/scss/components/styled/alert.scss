@@ -1,7 +1,7 @@
 @use "../utils/index.scss" as *;
 @use "sass:map";
 $TypeMap: injectAlertColors();
-$DefaultMap: injectAlertDefaults();
+$DefaultMap: map.get(injectAlertDefaults(), "styled");
 .alert {
   $default: map.get($DefaultMap, "default");
   @apply #{$default};

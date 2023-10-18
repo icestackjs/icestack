@@ -2,7 +2,7 @@
 @use "sass:map";
 
 $TypeMap: injectBadgeColors();
-$DefaultMap: injectBadgeDefaults();
+$DefaultMap: map.get(injectBadgeDefaults(), "styled");
 
 .badge {
   @apply rounded-badge border;

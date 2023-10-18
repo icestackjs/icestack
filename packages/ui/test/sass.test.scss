@@ -1,4 +1,5 @@
 @use "true" as *;
+@use "sass:meta";
 @use "../assets//scss/components/utils/index.scss" as *;
 // https://www.oddbird.net/true/docs/
 @include test-module("sass") {
@@ -20,6 +21,18 @@
   @include test("removeTextPrefix") {
     // Assert the expected results
     @include assert-equal(removeTextPrefix(text-content), content);
+  }
+
+  @include test("injectFn case 0") {
+    $a: meta.call(injectFn(1), 0);
+    @debug $a;
+    @include assert-equal($a, "111");
+  }
+
+  @include test("injectFn case 1") {
+    $a: meta.call(injectFn(1), 1, 2);
+    @debug $a;
+    @include assert-equal($a, "111");
   }
 
   // @include test("Zip") {

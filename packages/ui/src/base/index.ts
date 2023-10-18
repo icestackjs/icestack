@@ -1,11 +1,12 @@
 import { SassMap, Value } from 'sass'
 import { OrderedMap } from 'immutable'
 import { defaultVarsEntries } from './css-vars'
-import { transformJsVToSassV } from '@/sass/utils'
-const sassValueVarsMap = OrderedMap<Value, Value>(transformJsVToSassV(defaultVarsEntries))
+import { transformBaseJs } from '@/sass/utils'
+
+const cssVars = new SassMap(OrderedMap(transformBaseJs(defaultVarsEntries)))
 
 export const inject = {
   'injectCssVars()': () => {
-    return new SassMap(sassValueVarsMap)
+    return cssVars
   }
 }

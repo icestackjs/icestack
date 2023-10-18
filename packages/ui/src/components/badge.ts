@@ -1,5 +1,5 @@
 import { Types, createInjectName, expandColorsMap } from './shared'
-import { transformJsVToSassMap, transformJsVToSassMapMap } from '@/sass/utils'
+import { transformJsToSass } from '@/sass/utils'
 
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
@@ -20,7 +20,14 @@ const defaults = {
   styled: {
     default: 'border-base-200 bg-base-100 text-base-content',
     outline: 'border-current border-opacity-50 bg-transparent text-current',
-    ghost: 'border-base-200 bg-base-200 text-base-content'
+    ghost: 'border-base-200 bg-base-200 text-base-content',
+    ghostActive: {
+      // apply:'',
+      css: {
+        '--glass-opacity': '25%',
+        '--glass-border-opacity': '15%'
+      }
+    }
   },
   unstyled: {
     default: 'inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem]'
@@ -28,12 +35,14 @@ const defaults = {
 }
 
 const injectName = createInjectName('badge')
+const sassColors = transformJsToSass(colorsMap)
+const sassDefaults = transformJsToSass(defaults)
 export const inject = {
   [injectName.colors]: () => {
-    return transformJsVToSassMapMap(Object.entries(colorsMap))
+    return sassColors
   },
   [injectName.defaults]: () => {
-    return transformJsVToSassMapMap(Object.entries(defaults))
+    return sassDefaults
   }
 }
 

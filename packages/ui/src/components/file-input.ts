@@ -1,5 +1,5 @@
 import { Types, createInjectName, expandColorsMap } from './shared'
-import { transformJsVToSassMapMap } from '@/sass/utils'
+import { transformJsToSass } from '@/sass/utils'
 function generateDefault(typeName: string) {
   return `border-${typeName}`
 }
@@ -20,8 +20,10 @@ const colorsMap = expandColorsMap(Types, (cur) => {
   }
 })
 const injectName = createInjectName('file-input')
+const sassColors = transformJsToSass(colorsMap)
+// const sassDefaults = transformJsToSass(defaults)
 export const inject = {
   [injectName.colors]: () => {
-    return transformJsVToSassMapMap(Object.entries(colorsMap))
+    return sassColors
   }
 }

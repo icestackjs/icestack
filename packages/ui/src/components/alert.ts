@@ -1,5 +1,5 @@
 import { Types, createInjectName, expandColorsMap } from './shared'
-import { transformJsVToSassMapMap } from '@/sass/utils'
+import { transformJsToSass } from '@/sass/utils'
 
 const colorsMap = expandColorsMap(Types, (typeName) => {
   return {
@@ -17,12 +17,14 @@ const defaults = {
   }
 }
 const injectName = createInjectName('alert')
+const sassColors = transformJsToSass(colorsMap)
+const sassDefaults = transformJsToSass(defaults)
 export const inject = {
   [injectName.colors]: () => {
-    return transformJsVToSassMapMap(Object.entries(colorsMap))
+    return sassColors
   },
   [injectName.defaults]: () => {
-    return transformJsVToSassMapMap(Object.entries(defaults))
+    return sassDefaults
   }
 }
 

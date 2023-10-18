@@ -1,5 +1,5 @@
 import { Types, createInjectName, expandColorsMap } from './shared'
-import { transformJsVToSassMapMap } from '@/sass/utils'
+import { transformJsToSass } from '@/sass/utils'
 
 const colorsMap = expandColorsMap(Types, (cur) => {
   return {
@@ -8,8 +8,10 @@ const colorsMap = expandColorsMap(Types, (cur) => {
   }
 })
 const injectName = createInjectName('textarea')
+const sassColors = transformJsToSass(colorsMap)
+// const sassDefaults = transformJsToSass(defaults)
 export const inject = {
   [injectName.colors]: () => {
-    return transformJsVToSassMapMap(Object.entries(colorsMap))
+    return sassColors
   }
 }

@@ -1,5 +1,6 @@
 @use "../utils/index.scss" as *;
 @use "sass:map";
+@use "sass:meta";
 
 $TypeMap: injectButtonColors();
 $DefaultMap: map.get(injectButtonDefaults(), "styled");

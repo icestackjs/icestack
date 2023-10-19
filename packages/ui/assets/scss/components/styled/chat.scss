@@ -1,21 +1,16 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
 $TypeMap: injectChatColors();
-$DefaultMap: injectChatDefaults();
+$DefaultMap: map.get(injectChatDefaults(), "styled");
 
 .chat {
   &-bubble {
-    @apply rounded-box;
-    min-height: 2.75rem;
-    min-width: 2.75rem;
-
-    $default: map.get($DefaultMap, "default");
-    @apply #{$default};
+    @include resolve(map.get($DefaultMap, "default"));
 
     @each $typeName, $map in $TypeMap {
       $d: map.get($map, "default");
       &#{getSelector($typeName)} {
-        @apply #{$d};
+        @include resolve($d);
       }
     }
   }

@@ -19,12 +19,18 @@ const colorsMap = expandColorsMap(Types, (cur) => {
     checked: generateChecked(cur)
   }
 })
+const defaults = {
+  default: 'border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20'
+}
 const injectName = createInjectName('checkbox')
 const sassColors = transformJsToSass(colorsMap)
-// const sassDefaults = transformJsToSass(defaults)
+const sassDefaults = transformJsToSass(defaults)
 export const inject = {
   [injectName.colors]: () => {
     return sassColors
+  },
+  [injectName.defaults]: () => {
+    return sassDefaults
   }
 }
 

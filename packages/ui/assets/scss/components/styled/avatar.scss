@@ -4,8 +4,8 @@
 $DefaultMap: map.get(injectAvatarDefaults(), "styled");
 
 .avatar-group {
-  @apply #{map.get($DefaultMap,'group')};
+  @include resolve(map.get($DefaultMap, "group"));
   :where(.avatar) {
-    @apply #{map.get($DefaultMap,'default')};
+    @include resolve(map.get($DefaultMap, "default"));
   }
 }

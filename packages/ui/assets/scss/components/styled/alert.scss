@@ -3,12 +3,12 @@
 $TypeMap: injectAlertColors();
 $DefaultMap: map.get(injectAlertDefaults(), "styled");
 .alert {
-  $default: map.get($DefaultMap, "default");
-  @apply #{$default};
+  @include resolve(map.get($DefaultMap, "default"));
+
   @each $typeName, $map in $TypeMap {
     $d: map.get($map, "default");
     &#{getSelector($typeName)} {
-      @apply #{$d};
+      @include resolve($d);
     }
   }
 }

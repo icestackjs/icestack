@@ -2,9 +2,8 @@
 
 exports[`button > snap 1`] = `
 ".btn {
-  @apply no-underline;
+  @apply border-base-200 bg-base-200 text-base-content outline-base-200 no-underline;
   border-width: var(--ice-border-btn, 1px);
-  @apply border-base-200 bg-base-200 text-base-content outline-base-200;
 }
 .btn:focus-visible {
   @apply outline outline-2 outline-offset-2;

@@ -18,7 +18,7 @@ const colorsMap = expandColorsMap(Types, (cur) => {
 
 const defaults = {
   styled: {
-    default: 'border-base-200 bg-base-100 text-base-content',
+    default: 'rounded-badge border border-base-200 bg-base-100 text-base-content',
     outline: 'border-current border-opacity-50 bg-transparent text-current',
     ghost: 'border-base-200 bg-base-200 text-base-content'
   },

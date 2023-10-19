@@ -67,15 +67,31 @@ $globalAtMediaHover: globalAtMediaHover();
     $arg: (
       apply: $arg
     );
+  } @else if($type == map and meta.type-of(map.get($arg, "css")) == null) {
+    $arg: (
+      css: $arg
+    );
   }
   $apply: map.get($arg, "apply");
   $css: map.get($arg, "css");
-  @if ($apply != null and meta.type-of($apply) == string) {
-    @apply #{$apply};
-  }
-  @if ($css!=null and meta.type-of($css) == map) {
-    @each $name, $value in $css {
-      #{$name}: $value;
+  $sort: map.get($arg, "sort");
+  @if ($sort == null or $sort == "asc") {
+    @if ($apply != null and meta.type-of($apply) == string) {
+      @apply #{$apply};
+    }
+    @if ($css!=null and meta.type-of($css) == map) {
+      @each $name, $value in $css {
+        #{$name}: $value;
+      }
+    }
+  } @else if($sort == "desc") {
+    @if ($css!=null and meta.type-of($css) == map) {
+      @each $name, $value in $css {
+        #{$name}: $value;
+      }
+    }
+    @if ($apply != null and meta.type-of($apply) == string) {
+      @apply #{$apply};
     }
   }
 }

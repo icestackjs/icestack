@@ -17,7 +17,13 @@ const injectName = createInjectName('button')
 
 const defaults = {
   styled: {
-    default: 'border-base-200 bg-base-200 text-base-content outline-base-200',
+    default: {
+      apply: 'border-base-200 bg-base-200 text-base-content outline-base-200 no-underline',
+      css: {
+        'border-width': 'var(--border-btn, 1px)'
+      }
+    },
+    focus: 'outline outline-2 outline-offset-2',
     active: 'border-base-300 bg-base-300',
     outline: 'border-current bg-transparent shadow-none text-base-content',
     outlineActive: 'border-base-content bg-base-content text-base-100',
@@ -33,6 +39,11 @@ const defaults = {
         '--glass-opacity': '25%',
         '--glass-border-opacity': '15%'
       }
+    },
+    inputType: {
+      default: 'border-primary bg-primary text-primary-content',
+      active: 'border-primary-focus bg-primary-focus',
+      focus: 'outline-primary'
     }
   },
   unstyled: {}

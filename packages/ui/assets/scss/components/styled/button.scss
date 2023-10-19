@@ -30,14 +30,14 @@ $DefaultMap: map.get(injectButtonDefaults(), "styled");
 }
 
 .btn {
-  @apply no-underline; // @apply gap-2 font-semibold no-underline;
-  border-width: var(--border-btn, 1px);
-  &:focus-visible {
-    @apply outline outline-2 outline-offset-2;
-  }
   $default: map.get($DefaultMap, "default");
+  $focus: map.get($DefaultMap, "focus");
   $active: map.get($DefaultMap, "active");
-  @apply #{$default};
+  &:focus-visible {
+    @include resolve($focus);
+  }
+
+  @include resolve($default);
   @include button-active($active);
 
   @each $typeName, $map in $TypeMap {
@@ -47,7 +47,7 @@ $DefaultMap: map.get(injectButtonDefaults(), "styled");
     $selector: getSelector($typeName);
 
     &#{$selector} {
-      @apply #{$d};
+      @include resolve($d);
       @include button-active($a);
     }
   }
@@ -59,14 +59,13 @@ $DefaultMap: map.get(injectButtonDefaults(), "styled");
   );
   @each $s, $t in $vars {
     #{$s} {
-      @apply #{map.get($DefaultMap, $t)};
+      @include resolve(map.get($DefaultMap, $t));
       @include button-active(map.get($DefaultMap, "#{$t}Active"));
     }
   }
 
   &-outline {
-    $outline: map.get($DefaultMap, "outline");
-    @apply #{$outline};
+    @include resolve(map.get($DefaultMap, "outline"));
 
     $outlineActive: map.get($DefaultMap, "outlineActive");
     @include button-active($outlineActive);
@@ -77,7 +76,7 @@ $DefaultMap: map.get(injectButtonDefaults(), "styled");
       $selector: getSelector($typeName, ".btn-");
 
       &#{$selector} {
-        @apply #{$o};
+        @include resolve($o);
         @include button-active($a);
       }
     }
@@ -86,18 +85,18 @@ $DefaultMap: map.get(injectButtonDefaults(), "styled");
   &.btn-disabled,
   &[disabled],
   &:disabled {
-    @apply #{map.get($DefaultMap, "disabled")};
+    @include resolve(map.get($DefaultMap, "disabled"));
   }
 }
-
+$InputTypeMap: map.get($DefaultMap, "inputType");
 // for input element
 .btn:is(input[type="checkbox"]:checked),
 .btn:is(input[type="radio"]:checked) {
-  @apply border-primary bg-primary text-primary-content;
+  @include resolve(map.get($InputTypeMap, "default"));
   &:active {
-    @apply border-primary-focus bg-primary-focus;
+    @include resolve(map.get($InputTypeMap, "active"));
   }
   &:focus-visible {
-    @apply outline-primary;
+    @include resolve(map.get($InputTypeMap, "focus"));
   }
 }

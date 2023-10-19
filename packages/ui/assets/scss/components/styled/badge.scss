@@ -5,27 +5,25 @@ $TypeMap: injectBadgeColors();
 $DefaultMap: map.get(injectBadgeDefaults(), "styled");
 
 .badge {
-  @apply rounded-badge border;
-  $default: map.get($DefaultMap, "default");
-  @apply #{$default};
+  @include resolve(map.get($DefaultMap, "default"));
+
   @each $typeName, $map in $TypeMap {
     $d: map.get($map, "default");
     &#{getSelector($typeName)} {
-      @apply #{$d};
+      @include resolve($d);
     }
   }
 
   &-ghost {
-    @apply #{map.get($DefaultMap, "ghost")};
+    @include resolve(map.get($DefaultMap, "ghost"));
   }
 
   &-outline {
-    $outline: map.get($DefaultMap, "outline");
-    @apply #{$outline};
+    @include resolve(map.get($DefaultMap, "outline"));
     @each $typeName, $map in $TypeMap {
       $d: map.get($map, "outline");
       &#{getSelector($typeName,".badge-")} {
-        @apply #{$d};
+        @include resolve($d);
       }
     }
   }

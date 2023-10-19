@@ -3,33 +3,33 @@
 $DefaultMap: map.get(injectBottomNavigationDefaults(), "styled");
 $ChildrenMap: map.get($DefaultMap, "children");
 .btm-nav {
-  @apply #{map.get($DefaultMap,'default')};
+  @include resolve(map.get($DefaultMap, "default"));
   & > * {
-    @apply #{map.get($ChildrenMap,'default')};
+    @include resolve(map.get($ChildrenMap, "default"));
 
     &:not(.active) {
-      @apply #{map.get($ChildrenMap,'notActive')};
+      @include resolve(map.get($ChildrenMap, "notActive"));
     }
 
     &:where(.active) {
-      @apply #{map.get($ChildrenMap,'active')};
+      @include resolve(map.get($ChildrenMap, "active"));
     }
 
     /* disabled */
     &.disabled,
     &[disabled] {
-      @apply #{map.get($ChildrenMap,'disabled')};
+      @include resolve(map.get($ChildrenMap, "disabled"));
     }
 
     @include AtMediaHover {
       &.disabled:hover,
       &[disabled]:hover {
-        @apply #{map.get($ChildrenMap,'disabledHover')};
+        @include resolve(map.get($ChildrenMap, "disabledHover"));
       }
     }
 
     .label {
-      @apply #{map.get($ChildrenMap,'label')};
+      @include resolve(map.get($ChildrenMap, "label"));
     }
   }
 }

@@ -9,7 +9,15 @@ const colorsMap = expandColorsMap(Types, (t) => {
 const injectName = createInjectName('chat')
 
 const defaults = {
-  default: 'bg-neutral text-neutral-content'
+  styled: {
+    default: {
+      apply: 'bg-neutral text-neutral-content rounded-box',
+      css: {
+        'min-height': '2.75rem',
+        'min-width': '2.75rem'
+      }
+    }
+  }
 }
 const sassColors = transformJsToSass(colorsMap)
 const sassDefaults = transformJsToSass(defaults)

@@ -1,9 +1,8 @@
 import type { Options } from 'sass'
-import { Value, SassMap } from 'sass'
+import { Value } from 'sass'
 import { get } from 'lodash'
-import { OrderedMap } from 'immutable'
 import type allComponents from '../allComponents'
-import { transformBaseJs, transformJsToSass } from './utils'
+import { transformJsToSass } from './utils'
 import * as avatar from '@/components/avatar'
 import * as bottomNavigation from '@/components/bottom-navigation'
 import * as button from '@/components/button'
@@ -16,7 +15,7 @@ import * as input from '@/components/input'
 import * as link from '@/components/link'
 import * as progress from '@/components/progress'
 import * as textarea from '@/components/textarea'
-import { defaultVarsEntries } from '@/base/css-vars'
+import * as base from '@/base'
 
 // @ts-ignore
 const defaultPreset: Record<(typeof allComponents)[number], any> = {
@@ -35,9 +34,7 @@ const defaultPreset: Record<(typeof allComponents)[number], any> = {
 }
 
 export const functions: Options<'sync'>['functions'] = {
-  'injectCssVars()': () => {
-    return new SassMap(OrderedMap(transformBaseJs(defaultVarsEntries)))
-  },
+  ...base.inject,
   'globalAtMediaHover()': () => {
     return transformJsToSass(false)
   },

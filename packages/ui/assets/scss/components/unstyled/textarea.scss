@@ -1,4 +1,8 @@
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
+$DefaultMap: inject("textarea.defaults.unstyled");
+
 .textarea {
-  @apply min-h-12 flex-shrink;
-  @apply px-4 py-2 text-sm leading-loose;
+  @include resolve(map.get($DefaultMap, "default"));
 }

@@ -3,30 +3,6 @@ import { TinyColor } from '@ctrl/tinycolor'
 import * as sass from 'sass'
 import defu from 'defu'
 
-export function transformBaseJs(entries: [string, string][]): [sass.Value, sass.Value][] {
-  return entries.map(([varName, value]) => {
-    const color = new TinyColor(value)
-    let v: sass.Value
-    if (color.isValid) {
-      let str = ''
-      str = color.a < 1 && color.a > 0 ? `${color.r} ${color.g} ${color.b} / ${color.a}` : `${color.r} ${color.g} ${color.b}`
-      v = new sass.SassString(str, {
-        quotes: false
-      })
-    } else {
-      v = new sass.SassString(value, {
-        quotes: false
-      })
-    }
-    return [
-      new sass.SassString(varName, {
-        quotes: false
-      }),
-      v
-    ]
-  })
-}
-
 export interface TransformJsToSassOptions {
   quotes?: boolean
   denominatorUnits?: string[]
@@ -75,4 +51,28 @@ export function transformJsToSass(raw: any, options?: TransformJsToSassOptions):
   } else {
     return sass.sassNull
   }
+}
+
+export function transformBaseJs(entries: [string, string][]): [sass.Value, sass.Value][] {
+  return entries.map(([varName, value]) => {
+    const color = new TinyColor(value)
+    let v: sass.Value
+    if (color.isValid) {
+      let str = ''
+      str = color.a < 1 && color.a > 0 ? `${color.r} ${color.g} ${color.b} / ${color.a}` : `${color.r} ${color.g} ${color.b}`
+      v = new sass.SassString(str, {
+        quotes: false
+      })
+    } else {
+      v = new sass.SassString(value, {
+        quotes: false
+      })
+    }
+    return [
+      new sass.SassString(varName, {
+        quotes: false
+      }),
+      v
+    ]
+  })
 }

@@ -9,7 +9,7 @@ import creator from 'postcss-custom-property-prefixer'
 import { functions } from './functions'
 import { defaultVarPrefix } from '@/constants'
 import { ensureDir } from '@/utils'
-import { getCssPath, getJsPath, getPluginsPath, scssDir, getCssResolvedpath } from '@/dirs'
+import { getCssPath, getJsPath, scssDir, getCssResolvedpath } from '@/dirs'
 
 export const sassOptions: sass.Options<'sync'> = {
   functions

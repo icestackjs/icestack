@@ -9,7 +9,11 @@ const creator: PluginCreator<UserDefinedOptions> = (options) => {
   const ruleTransformer = parser((selectors) => {
     selectors.walk((selector) => {
       if (selector.type === 'universal' && selector.value === '*') {
-        selector.value = universalFn?.()
+        const s = universalFn?.()
+        if (s) {
+          selector.value = s
+        }
+
         // selector.remove()
         // selector.replaceWith(
         //   parser.selector({
@@ -23,7 +27,7 @@ const creator: PluginCreator<UserDefinedOptions> = (options) => {
     postcssPlugin: 'postcss-global-option-handler-plugin',
     plugins: [
       {
-        postcssPlugin: 'deep',
+        postcssPlugin: 'deep-dark-fantastic',
         AtRule(atRule, helper) {
           if (atRule.name === 'media' && /\(\s*hover\s*:\s*hover\s*\)/.test(atRule.params)) {
             atRule.before(atRule.nodes)

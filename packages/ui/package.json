@@ -25,7 +25,6 @@
     "./css/*": "./assets/css/*",
     "./css-resolved/*": "./assets/css-resolved/*",
     "./js/*": "./assets/js/*",
-    "./plugins/*": "./assets/plugins/*",
     "./*": "./*"
   },
   "typesVersions": {

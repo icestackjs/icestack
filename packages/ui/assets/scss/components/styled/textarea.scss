@@ -2,20 +2,21 @@
 @use "sass:map";
 
 $TypeMap: inject("textarea.colors");
+$DefaultMap: inject("textarea.defaults.styled");
 
 .textarea {
-  @apply border-base-content bg-base-100 rounded-btn border border-opacity-0;
+  @include resolve(map.get($DefaultMap, "default"));
+
   &-bordered {
-    @apply border-opacity-20;
+    @include resolve(map.get($DefaultMap, "bordered"));
   }
   &:focus {
-    @apply outline-base-content/20 outline outline-2 outline-offset-2;
+    @include resolve(map.get($DefaultMap, "focus"));
   }
   &-ghost {
-    @apply bg-opacity-5;
+    @include resolve(map.get($DefaultMap, "ghost"));
     &:focus {
-      @apply text-base-content bg-opacity-100;
-      box-shadow: none;
+      @include resolve(map.get($DefaultMap, "ghostFocus"));
     }
   }
 
@@ -33,6 +34,6 @@ $TypeMap: inject("textarea.colors");
   &-disabled,
   &:disabled,
   &[disabled] {
-    @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
+    @include resolve(map.get($DefaultMap, "disabled"));
   }
 }

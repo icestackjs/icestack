@@ -6,19 +6,21 @@ import klaw from 'klaw'
 import defu from 'defu'
 import { generateIndexCode } from './js/generate'
 import { buildScss } from '@/sass'
-import { jsDir, scssDir } from '@/dirs'
+import { resolveJsDir, scssDir } from '@/dirs'
 
 export interface IOptions {
+  dir?: string
   outSideLayerCss: 'base' | 'utilities' | 'components'
 }
 
 export async function generate(options: IOptions) {
-  const { outSideLayerCss } = defu<IOptions, Partial<IOptions>[]>(options, {})
+  const { outSideLayerCss, dir } = defu<IOptions, Partial<IOptions>[]>(options, {})
   // await ensureDir(pluginsDir)
   switch (outSideLayerCss) {
     case 'base': {
       for await (const file of klaw(path.resolve(scssDir, 'base'))) {
         await buildScss({
+          dir,
           filename: file.path,
           stats: file.stats,
           outSideLayerCss
@@ -32,7 +34,7 @@ export async function generate(options: IOptions) {
       const utilitiesPath = path.resolve(scssDir, 'utilities')
       const basenameArray = []
       const fromDir = path.resolve(scssDir, 'utilities')
-      const utilitiesJsOutputPath = path.resolve(jsDir, 'utilities')
+      const utilitiesJsOutputPath = path.resolve(resolveJsDir(dir), 'utilities')
       for await (const file of klaw(path.resolve(utilitiesPath, 'global'))) {
         if (file.stats.isFile() && /\.scss$/.test(file.path)) {
           if (path.basename(file.path).startsWith('_')) {
@@ -40,6 +42,7 @@ export async function generate(options: IOptions) {
           }
           basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
           await buildScss({
+            dir,
             filename: file.path,
             stats: file.stats,
             outSideLayerCss,
@@ -58,7 +61,7 @@ export async function generate(options: IOptions) {
         // })}\n}`
       )
       basenameArray.length = 0
-      const utilitiesJs = path.resolve(jsDir, 'utilities')
+      const utilitiesJs = path.resolve(resolveJsDir(dir), 'utilities')
 
       for await (const file of klaw(utilitiesPath)) {
         if (file.stats.isFile() && /\.scss$/.test(file.path)) {
@@ -68,6 +71,7 @@ export async function generate(options: IOptions) {
 
           basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
           await buildScss({
+            dir,
             filename: file.path,
             stats: file.stats,
             outSideLayerCss,
@@ -98,7 +102,7 @@ export async function generate(options: IOptions) {
     }
     case 'components': {
       const { colors } = await import('../src/colors')
-      const utilitiesJs = path.resolve(jsDir, 'utilities')
+      const utilitiesJs = path.resolve(resolveJsDir(dir), 'utilities')
 
       const basenameArray = []
       const fromDir = path.resolve(scssDir, 'components')
@@ -109,6 +113,7 @@ export async function generate(options: IOptions) {
           }
           basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
           await buildScss({
+            dir,
             filename: file.path,
             stats: file.stats,
             resolveConfig: (config) => {
@@ -125,10 +130,25 @@ export async function generate(options: IOptions) {
           })
         }
       }
-      const componentsJsOutputPath = path.resolve(jsDir, 'components')
+      const componentsJsOutputPath = path.resolve(resolveJsDir(dir), 'components')
       await fs.writeFile(path.resolve(componentsJsOutputPath, 'index.js'), generateIndexCode(basenameArray), 'utf8')
       break
     }
     default:
   }
+}
+
+export async function buildAll(dir?: string) {
+  await generate({
+    dir,
+    outSideLayerCss: 'base'
+  })
+  await generate({
+    dir,
+    outSideLayerCss: 'utilities'
+  })
+  await generate({
+    dir,
+    outSideLayerCss: 'components'
+  })
 }

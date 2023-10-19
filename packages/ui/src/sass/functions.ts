@@ -1,5 +1,5 @@
 import type { Options } from 'sass'
-import { sassTrue, sassFalse, Value, SassMap } from 'sass'
+import { Value, SassMap } from 'sass'
 import { get } from 'lodash'
 import { OrderedMap } from 'immutable'
 import type allComponents from '../allComponents'
@@ -18,6 +18,7 @@ import * as progress from '@/components/progress'
 import * as textarea from '@/components/textarea'
 import { defaultVarsEntries } from '@/base/css-vars'
 
+// @ts-ignore
 const defaultPreset: Record<(typeof allComponents)[number], any> = {
   alert: alert.options,
   avatar: avatar.options,
@@ -38,7 +39,7 @@ export const functions: Options<'sync'>['functions'] = {
     return new SassMap(OrderedMap(transformBaseJs(defaultVarsEntries)))
   },
   'globalAtMediaHover()': () => {
-    return sassFalse
+    return transformJsToSass(false)
   },
   'inject($path:null)': (args: Value[]) => {
     const p = args[0].assertString().text

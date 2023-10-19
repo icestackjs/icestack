@@ -38,6 +38,7 @@ export async function compileScss(filename: string) {
 }
 
 interface IBuildScssOptions {
+  dir?: string
   filename: string
   stats?: Stats
   resolveConfig?: (config: Config) => void
@@ -45,20 +46,20 @@ interface IBuildScssOptions {
 }
 
 export async function buildScss(options: IBuildScssOptions) {
-  const { filename, resolveConfig, stats = await fs.stat(filename) } = options
+  const { filename, resolveConfig, stats = await fs.stat(filename), dir } = options
   if (stats && stats.isFile() && /\.scss$/.test(filename)) {
     const cssOutput = await compileScss(filename)
 
     const relPath = path.relative(scssDir, filename)
-    const cssPath = getCssPath(relPath)
-    const jsPath = getJsPath(relPath)
-    const cssResolvedPath = getCssResolvedpath(relPath)
-    const pluginPath = getPluginsPath(relPath)
+    const cssPath = getCssPath(relPath, dir)
+    const jsPath = getJsPath(relPath, dir)
+    const cssResolvedPath = getCssResolvedpath(relPath, dir)
+    // const pluginPath = getPluginsPath(relPath)
     await ensureDir(path.dirname(cssPath))
     await ensureDir(path.dirname(jsPath))
     await ensureDir(path.dirname(cssResolvedPath))
-    const thisPluginDir = path.dirname(pluginPath)
-    await ensureDir(thisPluginDir)
+    // const thisPluginDir = path.dirname(pluginPath)
+    // await ensureDir(thisPluginDir)
     const config: Config = {
       content: [{ raw: '' }],
       theme: {

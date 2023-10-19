@@ -1,4 +1,4 @@
-import { Types, expandColorsMap } from './shared'
+import { Types, expandColorsMap, IDefaults } from './shared'
 
 const colorsMap = expandColorsMap(Types, (typeName) => {
   return {
@@ -6,7 +6,7 @@ const colorsMap = expandColorsMap(Types, (typeName) => {
   }
 })
 
-const defaults = {
+const defaults: IDefaults = {
   styled: {
     default: 'rounded-box border p-4 text-base-content border-base-200'
   },

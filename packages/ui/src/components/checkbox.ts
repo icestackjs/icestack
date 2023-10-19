@@ -1,4 +1,4 @@
-import { Types, expandColorsMap } from './shared'
+import { IDefaults, Types, expandColorsMap } from './shared'
 function generateDefault(typeName: string) {
   return `border-${typeName} [@media(hover:hover)]:hover:border-${typeName}`
 }
@@ -18,7 +18,7 @@ const colorsMap = expandColorsMap(Types, (cur) => {
     checked: generateChecked(cur)
   }
 })
-const defaults = {
+const defaults: IDefaults = {
   styled: {
     default: 'border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20'
   }

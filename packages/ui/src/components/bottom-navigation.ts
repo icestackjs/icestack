@@ -1,4 +1,6 @@
-const defaults = {
+import { IDefaults } from './shared'
+
+const defaults: IDefaults = {
   styled: {
     default: 'bg-base-100 h-16 text-current',
     children: {

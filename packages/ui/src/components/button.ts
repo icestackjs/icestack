@@ -1,4 +1,4 @@
-import { Types, expandColorsMap } from './shared'
+import { IDefaults, Types, expandColorsMap } from './shared'
 export function generateBtnInjectVars(type: string) {
   return {
     outline: `text-${type}`,
@@ -14,7 +14,7 @@ const colorsMap = expandColorsMap(Types, (cur) => {
 
 // const injectName = createInjectName('button')
 
-const defaults = {
+const defaults: IDefaults = {
   styled: {
     default: {
       apply: 'border-base-200 bg-base-200 text-base-content outline-base-200 no-underline',

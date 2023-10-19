@@ -1,4 +1,4 @@
-import { Types, expandColorsMap } from './shared'
+import { IDefaults, Types, expandColorsMap } from './shared'
 const colorsMap = expandColorsMap(Types, (t) => {
   return {
     default: `bg-${t} text-${t}-content`
@@ -7,7 +7,7 @@ const colorsMap = expandColorsMap(Types, (t) => {
 
 // const injectName = createInjectName('chat')
 
-const defaults = {
+const defaults: IDefaults = {
   styled: {
     default: {
       apply: 'bg-neutral text-neutral-content rounded-box',

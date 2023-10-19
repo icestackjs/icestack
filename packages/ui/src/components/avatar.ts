@@ -1,4 +1,6 @@
-const defaults = {
+import { IDefaults } from './shared'
+
+const defaults: IDefaults = {
   styled: {
     group: 'flex overflow-hidden',
     default: 'border-base-100 overflow-hidden rounded-full border-4'

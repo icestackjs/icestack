@@ -1,4 +1,4 @@
-import { Types, expandColorsMap } from './shared'
+import { Types, expandColorsMap, IDefaults } from './shared'
 
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
@@ -15,7 +15,7 @@ const colorsMap = expandColorsMap(Types, (cur) => {
   }
 })
 
-const defaults = {
+const defaults: IDefaults = {
   styled: {
     default: 'rounded-badge border border-base-200 bg-base-100 text-base-content',
     outline: 'border-current border-opacity-50 bg-transparent text-current',

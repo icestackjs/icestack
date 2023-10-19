@@ -7,7 +7,7 @@ import defu from 'defu'
 import { generateIndexCode } from './js/generate'
 import { buildScss } from '@/sass'
 import { resolveJsDir, scssDir } from '@/dirs'
-
+import { defaultVarPrefix, someExtends } from '@/constants'
 export interface IOptions {
   dir?: string
   outSideLayerCss: 'base' | 'utilities' | 'components'
@@ -78,11 +78,20 @@ export async function generate(options: IOptions) {
             resolveConfig(config) {
               set(config, 'theme.extend.colors', colors)
               config.plugins = [
-                plugin(({ addUtilities }) => {
-                  const obj = require(path.resolve(utilitiesJs, 'index.js'))
-                  // @ts-ignore
-                  addUtilities(Object.values(obj))
-                })
+                plugin(
+                  ({ addUtilities }) => {
+                    const obj = require(path.resolve(utilitiesJs, 'index.js'))
+                    // @ts-ignore
+                    addUtilities(Object.values(obj))
+                  },
+                  {
+                    theme: {
+                      extend: {
+                        ...someExtends
+                      }
+                    }
+                  }
+                )
               ]
             }
           })
@@ -119,11 +128,20 @@ export async function generate(options: IOptions) {
             resolveConfig: (config) => {
               set(config, 'theme.extend.colors', colors)
               config.plugins = [
-                plugin(({ addUtilities }) => {
-                  const obj = require(path.resolve(utilitiesJs, 'index.js'))
-                  // @ts-ignore
-                  addUtilities(Object.values(obj))
-                })
+                plugin(
+                  ({ addUtilities }) => {
+                    const obj = require(path.resolve(utilitiesJs, 'index.js'))
+                    // @ts-ignore
+                    addUtilities(Object.values(obj))
+                  },
+                  {
+                    theme: {
+                      extend: {
+                        ...someExtends
+                      }
+                    }
+                  }
+                )
               ]
             },
             outSideLayerCss

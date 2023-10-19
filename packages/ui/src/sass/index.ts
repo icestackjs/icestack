@@ -37,6 +37,19 @@ export async function compileScss(filename: string) {
   return css
 }
 
+export async function resolveTailwindcss(options: { css: string; config: Config }) {
+  const { config, css: cssOutput } = options
+  const tw = tailwindcss(config)
+  const { css } = await postcss([tw])
+    // @tailwind base;\n
+    // @ts-ignore
+    .process('@tailwind components;\n@tailwind utilities;\n' + cssOutput, {
+      from: undefined
+    })
+    .async()
+  return css
+}
+
 interface IBuildScssOptions {
   dir?: string
   filename: string
@@ -72,29 +85,13 @@ export async function buildScss(options: IBuildScssOptions) {
 
     resolveConfig?.(config)
 
-    // const ctx = createContext({
-    //   tailwindcssConfig: config,
-    //   tailwindcssResolved: true,
-    //   outSideLayerCss,
-    //   sassOptions
-    // })
-    // await ctx.process(filename)
-    // const code = ctx.generate()
-    // scss -> plugin
-    // await fs.writeFile(pluginPath, code, 'utf8')
-
     // scss -> css
     await fs.writeFile(cssPath, cssOutput, 'utf8')
+    const css = await resolveTailwindcss({
+      css: cssOutput,
+      config
+    })
 
-    const tw = tailwindcss(config)
-    const { css } = await postcss([tw])
-      // @tailwind base;\n
-      // @ts-ignore
-      .process('@tailwind components;\n@tailwind utilities;\n' + cssOutput, {
-        from: undefined
-      })
-      .async()
-    // css-resolved
     await fs.writeFile(cssResolvedPath, css, 'utf8')
     const data =
       'module.exports = ' +

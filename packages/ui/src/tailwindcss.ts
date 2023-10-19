@@ -8,6 +8,7 @@ import base from '../assets/js/base/index.js'
 import components from '../assets/js/components/index.js'
 import utilities from '../assets/js/utilities/index.js'
 import postcssPrefix from './postcss/prefixer'
+import { someExtends } from './constants.js'
 
 import { colors } from './colors.js'
 
@@ -75,7 +76,8 @@ export default plugin.withOptions(
         extend: {
           colors: {
             ...colors
-          }
+          },
+          ...someExtends
         }
       }
     }

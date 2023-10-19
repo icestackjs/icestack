@@ -17,10 +17,8 @@ exports[`bottom-navigation > snap 1`] = `
 .btm-nav > *.disabled, .btm-nav > *[disabled] {
   @apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;
 }
-@media (hover: hover) {
-  .btm-nav > *.disabled:hover, .btm-nav > *[disabled]:hover {
-    @apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;
-  }
+.btm-nav > *.disabled:hover, .btm-nav > *[disabled]:hover {
+  @apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;
 }
 .btm-nav > * .label {
   @apply text-base;

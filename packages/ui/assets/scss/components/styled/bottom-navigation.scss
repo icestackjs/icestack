@@ -1,6 +1,6 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
-$DefaultMap: map.get(injectBottomNavigationDefaults(), "styled");
+$DefaultMap: inject("bottomNavigation.defaults.styled");
 $ChildrenMap: map.get($DefaultMap, "children");
 .btm-nav {
   @include resolve(map.get($DefaultMap, "default"));

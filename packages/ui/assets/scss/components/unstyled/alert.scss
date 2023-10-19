@@ -1,6 +1,5 @@
 @use "sass:map";
-
-$DefaultMap: map.get(injectAlertDefaults(), "unstyled");
+$DefaultMap: inject("alert.defaults.unstyled");
 
 .alert {
   @apply #{map.get($DefaultMap,"default")};

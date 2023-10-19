@@ -1,5 +1,4 @@
-import { Types, createInjectName, expandColorsMap } from './shared'
-import { transformJsToSass } from '@/sass/utils'
+import { Types, expandColorsMap } from './shared'
 
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
@@ -27,17 +26,17 @@ const defaults = {
   }
 }
 
-const injectName = createInjectName('badge')
-const sassColors = transformJsToSass(colorsMap)
-const sassDefaults = transformJsToSass(defaults)
-export const inject = {
-  [injectName.colors]: () => {
-    return sassColors
-  },
-  [injectName.defaults]: () => {
-    return sassDefaults
-  }
-}
+// const injectName = createInjectName('badge')
+// const sassColors = transformJsToSass(colorsMap)
+// const sassDefaults = transformJsToSass(defaults)
+// export const inject = {
+//   [injectName.colors]: () => {
+//     return sassColors
+//   },
+//   [injectName.defaults]: () => {
+//     return sassDefaults
+//   }
+// }
 
 export const options = {
   colors: colorsMap,

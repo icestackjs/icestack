@@ -617,6 +617,9 @@ importers:
       immutable:
         specifier: ^4.0.0
         version: 4.3.4
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
       postcss:
         specifier: ^8.4.31
         version: 8.4.31
@@ -642,6 +645,9 @@ importers:
       '@types/css-selector-tokenizer':
         specifier: ^0.7.2
         version: 0.7.2
+      '@types/lodash':
+        specifier: ^4.14.199
+        version: 4.14.199
       '@types/postcss-js':
         specifier: ^4.0.2
         version: 4.0.2

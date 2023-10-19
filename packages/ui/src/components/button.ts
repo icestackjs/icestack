@@ -1,5 +1,4 @@
-import { Types, createInjectName, expandColorsMap } from './shared'
-import { transformJsToSass } from '@/sass/utils'
+import { Types, expandColorsMap } from './shared'
 export function generateBtnInjectVars(type: string) {
   return {
     outline: `text-${type}`,
@@ -13,7 +12,7 @@ const colorsMap = expandColorsMap(Types, (cur) => {
   return generateBtnInjectVars(cur)
 })
 
-const injectName = createInjectName('button')
+// const injectName = createInjectName('button')
 
 const defaults = {
   styled: {
@@ -48,16 +47,16 @@ const defaults = {
   },
   unstyled: {}
 }
-const sassColors = transformJsToSass(colorsMap)
-const sassDefaults = transformJsToSass(defaults)
-export const inject = {
-  [injectName.colors]: () => {
-    return sassColors
-  },
-  [injectName.defaults]: () => {
-    return sassDefaults
-  }
-}
+// const sassColors = transformJsToSass(colorsMap)
+// const sassDefaults = transformJsToSass(defaults)
+// export const inject = {
+//   [injectName.colors]: () => {
+//     return sassColors
+//   },
+//   [injectName.defaults]: () => {
+//     return sassDefaults
+//   }
+// }
 
 export const options = {
   colors: colorsMap,

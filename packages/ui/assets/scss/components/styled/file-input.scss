@@ -1,6 +1,6 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
-$TypeMap: injectFileInputColors();
+$TypeMap: inject("fileInput.colors");
 
 .file-input {
   @apply border-base-content bg-base-100 rounded-btn overflow-hidden border border-opacity-0 text-base;

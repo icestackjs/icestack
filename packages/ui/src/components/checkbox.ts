@@ -1,5 +1,4 @@
-import { Types, createInjectName, expandColorsMap } from './shared'
-import { transformJsToSass } from '@/sass/utils'
+import { Types, expandColorsMap } from './shared'
 function generateDefault(typeName: string) {
   return `border-${typeName} [@media(hover:hover)]:hover:border-${typeName}`
 }
@@ -20,21 +19,23 @@ const colorsMap = expandColorsMap(Types, (cur) => {
   }
 })
 const defaults = {
-  default: 'border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20'
-}
-const injectName = createInjectName('checkbox')
-const sassColors = transformJsToSass(colorsMap)
-const sassDefaults = transformJsToSass(defaults)
-export const inject = {
-  [injectName.colors]: () => {
-    return sassColors
-  },
-  [injectName.defaults]: () => {
-    return sassDefaults
+  styled: {
+    default: 'border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20'
   }
 }
-
-// export const options = {
-//   colors: colorsMap,
-//   defaults
+// const injectName = createInjectName('checkbox')
+// const sassColors = transformJsToSass(colorsMap)
+// const sassDefaults = transformJsToSass(defaults)
+// export const inject = {
+//   [injectName.colors]: () => {
+//     return sassColors
+//   },
+//   [injectName.defaults]: () => {
+//     return sassDefaults
+//   }
 // }
+
+export const options = {
+  colors: colorsMap,
+  defaults
+}

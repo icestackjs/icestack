@@ -1,6 +1,6 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
-$TypeMap: injectLinkColors();
+$TypeMap: inject("link.colors");
 
 .link {
   @each $typeName, $map in $TypeMap {

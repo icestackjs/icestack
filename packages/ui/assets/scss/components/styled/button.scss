@@ -2,8 +2,8 @@
 @use "sass:map";
 @use "sass:meta";
 
-$TypeMap: injectButtonColors();
-$DefaultMap: map.get(injectButtonDefaults(), "styled");
+$TypeMap: inject('button.colors');
+$DefaultMap: inject('button.defaults.styled');
 //Mixins may not contain mixin declarations.
 @mixin button-active($applyStr, $pseudo: "active", $withoutMedia: false) {
   @if ($withoutMedia) {

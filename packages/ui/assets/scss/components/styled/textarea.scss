@@ -1,7 +1,7 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
 
-$TypeMap: injectTextareaColors();
+$TypeMap: inject("textarea.colors");
 
 .textarea {
   @apply border-base-content bg-base-100 rounded-btn border border-opacity-0;

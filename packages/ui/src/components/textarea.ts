@@ -1,5 +1,4 @@
-import { Types, createInjectName, expandColorsMap } from './shared'
-import { transformJsToSass } from '@/sass/utils'
+import { Types, expandColorsMap } from './shared'
 
 const colorsMap = expandColorsMap(Types, (cur) => {
   return {
@@ -7,11 +6,16 @@ const colorsMap = expandColorsMap(Types, (cur) => {
     focus: `outline-${cur}`
   }
 })
-const injectName = createInjectName('textarea')
-const sassColors = transformJsToSass(colorsMap)
-// const sassDefaults = transformJsToSass(defaults)
-export const inject = {
-  [injectName.colors]: () => {
-    return sassColors
-  }
+// const injectName = createInjectName('textarea')
+// const sassColors = transformJsToSass(colorsMap)
+// // const sassDefaults = transformJsToSass(defaults)
+// export const inject = {
+//   [injectName.colors]: () => {
+//     return sassColors
+//   }
+// }
+
+export const options = {
+  colors: colorsMap
+  // defaults
 }

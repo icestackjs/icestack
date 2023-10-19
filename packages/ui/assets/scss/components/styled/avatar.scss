@@ -1,7 +1,7 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
 
-$DefaultMap: map.get(injectAvatarDefaults(), "styled");
+$DefaultMap: inject("avatar.defaults.styled");
 
 .avatar-group {
   @include resolve(map.get($DefaultMap, "group"));

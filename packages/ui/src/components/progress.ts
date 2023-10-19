@@ -1,5 +1,4 @@
-import { Types, createInjectName, expandColorsMap } from './shared'
-import { transformJsToSass } from '@/sass/utils'
+import { Types, expandColorsMap } from './shared'
 
 function generateDefault(typeName: string) {
   return `bg-${typeName}`
@@ -10,11 +9,15 @@ const colorsMap = expandColorsMap(Types, (cur) => {
     default: generateDefault(cur)
   }
 })
-const injectName = createInjectName('progress')
-const sassColors = transformJsToSass(colorsMap)
-// const sassDefaults = transformJsToSass(defaults)
-export const inject = {
-  [injectName.colors]: () => {
-    return sassColors
-  }
+// const injectName = createInjectName('progress')
+// const sassColors = transformJsToSass(colorsMap)
+// // const sassDefaults = transformJsToSass(defaults)
+// export const inject = {
+//   [injectName.colors]: () => {
+//     return sassColors
+//   }
+// }
+export const options = {
+  colors: colorsMap
+  // defaults
 }

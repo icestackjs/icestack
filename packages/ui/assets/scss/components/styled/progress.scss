@@ -1,6 +1,6 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
-$TypeMap: injectProgressColors();
+$TypeMap: inject("progress.colors");
 
 .progress {
   @apply rounded-box bg-base-content/20 h-2;

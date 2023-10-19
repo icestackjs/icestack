@@ -1,6 +1,6 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
-$TypeMap: injectCheckboxColors();
+$TypeMap: inject("checkbox.colors");
 
 .checkbox {
   @apply border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20;

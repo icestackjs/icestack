@@ -2,8 +2,8 @@
 @use "sass:map";
 @use "sass:meta";
 
-$TypeMap: inject('button.colors');
-$DefaultMap: inject('button.defaults.styled');
+$TypeMap: inject("button.colors");
+$DefaultMap: inject("button.defaults.styled");
 //Mixins may not contain mixin declarations.
 @mixin button-active($applyStr, $pseudo: "active", $withoutMedia: false) {
   @if ($withoutMedia) {
@@ -31,7 +31,7 @@ $DefaultMap: inject('button.defaults.styled');
 
 .btn {
   $default: map.get($DefaultMap, "default");
-  $focus: map.get($DefaultMap, "focus");
+  $focus: map.get($DefaultMap, "focusVisible");
   $active: map.get($DefaultMap, "active");
   &:focus-visible {
     @include resolve($focus);
@@ -97,6 +97,6 @@ $InputTypeMap: map.get($DefaultMap, "inputType");
     @include resolve(map.get($InputTypeMap, "active"));
   }
   &:focus-visible {
-    @include resolve(map.get($InputTypeMap, "focus"));
+    @include resolve(map.get($InputTypeMap, "focusVisible"));
   }
 }

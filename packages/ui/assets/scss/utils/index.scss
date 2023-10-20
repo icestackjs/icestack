@@ -63,6 +63,7 @@ $globalAtMediaHover: globalAtMediaHover();
 
 @mixin resolve($arg) {
   $type: meta.type-of($arg);
+
   @if ($type == string) {
     $arg: (
       apply: $arg
@@ -71,7 +72,13 @@ $globalAtMediaHover: globalAtMediaHover();
     $arg: (
       css: $arg
     );
-  }
+  } 
+  // @else if($type == null) {
+  //   $arg: (
+  //     apply: null,
+  //     css: null
+  //   );
+  // }
   $apply: map.get($arg, "apply");
   $css: map.get($arg, "css");
   $sort: map.get($arg, "sort");

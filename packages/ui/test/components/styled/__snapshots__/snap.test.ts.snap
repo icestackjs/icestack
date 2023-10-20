@@ -1818,7 +1818,76 @@ exports[`toast > snap 1`] = `
 `;
 
 exports[`toggle > snap 1`] = `
-"/* backward compatibility */
+".toggle {
+  @apply border-base-content bg-base-content rounded-badge h-6 w-12 cursor-pointer appearance-none border border-opacity-20 bg-opacity-50;
+  --ice-tglbg: rgba(var(--ice-base-100));
+  --ice-handleoffset: 1.5rem;
+  --ice-handleoffsetcalculator: calc(var(--ice-handleoffset) * -1);
+  --ice-togglehandleborder: 0 0;
+  transition: background, box-shadow var(--ice-animation-input, 0.2s) ease-out;
+  box-shadow: var(--ice-handleoffsetcalculator) 0 0 2px var(--ice-tglbg) inset, 0 0 0 2px var(--ice-tglbg) inset, var(--ice-togglehandleborder);
+}
+[dir=rtl] .toggle {
+  --ice-handleoffsetcalculator: calc(var(--ice-handleoffset) * 1);
+}
+.toggle:focus-visible {
+  @apply outline-base-content/20 outline outline-2 outline-offset-2;
+}
+.toggle:checked, .toggle[checked=true], .toggle[aria-checked=true] {
+  @apply border-opacity-100 bg-opacity-100;
+  --ice-handleoffsetcalculator: var(--ice-handleoffset);
+}
+[dir=rtl] .toggle:checked, [dir=rtl] .toggle[checked=true], [dir=rtl] .toggle[aria-checked=true] {
+  --ice-handleoffsetcalculator: calc(var(--ice-handleoffset) * -1);
+}
+.toggle:indeterminate {
+  @apply border-opacity-100 bg-opacity-100;
+  box-shadow: calc(var(--ice-handleoffset) / 2) 0 0 2px var(--ice-tglbg) inset, calc(var(--ice-handleoffset) / -2) 0 0 2px var(--ice-tglbg) inset, 0 0 0 2px var(--ice-tglbg) inset;
+}
+[dir=rtl] .toggle:indeterminate {
+  box-shadow: calc(var(--ice-handleoffset) / 2) 0 0 2px var(--ice-tglbg) inset, calc(var(--ice-handleoffset) / -2) 0 0 2px var(--ice-tglbg) inset, 0 0 0 2px var(--ice-tglbg) inset;
+}
+.toggle-primary:focus-visible {
+  @apply outline-primary;
+}
+.toggle-primary:checked, .toggle-primary[checked=true], .toggle-primary[aria-checked=true] {
+  @apply border-primary bg-primary text-primary-content border-opacity-10;
+}
+.toggle-info:focus-visible {
+  @apply outline-info;
+}
+.toggle-info:checked, .toggle-info[checked=true], .toggle-info[aria-checked=true] {
+  @apply border-info bg-info text-info-content border-opacity-10;
+}
+.toggle-success:focus-visible {
+  @apply outline-success;
+}
+.toggle-success:checked, .toggle-success[checked=true], .toggle-success[aria-checked=true] {
+  @apply border-success bg-success text-success-content border-opacity-10;
+}
+.toggle-warning:focus-visible {
+  @apply outline-warning;
+}
+.toggle-warning:checked, .toggle-warning[checked=true], .toggle-warning[aria-checked=true] {
+  @apply border-warning bg-warning text-warning-content border-opacity-10;
+}
+.toggle-error:focus-visible {
+  @apply outline-error;
+}
+.toggle-error:checked, .toggle-error[checked=true], .toggle-error[aria-checked=true] {
+  @apply border-error bg-error text-error-content border-opacity-10;
+}
+.toggle-neutral:focus-visible {
+  @apply outline-neutral;
+}
+.toggle-neutral:checked, .toggle-neutral[checked=true], .toggle-neutral[aria-checked=true] {
+  @apply border-neutral bg-neutral text-neutral-content border-opacity-10;
+}
+.toggle:disabled {
+  @apply border-base-content cursor-not-allowed bg-transparent opacity-30;
+  --ice-togglehandleborder: 0 0 0 3px rgba(var(--ice-base-content)) inset, var(--ice-handleoffsetcalculator) 0 0 3px rgba(var(--ice-base-content)) inset;
+}
+
 .toggle-mark {
   @apply hidden;
 }"

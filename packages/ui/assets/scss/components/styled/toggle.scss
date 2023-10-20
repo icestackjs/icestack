@@ -1,7 +1,52 @@
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+$TypeMap: inject("toggle.colors");
+$DefaultMap: inject("toggle.defaults.styled");
+
 .toggle {
+  @include resolve(map.get($DefaultMap, "default"));
+
+  [dir="rtl"] & {
+    @include resolve(map.get($DefaultMap, "rtl", "default"));
+  }
+  &:focus-visible {
+    @include resolve(map.get($DefaultMap, "focusVisible"));
+  }
+  &:checked,
+  &[checked="true"],
+  &[aria-checked="true"] {
+    @include resolve(map.get($DefaultMap, "checked"));
+
+    [dir="rtl"] & {
+      @include resolve(map.get($DefaultMap, "rtl", "checked"));
+    }
+  }
+  &:indeterminate {
+    @include resolve(map.get($DefaultMap, "indeterminate"));
+
+    [dir="rtl"] & {
+      @include resolve(map.get($DefaultMap, "rtl", "indeterminate"));
+    }
+  }
+
+  @each $typeName, $map in $TypeMap {
+    &#{getSelector($typeName)} {
+      &:focus-visible {
+        @include resolve(map.get($map, "focusVisible"));
+      }
+      &:checked,
+      &[checked="true"],
+      &[aria-checked="true"] {
+        @include resolve(map.get($map, "checked"));
+      }
+    }
+  }
+
+  &:disabled {
+    @include resolve(map.get($DefaultMap, "disabled"));
+  }
 }
 
-/* backward compatibility */
 .toggle-mark {
   @apply hidden;
 }

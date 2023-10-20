@@ -22,7 +22,7 @@ const defaults: IDefaults = {
         'border-width': 'var(--border-btn, 1px)'
       }
     },
-    focus: 'outline outline-2 outline-offset-2',
+    focusVisible: 'outline outline-2 outline-offset-2',
     active: 'border-base-300 bg-base-300',
     outline: 'border-current bg-transparent shadow-none text-base-content',
     outlineActive: 'border-base-content bg-base-content text-base-100',
@@ -42,7 +42,7 @@ const defaults: IDefaults = {
     inputType: {
       default: 'border-primary bg-primary text-primary-content',
       active: 'border-primary-focus bg-primary-focus',
-      focus: 'outline-primary'
+      focusVisible: 'outline-primary'
     }
   },
   unstyled: {}

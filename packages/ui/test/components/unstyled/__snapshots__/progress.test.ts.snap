@@ -1,7 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`progress > snap 1`] = `
-".progress {
-  @apply relative w-full appearance-none overflow-hidden;
-}"
-`;

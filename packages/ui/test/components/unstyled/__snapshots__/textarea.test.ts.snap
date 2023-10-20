@@ -1,7 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`textarea > snap 1`] = `
-".textarea {
-  @apply min-h-12 flex-shrink px-4 py-2 text-sm leading-loose;
-}"
-`;

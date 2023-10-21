@@ -4,16 +4,27 @@
 
 $TypeMap: inject("button.colors");
 $DefaultMap: inject("button.defaults.styled");
+$hoverMedia: map.get($DefaultMap, "hoverMedia");
 //Mixins may not contain mixin declarations.
-@mixin button-active($applyStr, $pseudo: "active", $withoutMedia: false) {
-  @if ($withoutMedia) {
-    &:#{$pseudo} {
-      @include resolve($applyStr);
-    }
+@mixin button-active($applyStr, $pseudo: "active") {
+  // @if ($applyStr == null) {
+  //   @return;
+  // }
+  &:#{$pseudo} {
+    @include resolve($applyStr);
+  }
+
+  &.btn-active {
+    @include resolve($applyStr);
+  }
+}
+
+@mixin button-hover($applyStr, $pseudo: "hover") {
+  @if ($applyStr == null) {
   } @else {
-    @if ($pseudo == "hover") {
+    @if ($hoverMedia) {
       @include AtMediaHover {
-        &:hover {
+        &:#{$pseudo} {
           @include resolve($applyStr);
         }
       }
@@ -23,32 +34,29 @@ $DefaultMap: inject("button.defaults.styled");
       }
     }
   }
+}
 
-  &.btn-active {
-    @include resolve($applyStr);
+@mixin spread($map, $t: null) {
+  @if ($t == null) {
+    @include resolve(map.get($map, "default"));
+    @include button-active(map.get($map, "active"));
+    @include button-hover(map.get($map, "hover"));
+  } @else {
+    @include resolve(map.get($map, $t));
+    @include button-active(map.get($map, "#{$t}Active"));
+    @include button-hover(map.get($map, "#{$t}Hover"));
   }
 }
 
 .btn {
-  $default: map.get($DefaultMap, "default");
-  $focus: map.get($DefaultMap, "focusVisible");
-  $active: map.get($DefaultMap, "active");
   &:focus-visible {
-    @include resolve($focus);
+    @include resolve(map.get($DefaultMap, "focusVisible"));
   }
-
-  @include resolve($default);
-  @include button-active($active);
-
+  @include spread($DefaultMap);
   @each $typeName, $map in $TypeMap {
-    $d: map.get($map, "default");
-    $a: map.get($map, "active");
-
-    $selector: getSelector($typeName);
-
+    $selector: getSelector($typeName, ".btn-");
     &#{$selector} {
-      @include resolve($d);
-      @include button-active($a);
+      @include spread($map);
     }
   }
 
@@ -59,25 +67,18 @@ $DefaultMap: inject("button.defaults.styled");
   );
   @each $s, $t in $vars {
     #{$s} {
-      @include resolve(map.get($DefaultMap, $t));
-      @include button-active(map.get($DefaultMap, "#{$t}Active"));
+      @include spread($DefaultMap, $t);
     }
   }
 
   &-outline {
-    @include resolve(map.get($DefaultMap, "outline"));
-
-    $outlineActive: map.get($DefaultMap, "outlineActive");
-    @include button-active($outlineActive);
+    $t: "outline";
+    @include spread($DefaultMap, $t);
     @each $typeName, $map in $TypeMap {
-      $d: map.get($map, "default");
-      $a: map.get($map, "outlineActive");
-      $o: map.get($map, "outline");
       $selector: getSelector($typeName, ".btn-");
 
       &#{$selector} {
-        @include resolve($o);
-        @include button-active($a);
+        @include spread($map, $t);
       }
     }
   }

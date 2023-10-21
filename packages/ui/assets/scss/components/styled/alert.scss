@@ -7,9 +7,8 @@ $DefaultMap: inject("alert.defaults.styled");
   @include resolve(map.get($DefaultMap, "default"));
 
   @each $typeName, $map in $TypeMap {
-    $d: map.get($map, "default");
     &#{getSelector($typeName)} {
-      @include resolve($d);
+      @include resolve(map.get($map, "default"));
     }
   }
 }

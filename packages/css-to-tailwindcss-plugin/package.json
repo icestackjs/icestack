@@ -83,15 +83,15 @@
   },
   "devDependencies": {
     "@babel/standalone": "^7.23.2",
-    "@types/babel__generator": "^7.6.5",
-    "@types/babel__standalone": "^7.1.5",
-    "@types/md5": "^2.3.3",
-    "@types/object-hash": "^3.0.4",
-    "@types/postcss-import": "^14.0.1",
-    "c12": "^1.4.2",
+    "@types/babel__generator": "^7.6.6",
+    "@types/babel__standalone": "^7.1.6",
+    "@types/md5": "^2.3.4",
+    "@types/object-hash": "^3.0.5",
+    "@types/postcss-import": "^14.0.2",
+    "c12": "^1.5.1",
     "del": "^7.1.0",
     "object-hash": "^3.0.0",
-    "sass": "^1.69.3",
+    "sass": "^1.69.4",
     "tailwindcss": "^3.3.3"
   }
 }

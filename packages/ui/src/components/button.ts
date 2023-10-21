@@ -23,6 +23,7 @@ const defaults: IDefaults = {
       }
     },
     focusVisible: 'outline outline-2 outline-offset-2',
+    hover: null,
     active: 'border-base-300 bg-base-300',
     outline: 'border-current bg-transparent shadow-none text-base-content',
     outlineActive: 'border-base-content bg-base-content text-base-100',

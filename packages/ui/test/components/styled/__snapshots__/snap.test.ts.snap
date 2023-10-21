@@ -145,58 +145,58 @@ exports[`button > snap 1`] = `
 .btn.btn-active {
   @apply border-base-300 bg-base-300;
 }
-.btn-primary {
+.btn.btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
 }
-.btn-primary:active {
+.btn.btn-primary:active {
   @apply border-primary-focus bg-primary-focus;
 }
-.btn-primary.btn-active {
+.btn.btn-primary.btn-active {
   @apply border-primary-focus bg-primary-focus;
 }
-.btn-info {
+.btn.btn-info {
   @apply border-info bg-info text-info-content outline-info;
 }
-.btn-info:active {
+.btn.btn-info:active {
   @apply border-info-focus bg-info-focus;
 }
-.btn-info.btn-active {
+.btn.btn-info.btn-active {
   @apply border-info-focus bg-info-focus;
 }
-.btn-success {
+.btn.btn-success {
   @apply border-success bg-success text-success-content outline-success;
 }
-.btn-success:active {
+.btn.btn-success:active {
   @apply border-success-focus bg-success-focus;
 }
-.btn-success.btn-active {
+.btn.btn-success.btn-active {
   @apply border-success-focus bg-success-focus;
 }
-.btn-warning {
+.btn.btn-warning {
   @apply border-warning bg-warning text-warning-content outline-warning;
 }
-.btn-warning:active {
+.btn.btn-warning:active {
   @apply border-warning-focus bg-warning-focus;
 }
-.btn-warning.btn-active {
+.btn.btn-warning.btn-active {
   @apply border-warning-focus bg-warning-focus;
 }
-.btn-error {
+.btn.btn-error {
   @apply border-error bg-error text-error-content outline-error;
 }
-.btn-error:active {
+.btn.btn-error:active {
   @apply border-error-focus bg-error-focus;
 }
-.btn-error.btn-active {
+.btn.btn-error.btn-active {
   @apply border-error-focus bg-error-focus;
 }
-.btn-neutral {
+.btn.btn-neutral {
   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
 }
-.btn-neutral:active {
+.btn.btn-neutral:active {
   @apply border-neutral-focus bg-neutral-focus;
 }
-.btn-neutral.btn-active {
+.btn.btn-neutral.btn-active {
   @apply border-neutral-focus bg-neutral-focus;
 }
 .btn.glass {

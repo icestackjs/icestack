@@ -14,7 +14,7 @@ function generateChecked(typeName: string) {
 const colorsMap = expandColorsMap(Types, (cur) => {
   return {
     default: generateDefault(cur),
-    focus: generateFocus(cur),
+    focusVisible: generateFocus(cur),
     checked: generateChecked(cur)
   }
 })

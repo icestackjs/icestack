@@ -1052,26 +1052,6 @@ exports[`radio > snap 1`] = `
 .radio-primary:checked, .radio-primary[aria-checked=true] {
   @apply border-primary bg-primary text-primary-content;
 }
-.radio-secondary {
-  --ice-chkbg: var(--ice-s);
-  @apply border-secondary [@media(hover:hover)]:hover:border-secondary;
-}
-.radio-secondary:focus-visible {
-  @apply outline-secondary;
-}
-.radio-secondary:checked, .radio-secondary[aria-checked=true] {
-  @apply border-secondary bg-secondary text-secondary-content;
-}
-.radio-accent {
-  --ice-chkbg: var(--ice-a);
-  @apply border-accent [@media(hover:hover)]:hover:border-accent;
-}
-.radio-accent:focus-visible {
-  @apply outline-accent;
-}
-.radio-accent:checked, .radio-accent[aria-checked=true] {
-  @apply border-accent bg-accent text-accent-content;
-}
 .radio-success {
   --ice-chkbg: var(--ice-su);
   @apply border-success [@media(hover:hover)]:hover:border-success;
@@ -1262,18 +1242,6 @@ exports[`select > snap 1`] = `
 }
 .select-primary:focus {
   @apply outline-primary;
-}
-.select-secondary {
-  @apply border-secondary;
-}
-.select-secondary:focus {
-  @apply outline-secondary;
-}
-.select-accent {
-  @apply border-accent;
-}
-.select-accent:focus {
-  @apply outline-accent;
 }
 .select-info {
   @apply border-info;

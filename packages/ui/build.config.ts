@@ -2,7 +2,7 @@ import path from 'node:path'
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
-  entries: ['./src/index', './src/tailwindcss', './src/unocss.ts'],
+  entries: ['./src/index', './src/tailwindcss', './src/unocss.ts', './src/cli.ts'],
   rollup: {
     // 内联，相当于 nodeResolve
     inlineDependencies: true,

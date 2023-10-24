@@ -161,12 +161,15 @@ export async function buildAll(dir?: string) {
     dir,
     outSideLayerCss: 'base'
   })
+  console.log('base')
   await generate({
     dir,
     outSideLayerCss: 'utilities'
   })
+  console.log('utilities')
   await generate({
     dir,
     outSideLayerCss: 'components'
   })
+  console.log('components')
 }

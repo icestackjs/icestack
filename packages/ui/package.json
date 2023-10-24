@@ -1,6 +1,6 @@
 {
   "name": "@icestack/ui",
-  "version": "0.0.0",
+  "version": "0.0.0-alpha.0",
   "description": "",
   "license": "MIT",
   "sideEffects": false,
@@ -39,9 +39,13 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
+    "bin",
     "dist",
     "assets"
   ],
+  "bin": {
+    "icestack": "bin/icestack.js"
+  },
   "scripts": {
     "build": "npm run clean && npm run build:base && npm run build:utilities && npm run build:components && npm run build:plugin",
     "build:plugin": "unbuild",

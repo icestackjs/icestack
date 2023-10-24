@@ -30,18 +30,6 @@
       @apply outline-primary;
     }
   }
-  &-secondary {
-    @apply border-secondary;
-    &:focus {
-      @apply outline-secondary;
-    }
-  }
-  &-accent {
-    @apply border-accent;
-    &:focus {
-      @apply outline-accent;
-    }
-  }
   &-info {
     @apply border-info;
     &:focus {

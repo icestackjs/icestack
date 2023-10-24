@@ -26,28 +26,7 @@
       @apply border-primary bg-primary text-primary-content;
     }
   }
-  &-secondary {
-    --chkbg: var(--s);
-    @apply border-secondary [@media(hover:hover)]:hover:border-secondary;
-    &:focus-visible {
-      @apply outline-secondary;
-    }
-    &:checked,
-    &[aria-checked="true"] {
-      @apply border-secondary bg-secondary text-secondary-content;
-    }
-  }
-  &-accent {
-    --chkbg: var(--a);
-    @apply border-accent [@media(hover:hover)]:hover:border-accent;
-    &:focus-visible {
-      @apply outline-accent;
-    }
-    &:checked,
-    &[aria-checked="true"] {
-      @apply border-accent bg-accent text-accent-content;
-    }
-  }
+
   &-success {
     --chkbg: var(--su);
     @apply border-success [@media(hover:hover)]:hover:border-success;

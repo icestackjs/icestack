@@ -4,9 +4,9 @@ import defu from 'defu'
 import postcssJs from 'postcss-js'
 import type { AcceptedPlugin } from 'postcss'
 import rtlcss from 'rtlcss'
-import base from '../assets/js/base/index.js'
-import components from '../assets/js/components/index.js'
-import utilities from '../assets/js/utilities/index.js'
+import _base from '../assets/js/base/index.js'
+import _components from '../assets/js/components/index.js'
+import _utilities from '../assets/js/utilities/index.js'
 import postcssPrefix from './postcss/prefixer'
 import { someExtends } from './constants.js'
 
@@ -17,6 +17,9 @@ import globalPostcss from '@/postcss/global'
 
 export default plugin.withOptions(
   function (options: UserDefinedOptions) {
+    const base = require('../assets/js/base/index.js') as typeof _base
+    const components = require('../assets/js/components/index.js') as typeof _components
+    const utilities = require('../assets/js/utilities/index.js') as typeof _utilities
     const { log, prefix, rtl, styled } = defu<UserDefinedOptions, Partial<UserDefinedOptions>[]>(options, { log: true, rtl: false, styled: true })
     const componentsEntries = Object.entries(components)
     const utilitiesEntries = Object.entries(utilities)

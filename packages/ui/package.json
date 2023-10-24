@@ -1,6 +1,6 @@
 {
   "name": "@icestack/ui",
-  "version": "0.0.0-alpha.1",
+  "version": "0.0.0-alpha.2",
   "description": "❤️ IceStack, Web UI for Mobile and PC , open-source Headless component library generator",
   "license": "MIT",
   "sideEffects": false,

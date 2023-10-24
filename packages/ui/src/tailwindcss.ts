@@ -10,7 +10,7 @@ import type * as _components from '../assets/js/components/index.js'
 import type * as _utilities from '../assets/js/utilities/index.js'
 import postcssPrefix from './postcss/prefixer'
 import { someExtends, defaultVarPrefix } from './constants.js'
-
+import { getDefaults } from './defaults'
 // import { colors } from './colors.js'
 
 import type { TailwindcssPluginOptions } from './types'
@@ -22,7 +22,7 @@ function isRgba(colorString: string) {
 
 export default plugin.withOptions(
   function (options: TailwindcssPluginOptions) {
-    const { log, prefix, rtl, styled, basedir } = defu<TailwindcssPluginOptions, Partial<TailwindcssPluginOptions>[]>(options, { log: true, rtl: false, styled: true })
+    const { log, prefix, rtl, styled, basedir } = defu<TailwindcssPluginOptions, Partial<TailwindcssPluginOptions>[]>(options, getDefaults())
 
     const base = require(basedir ? path.resolve(basedir, 'js/base/index.js') : '../assets/js/base/index.js') as typeof _base
     const components = require(basedir ? path.resolve(basedir, 'js/components/index.js') : '../assets/js/components/index.js') as typeof _components
@@ -81,7 +81,7 @@ export default plugin.withOptions(
     }
   },
   function (options: TailwindcssPluginOptions) {
-    const { basedir } = defu<TailwindcssPluginOptions, Partial<TailwindcssPluginOptions>[]>(options, { log: true, rtl: false, styled: true })
+    const { basedir } = defu<TailwindcssPluginOptions, Partial<TailwindcssPluginOptions>[]>(options, getDefaults())
     const base = require(basedir ? path.resolve(basedir, 'js/base/index.js') : '../assets/js/base/index.js') as typeof _base
 
     const colors = {

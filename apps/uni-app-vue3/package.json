@@ -68,7 +68,7 @@
     "@dcloudio/uni-cli-shared": "3.0.0-3081220230817001",
     "@dcloudio/uni-stacktracey": "3.0.0-3081220230817001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3081220230817001",
-    "@icestack/ui": "workspace:*",
+    "@icestack/ui": "0.0.0-alpha.1",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-replace": "^5.0.2",
     "@types/node": "^20.8.6",

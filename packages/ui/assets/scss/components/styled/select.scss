@@ -1,2 +1,85 @@
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
 .select {
+  @apply border-base-content bg-base-100 rounded-btn border border-opacity-0 pr-10;
+  &-bordered {
+    @apply border-opacity-20;
+  }
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%),
+    linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position:
+    calc(100% - 20px) calc(1px + 50%),
+    calc(100% - 16.1px) calc(1px + 50%);
+  background-size:
+    4px 4px,
+    4px 4px;
+  background-repeat: no-repeat;
+  &:focus {
+    @apply outline-base-content/20 outline outline-2 outline-offset-2;
+  }
+  &-ghost {
+    @apply bg-opacity-5;
+    &:focus {
+      @apply text-base-content bg-opacity-100;
+    }
+  }
+  &-primary {
+    @apply border-primary;
+    &:focus {
+      @apply outline-primary;
+    }
+  }
+  &-secondary {
+    @apply border-secondary;
+    &:focus {
+      @apply outline-secondary;
+    }
+  }
+  &-accent {
+    @apply border-accent;
+    &:focus {
+      @apply outline-accent;
+    }
+  }
+  &-info {
+    @apply border-info;
+    &:focus {
+      @apply outline-info;
+    }
+  }
+  &-success {
+    @apply border-success;
+    &:focus {
+      @apply outline-success;
+    }
+  }
+  &-warning {
+    @apply border-warning;
+    &:focus {
+      @apply outline-warning;
+    }
+  }
+  &-error {
+    @apply border-error;
+    &:focus {
+      @apply outline-error;
+    }
+  }
+  &-disabled,
+  &:disabled,
+  &[disabled] {
+    @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
+  }
+  &-multiple,
+  &[multiple],
+  &[size]:not([size="1"]) {
+    @apply bg-none pr-4;
+  }
+}
+
+[dir="rtl"] .select {
+  background-position:
+    calc(0% + 12px) calc(1px + 50%),
+    calc(0% + 16px) calc(1px + 50%);
 }

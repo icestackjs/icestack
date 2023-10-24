@@ -80,45 +80,6 @@ exports[`badge > snap 1`] = `
 }"
 `;
 
-exports[`bottom-navigation > snap 1`] = `
-".btm-nav-xs {
-  @apply h-10;
-}
-.btm-nav-xs > *:where(.active) {
-  @apply border-t-[1px];
-}
-.btm-nav-xs .btm-nav-label {
-  @apply text-xs;
-}
-.btm-nav-sm {
-  @apply h-12;
-}
-.btm-nav-sm > *:where(.active) {
-  @apply border-t-2;
-}
-.btm-nav-sm .btm-nav-label {
-  @apply text-xs;
-}
-.btm-nav-md {
-  @apply h-16;
-}
-.btm-nav-md > *:where(.active) {
-  @apply border-t-2;
-}
-.btm-nav-md .btm-nav-label {
-  @apply text-sm;
-}
-.btm-nav-lg {
-  @apply h-20;
-}
-.btm-nav-lg > *:where(.active) {
-  @apply border-t-4;
-}
-.btm-nav-lg .btm-nav-label {
-  @apply text-base;
-}"
-`;
-
 exports[`button > snap 1`] = `
 ".btn-xs {
   @apply min-h-6 h-6 px-2;
@@ -250,37 +211,6 @@ exports[`drawer > snap 1`] = `
 }
 .drawer-open > .drawer-toggle:checked ~ .drawer-side {
   @apply pointer-events-auto visible;
-}"
-`;
-
-exports[`file-input > snap 1`] = `
-".file-input-xs {
-  @apply h-6 pr-2 text-xs leading-relaxed;
-}
-.file-input-xs::file-selector-button {
-  @apply mr-2;
-  font-size: 0.75rem;
-}
-.file-input-sm {
-  @apply h-8 pr-3 text-sm leading-loose;
-}
-.file-input-sm::file-selector-button {
-  @apply mr-3;
-  font-size: 0.875rem;
-}
-.file-input-md {
-  @apply h-12 pr-4 text-sm leading-loose;
-}
-.file-input-md::file-selector-button {
-  @apply mr-4;
-  font-size: 0.875rem;
-}
-.file-input-lg {
-  @apply h-16 pr-6 text-lg leading-loose;
-}
-.file-input-lg::file-selector-button {
-  @apply mr-6;
-  font-size: 1.125rem;
 }"
 `;
 

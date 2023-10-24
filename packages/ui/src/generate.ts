@@ -7,7 +7,7 @@ import defu from 'defu'
 import { generateIndexCode } from './js/generate'
 import { buildScss } from '@/sass'
 import { resolveJsDir, scssDir } from '@/dirs'
-import { defaultVarPrefix, someExtends } from '@/constants'
+import { someExtends } from '@/constants'
 export interface IOptions {
   dir?: string
   outSideLayerCss: 'base' | 'utilities' | 'components'

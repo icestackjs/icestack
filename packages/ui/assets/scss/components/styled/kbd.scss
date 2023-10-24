@@ -1,3 +1,6 @@
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
 .kbd {
   @apply border-base-content bg-base-200 rounded-btn border border-opacity-20 px-2;
   border-bottom-width: 2px;

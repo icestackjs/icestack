@@ -1,3 +1,6 @@
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
 .mockup {
   &-code {
     @apply bg-neutral text-neutral-content rounded-box min-w-[18rem] py-5;

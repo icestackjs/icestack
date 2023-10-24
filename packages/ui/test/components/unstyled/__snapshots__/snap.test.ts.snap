@@ -390,34 +390,6 @@ exports[`mask > snap 1`] = `
 }"
 `;
 
-exports[`menu > snap 1`] = `
-".menu {
-  @apply flex flex-col flex-wrap text-sm;
-}
-.menu :where(li ul) {
-  @apply relative whitespace-nowrap;
-}
-.menu :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)),
-.menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
-  @apply grid grid-flow-col content-start items-center gap-2;
-  grid-auto-columns: minmax(auto, max-content) auto max-content;
-  user-select: none;
-}
-.menu li.disabled {
-  @apply cursor-not-allowed select-none;
-}
-.menu :where(li > .menu-dropdown:not(.menu-dropdown-show)) {
-  @apply hidden;
-}
-
-:where(.menu li) {
-  @apply relative flex shrink-0 flex-col flex-wrap items-stretch;
-}
-:where(.menu li) .badge {
-  @apply justify-self-end;
-}"
-`;
-
 exports[`mockup > snap 1`] = `
 ".mockup-code {
   @apply relative overflow-hidden overflow-x-auto;
@@ -439,46 +411,6 @@ exports[`mockup > snap 1`] = `
 .mockup-browser pre[data-prefix]:before {
   content: attr(data-prefix);
   @apply inline-block text-right;
-}"
-`;
-
-exports[`modal > snap 1`] = `
-".modal {
-  /* @apply pointer-events-none invisible fixed inset-0 flex justify-center opacity-0; */
-  @apply pointer-events-none fixed inset-0 m-0 grid h-full max-h-none w-full max-w-none justify-items-center p-0 opacity-0;
-  overscroll-behavior: contain;
-  z-index: 999;
-}
-
-.modal-scroll {
-  overscroll-behavior: auto;
-}
-
-:where(.modal) {
-  @apply items-center;
-}
-
-.modal-box {
-  max-height: calc(100vh - 5em);
-}
-
-.modal-open,
-.modal:target,
-.modal-toggle:checked + .modal,
-.modal[open] {
-  @apply pointer-events-auto visible opacity-100;
-}
-
-.modal-action {
-  @apply flex;
-}
-
-.modal-toggle {
-  @apply fixed h-0 w-0 appearance-none opacity-0;
-}
-
-:root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
-  @apply overflow-hidden;
 }"
 `;
 
@@ -693,5 +625,3 @@ exports[`toggle > snap 1`] = `
   @apply shrink-0;
 }"
 `;
-
-exports[`tooltip > snap 1`] = `""`;

@@ -3,7 +3,6 @@
 
 .range {
   appearance: none;
-  -webkit-appearance: none;
   --range-shdw: var(--bc);
   @apply rounded-box overflow-hidden bg-transparent;
   &:focus-visible::-webkit-slider-thumb {
@@ -21,7 +20,6 @@
   &::-webkit-slider-thumb {
     @apply rounded-box bg-base-100 relative h-6 w-6 border-none;
     appearance: none;
-    -webkit-appearance: none;
     top: 50%;
     color: hsl(var(--range-shdw));
     transform: translateY(-50%);

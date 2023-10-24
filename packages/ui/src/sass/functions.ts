@@ -16,6 +16,7 @@ import * as link from '@/components/link'
 import * as progress from '@/components/progress'
 import * as textarea from '@/components/textarea'
 import * as toggle from '@/components/toggle'
+import * as select from '@/components/select'
 import * as base from '@/base'
 
 // @ts-ignore
@@ -32,7 +33,8 @@ const defaultPreset: Record<(typeof allComponents)[number], any> = {
   link: link.options,
   progress: progress.options,
   textarea: textarea.options,
-  toggle: toggle.options
+  toggle: toggle.options,
+  select: select.options
 }
 
 export const functions: Options<'sync'>['functions'] = {

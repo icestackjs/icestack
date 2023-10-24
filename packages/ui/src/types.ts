@@ -34,6 +34,7 @@ export interface UserDefinedOptions {
   prefix: string | PrefixerOptions
   rtl: boolean | ConfigOptions
   outdir: string
+  presets: any[]
   // https://daisyui.com/docs/config/
   // themes: only light + dark, and custom
   // darkTheme

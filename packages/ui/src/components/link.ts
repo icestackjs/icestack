@@ -1,4 +1,4 @@
-import { Types, expandColorsMap } from './shared'
+import { IDefaults, Types, expandColorsMap } from './shared'
 
 function generateDefault(typeName: string) {
   return `text-${typeName} [@media(hover:hover)]:hover:text-${typeName}-focus`
@@ -10,16 +10,19 @@ const colorsMap = expandColorsMap(Types, (cur) => {
   }
 })
 
-// const injectName = createInjectName('link')
-// const sassColors = transformJsToSass(colorsMap)
-// // const sassDefaults = transformJsToSass(defaults)
-// export const inject = {
-//   [injectName.colors]: () => {
-//     return sassColors
-//   }
-// }
+const defaults: IDefaults = {
+  styled: {
+    focus: 'outline-none',
+    focusVisible: {
+      css: {
+        outline: '2px solid currentColor',
+        'outline-offset': '2px'
+      }
+    }
+  }
+}
 
 export const options = {
-  colors: colorsMap
-  // defaults
+  colors: colorsMap,
+  defaults
 }

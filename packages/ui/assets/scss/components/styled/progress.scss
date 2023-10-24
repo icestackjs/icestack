@@ -10,9 +10,7 @@ $TypeMap: inject("progress.colors");
   }
 
   @each $typeName, $map in $TypeMap {
-    // $d: map.get($map, "default");
     &#{getSelector($typeName)}::-moz-progress-bar {
-      // #{$typeName}
       @apply bg-#{$typeName} rounded-box;
     }
   }
@@ -27,7 +25,6 @@ $TypeMap: inject("progress.colors");
   @each $typeName, $map in $TypeMap {
     $d: map.get($map, "default");
     &#{getSelector($typeName)}::-webkit-progress-value {
-      // #{$typeName}
       @apply #{$d};
     }
   }

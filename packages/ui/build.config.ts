@@ -2,7 +2,7 @@ import path from 'node:path'
 import { defineBuildConfig } from 'unbuild'
 
 export default defineBuildConfig({
-  entries: ['./src/index', './src/tailwindcss', './src/unocss.ts', './src/cli.ts'],
+  entries: ['./src/index', './src/tailwindcss', './src/unocss.ts', './src/cli.ts', './src/colors.js'],
   rollup: {
     // 内联，相当于 nodeResolve
     inlineDependencies: true,
@@ -24,8 +24,8 @@ export default defineBuildConfig({
     // }
     // output: {
     //   manualChunks(id) {
-    //     if (id.includes('node_modules')) {
-    //       return 'vendor'
+    //     if (id.includes('colors')) {
+    //       return 'colors'
     //     }
     //   }
     // }

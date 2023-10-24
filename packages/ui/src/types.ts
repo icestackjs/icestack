@@ -33,7 +33,6 @@ export interface UserDefinedOptions {
   log: boolean
   prefix: string | PrefixerOptions
   rtl: boolean | ConfigOptions
-  outdir: string
   presets: any[]
   // https://daisyui.com/docs/config/
   // themes: only light + dark, and custom
@@ -41,6 +40,14 @@ export interface UserDefinedOptions {
   // base
   // styled
   // utils: true
+}
+
+export type CodegenOptions = UserDefinedOptions & {
+  outdir: string
+}
+
+export type TailwindcssPluginOptions = UserDefinedOptions & {
+  basedir: string
 }
 
 // export type DeepRequired<T> = {

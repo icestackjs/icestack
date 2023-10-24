@@ -596,18 +596,6 @@ exports[`swap > snap 1`] = `
 }"
 `;
 
-exports[`tab > snap 1`] = `
-".tabs {
-  @apply flex flex-wrap items-end;
-}
-
-.tab {
-  @apply relative inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center;
-  @apply h-8 text-sm leading-loose;
-  --ice-tab-padding: 1rem;
-}"
-`;
-
 exports[`textarea > snap 1`] = `
 ".textarea {
   @apply min-h-12 flex-shrink px-4 py-2 text-sm leading-loose;

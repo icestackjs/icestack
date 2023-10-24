@@ -6,14 +6,6 @@ const colorsMap = expandColorsMap(Types, (cur) => {
     focus: `outline-${cur}`
   }
 })
-// const injectName = createInjectName('textarea')
-// const sassColors = transformJsToSass(colorsMap)
-// // const sassDefaults = transformJsToSass(defaults)
-// export const inject = {
-//   [injectName.colors]: () => {
-//     return sassColors
-//   }
-// }
 
 const defaults: IDefaults = {
   styled: {

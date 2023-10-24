@@ -6,16 +6,15 @@ import postcss from 'postcss'
 import { compileString } from '@icestack/css2js'
 import tailwindcss, { Config } from 'tailwindcss'
 import creator from 'postcss-custom-property-prefixer'
-import { functions } from './functions'
+import { createFunctions } from './functions'
 import { defaultVarPrefix } from '@/constants'
 import { ensureDir } from '@/utils'
 import { getCssPath, getJsPath, scssDir, getCssResolvedpath } from '@/dirs'
 
-export const sassOptions: sass.Options<'sync'> = {
-  functions
-}
-
 export async function compileScss(filename: string) {
+  const sassOptions: sass.Options<'sync'> = {
+    functions: createFunctions()
+  }
   const result = sass.compile(filename, sassOptions)
   const { css } = await postcss([
     creator({
@@ -67,12 +66,11 @@ export async function buildScss(options: IBuildScssOptions) {
     const cssPath = getCssPath(relPath, dir)
     const jsPath = getJsPath(relPath, dir)
     const cssResolvedPath = getCssResolvedpath(relPath, dir)
-    // const pluginPath = getPluginsPath(relPath)
+
     await ensureDir(path.dirname(cssPath))
     await ensureDir(path.dirname(jsPath))
     await ensureDir(path.dirname(cssResolvedPath))
-    // const thisPluginDir = path.dirname(pluginPath)
-    // await ensureDir(thisPluginDir)
+
     const config: Config = {
       content: [{ raw: '' }],
       theme: {

@@ -1,100 +1,54 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
+$TypeMap: inject("radio.colors");
+$DefaultMap: inject("radio.defaults.styled");
 
 .radio {
-  --chkbg: var(--bc);
-  @apply border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20;
+  @include resolve(map.get($DefaultMap, "default"));
   &:focus-visible {
-    @apply outline-base-content outline outline-2 outline-offset-2;
+    @include resolve(map.get($DefaultMap, "focusVisible"));
   }
   &:checked,
   &[aria-checked="true"] {
-    @apply bg-base-content;
-    animation: radiomark var(--animation-input, 0.2s) ease-out;
-    box-shadow:
-      0 0 0 4px hsl(var(--b1)) inset,
-      0 0 0 4px hsl(var(--b1)) inset;
+    @include resolve(map.get($DefaultMap, "checked"));
   }
-  &-primary {
-    --chkbg: var(--p);
-    @apply border-primary [@media(hover:hover)]:hover:border-primary;
-    &:focus-visible {
-      @apply outline-primary;
-    }
-    &:checked,
-    &[aria-checked="true"] {
-      @apply border-primary bg-primary text-primary-content;
+
+  @each $typeName, $map in $TypeMap {
+    &#{getSelector($typeName)} {
+      @include resolve(map.get($map, "default"));
+      &:focus-visible {
+        @include resolve(map.get($map, "focusVisible"));
+      }
+      &:checked,
+      &[aria-checked="true"] {
+        @include resolve(map.get($map, "checked"));
+      }
     }
   }
 
-  &-success {
-    --chkbg: var(--su);
-    @apply border-success [@media(hover:hover)]:hover:border-success;
-    &:focus-visible {
-      @apply outline-success;
-    }
-    &:checked,
-    &[aria-checked="true"] {
-      @apply border-success bg-success text-success-content;
-    }
-  }
-  &-warning {
-    --chkbg: var(--wa);
-    @apply border-warning [@media(hover:hover)]:hover:border-warning;
-    &:focus-visible {
-      @apply outline-warning;
-    }
-    &:checked,
-    &[aria-checked="true"] {
-      @apply border-warning bg-warning text-warning-content;
-    }
-  }
-  &-info {
-    --chkbg: var(--in);
-    @apply border-info [@media(hover:hover)]:hover:border-info;
-    &:focus-visible {
-      @apply outline-info;
-    }
-    &:checked,
-    &[aria-checked="true"] {
-      @apply border-info bg-info text-info-content;
-    }
-  }
-  &-error {
-    --chkbg: var(--er);
-    @apply border-error [@media(hover:hover)]:hover:border-error;
-    &:focus-visible {
-      @apply outline-error;
-    }
-    &:checked,
-    &[aria-checked="true"] {
-      @apply border-error bg-error text-error-content;
-    }
-  }
   &:disabled {
-    @apply cursor-not-allowed opacity-20;
+    @include resolve(map.get($DefaultMap, "disabled"));
   }
 }
 
 @keyframes radiomark {
   0% {
     box-shadow:
-      0 0 0 12px hsl(var(--b1)) inset,
-      0 0 0 12px hsl(var(--b1)) inset;
+      0 0 0 12px rgba(var(--base-100)) inset,
+      0 0 0 12px rgba(var(--base-100)) inset;
   }
   50% {
     box-shadow:
-      0 0 0 3px hsl(var(--b1)) inset,
-      0 0 0 3px hsl(var(--b1)) inset;
+      0 0 0 3px rgba(var(--base-100)) inset,
+      0 0 0 3px rgba(var(--base-100)) inset;
   }
   100% {
     box-shadow:
-      0 0 0 4px hsl(var(--b1)) inset,
-      0 0 0 4px hsl(var(--b1)) inset;
+      0 0 0 4px rgba(var(--base-100)) inset,
+      0 0 0 4px rgba(var(--base-100)) inset;
   }
 }
 
-/* backward compatibility */
 .radio-mark {
   @apply hidden;
 }

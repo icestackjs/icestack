@@ -4,12 +4,12 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import createCli from 'cac'
 import { loadConfig } from 'c12'
-import type { UserDefinedOptions } from './types'
+import type { CodegenOptions } from './types'
 import { buildAll } from './generate'
 const cli = createCli()
 
 async function load(cwd?: string) {
-  const { config, configFile, layers } = await loadConfig<UserDefinedOptions>({
+  const { config, configFile, layers } = await loadConfig<CodegenOptions>({
     name: 'icestack',
     cwd
   })

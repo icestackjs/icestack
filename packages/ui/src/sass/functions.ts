@@ -1,6 +1,6 @@
 import type { Options } from 'sass'
 import { Value } from 'sass'
-import { get } from 'lodash'
+import { get, isObject } from 'lodash'
 import type allComponents from '../allComponents'
 import { transformJsToSass } from './utils'
 import * as avatar from '@/components/avatar'
@@ -17,6 +17,8 @@ import * as progress from '@/components/progress'
 import * as textarea from '@/components/textarea'
 import * as toggle from '@/components/toggle'
 import * as select from '@/components/select'
+import * as radio from '@/components/radio'
+import * as range from '@/components/range'
 import * as base from '@/base'
 
 // @ts-ignore
@@ -34,17 +36,41 @@ const defaultPreset: Record<(typeof allComponents)[number], any> = {
   progress: progress.options,
   textarea: textarea.options,
   toggle: toggle.options,
-  select: select.options
+  select: select.options,
+  radio: radio.options,
+  range: range.options
 }
 
-export const functions: Options<'sync'>['functions'] = {
-  ...base.inject,
-  'globalAtMediaHover()': () => {
-    return transformJsToSass(false)
-  },
-  'inject($path:null)': (args: Value[]) => {
-    const p = args[0].assertString().text
-    const map = get(defaultPreset, p, {})
-    return transformJsToSass(map)
+export function expandInject<T extends Record<string, T>>(obj: T) {
+  if (isObject(obj)) {
+    const keys = Object.keys(obj)
+    for (const key of keys) {
+      const value = obj[key]
+      if (key === 'css' || key === 'sort' || key === 'apply') {
+        // do nothing
+      } else if (typeof value === 'string') {
+        // @ts-ignore
+        obj[key] = {
+          apply: value
+        } as Record<string, string>
+      } else if (isObject(obj[key])) {
+        expandInject(obj[key])
+      }
+    }
+  }
+  return obj
+}
+
+export const createFunctions: () => Options<'sync'>['functions'] = () => {
+  return {
+    ...base.inject,
+    'globalAtMediaHover()': () => {
+      return transformJsToSass(false)
+    },
+    'inject($path:null)': (args: Value[]) => {
+      const p = args[0].assertString().text
+      const map = get(defaultPreset, p, {})
+      return transformJsToSass(expandInject(map))
+    }
   }
 }

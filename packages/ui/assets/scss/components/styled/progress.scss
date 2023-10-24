@@ -23,9 +23,8 @@ $TypeMap: inject("progress.colors");
   }
 
   @each $typeName, $map in $TypeMap {
-    $d: map.get($map, "default");
     &#{getSelector($typeName)}::-webkit-progress-value {
-      @apply #{$d};
+      @include resolve(map.get($map, "default"));
     }
   }
 }

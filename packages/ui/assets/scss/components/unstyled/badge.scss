@@ -1,7 +1,8 @@
+@use "../../utils/index.scss" as *;
 @use "sass:map";
 
 $DefaultMap: inject("badge.defaults.unstyled"); // map.get(injectBadgeDefaults(), "unstyled");
 
 .badge {
-  @apply #{map.get($DefaultMap,"default")};
+  @include resolve(map.get($DefaultMap, "default"));
 }

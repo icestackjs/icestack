@@ -907,7 +907,6 @@ exports[`radial-progress > snap 1`] = `
 
 exports[`radio > snap 1`] = `
 ".radio {
-  --ice-chkbg: var(--ice-bc);
   @apply border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20;
 }
 .radio:focus-visible {
@@ -919,7 +918,6 @@ exports[`radio > snap 1`] = `
   box-shadow: 0 0 0 4px hsl(var(--ice-b1)) inset, 0 0 0 4px hsl(var(--ice-b1)) inset;
 }
 .radio-primary {
-  --ice-chkbg: var(--ice-p);
   @apply border-primary [@media(hover:hover)]:hover:border-primary;
 }
 .radio-primary:focus-visible {
@@ -928,8 +926,16 @@ exports[`radio > snap 1`] = `
 .radio-primary:checked, .radio-primary[aria-checked=true] {
   @apply border-primary bg-primary text-primary-content;
 }
+.radio-info {
+  @apply border-info [@media(hover:hover)]:hover:border-info;
+}
+.radio-info:focus-visible {
+  @apply outline-info;
+}
+.radio-info:checked, .radio-info[aria-checked=true] {
+  @apply border-info bg-info text-info-content;
+}
 .radio-success {
-  --ice-chkbg: var(--ice-su);
   @apply border-success [@media(hover:hover)]:hover:border-success;
 }
 .radio-success:focus-visible {
@@ -939,7 +945,6 @@ exports[`radio > snap 1`] = `
   @apply border-success bg-success text-success-content;
 }
 .radio-warning {
-  --ice-chkbg: var(--ice-wa);
   @apply border-warning [@media(hover:hover)]:hover:border-warning;
 }
 .radio-warning:focus-visible {
@@ -948,18 +953,7 @@ exports[`radio > snap 1`] = `
 .radio-warning:checked, .radio-warning[aria-checked=true] {
   @apply border-warning bg-warning text-warning-content;
 }
-.radio-info {
-  --ice-chkbg: var(--ice-in);
-  @apply border-info [@media(hover:hover)]:hover:border-info;
-}
-.radio-info:focus-visible {
-  @apply outline-info;
-}
-.radio-info:checked, .radio-info[aria-checked=true] {
-  @apply border-info bg-info text-info-content;
-}
 .radio-error {
-  --ice-chkbg: var(--ice-er);
   @apply border-error [@media(hover:hover)]:hover:border-error;
 }
 .radio-error:focus-visible {
@@ -968,22 +962,30 @@ exports[`radio > snap 1`] = `
 .radio-error:checked, .radio-error[aria-checked=true] {
   @apply border-error bg-error text-error-content;
 }
+.radio-neutral {
+  @apply border-neutral [@media(hover:hover)]:hover:border-neutral;
+}
+.radio-neutral:focus-visible {
+  @apply outline-neutral;
+}
+.radio-neutral:checked, .radio-neutral[aria-checked=true] {
+  @apply border-neutral bg-neutral text-neutral-content;
+}
 .radio:disabled {
   @apply cursor-not-allowed opacity-20;
 }
 
 @keyframes radiomark {
   0% {
-    box-shadow: 0 0 0 12px hsl(var(--ice-b1)) inset, 0 0 0 12px hsl(var(--ice-b1)) inset;
+    box-shadow: 0 0 0 12px rgba(var(--ice-base-100)) inset, 0 0 0 12px rgba(var(--ice-base-100)) inset;
   }
   50% {
-    box-shadow: 0 0 0 3px hsl(var(--ice-b1)) inset, 0 0 0 3px hsl(var(--ice-b1)) inset;
+    box-shadow: 0 0 0 3px rgba(var(--ice-base-100)) inset, 0 0 0 3px rgba(var(--ice-base-100)) inset;
   }
   100% {
-    box-shadow: 0 0 0 4px hsl(var(--ice-b1)) inset, 0 0 0 4px hsl(var(--ice-b1)) inset;
+    box-shadow: 0 0 0 4px rgba(var(--ice-base-100)) inset, 0 0 0 4px rgba(var(--ice-base-100)) inset;
   }
 }
-/* backward compatibility */
 .radio-mark {
   @apply hidden;
 }"
@@ -992,14 +994,14 @@ exports[`radio > snap 1`] = `
 exports[`range > snap 1`] = `
 ".range {
   appearance: none;
-  --ice-range-shdw: var(--ice-bc);
+  --ice-range-shdw: var(--ice-base-content);
   @apply rounded-box overflow-hidden bg-transparent;
 }
 .range:focus-visible::-webkit-slider-thumb {
-  --ice-focus-shadow: 0 0 0 6px hsl(var(--ice-b1)) inset, 0 0 0 2rem hsl(var(--ice-range-shdw)) inset;
+  --ice-focus-shadow: 0 0 0 6px rgba(var(--ice-base-100)) inset, 0 0 0 2rem rgba(var(--ice-range-shdw)) inset;
 }
 .range:focus-visible::-moz-range-thumb {
-  --ice-focus-shadow: 0 0 0 6px hsl(var(--ice-b1)) inset, 0 0 0 2rem hsl(var(--ice-range-shdw)) inset;
+  --ice-focus-shadow: 0 0 0 6px rgba(var(--ice-base-100)) inset, 0 0 0 2rem rgba(var(--ice-range-shdw)) inset;
 }
 .range::-webkit-slider-runnable-track {
   @apply rounded-box bg-base-content/10 h-2 w-full;
@@ -1011,40 +1013,37 @@ exports[`range > snap 1`] = `
   @apply rounded-box bg-base-100 relative h-6 w-6 border-none;
   appearance: none;
   top: 50%;
-  color: hsl(var(--ice-range-shdw));
+  color: rgba(var(--ice-range-shdw));
   transform: translateY(-50%);
   --ice-filler-size: 100rem;
   --ice-filler-offset: 0.6rem;
-  box-shadow: 0 0 0 3px hsl(var(--ice-range-shdw)) inset, var(--ice-focus-shadow, 0 0), calc(var(--ice-filler-size) * -1 - var(--ice-filler-offset)) 0 0 var(--ice-filler-size);
+  box-shadow: 0 0 0 3px rgba(var(--ice-range-shdw)) inset, var(--ice-focus-shadow, 0 0), calc(var(--ice-filler-size) * -1 - var(--ice-filler-offset)) 0 0 var(--ice-filler-size);
 }
 .range::-moz-range-thumb {
   @apply rounded-box bg-base-100 relative h-6 w-6 border-none;
   top: 50%;
-  color: hsl(var(--ice-range-shdw));
+  color: rgba(var(--ice-range-shdw));
   --ice-filler-size: 100rem;
   --ice-filler-offset: 0.5rem;
-  box-shadow: 0 0 0 3px hsl(var(--ice-range-shdw)) inset, var(--ice-focus-shadow, 0 0), calc(var(--ice-filler-size) * -1 - var(--ice-filler-offset)) 0 0 var(--ice-filler-size);
+  box-shadow: 0 0 0 3px rgba(var(--ice-range-shdw)) inset, var(--ice-focus-shadow, 0 0), calc(var(--ice-filler-size) * -1 - var(--ice-filler-offset)) 0 0 var(--ice-filler-size);
 }
 .range-primary {
-  --ice-range-shdw: var(--ice-p);
-}
-.range-secondary {
-  --ice-range-shdw: var(--ice-s);
-}
-.range-accent {
-  --ice-range-shdw: var(--ice-a);
-}
-.range-success {
-  --ice-range-shdw: var(--ice-su);
-}
-.range-warning {
-  --ice-range-shdw: var(--ice-wa);
+  --ice-range-shdw: var(--ice-primary);
 }
 .range-info {
-  --ice-range-shdw: var(--ice-in);
+  --ice-range-shdw: var(--ice-info);
+}
+.range-success {
+  --ice-range-shdw: var(--ice-success);
+}
+.range-warning {
+  --ice-range-shdw: var(--ice-warning);
 }
 .range-error {
-  --ice-range-shdw: var(--ice-er);
+  --ice-range-shdw: var(--ice-error);
+}
+.range-neutral {
+  --ice-range-shdw: var(--ice-neutral);
 }"
 `;
 
@@ -1305,124 +1304,6 @@ exports[`swap > snap 1`] = `
 .swap-active:where(.swap-flip) .swap-on,
 .swap-flip input:indeterminate ~ .swap-indeterminate {
   transform: rotateY(0deg);
-}"
-`;
-
-exports[`tab > snap 1`] = `
-".tab {
-  @apply text-opacity-50 [@media(hover:hover)]:hover:text-opacity-100;
-  --ice-tab-color: hsl(var(--ice-bc) / var(--tw-text-opacity, 1));
-  --ice-tab-bg: hsl(var(--ice-b1) / var(--tw-bg-opacity, 1));
-  --ice-tab-border-color: hsl(var(--ice-b3) / var(--tw-bg-opacity, 1));
-  color: var(--ice-tab-color);
-  padding-left: var(--ice-tab-padding, 1rem);
-  padding-right: var(--ice-tab-padding, 1rem);
-  /* disabled */
-}
-.tab.tab-active:not(.tab-disabled):not([disabled]) {
-  @apply border-base-content border-opacity-100 text-opacity-100;
-}
-.tab:focus {
-  @apply outline-none;
-}
-.tab:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: -3px;
-}
-.tab:focus-visible.tab-lifted {
-  border-bottom-right-radius: var(--ice-tab-radius, 0.5rem);
-  border-bottom-left-radius: var(--ice-tab-radius, 0.5rem);
-}
-.tab-disabled, .tab[disabled] {
-  @apply text-base-content cursor-not-allowed text-opacity-20;
-}
-@media (hover: hover) {
-  .tab[disabled], .tab[disabled]:hover {
-    @apply text-base-content cursor-not-allowed text-opacity-20;
-  }
-}
-
-.tab-bordered {
-  @apply border-base-content border-opacity-20;
-  border-style: solid;
-  border-bottom-width: calc(var(--ice-tab-border, 1px) + 1px);
-}
-
-.tab-lifted {
-  border: var(--ice-tab-border, 1px) solid transparent;
-  border-width: 0 0 var(--ice-tab-border, 1px) 0;
-  border-top-left-radius: var(--ice-tab-radius, 0.5rem);
-  border-top-right-radius: var(--ice-tab-radius, 0.5rem);
-  border-bottom-color: var(--ice-tab-border-color);
-  padding-left: var(--ice-tab-padding, 1rem);
-  padding-right: var(--ice-tab-padding, 1rem);
-  padding-top: var(--ice-tab-border, 1px);
-}
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]) {
-  background-color: var(--ice-tab-bg);
-  border-width: var(--ice-tab-border, 1px) var(--ice-tab-border, 1px) 0 var(--ice-tab-border, 1px);
-  border-left-color: var(--ice-tab-border-color);
-  border-right-color: var(--ice-tab-border-color);
-  border-top-color: var(--ice-tab-border-color);
-  padding-left: calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px));
-  padding-right: calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px));
-  padding-bottom: var(--ice-tab-border, 1px);
-  padding-top: 0;
-}
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before, .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after {
-  z-index: 1;
-  content: \\"\\";
-  display: block;
-  position: absolute;
-  width: var(--ice-tab-radius, 0.5rem);
-  height: var(--ice-tab-radius, 0.5rem);
-  bottom: 0;
-  --ice-tab-grad: calc(68% - var(--ice-tab-border, 1px));
-  --ice-tab-corner-bg: radial-gradient(
-    circle at var(--ice-circle-pos),
-    transparent var(--ice-tab-grad),
-    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.3px),
-    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)),
-    var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.3px)
-  );
-}
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before {
-  left: calc(var(--ice-tab-radius, 0.5rem) * -1);
-  --ice-circle-pos: top left;
-  background-image: var(--ice-tab-corner-bg);
-  /* RTL quick fix */
-}
-[dir=rtl] .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before {
-  --ice-circle-pos: top right;
-}
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after {
-  right: calc(var(--ice-tab-radius, 0.5rem) * -1);
-  --ice-circle-pos: top right;
-  background-image: var(--ice-tab-corner-bg);
-  /* RTL quick fix */
-}
-[dir=rtl] .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after {
-  --ice-circle-pos: top left;
-}
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):first-child:before {
-  background: none;
-}
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):last-child:after {
-  background: none;
-}
-
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]) + .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before {
-  background: none;
-}
-
-.tabs-boxed {
-  @apply bg-base-200 rounded-btn p-1;
-}
-.tabs-boxed .tab {
-  @apply rounded-btn;
-}
-.tabs-boxed .tab-active:not(.tab-disabled):not([disabled]) {
-  @apply bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content;
 }"
 `;
 

@@ -1,3 +1,6 @@
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
 .join {
   @apply rounded-btn;
   & > :where(*:not(:first-child)) {

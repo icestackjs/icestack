@@ -33,32 +33,6 @@ exports[`badge > snap 1`] = `
 }"
 `;
 
-exports[`bottom-navigation > snap 1`] = `
-".btm-nav {
-  @apply fixed bottom-0 left-0 right-0 flex w-full flex-row items-center justify-around;
-  padding-bottom: env(safe-area-inset-bottom);
-}
-.btm-nav > * {
-  @apply relative flex h-full basis-full cursor-pointer flex-col items-center justify-center gap-1;
-}"
-`;
-
-exports[`breadcrumbs > snap 1`] = `
-".breadcrumbs {
-  @apply max-w-full overflow-x-auto;
-}
-.breadcrumbs > ul, .breadcrumbs > ol {
-  @apply flex items-center whitespace-nowrap;
-  min-height: min-content;
-}
-.breadcrumbs > ul > li, .breadcrumbs > ol > li {
-  @apply flex items-center;
-}
-.breadcrumbs > ul > li > a, .breadcrumbs > ol > li > a {
-  @apply flex cursor-pointer items-center [@media(hover:hover)]:hover:underline;
-}"
-`;
-
 exports[`button > snap 1`] = `
 ".btn {
   @apply rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out;
@@ -87,43 +61,6 @@ exports[`button > snap 1`] = `
 .btn:is(input[type=checkbox]):after,
 .btn:is(input[type=radio]):after {
   @apply content-[attr(aria-label)];
-}"
-`;
-
-exports[`card > snap 1`] = `
-".card {
-  @apply relative flex flex-col;
-}
-.card:focus {
-  @apply outline-none;
-}
-.card-body {
-  @apply flex flex-auto flex-col;
-}
-.card-body :where(p) {
-  @apply flex-grow;
-}
-.card-actions {
-  @apply flex flex-wrap items-start gap-2;
-}
-.card figure {
-  @apply flex items-center justify-center;
-}
-.card.image-full {
-  @apply grid;
-}
-.card.image-full:before {
-  @apply relative;
-  content: \\"\\";
-}
-.card.image-full:before, .card.image-full > * {
-  @apply col-start-1 row-start-1;
-}
-.card.image-full > figure img {
-  @apply h-full object-cover;
-}
-.card.image-full > .card-body {
-  @apply relative;
 }"
 `;
 
@@ -226,54 +163,6 @@ exports[`checkbox > snap 1`] = `
 }"
 `;
 
-exports[`collapse > snap 1`] = `
-".collapse:not(td):not(tr):not(colgroup) {
-  @apply visible;
-}
-
-.collapse {
-  @apply relative grid overflow-hidden;
-  grid-template-rows: auto 0fr;
-  transition: grid-template-rows 0.2s;
-}
-
-.collapse-title,
-.collapse > input[type=checkbox],
-.collapse > input[type=radio],
-.collapse-content {
-  @apply col-start-1 row-start-1;
-}
-
-.collapse > input[type=checkbox],
-.collapse > input[type=radio] {
-  @apply appearance-none opacity-0;
-}
-
-.collapse-content {
-  @apply invisible col-start-1 row-start-2 min-h-0;
-  transition: visibility 0.2s;
-}
-
-.collapse[open],
-.collapse-open,
-.collapse:focus:not(.collapse-close) {
-  grid-template-rows: auto 1fr;
-}
-
-.collapse:not(.collapse-close):has(> input[type=checkbox]:checked),
-.collapse:not(.collapse-close):has(> input[type=radio]:checked) {
-  grid-template-rows: auto 1fr;
-}
-
-.collapse[open] > .collapse-content,
-.collapse-open > .collapse-content,
-.collapse:focus:not(.collapse-close) > .collapse-content,
-.collapse:not(.collapse-close) > input[type=checkbox]:checked ~ .collapse-content,
-.collapse:not(.collapse-close) > input[type=radio]:checked ~ .collapse-content {
-  @apply visible min-h-fit;
-}"
-`;
-
 exports[`countdown > snap 1`] = `
 ":root .countdown {
   line-height: 1em;
@@ -361,101 +250,6 @@ exports[`drawer > snap 1`] = `
 }"
 `;
 
-exports[`dropdown > snap 1`] = `
-".dropdown {
-  @apply relative inline-block;
-}
-
-.dropdown > *:not(summary):focus {
-  @apply outline-none;
-}
-
-.dropdown .dropdown-content {
-  @apply absolute;
-}
-
-.dropdown:is(:not(details)) .dropdown-content {
-  @apply invisible opacity-0;
-}
-
-.dropdown-end .dropdown-content {
-  @apply right-0;
-}
-
-.dropdown-left .dropdown-content {
-  @apply bottom-auto right-full top-0;
-}
-
-.dropdown-right .dropdown-content {
-  @apply bottom-auto left-full top-0;
-}
-
-.dropdown-bottom .dropdown-content {
-  @apply bottom-auto top-full;
-}
-
-.dropdown-top .dropdown-content {
-  @apply bottom-full top-auto;
-}
-
-.dropdown-end.dropdown-right .dropdown-content {
-  @apply bottom-0 top-auto;
-}
-
-.dropdown-end.dropdown-left .dropdown-content {
-  @apply bottom-0 top-auto;
-}
-
-.dropdown.dropdown-open .dropdown-content,
-.dropdown:not(.dropdown-hover):focus .dropdown-content,
-.dropdown:focus-within .dropdown-content {
-  @apply visible opacity-100;
-}
-
-@media (hover: hover) {
-  .dropdown.dropdown-hover:hover .dropdown-content {
-    @apply visible opacity-100;
-  }
-}
-.dropdown:is(details) summary::-webkit-details-marker {
-  @apply hidden;
-}"
-`;
-
-exports[`file-input > snap 1`] = `
-".file-input {
-  @apply h-12 flex-shrink pr-4 text-sm leading-loose;
-}
-.file-input::file-selector-button {
-  @apply mr-4 inline-flex h-full flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center px-4 text-center text-sm transition duration-200 ease-out;
-  line-height: 1em;
-}"
-`;
-
-exports[`footer > snap 1`] = `
-".footer {
-  @apply grid w-full grid-flow-row place-items-start;
-}
-.footer > * {
-  @apply grid place-items-start;
-}
-.footer-center {
-  @apply place-items-center text-center;
-}
-.footer-center > * {
-  @apply place-items-center;
-}
-
-@media (min-width: 48rem) {
-  .footer {
-    grid-auto-flow: column;
-  }
-  .footer-center {
-    grid-auto-flow: row dense;
-  }
-}"
-`;
-
 exports[`form > snap 1`] = `
 ".form-control {
   @apply flex flex-col;
@@ -463,21 +257,6 @@ exports[`form > snap 1`] = `
 
 .label {
   @apply flex select-none items-center justify-between;
-}"
-`;
-
-exports[`hero > snap 1`] = `
-".hero {
-  @apply grid w-full place-items-center bg-cover bg-center;
-}
-.hero > * {
-  @apply col-start-1 row-start-1;
-}
-.hero-overlay {
-  @apply col-start-1 row-start-1 h-full w-full;
-}
-.hero-content {
-  @apply z-0 flex items-center justify-center;
 }"
 `;
 
@@ -574,34 +353,6 @@ exports[`mask > snap 1`] = `
 }"
 `;
 
-exports[`menu > snap 1`] = `
-".menu {
-  @apply flex flex-col flex-wrap text-sm;
-}
-.menu :where(li ul) {
-  @apply relative whitespace-nowrap;
-}
-.menu :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)),
-.menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
-  @apply grid grid-flow-col content-start items-center gap-2;
-  grid-auto-columns: minmax(auto, max-content) auto max-content;
-  user-select: none;
-}
-.menu li.disabled {
-  @apply cursor-not-allowed select-none;
-}
-.menu :where(li > .menu-dropdown:not(.menu-dropdown-show)) {
-  @apply hidden;
-}
-
-:where(.menu li) {
-  @apply relative flex shrink-0 flex-col flex-wrap items-stretch;
-}
-:where(.menu li) .badge {
-  @apply justify-self-end;
-}"
-`;
-
 exports[`mockup > snap 1`] = `
 ".mockup-code {
   @apply relative overflow-hidden overflow-x-auto;
@@ -623,70 +374,6 @@ exports[`mockup > snap 1`] = `
 .mockup-browser pre[data-prefix]:before {
   content: attr(data-prefix);
   @apply inline-block text-right;
-}"
-`;
-
-exports[`modal > snap 1`] = `
-".modal {
-  /* @apply pointer-events-none invisible fixed inset-0 flex justify-center opacity-0; */
-  @apply pointer-events-none fixed inset-0 m-0 grid h-full max-h-none w-full max-w-none justify-items-center p-0 opacity-0;
-  overscroll-behavior: contain;
-  z-index: 999;
-}
-
-.modal-scroll {
-  overscroll-behavior: auto;
-}
-
-:where(.modal) {
-  @apply items-center;
-}
-
-.modal-box {
-  max-height: calc(100vh - 5em);
-}
-
-.modal-open,
-.modal:target,
-.modal-toggle:checked + .modal,
-.modal[open] {
-  @apply pointer-events-auto visible opacity-100;
-}
-
-.modal-action {
-  @apply flex;
-}
-
-.modal-toggle {
-  @apply fixed h-0 w-0 appearance-none opacity-0;
-}
-
-:root:has(:is(.modal-open, .modal:target, .modal-toggle:checked + .modal, .modal[open])) {
-  @apply overflow-hidden;
-}"
-`;
-
-exports[`navbar > snap 1`] = `
-".navbar {
-  @apply flex items-center;
-}
-
-:where(.navbar > *) {
-  @apply inline-flex items-center;
-}
-
-.navbar-start {
-  width: 50%;
-  justify-content: flex-start;
-}
-
-.navbar-center {
-  flex-shrink: 0;
-}
-
-.navbar-end {
-  width: 50%;
-  justify-content: flex-end;
 }"
 `;
 
@@ -872,36 +559,6 @@ exports[`swap > snap 1`] = `
 }"
 `;
 
-exports[`tab > snap 1`] = `
-".tabs {
-  @apply flex flex-wrap items-end;
-}
-
-.tab {
-  @apply relative inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center;
-  @apply h-8 text-sm leading-loose;
-  --ice-tab-padding: 1rem;
-}"
-`;
-
-exports[`table > snap 1`] = `
-".table {
-  @apply relative w-full;
-}
-.table :where(.table-pin-rows thead tr) {
-  @apply bg-base-100 sticky top-0 z-[1];
-}
-.table :where(.table-pin-rows tfoot tr) {
-  @apply bg-base-100 sticky bottom-0 z-[1];
-}
-.table :where(.table-pin-cols tr th) {
-  @apply bg-base-100 sticky left-0 right-0;
-}
-.table-zebra tbody tr:nth-child(even) :where(.table-pin-cols tr th) {
-  @apply bg-base-200;
-}"
-`;
-
 exports[`textarea > snap 1`] = `
 ".textarea {
   @apply min-h-12 flex-shrink px-4 py-2 text-sm leading-loose;
@@ -919,5 +576,3 @@ exports[`toggle > snap 1`] = `
   @apply shrink-0;
 }"
 `;
-
-exports[`tooltip > snap 1`] = `""`;

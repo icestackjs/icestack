@@ -61,6 +61,8 @@ $globalAtMediaHover: globalAtMediaHover();
   }
 }
 
+// type-of null == "null"
+// null == null
 @mixin resolve($arg) {
   $type: meta.type-of($arg);
 
@@ -72,13 +74,9 @@ $globalAtMediaHover: globalAtMediaHover();
     $arg: (
       css: $arg
     );
-  } 
-  // @else if($type == null) {
-  //   $arg: (
-  //     apply: null,
-  //     css: null
-  //   );
-  // }
+  } @else if($type == "null") {
+    $arg: ();
+  }
   $apply: map.get($arg, "apply");
   $css: map.get($arg, "css");
   $sort: map.get($arg, "sort");

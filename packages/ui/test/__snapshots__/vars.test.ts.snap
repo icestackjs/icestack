@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`vars > progress options 1`] = `
+{
+  "colors": {
+    "error": {
+      "default": {
+        "apply": "bg-error",
+      },
+    },
+    "info": {
+      "default": {
+        "apply": "bg-info",
+      },
+    },
+    "neutral": {
+      "default": {
+        "apply": "bg-neutral",
+      },
+    },
+    "primary": {
+      "default": {
+        "apply": "bg-primary",
+      },
+    },
+    "success": {
+      "default": {
+        "apply": "bg-success",
+      },
+    },
+    "warning": {
+      "default": {
+        "apply": "bg-warning",
+      },
+    },
+  },
+}
+`;

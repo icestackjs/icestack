@@ -1,3 +1,5 @@
+const icestack = require('@icestack/ui/tailwindcss')
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./index.html', './src/**/*.{html,js,ts,jsx,tsx,vue}'],
@@ -6,15 +8,20 @@ module.exports = {
     // colors: {}
   },
   // plugins: [require('@icestack/ui')({})],
-  plugins: [...require('css-to-tailwindcss-plugin/tailwindcss')({
-    entries: [
-      './scss/index.scss'
-    ],
-    withOptionsWalkCSSRuleObject(x, layer) {
-      console.log(x, layer)
-      return x
-    }
-  })],
+  plugins: [
+    // require('css-to-tailwindcss-plugin/tailwindcss')({
+    //   entries: [
+    //     './scss/index.scss'
+    //   ],
+    //   withOptionsWalkCSSRuleObject(x, layer) {
+    //     console.log(x, layer)
+    //     return x
+    //   },
+
+    // })
+    icestack()
+
+  ],
   corePlugins: {
     preflight: false
   }

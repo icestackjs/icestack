@@ -1,0 +1,126 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`options > getCodegenOptions snap 1`] = `
+{
+  "base": {
+    "extraVars": {
+      "animation-btn": "0.25s",
+      "animation-input": "0.2s",
+      "border-btn": "1px",
+      "btn-focus-scale": "0.95",
+      "btn-text-case": "uppercase",
+      "rounded-badge": "1.9rem",
+      "rounded-box": "1rem",
+      "rounded-btn": "0.5rem",
+      "tab-border": "1px",
+      "tab-radius": "0.5rem",
+    },
+    "selector": {
+      "dark": "[data-theme=\\"dark\\"]",
+      "light": ":root",
+    },
+    "types": {
+      "dark": {
+        "base-100": "rgb(29, 35, 42)",
+        "base-200": "rgb(25, 30, 36)",
+        "base-300": "rgb(21, 25, 30)",
+        "base-content": "rgb(166, 173, 186)",
+        "error": "#d32029",
+        "error-content": "#000000",
+        "error-focus": "#e84749",
+        "error-hover": "#a61d24",
+        "info": "#1668dc",
+        "info-content": "#000000",
+        "info-focus": "#3c89e8",
+        "info-hover": "#1554ad",
+        "neutral": "#bfbfbf",
+        "neutral-content": "#ffffff",
+        "neutral-focus": "#8c8c8c",
+        "neutral-hover": "#d9d9d9",
+        "primary": "#1668dc",
+        "primary-content": "#000000",
+        "primary-focus": "#3c89e8",
+        "primary-hover": "#1554ad",
+        "success": "#49aa19",
+        "success-content": "#000000",
+        "success-focus": "#6abe39",
+        "success-hover": "#3c8618",
+        "warning": "#d89614",
+        "warning-content": "#000000",
+        "warning-focus": "#e8b339",
+        "warning-hover": "#aa7714",
+      },
+      "light": {
+        "base-100": "#ffffff",
+        "base-200": "rgb(242, 242, 242)",
+        "base-300": "rgb(229, 230, 230)",
+        "base-content": "rgb(31, 41, 55)",
+        "error": "#f5222d",
+        "error-content": "#ffffff",
+        "error-focus": "#cf1322",
+        "error-hover": "#ff4d4f",
+        "info": "#1677ff",
+        "info-content": "#ffffff",
+        "info-focus": "#0958d9",
+        "info-hover": "#4096ff",
+        "neutral": "#bfbfbf",
+        "neutral-content": "#ffffff",
+        "neutral-focus": "#8c8c8c",
+        "neutral-hover": "#d9d9d9",
+        "primary": "#1677ff",
+        "primary-content": "#ffffff",
+        "primary-focus": "#0958d9",
+        "primary-hover": "#4096ff",
+        "success": "#52c41a",
+        "success-content": "#ffffff",
+        "success-focus": "#389e0d",
+        "success-hover": "#73d13d",
+        "warning": "#faad14",
+        "warning-content": "#ffffff",
+        "warning-focus": "#d48806",
+        "warning-hover": "#ffc53d",
+      },
+    },
+  },
+  "global": {
+    "atMedia": {
+      "hover": false,
+    },
+    "pseudo": {
+      "where": true,
+    },
+    "selector": {
+      "globalKeyword": "global",
+      "universal": "*",
+    },
+  },
+  "log": true,
+  "rtl": false,
+  "styled": true,
+}
+`;
+
+exports[`options > getTailwindcssOptions snap 1`] = `
+{
+  "base": {
+    "selector": {
+      "entries": [],
+    },
+  },
+  "global": {
+    "atMedia": {
+      "hover": false,
+    },
+    "pseudo": {
+      "where": true,
+    },
+    "selector": {
+      "globalKeyword": "global",
+      "universal": "*",
+    },
+  },
+  "log": true,
+  "rtl": false,
+  "styled": true,
+}
+`;

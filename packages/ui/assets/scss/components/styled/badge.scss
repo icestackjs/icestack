@@ -1,16 +1,15 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
 
-$TypeMap: inject("badge.colors"); // injectBadgeColors();
-$DefaultMap: inject("badge.defaults.styled"); // map.get(injectBadgeDefaults(), "styled");
+$TypeMap: inject("badge.colors");
+$DefaultMap: inject("badge.defaults.styled");
 
 .badge {
   @include resolve(map.get($DefaultMap, "default"));
 
   @each $typeName, $map in $TypeMap {
-    $d: map.get($map, "default");
     &#{getSelector($typeName)} {
-      @include resolve($d);
+      @include resolve(map.get($map, "default"));
     }
   }
 
@@ -21,9 +20,8 @@ $DefaultMap: inject("badge.defaults.styled"); // map.get(injectBadgeDefaults(), 
   &-outline {
     @include resolve(map.get($DefaultMap, "outline"));
     @each $typeName, $map in $TypeMap {
-      $d: map.get($map, "outline");
       &#{getSelector($typeName,".badge-")} {
-        @include resolve($d);
+        @include resolve(map.get($map, "outline"));
       }
     }
   }

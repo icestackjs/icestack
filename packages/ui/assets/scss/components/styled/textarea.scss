@@ -21,12 +21,10 @@ $DefaultMap: inject("textarea.defaults.styled");
   }
 
   @each $typeName, $map in $TypeMap {
-    $d: map.get($map, "default");
-    $f: map.get($map, "focus");
     &#{getSelector($typeName)} {
-      @apply #{$d};
+      @include resolve(map.get($map, "default"));
       &:focus {
-        @apply #{$f};
+        @include resolve(map.get($map, "focus"));
       }
     }
   }

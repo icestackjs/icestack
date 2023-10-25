@@ -39,5 +39,5 @@ export default function Index() {
   //     console.error(error)
   //   })
   // })
-  return <View className='bg-[#33ff00] card'>12345</View>
+  return <View className='bg-[rgb(37,37,37)] card'>12345</View>
 }

@@ -1,7 +1,7 @@
 {
   "name": "@icestack/ui",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.0-alpha.3",
+  "description": "❤️ IceStack, Web UI for Mobile and PC , open-source Headless component library generator",
   "license": "MIT",
   "sideEffects": false,
   "type": "commonjs",
@@ -39,9 +39,13 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
+    "bin",
     "dist",
     "assets"
   ],
+  "bin": {
+    "icestack": "bin/icestack.js"
+  },
   "scripts": {
     "build": "npm run clean && npm run build:base && npm run build:utilities && npm run build:components && npm run build:plugin",
     "build:plugin": "unbuild",
@@ -68,7 +72,7 @@
     "@babel/types": "^7.23.0",
     "@ctrl/tinycolor": "^4.0.2",
     "@icestack/css2js": "workspace:^",
-    "c12": "^1.4.2",
+    "c12": "^1.5.1",
     "cac": "^6.7.14",
     "compose-tailwindcss-plugins": "workspace:^",
     "css-selector-tokenizer": "^0.8.0",
@@ -80,18 +84,22 @@
     "postcss-js": "^4.0.1",
     "postcss-selector-parser": "^6.0.13",
     "rtlcss": "^4.1.1",
-    "sass": "^1.69.3",
+    "sass": "^1.69.4",
     "tailwindcss": "^3.3.3"
   },
   "devDependencies": {
-    "@types/css-selector-tokenizer": "^0.7.2",
-    "@types/lodash": "^4.14.199",
-    "@types/postcss-js": "^4.0.2",
-    "@types/rtlcss": "^3.5.2",
+    "@types/css-selector-tokenizer": "^0.7.3",
+    "@types/lodash": "^4.14.200",
+    "@types/postcss-js": "^4.0.3",
+    "@types/rtlcss": "^3.5.3",
     "@unocss/core": "^0.56.5",
     "fast-glob": "^3.3.1",
     "merge": "^2.1.1",
     "sass-true": "^7.0.0",
     "unocss": "^0.56.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

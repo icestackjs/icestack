@@ -1,21 +1,19 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
 $TypeMap: inject("link.colors");
+$DefaultMap: inject("link.defaults.styled");
 
 .link {
   @each $typeName, $map in $TypeMap {
-    $d: map.get($map, "default");
     &#{getSelector($typeName)} {
-      // #{$typeName}
-      @apply #{$d};
+      @include resolve(map.get($map, "default"));
     }
   }
 
   &:focus {
-    @apply outline-none;
+    @include resolve(map.get($DefaultMap, "focus"));
   }
   &:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 2px;
+    @include resolve(map.get($DefaultMap, "focusVisible"));
   }
 }

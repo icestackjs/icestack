@@ -1,19 +1,15 @@
 @use "../utils/index.scss" as *;
 @use "sass:map";
-// @use "../vars.scss" as V;
 
-$root-vars: injectCssVars("light");
-$dark-root-vars: injectCssVars("dark");
 $selectorsMap: injectModeSelectors();
 
 #{map.get($selectorsMap,"light")} {
-  @each $var, $value in $root-vars {
-    // $prefix: avp(#{$var});
-    #{$var}: $value; // #{Util.getRgbaString($color)};
+  @each $var, $value in injectCssVars("light") {
+    #{$var}: $value;
   }
 }
 #{map.get($selectorsMap,"dark")} {
-  @each $var, $value in $dark-root-vars {
+  @each $var, $value in injectCssVars("dark") {
     #{$var}: $value;
   }
 }

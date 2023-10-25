@@ -11,5 +11,6 @@ module.exports = {
       }
     }
   },
-  plugins: []
+  plugins: [],
+  presets: []
 }

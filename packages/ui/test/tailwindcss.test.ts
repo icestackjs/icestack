@@ -2,10 +2,12 @@
 
 // import { colors } from '@/colors.js'
 // import { groupBy } from '@/utils'
-
+import { icestackPlugin } from '@/tailwindcss'
 describe.skip('tailwindcss', () => {
-  it('should ', () => {
-    expect(true).toBe(true)
+  it('not throw', () => {
+    expect(() => {
+      icestackPlugin({})
+    }).not.toThrow()
   })
 
   // const { default: base } = await import('../assets/js/base/index.js')

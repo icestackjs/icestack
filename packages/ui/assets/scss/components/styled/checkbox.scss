@@ -1,41 +1,37 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
 $TypeMap: inject("checkbox.colors");
+$DefaultMap: inject("checkbox.defaults.styled");
 
 .checkbox {
-  @apply border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20;
+  @include resolve(map.get($DefaultMap, "default"));
   &:focus-visible {
-    @apply outline-base-content outline outline-2 outline-offset-2;
+    @include resolve(map.get($DefaultMap, "focusVisible"));
   }
   &:checked,
   &[checked="true"],
   &[aria-checked="true"] {
-    @apply bg-base-content bg-no-repeat;
-    animation: checkmark var(--animation-input, 0.2s) ease-out;
+    @include resolve(map.get($DefaultMap, "checked"));
   }
   &:indeterminate {
-    @apply bg-base-content bg-no-repeat;
-    animation: checkmark var(--animation-input, 0.2s) ease-out;
+    @include resolve(map.get($DefaultMap, "indeterminate"));
   }
   @each $typeName, $map in $TypeMap {
-    $d: map.get($map, "default");
-    $f: map.get($map, "focus");
-    $c: map.get($map, "checked");
     &#{getSelector($typeName)} {
-      @apply #{$d};
+      @include resolve(map.get($map, "default"));
       &:focus-visible {
-        @apply #{$f};
+        @include resolve(map.get($map, "focusVisible"));
       }
       &:checked,
       &[checked="true"],
       &[aria-checked="true"] {
-        @apply #{$c};
+        @include resolve(map.get($map, "checked"));
       }
     }
   }
 
   &:disabled {
-    @apply bg-base-content cursor-not-allowed border-transparent opacity-20;
+    @include resolve(map.get($DefaultMap, "disabled"));
   }
 }
 
@@ -51,7 +47,6 @@ $TypeMap: inject("checkbox.colors");
   }
 }
 
-/* backward compatibility */
 .checkbox-mark {
   @apply hidden;
 }

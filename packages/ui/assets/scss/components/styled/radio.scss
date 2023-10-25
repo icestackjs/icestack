@@ -1,7 +1,54 @@
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+$TypeMap: inject("radio.colors");
+$DefaultMap: inject("radio.defaults.styled");
+
 .radio {
+  @include resolve(map.get($DefaultMap, "default"));
+  &:focus-visible {
+    @include resolve(map.get($DefaultMap, "focusVisible"));
+  }
+  &:checked,
+  &[aria-checked="true"] {
+    @include resolve(map.get($DefaultMap, "checked"));
+  }
+
+  @each $typeName, $map in $TypeMap {
+    &#{getSelector($typeName)} {
+      @include resolve(map.get($map, "default"));
+      &:focus-visible {
+        @include resolve(map.get($map, "focusVisible"));
+      }
+      &:checked,
+      &[aria-checked="true"] {
+        @include resolve(map.get($map, "checked"));
+      }
+    }
+  }
+
+  &:disabled {
+    @include resolve(map.get($DefaultMap, "disabled"));
+  }
 }
 
-/* backward compatibility */
+@keyframes radiomark {
+  0% {
+    box-shadow:
+      0 0 0 12px rgba(var(--base-100)) inset,
+      0 0 0 12px rgba(var(--base-100)) inset;
+  }
+  50% {
+    box-shadow:
+      0 0 0 3px rgba(var(--base-100)) inset,
+      0 0 0 3px rgba(var(--base-100)) inset;
+  }
+  100% {
+    box-shadow:
+      0 0 0 4px rgba(var(--base-100)) inset,
+      0 0 0 4px rgba(var(--base-100)) inset;
+  }
+}
+
 .radio-mark {
   @apply hidden;
 }

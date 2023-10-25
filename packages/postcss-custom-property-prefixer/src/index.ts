@@ -60,3 +60,5 @@ const postcssCustomPropertyPrefixer: PluginCreator<UserDefinedOptions> = (option
 postcssCustomPropertyPrefixer.postcss = true
 
 export default postcssCustomPropertyPrefixer
+
+export { type UserDefinedOptions } from './types'

@@ -15,7 +15,7 @@ export type IOptions = {
 }
 
 export async function generate(opts: IOptions) {
-  const { outSideLayerCss, options } = defu<IOptions, Partial<IOptions>[]>(opts, {})
+  const { outSideLayerCss, options } = opts // defu<IOptions, Partial<IOptions>[]>(opts, {})
   const { outdir } = options
   // await ensureDir(pluginsDir)
   switch (outSideLayerCss) {

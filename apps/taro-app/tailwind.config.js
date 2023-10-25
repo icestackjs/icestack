@@ -20,7 +20,8 @@ module.exports = {
 
     // })
     icestackPlugin({
-      basedir: path.resolve(__dirname, './my-ui')
+      basedir: path.resolve(__dirname, './my-ui'),
+      presets: [miniprogramPreset()]
     })
 
   ],

@@ -15,14 +15,14 @@ export const getVarsEntries = (colorsMap: Record<string, string>, shareVars: Rec
   )
 }
 
-export const getDarkVarsEntries = (colorsMap: Record<string, string>, shareVars: Record<string, string>) => {
-  return addVarPrefix(
-    Object.entries({
-      ...colorsMap,
-      ...shareVars
-    })
-  )
-}
+// export const getDarkVarsEntries = (colorsMap: Record<string, string>, shareVars: Record<string, string>) => {
+//   return addVarPrefix(
+//     Object.entries({
+//       ...colorsMap,
+//       ...shareVars
+//     })
+//   )
+// }
 
 // function isValidColor(str: string) {
 //   const color = new TinyColor(str)

@@ -1,6 +1,6 @@
 {
   "name": "@icestack/ui",
-  "version": "0.0.0-alpha.3",
+  "version": "0.0.0-alpha.4",
   "description": "❤️ IceStack, Web UI for Mobile and PC , open-source Headless component library generator",
   "license": "MIT",
   "sideEffects": false,
@@ -15,6 +15,11 @@
       "types": "./dist/tailwindcss.d.ts",
       "import": "./dist/tailwindcss.mjs",
       "require": "./dist/tailwindcss.cjs"
+    },
+    "./defaults": {
+      "types": "./dist/defaults.d.ts",
+      "import": "./dist/defaults.mjs",
+      "require": "./dist/defaults.cjs"
     },
     "./scss/*": "./assets/scss/*",
     "./css/*": "./assets/css/*",
@@ -43,7 +48,7 @@
   },
   "scripts": {
     "build": "npm run clean && npm run build:base && npm run build:utilities && npm run build:components && npm run build:plugin",
-    "build:plugin": "unbuild",
+    "build:plugin": "unbuild --sourcemap",
     "_build:plugin": "unbuild",
     "clean": "del assets/{css,js,plugins}/**/*",
     "dev": "unbuild --watch",

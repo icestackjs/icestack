@@ -2,7 +2,7 @@ import type { CodegenOptions, DeepPartial, TailwindcssPluginOptions } from './ty
 
 // export const Types = ['primary', 'info', 'success', 'warning', 'error', 'neutral']
 
-export const shareVars = {
+const shareVars = {
   'rounded-box': '1rem',
   'rounded-btn': '0.5rem',
   'rounded-badge': '1.9rem',

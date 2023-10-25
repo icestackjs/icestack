@@ -77,6 +77,13 @@
       "request": "launch",
       "type": "node-terminal",
       "cwd": "${workspaceFolder}/website"
+    },
+    {
+      "command": "npm run codegen",
+      "name": "[taro-app] codegen",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/apps/taro-app"
     }
   ]
 }

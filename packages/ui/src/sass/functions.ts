@@ -21,7 +21,7 @@ import * as radio from '@/components/radio'
 import * as range from '@/components/range'
 import * as base from '@/base'
 import { CodegenOptions } from '@/types'
-import { getCodegenOptions } from '@/options'
+// import { getCodegenOptions } from '@/options'
 
 export interface CreatePresetOptions {
   types: string[]
@@ -67,7 +67,7 @@ export function expandInject<T extends Record<string, T>>(obj: T) {
 }
 
 export const createFunctions: (opts: CodegenOptions) => Options<'sync'>['functions'] = (opts) => {
-  const options = getCodegenOptions(opts)
+  const options = opts // getCodegenOptions(opts)
   const baseResult = base.calcBase(options)
   const presets = createPreset({
     types: baseResult.allTypes
@@ -75,7 +75,7 @@ export const createFunctions: (opts: CodegenOptions) => Options<'sync'>['functio
   return {
     ...baseResult.functions,
     'globalAtMediaHover()': () => {
-      return transformJsToSass(options.global.atMedia.hover)
+      return transformJsToSass(options?.global?.atMedia?.hover)
     },
     'inject($path:null)': (args: Value[]) => {
       const p = args[0].assertString().text

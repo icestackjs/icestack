@@ -37,11 +37,15 @@
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
     "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
-    "test": "vitest run",
-    "test:dev": "vitest"
+    "test": "vitest run --coverage.enabled",
+    "test:dev": "vitest --coverage.enabled"
   },
   "dependencies": {},
   "devDependencies": {
     "postcss": "^8.4.31"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   }
 }

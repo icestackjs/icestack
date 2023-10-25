@@ -1,14 +1,10 @@
-import { Types, expandColorsMap } from './shared'
+import { expandColorsMap } from './shared'
+import { CreatePresetOptions } from '@/sass/functions'
 
 function generateDefault(typeName: string) {
   return `bg-${typeName}`
 }
 
-const colorsMap = expandColorsMap(Types, (cur) => {
-  return {
-    default: generateDefault(cur)
-  }
-})
 // const injectName = createInjectName('progress')
 // const sassColors = transformJsToSass(colorsMap)
 // // const sassDefaults = transformJsToSass(defaults)
@@ -17,7 +13,13 @@ const colorsMap = expandColorsMap(Types, (cur) => {
 //     return sassColors
 //   }
 // }
-export const options = {
-  colors: colorsMap
-  // defaults
+export const options = (opts: CreatePresetOptions) => {
+  return {
+    colors: expandColorsMap(opts.types, (cur) => {
+      return {
+        default: generateDefault(cur)
+      }
+    })
+    // defaults
+  }
 }

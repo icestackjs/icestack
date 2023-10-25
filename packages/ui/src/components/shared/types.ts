@@ -1,5 +1,3 @@
-export const Types = ['primary', 'info', 'success', 'warning', 'error', 'neutral']
-
 export type IDefaults = {
   styled?: object
   unstyled?: object

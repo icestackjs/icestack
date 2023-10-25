@@ -1,4 +1,5 @@
-import { IDefaults, Types, expandColorsMap } from './shared'
+import { IDefaults, expandColorsMap } from './shared'
+import { CreatePresetOptions } from '@/sass/functions'
 function generateDefault(typeName: string) {
   return `border-${typeName} [@media(hover:hover)]:hover:border-${typeName}`
 }
@@ -11,13 +12,6 @@ function generateChecked(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
 }
 
-const colorsMap = expandColorsMap(Types, (cur) => {
-  return {
-    default: generateDefault(cur),
-    focusVisible: generateFocus(cur),
-    checked: generateChecked(cur)
-  }
-})
 const defaults: IDefaults = {
   styled: {
     default: 'border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20',
@@ -49,7 +43,15 @@ const defaults: IDefaults = {
 //   }
 // }
 
-export const options = {
-  colors: colorsMap,
-  defaults
+export const options = (opts: CreatePresetOptions) => {
+  return {
+    colors: expandColorsMap(opts.types, (cur) => {
+      return {
+        default: generateDefault(cur),
+        focusVisible: generateFocus(cur),
+        checked: generateChecked(cur)
+      }
+    }),
+    defaults
+  }
 }

@@ -56,11 +56,17 @@ export type CodegenOptions = SharedOptions & {
       light: string
       dark: string
     }
-    types: {
+    types: Record<
+      string,
+      {
+        light: Record<string, string>
+        dark: Record<string, string>
+      }
+    >
+    extraVars: {
       light: Record<string, string>
       dark: Record<string, string>
     }
-    extraVars: Record<string, string>
   }
   presets: DeepPartial<CodegenOptions>[]
 }

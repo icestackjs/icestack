@@ -1,4 +1,5 @@
-import { Types, expandColorsMap, IDefaults } from './shared'
+import { expandColorsMap, IDefaults } from './shared'
+import { CreatePresetOptions } from '@/sass/functions'
 
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
@@ -7,13 +8,6 @@ function generateDefault(typeName: string) {
 function generateOutline(typeName: string) {
   return `text-${typeName}`
 }
-
-const colorsMap = expandColorsMap(Types, (cur) => {
-  return {
-    default: generateDefault(cur),
-    outline: generateOutline(cur)
-  }
-})
 
 const defaults: IDefaults = {
   styled: {
@@ -38,7 +32,14 @@ const defaults: IDefaults = {
 //   }
 // }
 
-export const options = {
-  colors: colorsMap,
-  defaults
+export const options = (opts: CreatePresetOptions) => {
+  return {
+    colors: expandColorsMap(opts.types, (cur) => {
+      return {
+        default: generateDefault(cur),
+        outline: generateOutline(cur)
+      }
+    }),
+    defaults
+  }
 }

@@ -1,9 +1,5 @@
-import { IDefaults, Types, expandColorsMap } from './shared'
-const colorsMap = expandColorsMap(Types, (t) => {
-  return {
-    default: `bg-${t} text-${t}-content`
-  }
-})
+import { IDefaults, expandColorsMap } from './shared'
+import { CreatePresetOptions } from '@/sass/functions'
 
 // const injectName = createInjectName('chat')
 
@@ -29,7 +25,13 @@ const defaults: IDefaults = {
 //   }
 // }
 
-export const options = {
-  colors: colorsMap,
-  defaults
+export const options = (opts: CreatePresetOptions) => {
+  return {
+    colors: expandColorsMap(opts.types, (t) => {
+      return {
+        default: `bg-${t} text-${t}-content`
+      }
+    }),
+    defaults
+  }
 }

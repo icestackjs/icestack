@@ -1,4 +1,5 @@
-import { IDefaults, Types, expandColorsMap } from './shared'
+import { IDefaults, expandColorsMap } from './shared'
+import { CreatePresetOptions } from '@/sass/functions'
 export function generateBtnInjectVars(type: string) {
   return {
     outline: `text-${type}`,
@@ -7,10 +8,6 @@ export function generateBtnInjectVars(type: string) {
     outlineActive: `border-${type}-focus bg-${type}-focus text-${type}-content`
   }
 }
-
-const colorsMap = expandColorsMap(Types, (cur) => {
-  return generateBtnInjectVars(cur)
-})
 
 // const injectName = createInjectName('button')
 
@@ -59,7 +56,11 @@ const defaults: IDefaults = {
 //   }
 // }
 
-export const options = {
-  colors: colorsMap,
-  defaults
+export const options = (opts: CreatePresetOptions) => {
+  return {
+    colors: expandColorsMap(opts.types, (cur) => {
+      return generateBtnInjectVars(cur)
+    }),
+    defaults
+  }
 }

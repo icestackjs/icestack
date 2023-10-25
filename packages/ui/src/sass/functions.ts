@@ -23,24 +23,27 @@ import * as base from '@/base'
 import { CodegenOptions } from '@/types'
 import { getCodegenOptions } from '@/options'
 
-// @ts-ignore
-const defaultPreset: Record<(typeof allComponents)[number], any> = {
-  alert: alert.options,
-  avatar: avatar.options,
-  // bottomNavigation: bottomNavigation.options,
-  button: button.options,
-  badge: badge.options,
-  chat: chat.options,
-  checkbox: checkbox.options,
-  // fileInput: fileInput.options,
-  input: input.options,
-  link: link.options,
-  progress: progress.options,
-  textarea: textarea.options,
-  toggle: toggle.options,
-  select: select.options,
-  radio: radio.options,
-  range: range.options
+export interface CreatePresetOptions {
+  types: string[]
+}
+
+export const createPreset: (opts: CreatePresetOptions) => Record<(typeof allComponents)[number], any> = (opts) => {
+  return {
+    alert: alert.options(opts),
+    avatar: avatar.options(opts),
+    button: button.options(opts),
+    badge: badge.options(opts),
+    chat: chat.options(opts),
+    checkbox: checkbox.options(opts),
+    input: input.options(opts),
+    link: link.options(opts),
+    progress: progress.options(opts),
+    textarea: textarea.options(opts),
+    toggle: toggle.options(opts),
+    select: select.options(opts),
+    radio: radio.options(opts),
+    range: range.options(opts)
+  }
 }
 
 export function expandInject<T extends Record<string, T>>(obj: T) {
@@ -65,14 +68,18 @@ export function expandInject<T extends Record<string, T>>(obj: T) {
 
 export const createFunctions: (opts: CodegenOptions) => Options<'sync'>['functions'] = (opts) => {
   const options = getCodegenOptions(opts)
+  const baseResult = base.calcBase(options)
+  const presets = createPreset({
+    types: baseResult.allTypes
+  })
   return {
-    ...base.inject(options),
+    ...baseResult.functions,
     'globalAtMediaHover()': () => {
       return transformJsToSass(options.global.atMedia.hover)
     },
     'inject($path:null)': (args: Value[]) => {
       const p = args[0].assertString().text
-      const map = get(defaultPreset, p, {})
+      const map = get(presets, p, {})
       return transformJsToSass(expandInject(map))
     }
   }

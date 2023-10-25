@@ -1,11 +1,5 @@
-import { IDefaults, Types, expandColorsMap } from './shared'
-
-const colorsMap = expandColorsMap(Types, (cur) => {
-  return {
-    default: `border-${cur}`,
-    focus: `outline-${cur}`
-  }
-})
+import { IDefaults, expandColorsMap } from './shared'
+import { CreatePresetOptions } from '@/sass/functions'
 
 const defaults: IDefaults = {
   styled: {
@@ -30,7 +24,14 @@ const defaults: IDefaults = {
   }
 }
 
-export const options = {
-  colors: colorsMap,
-  defaults
+export const options = (opts: CreatePresetOptions) => {
+  return {
+    colors: expandColorsMap(opts.types, (cur) => {
+      return {
+        default: `border-${cur}`,
+        focus: `outline-${cur}`
+      }
+    }),
+    defaults
+  }
 }

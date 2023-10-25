@@ -1,14 +1,9 @@
-import { IDefaults, Types, expandColorsMap } from './shared'
+import { IDefaults, expandColorsMap } from './shared'
+import { CreatePresetOptions } from '@/sass/functions'
 
 function generateDefault(typeName: string) {
   return `text-${typeName} [@media(hover:hover)]:hover:text-${typeName}-focus`
 }
-
-const colorsMap = expandColorsMap(Types, (cur) => {
-  return {
-    default: generateDefault(cur)
-  }
-})
 
 const defaults: IDefaults = {
   styled: {
@@ -22,7 +17,13 @@ const defaults: IDefaults = {
   }
 }
 
-export const options = {
-  colors: colorsMap,
-  defaults
+export const options = (opts: CreatePresetOptions) => {
+  return {
+    colors: expandColorsMap(opts.types, (cur) => {
+      return {
+        default: generateDefault(cur)
+      }
+    }),
+    defaults
+  }
 }

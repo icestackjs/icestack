@@ -7,9 +7,6 @@ exports[`alert > snap 1`] = `
 .alert-primary {
   @apply text-primary-content border-primary/20 bg-primary;
 }
-.alert-info {
-  @apply text-info-content border-info/20 bg-info;
-}
 .alert-success {
   @apply text-success-content border-success/20 bg-success;
 }
@@ -18,6 +15,9 @@ exports[`alert > snap 1`] = `
 }
 .alert-error {
   @apply text-error-content border-error/20 bg-error;
+}
+.alert-info {
+  @apply text-info-content border-info/20 bg-info;
 }
 .alert-neutral {
   @apply text-neutral-content border-neutral/20 bg-neutral;
@@ -40,9 +40,6 @@ exports[`badge > snap 1`] = `
 .badge-primary {
   @apply border-primary bg-primary text-primary-content;
 }
-.badge-info {
-  @apply border-info bg-info text-info-content;
-}
 .badge-success {
   @apply border-success bg-success text-success-content;
 }
@@ -51,6 +48,9 @@ exports[`badge > snap 1`] = `
 }
 .badge-error {
   @apply border-error bg-error text-error-content;
+}
+.badge-info {
+  @apply border-info bg-info text-info-content;
 }
 .badge-neutral {
   @apply border-neutral bg-neutral text-neutral-content;
@@ -64,9 +64,6 @@ exports[`badge > snap 1`] = `
 .badge-outline.badge-primary {
   @apply text-primary;
 }
-.badge-outline.badge-info {
-  @apply text-info;
-}
 .badge-outline.badge-success {
   @apply text-success;
 }
@@ -75,6 +72,9 @@ exports[`badge > snap 1`] = `
 }
 .badge-outline.badge-error {
   @apply text-error;
+}
+.badge-outline.badge-info {
+  @apply text-info;
 }
 .badge-outline.badge-neutral {
   @apply text-neutral;
@@ -104,15 +104,6 @@ exports[`button > snap 1`] = `
 .btn-primary.btn-active {
   @apply border-primary-focus bg-primary-focus;
 }
-.btn-info {
-  @apply border-info bg-info text-info-content outline-info;
-}
-.btn-info:active {
-  @apply border-info-focus bg-info-focus;
-}
-.btn-info.btn-active {
-  @apply border-info-focus bg-info-focus;
-}
 .btn-success {
   @apply border-success bg-success text-success-content outline-success;
 }
@@ -139,6 +130,15 @@ exports[`button > snap 1`] = `
 }
 .btn-error.btn-active {
   @apply border-error-focus bg-error-focus;
+}
+.btn-info {
+  @apply border-info bg-info text-info-content outline-info;
+}
+.btn-info:active {
+  @apply border-info-focus bg-info-focus;
+}
+.btn-info.btn-active {
+  @apply border-info-focus bg-info-focus;
 }
 .btn-neutral {
   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
@@ -196,15 +196,6 @@ exports[`button > snap 1`] = `
 .btn-outline.btn-primary.btn-active {
   @apply border-primary-focus bg-primary-focus text-primary-content;
 }
-.btn-outline.btn-info {
-  @apply text-info;
-}
-.btn-outline.btn-info:active {
-  @apply border-info-focus bg-info-focus text-info-content;
-}
-.btn-outline.btn-info.btn-active {
-  @apply border-info-focus bg-info-focus text-info-content;
-}
 .btn-outline.btn-success {
   @apply text-success;
 }
@@ -231,6 +222,15 @@ exports[`button > snap 1`] = `
 }
 .btn-outline.btn-error.btn-active {
   @apply border-error-focus bg-error-focus text-error-content;
+}
+.btn-outline.btn-info {
+  @apply text-info;
+}
+.btn-outline.btn-info:active {
+  @apply border-info-focus bg-info-focus text-info-content;
+}
+.btn-outline.btn-info.btn-active {
+  @apply border-info-focus bg-info-focus text-info-content;
 }
 .btn-outline.btn-neutral {
   @apply text-neutral;
@@ -278,9 +278,6 @@ exports[`chat > snap 1`] = `
 .chat-bubble-primary {
   @apply bg-primary text-primary-content;
 }
-.chat-bubble-info {
-  @apply bg-info text-info-content;
-}
 .chat-bubble-success {
   @apply bg-success text-success-content;
 }
@@ -289,6 +286,9 @@ exports[`chat > snap 1`] = `
 }
 .chat-bubble-error {
   @apply bg-error text-error-content;
+}
+.chat-bubble-info {
+  @apply bg-info text-info-content;
 }
 .chat-bubble-neutral {
   @apply bg-neutral text-neutral-content;
@@ -331,15 +331,6 @@ exports[`checkbox > snap 1`] = `
 .checkbox-primary:checked, .checkbox-primary[checked=true], .checkbox-primary[aria-checked=true] {
   @apply border-primary bg-primary text-primary-content;
 }
-.checkbox-info {
-  @apply border-info [@media(hover:hover)]:hover:border-info;
-}
-.checkbox-info:focus-visible {
-  @apply outline-info;
-}
-.checkbox-info:checked, .checkbox-info[checked=true], .checkbox-info[aria-checked=true] {
-  @apply border-info bg-info text-info-content;
-}
 .checkbox-success {
   @apply border-success [@media(hover:hover)]:hover:border-success;
 }
@@ -366,6 +357,15 @@ exports[`checkbox > snap 1`] = `
 }
 .checkbox-error:checked, .checkbox-error[checked=true], .checkbox-error[aria-checked=true] {
   @apply border-error bg-error text-error-content;
+}
+.checkbox-info {
+  @apply border-info [@media(hover:hover)]:hover:border-info;
+}
+.checkbox-info:focus-visible {
+  @apply outline-info;
+}
+.checkbox-info:checked, .checkbox-info[checked=true], .checkbox-info[aria-checked=true] {
+  @apply border-info bg-info text-info-content;
 }
 .checkbox-neutral {
   @apply border-neutral [@media(hover:hover)]:hover:border-neutral;
@@ -477,12 +477,6 @@ exports[`input > snap 1`] = `
 .input-primary:focus, .input-primary:focus-within {
   @apply outline-primary;
 }
-.input-info {
-  @apply border-info;
-}
-.input-info:focus, .input-info:focus-within {
-  @apply outline-info;
-}
 .input-success {
   @apply border-success;
 }
@@ -500,6 +494,12 @@ exports[`input > snap 1`] = `
 }
 .input-error:focus, .input-error:focus-within {
   @apply outline-error;
+}
+.input-info {
+  @apply border-info;
+}
+.input-info:focus, .input-info:focus-within {
+  @apply outline-info;
 }
 .input-neutral {
   @apply border-neutral;
@@ -537,9 +537,6 @@ exports[`link > snap 1`] = `
 ".link-primary {
   @apply text-primary [@media(hover:hover)]:hover:text-primary-focus;
 }
-.link-info {
-  @apply text-info [@media(hover:hover)]:hover:text-info-focus;
-}
 .link-success {
   @apply text-success [@media(hover:hover)]:hover:text-success-focus;
 }
@@ -548,6 +545,9 @@ exports[`link > snap 1`] = `
 }
 .link-error {
   @apply text-error [@media(hover:hover)]:hover:text-error-focus;
+}
+.link-info {
+  @apply text-info [@media(hover:hover)]:hover:text-info-focus;
 }
 .link-neutral {
   @apply text-neutral [@media(hover:hover)]:hover:text-neutral-focus;
@@ -781,9 +781,6 @@ exports[`progress > snap 1`] = `
 .progress-primary::-moz-progress-bar {
   @apply bg-primary rounded-box;
 }
-.progress-info::-moz-progress-bar {
-  @apply bg-info rounded-box;
-}
 .progress-success::-moz-progress-bar {
   @apply bg-success rounded-box;
 }
@@ -792,6 +789,9 @@ exports[`progress > snap 1`] = `
 }
 .progress-error::-moz-progress-bar {
   @apply bg-error rounded-box;
+}
+.progress-info::-moz-progress-bar {
+  @apply bg-info rounded-box;
 }
 .progress-neutral::-moz-progress-bar {
   @apply bg-neutral rounded-box;
@@ -805,9 +805,6 @@ exports[`progress > snap 1`] = `
 .progress-primary::-webkit-progress-value {
   @apply bg-primary;
 }
-.progress-info::-webkit-progress-value {
-  @apply bg-info;
-}
 .progress-success::-webkit-progress-value {
   @apply bg-success;
 }
@@ -816,6 +813,9 @@ exports[`progress > snap 1`] = `
 }
 .progress-error::-webkit-progress-value {
   @apply bg-error;
+}
+.progress-info::-webkit-progress-value {
+  @apply bg-info;
 }
 .progress-neutral::-webkit-progress-value {
   @apply bg-neutral;
@@ -876,15 +876,6 @@ exports[`radio > snap 1`] = `
 .radio-primary:checked, .radio-primary[aria-checked=true] {
   @apply border-primary bg-primary text-primary-content;
 }
-.radio-info {
-  @apply border-info [@media(hover:hover)]:hover:border-info;
-}
-.radio-info:focus-visible {
-  @apply outline-info;
-}
-.radio-info:checked, .radio-info[aria-checked=true] {
-  @apply border-info bg-info text-info-content;
-}
 .radio-success {
   @apply border-success [@media(hover:hover)]:hover:border-success;
 }
@@ -911,6 +902,15 @@ exports[`radio > snap 1`] = `
 }
 .radio-error:checked, .radio-error[aria-checked=true] {
   @apply border-error bg-error text-error-content;
+}
+.radio-info {
+  @apply border-info [@media(hover:hover)]:hover:border-info;
+}
+.radio-info:focus-visible {
+  @apply outline-info;
+}
+.radio-info:checked, .radio-info[aria-checked=true] {
+  @apply border-info bg-info text-info-content;
 }
 .radio-neutral {
   @apply border-neutral [@media(hover:hover)]:hover:border-neutral;
@@ -980,9 +980,6 @@ exports[`range > snap 1`] = `
 .range-primary {
   --ice-range-shdw: var(--ice-primary);
 }
-.range-info {
-  --ice-range-shdw: var(--ice-info);
-}
 .range-success {
   --ice-range-shdw: var(--ice-success);
 }
@@ -991,6 +988,9 @@ exports[`range > snap 1`] = `
 }
 .range-error {
   --ice-range-shdw: var(--ice-error);
+}
+.range-info {
+  --ice-range-shdw: var(--ice-info);
 }
 .range-neutral {
   --ice-range-shdw: var(--ice-neutral);
@@ -1066,12 +1066,6 @@ exports[`select > snap 1`] = `
 .select-primary:focus {
   @apply outline-primary;
 }
-.select-info {
-  @apply border-info;
-}
-.select-info:focus {
-  @apply outline-info;
-}
 .select-success {
   @apply border-success;
 }
@@ -1089,6 +1083,12 @@ exports[`select > snap 1`] = `
 }
 .select-error:focus {
   @apply outline-error;
+}
+.select-info {
+  @apply border-info;
+}
+.select-info:focus {
+  @apply outline-info;
 }
 .select-neutral {
   @apply border-neutral;
@@ -1280,12 +1280,6 @@ exports[`textarea > snap 1`] = `
 .textarea-primary:focus {
   @apply outline-primary;
 }
-.textarea-info {
-  @apply border-info;
-}
-.textarea-info:focus {
-  @apply outline-info;
-}
 .textarea-success {
   @apply border-success;
 }
@@ -1303,6 +1297,12 @@ exports[`textarea > snap 1`] = `
 }
 .textarea-error:focus {
   @apply outline-error;
+}
+.textarea-info {
+  @apply border-info;
+}
+.textarea-info:focus {
+  @apply outline-info;
 }
 .textarea-neutral {
   @apply border-neutral;
@@ -1371,12 +1371,6 @@ exports[`toggle > snap 1`] = `
 .toggle-primary:checked, .toggle-primary[checked=true], .toggle-primary[aria-checked=true] {
   @apply border-primary bg-primary text-primary-content border-opacity-10;
 }
-.toggle-info:focus-visible {
-  @apply outline-info;
-}
-.toggle-info:checked, .toggle-info[checked=true], .toggle-info[aria-checked=true] {
-  @apply border-info bg-info text-info-content border-opacity-10;
-}
 .toggle-success:focus-visible {
   @apply outline-success;
 }
@@ -1394,6 +1388,12 @@ exports[`toggle > snap 1`] = `
 }
 .toggle-error:checked, .toggle-error[checked=true], .toggle-error[aria-checked=true] {
   @apply border-error bg-error text-error-content border-opacity-10;
+}
+.toggle-info:focus-visible {
+  @apply outline-info;
+}
+.toggle-info:checked, .toggle-info[checked=true], .toggle-info[aria-checked=true] {
+  @apply border-info bg-info text-info-content border-opacity-10;
 }
 .toggle-neutral:focus-visible {
   @apply outline-neutral;

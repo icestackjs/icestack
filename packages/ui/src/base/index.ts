@@ -1,6 +1,6 @@
 import { SassMap, Value } from 'sass'
 import { OrderedMap } from 'immutable'
-import { defaultVarsEntries, defaultDarkVarsEntries } from './css-vars'
+import { getVarsEntries, getDarkVarsEntries } from './css-vars'
 import { transformBaseJs, transformJsToSass } from '@/sass/utils'
 import { CodegenOptions } from '@/types'
 
@@ -8,7 +8,7 @@ export const inject = (options: CodegenOptions) => {
   return {
     'injectCssVars($mode:"light")': (args: Value[]) => {
       const mode = args[0].assertString().text
-      const vars = mode === 'light' ? defaultVarsEntries : defaultDarkVarsEntries
+      const vars = mode === 'light' ? getVarsEntries(options.base.types.light, options.base.extraVars) : getDarkVarsEntries(options.base.types.dark, options.base.extraVars)
       return new SassMap(OrderedMap(transformBaseJs(vars)))
     },
     'injectModeSelectors()': () => {

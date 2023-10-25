@@ -1,10 +1,10 @@
 import { generate } from '@/generate'
-import { getBuildOptions } from '@/options'
+import { getCodegenOptions } from '@/options'
 const outSideLayerCss = process.argv.slice(2)[0] as 'base' | 'utilities' | 'components'
 
 async function main() {
   await generate({
-    options: getBuildOptions(),
+    options: getCodegenOptions(),
     outSideLayerCss
   })
 }

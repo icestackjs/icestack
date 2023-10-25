@@ -1,7 +1,7 @@
 import path from 'node:path'
 import { compileScss } from '@/sass'
 import { scssDir } from '@/dirs'
-import { getBuildOptions } from '@/options'
+import { getCodegenOptions } from '@/options'
 
 export function resolve(filename: string) {
   return path.resolve(scssDir, 'base', filename + '.scss')
@@ -9,14 +9,14 @@ export function resolve(filename: string) {
 
 describe('base', () => {
   it('snap', async () => {
-    const css = await compileScss(resolve('index'), getBuildOptions())
+    const css = await compileScss(resolve('index'), getCodegenOptions())
     expect(css).toMatchSnapshot()
   })
 
   it('snap case 1', async () => {
     const css = await compileScss(
       resolve('index'),
-      getBuildOptions({
+      getCodegenOptions({
         base: {
           selector: {
             light: '.light',

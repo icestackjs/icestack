@@ -1,8 +1,8 @@
-import { getBuildOptions, getTailwindcssOptions } from '@/options'
+import { getCodegenOptions, getTailwindcssOptions } from '@/options'
 
 describe('options', () => {
-  it('getBuildOptions snap', () => {
-    expect(getBuildOptions()).toMatchSnapshot()
+  it('getCodegenOptions snap', () => {
+    expect(getCodegenOptions()).toMatchSnapshot()
   })
 
   it('getTailwindcssOptions snap', () => {

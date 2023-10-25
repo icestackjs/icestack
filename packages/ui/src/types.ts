@@ -5,13 +5,13 @@ import type { Config } from 'tailwindcss'
 import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
 import type allComponents from './allComponents'
 import type { Options as PrefixerOptions } from '@/postcss/prefixer'
+
 export interface SharedOptions {
   varPrefix: PropertyPrefixerOptions['prefix']
   styled: boolean
   log: boolean
   prefix: string | PrefixerOptions
   rtl: boolean | ConfigOptions
-  presets: any[]
   global: {
     atMedia: {
       // default false
@@ -56,7 +56,13 @@ export type CodegenOptions = SharedOptions & {
       light: string
       dark: string
     }
+    types: {
+      light: Record<string, string>
+      dark: Record<string, string>
+    }
+    extraVars: Record<string, string>
   }
+  presets: DeepPartial<CodegenOptions>[]
 }
 
 export type TailwindcssPluginOptions = SharedOptions & {
@@ -66,6 +72,7 @@ export type TailwindcssPluginOptions = SharedOptions & {
       entries: { find: string | RegExp; replacement: string }[]
     }
   }
+  presets: DeepPartial<TailwindcssPluginOptions>[]
 }
 
 export interface IBuildScssOptions {

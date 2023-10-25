@@ -21,7 +21,7 @@ import * as radio from '@/components/radio'
 import * as range from '@/components/range'
 import * as base from '@/base'
 import { CodegenOptions } from '@/types'
-import { getBuildOptions } from '@/options'
+import { getCodegenOptions } from '@/options'
 
 // @ts-ignore
 const defaultPreset: Record<(typeof allComponents)[number], any> = {
@@ -64,7 +64,7 @@ export function expandInject<T extends Record<string, T>>(obj: T) {
 }
 
 export const createFunctions: (opts: CodegenOptions) => Options<'sync'>['functions'] = (opts) => {
-  const options = getBuildOptions(opts)
+  const options = getCodegenOptions(opts)
   return {
     ...base.inject(options),
     'globalAtMediaHover()': () => {

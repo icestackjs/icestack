@@ -6,14 +6,14 @@ import createCli from 'cac'
 import { loadConfig } from 'c12'
 import type { CodegenOptions } from './types'
 import { buildAll } from './generate'
-import { getBuildOptions } from '@/options'
+import { getCodegenOptions } from '@/options'
 const cli = createCli()
 
-async function load(cwd?: string) {
-  const { config, configFile, layers } = await loadConfig<CodegenOptions>({
+export async function load(cwd?: string) {
+  const { config } = await loadConfig<CodegenOptions>({
     name: 'icestack',
     cwd,
-    defaultConfig: getBuildOptions()
+    defaultConfig: getCodegenOptions()
   })
   return config
 }

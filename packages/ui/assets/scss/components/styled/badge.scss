@@ -1,8 +1,8 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
 
-$TypeMap: inject("badge.colors"); // injectBadgeColors();
-$DefaultMap: inject("badge.defaults.styled"); // map.get(injectBadgeDefaults(), "styled");
+$TypeMap: inject("badge.colors");
+$DefaultMap: inject("badge.defaults.styled");
 
 .badge {
   @include resolve(map.get($DefaultMap, "default"));

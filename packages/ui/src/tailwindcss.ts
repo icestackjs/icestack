@@ -1,12 +1,12 @@
 import path from 'node:path'
 import plugin from 'tailwindcss/plugin'
 import merge from 'merge'
-import postcssJs from 'postcss-js'
+import type { CssInJs } from 'postcss-js'
 import type * as _base from '../assets/js/base/index.js'
 import type * as _components from '../assets/js/components/index.js'
 import type * as _utilities from '../assets/js/utilities/index.js'
 import { someExtends, defaultVarPrefix } from './constants.js'
-import type { TailwindcssPluginOptions } from './types'
+import type { DeepPartial, TailwindcssPluginOptions } from './types'
 import { getTailwindcssOptions } from '@/options'
 import { getJsProcess } from '@/postcss/js'
 
@@ -18,8 +18,17 @@ function requireLib(id: string, basedir?: string) {
   return require(basedir ? path.resolve(basedir, id) : path.join('../assets', id))
 }
 
-export const miniprogramPreset: () => Partial<TailwindcssPluginOptions> = () => {
-  return {}
+export const miniprogramPreset: () => DeepPartial<TailwindcssPluginOptions> = () => {
+  return {
+    global: {
+      atMedia: {
+        hover: false
+      },
+      selector: {
+        universal: 'view'
+      }
+    }
+  }
 }
 
 export const icestackPlugin = plugin.withOptions(
@@ -41,7 +50,7 @@ export const icestackPlugin = plugin.withOptions(
       addBase([baseObj])
 
       for (const [, item] of componentsEntries) {
-        const cssItems: (postcssJs.CssInJs | undefined)[] = [item.unstyled]
+        const cssItems: (CssInJs | undefined)[] = [item.unstyled]
         if (styled) {
           cssItems.push(item.styled)
         }
@@ -53,7 +62,7 @@ export const icestackPlugin = plugin.withOptions(
       }
 
       for (const [, item] of utilitiesEntries) {
-        const cssItems: (postcssJs.CssInJs | undefined)[] = [item.global, item.unstyled]
+        const cssItems: (CssInJs | undefined)[] = [item.global, item.unstyled]
         if (styled) {
           cssItems.push(item.styled)
         }

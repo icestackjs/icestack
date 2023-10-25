@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`options > getCodegenOptions snap 1`] = `
+exports[`load config > load config 1`] = `
 {
   "base": {
     "extraVars": {
@@ -96,31 +96,6 @@ exports[`options > getCodegenOptions snap 1`] = `
   },
   "log": true,
   "rtl": false,
-  "styled": true,
-}
-`;
-
-exports[`options > getTailwindcssOptions snap 1`] = `
-{
-  "base": {
-    "selector": {
-      "entries": [],
-    },
-  },
-  "global": {
-    "atMedia": {
-      "hover": false,
-    },
-    "pseudo": {
-      "where": true,
-    },
-    "selector": {
-      "globalKeyword": "global",
-      "universal": "*",
-    },
-  },
-  "log": true,
-  "rtl": false,
-  "styled": true,
+  "styled": false,
 }
 `;

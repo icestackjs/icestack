@@ -1,5 +1,7 @@
+import type { Stats } from 'node:fs'
 import type { ConfigOptions } from 'rtlcss'
 import type { AcceptedPlugin } from 'postcss'
+import type { Config } from 'tailwindcss'
 import type allComponents from './allComponents'
 import type { Options as PrefixerOptions } from '@/postcss/prefixer'
 export interface UserDefinedOptions {
@@ -29,6 +31,13 @@ export interface UserDefinedOptions {
       globalKeyword: string
     }
   }
+  base: {
+    selector: {
+      // default
+      light: string
+      dark: string
+    }
+  }
   styled: boolean
   log: boolean
   prefix: string | PrefixerOptions
@@ -48,6 +57,15 @@ export type CodegenOptions = UserDefinedOptions & {
 
 export type TailwindcssPluginOptions = UserDefinedOptions & {
   basedir: string
+}
+
+export interface IBuildScssOptions {
+  outdir?: string
+  filename: string
+  stats?: Stats
+  resolveConfig?: (config: Config) => void
+  outSideLayerCss: 'base' | 'components' | 'utilities'
+  options: CodegenOptions
 }
 
 // export type DeepRequired<T> = {

@@ -1,7 +1,6 @@
 import path from 'node:path'
 import plugin from 'tailwindcss/plugin'
 import merge from 'merge'
-import defu from 'defu'
 import postcssJs from 'postcss-js'
 import type { AcceptedPlugin } from 'postcss'
 import rtlcss from 'rtlcss'
@@ -10,23 +9,28 @@ import type * as _components from '../assets/js/components/index.js'
 import type * as _utilities from '../assets/js/utilities/index.js'
 import postcssPrefix from './postcss/prefixer'
 import { someExtends, defaultVarPrefix } from './constants.js'
-import { getDefaults } from './defaults'
-// import { colors } from './colors.js'
-
 import type { TailwindcssPluginOptions } from './types'
+import { getTailwindcssOptions } from '@/options'
 import globalPostcss from '@/postcss/global'
 
 function isRgba(colorString: string) {
   return typeof colorString === 'string' && colorString.includes('/')
 }
 
-export default plugin.withOptions(
-  function (options: TailwindcssPluginOptions) {
-    const { log, prefix, rtl, styled, basedir } = defu<TailwindcssPluginOptions, Partial<TailwindcssPluginOptions>[]>(options, getDefaults())
+function requireLib(id: string, basedir?: string) {
+  return require(basedir ? path.resolve(basedir, id) : path.join('../assets', id))
+}
 
-    const base = require(basedir ? path.resolve(basedir, 'js/base/index.js') : '../assets/js/base/index.js') as typeof _base
-    const components = require(basedir ? path.resolve(basedir, 'js/components/index.js') : '../assets/js/components/index.js') as typeof _components
-    const utilities = require(basedir ? path.resolve(basedir, 'js/utilities/index.js') : '../assets/js/utilities/index.js') as typeof _utilities
+export const miniprogramPreset: Partial<TailwindcssPluginOptions> = {}
+
+export const icestackPlugin = plugin.withOptions(
+  function (opts?: Partial<TailwindcssPluginOptions>) {
+    const options = getTailwindcssOptions(opts)
+    const { log, prefix, rtl, styled, basedir } = options
+
+    const base = requireLib('js/base/index.js', basedir) as typeof _base
+    const components = requireLib('js/components/index.js', basedir) as typeof _components
+    const utilities = requireLib('js/utilities/index.js', basedir) as typeof _utilities
 
     const componentsEntries = Object.entries(components)
     const utilitiesEntries = Object.entries(utilities)
@@ -80,9 +84,9 @@ export default plugin.withOptions(
       }
     }
   },
-  function (options: TailwindcssPluginOptions) {
-    const { basedir } = defu<TailwindcssPluginOptions, Partial<TailwindcssPluginOptions>[]>(options, getDefaults())
-    const base = require(basedir ? path.resolve(basedir, 'js/base/index.js') : '../assets/js/base/index.js') as typeof _base
+  function (opts?: Partial<TailwindcssPluginOptions>) {
+    const { basedir } = getTailwindcssOptions(opts)
+    const base = requireLib('js/base/index.js', basedir) as typeof _base
 
     const colors = {
       transparent: 'transparent',

@@ -19,7 +19,7 @@ module.exports = {
     //   },
 
     // })
-    icestack({})
+    icestack()
 
   ],
   corePlugins: {

@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`options > getBuildOptions snap 1`] = `
+{
+  "base": {
+    "selector": {
+      "dark": "[data-theme=\\"dark\\"]",
+      "light": ":root",
+    },
+  },
+  "global": {
+    "atMedia": {
+      "hover": false,
+    },
+    "pseudo": {
+      "where": true,
+    },
+    "selector": {
+      "globalKeyword": "global",
+      "universal": "*",
+    },
+  },
+  "log": true,
+  "rtl": false,
+  "styled": true,
+}
+`;
+
+exports[`options > getTailwindcssOptions snap 1`] = `
+{
+  "base": {
+    "selector": {
+      "dark": "[data-theme=\\"dark\\"]",
+      "light": ":root",
+    },
+  },
+  "global": {
+    "atMedia": {
+      "hover": false,
+    },
+    "pseudo": {
+      "where": true,
+    },
+    "selector": {
+      "globalKeyword": "global",
+      "universal": "*",
+    },
+  },
+  "log": true,
+  "rtl": false,
+  "styled": true,
+}
+`;

@@ -7,7 +7,7 @@ export function getDefaults(): Partial<UserDefinedOptions> {
     styled: true,
     global: {
       atMedia: {
-        hover: true
+        hover: false
       },
       selector: {
         universal: '*',
@@ -15,6 +15,12 @@ export function getDefaults(): Partial<UserDefinedOptions> {
       },
       pseudo: {
         where: true
+      }
+    },
+    base: {
+      selector: {
+        light: ':root',
+        dark: '[data-theme="dark"]'
       }
     }
   }

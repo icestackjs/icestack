@@ -64,43 +64,6 @@ exports[`button > snap 1`] = `
 }"
 `;
 
-exports[`card > snap 1`] = `
-".card {
-  @apply relative flex flex-col;
-}
-.card:focus {
-  @apply outline-none;
-}
-.card-body {
-  @apply flex flex-auto flex-col;
-}
-.card-body :where(p) {
-  @apply flex-grow;
-}
-.card-actions {
-  @apply flex flex-wrap items-start gap-2;
-}
-.card figure {
-  @apply flex items-center justify-center;
-}
-.card.image-full {
-  @apply grid;
-}
-.card.image-full:before {
-  @apply relative;
-  content: \\"\\";
-}
-.card.image-full:before, .card.image-full > * {
-  @apply col-start-1 row-start-1;
-}
-.card.image-full > figure img {
-  @apply h-full object-cover;
-}
-.card.image-full > .card-body {
-  @apply relative;
-}"
-`;
-
 exports[`carousel > snap 1`] = `
 ".carousel {
   @apply inline-flex overflow-x-scroll;

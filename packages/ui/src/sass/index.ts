@@ -1,85 +1,37 @@
 import fs from 'node:fs/promises'
-import type { Stats } from 'node:fs'
 import path from 'node:path'
 import * as sass from 'sass'
-import postcss from 'postcss'
 import { compileString } from '@icestack/css2js'
-import tailwindcss, { Config } from 'tailwindcss'
-import creator from 'postcss-custom-property-prefixer'
 import { createFunctions } from './functions'
-import { defaultVarPrefix } from '@/constants'
 import { ensureDir } from '@/utils'
 import { getCssPath, getJsPath, scssDir, getCssResolvedpath } from '@/dirs'
+import { IBuildScssOptions } from '@/types'
+import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
+import { addVarPrefix } from '@/postcss/custom-property-prefixer'
 
-export async function compileScss(filename: string) {
+export function compileScss(filename: string, opts: IBuildScssOptions) {
   const sassOptions: sass.Options<'sync'> = {
-    functions: createFunctions()
+    functions: createFunctions(opts)
   }
   const result = sass.compile(filename, sassOptions)
-  const { css } = await postcss([
-    creator({
-      prefix: defaultVarPrefix.slice(2),
-      ignoreProp: (decl) => {
-        return decl.prop.startsWith('--tw-')
-      },
-      ignoreValueCustomProperty(customProperty) {
-        return customProperty.startsWith('--tw-')
-      }
-    })
-  ])
-    // @ts-ignore
-    .process(result.css, {
-      from: undefined
-    })
-    .async()
-
-  return css
-}
-
-export async function resolveTailwindcss(options: { css: string; config: Config }) {
-  const { config, css: cssOutput } = options
-  const tw = tailwindcss(config)
-  const { css } = await postcss([tw])
-    // @tailwind base;\n
-    // @ts-ignore
-    .process('@tailwind components;\n@tailwind utilities;\n' + cssOutput, {
-      from: undefined
-    })
-    .async()
-  return css
-}
-
-interface IBuildScssOptions {
-  dir?: string
-  filename: string
-  stats?: Stats
-  resolveConfig?: (config: Config) => void
-  outSideLayerCss: 'base' | 'components' | 'utilities'
+  return addVarPrefix(result.css)
 }
 
 export async function buildScss(options: IBuildScssOptions) {
-  const { filename, resolveConfig, stats = await fs.stat(filename), dir } = options
+  const { filename, resolveConfig, stats = await fs.stat(filename), outdir } = options
   if (stats && stats.isFile() && /\.scss$/.test(filename)) {
-    const cssOutput = await compileScss(filename)
+    const cssOutput = await compileScss(filename, options)
 
     const relPath = path.relative(scssDir, filename)
-    const cssPath = getCssPath(relPath, dir)
-    const jsPath = getJsPath(relPath, dir)
-    const cssResolvedPath = getCssResolvedpath(relPath, dir)
+    const cssPath = getCssPath(relPath, outdir)
+    const jsPath = getJsPath(relPath, outdir)
+    const cssResolvedPath = getCssResolvedpath(relPath, outdir)
 
     await ensureDir(path.dirname(cssPath))
     await ensureDir(path.dirname(jsPath))
     await ensureDir(path.dirname(cssResolvedPath))
 
-    const config: Config = {
-      content: [{ raw: '' }],
-      theme: {
-        extend: {}
-      },
-      corePlugins: {
-        preflight: false
-      }
-    }
+    const config = initConfig()
 
     resolveConfig?.(config)
 

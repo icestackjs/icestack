@@ -20,6 +20,8 @@ import * as select from '@/components/select'
 import * as radio from '@/components/radio'
 import * as range from '@/components/range'
 import * as base from '@/base'
+import { IBuildScssOptions } from '@/types'
+import { getBuildOptions } from '@/options'
 
 // @ts-ignore
 const defaultPreset: Record<(typeof allComponents)[number], any> = {
@@ -61,11 +63,12 @@ export function expandInject<T extends Record<string, T>>(obj: T) {
   return obj
 }
 
-export const createFunctions: () => Options<'sync'>['functions'] = () => {
+export const createFunctions: (opts: IBuildScssOptions) => Options<'sync'>['functions'] = (opts) => {
+  const options = getBuildOptions(opts?.options)
   return {
-    ...base.inject,
+    ...base.inject(options),
     'globalAtMediaHover()': () => {
-      return transformJsToSass(false)
+      return transformJsToSass(options.global.atMedia.hover)
     },
     'inject($path:null)': (args: Value[]) => {
       const p = args[0].assertString().text

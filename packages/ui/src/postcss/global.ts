@@ -3,7 +3,7 @@ import parser from 'postcss-selector-parser'
 import type { UserDefinedOptions } from '@/types'
 
 const creator: PluginCreator<UserDefinedOptions> = (options) => {
-  const universal = options?.global.selector.universal
+  const universal = options?.global?.selector?.universal
 
   const universalFn = typeof universal === 'string' ? () => universal : universal
   const ruleTransformer = parser((selectors) => {

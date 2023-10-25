@@ -1,6 +1,6 @@
-const defaultVarPrefix = '--ice-'
+export const defaultVarPrefix = '--ice-'
 
-const someExtends = {
+export const someExtends = {
   borderRadius: {
     box: `var(${defaultVarPrefix}rounded-box, 1rem)`,
     btn: `var(${defaultVarPrefix}rounded-btn, 0.5rem)`,
@@ -12,9 +12,4 @@ const someExtends = {
     12: '3rem',
     16: '4rem'
   }
-}
-
-module.exports = {
-  defaultVarPrefix,
-  someExtends
 }

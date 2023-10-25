@@ -29,7 +29,8 @@
     "dev:jd": "npm run build:jd -- --watch",
     "dev:quickapp": "npm run build:quickapp -- --watch",
     "open": "weapp open -p dist",
-    "postinstall": "weapp-tw patch"
+    "postinstall": "weapp-tw patch",
+    "codegen": "icestack codegen"
   },
   "browserslist": [
     "last 3 versions",

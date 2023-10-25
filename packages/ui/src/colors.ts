@@ -1,14 +1,14 @@
-const base = require('../assets/js/base/index.js')
-const { defaultVarPrefix } = require('./constants.js')
+import base from '../assets/js/base/index.js'
+import { defaultVarPrefix } from './constants'
 
-function isRgba(colorString) {
+function isRgba(colorString: string) {
   return typeof colorString === 'string' && colorString.includes('/')
 }
 
-const colors = {
+export const colors = {
   transparent: 'transparent',
   current: 'currentColor',
-  ...Object.entries(base[':root']).reduce((acc, [key, value]) => {
+  ...Object.entries(base[':root']).reduce<Record<string, string>>((acc, [key, value]) => {
     // remove -- var prefix
     // "ice-"
     const varName = key.slice(defaultVarPrefix.length)
@@ -16,8 +16,4 @@ const colors = {
 
     return acc
   }, {})
-}
-
-module.exports = {
-  colors
 }

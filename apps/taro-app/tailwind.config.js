@@ -1,5 +1,5 @@
-const { icestackPlugin } = require('@icestack/ui/tailwindcss')
-
+const { icestackPlugin, miniprogramPreset } = require('@icestack/ui/tailwindcss')
+const path = require('path')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./index.html', './src/**/*.{html,js,ts,jsx,tsx,vue}'],
@@ -19,7 +19,9 @@ module.exports = {
     //   },
 
     // })
-    icestackPlugin()
+    icestackPlugin({
+      basedir: path.resolve(__dirname, './my-ui')
+    })
 
   ],
   corePlugins: {

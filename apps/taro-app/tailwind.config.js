@@ -1,4 +1,4 @@
-const icestack = require('@icestack/ui/tailwindcss')
+const { icestackPlugin } = require('@icestack/ui/tailwindcss')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -19,7 +19,7 @@ module.exports = {
     //   },
 
     // })
-    icestack()
+    icestackPlugin()
 
   ],
   corePlugins: {

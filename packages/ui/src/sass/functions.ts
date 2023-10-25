@@ -26,7 +26,7 @@ import { getCodegenOptions } from '@/options'
 export interface CreatePresetOptions {
   types: string[]
 }
-
+// @ts-ignore
 export const createPreset: (opts: CreatePresetOptions) => Record<(typeof allComponents)[number], any> = (opts) => {
   return {
     alert: alert.options(opts),

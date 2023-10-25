@@ -77,7 +77,7 @@ $hoverMedia: map.get($DefaultMap, "hoverMedia");
     }
   }
   $t: "outline";
-  &-outline {
+  &-#{$t} {
     @include spread($DefaultMap, $t);
     @each $typeName, $map in $TypeMap {
       $selector: getSelector($typeName, ".btn-");

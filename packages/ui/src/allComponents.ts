@@ -13,7 +13,6 @@ export default [
   'form',
   'indicator',
   'input',
-  'join',
   'kbd',
   'link',
   'mask',
@@ -27,7 +26,6 @@ export default [
   'stack',
   'stat',
   'steps',
-  'swap',
   'textarea',
   'toast',
   'toggle'

@@ -1,4 +1,4 @@
-import type { CodegenOptions, TailwindcssPluginOptions } from './types'
+import type { CodegenOptions, DeepPartial, TailwindcssPluginOptions } from './types'
 
 // export const Types = ['primary', 'info', 'success', 'warning', 'error', 'neutral']
 
@@ -117,7 +117,7 @@ export const shareVars = {
 //   'base-content': 'rgb(166, 173, 186)'
 // }
 
-export function getCodegenDefaults(): Partial<CodegenOptions> {
+export function getCodegenDefaults(): DeepPartial<CodegenOptions> {
   return {
     log: true,
     rtl: false,
@@ -260,7 +260,7 @@ export function getCodegenDefaults(): Partial<CodegenOptions> {
   }
 }
 
-export function getTailwindcssPluginDefaults(): Partial<TailwindcssPluginOptions> {
+export function getTailwindcssPluginDefaults(): DeepPartial<TailwindcssPluginOptions> {
   return {
     log: true,
     rtl: false,

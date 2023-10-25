@@ -1,13 +1,64 @@
-// import merge from 'merge'
-
-// import { colors } from '@/colors.js'
-// import { groupBy } from '@/utils'
-import { icestackPlugin } from '@/tailwindcss'
-describe.skip('tailwindcss', () => {
+import { icestackPlugin, miniprogramPreset } from '@/tailwindcss'
+import { getCss } from '@/utils'
+describe('tailwindcss', () => {
   it('not throw', () => {
     expect(() => {
       icestackPlugin({})
     }).not.toThrow()
+  })
+
+  it('use plugin case 0', async () => {
+    const { css } = await getCss({
+      content: [
+        {
+          raw: 'btn'
+        }
+      ],
+      plugins: [icestackPlugin({})]
+    })
+    expect(css).toMatchSnapshot()
+  })
+
+  it('use plugin case 1', async () => {
+    const { css } = await getCss({
+      content: [
+        {
+          raw: 'btn'
+        }
+      ],
+      plugins: [
+        icestackPlugin({
+          components: {
+            button: {
+              append: [
+                {
+                  '.btn::after': {
+                    border: 'none'
+                  }
+                }
+              ]
+            }
+          }
+        })
+      ]
+    })
+    expect(css).toMatchSnapshot()
+  })
+
+  it('use plugin case 2', async () => {
+    const { css } = await getCss({
+      content: [
+        {
+          raw: 'btn'
+        }
+      ],
+      plugins: [
+        icestackPlugin({
+          presets: [miniprogramPreset()]
+        })
+      ]
+    })
+    expect(css).toMatchSnapshot()
   })
 
   // const { default: base } = await import('../assets/js/base/index.js')

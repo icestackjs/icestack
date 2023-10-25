@@ -3,9 +3,9 @@ import type { ConfigOptions } from 'rtlcss'
 import type { AcceptedPlugin } from 'postcss'
 import type { Config } from 'tailwindcss'
 import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
+import type { CssInJs } from 'postcss-js'
 import type allComponents from './allComponents'
 import type { Options as PrefixerOptions } from '@/postcss/prefixer'
-
 export interface SharedOptions {
   varPrefix: PropertyPrefixerOptions['prefix']
   styled: boolean
@@ -72,6 +72,12 @@ export type CodegenOptions = SharedOptions & {
 }
 
 export type TailwindcssPluginOptions = SharedOptions & {
+  components: Record<
+    (typeof allComponents)[number],
+    {
+      append: CssInJs[]
+    }
+  >
   basedir: string
   base: {
     selector: {

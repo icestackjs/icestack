@@ -92,6 +92,6 @@
     "del": "^7.1.0",
     "object-hash": "^3.0.0",
     "sass": "^1.69.4",
-    "tailwindcss": "^3.3.3"
+    "tailwindcss": "^3.3.5"
   }
 }

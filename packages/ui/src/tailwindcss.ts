@@ -27,12 +27,23 @@ export const miniprogramPreset: () => DeepPartial<TailwindcssPluginOptions> = ()
       selector: {
         universal: 'view'
       }
+    },
+    components: {
+      button: {
+        append: [
+          {
+            '.btn::after': {
+              border: 'none'
+            }
+          }
+        ]
+      }
     }
   }
 }
 
 export const icestackPlugin = plugin.withOptions(
-  function (opts?: Partial<TailwindcssPluginOptions>) {
+  function (opts?: DeepPartial<TailwindcssPluginOptions>) {
     const options = getTailwindcssOptions(opts)
     const { styled, basedir } = options
 
@@ -49,11 +60,15 @@ export const icestackPlugin = plugin.withOptions(
     return function ({ addBase, addComponents, addUtilities }) {
       addBase([baseObj])
 
-      for (const [, item] of componentsEntries) {
+      for (const [name, item] of componentsEntries) {
         const cssItems: (CssInJs | undefined)[] = [item.unstyled]
         if (styled) {
           cssItems.push(item.styled)
         }
+        // const hit = options?.components?.[name]
+        // if (hit && Array.isArray(hit.append)) {
+        //   cssItems.push(...hit.append)
+        // }
         let cssObj = merge.recursive(true, ...cssItems)
 
         cssObj = componentsProcess(cssObj)
@@ -61,12 +76,16 @@ export const icestackPlugin = plugin.withOptions(
         addComponents(cssObj)
       }
 
-      for (const [, item] of utilitiesEntries) {
+      for (const [name, item] of utilitiesEntries) {
         const cssItems: (CssInJs | undefined)[] = [item.global, item.unstyled]
         if (styled) {
           cssItems.push(item.styled)
         }
-        let cssObj = merge.recursive(true, item.global, item.unstyled, item.styled)
+        const hit = options?.components?.[name]
+        if (hit && Array.isArray(hit.append)) {
+          cssItems.push(...hit.append)
+        }
+        let cssObj = merge.recursive(true, ...cssItems)
 
         cssObj = utilitiesProcess(cssObj)
 
@@ -74,7 +93,7 @@ export const icestackPlugin = plugin.withOptions(
       }
     }
   },
-  function (opts?: Partial<TailwindcssPluginOptions>) {
+  function (opts?: DeepPartial<TailwindcssPluginOptions>) {
     const { basedir } = getTailwindcssOptions(opts)
     const base = requireLib('js/base/index.js', basedir) as typeof _base
 

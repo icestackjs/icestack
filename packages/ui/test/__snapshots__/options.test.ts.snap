@@ -45,9 +45,9 @@ exports[`options > getCodegenOptions snap 1`] = `
       "error": {
         "dark": {
           "error": "#d32029",
-          "error-content": "#000000",
           "error-focus": "#e84749",
           "error-hover": "#a61d24",
+          "info-content": "#ffffff",
         },
         "light": {
           "error": "#f5222d",
@@ -59,7 +59,7 @@ exports[`options > getCodegenOptions snap 1`] = `
       "info": {
         "dark": {
           "info": "#1668dc",
-          "info-content": "#000000",
+          "info-content": "#ffffff",
           "info-focus": "#3c89e8",
           "info-hover": "#1554ad",
         },
@@ -87,7 +87,7 @@ exports[`options > getCodegenOptions snap 1`] = `
       "primary": {
         "dark": {
           "primary": "#1668dc",
-          "primary-content": "#000000",
+          "primary-content": "#ffffff",
           "primary-focus": "#3c89e8",
           "primary-hover": "#1554ad",
         },
@@ -101,7 +101,7 @@ exports[`options > getCodegenOptions snap 1`] = `
       "success": {
         "dark": {
           "success": "#49aa19",
-          "success-content": "#000000",
+          "success-content": "#ffffff",
           "success-focus": "#6abe39",
           "success-hover": "#3c8618",
         },
@@ -115,7 +115,7 @@ exports[`options > getCodegenOptions snap 1`] = `
       "warning": {
         "dark": {
           "warning": "#d89614",
-          "warning-content": "#000000",
+          "warning-content": "#ffffff",
           "warning-focus": "#e8b339",
           "warning-hover": "#aa7714",
         },

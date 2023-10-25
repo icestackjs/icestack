@@ -156,7 +156,7 @@ export function getCodegenDefaults(): DeepPartial<CodegenOptions> {
             // blue-5
             'primary-hover': '#1554ad',
             'primary-focus': '#3c89e8',
-            'primary-content': '#000000'
+            'primary-content': '#ffffff'
           }
         },
         success: {
@@ -172,7 +172,7 @@ export function getCodegenDefaults(): DeepPartial<CodegenOptions> {
             // green-5
             'success-hover': '#3c8618',
             'success-focus': '#6abe39',
-            'success-content': '#000000'
+            'success-content': '#ffffff'
           }
         },
         warning: {
@@ -189,7 +189,7 @@ export function getCodegenDefaults(): DeepPartial<CodegenOptions> {
             // gold-5
             'warning-hover': '#aa7714',
             'warning-focus': '#e8b339',
-            'warning-content': '#000000'
+            'warning-content': '#ffffff'
           }
         },
         error: {
@@ -206,7 +206,7 @@ export function getCodegenDefaults(): DeepPartial<CodegenOptions> {
             // red-5
             'error-hover': '#a61d24',
             'error-focus': '#e84749',
-            'error-content': '#000000'
+            'info-content': '#ffffff'
           }
         },
         info: {
@@ -222,7 +222,7 @@ export function getCodegenDefaults(): DeepPartial<CodegenOptions> {
             // blue-5
             'info-hover': '#1554ad',
             'info-focus': '#3c89e8',
-            'info-content': '#000000'
+            'info-content': '#ffffff'
           }
         },
         neutral: {

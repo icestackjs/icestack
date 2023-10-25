@@ -54,6 +54,7 @@
     "@tarojs/runtime": "3.6.18",
     "@tarojs/shared": "3.6.18",
     "@tarojs/taro": "3.6.18",
+    "class-variance-authority": "^0.7.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "socket.io-client": "^4.7.2",

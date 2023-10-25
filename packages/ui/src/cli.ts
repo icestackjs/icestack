@@ -6,6 +6,7 @@ import createCli from 'cac'
 import { loadConfig } from 'c12'
 import type { CodegenOptions } from './types'
 import { buildAll } from './generate'
+import { getCliCodegenOptions } from './options'
 // import { getCodegenOptions } from '@/options'
 const cli = createCli()
 
@@ -23,8 +24,9 @@ cli.command('init', 'init config').action(async () => {
 })
 
 cli.command('codegen', 'code generate').action(async () => {
-  const config = await load()
+  let config = await load()
   if (config) {
+    config = getCliCodegenOptions(config)
     await buildAll(config)
   }
 })

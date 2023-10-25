@@ -153,15 +153,15 @@ export async function buildAll(options: CodegenOptions) {
     options,
     outSideLayerCss: 'base'
   })
-  console.log('base')
+  console.log('build base finished!')
   await generate({
     options,
     outSideLayerCss: 'utilities'
   })
-  console.log('utilities')
+  console.log('build utilities finished!')
   await generate({
     options,
     outSideLayerCss: 'components'
   })
-  console.log('components')
+  console.log('build components finished!')
 }

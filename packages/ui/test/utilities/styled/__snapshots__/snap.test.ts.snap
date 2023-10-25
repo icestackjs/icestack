@@ -26,23 +26,6 @@ exports[`avatar > snap 1`] = `
 }"
 `;
 
-exports[`card > snap 1`] = `
-".card-compact .card-body {
-  @apply p-4 text-sm;
-}
-.card-compact .card-title {
-  @apply mb-1;
-}
-
-.card-normal .card-body {
-  padding: var(--ice-padding-card, 2rem);
-  @apply text-base;
-}
-.card-normal .card-title {
-  @apply mb-3;
-}"
-`;
-
 exports[`divider > snap 1`] = `
 ".divider-horizontal {
   @apply mx-4 my-0 h-auto w-4;
@@ -50,12 +33,6 @@ exports[`divider > snap 1`] = `
 
 .divider-vertical {
   @apply mx-0 my-4 h-4 w-auto;
-}"
-`;
-
-exports[`drawer > snap 1`] = `
-".drawer-open > .drawer-toggle ~ .drawer-side > .drawer-overlay {
-  @apply cursor-default bg-transparent;
 }"
 `;
 

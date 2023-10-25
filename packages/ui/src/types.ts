@@ -43,9 +43,10 @@ export type CodegenOptions = SharedOptions & {
     {
       override: object
       extend: object
-      postcss: {
-        plugins: AcceptedPlugin[]
-      }
+      // postcss: {
+      //   plugins: AcceptedPlugin[]
+      // }
+      append: CssInJs[]
     }
   >
 

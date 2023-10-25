@@ -20,3 +20,12 @@ export function getCodegenOptions(options?: DeepPartial<CodegenOptions>): Codege
   }
   return defu<CodegenOptions, DeepPartial<CodegenOptions>[]>(options, ...presets, getCodegenDefaults())
 }
+
+export function getCliCodegenOptions(options?: CodegenOptions): CodegenOptions {
+  let presets: DeepPartial<CodegenOptions>[] = []
+  if (options?.presets && Array.isArray(options?.presets)) {
+    // @ts-ignore
+    presets = options.presets ?? []
+  }
+  return defu<CodegenOptions, DeepPartial<CodegenOptions>[]>(options, ...presets)
+}

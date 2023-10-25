@@ -129,36 +129,6 @@ exports[`button > snap 1`] = `
 }"
 `;
 
-exports[`card > snap 1`] = `
-".card-side {
-  align-items: stretch;
-  flex-direction: row;
-}
-.card-side :where(figure:first-child) {
-  @apply overflow-hidden;
-  border-start-start-radius: inherit;
-  border-start-end-radius: unset;
-  border-end-start-radius: inherit;
-  border-end-end-radius: unset;
-}
-.card-side :where(figure:last-child) {
-  @apply overflow-hidden;
-  border-start-start-radius: unset;
-  border-start-end-radius: inherit;
-  border-end-start-radius: unset;
-  border-end-end-radius: inherit;
-}
-.card-side figure > * {
-  max-width: unset;
-}
-
-:where(.card-side figure > *) {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}"
-`;
-
 exports[`checkbox > snap 1`] = `
 ".checkbox-xs {
   @apply h-4 w-4;
@@ -193,24 +163,6 @@ exports[`divider > snap 1`] = `
 }
 .divider-vertical:after {
   @apply h-0.5 w-full;
-}"
-`;
-
-exports[`drawer > snap 1`] = `
-".drawer-open > .drawer-toggle {
-  @apply hidden;
-}
-.drawer-open > .drawer-toggle ~ .drawer-side {
-  @apply pointer-events-auto visible sticky block w-auto overscroll-auto;
-}
-.drawer-open > .drawer-toggle ~ .drawer-side > *:not(.drawer-overlay) {
-  transform: translateX(0%);
-}
-[dir=rtl] .drawer-open > .drawer-toggle ~ .drawer-side > *:not(.drawer-overlay) {
-  transform: translateX(0%);
-}
-.drawer-open > .drawer-toggle:checked ~ .drawer-side {
-  @apply pointer-events-auto visible;
 }"
 `;
 

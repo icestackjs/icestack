@@ -5,11 +5,13 @@ import { compileString } from '@icestack/css2js'
 import { createFunctions } from './functions'
 import { ensureDir } from '@/utils'
 import { getCssPath, getJsPath, scssDir, getCssResolvedpath } from '@/dirs'
-import { IBuildScssOptions } from '@/types'
-import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
+import { CodegenOptions, IBuildScssOptions } from '@/types'
+import { resolveTailwindcss, initConfig } from '@/postcss/compile/tailwindcss'
 import { addVarPrefix } from '@/postcss/custom-property-prefixer'
 
-export function compileScss(filename: string, opts: IBuildScssOptions) {
+// 1. scss
+// 2. add var prefix
+export function compileScss(filename: string, opts: CodegenOptions) {
   const sassOptions: sass.Options<'sync'> = {
     functions: createFunctions(opts)
   }
@@ -20,7 +22,7 @@ export function compileScss(filename: string, opts: IBuildScssOptions) {
 export async function buildScss(options: IBuildScssOptions) {
   const { filename, resolveConfig, stats = await fs.stat(filename), outdir } = options
   if (stats && stats.isFile() && /\.scss$/.test(filename)) {
-    const cssOutput = await compileScss(filename, options)
+    const cssOutput = await compileScss(filename, options.options)
 
     const relPath = path.relative(scssDir, filename)
     const cssPath = getCssPath(relPath, outdir)

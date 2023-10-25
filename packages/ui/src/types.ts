@@ -2,19 +2,16 @@ import type { Stats } from 'node:fs'
 import type { ConfigOptions } from 'rtlcss'
 import type { AcceptedPlugin } from 'postcss'
 import type { Config } from 'tailwindcss'
+import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
 import type allComponents from './allComponents'
 import type { Options as PrefixerOptions } from '@/postcss/prefixer'
-export interface UserDefinedOptions {
-  components: Record<
-    (typeof allComponents)[number],
-    {
-      override: object
-      extend: object
-      postcss: {
-        plugins: AcceptedPlugin[]
-      }
-    }
-  >
+export interface SharedOptions {
+  varPrefix: PropertyPrefixerOptions['prefix']
+  styled: boolean
+  log: boolean
+  prefix: string | PrefixerOptions
+  rtl: boolean | ConfigOptions
+  presets: any[]
   global: {
     atMedia: {
       // default false
@@ -31,18 +28,7 @@ export interface UserDefinedOptions {
       globalKeyword: string
     }
   }
-  base: {
-    selector: {
-      // default
-      light: string
-      dark: string
-    }
-  }
-  styled: boolean
-  log: boolean
-  prefix: string | PrefixerOptions
-  rtl: boolean | ConfigOptions
-  presets: any[]
+
   // https://daisyui.com/docs/config/
   // themes: only light + dark, and custom
   // darkTheme
@@ -51,12 +37,35 @@ export interface UserDefinedOptions {
   // utils: true
 }
 
-export type CodegenOptions = UserDefinedOptions & {
+export type CodegenOptions = SharedOptions & {
+  components: Record<
+    (typeof allComponents)[number],
+    {
+      override: object
+      extend: object
+      postcss: {
+        plugins: AcceptedPlugin[]
+      }
+    }
+  >
+
   outdir: string
+  base: {
+    selector: {
+      // default
+      light: string
+      dark: string
+    }
+  }
 }
 
-export type TailwindcssPluginOptions = UserDefinedOptions & {
+export type TailwindcssPluginOptions = SharedOptions & {
   basedir: string
+  base: {
+    selector: {
+      entries: { find: string | RegExp; replacement: string }[]
+    }
+  }
 }
 
 export interface IBuildScssOptions {

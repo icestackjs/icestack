@@ -3,32 +3,29 @@ import parser from 'postcss-selector-parser'
 import type { TailwindcssPluginOptions } from '@/types'
 
 const creator: PluginCreator<TailwindcssPluginOptions> = (options) => {
-  const universal = options?.global?.selector?.universal
+  const entries = options?.base?.selector?.entries.map((x) => {
+    return {
+      find: typeof x.find === 'string' ? new RegExp(x.find, 'g') : x.find,
+      replacement: x.replacement
+    }
+  })
 
-  const universalFn = typeof universal === 'string' ? () => universal : universal
   const ruleTransformer = parser((selectors) => {
     selectors.walk((selector) => {
-      // universal
-      if (selector.type === 'universal' && selector.value === '*') {
-        const s = universalFn?.()
-        if (s) {
-          selector.value = s
+      if (entries && selector.type === 'selector') {
+        for (const { find, replacement } of entries) {
+          if (find.test(selector.toString())) {
+            selector.value = replacement
+          }
         }
       }
     })
   })
   return {
-    postcssPlugin: 'postcss-global-option-handler-plugin',
+    postcssPlugin: 'postcss-base-plugin',
     plugins: [
       {
         postcssPlugin: 'deep-dark-fantastic',
-        AtRule(atRule) {
-          // hover
-          if (atRule.name === 'media' && /\(\s*hover\s*:\s*hover\s*\)/.test(atRule.params)) {
-            atRule.before(atRule.nodes)
-            atRule.remove()
-          }
-        },
         Rule(rule) {
           ruleTransformer.transformSync(rule, { lossless: false, updateSelector: true })
         }

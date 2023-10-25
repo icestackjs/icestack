@@ -7,9 +7,9 @@ export function resolve(filename: string) {
   return path.resolve(scssDir, 'base', filename + '.scss')
 }
 
-describe('base', () => {
-  it('snap', async () => {
-    const css = await compileScss(resolve('index'), getBuildOptions())
+describe('var-prefix', () => {
+  it('snap case 0', async () => {
+    const css = await compileScss(resolve('index'), getBuildOptions({}))
     expect(css).toMatchSnapshot()
   })
 
@@ -17,12 +17,7 @@ describe('base', () => {
     const css = await compileScss(
       resolve('index'),
       getBuildOptions({
-        base: {
-          selector: {
-            light: '.light',
-            dark: '.dark'
-          }
-        }
+        varPrefix: '--som-'
       })
     )
     expect(css).toMatchSnapshot()

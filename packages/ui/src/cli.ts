@@ -6,12 +6,14 @@ import createCli from 'cac'
 import { loadConfig } from 'c12'
 import type { CodegenOptions } from './types'
 import { buildAll } from './generate'
+import { getBuildOptions } from '@/options'
 const cli = createCli()
 
 async function load(cwd?: string) {
   const { config, configFile, layers } = await loadConfig<CodegenOptions>({
     name: 'icestack',
-    cwd
+    cwd,
+    defaultConfig: getBuildOptions()
   })
   return config
 }
@@ -22,7 +24,9 @@ cli.command('init', 'init config').action(async () => {
 
 cli.command('codegen', 'code generate').action(async () => {
   const config = await load()
-  await buildAll(config?.outdir)
+  if (config) {
+    await buildAll(config)
+  }
 })
 
 cli.help()

@@ -53,12 +53,18 @@ $hoverMedia: map.get($DefaultMap, "hoverMedia");
     @include resolve(map.get($DefaultMap, "focusVisible"));
   }
   @include spread($DefaultMap);
+
   @each $typeName, $map in $TypeMap {
-    $selector: getSelector($typeName, ".btn-");
-    &#{$selector} {
+    &#{getSelector($typeName)} {
       @include spread($map);
     }
   }
+  // @each $typeName, $map in $TypeMap {
+  //   $selector: getSelector($typeName, ".btn-");
+  //   &#{$selector} {
+  //     @include spread($map);
+  //   }
+  // }
 
   $vars: (
     "&.glass": "glass",
@@ -70,9 +76,8 @@ $hoverMedia: map.get($DefaultMap, "hoverMedia");
       @include spread($DefaultMap, $t);
     }
   }
-
+  $t: "outline";
   &-outline {
-    $t: "outline";
     @include spread($DefaultMap, $t);
     @each $typeName, $map in $TypeMap {
       $selector: getSelector($typeName, ".btn-");

@@ -20,7 +20,7 @@ import * as select from '@/components/select'
 import * as radio from '@/components/radio'
 import * as range from '@/components/range'
 import * as base from '@/base'
-import { IBuildScssOptions } from '@/types'
+import { CodegenOptions } from '@/types'
 import { getBuildOptions } from '@/options'
 
 // @ts-ignore
@@ -63,8 +63,8 @@ export function expandInject<T extends Record<string, T>>(obj: T) {
   return obj
 }
 
-export const createFunctions: (opts: IBuildScssOptions) => Options<'sync'>['functions'] = (opts) => {
-  const options = getBuildOptions(opts?.options)
+export const createFunctions: (opts: CodegenOptions) => Options<'sync'>['functions'] = (opts) => {
+  const options = getBuildOptions(opts)
   return {
     ...base.inject(options),
     'globalAtMediaHover()': () => {

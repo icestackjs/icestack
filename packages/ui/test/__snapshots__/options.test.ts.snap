@@ -30,8 +30,7 @@ exports[`options > getTailwindcssOptions snap 1`] = `
 {
   "base": {
     "selector": {
-      "dark": "[data-theme=\\"dark\\"]",
-      "light": ":root",
+      "entries": [],
     },
   },
   "global": {

@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`base > snap 1`] = `
+exports[`var-prefix > snap case 0 1`] = `
 ":root {
   --ice-primary: 22 119 255;
   --ice-primary-hover: 64 150 255;
@@ -84,8 +84,8 @@ exports[`base > snap 1`] = `
 }"
 `;
 
-exports[`base > snap case 1 1`] = `
-".light {
+exports[`var-prefix > snap case 1 1`] = `
+":root {
   --ice-primary: 22 119 255;
   --ice-primary-hover: 64 150 255;
   --ice-primary-focus: 9 88 217;
@@ -126,7 +126,7 @@ exports[`base > snap case 1 1`] = `
   --ice-tab-radius: 0.5rem;
 }
 
-.dark {
+[data-theme=dark] {
   --ice-primary: 22 104 220;
   --ice-primary-hover: 21 84 173;
   --ice-primary-focus: 60 137 232;

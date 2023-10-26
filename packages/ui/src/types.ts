@@ -6,70 +6,68 @@ import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-cust
 import type { CssInJs } from 'postcss-js'
 import type allComponents from './allComponents'
 import type { Options as PrefixerOptions } from '@/postcss/prefixer'
-export interface SharedOptions {
-  components: Record<
-    (typeof allComponents)[number],
+// export interface SharedOptions {
+//   // https://daisyui.com/docs/config/
+//   // themes: only light + dark, and custom
+//   // darkTheme
+//   // base
+//   // styled
+//   // utils: true
+// }
+
+export type BaseOptions = {
+  themes: Record<
+    string,
     {
-      override: object
-      extend: object
-      // postcss: {
-      //   plugins: AcceptedPlugin[]
-      // }
-      append: CssInJs[]
+      selector: string
     }
   >
+  //           typeName        themeName       cssVars
+  types: Record<string, Record<string, Record<string, string>>>
+  extraVars: Record<string, Record<string, string>>
+}
+
+export type ComponentsOptions = Record<
+  (typeof allComponents)[number],
+  {
+    override: object
+    extend: object
+    // postcss: {
+    //   plugins: AcceptedPlugin[]
+    // }
+    append: CssInJs[]
+  }
+>
+
+export type GlobalOptions = {
+  atMedia: {
+    // default false
+    hover: boolean
+  }
+  pseudo: {
+    // default true
+    where: boolean
+  }
+  selector: {
+    // default *
+    universal: string | (() => string)
+    // default global
+    globalKeyword: string
+  }
+}
+
+export type CodegenOptions = {
+  components: ComponentsOptions
+  global: GlobalOptions
+  base: BaseOptions
   varPrefix: PropertyPrefixerOptions['prefix']
   styled: boolean
   log: boolean
   prefix: string | PrefixerOptions
   rtl: boolean | ConfigOptions
-  global: {
-    atMedia: {
-      // default false
-      hover: boolean
-    }
-    pseudo: {
-      // default true
-      where: boolean
-    }
-    selector: {
-      // default *
-      universal: string | (() => string)
-      // default global
-      globalKeyword: string
-    }
-  }
-
-  // https://daisyui.com/docs/config/
-  // themes: only light + dark, and custom
-  // darkTheme
-  // base
-  // styled
-  // utils: true
-}
-
-export type CodegenOptions = SharedOptions & {
+  presets: DeepPartial<CodegenOptions>[]
   basedir?: string
   outdir?: string
-  base: {
-    selector: {
-      // default
-      light: string
-      dark: string
-    }
-    types: Record<
-      string,
-      {
-        light: Record<string, string>
-        dark: Record<string, string>
-      }
-    >
-    extraVars: {
-      light: Record<string, string>
-      dark: Record<string, string>
-    }
-  }
-  presets: DeepPartial<CodegenOptions>[]
 }
 
 // export type TailwindcssPluginOptions = SharedOptions & {

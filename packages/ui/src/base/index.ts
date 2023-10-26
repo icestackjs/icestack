@@ -6,12 +6,14 @@ import { CodegenOptions } from '@/types'
 
 export const calcBase = (options: CodegenOptions) => {
   const types = options?.base?.types
+  const themes = options?.base?.themes
   const allTypes = types === undefined ? [] : Object.keys(types)
   const values = types === undefined ? [] : Object.values(types)
+  const themesMap = themes === undefined ? {} : themes
   return {
     functions: {
-      'injectCssVars($mode:"light")': (args: Value[]) => {
-        const mode = args[0].assertString().text as 'light' | 'dark'
+      'injectCssVars($mode:null)': (args: Value[]) => {
+        const mode = args[0].assertString().text
         const vars = getVarsEntries(
           values
             .map((x) => x[mode])
@@ -27,10 +29,7 @@ export const calcBase = (options: CodegenOptions) => {
         return new SassMap(OrderedMap(transformBaseJs(vars)))
       },
       'injectModeSelectors()': () => {
-        return transformJsToSass({
-          light: options?.base?.selector?.light ?? ':root',
-          dark: options?.base?.selector?.dark ?? '[data-theme="dark"]'
-        })
+        return transformJsToSass(themesMap)
       }
     },
     allTypes

@@ -3,13 +3,21 @@
 
 $selectorsMap: injectModeSelectors();
 
-#{map.get($selectorsMap,"light")} {
-  @each $var, $value in injectCssVars("light") {
-    #{$var}: $value;
+@each $theme, $map in $selectorsMap {
+  #{map.get($map,"selector")} {
+    @each $var, $value in injectCssVars($theme) {
+      #{$var}: $value;
+    }
   }
 }
-#{map.get($selectorsMap,"dark")} {
-  @each $var, $value in injectCssVars("dark") {
-    #{$var}: $value;
-  }
-}
+
+// #{map.get($selectorsMap,"light")} {
+//   @each $var, $value in injectCssVars("light") {
+//     #{$var}: $value;
+//   }
+// }
+// #{map.get($selectorsMap,"dark")} {
+//   @each $var, $value in injectCssVars("dark") {
+//     #{$var}: $value;
+//   }
+// }

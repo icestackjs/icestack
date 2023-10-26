@@ -37,9 +37,13 @@ exports[`options > getCodegenOptions snap 1`] = `
         "tab-radius": "0.5rem",
       },
     },
-    "selector": {
-      "dark": "[data-theme=\\"dark\\"]",
-      "light": ":root",
+    "themes": {
+      "dark": {
+        "selector": "[data-theme=\\"dark\\"]",
+      },
+      "light": {
+        "selector": ":root",
+      },
     },
     "types": {
       "error": {

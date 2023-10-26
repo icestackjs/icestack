@@ -31,9 +31,13 @@ export function getCodegenDefaults(): DeepPartial<CodegenOptions> {
       }
     },
     base: {
-      selector: {
-        light: ':root',
-        dark: '[data-theme="dark"]'
+      themes: {
+        light: {
+          selector: ':root'
+        },
+        dark: {
+          selector: '[data-theme="dark"]'
+        }
       },
       types: {
         primary: {

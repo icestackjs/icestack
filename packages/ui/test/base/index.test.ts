@@ -18,9 +18,13 @@ describe('base', () => {
       resolve('index'),
       getCodegenOptions({
         base: {
-          selector: {
-            light: '.light',
-            dark: '.dark'
+          themes: {
+            light: {
+              selector: '.light'
+            },
+            dark: {
+              selector: '.dark'
+            }
           }
         }
       })

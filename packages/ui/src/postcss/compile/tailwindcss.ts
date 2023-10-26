@@ -4,14 +4,14 @@ import tailwindcss, { type Config } from 'tailwindcss'
 export async function resolveTailwindcss(options: { css: string; config: Config }) {
   const { config, css: cssOutput } = options
   const tw = tailwindcss(config)
-  const { css } = await postcss([tw])
+  const res = await postcss([tw])
     // @tailwind base;\n
     // @ts-ignore
     .process('@tailwind components;\n@tailwind utilities;\n' + cssOutput, {
       from: undefined
     })
     .async()
-  return css
+  return res
 }
 
 export function initConfig() {

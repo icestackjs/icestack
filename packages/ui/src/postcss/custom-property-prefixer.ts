@@ -14,12 +14,13 @@ export function getPlugin(varPrefix: UserDefinedOptions['prefix'] = defaultVarPr
   })
 }
 
-export async function addVarPrefix(rawCss: string, varPrefix: string = defaultVarPrefix) {
-  const { css } = await postcss([getPlugin(varPrefix)])
-    // @ts-ignore
-    .process(rawCss, {
-      from: undefined
-    })
-    .async()
-  return css
+export function addVarPrefix(rawCss: string, varPrefix: string = defaultVarPrefix) {
+  return (
+    postcss([getPlugin(varPrefix)])
+      // @ts-ignore
+      .process(rawCss, {
+        from: undefined
+      })
+      .sync()
+  )
 }

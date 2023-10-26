@@ -11,7 +11,7 @@ const coms = (await fg(path.resolve(scssDir, 'components/styled', '*.scss'))).ma
 })
 describe.each(coms)('%s', (com) => {
   it('snap', async () => {
-    const css = await compileScss(resolve(com), getCodegenOptions())
+    const { css } = await compileScss(resolve(com), getCodegenOptions())
     expect(css).toMatchSnapshot()
   })
 })

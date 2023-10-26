@@ -5,7 +5,7 @@ import { set } from 'lodash'
 import klaw from 'klaw'
 import defu from 'defu'
 import { generateIndexCode } from './js/generate'
-import { buildScss } from '@/sass'
+import { buildScss, extractScss } from '@/sass'
 import { resolveJsDir, scssDir } from '@/dirs'
 import { someExtends } from '@/constants'
 import { CodegenOptions } from '@/types'
@@ -165,3 +165,5 @@ export async function buildAll(options: CodegenOptions) {
   })
   console.log('build components finished!')
 }
+
+export function extractAll(params: type) {}

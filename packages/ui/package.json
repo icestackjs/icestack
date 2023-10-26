@@ -30,6 +30,11 @@
       "import": "./dist/allComponents.mjs",
       "require": "./dist/allComponents.cjs"
     },
+    "./worker": {
+      "types": "./dist/worker.d.ts",
+      "import": "./dist/worker.mjs",
+      "require": "./dist/worker.cjs"
+    },
     "./*": "./*"
   },
   "typesVersions": {
@@ -76,25 +81,29 @@
     "@babel/generator": "^7.23.0",
     "@babel/types": "^7.23.0",
     "@ctrl/tinycolor": "^4.0.2",
-    "@icestack/css2js": "workspace:^",
     "c12": "^1.5.1",
     "cac": "^6.7.14",
     "compose-tailwindcss-plugins": "workspace:^",
     "css-selector-tokenizer": "^0.8.0",
     "css-to-tailwindcss-plugin": "workspace:^",
     "immutable": "^4.0.0",
+    "klaw-sync": "^6.0.0",
     "lodash": "^4.17.21",
+    "lru-cache": "^10.0.1",
+    "object-hash": "^3.0.0",
     "postcss": "^8.4.31",
     "postcss-custom-property-prefixer": "workspace:^",
     "postcss-js": "^4.0.1",
     "postcss-selector-parser": "^6.0.13",
     "rtlcss": "^4.1.1",
-    "sass": "^1.69.4",
+    "sass": "^1.69.5",
     "tailwindcss": "^3.3.5"
   },
   "devDependencies": {
     "@types/css-selector-tokenizer": "^0.7.3",
+    "@types/klaw-sync": "^6.0.3",
     "@types/lodash": "^4.14.200",
+    "@types/object-hash": "^3.0.5",
     "@types/postcss-js": "^4.0.3",
     "@types/rtlcss": "^3.5.3",
     "fast-glob": "^3.3.1",

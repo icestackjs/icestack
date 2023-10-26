@@ -1,8 +1,10 @@
 import fs from 'node:fs/promises'
+import fss from 'node:fs'
 import path from 'node:path'
 import * as sass from 'sass'
-import { compileString } from '@icestack/css2js'
 import { merge } from 'merge'
+import postcssJs from 'postcss-js'
+import { Root } from 'postcss'
 import { createFunctions } from './functions'
 import { ensureDir } from '@/utils'
 import { getCssPath, getJsPath, scssDir, getCssResolvedpath } from '@/dirs'
@@ -23,7 +25,7 @@ export async function buildScss(opts: IBuildScssOptions) {
   const { filename, resolveConfig, stats = await fs.stat(filename), outdir, options, outSideLayerCss } = opts
   if (stats && stats.isFile() && /\.scss$/.test(filename)) {
     const name = path.basename(filename, '.scss')
-    const cssOutput = await compileScss(filename, options)
+    const { css: cssOutput } = compileScss(filename, options)
 
     const relPath = path.relative(scssDir, filename)
     const cssPath = getCssPath(relPath, outdir)
@@ -40,15 +42,13 @@ export async function buildScss(opts: IBuildScssOptions) {
 
     // scss -> css
     await fs.writeFile(cssPath, cssOutput, 'utf8')
-    const css = await resolveTailwindcss({
+    const { root, css } = await resolveTailwindcss({
       css: cssOutput,
       config
     })
 
     await fs.writeFile(cssResolvedPath, css, 'utf8')
-    const cssJsObj = await compileString({
-      css
-    })
+    const cssJsObj = postcssJs.objectify(root as Root)
 
     if (outSideLayerCss === 'utilities') {
       // @ts-ignore
@@ -61,5 +61,28 @@ export async function buildScss(opts: IBuildScssOptions) {
     const data = 'module.exports = ' + JSON.stringify(cssJsObj, null, 2)
     // css -> js
     await fs.writeFile(jsPath, data, 'utf8')
+  }
+}
+
+export async function extractScss(opts: IBuildScssOptions) {
+  const { filename, resolveConfig, stats, options, outSideLayerCss } = opts
+  if (stats && stats.isFile() && /\.scss$/.test(filename)) {
+    const name = path.basename(filename, '.scss')
+    const { css } = compileScss(filename, options)
+    const config = initConfig()
+    resolveConfig?.(config)
+    const { root } = await resolveTailwindcss({
+      css,
+      config
+    })
+    const cssJsObj = postcssJs.objectify(root as Root)
+    if (outSideLayerCss === 'utilities') {
+      // @ts-ignore
+      const hit = options?.components?.[name]
+      if (hit && Array.isArray(hit.append)) {
+        merge(cssJsObj, ...hit.append)
+      }
+    }
+    return cssJsObj
   }
 }

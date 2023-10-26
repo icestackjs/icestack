@@ -13,3 +13,5 @@ export const someExtends = {
     16: '4rem'
   }
 }
+
+export const pkgName = '@icestack/ui'

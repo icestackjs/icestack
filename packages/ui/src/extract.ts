@@ -19,6 +19,9 @@ export function walkScssSync(dir: string) {
   return klawSync(dir, {
     nodir: true,
     filter: (item) => {
+      if (path.basename(item.path).startsWith('_')) {
+        return false
+      }
       return /\.scss$/.test(item.path)
     },
     traverseAll: true
@@ -31,29 +34,28 @@ export function getJsObj(opts: IOptions) {
   // await ensureDir(pluginsDir)
   switch (outSideLayerCss) {
     case 'base': {
-      return merge.recursive(
-        true,
-        ...walkScssSync(path.resolve(scssDir, 'base')).map((file) => {
-          return extractScss({
+      const basePath = path.resolve(scssDir, 'base')
+      const resultArray: { key: string; value: CssInJs }[] = []
+      for (const file of walkScssSync(basePath)) {
+        resultArray.push({
+          key: path.relative(basePath, file.path).replace(/\.scss$/, ''),
+          value: extractScss({
             outdir,
             filename: file.path,
             outSideLayerCss,
             options
           })
         })
-      )
+      }
+      return merge.recursive(true, ...resultArray.map((x) => x.value))
     }
     case 'utilities': {
       const utilitiesPath = path.resolve(scssDir, 'utilities')
       const resultArray: { key: string; value: CssInJs }[] = []
-      const fromDir = path.resolve(scssDir, 'utilities')
 
       for (const file of walkScssSync(path.resolve(utilitiesPath, 'global'))) {
-        if (path.basename(file.path).startsWith('_')) {
-          continue
-        }
         resultArray.push({
-          key: path.relative(fromDir, file.path).replace(/\.scss$/, ''),
+          key: path.relative(utilitiesPath, file.path).replace(/\.scss$/, ''),
           value: extractScss({
             outdir,
             filename: file.path,
@@ -69,12 +71,8 @@ export function getJsObj(opts: IOptions) {
       const utilitiesJs = path.resolve(resolveJsDir(outdir), 'utilities')
 
       for (const file of walkScssSync(utilitiesPath)) {
-        if (path.basename(file.path).startsWith('_')) {
-          continue
-        }
-
         resultArray.push({
-          key: path.relative(fromDir, file.path).replace(/\.scss$/, ''),
+          key: path.relative(utilitiesPath, file.path).replace(/\.scss$/, ''),
           value: extractScss({
             outdir,
             filename: file.path,
@@ -124,9 +122,6 @@ export function getJsObj(opts: IOptions) {
       const resultArray: { key: string; value: CssInJs }[] = []
       const fromDir = path.resolve(scssDir, 'components')
       for (const file of walkScssSync(fromDir)) {
-        if (path.basename(file.path).startsWith('_')) {
-          continue
-        }
         resultArray.push({
           key: path.relative(fromDir, file.path).replace(/\.scss$/, ''),
           value: extractScss({

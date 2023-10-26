@@ -2,9 +2,9 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import plugin from 'tailwindcss/plugin'
 import { set } from 'lodash'
-import klaw from 'klaw'
 import { generateIndexCode } from './js/generate'
 // import { colors } from './colors'
+import { walkScssSync } from './extract'
 import { buildScss } from '@/sass'
 import { resolveJsDir, scssDir } from '@/dirs'
 import { someExtends } from '@/constants'
@@ -21,7 +21,7 @@ export async function generate(opts: IOptions) {
   // await ensureDir(pluginsDir)
   switch (outSideLayerCss) {
     case 'base': {
-      for await (const file of klaw(path.resolve(scssDir, 'base'))) {
+      for (const file of walkScssSync(path.resolve(scssDir, 'base'))) {
         await buildScss({
           outdir,
           filename: file.path,
@@ -39,62 +39,51 @@ export async function generate(opts: IOptions) {
       const basenameArray = []
       const fromDir = path.resolve(scssDir, 'utilities')
       const utilitiesJsOutputPath = path.resolve(resolveJsDir(outdir), 'utilities')
-      for await (const file of klaw(path.resolve(utilitiesPath, 'global'))) {
-        if (file.stats.isFile() && /\.scss$/.test(file.path)) {
-          if (path.basename(file.path).startsWith('_')) {
-            continue
-          }
-          basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
-          await buildScss({
-            outdir,
-            filename: file.path,
-            stats: file.stats,
-            outSideLayerCss,
-            resolveConfig(config) {
-              set(config, 'theme.extend.colors', colors)
-            },
-            options
-          })
-        }
+      for (const file of walkScssSync(path.resolve(utilitiesPath, 'global'))) {
+        basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
+        await buildScss({
+          outdir,
+          filename: file.path,
+          stats: file.stats,
+          outSideLayerCss,
+          resolveConfig(config) {
+            set(config, 'theme.extend.colors', colors)
+          },
+          options
+        })
       }
       await fs.writeFile(path.resolve(utilitiesJsOutputPath, 'index.js'), generateIndexCode(basenameArray), 'utf8')
       basenameArray.length = 0
       const utilitiesJs = path.resolve(resolveJsDir(outdir), 'utilities')
 
-      for await (const file of klaw(utilitiesPath)) {
-        if (file.stats.isFile() && /\.scss$/.test(file.path)) {
-          if (path.basename(file.path).startsWith('_')) {
-            continue
-          }
-
-          basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
-          await buildScss({
-            outdir,
-            filename: file.path,
-            stats: file.stats,
-            outSideLayerCss,
-            resolveConfig(config) {
-              set(config, 'theme.extend.colors', colors)
-              config.plugins = [
-                plugin(
-                  ({ addUtilities }) => {
-                    const obj = require(path.resolve(utilitiesJs, 'index.js'))
-                    // @ts-ignore
-                    addUtilities(Object.values(obj))
-                  },
-                  {
-                    theme: {
-                      extend: {
-                        ...someExtends
-                      }
+      for (const file of walkScssSync(utilitiesPath)) {
+        basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
+        await buildScss({
+          outdir,
+          filename: file.path,
+          stats: file.stats,
+          outSideLayerCss,
+          resolveConfig(config) {
+            set(config, 'theme.extend.colors', colors)
+            config.plugins = [
+              plugin(
+                ({ addUtilities }) => {
+                  const obj = require(path.resolve(utilitiesJs, 'index.js'))
+                  // @ts-ignore
+                  addUtilities(Object.values(obj))
+                },
+                {
+                  theme: {
+                    extend: {
+                      ...someExtends
                     }
                   }
-                )
-              ]
-            },
-            options
-          })
-        }
+                }
+              )
+            ]
+          },
+          options
+        })
       }
 
       await fs.writeFile(path.resolve(utilitiesJsOutputPath, 'index.js'), generateIndexCode(basenameArray), 'utf8')
@@ -107,39 +96,34 @@ export async function generate(opts: IOptions) {
 
       const basenameArray = []
       const fromDir = path.resolve(scssDir, 'components')
-      for await (const file of klaw(fromDir)) {
-        if (file.stats.isFile() && /\.scss$/.test(file.path)) {
-          if (path.basename(file.path).startsWith('_')) {
-            continue
-          }
-          basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
-          await buildScss({
-            outdir,
-            filename: file.path,
-            stats: file.stats,
-            resolveConfig: (config) => {
-              set(config, 'theme.extend.colors', colors)
-              config.plugins = [
-                plugin(
-                  ({ addUtilities }) => {
-                    const obj = require(path.resolve(utilitiesJs, 'index.js'))
-                    // @ts-ignore
-                    addUtilities(Object.values(obj))
-                  },
-                  {
-                    theme: {
-                      extend: {
-                        ...someExtends
-                      }
+      for (const file of walkScssSync(fromDir)) {
+        basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
+        await buildScss({
+          outdir,
+          filename: file.path,
+          stats: file.stats,
+          resolveConfig: (config) => {
+            set(config, 'theme.extend.colors', colors)
+            config.plugins = [
+              plugin(
+                ({ addUtilities }) => {
+                  const obj = require(path.resolve(utilitiesJs, 'index.js'))
+                  // @ts-ignore
+                  addUtilities(Object.values(obj))
+                },
+                {
+                  theme: {
+                    extend: {
+                      ...someExtends
                     }
                   }
-                )
-              ]
-            },
-            outSideLayerCss,
-            options
-          })
-        }
+                }
+              )
+            ]
+          },
+          outSideLayerCss,
+          options
+        })
       }
       const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
       await fs.writeFile(path.resolve(componentsJsOutputPath, 'index.js'), generateIndexCode(basenameArray), 'utf8')

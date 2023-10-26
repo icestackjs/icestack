@@ -21,46 +21,45 @@ export function compileScss(filename: string, opts: CodegenOptions) {
 }
 
 export async function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
-  const { filename, resolveConfig, stats = await fs.stat(filename), outdir, options, outSideLayerCss } = opts
-  if (stats && stats.isFile() && /\.scss$/.test(filename)) {
-    const name = path.basename(filename, '.scss')
-    const { css: cssOutput } = compileScss(filename, options)
+  const { filename, resolveConfig, outdir, options, outSideLayerCss } = opts
 
-    const relPath = path.relative(scssDir, filename)
-    const cssPath = getCssPath(relPath, outdir)
-    const jsPath = getJsPath(relPath, outdir)
-    const cssResolvedPath = getCssResolvedpath(relPath, outdir)
+  const name = path.basename(filename, '.scss')
+  const { css: cssOutput } = compileScss(filename, options)
 
-    await ensureDir(path.dirname(cssPath))
-    await ensureDir(path.dirname(jsPath))
-    await ensureDir(path.dirname(cssResolvedPath))
+  const relPath = path.relative(scssDir, filename)
+  const cssPath = getCssPath(relPath, outdir)
+  const jsPath = getJsPath(relPath, outdir)
+  const cssResolvedPath = getCssResolvedpath(relPath, outdir)
 
-    const config = initConfig()
+  await ensureDir(path.dirname(cssPath))
+  await ensureDir(path.dirname(jsPath))
+  await ensureDir(path.dirname(cssResolvedPath))
 
-    resolveConfig?.(config)
+  const config = initConfig()
 
-    // scss -> css
-    await fs.writeFile(cssPath, cssOutput, 'utf8')
-    const { root, css } = await resolveTailwindcss({
-      css: cssOutput,
-      config
-    })
+  resolveConfig?.(config)
 
-    await fs.writeFile(cssResolvedPath, css, 'utf8')
-    const cssJsObj = postcssJs.objectify(root as Root)
+  // scss -> css
+  await fs.writeFile(cssPath, cssOutput, 'utf8')
+  const { root, css } = await resolveTailwindcss({
+    css: cssOutput,
+    config
+  })
 
-    if (outSideLayerCss === 'utilities') {
-      // @ts-ignore
-      const hit = options?.components?.[name]
-      if (hit && Array.isArray(hit.append)) {
-        merge(cssJsObj, ...hit.append)
-      }
+  await fs.writeFile(cssResolvedPath, css, 'utf8')
+  const cssJsObj = postcssJs.objectify(root as Root)
+
+  if (outSideLayerCss === 'utilities') {
+    // @ts-ignore
+    const hit = options?.components?.[name]
+    if (hit && Array.isArray(hit.append)) {
+      merge(cssJsObj, ...hit.append)
     }
-
-    const data = 'module.exports = ' + JSON.stringify(cssJsObj, null, 2)
-    // css -> js
-    await fs.writeFile(jsPath, data, 'utf8')
   }
+
+  const data = 'module.exports = ' + JSON.stringify(cssJsObj, null, 2)
+  // css -> js
+  await fs.writeFile(jsPath, data, 'utf8')
 }
 
 export function extractScss(opts: IBuildScssOptions<CodegenOptions>) {

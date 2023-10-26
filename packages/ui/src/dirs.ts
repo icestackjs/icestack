@@ -1,6 +1,7 @@
 import path from 'node:path'
+import { pkgName } from './constants'
 //  require.resolve('@icestack/ui/package.json')
-const assetsDir = path.resolve(path.dirname(require.resolve('@icestack/ui/package.json')), 'assets')
+const assetsDir = path.resolve(path.dirname(require.resolve(`${pkgName}/package.json`)), 'assets')
 const scssDir = path.resolve(assetsDir, 'scss')
 const jsDir = path.resolve(assetsDir, 'js')
 const cssDir = path.resolve(assetsDir, 'css')

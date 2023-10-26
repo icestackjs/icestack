@@ -1,6 +1,7 @@
 import path from 'node:path'
 import fs from 'node:fs'
 import { buildAll } from '@/generate'
+import { getCodegenOptions } from '@/options'
 function resolve(...p: string[]) {
   return path.resolve(__dirname, './fixtures/generate', ...p)
 }
@@ -8,6 +9,7 @@ describe.skipIf(true)('generate', () => {
   it('case 0', async () => {
     const dir = resolve('case0')
     await buildAll({
+      ...getCodegenOptions(),
       outdir: dir
     })
     expect(fs.existsSync(path.resolve(dir, 'css'))).toBe(true)

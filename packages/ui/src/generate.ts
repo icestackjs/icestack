@@ -18,6 +18,7 @@ export type IOptions = {
 export async function generate(opts: IOptions) {
   const { outSideLayerCss, options } = opts // defu<IOptions, Partial<IOptions>[]>(opts, {})
   const { outdir } = options
+  const colors = getColors(options)
   // await ensureDir(pluginsDir)
   switch (outSideLayerCss) {
     case 'base': {
@@ -44,7 +45,7 @@ export async function generate(opts: IOptions) {
           filename: file.path,
           outSideLayerCss,
           resolveConfig(config) {
-            set(config, 'theme.extend.colors', getColors(options))
+            set(config, 'theme.extend.colors', colors)
           },
           options
         })
@@ -60,7 +61,7 @@ export async function generate(opts: IOptions) {
           filename: file.path,
           outSideLayerCss,
           resolveConfig(config) {
-            set(config, 'theme.extend.colors', getColors(options))
+            set(config, 'theme.extend.colors', colors)
             config.plugins = [
               plugin(
                 ({ addUtilities }) => {
@@ -97,7 +98,7 @@ export async function generate(opts: IOptions) {
           outdir,
           filename: file.path,
           resolveConfig: (config) => {
-            set(config, 'theme.extend.colors', getColors(options))
+            set(config, 'theme.extend.colors', colors)
             config.plugins = [
               plugin(
                 ({ addUtilities }) => {

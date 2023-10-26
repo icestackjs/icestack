@@ -42,6 +42,7 @@ function groupedComs(
 export function getJsObj(opts: IOptions) {
   const { outSideLayerCss, options } = opts // defu<IOptions, Partial<IOptions>[]>(opts, {})
   const { outdir, base } = options
+  const colors = getColors(options)
   // await ensureDir(pluginsDir)
   switch (outSideLayerCss) {
     case 'base': {
@@ -82,7 +83,7 @@ export function getJsObj(opts: IOptions) {
             filename: file.path,
             outSideLayerCss,
             resolveConfig(config) {
-              set(config, 'theme.extend.colors', getColors(options))
+              set(config, 'theme.extend.colors', colors)
             },
             options
           })
@@ -99,7 +100,7 @@ export function getJsObj(opts: IOptions) {
             filename: file.path,
             outSideLayerCss,
             resolveConfig(config) {
-              set(config, 'theme.extend.colors', getColors(options))
+              set(config, 'theme.extend.colors', colors)
               config.plugins = [
                 plugin(
                   ({ addUtilities }) => {
@@ -136,7 +137,7 @@ export function getJsObj(opts: IOptions) {
             outdir,
             filename: file.path,
             resolveConfig: (config) => {
-              set(config, 'theme.extend.colors', getColors(options))
+              set(config, 'theme.extend.colors', colors)
               config.plugins = [
                 plugin(
                   ({ addUtilities }) => {

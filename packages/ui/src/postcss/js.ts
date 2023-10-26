@@ -5,9 +5,9 @@ import postcssPrefix from './prefixer'
 import globalPostcss from './global'
 import { rtlcss } from './rtlcss'
 import basePlugin from './runtime/base'
-import { TailwindcssPluginOptions } from '@/types'
+import { CodegenOptions } from '@/types'
 
-export function getJsProcess(options: TailwindcssPluginOptions) {
+export function getJsProcess(options: CodegenOptions) {
   const { varPrefix, prefix, rtl, global, base } = options
   const basePlugins: AcceptedPlugin[] = []
   const componentsPlugins: AcceptedPlugin[] = []

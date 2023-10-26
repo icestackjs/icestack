@@ -3,8 +3,8 @@ import path from 'node:path'
 import plugin from 'tailwindcss/plugin'
 import { set } from 'lodash'
 import { generateIndexCode } from './js/generate'
-// import { colors } from './colors'
-import { walkScssSync } from './extract'
+import { getColors } from './colors'
+import { walkScssSync } from './utils'
 import { buildScss } from '@/sass'
 import { resolveJsDir, scssDir } from '@/dirs'
 import { someExtends } from '@/constants'
@@ -25,7 +25,6 @@ export async function generate(opts: IOptions) {
         await buildScss({
           outdir,
           filename: file.path,
-          stats: file.stats,
           outSideLayerCss,
           options
         })
@@ -34,7 +33,6 @@ export async function generate(opts: IOptions) {
       break
     }
     case 'utilities': {
-      const { colors } = await import('../src/colors')
       const utilitiesPath = path.resolve(scssDir, 'utilities')
       const basenameArray = []
       const fromDir = path.resolve(scssDir, 'utilities')
@@ -44,10 +42,9 @@ export async function generate(opts: IOptions) {
         await buildScss({
           outdir,
           filename: file.path,
-          stats: file.stats,
           outSideLayerCss,
           resolveConfig(config) {
-            set(config, 'theme.extend.colors', colors)
+            set(config, 'theme.extend.colors', getColors(options))
           },
           options
         })
@@ -61,10 +58,9 @@ export async function generate(opts: IOptions) {
         await buildScss({
           outdir,
           filename: file.path,
-          stats: file.stats,
           outSideLayerCss,
           resolveConfig(config) {
-            set(config, 'theme.extend.colors', colors)
+            set(config, 'theme.extend.colors', getColors(options))
             config.plugins = [
               plugin(
                 ({ addUtilities }) => {
@@ -91,7 +87,6 @@ export async function generate(opts: IOptions) {
       break
     }
     case 'components': {
-      const { colors } = await import('../src/colors')
       const utilitiesJs = path.resolve(resolveJsDir(outdir), 'utilities')
 
       const basenameArray = []
@@ -101,9 +96,8 @@ export async function generate(opts: IOptions) {
         await buildScss({
           outdir,
           filename: file.path,
-          stats: file.stats,
           resolveConfig: (config) => {
-            set(config, 'theme.extend.colors', colors)
+            set(config, 'theme.extend.colors', getColors(options))
             config.plugins = [
               plugin(
                 ({ addUtilities }) => {

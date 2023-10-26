@@ -1,7 +1,7 @@
 import path from 'node:path'
 import klawSync from 'klaw-sync'
 import { scssDir } from '@/dirs'
-import { walkScssSync } from '@/extract'
+import { walkScssSync } from '@/utils'
 
 describe('walk', () => {
   it('should ', () => {

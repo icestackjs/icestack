@@ -1,9 +1,11 @@
 import fs from 'node:fs/promises'
 import fss from 'node:fs'
+import path from 'node:path'
 import postcss from 'postcss'
 import tailwindcss from 'tailwindcss'
 import type { Config } from 'tailwindcss'
 import defu from 'defu'
+import klawSync from 'klaw-sync'
 
 export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]> {
   if (!Array.isArray(arr)) {
@@ -81,4 +83,17 @@ export function pascalCase(str: string) {
     mappedWords[i] = word[0].toUpperCase() + word.slice(1)
   }
   return mappedWords.join('')
+}
+
+export function walkScssSync(dir: string) {
+  return klawSync(dir, {
+    nodir: true,
+    filter: (item) => {
+      if (path.basename(item.path).startsWith('_')) {
+        return false
+      }
+      return /\.scss$/.test(item.path)
+    },
+    traverseAll: true
+  })
 }

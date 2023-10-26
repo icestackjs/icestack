@@ -7,6 +7,7 @@ import { CodegenOptions } from '@/types'
 export const calcBase = (options: CodegenOptions) => {
   const types = options?.base?.types
   const themes = options?.base?.themes
+  // const extraColors = options?.base?.extraColors
   const allTypes = types === undefined ? [] : Object.keys(types)
   const values = types === undefined ? [] : Object.values(types)
   const themesMap = themes === undefined ? {} : themes
@@ -23,6 +24,7 @@ export const calcBase = (options: CodegenOptions) => {
                 ...cur
               }
             }, {}),
+          options?.base?.extraColors?.[mode] ?? {},
           options?.base?.extraVars?.[mode] ?? {}
         )
 

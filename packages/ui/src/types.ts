@@ -1,8 +1,7 @@
-import type { Stats } from 'node:fs'
 import type { ConfigOptions } from 'rtlcss'
 // import type { AcceptedPlugin } from 'postcss'
 import type { Config } from 'tailwindcss'
-import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
+// import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
 import type { CssInJs } from 'postcss-js'
 import type allComponents from './allComponents'
 import type { Options as PrefixerOptions } from '@/postcss/prefixer'
@@ -24,6 +23,7 @@ export type BaseOptions = {
   >
   //           typeName        themeName       cssVars
   types: Record<string, Record<string, Record<string, string>>>
+  extraColors: Record<string, Record<string, string>>
   extraVars: Record<string, Record<string, string>>
 }
 
@@ -60,7 +60,7 @@ export type CodegenOptions = {
   components: ComponentsOptions
   global: GlobalOptions
   base: BaseOptions
-  varPrefix: PropertyPrefixerOptions['prefix']
+  varPrefix: string // PropertyPrefixerOptions['prefix']
   styled: boolean
   log: boolean
   prefix: string | PrefixerOptions
@@ -89,7 +89,6 @@ export type CodegenOptions = {
 export interface IBuildScssOptions<T> {
   outdir?: string
   filename: string
-  stats?: Stats
   resolveConfig?: (config: Config) => void
   outSideLayerCss: 'base' | 'components' | 'utilities'
   options: T

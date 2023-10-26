@@ -1,4 +1,5 @@
 import type { CodegenOptions, DeepPartial } from './types'
+import { defaultVarPrefix } from './constants'
 
 const shareVars = {
   'rounded-box': '1rem',
@@ -15,6 +16,7 @@ const shareVars = {
 
 export function getCodegenDefaults(): DeepPartial<CodegenOptions> {
   return {
+    varPrefix: defaultVarPrefix,
     log: true,
     rtl: false,
     styled: true,
@@ -140,19 +142,25 @@ export function getCodegenDefaults(): DeepPartial<CodegenOptions> {
           }
         }
       },
-      extraVars: {
+      extraColors: {
         light: {
           'base-100': '#ffffff',
           'base-200': 'rgb(242, 242, 242)',
           'base-300': 'rgb(229, 230, 230)',
-          'base-content': 'rgb(31, 41, 55)',
-          ...shareVars
+          'base-content': 'rgb(31, 41, 55)'
         },
         dark: {
           'base-100': 'rgb(29, 35, 42)',
           'base-200': 'rgb(25, 30, 36)',
           'base-300': 'rgb(21, 25, 30)',
-          'base-content': 'rgb(166, 173, 186)',
+          'base-content': 'rgb(166, 173, 186)'
+        }
+      },
+      extraVars: {
+        light: {
+          ...shareVars
+        },
+        dark: {
           ...shareVars
         }
       }

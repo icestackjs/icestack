@@ -1,4 +1,5 @@
-import { icestackPlugin, miniprogramPreset } from '@/tailwindcss'
+import { icestackPlugin } from '@/tailwindcss'
+import { miniprogramPreset } from '@/presets'
 import { getCss } from '@/utils'
 describe.skip('tailwindcss', () => {
   it('not throw', () => {

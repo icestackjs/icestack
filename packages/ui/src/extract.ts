@@ -8,9 +8,10 @@ import { colors } from './colors'
 import { extractScss } from '@/sass'
 import { resolveJsDir, scssDir } from '@/dirs'
 import { someExtends } from '@/constants'
-import { TailwindcssPluginOptions } from '@/types'
+import { CodegenOptions } from '@/types'
+
 export type IOptions = {
-  options: TailwindcssPluginOptions
+  options: CodegenOptions
   outSideLayerCss: 'base' | 'utilities' | 'components'
 }
 
@@ -173,7 +174,7 @@ export function getJsObj(opts: IOptions) {
   }
 }
 
-export function extractAll(options: TailwindcssPluginOptions) {
+export function extractAll(options: CodegenOptions) {
   const base = getJsObj({
     options,
     outSideLayerCss: 'base'

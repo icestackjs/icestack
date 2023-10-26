@@ -1,17 +1,14 @@
 import fs from 'node:fs/promises'
-import fss from 'node:fs'
 import path from 'node:path'
 import * as sass from 'sass'
 import { merge } from 'merge'
 import postcssJs from 'postcss-js'
 import { Root } from 'postcss'
-import deasync from 'deasync'
-import Fiber from 'fibers'
 import { createFunctions } from './functions'
 import { ensureDir } from '@/utils'
 import { getCssPath, getJsPath, scssDir, getCssResolvedpath } from '@/dirs'
-import { CodegenOptions, IBuildScssOptions, TailwindcssPluginOptions } from '@/types'
-import { resolveTailwindcss, initConfig } from '@/postcss/compile/tailwindcss'
+import { CodegenOptions, IBuildScssOptions } from '@/types'
+import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
 import { addVarPrefix } from '@/postcss/custom-property-prefixer'
 // 1. scss
 // 2. add var prefix
@@ -66,7 +63,7 @@ export async function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
   }
 }
 
-export function extractScss(opts: IBuildScssOptions<TailwindcssPluginOptions>) {
+export function extractScss(opts: IBuildScssOptions<CodegenOptions>) {
   const { filename, resolveConfig, options, outSideLayerCss } = opts
   const name = path.basename(filename, '.scss')
   const { css } = compileScss(filename, options)

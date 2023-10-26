@@ -20,18 +20,6 @@ const defaults: IDefaults = {
   }
 }
 
-// const injectName = createInjectName('badge')
-// const sassColors = transformJsToSass(colorsMap)
-// const sassDefaults = transformJsToSass(defaults)
-// export const inject = {
-//   [injectName.colors]: () => {
-//     return sassColors
-//   },
-//   [injectName.defaults]: () => {
-//     return sassDefaults
-//   }
-// }
-
 export const options = (opts: CreatePresetOptions) => {
   return {
     colors: expandColorsMap(opts.types, (cur) => {

@@ -1,11 +1,11 @@
-import { getCodegenOptions, getTailwindcssOptions } from '@/options'
+import { getCodegenOptions } from '@/options'
 
 describe('options', () => {
   it('getCodegenOptions snap', () => {
     expect(getCodegenOptions()).toMatchSnapshot()
   })
 
-  it('getTailwindcssOptions snap', () => {
-    expect(getTailwindcssOptions()).toMatchSnapshot()
-  })
+  // it('getTailwindcssOptions snap', () => {
+  //   expect(getTailwindcssOptions()).toMatchSnapshot()
+  // })
 })

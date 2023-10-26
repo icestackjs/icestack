@@ -4,7 +4,7 @@ import plugin from 'tailwindcss/plugin'
 import { set } from 'lodash'
 import klaw from 'klaw'
 import { generateIndexCode } from './js/generate'
-import { colors } from './colors'
+// import { colors } from './colors'
 import { buildScss } from '@/sass'
 import { resolveJsDir, scssDir } from '@/dirs'
 import { someExtends } from '@/constants'
@@ -34,7 +34,7 @@ export async function generate(opts: IOptions) {
       break
     }
     case 'utilities': {
-      // const { colors } = await import('../src/colors')
+      const { colors } = await import('../src/colors')
       const utilitiesPath = path.resolve(scssDir, 'utilities')
       const basenameArray = []
       const fromDir = path.resolve(scssDir, 'utilities')

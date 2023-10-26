@@ -9,8 +9,6 @@ export function generateBtnInjectVars(type: string) {
   }
 }
 
-// const injectName = createInjectName('button')
-
 const defaults: IDefaults = {
   styled: {
     default: {

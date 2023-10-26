@@ -31,17 +31,6 @@ const defaults: IDefaults = {
     focusVisible: 'outline-base-content outline outline-2 outline-offset-2'
   }
 }
-// const injectName = createInjectName('checkbox')
-// const sassColors = transformJsToSass(colorsMap)
-// const sassDefaults = transformJsToSass(defaults)
-// export const inject = {
-//   [injectName.colors]: () => {
-//     return sassColors
-//   },
-//   [injectName.defaults]: () => {
-//     return sassDefaults
-//   }
-// }
 
 export const options = (opts: CreatePresetOptions) => {
   return {

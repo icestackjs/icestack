@@ -145,28 +145,3 @@ exports[`options > getCodegenOptions snap 1`] = `
   "styled": true,
 }
 `;
-
-exports[`options > getTailwindcssOptions snap 1`] = `
-{
-  "base": {
-    "selector": {
-      "entries": [],
-    },
-  },
-  "global": {
-    "atMedia": {
-      "hover": false,
-    },
-    "pseudo": {
-      "where": true,
-    },
-    "selector": {
-      "globalKeyword": "global",
-      "universal": "*",
-    },
-  },
-  "log": true,
-  "rtl": false,
-  "styled": true,
-}
-`;

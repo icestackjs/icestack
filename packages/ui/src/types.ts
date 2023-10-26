@@ -1,12 +1,23 @@
 import type { Stats } from 'node:fs'
 import type { ConfigOptions } from 'rtlcss'
-import type { AcceptedPlugin } from 'postcss'
+// import type { AcceptedPlugin } from 'postcss'
 import type { Config } from 'tailwindcss'
 import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
 import type { CssInJs } from 'postcss-js'
 import type allComponents from './allComponents'
 import type { Options as PrefixerOptions } from '@/postcss/prefixer'
 export interface SharedOptions {
+  components: Record<
+    (typeof allComponents)[number],
+    {
+      override: object
+      extend: object
+      // postcss: {
+      //   plugins: AcceptedPlugin[]
+      // }
+      append: CssInJs[]
+    }
+  >
   varPrefix: PropertyPrefixerOptions['prefix']
   styled: boolean
   log: boolean
@@ -38,19 +49,8 @@ export interface SharedOptions {
 }
 
 export type CodegenOptions = SharedOptions & {
-  components: Record<
-    (typeof allComponents)[number],
-    {
-      override: object
-      extend: object
-      // postcss: {
-      //   plugins: AcceptedPlugin[]
-      // }
-      append: CssInJs[]
-    }
-  >
-
-  outdir: string
+  basedir?: string
+  outdir?: string
   base: {
     selector: {
       // default
@@ -72,21 +72,21 @@ export type CodegenOptions = SharedOptions & {
   presets: DeepPartial<CodegenOptions>[]
 }
 
-export type TailwindcssPluginOptions = SharedOptions & {
-  components: Record<
-    (typeof allComponents)[number],
-    {
-      append: CssInJs[]
-    }
-  >
-  basedir: string
-  base: {
-    selector: {
-      entries: { find: string | RegExp; replacement: string }[]
-    }
-  }
-  presets: DeepPartial<TailwindcssPluginOptions>[]
-}
+// export type TailwindcssPluginOptions = SharedOptions & {
+//   // components: Record<
+//   //   (typeof allComponents)[number],
+//   //   {
+//   //     append: CssInJs[]
+//   //   }
+//   // >
+//   basedir: string
+//   base: {
+//     selector: {
+//       entries: { find: string | RegExp; replacement: string }[]
+//     }
+//   }
+//   presets: DeepPartial<TailwindcssPluginOptions>[]
+// }
 
 export interface IBuildScssOptions<T> {
   outdir?: string
@@ -107,10 +107,8 @@ export interface IBuildScssOptions<T> {
 //     : T[P]
 // }
 
-export declare type DeepPartial<T> = {
-  [K in keyof T]?: DeepPartial<T[K]>
-}
+export type DeepPartial<T> = { [P in keyof T]?: DeepPartial<T[P]> }
 
-export declare type DeepRequired<T> = {
-  [K in keyof T]-?: DeepRequired<NonNullable<T[K]>>
-}
+export type DeepRequired<T> = Required<{
+  [K in keyof T]: T[K] extends Required<T[K]> ? T[K] : DeepRequired<T[K]>
+}>

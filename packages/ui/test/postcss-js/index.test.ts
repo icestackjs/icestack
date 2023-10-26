@@ -3,7 +3,7 @@ import type { AcceptedPlugin } from 'postcss'
 import baseJsObj from '../../assets/js/base'
 import countdownJsObj from '../../assets/js/components/styled/countdown'
 import globalPostcss from '@/postcss/global'
-import { getTailwindcssOptions } from '@/options'
+import { getCodegenOptions } from '@/options'
 describe('postcss-js', () => {
   it('globalPostcss case 0', () => {
     expect(postcssJs.sync([globalPostcss])(baseJsObj)).toMatchSnapshot()
@@ -13,7 +13,7 @@ describe('postcss-js', () => {
     expect(
       postcssJs.sync([
         globalPostcss(
-          getTailwindcssOptions({
+          getCodegenOptions({
             base: {
               selector: {
                 dark: '.dark',
@@ -30,7 +30,7 @@ describe('postcss-js', () => {
     expect(
       postcssJs.sync([
         globalPostcss(
-          getTailwindcssOptions({
+          getCodegenOptions({
             global: {
               selector: {
                 universal: 'view'

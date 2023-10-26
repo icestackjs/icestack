@@ -18,14 +18,6 @@ const colorsMap = expandColorsMap(Types, (cur) => {
     fileSelectorButton: generateFileSelectorButton(cur)
   }
 })
-// const injectName = createInjectName('file-input')
-// const sassColors = transformJsToSass(colorsMap)
-// // const sassDefaults = transformJsToSass(defaults)
-// export const inject = {
-//   [injectName.colors]: () => {
-//     return sassColors
-//   }
-// }
 
 export const options = {
   colors: colorsMap

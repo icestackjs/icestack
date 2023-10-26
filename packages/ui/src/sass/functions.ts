@@ -66,8 +66,7 @@ export function expandInject<T extends Record<string, T>>(obj: T) {
   return obj
 }
 
-export const createFunctions: (opts: CodegenOptions) => Options<'sync'>['functions'] = (opts) => {
-  const options = opts // getCodegenOptions(opts)
+export const createFunctions: (options: CodegenOptions) => Options<'sync'>['functions'] = (options) => {
   const baseResult = base.calcBase(options)
   const presets = createPreset({
     types: baseResult.allTypes

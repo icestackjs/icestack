@@ -10,7 +10,7 @@ import Fiber from 'fibers'
 import { createFunctions } from './functions'
 import { ensureDir } from '@/utils'
 import { getCssPath, getJsPath, scssDir, getCssResolvedpath } from '@/dirs'
-import { CodegenOptions, IBuildScssOptions } from '@/types'
+import { CodegenOptions, IBuildScssOptions, TailwindcssPluginOptions } from '@/types'
 import { resolveTailwindcss, initConfig } from '@/postcss/compile/tailwindcss'
 import { addVarPrefix } from '@/postcss/custom-property-prefixer'
 // 1. scss
@@ -23,7 +23,7 @@ export function compileScss(filename: string, opts: CodegenOptions) {
   return addVarPrefix(result.css)
 }
 
-export async function buildScss(opts: IBuildScssOptions) {
+export async function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
   const { filename, resolveConfig, stats = await fs.stat(filename), outdir, options, outSideLayerCss } = opts
   if (stats && stats.isFile() && /\.scss$/.test(filename)) {
     const name = path.basename(filename, '.scss')
@@ -66,7 +66,7 @@ export async function buildScss(opts: IBuildScssOptions) {
   }
 }
 
-export function extractScss(opts: IBuildScssOptions) {
+export function extractScss(opts: IBuildScssOptions<TailwindcssPluginOptions>) {
   const { filename, resolveConfig, options, outSideLayerCss } = opts
   const name = path.basename(filename, '.scss')
   const { css } = compileScss(filename, options)

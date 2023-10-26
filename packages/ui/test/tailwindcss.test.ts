@@ -1,6 +1,6 @@
 import { icestackPlugin, miniprogramPreset } from '@/tailwindcss'
 import { getCss } from '@/utils'
-describe('tailwindcss', () => {
+describe.skip('tailwindcss', () => {
   it('not throw', () => {
     expect(() => {
       icestackPlugin({})

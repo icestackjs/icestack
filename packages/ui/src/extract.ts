@@ -3,13 +3,14 @@ import plugin from 'tailwindcss/plugin'
 import { set } from 'lodash'
 import klawSync from 'klaw-sync'
 import { CssInJs } from 'postcss-js'
+import merge from 'merge'
 import { colors } from './colors'
 import { extractScss } from '@/sass'
 import { resolveJsDir, scssDir } from '@/dirs'
 import { someExtends } from '@/constants'
-import { CodegenOptions } from '@/types'
+import { TailwindcssPluginOptions } from '@/types'
 export type IOptions = {
-  options: CodegenOptions
+  options: TailwindcssPluginOptions
   outSideLayerCss: 'base' | 'utilities' | 'components'
 }
 
@@ -29,14 +30,17 @@ export function getJsObj(opts: IOptions) {
   // await ensureDir(pluginsDir)
   switch (outSideLayerCss) {
     case 'base': {
-      return walkScssSync(path.resolve(scssDir, 'base')).map((file) => {
-        return extractScss({
-          outdir,
-          filename: file.path,
-          outSideLayerCss,
-          options
+      return merge.recursive(
+        true,
+        ...walkScssSync(path.resolve(scssDir, 'base')).map((file) => {
+          return extractScss({
+            outdir,
+            filename: file.path,
+            outSideLayerCss,
+            options
+          })
         })
-      })
+      )
     }
     case 'utilities': {
       const utilitiesPath = path.resolve(scssDir, 'utilities')
@@ -169,7 +173,7 @@ export function getJsObj(opts: IOptions) {
   }
 }
 
-export function extractAll(options: CodegenOptions) {
+export function extractAll(options: TailwindcssPluginOptions) {
   const base = getJsObj({
     options,
     outSideLayerCss: 'base'

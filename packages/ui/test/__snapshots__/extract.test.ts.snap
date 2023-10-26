@@ -1084,7 +1084,7 @@ exports[`extract > getJsObj 1`] = `
             "backgroundPositionY": "-2px",
           },
         },
-        "@media(hover:hover)": [
+        "@media (hover:hover)": [
           {
             ".checkbox-primary:hover": {
               "--tw-border-opacity": "1",
@@ -1322,7 +1322,7 @@ exports[`extract > getJsObj 1`] = `
           "fontSize": "0.75rem",
           "lineHeight": "1rem",
         },
-        "@media(hover:hover)": {
+        "@media (hover:hover)": {
           ".label a:hover": {
             "--tw-text-opacity": "1",
             "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
@@ -1521,7 +1521,7 @@ exports[`extract > getJsObj 1`] = `
           "outline": "2px solid currentColor",
           "outlineOffset": "2px",
         },
-        "@media(hover:hover)": [
+        "@media (hover:hover)": [
           {
             ".link-primary:hover": {
               "--tw-text-opacity": "1",
@@ -1568,7 +1568,7 @@ exports[`extract > getJsObj 1`] = `
         ".link-hover": {
           "textDecorationLine": "none",
         },
-        "@media(hover:hover)": {
+        "@media (hover:hover)": {
           ".link-hover:hover": {
             "textDecorationLine": "underline",
           },
@@ -2176,7 +2176,7 @@ exports[`extract > getJsObj 1`] = `
             "boxShadow": "0 0 0 3px rgba(var(--ice-base-100)) inset, 0 0 0 3px rgba(var(--ice-base-100)) inset",
           },
         },
-        "@media(hover:hover)": [
+        "@media (hover:hover)": [
           {
             ".radio-primary:hover": {
               "--tw-border-opacity": "1",

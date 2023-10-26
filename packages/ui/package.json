@@ -86,7 +86,6 @@
     "compose-tailwindcss-plugins": "workspace:^",
     "css-selector-tokenizer": "^0.8.0",
     "css-to-tailwindcss-plugin": "workspace:^",
-    "deasync": "^0.1.29",
     "immutable": "^4.0.0",
     "klaw-sync": "^6.0.0",
     "lodash": "^4.17.21",
@@ -98,11 +97,12 @@
     "postcss-selector-parser": "^6.0.13",
     "rtlcss": "^4.1.1",
     "sass": "^1.69.5",
-    "tailwindcss": "^3.3.5"
+    "tailwindcss": "3.3.2"
   },
   "devDependencies": {
     "@types/css-selector-tokenizer": "^0.7.3",
     "@types/deasync": "^0.1.4",
+    "@types/fibers": "^3.1.3",
     "@types/klaw-sync": "^6.0.3",
     "@types/lodash": "^4.14.200",
     "@types/object-hash": "^3.0.5",
@@ -110,7 +110,9 @@
     "@types/rtlcss": "^3.5.3",
     "fast-glob": "^3.3.1",
     "merge": "^2.1.1",
-    "sass-true": "^7.0.0"
+    "sass-true": "^7.0.0",
+    "deasync": "^0.1.29",
+    "fibers": "^5.0.3"
   },
   "publishConfig": {
     "access": "public",

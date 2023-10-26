@@ -5,6 +5,8 @@ import * as sass from 'sass'
 import { merge } from 'merge'
 import postcssJs from 'postcss-js'
 import { Root } from 'postcss'
+import deasync from 'deasync'
+import Fiber from 'fibers'
 import { createFunctions } from './functions'
 import { ensureDir } from '@/utils'
 import { getCssPath, getJsPath, scssDir, getCssResolvedpath } from '@/dirs'
@@ -64,13 +66,13 @@ export async function buildScss(opts: IBuildScssOptions) {
   }
 }
 
-export async function extractScss(opts: IBuildScssOptions) {
+export function extractScss(opts: IBuildScssOptions) {
   const { filename, resolveConfig, options, outSideLayerCss } = opts
   const name = path.basename(filename, '.scss')
   const { css } = compileScss(filename, options)
   const config = initConfig()
   resolveConfig?.(config)
-  const { root } = await resolveTailwindcss({
+  const { root } = resolveTailwindcss({
     css,
     config
   })

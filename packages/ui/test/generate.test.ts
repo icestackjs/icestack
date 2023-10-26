@@ -7,7 +7,9 @@ function resolve(...p: string[]) {
 describe.skipIf(true)('generate', () => {
   it('case 0', async () => {
     const dir = resolve('case0')
-    await buildAll(dir)
+    await buildAll({
+      outdir: dir
+    })
     expect(fs.existsSync(path.resolve(dir, 'css'))).toBe(true)
     expect(fs.existsSync(path.resolve(dir, 'css-resolved'))).toBe(true)
     expect(fs.existsSync(path.resolve(dir, 'js'))).toBe(true)

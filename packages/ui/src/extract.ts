@@ -8,7 +8,6 @@ import { extractScss } from '@/sass'
 import { resolveJsDir, scssDir } from '@/dirs'
 import { someExtends } from '@/constants'
 import { CodegenOptions } from '@/types'
-
 export type IOptions = {
   options: CodegenOptions
   outSideLayerCss: 'base' | 'utilities' | 'components'
@@ -24,22 +23,20 @@ export function walkScssSync(dir: string) {
   })
 }
 
-export async function getJsObj(opts: IOptions) {
+export function getJsObj(opts: IOptions) {
   const { outSideLayerCss, options } = opts // defu<IOptions, Partial<IOptions>[]>(opts, {})
   const { outdir } = options
   // await ensureDir(pluginsDir)
   switch (outSideLayerCss) {
     case 'base': {
-      return Promise.all(
-        walkScssSync(path.resolve(scssDir, 'base')).map((file) => {
-          return extractScss({
-            outdir,
-            filename: file.path,
-            outSideLayerCss,
-            options
-          })
+      return walkScssSync(path.resolve(scssDir, 'base')).map((file) => {
+        return extractScss({
+          outdir,
+          filename: file.path,
+          outSideLayerCss,
+          options
         })
-      )
+      })
     }
     case 'utilities': {
       const utilitiesPath = path.resolve(scssDir, 'utilities')
@@ -52,7 +49,7 @@ export async function getJsObj(opts: IOptions) {
         }
         resultArray.push({
           key: path.relative(fromDir, file.path).replace(/\.scss$/, ''),
-          value: await extractScss({
+          value: extractScss({
             outdir,
             filename: file.path,
             outSideLayerCss,
@@ -73,7 +70,7 @@ export async function getJsObj(opts: IOptions) {
 
         resultArray.push({
           key: path.relative(fromDir, file.path).replace(/\.scss$/, ''),
-          value: await extractScss({
+          value: extractScss({
             outdir,
             filename: file.path,
             outSideLayerCss,
@@ -127,7 +124,7 @@ export async function getJsObj(opts: IOptions) {
         }
         resultArray.push({
           key: path.relative(fromDir, file.path).replace(/\.scss$/, ''),
-          value: await extractScss({
+          value: extractScss({
             outdir,
             filename: file.path,
             resolveConfig: (config) => {
@@ -172,18 +169,18 @@ export async function getJsObj(opts: IOptions) {
   }
 }
 
-export async function extractAll(options: CodegenOptions) {
-  const base = await getJsObj({
+export function extractAll(options: CodegenOptions) {
+  const base = getJsObj({
     options,
     outSideLayerCss: 'base'
   })
   console.log('extract base finished!')
-  const utilities = await getJsObj({
+  const utilities = getJsObj({
     options,
     outSideLayerCss: 'utilities'
   })
   console.log('extract utilities finished!')
-  const components = await getJsObj({
+  const components = getJsObj({
     options,
     outSideLayerCss: 'components'
   })

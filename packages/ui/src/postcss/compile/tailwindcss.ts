@@ -1,17 +1,29 @@
 import postcss from 'postcss'
 import tailwindcss, { type Config } from 'tailwindcss'
-
-export async function resolveTailwindcss(options: { css: string; config: Config }) {
-  const { config, css: cssOutput } = options
+// import deasync from 'deasync'
+export function resolveTailwindcss(options: { css: string; config: Config }) {
+  const { config, css } = options
   const tw = tailwindcss(config)
-  const res = await postcss([tw])
+  // let result: postcss.Result<postcss.Document | postcss.Root>
+  // let done = false
+  const result = postcss([tw])
     // @tailwind base;\n
     // @ts-ignore
-    .process('@tailwind components;\n@tailwind utilities;\n' + cssOutput, {
+    .process('@tailwind components;\n@tailwind utilities;\n' + css, {
       from: undefined
     })
-    .async()
-  return res
+  // .async()
+  // .then((res) => {
+  //   result = res
+  //   done = true
+  // })
+  // require('deasync').loopWhile(() => {
+  //   return !done
+  // })
+  // while (done) {
+  //   break
+  // }
+  return result
 }
 
 export function initConfig() {

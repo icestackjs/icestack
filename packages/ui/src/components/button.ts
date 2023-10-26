@@ -4,6 +4,7 @@ export function generateBtnInjectVars(type: string) {
   return {
     outline: `text-${type}`,
     default: `border-${type} bg-${type} text-${type}-content outline-${type}`,
+    hover: `border-${type}-hover bg-${type}-hover`,
     active: `border-${type}-focus bg-${type}-focus`,
     outlineActive: `border-${type}-focus bg-${type}-focus text-${type}-content`
   }
@@ -18,7 +19,7 @@ const defaults: IDefaults = {
       }
     },
     focusVisible: 'outline outline-2 outline-offset-2',
-    hover: null,
+    hover: 'border-base-100 bg-base-100',
     active: 'border-base-300 bg-base-300',
     outline: 'border-current bg-transparent shadow-none text-base-content',
     outlineActive: 'border-base-content bg-base-content text-base-100',

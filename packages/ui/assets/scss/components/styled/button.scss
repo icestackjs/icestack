@@ -7,9 +7,6 @@ $DefaultMap: inject("button.defaults.styled");
 $hoverMedia: map.get($DefaultMap, "hoverMedia");
 //Mixins may not contain mixin declarations.
 @mixin button-active($applyStr, $pseudo: "active") {
-  // @if ($applyStr == null) {
-  //   @return;
-  // }
   &:#{$pseudo} {
     @include resolve($applyStr);
   }
@@ -39,12 +36,12 @@ $hoverMedia: map.get($DefaultMap, "hoverMedia");
 @mixin spread($map, $t: null) {
   @if ($t == null) {
     @include resolve(map.get($map, "default"));
-    @include button-active(map.get($map, "active"));
     @include button-hover(map.get($map, "hover"));
+    @include button-active(map.get($map, "active"));
   } @else {
     @include resolve(map.get($map, $t));
-    @include button-active(map.get($map, "#{$t}Active"));
     @include button-hover(map.get($map, "#{$t}Hover"));
+    @include button-active(map.get($map, "#{$t}Active"));
   }
 }
 

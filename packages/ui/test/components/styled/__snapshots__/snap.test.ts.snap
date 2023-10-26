@@ -89,6 +89,9 @@ exports[`button > snap 1`] = `
 .btn:focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
+.btn:hover {
+  @apply border-base-100 bg-base-100;
+}
 .btn:active {
   @apply border-base-300 bg-base-300;
 }
@@ -97,6 +100,9 @@ exports[`button > snap 1`] = `
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
+}
+.btn-primary:hover {
+  @apply border-primary-hover bg-primary-hover;
 }
 .btn-primary:active {
   @apply border-primary-focus bg-primary-focus;
@@ -107,6 +113,9 @@ exports[`button > snap 1`] = `
 .btn-success {
   @apply border-success bg-success text-success-content outline-success;
 }
+.btn-success:hover {
+  @apply border-success-hover bg-success-hover;
+}
 .btn-success:active {
   @apply border-success-focus bg-success-focus;
 }
@@ -115,6 +124,9 @@ exports[`button > snap 1`] = `
 }
 .btn-warning {
   @apply border-warning bg-warning text-warning-content outline-warning;
+}
+.btn-warning:hover {
+  @apply border-warning-hover bg-warning-hover;
 }
 .btn-warning:active {
   @apply border-warning-focus bg-warning-focus;
@@ -125,6 +137,9 @@ exports[`button > snap 1`] = `
 .btn-error {
   @apply border-error bg-error text-error-content outline-error;
 }
+.btn-error:hover {
+  @apply border-error-hover bg-error-hover;
+}
 .btn-error:active {
   @apply border-error-focus bg-error-focus;
 }
@@ -134,6 +149,9 @@ exports[`button > snap 1`] = `
 .btn-info {
   @apply border-info bg-info text-info-content outline-info;
 }
+.btn-info:hover {
+  @apply border-info-hover bg-info-hover;
+}
 .btn-info:active {
   @apply border-info-focus bg-info-focus;
 }
@@ -142,6 +160,9 @@ exports[`button > snap 1`] = `
 }
 .btn-neutral {
   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+}
+.btn-neutral:hover {
+  @apply border-neutral-hover bg-neutral-hover;
 }
 .btn-neutral:active {
   @apply border-neutral-focus bg-neutral-focus;

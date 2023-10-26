@@ -8,13 +8,13 @@ export function resolve(filename: string) {
 }
 
 describe('base', () => {
-  it('snap', async () => {
-    const css = await compileScss(resolve('index'), getCodegenOptions())
-    expect(css).toMatchSnapshot()
+  it('snap', () => {
+    const result = compileScss(resolve('index'), getCodegenOptions())
+    expect(result.css).toMatchSnapshot()
   })
 
   it('snap case 1', async () => {
-    const css = await compileScss(
+    const { css } = await compileScss(
       resolve('index'),
       getCodegenOptions({
         base: {

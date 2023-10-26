@@ -30,10 +30,10 @@
       "import": "./dist/allComponents.mjs",
       "require": "./dist/allComponents.cjs"
     },
-    "./worker": {
-      "types": "./dist/worker.d.ts",
-      "import": "./dist/worker.mjs",
-      "require": "./dist/worker.cjs"
+    "./presets": {
+      "types": "./dist/presets.d.ts",
+      "import": "./dist/presets.mjs",
+      "require": "./dist/presets.cjs"
     },
     "./*": "./*"
   },

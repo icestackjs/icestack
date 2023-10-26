@@ -18,30 +18,6 @@ function isRgba(colorString: string) {
 function requireLib(id: string, basedir?: string) {
   return require(basedir ? path.resolve(basedir, id) : path.join('../assets', id))
 }
-// @ts-ignore
-export const miniprogramPreset: () => DeepPartial<TailwindcssPluginOptions> = () => {
-  return {
-    global: {
-      atMedia: {
-        hover: false
-      },
-      selector: {
-        universal: 'view'
-      }
-    },
-    components: {
-      button: {
-        append: [
-          {
-            '.btn::after': {
-              border: 'none'
-            }
-          }
-        ]
-      }
-    }
-  }
-}
 
 export const icestackPlugin = plugin.withOptions(
   function (opts?: DeepPartial<CodegenOptions>) {
@@ -105,8 +81,8 @@ export const icestackPlugin = plugin.withOptions(
       }
     }
   },
-  function (opts?: DeepPartial<TailwindcssPluginOptions>) {
-    const { basedir } = getTailwindcssOptions(opts)
+  function (opts?: DeepPartial<CodegenOptions>) {
+    const { basedir } = getCodegenOptions(opts)
     const base = requireLib('js/base/index.js', basedir) as typeof _base
 
     const colors = {

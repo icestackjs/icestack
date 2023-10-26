@@ -7,7 +7,7 @@ import { getCodegenOptions } from '@/options'
 const coms = (await fg(path.resolve(scssDir, 'utilities/global', '*.scss'))).map((x) => {
   return path.basename(x, '.scss')
 })
-describe.skip.each(coms)('%s', (com) => {
+describe.each(coms)('%s', (com) => {
   it('snap', async () => {
     const { css } = await compileScss(resolve(com), getCodegenOptions())
     expect(css).toMatchSnapshot()

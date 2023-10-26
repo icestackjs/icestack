@@ -21,6 +21,5 @@ export function addVarPrefix(rawCss: string, varPrefix: string = defaultVarPrefi
       .process(rawCss, {
         from: undefined
       })
-      .sync()
   )
 }

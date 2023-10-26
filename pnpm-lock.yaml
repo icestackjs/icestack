@@ -294,6 +294,9 @@ importers:
       css-to-tailwindcss-plugin:
         specifier: workspace:^
         version: link:../css-to-tailwindcss-plugin
+      deasync:
+        specifier: ^0.1.29
+        version: 0.1.29
       immutable:
         specifier: ^4.0.0
         version: 4.3.4
@@ -334,6 +337,9 @@ importers:
       '@types/css-selector-tokenizer':
         specifier: ^0.7.3
         version: 0.7.3
+      '@types/deasync':
+        specifier: ^0.1.4
+        version: 0.1.4
       '@types/klaw-sync':
         specifier: ^6.0.3
         version: 6.0.3
@@ -6492,6 +6498,10 @@ packages:
     resolution: {integrity: sha512-5j/AnefKAhCw4HpITmLDTPlf4vhi8o/dES+zbegfPb7LaGfNyqkLxBR6E+4yvTAgnJLmhe80EXFMzUs38fw4oA==}
     dev: false
 
+  /@types/deasync@0.1.4:
+    resolution: {integrity: sha512-dcQbMOlj4+1ZekRwOi+96FWjHWslNpnK2mfymAZaVKN+Fne9ZCBWxovMcIu9lYLWZOGX6qOlD7vXllx8nYRohw==}
+    dev: true
+
   /@types/debug@4.1.9:
     resolution: {integrity: sha512-8Hz50m2eoS56ldRlepxSBa6PWEVCtzUo/92HgLc2qTMnotJNIm7xP+UZhyWoYsyOdd5dxZ+NZLb24rsKyFs2ow==}
     dependencies:
@@ -8707,6 +8717,12 @@ packages:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
 
+  /bindings@1.5.0:
+    resolution: {integrity: sha512-p2q/t/mhvuOj/UeLlV6566GD/guowlr0hHxClI0W9m7MWYkL1F0hLo+0Aexs9HSPCtR1SXQ0TD3MMKrXZajbiQ==}
+    dependencies:
+      file-uri-to-path: 1.0.0
+    dev: false
+
   /bl@4.1.0:
     resolution: {integrity: sha512-1W07cM9gS6DcLperZfFSj+bWLtaPGSOHWhPiGzXmvVJbRLdG82sH/Kn8EtW1VqWVA54AKf2h5k5BbnIbwF3h6w==}
     dependencies:
@@ -9864,6 +9880,15 @@ packages:
 
   /dayjs@1.11.10:
     resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+    dev: false
+
+  /deasync@0.1.29:
+    resolution: {integrity: sha512-EBtfUhVX23CE9GR6m+F8WPeImEE4hR/FW9RkK0PMl9V1t283s0elqsTD8EZjaKX28SY1BW2rYfCgNsAYdpamUw==}
+    engines: {node: '>=0.11.0'}
+    requiresBuild: true
+    dependencies:
+      bindings: 1.5.0
+      node-addon-api: 1.7.2
     dev: false
 
   /debug@2.6.9:
@@ -11448,6 +11473,10 @@ packages:
       fs-extra: 11.1.1
       ramda: 0.29.0
     dev: true
+
+  /file-uri-to-path@1.0.0:
+    resolution: {integrity: sha512-0Zt+s3L7Vf1biwWZ29aARiVYLx7iMGnEUl9x33fbB/j3jR81u/O2LbqK+Bm1CDSNDKVtJ/YjwY7TUd5SkeLQLw==}
+    dev: false
 
   /filelist@1.0.4:
     resolution: {integrity: sha512-w1cEuf3S+DrLCQL7ET6kz+gmlJdbq9J7yXCSjK/OZCPA+qEN1WyF4ZAf0YYJa4/shHJra2t/d/r8SV4Ji+x+8Q==}
@@ -14831,6 +14860,10 @@ packages:
     dependencies:
       '@types/nlcst': 1.0.3
     dev: true
+
+  /node-addon-api@1.7.2:
+    resolution: {integrity: sha512-ibPK3iA+vaY1eEjESkQkM0BbCqFOaZMiXRTtdB0u7b4djtY6JnsjvPdUHVMg6xQt3B8fpTTWHI9A+ADjM9frzg==}
+    dev: false
 
   /node-dir@0.1.17:
     resolution: {integrity: sha512-tmPX422rYgofd4epzrNoOXiE8XFZYOcCq1vD7MAXCDO+O+zndlA2ztdKKMa+EeuBG5tHETpr4ml4RGgpqDCCAg==}

@@ -8,13 +8,13 @@ export function resolve(filename: string) {
 }
 
 describe('var-prefix', () => {
-  it('snap case 0', async () => {
-    const css = await compileScss(resolve('index'), getCodegenOptions({}))
+  it('snap case 0', () => {
+    const { css } = compileScss(resolve('index'), getCodegenOptions({}))
     expect(css).toMatchSnapshot()
   })
 
-  it('snap case 1', async () => {
-    const css = await compileScss(
+  it('snap case 1', () => {
+    const { css } = compileScss(
       resolve('index'),
       getCodegenOptions({
         varPrefix: '--som-'

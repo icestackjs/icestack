@@ -8,10 +8,10 @@ import type allComponents from './allComponents'
 import type { Options as PrefixerOptions } from '@/postcss/prefixer'
 export interface SharedOptions {
   varPrefix: PropertyPrefixerOptions['prefix']
-  styled: boolean
+  // styled: boolean
   log: boolean
   prefix: string | PrefixerOptions
-  rtl: boolean | ConfigOptions
+  // rtl: boolean | ConfigOptions
   global: {
     atMedia: {
       // default false

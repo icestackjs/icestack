@@ -65,24 +65,22 @@ export async function buildScss(opts: IBuildScssOptions) {
 }
 
 export async function extractScss(opts: IBuildScssOptions) {
-  const { filename, resolveConfig, stats, options, outSideLayerCss } = opts
-  if (stats && stats.isFile() && /\.scss$/.test(filename)) {
-    const name = path.basename(filename, '.scss')
-    const { css } = compileScss(filename, options)
-    const config = initConfig()
-    resolveConfig?.(config)
-    const { root } = await resolveTailwindcss({
-      css,
-      config
-    })
-    const cssJsObj = postcssJs.objectify(root as Root)
-    if (outSideLayerCss === 'utilities') {
-      // @ts-ignore
-      const hit = options?.components?.[name]
-      if (hit && Array.isArray(hit.append)) {
-        merge(cssJsObj, ...hit.append)
-      }
+  const { filename, resolveConfig, options, outSideLayerCss } = opts
+  const name = path.basename(filename, '.scss')
+  const { css } = compileScss(filename, options)
+  const config = initConfig()
+  resolveConfig?.(config)
+  const { root } = await resolveTailwindcss({
+    css,
+    config
+  })
+  const cssJsObj = postcssJs.objectify(root as Root)
+  if (outSideLayerCss === 'utilities') {
+    // @ts-ignore
+    const hit = options?.components?.[name]
+    if (hit && Array.isArray(hit.append)) {
+      merge(cssJsObj, ...hit.append)
     }
-    return cssJsObj
   }
+  return cssJsObj
 }

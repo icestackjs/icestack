@@ -4,7 +4,7 @@ import { cx } from 'class-variance-authority'
 
 export default function ThemeProvider(
   props: PropsWithChildren<{
-    mode: 'light' | 'dark'
+    mode?: 'light' | 'dark'
   }>
 ) {
   return (

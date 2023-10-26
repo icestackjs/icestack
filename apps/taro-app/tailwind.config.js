@@ -1,4 +1,5 @@
 const { icestackPlugin, miniprogramPreset } = require('@icestack/ui/tailwindcss')
+const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
 const path = require('path')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -20,6 +21,9 @@ module.exports = {
     //   },
 
     // })
+    iconsPlugin({
+      collections: getIconCollections(['mdi'])
+    }),
     icestackPlugin({
       basedir: path.resolve(__dirname, './my-ui'),
       // presets: [miniprogramPreset()]

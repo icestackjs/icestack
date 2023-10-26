@@ -25,6 +25,11 @@
     "./css/*": "./assets/css/*",
     "./css-resolved/*": "./assets/css-resolved/*",
     "./js/*": "./assets/js/*",
+    "./allComponents": {
+      "types": "./dist/allComponents.d.ts",
+      "import": "./dist/allComponents.mjs",
+      "require": "./dist/allComponents.cjs"
+    },
     "./*": "./*"
   },
   "typesVersions": {

@@ -1,6 +1,5 @@
 import { expandColorsMap, IDefaults } from './shared'
 import { CreatePresetOptions } from '@/sass/functions'
-
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
 }
@@ -21,7 +20,7 @@ const defaults: IDefaults = {
 }
 
 export const options = (opts: CreatePresetOptions) => {
-  return {
+  const d = {
     colors: expandColorsMap(opts.types, (cur) => {
       return {
         default: generateDefault(cur),
@@ -30,4 +29,5 @@ export const options = (opts: CreatePresetOptions) => {
     }),
     defaults
   }
+  return d
 }

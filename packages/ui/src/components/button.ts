@@ -1,5 +1,15 @@
 import { IDefaults, expandColorsMap } from './shared'
 import { CreatePresetOptions } from '@/sass/functions'
+// const sassColors = transformJsToSass(colorsMap)
+// const sassDefaults = transformJsToSass(defaults)
+// export const inject = {
+//   [injectName.colors]: () => {
+//     return sassColors
+//   },
+//   [injectName.defaults]: () => {
+//     return sassDefaults
+//   }
+// }
 export function generateBtnInjectVars(type: string) {
   return {
     outline: `text-${type}`,
@@ -44,22 +54,12 @@ const defaults: IDefaults = {
   },
   unstyled: {}
 }
-// const sassColors = transformJsToSass(colorsMap)
-// const sassDefaults = transformJsToSass(defaults)
-// export const inject = {
-//   [injectName.colors]: () => {
-//     return sassColors
-//   },
-//   [injectName.defaults]: () => {
-//     return sassDefaults
-//   }
-// }
-
 export const options = (opts: CreatePresetOptions) => {
-  return {
+  const d = {
     colors: expandColorsMap(opts.types, (cur) => {
       return generateBtnInjectVars(cur)
     }),
     defaults
   }
+  return d
 }

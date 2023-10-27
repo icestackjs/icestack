@@ -24,9 +24,8 @@ const defaults: IDefaults = {
     disabled: 'border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20'
   }
 }
-
 export const options = (opts: CreatePresetOptions) => {
-  return {
+  const d = {
     colors: expandColorsMap(opts.types, (cur) => {
       return {
         default: generateDefault(cur),
@@ -35,4 +34,5 @@ export const options = (opts: CreatePresetOptions) => {
     }),
     defaults
   }
+  return d
 }

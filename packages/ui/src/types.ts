@@ -27,17 +27,16 @@ export type BaseOptions = {
   extraVars: Record<string, Record<string, string>>
 }
 
-export type ComponentsOptions = Record<
-  (typeof allComponents)[number],
-  {
-    override: object
-    extend: object
-    // postcss: {
-    //   plugins: AcceptedPlugin[]
-    // }
-    append: CssInJs[]
-  }
->
+export type ComponentsValue = {
+  override: object
+  extend: object
+  // postcss: {
+  //   plugins: AcceptedPlugin[]
+  // }
+  append: CssInJs[]
+}
+
+export type ComponentsOptions = Record<(typeof allComponents)[number] | string, ComponentsValue>
 
 export type GlobalOptions = {
   atMedia: {
@@ -69,22 +68,6 @@ export type CodegenOptions = {
   basedir?: string
   outdir?: string
 }
-
-// export type TailwindcssPluginOptions = SharedOptions & {
-//   // components: Record<
-//   //   (typeof allComponents)[number],
-//   //   {
-//   //     append: CssInJs[]
-//   //   }
-//   // >
-//   basedir: string
-//   base: {
-//     selector: {
-//       entries: { find: string | RegExp; replacement: string }[]
-//     }
-//   }
-//   presets: DeepPartial<TailwindcssPluginOptions>[]
-// }
 
 export interface IBuildScssOptions<T> {
   outdir?: string

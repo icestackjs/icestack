@@ -35,6 +35,20 @@
     @include assert-equal($a, "111");
   }
 
+  @include test("composeStringArray case 0") {
+    $a: composeStringArray(abc def); // meta.call(composeStringArray, (abc def)); //composeStringArray()
+    @debug $a;
+    // $expected: abc def;
+    @include assert-equal($a, "abc def");
+  }
+
+  @include test("composeStringArray case 1") {
+    $a: composeStringArray("abc" "def"); // meta.call(composeStringArray, ("abc" "def")); //composeStringArray()
+    @debug $a;
+    // $expected: "abc" "def";
+    @include assert-equal($a, "abc def");
+  }
+
   // @include it("resolve case 1") {
   //   $arg: "a b c d";
   //   @include assert {

@@ -31,9 +31,8 @@ const defaults: IDefaults = {
     focusVisible: 'outline-base-content outline outline-2 outline-offset-2'
   }
 }
-
 export const options = (opts: CreatePresetOptions) => {
-  return {
+  const d = {
     colors: expandColorsMap(opts.types, (cur) => {
       return {
         default: generateDefault(cur),
@@ -43,4 +42,5 @@ export const options = (opts: CreatePresetOptions) => {
     }),
     defaults
   }
+  return d
 }

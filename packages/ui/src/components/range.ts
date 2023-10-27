@@ -6,7 +6,7 @@ const defaults: IDefaults = {
 }
 
 export const options = (opts: CreatePresetOptions) => {
-  return {
+  const d = {
     colors: expandColorsMap(opts.types, (cur) => {
       return {
         default: {
@@ -18,4 +18,5 @@ export const options = (opts: CreatePresetOptions) => {
     }),
     defaults
   }
+  return d
 }

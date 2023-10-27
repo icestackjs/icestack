@@ -1,10 +1,13 @@
 import { IDefaults } from './shared'
 import { CreatePresetOptions } from '@/sass/functions'
-
 const defaults: IDefaults = {
   styled: {
-    group: 'flex overflow-hidden',
-    default: 'border-base-100 overflow-hidden rounded-full border-4'
+    group: {
+      apply: 'flex overflow-hidden'
+    },
+    default: {
+      apply: 'border-base-100 overflow-hidden rounded-full border-4'
+    }
   }
   // unstyled: {
   //   default:
@@ -13,8 +16,9 @@ const defaults: IDefaults = {
 }
 
 export const options = (opts: CreatePresetOptions) => {
-  return {
+  const d = {
     // colors: colorsMap,
     defaults
   }
+  return d
 }

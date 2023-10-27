@@ -61,8 +61,27 @@ $globalAtMediaHover: globalAtMediaHover();
   }
 }
 
+@function composeStringArray($list) {
+  $result: null;
+  @each $item in $list {
+    @if ($result == null) {
+      $result: $item;
+    } @else {
+      $result: #{$result} #{$item};
+    }
+  }
+
+  @return #{$result};
+}
+
 // type-of null == "null"
 // null == null
+
+// @else if($type == list) {
+//   $arg: (
+//     apply: composeStringArray($arg)
+//   );
+// }
 @mixin resolve($arg) {
   $type: meta.type-of($arg);
 

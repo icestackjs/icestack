@@ -12,9 +12,8 @@ const defaults: IDefaults = {
     }
   }
 }
-
 export const options = (opts: CreatePresetOptions) => {
-  return {
+  const d = {
     colors: expandColorsMap(opts.types, (t) => {
       return {
         default: `bg-${t} text-${t}-content`
@@ -22,4 +21,5 @@ export const options = (opts: CreatePresetOptions) => {
     }),
     defaults
   }
+  return d
 }

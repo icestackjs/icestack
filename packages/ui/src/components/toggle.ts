@@ -66,7 +66,7 @@ const defaults: IDefaults = {
 }
 
 export const options = (opts: CreatePresetOptions) => {
-  return {
+  const d = {
     colors: expandColorsMap(opts.types, (typeName) => {
       return {
         focusVisible: `outline-${typeName}`,
@@ -75,4 +75,6 @@ export const options = (opts: CreatePresetOptions) => {
     }),
     defaults
   }
+
+  return d
 }

@@ -1,12 +1,12 @@
-import { getCodegenOptions, getCliCodegenOptions } from '@/options'
+import { getCodegenOptions } from '@/options'
 
 describe('options', () => {
   it('getCodegenOptions snap', () => {
     expect(getCodegenOptions()).toMatchSnapshot()
   })
 
-  it('getCliCodegenOptions snap', () => {
-    expect(getCliCodegenOptions()).toMatchSnapshot()
+  it('getRawCodegenOptions snap', () => {
+    expect(getCodegenOptions({}, true)).toMatchSnapshot()
   })
 
   // it('getTailwindcssOptions snap', () => {

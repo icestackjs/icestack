@@ -58,8 +58,9 @@ export function applyListToString<T extends Record<string, T>>(obj: T) {
 }
 
 export function handleOptions(d: object, { extend, override }: Partial<ComponentsValue>) {
+  let xx = d
   if (override) {
-    return recursive(true, d, override)
+    xx = recursive(true, d, override)
   }
-  return defu(extend, d)
+  return defu(extend, xx)
 }

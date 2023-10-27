@@ -10,7 +10,7 @@ const coms = (await fg(path.resolve(scssDir, 'components/unstyled', '*.scss'))).
   return path.basename(x, '.scss')
 })
 console.log(coms)
-describe.skip.each(coms)('%s', (com) => {
+describe.each(coms)('%s', (com) => {
   it('snap', async () => {
     const { css } = await compileScss(resolve(com), getCodegenOptions())
     expect(css).toMatchSnapshot()

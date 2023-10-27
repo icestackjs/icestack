@@ -14,34 +14,10 @@ const shareVars = {
   'tab-radius': '0.5rem'
 }
 
-export function getCodegenDefaults(): DeepPartial<CodegenOptions> {
-  return {
-    varPrefix: defaultVarPrefix,
-    log: true,
-    rtl: false,
-    styled: true,
-    global: {
-      atMedia: {
-        hover: false
-      },
-      selector: {
-        universal: '*',
-        globalKeyword: 'global'
-      },
-      pseudo: {
-        where: true
-      }
-    },
-    base: {
-      themes: {
-        light: {
-          selector: ':root'
-        },
-        dark: {
-          selector: '[data-theme="dark"]'
-        }
-      },
-      types: {
+export function getDefaultBase(raw?: boolean) {
+  const types = raw
+    ? {}
+    : {
         primary: {
           light: {
             primary: '#1677ff',
@@ -141,61 +117,62 @@ export function getCodegenDefaults(): DeepPartial<CodegenOptions> {
             'neutral-content': '#ffffff'
           }
         }
+      }
+  return {
+    themes: {
+      light: {
+        selector: ':root'
       },
-      extraColors: {
-        light: {
-          'base-100': '#ffffff',
-          'base-200': 'rgb(242, 242, 242)',
-          'base-300': 'rgb(229, 230, 230)',
-          'base-content': 'rgb(31, 41, 55)'
-        },
-        dark: {
-          'base-100': 'rgb(29, 35, 42)',
-          'base-200': 'rgb(25, 30, 36)',
-          'base-300': 'rgb(21, 25, 30)',
-          'base-content': 'rgb(166, 173, 186)'
-        }
+      dark: {
+        selector: '[data-theme="dark"]'
+      }
+    },
+    types,
+    extraColors: {
+      light: {
+        'base-100': '#ffffff',
+        'base-200': 'rgb(242, 242, 242)',
+        'base-300': 'rgb(229, 230, 230)',
+        'base-content': 'rgb(31, 41, 55)'
       },
-      extraVars: {
-        light: {
-          ...shareVars
-        },
-        dark: {
-          ...shareVars
-        }
+      dark: {
+        'base-100': 'rgb(29, 35, 42)',
+        'base-200': 'rgb(25, 30, 36)',
+        'base-300': 'rgb(21, 25, 30)',
+        'base-content': 'rgb(166, 173, 186)'
+      }
+    },
+    extraVars: {
+      light: {
+        ...shareVars
+      },
+      dark: {
+        ...shareVars
       }
     }
   }
 }
 
-export function getRawCodegenDefaults(): DeepPartial<CodegenOptions> {
+export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
+  const base = getDefaultBase(raw)
   return {
     varPrefix: defaultVarPrefix,
+    log: true,
+    rtl: false,
+    styled: true,
     global: {
-      atMedia: {},
-      selector: {},
-      pseudo: {}
-    },
-    base: {
-      themes: {
-        light: {
-          selector: ':root'
-        },
-        dark: {
-          selector: '[data-theme="dark"]'
-        }
+      atMedia: {
+        hover: false
       },
-      types: {},
-      extraColors: {},
-      extraVars: {
-        light: {
-          ...shareVars
-        },
-        dark: {
-          ...shareVars
-        }
+      selector: {
+        universal: '*',
+        globalKeyword: 'global'
+      },
+      pseudo: {
+        where: true
       }
-    }
+    },
+    base
   }
 }
 

@@ -1,0 +1,126 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`alert > merge options case 0 1`] = `
+{
+  "colors": {},
+  "defaults": {
+    "styled": {
+      "default": {
+        "apply": [
+          "rounded-box",
+          "border",
+          "p-4",
+          "text-base-content",
+          "border-base-200",
+        ],
+      },
+    },
+    "unstyled": {
+      "default": {
+        "apply": [
+          "grid",
+          "w-full",
+          "grid-flow-row",
+          "content-start",
+          "items-center",
+          "justify-items-center",
+          "gap-4",
+          "text-center",
+          "sm:grid-flow-col",
+          "sm:grid-cols-[auto_minmax(auto,1fr)]",
+          "sm:justify-items-start",
+          "sm:text-left",
+        ],
+      },
+    },
+  },
+}
+`;
+
+exports[`alert > merge options case 1 1`] = `
+{
+  "colors": {},
+  "defaults": {
+    "styled": {
+      "default": {
+        "apply": [],
+      },
+    },
+    "unstyled": {
+      "default": {
+        "apply": [
+          "bg-base-200",
+        ],
+        "css": {
+          "color": "red",
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`alert > merge options case 2 1`] = `
+{
+  "colors": {},
+  "defaults": {
+    "styled": {
+      "default": {
+        "apply": [],
+      },
+    },
+    "unstyled": {
+      "default": {
+        "apply": [
+          "bg-base-200",
+          "bg-base-200",
+        ],
+        "css": {
+          "color": "red",
+        },
+      },
+    },
+  },
+}
+`;
+
+exports[`alert > merge options case 3 1`] = `
+{
+  "colors": {},
+  "defaults": {
+    "styled": {
+      "default": {
+        "apply": [
+          "rounded-box",
+          "border",
+          "p-4",
+          "text-base-content",
+          "border-base-200",
+        ],
+      },
+    },
+    "unstyled": {
+      "default": {
+        "apply": [
+          "bg-base-200",
+          "grid",
+          "w-full",
+          "grid-flow-row",
+          "content-start",
+          "items-center",
+          "justify-items-center",
+          "gap-4",
+          "text-center",
+          "sm:grid-flow-col",
+          "sm:grid-cols-[auto_minmax(auto,1fr)]",
+          "sm:justify-items-start",
+          "sm:text-left",
+        ],
+        "css": {
+          "color": "red",
+        },
+      },
+    },
+  },
+}
+`;

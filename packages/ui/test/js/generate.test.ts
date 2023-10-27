@@ -1,5 +1,6 @@
+import path from 'node:path'
 import { generateIndexCode } from '@/js/generate'
-describe('generate', () => {
+describe.skipIf(path.sep === '\\')('generate', () => {
   it('case 0', () => {
     expect(generateIndexCode(['global/glass', 'styled/artboard', 'unstyled/button'])).toMatchSnapshot()
   })

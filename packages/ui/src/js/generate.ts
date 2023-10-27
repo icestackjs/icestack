@@ -1,6 +1,6 @@
+import path from 'node:path'
 import * as t from '@babel/types'
 import _babelGenerate from '@babel/generator'
-
 // https://github.com/babel/babel/issues/15269
 function _interopDefaultCompat(e: any) {
   return e && typeof e === 'object' && 'default' in e ? e.default : e
@@ -12,7 +12,7 @@ export function generateIndexCode(basenames: string[]) {
   const props = Object.entries(
     basenames
       .map((basename) => {
-        const s = basename.split('/')
+        const s = basename.split(path.sep)
         return {
           key: s[1],
           type: s[0],

@@ -24,7 +24,7 @@ function groupedComs(
   }[]
 ) {
   return resultArray.reduce<Record<string, Record<string, CssInJs>>>((acc, cur) => {
-    const [type, key] = cur.key.split('/')
+    const [type, key] = cur.key.split(path.sep)
 
     // style / unstyle / global
     if (acc[key]) {

@@ -72,6 +72,13 @@
       "cwd": "${workspaceFolder}/packages/ui"
     },
     {
+      "command": "npm run raw",
+      "name": "[UI] raw",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/packages/ui"
+    },
+    {
       "command": "npm run dev",
       "name": "website dev",
       "request": "launch",

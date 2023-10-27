@@ -15,7 +15,12 @@ export function findNodeModules(cwd: string = process.cwd()) {
   })
 }
 
-export function getFileCache(id: string, cwd?: string) {
+export function getDefaultCacheDir(cwd?: string) {
   const p = findNodeModules(cwd) || path.resolve(process.cwd(), './node_modules')
-  return flatCache.load(id, path.resolve(p, '.cache/' + pkgName))
+  return path.resolve(p, '.cache/' + pkgName)
+}
+
+export function getFileCache(id: string, cwd?: string) {
+  const p = getDefaultCacheDir(cwd)
+  return flatCache.load(id, p)
 }

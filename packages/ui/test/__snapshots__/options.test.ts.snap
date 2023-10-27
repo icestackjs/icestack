@@ -1,5 +1,50 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`options > getCliCodegenOptions snap 1`] = `
+{
+  "base": {
+    "extraColors": {},
+    "extraVars": {
+      "dark": {
+        "animation-btn": "0.25s",
+        "animation-input": "0.2s",
+        "border-btn": "1px",
+        "rounded-badge": "1.9rem",
+        "rounded-box": "1rem",
+        "rounded-btn": "0.5rem",
+        "tab-border": "1px",
+        "tab-radius": "0.5rem",
+      },
+      "light": {
+        "animation-btn": "0.25s",
+        "animation-input": "0.2s",
+        "border-btn": "1px",
+        "rounded-badge": "1.9rem",
+        "rounded-box": "1rem",
+        "rounded-btn": "0.5rem",
+        "tab-border": "1px",
+        "tab-radius": "0.5rem",
+      },
+    },
+    "themes": {
+      "dark": {
+        "selector": "[data-theme=\\"dark\\"]",
+      },
+      "light": {
+        "selector": ":root",
+      },
+    },
+    "types": {},
+  },
+  "global": {
+    "atMedia": {},
+    "pseudo": {},
+    "selector": {},
+  },
+  "varPrefix": "--ice-",
+}
+`;
+
 exports[`options > getCodegenOptions snap 1`] = `
 {
   "base": {
@@ -22,8 +67,6 @@ exports[`options > getCodegenOptions snap 1`] = `
         "animation-btn": "0.25s",
         "animation-input": "0.2s",
         "border-btn": "1px",
-        "btn-focus-scale": "0.95",
-        "btn-text-case": "uppercase",
         "rounded-badge": "1.9rem",
         "rounded-box": "1rem",
         "rounded-btn": "0.5rem",
@@ -34,8 +77,6 @@ exports[`options > getCodegenOptions snap 1`] = `
         "animation-btn": "0.25s",
         "animation-input": "0.2s",
         "border-btn": "1px",
-        "btn-focus-scale": "0.95",
-        "btn-text-case": "uppercase",
         "rounded-badge": "1.9rem",
         "rounded-box": "1rem",
         "rounded-btn": "0.5rem",

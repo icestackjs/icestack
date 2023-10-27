@@ -1,5 +1,5 @@
 import defu from 'defu'
-import { getCodegenDefaults } from './defaults'
+import { getCodegenDefaults, getRawCodegenDefaults } from './defaults'
 import { CodegenOptions, DeepPartial } from './types'
 
 export function getCodegenOptions(options?: DeepPartial<CodegenOptions>): CodegenOptions {
@@ -17,5 +17,5 @@ export function getCliCodegenOptions(options?: CodegenOptions): CodegenOptions {
     // @ts-ignore
     presets = options.presets ?? []
   }
-  return defu<CodegenOptions, DeepPartial<CodegenOptions>[]>(options, ...presets)
+  return defu<CodegenOptions, DeepPartial<CodegenOptions>[]>(options, ...presets, getRawCodegenDefaults())
 }

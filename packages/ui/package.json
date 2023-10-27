@@ -73,7 +73,8 @@
     "build:utilities": "ts-node --esm scripts/build-scss.ts utilities",
     "build:components": "ts-node --esm scripts/build-scss.ts components",
     "get-coms": "ts-node --esm scripts/get-coms.ts",
-    "tailwind-config-viewer": "tailwind-config-viewer -o"
+    "tailwind-config-viewer": "tailwind-config-viewer -o",
+    "raw": "node bin/icestack.js cache clean"
   },
   "keywords": [],
   "author": "",
@@ -86,6 +87,7 @@
     "compose-tailwindcss-plugins": "workspace:^",
     "css-selector-tokenizer": "^0.8.0",
     "css-to-tailwindcss-plugin": "workspace:^",
+    "del": "^7.1.0",
     "findup-sync": "^5.0.0",
     "flat-cache": "^3.1.1",
     "immutable": "^4.0.0",

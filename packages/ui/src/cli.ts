@@ -7,6 +7,7 @@ import { loadConfig } from 'c12'
 import type { CodegenOptions } from './types'
 import { buildAll } from './generate'
 import { getCliCodegenOptions } from './options'
+import { getDefaultCacheDir } from '@/cache'
 // import { getCodegenOptions } from '@/options'
 const cli = createCli()
 
@@ -28,8 +29,21 @@ cli.command('codegen', 'code generate').action(async () => {
   if (config) {
     config = getCliCodegenOptions(config)
     await buildAll(config)
+    console.log('codegen successfully!')
   }
 })
+
+cli
+  .command('cache [sub]')
+  .option('-cwd <cwd>', 'cwd path')
+  .action(async (sub, options) => {
+    if (sub === 'clean') {
+      const { deleteAsync } = await import('del')
+      const p = getDefaultCacheDir(options.cwd)
+      const res = await deleteAsync(p)
+      console.log(`delete successfully: ${res}`)
+    }
+  })
 
 cli.help()
 cli.version('0.0.0')

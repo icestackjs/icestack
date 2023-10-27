@@ -35,8 +35,6 @@ exports[`var-prefix > snap case 0 1`] = `
   --ice-rounded-badge: 1.9rem;
   --ice-animation-btn: 0.25s;
   --ice-animation-input: 0.2s;
-  --ice-btn-text-case: uppercase;
-  --ice-btn-focus-scale: 0.95;
   --ice-border-btn: 1px;
   --ice-tab-border: 1px;
   --ice-tab-radius: 0.5rem;
@@ -75,8 +73,6 @@ exports[`var-prefix > snap case 0 1`] = `
   --ice-rounded-badge: 1.9rem;
   --ice-animation-btn: 0.25s;
   --ice-animation-input: 0.2s;
-  --ice-btn-text-case: uppercase;
-  --ice-btn-focus-scale: 0.95;
   --ice-border-btn: 1px;
   --ice-tab-border: 1px;
   --ice-tab-radius: 0.5rem;
@@ -118,8 +114,6 @@ exports[`var-prefix > snap case 1 1`] = `
   --ice-rounded-badge: 1.9rem;
   --ice-animation-btn: 0.25s;
   --ice-animation-input: 0.2s;
-  --ice-btn-text-case: uppercase;
-  --ice-btn-focus-scale: 0.95;
   --ice-border-btn: 1px;
   --ice-tab-border: 1px;
   --ice-tab-radius: 0.5rem;
@@ -158,8 +152,6 @@ exports[`var-prefix > snap case 1 1`] = `
   --ice-rounded-badge: 1.9rem;
   --ice-animation-btn: 0.25s;
   --ice-animation-input: 0.2s;
-  --ice-btn-text-case: uppercase;
-  --ice-btn-focus-scale: 0.95;
   --ice-border-btn: 1px;
   --ice-tab-border: 1px;
   --ice-tab-radius: 0.5rem;

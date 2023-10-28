@@ -1,49 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`alert > snap 1`] = `
-".alert {
-  @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
-}"
-`;
-
 exports[`artboard > snap 1`] = `
 ".artboard {
   @apply w-full;
 }"
-`;
-
-exports[`avatar > snap 1`] = `
-".avatar {
-  @apply relative inline-flex;
-}
-.avatar > div {
-  @apply block aspect-square overflow-hidden;
-}
-.avatar img {
-  @apply h-full w-full object-cover;
-}
-.avatar.placeholder > div {
-  @apply flex items-center justify-center;
-}"
-`;
-
-exports[`badge > snap 1`] = `
-".badge {
-  @apply inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem];
-}"
-`;
-
-exports[`button > snap 1`] = `
-".btn {
-  @apply rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4;
-  font-size: 0.875rem;
-  line-height: 1em;
-}
-.btn-disabled, .btn[disabled], .btn:disabled {
-  @apply pointer-events-none;
-}
-
-/* radio input and checkbox as button */"
 `;
 
 exports[`carousel > snap 1`] = `
@@ -65,83 +25,6 @@ exports[`carousel > snap 1`] = `
 }
 .carousel-end .carousel-item {
   scroll-snap-align: end;
-}"
-`;
-
-exports[`chat > snap 1`] = `
-".chat {
-  @apply grid grid-cols-2 gap-x-3 py-1;
-}
-.chat-image {
-  @apply row-span-2 self-end;
-}
-.chat-header {
-  @apply row-start-1 text-sm;
-}
-.chat-footer {
-  @apply row-start-3 text-sm;
-}
-.chat-bubble {
-  @apply relative block w-fit px-4 py-2;
-  max-width: 90%;
-}
-.chat-bubble:before {
-  @apply absolute bottom-0 h-3 w-3;
-  background-color: inherit;
-  content: \\"\\";
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-}
-.chat-start {
-  @apply place-items-start;
-  grid-template-columns: auto 1fr;
-}
-.chat-start .chat-header {
-  @apply col-start-2;
-}
-.chat-start .chat-footer {
-  @apply col-start-2;
-}
-.chat-start .chat-image {
-  @apply col-start-1;
-}
-.chat-start .chat-bubble {
-  @apply col-start-2;
-}
-.chat-start .chat-bubble:before {
-  mask-image: url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 3 3 L 3 0 C 3 1 1 3 0 3'/%3e%3c/svg%3e\\");
-}
-[dir=rtl] .chat-start .chat-bubble:before {
-  mask-image: url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 1 3 L 3 3 C 2 3 0 1 0 0'/%3e%3c/svg%3e\\");
-}
-.chat-end {
-  @apply place-items-end;
-  grid-template-columns: 1fr auto;
-}
-.chat-end .chat-header {
-  @apply col-start-1;
-}
-.chat-end .chat-footer {
-  @apply col-start-1;
-}
-.chat-end .chat-image {
-  @apply col-start-2;
-}
-.chat-end .chat-bubble {
-  @apply col-start-1;
-}
-.chat-end .chat-bubble:before {
-  mask-image: url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 1 3 L 3 3 C 2 3 0 1 0 0'/%3e%3c/svg%3e\\");
-}
-[dir=rtl] .chat-end .chat-bubble:before {
-  mask-image: url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 3 3 L 3 0 C 3 1 1 3 0 3'/%3e%3c/svg%3e\\");
-}"
-`;
-
-exports[`checkbox > snap 1`] = `
-".checkbox {
-  @apply shrink-0;
 }"
 `;
 
@@ -253,25 +136,9 @@ exports[`indicator > snap 1`] = `
 }"
 `;
 
-exports[`input > snap 1`] = `
-".input {
-  @apply flex-shrink;
-  @apply h-12 px-4 text-sm leading-loose;
-}"
-`;
-
 exports[`kbd > snap 1`] = `
 ".kbd {
   @apply inline-flex items-center justify-center;
-}"
-`;
-
-exports[`link > snap 1`] = `
-".link {
-  @apply cursor-pointer underline;
-}
-.link-hover {
-  @apply no-underline [@media(hover:hover)]:hover:underline;
 }"
 `;
 
@@ -317,12 +184,6 @@ exports[`mockup > snap 1`] = `
 }"
 `;
 
-exports[`progress > snap 1`] = `
-".progress {
-  @apply relative w-full appearance-none overflow-hidden;
-}"
-`;
-
 exports[`radial-progress > snap 1`] = `
 ".radial-progress {
   @apply relative inline-grid h-[var(--size)] w-[var(--size)] place-content-center rounded-full bg-transparent;
@@ -361,43 +222,12 @@ exports[`radial-progress > snap 1`] = `
 }"
 `;
 
-exports[`radio > snap 1`] = `
-".radio {
-  @apply shrink-0;
-}"
-`;
-
-exports[`range > snap 1`] = `
-".range {
-  @apply h-6 w-full cursor-pointer;
-}
-.range:focus {
-  outline: none;
-}"
-`;
-
 exports[`rating > snap 1`] = `
 ".rating {
   @apply relative inline-flex;
 }
 .rating :where(input) {
   @apply cursor-pointer rounded-none;
-}"
-`;
-
-exports[`select > snap 1`] = `
-".select {
-  @apply inline-flex cursor-pointer select-none appearance-none;
-  @apply min-h-12 h-12 pl-4 pr-10 text-sm leading-loose;
-  /* disabled */
-  /* &-disabled,
-  &[disabled] {
-    @apply pointer-events-none;
-  } */
-  /* multiple */
-}
-.select[multiple] {
-  @apply h-auto;
 }"
 `;
 
@@ -467,20 +297,8 @@ exports[`steps > snap 1`] = `
 }"
 `;
 
-exports[`textarea > snap 1`] = `
-".textarea {
-  @apply min-h-12 flex-shrink px-4 py-2 text-sm leading-loose;
-}"
-`;
-
 exports[`toast > snap 1`] = `
 ".toast {
   @apply fixed flex min-w-fit flex-col whitespace-nowrap;
-}"
-`;
-
-exports[`toggle > snap 1`] = `
-".toggle {
-  @apply shrink-0;
 }"
 `;

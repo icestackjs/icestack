@@ -7,25 +7,6 @@ exports[`artboard > snap 1`] = `
 }"
 `;
 
-exports[`avatar > snap 1`] = `
-".avatar.online:before {
-  content: \\"\\";
-  @apply bg-success outline-base-100 absolute z-10 block rounded-full outline outline-2;
-  width: 15%;
-  height: 15%;
-  top: 7%;
-  right: 7%;
-}
-.avatar.offline:before {
-  content: \\"\\";
-  @apply bg-base-300 outline-base-100 absolute z-10 block rounded-full outline outline-2;
-  width: 15%;
-  height: 15%;
-  top: 7%;
-  right: 7%;
-}"
-`;
-
 exports[`divider > snap 1`] = `
 ".divider-horizontal {
   @apply mx-4 my-0 h-auto w-4;

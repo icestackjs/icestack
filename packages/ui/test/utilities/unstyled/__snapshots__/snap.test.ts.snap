@@ -57,99 +57,6 @@ exports[`artboard > snap 1`] = `
 }"
 `;
 
-exports[`badge > snap 1`] = `
-".badge-xs {
-  @apply h-3 text-xs leading-3;
-  padding-left: 0.313rem;
-  padding-right: 0.313rem;
-}
-.badge-sm {
-  @apply h-4 text-xs leading-4;
-  padding-left: 0.438rem;
-  padding-right: 0.438rem;
-}
-.badge-md {
-  @apply h-5 text-sm leading-5;
-  padding-left: 0.563rem;
-  padding-right: 0.563rem;
-}
-.badge-lg {
-  @apply h-6 text-base leading-6;
-  padding-left: 0.688rem;
-  padding-right: 0.688rem;
-}"
-`;
-
-exports[`button > snap 1`] = `
-".btn-xs {
-  @apply min-h-6 h-6 px-2;
-  font-size: 0.75rem;
-}
-.btn-sm {
-  @apply min-h-8 h-8 px-3;
-  font-size: 0.875rem;
-}
-.btn-md {
-  @apply min-h-12 h-12 px-4;
-  font-size: 0.875rem;
-}
-.btn-lg {
-  @apply min-h-16 h-16 px-6;
-  font-size: 1.125rem;
-}
-.btn-wide {
-  @apply w-64;
-}
-.btn-block {
-  @apply w-full;
-}
-.btn-square {
-  @apply h-12 w-12 p-0;
-}
-.btn-square:where(.btn-xs) {
-  @apply h-6 w-6 p-0;
-}
-.btn-square:where(.btn-sm) {
-  @apply h-8 w-8 p-0;
-}
-.btn-square:where(.btn-md) {
-  @apply h-12 w-12 p-0;
-}
-.btn-square:where(.btn-lg) {
-  @apply h-16 w-16 p-0;
-}
-.btn-circle {
-  @apply h-12 w-12 rounded-full p-0;
-}
-.btn-circle:where(.btn-xs) {
-  @apply h-6 w-6 rounded-full p-0;
-}
-.btn-circle:where(.btn-sm) {
-  @apply h-8 w-8 rounded-full p-0;
-}
-.btn-circle:where(.btn-md) {
-  @apply h-12 w-12 rounded-full p-0;
-}
-.btn-circle:where(.btn-lg) {
-  @apply h-16 w-16 rounded-full p-0;
-}"
-`;
-
-exports[`checkbox > snap 1`] = `
-".checkbox-xs {
-  @apply h-4 w-4;
-}
-.checkbox-sm {
-  @apply h-5 w-5;
-}
-.checkbox-md {
-  @apply h-6 w-6;
-}
-.checkbox-lg {
-  @apply h-8 w-8;
-}"
-`;
-
 exports[`divider > snap 1`] = `
 ".divider-horizontal {
   @apply flex-col;
@@ -193,21 +100,6 @@ exports[`indicator > snap 1`] = `
 }
 .indicator :where(.indicator-item.indicator-top) {
   @apply bottom-auto top-0 -translate-y-1/2;
-}"
-`;
-
-exports[`input > snap 1`] = `
-".input-xs {
-  @apply h-6 px-2 text-xs leading-relaxed;
-}
-.input-md {
-  @apply h-12 px-4 text-sm leading-loose;
-}
-.input-lg {
-  @apply h-16 px-6 text-lg leading-loose;
-}
-.input-sm {
-  @apply h-8 px-3 text-sm leading-8;
 }"
 `;
 
@@ -264,92 +156,6 @@ exports[`modal > snap 1`] = `
 }"
 `;
 
-exports[`radio > snap 1`] = `
-".radio-xs {
-  @apply h-4 w-4;
-}
-.radio-sm {
-  @apply h-5 w-5;
-}
-.radio-md {
-  @apply h-6 w-6;
-}
-.radio-lg {
-  @apply h-8 w-8;
-}"
-`;
-
-exports[`range > snap 1`] = `
-".range-xs {
-  @apply h-4;
-}
-.range-xs::-webkit-slider-runnable-track {
-  @apply h-1;
-}
-.range-xs::-moz-range-track {
-  @apply h-1;
-}
-.range-xs::-webkit-slider-thumb {
-  @apply h-4 w-4;
-  --ice-filler-offset: 0.4rem;
-}
-.range-xs::-moz-range-thumb {
-  @apply h-4 w-4;
-  --ice-filler-offset: 0.4rem;
-}
-.range-sm {
-  @apply h-5;
-}
-.range-sm::-webkit-slider-runnable-track {
-  @apply h-1;
-}
-.range-sm::-moz-range-track {
-  @apply h-1;
-}
-.range-sm::-webkit-slider-thumb {
-  @apply h-5 w-5;
-  --ice-filler-offset: 0.5rem;
-}
-.range-sm::-moz-range-thumb {
-  @apply h-5 w-5;
-  --ice-filler-offset: 0.5rem;
-}
-.range-md {
-  @apply h-6;
-}
-.range-md::-webkit-slider-runnable-track {
-  @apply h-2;
-}
-.range-md::-moz-range-track {
-  @apply h-2;
-}
-.range-md::-webkit-slider-thumb {
-  @apply h-6 w-6;
-  --ice-filler-offset: 0.6rem;
-}
-.range-md::-moz-range-thumb {
-  @apply h-6 w-6;
-  --ice-filler-offset: 0.6rem;
-}
-.range-lg {
-  @apply h-8;
-}
-.range-lg::-webkit-slider-runnable-track {
-  @apply h-4;
-}
-.range-lg::-moz-range-track {
-  @apply h-4;
-}
-.range-lg::-webkit-slider-thumb {
-  @apply h-8 w-8;
-  --ice-filler-offset: 1rem;
-}
-.range-lg::-moz-range-thumb {
-  @apply h-8 w-8;
-  --ice-filler-offset: 1rem;
-}"
-`;
-
 exports[`rating > snap 1`] = `
 ".rating-xs input {
   @apply h-3 w-3;
@@ -378,33 +184,6 @@ exports[`rating > snap 1`] = `
 }
 .rating-half.rating-lg input:not(.rating-hidden) {
   @apply w-5;
-}"
-`;
-
-exports[`select > snap 1`] = `
-".select-md {
-  @apply min-h-12 h-12 pl-4 pr-10 text-sm leading-loose;
-}
-[dir=rtl] .select-md {
-  @apply pl-10 pr-4;
-}
-.select-lg {
-  @apply min-h-16 h-16 pl-6 pr-8 text-lg leading-loose;
-}
-[dir=rtl] .select-lg {
-  @apply pl-8 pr-6;
-}
-.select-sm {
-  @apply min-h-8 h-8 pl-3 pr-8 text-sm leading-8;
-}
-[dir=rtl] .select-sm {
-  @apply pl-8 pr-3;
-}
-.select-xs {
-  @apply min-h-6 h-6 pl-2 pr-8 text-xs leading-relaxed;
-}
-[dir=rtl] .select-xs {
-  @apply pl-8 pr-2;
 }"
 `;
 
@@ -454,21 +233,6 @@ exports[`tab > snap 1`] = `
 }"
 `;
 
-exports[`textarea > snap 1`] = `
-".textarea-xs {
-  @apply px-2 py-1 text-xs leading-relaxed;
-}
-.textarea-sm {
-  @apply px-3 py-1 text-sm leading-8;
-}
-.textarea-md {
-  @apply px-4 py-3 text-sm leading-loose;
-}
-.textarea-lg {
-  @apply px-6 py-4 text-lg leading-loose;
-}"
-`;
-
 exports[`toast > snap 1`] = `
 ":where(.toast) {
   @apply bottom-0 left-auto right-0 top-auto translate-x-0 translate-y-0;
@@ -496,25 +260,6 @@ exports[`toast > snap 1`] = `
 
 .toast:where(.toast-top) {
   @apply bottom-auto top-0 translate-y-0;
-}"
-`;
-
-exports[`toggle > snap 1`] = `
-".toggle-xs {
-  --ice-handleoffset: 0.5rem;
-  @apply h-4 w-6;
-}
-.toggle-sm {
-  --ice-handleoffset: 0.75rem;
-  @apply h-5 w-8;
-}
-.toggle-md {
-  --ice-handleoffset: 1.5rem;
-  @apply h-6 w-12;
-}
-.toggle-lg {
-  --ice-handleoffset: 2rem;
-  @apply h-8 w-16;
 }"
 `;
 

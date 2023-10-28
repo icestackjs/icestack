@@ -22,7 +22,7 @@ function requireLib(id: string, basedir?: string) {
 export const icestackPlugin = plugin.withOptions(
   function (opts?: DeepPartial<CodegenOptions>) {
     const options = getCodegenOptions(opts)
-    const { styled, basedir } = options
+    const { basedir } = options
     let base: typeof _base, components: typeof _components, utilities: typeof _utilities
     if (basedir) {
       base = requireLib('js/base/index.js', basedir) as typeof _base
@@ -48,10 +48,8 @@ export const icestackPlugin = plugin.withOptions(
       addBase([baseObj])
 
       for (const [name, item] of componentsEntries) {
-        const cssItems: (CssInJs | undefined)[] = [item.unstyled]
-        if (styled) {
-          cssItems.push(item.styled)
-        }
+        const cssItems: (CssInJs | undefined)[] = [item.unstyled, item.styled]
+
         // const hit = options?.components?.[name]
         // if (hit && Array.isArray(hit.append)) {
         //   cssItems.push(...hit.append)
@@ -64,10 +62,8 @@ export const icestackPlugin = plugin.withOptions(
       }
 
       for (const [name, item] of utilitiesEntries) {
-        const cssItems: (CssInJs | undefined)[] = [item.global, item.unstyled]
-        if (styled) {
-          cssItems.push(item.styled)
-        }
+        const cssItems: (CssInJs | undefined)[] = [item.global, item.unstyled, item.styled]
+
         // @ts-ignore
         const hit = options?.components?.[name]
         if (hit && Array.isArray(hit.append)) {

@@ -3,12 +3,12 @@ import type { AcceptedPlugin } from 'postcss'
 import { getPlugin } from './custom-property-prefixer'
 import postcssPrefix from './prefixer'
 import globalPostcss from './global'
-import { rtlcss } from './rtlcss'
+// import { rtlcss } from './rtlcss'
 import basePlugin from './runtime/base'
 import { CodegenOptions } from '@/types'
 
 export function getJsProcess(options: CodegenOptions) {
-  const { varPrefix, prefix, rtl, global, base } = options
+  const { varPrefix, prefix, global, base } = options
   const basePlugins: AcceptedPlugin[] = []
   const componentsPlugins: AcceptedPlugin[] = []
   const utilitiesPlugins: AcceptedPlugin[] = []
@@ -25,11 +25,11 @@ export function getJsProcess(options: CodegenOptions) {
     componentsPlugins.push(p)
     utilitiesPlugins.push(p)
   }
-  if (rtl) {
-    const p = rtlcss(typeof rtl === 'boolean' ? undefined : rtl)
-    componentsPlugins.push(p)
-    utilitiesPlugins.push(p)
-  }
+  // if (rtl) {
+  //   const p = rtlcss(typeof rtl === 'boolean' ? undefined : rtl)
+  //   componentsPlugins.push(p)
+  //   utilitiesPlugins.push(p)
+  // }
 
   if (global) {
     const p = globalPostcss(options)

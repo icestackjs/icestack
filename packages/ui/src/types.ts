@@ -60,10 +60,10 @@ export type CodegenOptions = {
   global: GlobalOptions
   base: BaseOptions
   varPrefix: string // PropertyPrefixerOptions['prefix']
-  styled: boolean
+  // styled: boolean
   log: boolean
   prefix: string | PrefixerOptions
-  rtl: boolean | ConfigOptions
+  // rtl: boolean | ConfigOptions
   presets: DeepPartial<CodegenOptions>[]
   basedir?: string
   outdir?: string

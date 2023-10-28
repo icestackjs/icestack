@@ -158,8 +158,8 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
   return {
     varPrefix: defaultVarPrefix,
     log: true,
-    rtl: false,
-    styled: true,
+    // rtl: false,
+    // styled: true,
     global: {
       atMedia: {
         hover: false

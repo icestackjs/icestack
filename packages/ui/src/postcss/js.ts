@@ -8,7 +8,7 @@ import globalPostcss from './global'
 import { CodegenOptions } from '@/types'
 
 export function getJsProcess(options: CodegenOptions) {
-  const { prefix, global, base } = options
+  const { runtime } = options
   const basePlugins: AcceptedPlugin[] = []
   const componentsPlugins: AcceptedPlugin[] = []
   const utilitiesPlugins: AcceptedPlugin[] = []
@@ -19,7 +19,7 @@ export function getJsProcess(options: CodegenOptions) {
   //   componentsPlugins.push(p)
   //   utilitiesPlugins.push(p)
   // }
-
+  const { prefix } = runtime
   if (prefix) {
     const p = postcssPrefix(typeof prefix === 'string' ? { prefix, ignore: [] } : prefix)
     componentsPlugins.push(p)
@@ -31,7 +31,7 @@ export function getJsProcess(options: CodegenOptions) {
   //   utilitiesPlugins.push(p)
   // }
 
-  if (global) {
+  if (runtime) {
     const p = globalPostcss(options)
     basePlugins.push(p)
     componentsPlugins.push(p)

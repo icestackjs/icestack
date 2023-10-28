@@ -29,6 +29,7 @@ export function compileScss(filename: string, opts: CodegenOptions) {
   } else if (typeof opts.prefix === 'object') {
     plugins.push(prefixer(opts.prefix))
   }
+  // console.log(filename)
   // @ts-ignore
   return postcss(plugins).process(result.css, {
     from: undefined
@@ -39,6 +40,7 @@ export function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
   const { filename, resolveConfig, outdir, options, outSideLayerCss } = opts
 
   const name = path.basename(filename, '.scss')
+  const { dryRun } = options
   const { css: cssOutput } = compileScss(filename, options)
 
   const relPath = path.relative(scssDir, filename)
@@ -46,35 +48,41 @@ export function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
   const jsPath = getJsPath(relPath, outdir)
   const cssResolvedPath = getCssResolvedpath(relPath, outdir)
 
-  ensureDirSync(path.dirname(cssPath))
-  ensureDirSync(path.dirname(jsPath))
-  ensureDirSync(path.dirname(cssResolvedPath))
+  if (!dryRun) {
+    ensureDirSync(path.dirname(cssPath))
+    ensureDirSync(path.dirname(jsPath))
+    ensureDirSync(path.dirname(cssResolvedPath))
+  }
 
   const config = initConfig()
 
   resolveConfig?.(config)
 
   // scss -> css
-  fs.writeFileSync(cssPath, cssOutput, 'utf8')
+  !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
   const { root, css } = resolveTailwindcss({
     css: cssOutput,
     config
   })
 
-  fs.writeFileSync(cssResolvedPath, css, 'utf8')
+  !dryRun && fs.writeFileSync(cssResolvedPath, css, 'utf8')
   const cssJsObj = postcssJs.objectify(root as Root)
 
   if (outSideLayerCss === 'utilities') {
     // @ts-ignore
+    // eslint-disable-next-line unicorn/consistent-destructuring
     const hit = options?.components?.[name]
     if (hit && Array.isArray(hit.append)) {
       merge(cssJsObj, ...hit.append)
     }
   }
+  if (!dryRun) {
+    const data = 'module.exports = ' + JSON.stringify(cssJsObj, null, 2)
+    // css -> js
+    fs.writeFileSync(jsPath, data, 'utf8')
+  }
 
-  const data = 'module.exports = ' + JSON.stringify(cssJsObj, null, 2)
-  // css -> js
-  fs.writeFileSync(jsPath, data, 'utf8')
+  return cssJsObj
 }
 
 export function extractScss(opts: IBuildScssOptions<CodegenOptions>) {

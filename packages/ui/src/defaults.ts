@@ -160,6 +160,7 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
     varPrefix: defaultVarPrefix,
     log: true,
     autobuild: true,
+    dryRun: false,
     // rtl: false,
     // styled: true,
     global: {
@@ -169,12 +170,16 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
       selector: {
         universal: '*',
         globalKeyword: 'global'
-      },
-      pseudo: {
-        where: true
       }
+      // pseudo: {
+      //   where: true
+      // }
     },
-    base
+    base,
+    runtime: {
+      atMedia: {},
+      selector: {}
+    }
   }
 }
 

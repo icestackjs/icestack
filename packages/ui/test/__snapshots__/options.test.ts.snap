@@ -135,12 +135,10 @@ exports[`options > getCodegenOptions snap 1`] = `
       },
     },
   },
+  "dryRun": false,
   "global": {
     "atMedia": {
       "hover": false,
-    },
-    "pseudo": {
-      "where": true,
     },
     "selector": {
       "globalKeyword": "global",
@@ -149,6 +147,10 @@ exports[`options > getCodegenOptions snap 1`] = `
   },
   "log": true,
   "mode": "styled",
+  "runtime": {
+    "atMedia": {},
+    "selector": {},
+  },
   "varPrefix": "--ice-",
 }
 `;
@@ -203,12 +205,10 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     },
     "types": {},
   },
+  "dryRun": false,
   "global": {
     "atMedia": {
       "hover": false,
-    },
-    "pseudo": {
-      "where": true,
     },
     "selector": {
       "globalKeyword": "global",
@@ -217,6 +217,10 @@ exports[`options > getRawCodegenOptions snap 1`] = `
   },
   "log": true,
   "mode": "styled",
+  "runtime": {
+    "atMedia": {},
+    "selector": {},
+  },
   "varPrefix": "--ice-",
 }
 `;

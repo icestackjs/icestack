@@ -22,64 +22,69 @@ function requireLib(id: string, basedir?: string) {
 
 export const icestackPlugin = plugin.withOptions(
   function (opts?: DeepPartial<CodegenOptions>) {
-    const options = getCodegenOptions(opts)
+    try {
+      const options = getCodegenOptions(opts)
 
-    if (options.loaddir || options.outdir) {
-      let loadDirPath: string
-      if (options.loaddir) {
-        const { loaddir } = options
-        loadDirPath = loaddir
-      } else {
-        if (options.autobuild) {
-          const start = performance.now()
-          buildAll(options)
-          const now = performance.now()
-          console.log(`buildAll: ${now - start}ms`)
+      if (options.loaddir || options.outdir) {
+        let loadDirPath: string
+        if (options.loaddir) {
+          const { loaddir } = options
+          loadDirPath = loaddir
+        } else {
+          if (options.autobuild) {
+            const start = performance.now()
+            buildAll(options)
+            const now = performance.now()
+            console.log(`buildAll: ${now - start}ms`)
+          }
+          const { outdir } = options
+          loadDirPath = outdir
         }
-        const { outdir } = options
-        loadDirPath = outdir
-      }
-      const base = requireLib('js/base/index.js', loadDirPath) as typeof _base
-      const components = requireLib('js/components/index.js', loadDirPath) as typeof _components
-      const utilities = requireLib('js/utilities/index.js', loadDirPath) as typeof _utilities
-      if (base && components && utilities) {
-        const componentsEntries = Object.entries(components)
-        // const utilitiesEntries = Object.entries(utilities)
-        const { baseProcess, componentsProcess, utilitiesProcess } = getJsProcess(options)
+        const base = requireLib('js/base/index.js', loadDirPath) as typeof _base
+        const components = requireLib('js/components/index.js', loadDirPath) as typeof _components
+        const utilities = requireLib('js/utilities/index.js', loadDirPath) as typeof _utilities
+        if (base && components && utilities) {
+          const componentsEntries = Object.entries(components)
+          // const utilitiesEntries = Object.entries(utilities)
+          const { baseProcess, componentsProcess, utilitiesProcess } = getJsProcess(options)
 
-        const baseObj = baseProcess(base)
+          const baseObj = baseProcess(base)
 
-        return function ({ addBase, addComponents, addUtilities }) {
-          addBase([baseObj])
+          return function ({ addBase, addComponents, addUtilities }) {
+            addBase([baseObj])
 
-          for (const [name, item] of componentsEntries) {
-            // 优先级 utils > index > base
-            const cssItems: (CssInJs | undefined)[] = [item.base, item.index, item.utils]
+            for (const [name, item] of componentsEntries) {
+              // 优先级 utils > index > base
+              const cssItems: (CssInJs | undefined)[] = [item.base, item.index, item.utils]
 
+              let cssObj = merge.recursive(true, ...cssItems)
+
+              cssObj = componentsProcess(cssObj)
+
+              addComponents(cssObj)
+            }
+
+            const cssItems: (CssInJs | undefined)[] = [utilities.global]
+
+            // @ts-ignore
+            const hit = options?.components?.[name]
+            if (hit && Array.isArray(hit.append)) {
+              cssItems.push(...hit.append)
+            }
             let cssObj = merge.recursive(true, ...cssItems)
 
-            cssObj = componentsProcess(cssObj)
+            cssObj = utilitiesProcess(cssObj)
 
-            addComponents(cssObj)
+            addUtilities(cssObj)
           }
-
-          const cssItems: (CssInJs | undefined)[] = [utilities.global]
-
-          // @ts-ignore
-          const hit = options?.components?.[name]
-          if (hit && Array.isArray(hit.append)) {
-            cssItems.push(...hit.append)
-          }
-          let cssObj = merge.recursive(true, ...cssItems)
-
-          cssObj = utilitiesProcess(cssObj)
-
-          addUtilities(cssObj)
         }
       }
-    }
 
-    return function () {}
+      return function () {}
+    } catch (error) {
+      console.error(error)
+      return function () {}
+    }
   },
   function (opts?: DeepPartial<CodegenOptions>) {
     const options = getCodegenOptions(opts)

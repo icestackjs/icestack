@@ -77,23 +77,17 @@ export type CodegenOptions = {
 
   outdir: string
   autobuild: boolean
+  dryRun: boolean
   loaddir: string
   // tailwindcss plugin
   runtime: {
     prefix: string | PrefixerOptions
     atMedia: {
-      // default false
       hover: boolean
     }
-    // pseudo: {
-    //   // default true
-    //   where: boolean
-    // }
     selector: {
       // default *
       universal: string // | (() => string)
-      // default global
-      // globalKeyword: string
     }
   }
 }

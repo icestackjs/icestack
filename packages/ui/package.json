@@ -57,7 +57,8 @@
     "icestack": "bin/icestack.js"
   },
   "scripts": {
-    "build": "npm run clean && npm run build:base && npm run build:utilities && npm run build:components && npm run build:plugin",
+    "build": "npm run clean && npm run build:all && npm run build:plugin",
+    "build:all": "ts-node --esm scripts/build-scss.ts",
     "build:plugin": "unbuild --sourcemap",
     "_build:plugin": "unbuild",
     "clean": "node scripts/clean.js",
@@ -68,7 +69,6 @@
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "vitest run",
     "test:dev": "vitest",
-    "build:scss": "ts-node --esm scripts/build-scss.ts",
     "build:base": "ts-node --esm scripts/build-scss.ts base",
     "build:utilities": "ts-node --esm scripts/build-scss.ts utilities",
     "build:components": "ts-node --esm scripts/build-scss.ts components",

@@ -103,6 +103,9 @@ exports[`button > snap 1`] = `
 .btn-block {
   @apply w-full;
 }
+.btn-square {
+  @apply h-12 w-12 p-0;
+}
 .btn-square:where(.btn-xs) {
   @apply h-6 w-6 p-0;
 }
@@ -114,6 +117,9 @@ exports[`button > snap 1`] = `
 }
 .btn-square:where(.btn-lg) {
   @apply h-16 w-16 p-0;
+}
+.btn-circle {
+  @apply h-12 w-12 rounded-full p-0;
 }
 .btn-circle:where(.btn-xs) {
   @apply h-6 w-6 rounded-full p-0;

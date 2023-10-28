@@ -21,6 +21,16 @@ export const miniprogramPreset: () => DeepPartial<CodegenOptions> = () => {
           }
         ]
       }
+    },
+    base: {
+      themes: {
+        light: {
+          selector: 'page'
+        },
+        dark: {
+          selector: '.dark'
+        }
+      }
     }
   }
 }

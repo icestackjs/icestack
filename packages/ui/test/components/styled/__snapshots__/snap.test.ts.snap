@@ -89,9 +89,6 @@ exports[`button > snap 1`] = `
 .btn:focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
-.btn:hover {
-  @apply border-base-100 bg-base-100;
-}
 .btn:active {
   @apply border-base-300 bg-base-300;
 }
@@ -100,9 +97,6 @@ exports[`button > snap 1`] = `
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
-}
-.btn-primary:hover {
-  @apply border-primary-hover bg-primary-hover;
 }
 .btn-primary:active {
   @apply border-primary-active bg-primary-active;
@@ -113,9 +107,6 @@ exports[`button > snap 1`] = `
 .btn-success {
   @apply border-success bg-success text-success-content outline-success;
 }
-.btn-success:hover {
-  @apply border-success-hover bg-success-hover;
-}
 .btn-success:active {
   @apply border-success-active bg-success-active;
 }
@@ -124,9 +115,6 @@ exports[`button > snap 1`] = `
 }
 .btn-warning {
   @apply border-warning bg-warning text-warning-content outline-warning;
-}
-.btn-warning:hover {
-  @apply border-warning-hover bg-warning-hover;
 }
 .btn-warning:active {
   @apply border-warning-active bg-warning-active;
@@ -137,9 +125,6 @@ exports[`button > snap 1`] = `
 .btn-error {
   @apply border-error bg-error text-error-content outline-error;
 }
-.btn-error:hover {
-  @apply border-error-hover bg-error-hover;
-}
 .btn-error:active {
   @apply border-error-active bg-error-active;
 }
@@ -149,9 +134,6 @@ exports[`button > snap 1`] = `
 .btn-info {
   @apply border-info bg-info text-info-content outline-info;
 }
-.btn-info:hover {
-  @apply border-info-hover bg-info-hover;
-}
 .btn-info:active {
   @apply border-info-active bg-info-active;
 }
@@ -160,9 +142,6 @@ exports[`button > snap 1`] = `
 }
 .btn-neutral {
   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
-}
-.btn-neutral:hover {
-  @apply border-neutral-hover bg-neutral-hover;
 }
 .btn-neutral:active {
   @apply border-neutral-active bg-neutral-active;
@@ -264,19 +243,6 @@ exports[`button > snap 1`] = `
 }
 .btn.btn-disabled, .btn[disabled], .btn:disabled {
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
-}
-
-.btn:is(input[type=checkbox]:checked),
-.btn:is(input[type=radio]:checked) {
-  @apply border-primary bg-primary text-primary-content;
-}
-.btn:is(input[type=checkbox]:checked):active,
-.btn:is(input[type=radio]:checked):active {
-  @apply border-primary-active bg-primary-active;
-}
-.btn:is(input[type=checkbox]:checked):focus-visible,
-.btn:is(input[type=radio]:checked):focus-visible {
-  @apply outline-primary;
 }"
 `;
 

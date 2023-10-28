@@ -168,21 +168,27 @@ export function getJsObj(opts: IOptions) {
 }
 
 export function extractAll(options: CodegenOptions) {
+  let start = performance.now()
   const base = getJsObj({
     options,
     outSideLayerCss: 'base'
   })
-  console.log('extract base finished!')
+  let end = performance.now()
+  console.log('extract base finished!' + `${end - start}ms`)
+  start = performance.now()
   const utilities = getJsObj({
     options,
     outSideLayerCss: 'utilities'
   })
-  console.log('extract utilities finished!')
+  end = performance.now()
+  console.log('extract utilities finished!' + `${end - start}ms`)
+  start = performance.now()
   const components = getJsObj({
     options,
     outSideLayerCss: 'components'
   })
-  console.log('extract components finished!')
+  end = performance.now()
+  console.log('extract components finished!' + `${end - start}ms`)
   return {
     base,
     utilities,

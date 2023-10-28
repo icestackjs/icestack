@@ -32,7 +32,7 @@ export const icestackPlugin = plugin.withOptions(
       const start = performance.now()
       const res = extractAll(options)
       const now = performance.now()
-      console.log(`extractAll: ${now - start}`)
+      console.log(`extractAll: ${now - start}ms`)
       base = res.base
       components = res.components
       utilities = res.utilities

@@ -21,7 +21,9 @@
   &-block {
     @apply w-full;
   }
+
   &-square {
+    @apply h-12 w-12 p-0;
     &:where(.btn-xs) {
       @apply h-6 w-6 p-0;
     }
@@ -36,6 +38,7 @@
     }
   }
   &-circle {
+    @apply h-12 w-12 rounded-full p-0;
     &:where(.btn-xs) {
       @apply h-6 w-6 rounded-full p-0;
     }

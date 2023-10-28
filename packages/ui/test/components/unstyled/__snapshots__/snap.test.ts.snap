@@ -35,33 +35,15 @@ exports[`badge > snap 1`] = `
 
 exports[`button > snap 1`] = `
 ".btn {
-  @apply rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out;
-  @apply min-h-12 h-12 px-4;
+  @apply rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4;
   font-size: 0.875rem;
   line-height: 1em;
-  /* disabled */
-  /* shapes */
 }
 .btn-disabled, .btn[disabled], .btn:disabled {
   @apply pointer-events-none;
 }
-.btn-square {
-  @apply h-12 w-12 p-0;
-}
-.btn-circle {
-  @apply h-12 w-12 rounded-full p-0;
-}
 
-/* radio input and checkbox as button */
-.btn:is(input[type=checkbox]),
-.btn:is(input[type=radio]) {
-  @apply w-auto appearance-none;
-}
-
-.btn:is(input[type=checkbox]):after,
-.btn:is(input[type=radio]):after {
-  @apply content-[attr(aria-label)];
-}"
+/* radio input and checkbox as button */"
 `;
 
 exports[`carousel > snap 1`] = `

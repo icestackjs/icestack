@@ -1,31 +1,24 @@
-.btn {
-  @apply rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out;
-  @apply min-h-12 h-12 px-4;
-  font-size: 0.875rem;
-  line-height: 1em;
+@use "../../utils/index.scss" as *;
+@use "sass:map";
 
-  /* disabled */
+$DefaultMap: inject("button.defaults.unstyled");
+
+.btn {
+  @include resolve(map.get($DefaultMap, "default"));
+
   &-disabled,
   &[disabled],
   &:disabled {
-    @apply pointer-events-none;
-  }
-
-  /* shapes */
-  &-square {
-    @apply h-12 w-12 p-0;
-  }
-  &-circle {
-    @apply h-12 w-12 rounded-full p-0;
+    @include resolve(map.get($DefaultMap, "disabled"));
   }
 }
 
 /* radio input and checkbox as button */
-.btn:is(input[type="checkbox"]),
-.btn:is(input[type="radio"]) {
-  @apply w-auto appearance-none;
-}
-.btn:is(input[type="checkbox"]):after,
-.btn:is(input[type="radio"]):after {
-  @apply content-[attr(aria-label)];
-}
+// .btn:is(input[type="checkbox"]),
+// .btn:is(input[type="radio"]) {
+//   @apply w-auto appearance-none;
+// }
+// .btn:is(input[type="checkbox"]):after,
+// .btn:is(input[type="radio"]):after {
+//   @apply content-[attr(aria-label)];
+// }

@@ -91,15 +91,15 @@ $hoverMedia: map.get($DefaultMap, "hoverMedia");
     @include resolve(map.get($DefaultMap, "disabled"));
   }
 }
-$InputTypeMap: map.get($DefaultMap, "inputType");
+// $InputTypeMap: map.get($DefaultMap, "inputType");
 // for input element
-.btn:is(input[type="checkbox"]:checked),
-.btn:is(input[type="radio"]:checked) {
-  @include resolve(map.get($InputTypeMap, "default"));
-  &:active {
-    @include resolve(map.get($InputTypeMap, "active"));
-  }
-  &:focus-visible {
-    @include resolve(map.get($InputTypeMap, "focusVisible"));
-  }
-}
+// .btn:is(input[type="checkbox"]:checked),
+// .btn:is(input[type="radio"]:checked) {
+//   @include resolve(map.get($InputTypeMap, "default"));
+//   &:active {
+//     @include resolve(map.get($InputTypeMap, "active"));
+//   }
+//   &:focus-visible {
+//     @include resolve(map.get($InputTypeMap, "focusVisible"));
+//   }
+// }

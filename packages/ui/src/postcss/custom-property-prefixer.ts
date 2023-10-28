@@ -1,4 +1,4 @@
-import postcss from 'postcss'
+// import postcss from 'postcss'
 import creator, { type UserDefinedOptions } from 'postcss-custom-property-prefixer'
 import { defaultVarPrefix } from '@/constants'
 
@@ -14,12 +14,12 @@ export function getPlugin(varPrefix: UserDefinedOptions['prefix'] = defaultVarPr
   })
 }
 
-export function addVarPrefix(rawCss: string, varPrefix: string = defaultVarPrefix) {
-  return (
-    postcss([getPlugin(varPrefix)])
-      // @ts-ignore
-      .process(rawCss, {
-        from: undefined
-      })
-  )
-}
+// export function addVarPrefix(rawCss: string, varPrefix: string = defaultVarPrefix) {
+//   return (
+//     postcss([getPlugin(varPrefix)])
+//       // @ts-ignore
+//       .process(rawCss, {
+//         from: undefined
+//       })
+//   )
+// }

@@ -25,25 +25,23 @@ export const icestackPlugin = plugin.withOptions(
     const options = getCodegenOptions(opts)
 
     if (options.loaddir || options.outdir) {
-      let base: typeof _base
-      let components: typeof _components
-      let utilities: typeof _utilities
+      let loadDirPath: string
       if (options.loaddir) {
         const { loaddir } = options
-        base = requireLib('js/base/index.js', loaddir) as typeof _base
-        components = requireLib('js/components/index.js', loaddir) as typeof _components
-        utilities = requireLib('js/utilities/index.js', loaddir) as typeof _utilities
+        loadDirPath = loaddir
       } else {
-        const start = performance.now()
-        const res = buildAll(options)
-        const now = performance.now()
-
-        console.log(`buildAll: ${now - start}ms`)
+        if (options.autobuild) {
+          const start = performance.now()
+          buildAll(options)
+          const now = performance.now()
+          console.log(`buildAll: ${now - start}ms`)
+        }
         const { outdir } = options
-        base = requireLib('js/base/index.js', outdir) as typeof _base
-        components = requireLib('js/components/index.js', outdir) as typeof _components
-        utilities = requireLib('js/utilities/index.js', outdir) as typeof _utilities
+        loadDirPath = outdir
       }
+      const base = requireLib('js/base/index.js', loadDirPath) as typeof _base
+      const components = requireLib('js/components/index.js', loadDirPath) as typeof _components
+      const utilities = requireLib('js/utilities/index.js', loadDirPath) as typeof _utilities
       if (base && components && utilities) {
         const componentsEntries = Object.entries(components)
         // const utilitiesEntries = Object.entries(utilities)
@@ -55,22 +53,15 @@ export const icestackPlugin = plugin.withOptions(
           addBase([baseObj])
 
           for (const [name, item] of componentsEntries) {
+            // 优先级 utils > index > base
             const cssItems: (CssInJs | undefined)[] = [item.base, item.index, item.utils]
 
-            // const hit = options?.components?.[name]
-            // if (hit && Array.isArray(hit.append)) {
-            //   cssItems.push(...hit.append)
-            // }
             let cssObj = merge.recursive(true, ...cssItems)
 
             cssObj = componentsProcess(cssObj)
 
             addComponents(cssObj)
           }
-
-          // for (const [name, item] of utilitiesEntries) {
-
-          // }
 
           const cssItems: (CssInJs | undefined)[] = [utilities.global]
 

@@ -50,7 +50,7 @@ export type GlobalOptions = {
   }
   selector: {
     // default *
-    universal: string | (() => string)
+    universal: string // | (() => string)
     // default global
     globalKeyword: string
   }
@@ -76,7 +76,26 @@ export type CodegenOptions = {
   presets: DeepPartial<CodegenOptions>[]
 
   outdir: string
+  autobuild: boolean
   loaddir: string
+  // tailwindcss plugin
+  runtime: {
+    prefix: string | PrefixerOptions
+    atMedia: {
+      // default false
+      hover: boolean
+    }
+    // pseudo: {
+    //   // default true
+    //   where: boolean
+    // }
+    selector: {
+      // default *
+      universal: string // | (() => string)
+      // default global
+      // globalKeyword: string
+    }
+  }
 }
 
 // export type TailwindcssPluginOptions = CodegenOptions | LoadCodeOptions

@@ -3,13 +3,14 @@ import path from 'node:path'
 import * as sass from 'sass'
 import { merge } from 'merge'
 import postcssJs from 'postcss-js'
-import { Root } from 'postcss'
+import postcss, { Root, AcceptedPlugin } from 'postcss'
 import { createFunctions } from './functions'
 import { ensureDirSync } from '@/utils'
 import { getCssPath, getJsPath, scssDir, getCssResolvedpath } from '@/dirs'
 import { CodegenOptions, IBuildScssOptions } from '@/types'
 import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
-import { addVarPrefix } from '@/postcss/custom-property-prefixer'
+import { getPlugin as getCssVarsPrefixerPlugin } from '@/postcss/custom-property-prefixer'
+import prefixer from '@/postcss/prefixer'
 // 1. scss
 // 2. add var prefix
 export function compileScss(filename: string, opts: CodegenOptions) {
@@ -17,7 +18,21 @@ export function compileScss(filename: string, opts: CodegenOptions) {
     functions: createFunctions(opts)
   }
   const result = sass.compile(filename, sassOptions)
-  return addVarPrefix(result.css)
+  const plugins: AcceptedPlugin[] = [getCssVarsPrefixerPlugin(opts.varPrefix)]
+  if (typeof opts.prefix === 'string') {
+    plugins.push(
+      prefixer({
+        prefix: opts.prefix,
+        ignore: []
+      })
+    )
+  } else if (typeof opts.prefix === 'object') {
+    plugins.push(prefixer(opts.prefix))
+  }
+  // @ts-ignore
+  return postcss(plugins).process(result.css, {
+    from: undefined
+  }) // addVarPrefix(result.css)
 }
 
 export function buildScss(opts: IBuildScssOptions<CodegenOptions>) {

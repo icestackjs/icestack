@@ -15,8 +15,8 @@ export function generateBtnInjectVars(type: string) {
     outline: `text-${type}`,
     default: `border-${type} bg-${type} text-${type}-content outline-${type}`,
     hover: `border-${type}-hover bg-${type}-hover`,
-    active: `border-${type}-focus bg-${type}-focus`,
-    outlineActive: `border-${type}-focus bg-${type}-focus text-${type}-content`
+    active: `border-${type}-active bg-${type}-active`,
+    outlineActive: `border-${type}-active bg-${type}-active text-${type}-content`
   }
 }
 
@@ -48,7 +48,7 @@ const defaults: IDefaults = {
     },
     inputType: {
       default: 'border-primary bg-primary text-primary-content',
-      active: 'border-primary-focus bg-primary-focus',
+      active: 'border-primary-active bg-primary-active',
       focusVisible: 'outline-primary'
     }
   },

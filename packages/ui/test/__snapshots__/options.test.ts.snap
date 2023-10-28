@@ -51,84 +51,84 @@ exports[`options > getCodegenOptions snap 1`] = `
       "error": {
         "dark": {
           "error": "#d32029",
-          "error-focus": "#e84749",
+          "error-active": "#e84749",
           "error-hover": "#a61d24",
           "info-content": "#ffffff",
         },
         "light": {
           "error": "#f5222d",
+          "error-active": "#cf1322",
           "error-content": "#ffffff",
-          "error-focus": "#cf1322",
           "error-hover": "#ff4d4f",
         },
       },
       "info": {
         "dark": {
           "info": "#1668dc",
+          "info-active": "#3c89e8",
           "info-content": "#ffffff",
-          "info-focus": "#3c89e8",
           "info-hover": "#1554ad",
         },
         "light": {
           "info": "#1677ff",
+          "info-active": "#0958d9",
           "info-content": "#ffffff",
-          "info-focus": "#0958d9",
           "info-hover": "#4096ff",
         },
       },
       "neutral": {
         "dark": {
           "neutral": "#bfbfbf",
+          "neutral-active": "#8c8c8c",
           "neutral-content": "#ffffff",
-          "neutral-focus": "#8c8c8c",
           "neutral-hover": "#d9d9d9",
         },
         "light": {
           "neutral": "#bfbfbf",
+          "neutral-active": "#8c8c8c",
           "neutral-content": "#ffffff",
-          "neutral-focus": "#8c8c8c",
           "neutral-hover": "#d9d9d9",
         },
       },
       "primary": {
         "dark": {
           "primary": "#1668dc",
+          "primary-active": "#3c89e8",
           "primary-content": "#ffffff",
-          "primary-focus": "#3c89e8",
           "primary-hover": "#1554ad",
         },
         "light": {
           "primary": "#1677ff",
+          "primary-active": "#0958d9",
           "primary-content": "#ffffff",
-          "primary-focus": "#0958d9",
           "primary-hover": "#4096ff",
         },
       },
       "success": {
         "dark": {
           "success": "#49aa19",
+          "success-active": "#6abe39",
           "success-content": "#ffffff",
-          "success-focus": "#6abe39",
           "success-hover": "#3c8618",
         },
         "light": {
           "success": "#52c41a",
+          "success-active": "#389e0d",
           "success-content": "#ffffff",
-          "success-focus": "#389e0d",
           "success-hover": "#73d13d",
         },
       },
       "warning": {
         "dark": {
           "warning": "#d89614",
+          "warning-active": "#e8b339",
           "warning-content": "#ffffff",
-          "warning-focus": "#e8b339",
           "warning-hover": "#aa7714",
         },
         "light": {
           "warning": "#faad14",
+          "warning-active": "#d48806",
           "warning-content": "#ffffff",
-          "warning-focus": "#d48806",
           "warning-hover": "#ffc53d",
         },
       },

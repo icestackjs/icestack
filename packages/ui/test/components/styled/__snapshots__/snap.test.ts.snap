@@ -105,10 +105,10 @@ exports[`button > snap 1`] = `
   @apply border-primary-hover bg-primary-hover;
 }
 .btn-primary:active {
-  @apply border-primary-focus bg-primary-focus;
+  @apply border-primary-active bg-primary-active;
 }
 .btn-primary.btn-active {
-  @apply border-primary-focus bg-primary-focus;
+  @apply border-primary-active bg-primary-active;
 }
 .btn-success {
   @apply border-success bg-success text-success-content outline-success;
@@ -117,10 +117,10 @@ exports[`button > snap 1`] = `
   @apply border-success-hover bg-success-hover;
 }
 .btn-success:active {
-  @apply border-success-focus bg-success-focus;
+  @apply border-success-active bg-success-active;
 }
 .btn-success.btn-active {
-  @apply border-success-focus bg-success-focus;
+  @apply border-success-active bg-success-active;
 }
 .btn-warning {
   @apply border-warning bg-warning text-warning-content outline-warning;
@@ -129,10 +129,10 @@ exports[`button > snap 1`] = `
   @apply border-warning-hover bg-warning-hover;
 }
 .btn-warning:active {
-  @apply border-warning-focus bg-warning-focus;
+  @apply border-warning-active bg-warning-active;
 }
 .btn-warning.btn-active {
-  @apply border-warning-focus bg-warning-focus;
+  @apply border-warning-active bg-warning-active;
 }
 .btn-error {
   @apply border-error bg-error text-error-content outline-error;
@@ -141,10 +141,10 @@ exports[`button > snap 1`] = `
   @apply border-error-hover bg-error-hover;
 }
 .btn-error:active {
-  @apply border-error-focus bg-error-focus;
+  @apply border-error-active bg-error-active;
 }
 .btn-error.btn-active {
-  @apply border-error-focus bg-error-focus;
+  @apply border-error-active bg-error-active;
 }
 .btn-info {
   @apply border-info bg-info text-info-content outline-info;
@@ -153,10 +153,10 @@ exports[`button > snap 1`] = `
   @apply border-info-hover bg-info-hover;
 }
 .btn-info:active {
-  @apply border-info-focus bg-info-focus;
+  @apply border-info-active bg-info-active;
 }
 .btn-info.btn-active {
-  @apply border-info-focus bg-info-focus;
+  @apply border-info-active bg-info-active;
 }
 .btn-neutral {
   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
@@ -165,10 +165,10 @@ exports[`button > snap 1`] = `
   @apply border-neutral-hover bg-neutral-hover;
 }
 .btn-neutral:active {
-  @apply border-neutral-focus bg-neutral-focus;
+  @apply border-neutral-active bg-neutral-active;
 }
 .btn-neutral.btn-active {
-  @apply border-neutral-focus bg-neutral-focus;
+  @apply border-neutral-active bg-neutral-active;
 }
 .btn.glass {
   @apply shadow-none outline-current;
@@ -212,55 +212,55 @@ exports[`button > snap 1`] = `
   @apply text-primary;
 }
 .btn-outline.btn-primary:active {
-  @apply border-primary-focus bg-primary-focus text-primary-content;
+  @apply border-primary-active bg-primary-active text-primary-content;
 }
 .btn-outline.btn-primary.btn-active {
-  @apply border-primary-focus bg-primary-focus text-primary-content;
+  @apply border-primary-active bg-primary-active text-primary-content;
 }
 .btn-outline.btn-success {
   @apply text-success;
 }
 .btn-outline.btn-success:active {
-  @apply border-success-focus bg-success-focus text-success-content;
+  @apply border-success-active bg-success-active text-success-content;
 }
 .btn-outline.btn-success.btn-active {
-  @apply border-success-focus bg-success-focus text-success-content;
+  @apply border-success-active bg-success-active text-success-content;
 }
 .btn-outline.btn-warning {
   @apply text-warning;
 }
 .btn-outline.btn-warning:active {
-  @apply border-warning-focus bg-warning-focus text-warning-content;
+  @apply border-warning-active bg-warning-active text-warning-content;
 }
 .btn-outline.btn-warning.btn-active {
-  @apply border-warning-focus bg-warning-focus text-warning-content;
+  @apply border-warning-active bg-warning-active text-warning-content;
 }
 .btn-outline.btn-error {
   @apply text-error;
 }
 .btn-outline.btn-error:active {
-  @apply border-error-focus bg-error-focus text-error-content;
+  @apply border-error-active bg-error-active text-error-content;
 }
 .btn-outline.btn-error.btn-active {
-  @apply border-error-focus bg-error-focus text-error-content;
+  @apply border-error-active bg-error-active text-error-content;
 }
 .btn-outline.btn-info {
   @apply text-info;
 }
 .btn-outline.btn-info:active {
-  @apply border-info-focus bg-info-focus text-info-content;
+  @apply border-info-active bg-info-active text-info-content;
 }
 .btn-outline.btn-info.btn-active {
-  @apply border-info-focus bg-info-focus text-info-content;
+  @apply border-info-active bg-info-active text-info-content;
 }
 .btn-outline.btn-neutral {
   @apply text-neutral;
 }
 .btn-outline.btn-neutral:active {
-  @apply border-neutral-focus bg-neutral-focus text-neutral-content;
+  @apply border-neutral-active bg-neutral-active text-neutral-content;
 }
 .btn-outline.btn-neutral.btn-active {
-  @apply border-neutral-focus bg-neutral-focus text-neutral-content;
+  @apply border-neutral-active bg-neutral-active text-neutral-content;
 }
 .btn.btn-disabled, .btn[disabled], .btn:disabled {
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
@@ -272,7 +272,7 @@ exports[`button > snap 1`] = `
 }
 .btn:is(input[type=checkbox]:checked):active,
 .btn:is(input[type=radio]:checked):active {
-  @apply border-primary-focus bg-primary-focus;
+  @apply border-primary-active bg-primary-active;
 }
 .btn:is(input[type=checkbox]:checked):focus-visible,
 .btn:is(input[type=radio]:checked):focus-visible {
@@ -544,22 +544,22 @@ exports[`kbd > snap 1`] = `
 
 exports[`link > snap 1`] = `
 ".link-primary {
-  @apply text-primary [@media(hover:hover)]:hover:text-primary-focus;
+  @apply text-primary [@media(hover:hover)]:hover:text-primary-active;
 }
 .link-success {
-  @apply text-success [@media(hover:hover)]:hover:text-success-focus;
+  @apply text-success [@media(hover:hover)]:hover:text-success-active;
 }
 .link-warning {
-  @apply text-warning [@media(hover:hover)]:hover:text-warning-focus;
+  @apply text-warning [@media(hover:hover)]:hover:text-warning-active;
 }
 .link-error {
-  @apply text-error [@media(hover:hover)]:hover:text-error-focus;
+  @apply text-error [@media(hover:hover)]:hover:text-error-active;
 }
 .link-info {
-  @apply text-info [@media(hover:hover)]:hover:text-info-focus;
+  @apply text-info [@media(hover:hover)]:hover:text-info-active;
 }
 .link-neutral {
-  @apply text-neutral [@media(hover:hover)]:hover:text-neutral-focus;
+  @apply text-neutral [@media(hover:hover)]:hover:text-neutral-active;
 }
 .link:focus {
   @apply outline-none;

@@ -2,7 +2,7 @@ import { IDefaults, expandColorsMap } from './shared'
 import { CreatePresetOptions } from '@/sass/functions'
 
 function generateDefault(typeName: string) {
-  return `text-${typeName} [@media(hover:hover)]:hover:text-${typeName}-focus`
+  return `text-${typeName} [@media(hover:hover)]:hover:text-${typeName}-active`
 }
 
 const defaults: IDefaults = {

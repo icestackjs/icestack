@@ -147,6 +147,7 @@ exports[`options > getCodegenOptions snap 1`] = `
     },
   },
   "log": true,
+  "mode": "styled",
   "varPrefix": "--ice-",
 }
 `;
@@ -213,6 +214,7 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     },
   },
   "log": true,
+  "mode": "styled",
   "varPrefix": "--ice-",
 }
 `;

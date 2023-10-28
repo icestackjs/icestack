@@ -1,11 +1,11 @@
-import fs from 'node:fs/promises'
+import fs from 'node:fs'
 import path from 'node:path'
 import * as sass from 'sass'
 import { merge } from 'merge'
 import postcssJs from 'postcss-js'
 import { Root } from 'postcss'
 import { createFunctions } from './functions'
-import { ensureDir } from '@/utils'
+import { ensureDirSync } from '@/utils'
 import { getCssPath, getJsPath, scssDir, getCssResolvedpath } from '@/dirs'
 import { CodegenOptions, IBuildScssOptions } from '@/types'
 import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
@@ -20,7 +20,7 @@ export function compileScss(filename: string, opts: CodegenOptions) {
   return addVarPrefix(result.css)
 }
 
-export async function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
+export function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
   const { filename, resolveConfig, outdir, options, outSideLayerCss } = opts
 
   const name = path.basename(filename, '.scss')
@@ -31,22 +31,22 @@ export async function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
   const jsPath = getJsPath(relPath, outdir)
   const cssResolvedPath = getCssResolvedpath(relPath, outdir)
 
-  await ensureDir(path.dirname(cssPath))
-  await ensureDir(path.dirname(jsPath))
-  await ensureDir(path.dirname(cssResolvedPath))
+  ensureDirSync(path.dirname(cssPath))
+  ensureDirSync(path.dirname(jsPath))
+  ensureDirSync(path.dirname(cssResolvedPath))
 
   const config = initConfig()
 
   resolveConfig?.(config)
 
   // scss -> css
-  await fs.writeFile(cssPath, cssOutput, 'utf8')
-  const { root, css } = await resolveTailwindcss({
+  fs.writeFileSync(cssPath, cssOutput, 'utf8')
+  const { root, css } = resolveTailwindcss({
     css: cssOutput,
     config
   })
 
-  await fs.writeFile(cssResolvedPath, css, 'utf8')
+  fs.writeFileSync(cssResolvedPath, css, 'utf8')
   const cssJsObj = postcssJs.objectify(root as Root)
 
   if (outSideLayerCss === 'utilities') {
@@ -59,7 +59,7 @@ export async function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
 
   const data = 'module.exports = ' + JSON.stringify(cssJsObj, null, 2)
   // css -> js
-  await fs.writeFile(jsPath, data, 'utf8')
+  fs.writeFileSync(jsPath, data, 'utf8')
 }
 
 export function extractScss(opts: IBuildScssOptions<CodegenOptions>) {

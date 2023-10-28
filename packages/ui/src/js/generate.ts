@@ -14,8 +14,8 @@ export function generateIndexCode(basenames: string[]) {
       .map((basename) => {
         const s = basename.split(path.sep)
         return {
-          key: s[1],
-          type: s[0],
+          key: s[0],
+          type: s[1],
           path: basename
         }
       })

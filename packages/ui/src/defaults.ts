@@ -156,6 +156,7 @@ export function getDefaultBase(raw?: boolean) {
 export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
   const base = getDefaultBase(raw)
   return {
+    mode: 'styled',
     varPrefix: defaultVarPrefix,
     log: true,
     // rtl: false,

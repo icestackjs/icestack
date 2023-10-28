@@ -1,4 +1,4 @@
-import fs from 'node:fs/promises'
+import fs from 'node:fs'
 import path from 'node:path'
 import plugin from 'tailwindcss/plugin'
 import { set } from 'lodash'
@@ -15,7 +15,7 @@ export type IOptions = {
   outSideLayerCss: 'base' | 'utilities' | 'components'
 }
 
-export async function generate(opts: IOptions) {
+export function generate(opts: IOptions) {
   const { outSideLayerCss, options } = opts // defu<IOptions, Partial<IOptions>[]>(opts, {})
   const { outdir } = options
   const colors = getColors(options)
@@ -23,7 +23,7 @@ export async function generate(opts: IOptions) {
   switch (outSideLayerCss) {
     case 'base': {
       for (const file of walkScssSync(path.resolve(scssDir, 'base'))) {
-        await buildScss({
+        buildScss({
           outdir,
           filename: file.path,
           outSideLayerCss,
@@ -40,7 +40,7 @@ export async function generate(opts: IOptions) {
       const utilitiesJsOutputPath = path.resolve(resolveJsDir(outdir), 'utilities')
       for (const file of walkScssSync(path.resolve(utilitiesPath, 'global'))) {
         basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
-        await buildScss({
+        buildScss({
           outdir,
           filename: file.path,
           outSideLayerCss,
@@ -50,13 +50,13 @@ export async function generate(opts: IOptions) {
           options
         })
       }
-      await fs.writeFile(path.resolve(utilitiesJsOutputPath, 'index.js'), generateIndexCode(basenameArray), 'utf8')
+      fs.writeFileSync(path.resolve(utilitiesJsOutputPath, 'index.js'), generateIndexCode(basenameArray), 'utf8')
       basenameArray.length = 0
       const utilitiesJs = path.resolve(resolveJsDir(outdir), 'utilities')
 
       for (const file of walkScssSync(utilitiesPath)) {
         basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
-        await buildScss({
+        buildScss({
           outdir,
           filename: file.path,
           outSideLayerCss,
@@ -83,7 +83,7 @@ export async function generate(opts: IOptions) {
         })
       }
 
-      await fs.writeFile(path.resolve(utilitiesJsOutputPath, 'index.js'), generateIndexCode(basenameArray), 'utf8')
+      fs.writeFileSync(path.resolve(utilitiesJsOutputPath, 'index.js'), generateIndexCode(basenameArray), 'utf8')
 
       break
     }
@@ -94,7 +94,7 @@ export async function generate(opts: IOptions) {
       const fromDir = path.resolve(scssDir, 'components')
       for (const file of walkScssSync(fromDir)) {
         basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
-        await buildScss({
+        buildScss({
           outdir,
           filename: file.path,
           resolveConfig: (config) => {
@@ -121,27 +121,34 @@ export async function generate(opts: IOptions) {
         })
       }
       const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
-      await fs.writeFile(path.resolve(componentsJsOutputPath, 'index.js'), generateIndexCode(basenameArray), 'utf8')
+      fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.js'), generateIndexCode(basenameArray), 'utf8')
       break
     }
     default:
   }
 }
 
-export async function buildAll(options: CodegenOptions) {
-  await generate({
+export function buildAll(options: CodegenOptions) {
+  let start = performance.now()
+
+  generate({
     options,
     outSideLayerCss: 'base'
   })
-  console.log('build base finished!')
-  await generate({
+  let end = performance.now()
+  console.log('build base finished!' + `${end - start}ms`)
+  start = performance.now()
+  generate({
     options,
     outSideLayerCss: 'utilities'
   })
-  console.log('build utilities finished!')
-  await generate({
+  end = performance.now()
+  console.log('build utilities finished!' + `${end - start}ms`)
+  start = performance.now()
+  generate({
     options,
     outSideLayerCss: 'components'
   })
-  console.log('build components finished!')
+  end = performance.now()
+  console.log('build components finished!' + `${end - start}ms`)
 }

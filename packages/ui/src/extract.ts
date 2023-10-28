@@ -3,14 +3,14 @@ import plugin from 'tailwindcss/plugin'
 import { set } from 'lodash'
 import { CssInJs } from 'postcss-js'
 import merge from 'merge'
-import objHash from 'object-hash'
+// import objHash from 'object-hash'
 import { getColors } from './colors'
 import { walkScssSync } from './utils'
 import { extractScss } from '@/sass'
 import { resolveJsDir, scssDir } from '@/dirs'
 import { someExtends } from '@/constants'
 import { CodegenOptions } from '@/types'
-import { getFileCache } from '@/cache'
+// import { getFileCache } from '@/cache'
 
 export type IOptions = {
   options: CodegenOptions
@@ -24,7 +24,7 @@ function groupedComs(
   }[]
 ) {
   return resultArray.reduce<Record<string, Record<string, CssInJs>>>((acc, cur) => {
-    const [type, key] = cur.key.split(path.sep)
+    const [key, type] = cur.key.split(path.sep)
 
     // style / unstyle / global
     if (acc[key]) {
@@ -41,35 +41,29 @@ function groupedComs(
 
 export function getJsObj(opts: IOptions) {
   const { outSideLayerCss, options } = opts // defu<IOptions, Partial<IOptions>[]>(opts, {})
-  const { outdir, base } = options
+  const { outdir } = options
   const colors = getColors(options)
   // await ensureDir(pluginsDir)
   switch (outSideLayerCss) {
     case 'base': {
-      const cache = getFileCache('base/index')
-      const objhash = objHash(base)
-      if (cache.getKey('objhash') === objhash) {
-        return cache.getKey('value')
-      } else {
-        const basePath = path.resolve(scssDir, 'base')
-        const resultArray: { key: string; value: CssInJs }[] = []
-        for (const file of walkScssSync(basePath)) {
-          resultArray.push({
-            key: path.relative(basePath, file.path).replace(/\.scss$/, ''),
-            value: extractScss({
-              outdir,
-              filename: file.path,
-              outSideLayerCss,
-              options
-            })
+      // const cache = getFileCache('base/index')
+
+      const basePath = path.resolve(scssDir, 'base')
+      const resultArray: { key: string; value: CssInJs }[] = []
+      for (const file of walkScssSync(basePath)) {
+        resultArray.push({
+          key: path.relative(basePath, file.path).replace(/\.scss$/, ''),
+          value: extractScss({
+            outdir,
+            filename: file.path,
+            outSideLayerCss,
+            options
           })
-        }
-        const value = merge.recursive(true, ...resultArray.map((x) => x.value))
-        cache.setKey('value', value)
-        cache.setKey('objhash', objhash)
-        cache.save()
-        return value
+        })
       }
+      const value = merge.recursive(true, ...resultArray.map((x) => x.value))
+
+      return value
     }
     case 'utilities': {
       const utilitiesPath = path.resolve(scssDir, 'utilities')

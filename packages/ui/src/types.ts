@@ -1,4 +1,4 @@
-import type { ConfigOptions } from 'rtlcss'
+// import type { ConfigOptions } from 'rtlcss'
 // import type { AcceptedPlugin } from 'postcss'
 import type { Config } from 'tailwindcss'
 // import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
@@ -28,12 +28,13 @@ export type BaseOptions = {
 }
 
 export type ComponentsValue = {
+  mode: CodegenMode
   override: object
   extend: object
+  append: CssInJs[]
   // postcss: {
   //   plugins: AcceptedPlugin[]
   // }
-  append: CssInJs[]
 }
 
 export type ComponentsOptions = Record<(typeof allComponents)[number] | string, ComponentsValue>
@@ -55,7 +56,15 @@ export type GlobalOptions = {
   }
 }
 
+export type CodegenMode = 'styled' | 'unstyled' | 'raw'
+
+export type LoadCodeOptions = {
+  loaddir: string
+}
+
 export type CodegenOptions = {
+  // default styled
+  mode: CodegenMode
   components: ComponentsOptions
   global: GlobalOptions
   base: BaseOptions
@@ -65,9 +74,12 @@ export type CodegenOptions = {
   prefix: string | PrefixerOptions
   // rtl: boolean | ConfigOptions
   presets: DeepPartial<CodegenOptions>[]
-  basedir?: string
-  outdir?: string
+
+  outdir: string
+  loaddir: string
 }
+
+// export type TailwindcssPluginOptions = CodegenOptions | LoadCodeOptions
 
 export interface IBuildScssOptions<T> {
   outdir?: string

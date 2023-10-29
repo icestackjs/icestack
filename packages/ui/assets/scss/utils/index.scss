@@ -61,6 +61,14 @@ $globalAtMediaHover: globalAtMediaHover();
   }
 }
 
+@function ApplyAtMediaHover($str) {
+  @if ($globalAtMediaHover) {
+    @return "[@media(hover:hover)]:#{$str}";
+  } @else {
+    @return $str;
+  }
+}
+
 @function composeStringArray($list) {
   $result: null;
   @each $item in $list {

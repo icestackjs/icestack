@@ -24,7 +24,8 @@ const defaults: IDefaults = {
 }
 
 export const options: OptionFn = (opts) => {
-  const d = {
+  return {
+    selector: '.select',
     colors: expandColorsMap(opts.types, (cur) => {
       return {
         default: `border-${cur}`,
@@ -33,6 +34,4 @@ export const options: OptionFn = (opts) => {
     }),
     defaults
   }
-
-  return d
 }

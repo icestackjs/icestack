@@ -8,8 +8,8 @@ const defaults: IDefaults = {
       apply: 'bg-base-content',
       css: {
         animation: 'radiomark var(--animation-input, 0.2s) ease-out',
-        'box-shadow': `0 0 0 4px hsl(var(--b1)) inset,
-        0 0 0 4px hsl(var(--b1)) inset`
+        'box-shadow': `0 0 0 4px rgba(var(--base-400)) inset,
+        0 0 0 4px rgba(var(--base-400)) inset`
       }
     },
     disabled: 'cursor-not-allowed opacity-20'
@@ -17,16 +17,22 @@ const defaults: IDefaults = {
 }
 
 export const options: OptionFn = (opts) => {
-  const d = {
+  return {
+    selector: '.radio',
     colors: expandColorsMap(opts.types, (cur) => {
       // global hover
       return {
-        default: `border-${cur} [@media(hover:hover)]:hover:border-${cur}`,
-        checked: `border-${cur} bg-${cur} text-${cur}-content`,
-        focusVisible: `outline-${cur}`
+        default: {
+          apply: `border-${cur} hover:border-${cur}`
+        },
+        checked: {
+          apply: `border-${cur} bg-${cur} text-${cur}-content`
+        },
+        focusVisible: {
+          apply: `outline-${cur}`
+        }
       }
     }),
     defaults
   }
-  return d
 }

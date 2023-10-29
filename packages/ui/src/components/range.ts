@@ -5,7 +5,8 @@ const defaults: IDefaults = {
 }
 
 export const options: OptionFn = (opts) => {
-  const d = {
+  return {
+    selector: '.range',
     colors: expandColorsMap(opts.types, (cur) => {
       return {
         default: {
@@ -17,5 +18,4 @@ export const options: OptionFn = (opts) => {
     }),
     defaults
   }
-  return d
 }

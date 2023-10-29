@@ -65,7 +65,8 @@ const defaults: IDefaults = {
 }
 
 export const options: OptionFn = (opts) => {
-  const d = {
+  return {
+    selector: '.toggle',
     colors: expandColorsMap(opts.types, (typeName) => {
       return {
         focusVisible: `outline-${typeName}`,
@@ -74,6 +75,4 @@ export const options: OptionFn = (opts) => {
     }),
     defaults
   }
-
-  return d
 }

@@ -30,6 +30,8 @@ exports[`'alert/styled.scss' > snap 1`] = `
 }"
 `;
 
+exports[`'alert/utils.scss' > snap 1`] = `""`;
+
 exports[`'avatar/base.scss' > snap 1`] = `
 ".avatar {
   @apply relative inline-flex;
@@ -517,6 +519,8 @@ exports[`'chat/styled.scss' > snap 1`] = `
 }"
 `;
 
+exports[`'chat/utils.scss' > snap 1`] = `""`;
+
 exports[`'checkbox/base.scss' > snap 1`] = `
 ".checkbox {
   @apply shrink-0;
@@ -714,14 +718,14 @@ exports[`'input/utils.scss' > snap 1`] = `
 ".input-xs {
   @apply h-6 px-2 text-xs leading-relaxed;
 }
+.input-sm {
+  @apply h-8 px-3 text-sm leading-8;
+}
 .input-md {
   @apply h-12 px-4 text-sm leading-loose;
 }
 .input-lg {
   @apply h-16 px-6 text-lg leading-loose;
-}
-.input-sm {
-  @apply h-8 px-3 text-sm leading-8;
 }"
 `;
 
@@ -730,7 +734,7 @@ exports[`'link/base.scss' > snap 1`] = `
   @apply cursor-pointer underline;
 }
 .link-hover {
-  @apply no-underline [@media(hover:hover)]:hover:underline;
+  @apply no-underline hover:underline;
 }"
 `;
 
@@ -761,6 +765,8 @@ exports[`'link/styled.scss' > snap 1`] = `
   outline-offset: 2px;
 }"
 `;
+
+exports[`'link/utils.scss' > snap 1`] = `""`;
 
 exports[`'loading/base.scss' > snap 1`] = `
 ".loading {
@@ -888,6 +894,8 @@ exports[`'mask/styled.scss' > snap 1`] = `
 }"
 `;
 
+exports[`'mask/utils.scss' > snap 1`] = `""`;
+
 exports[`'progress/base.scss' > snap 1`] = `
 ".progress {
   @apply relative w-full appearance-none overflow-hidden;
@@ -966,6 +974,8 @@ exports[`'progress/styled.scss' > snap 1`] = `
 }"
 `;
 
+exports[`'progress/utils.scss' > snap 1`] = `""`;
+
 exports[`'radio/base.scss' > snap 1`] = `
 ".radio {
   @apply shrink-0;
@@ -982,10 +992,10 @@ exports[`'radio/styled.scss' > snap 1`] = `
 .radio:checked, .radio[aria-checked=true] {
   @apply bg-base-content;
   animation: radiomark var(--ice-animation-input, 0.2s) ease-out;
-  box-shadow: 0 0 0 4px hsl(var(--ice-b1)) inset, 0 0 0 4px hsl(var(--ice-b1)) inset;
+  box-shadow: 0 0 0 4px rgba(var(--ice-base-400)) inset, 0 0 0 4px rgba(var(--ice-base-400)) inset;
 }
 .radio-primary {
-  @apply border-primary [@media(hover:hover)]:hover:border-primary;
+  @apply border-primary hover:border-primary;
 }
 .radio-primary:focus-visible {
   @apply outline-primary;
@@ -994,7 +1004,7 @@ exports[`'radio/styled.scss' > snap 1`] = `
   @apply border-primary bg-primary text-primary-content;
 }
 .radio-success {
-  @apply border-success [@media(hover:hover)]:hover:border-success;
+  @apply border-success hover:border-success;
 }
 .radio-success:focus-visible {
   @apply outline-success;
@@ -1003,7 +1013,7 @@ exports[`'radio/styled.scss' > snap 1`] = `
   @apply border-success bg-success text-success-content;
 }
 .radio-warning {
-  @apply border-warning [@media(hover:hover)]:hover:border-warning;
+  @apply border-warning hover:border-warning;
 }
 .radio-warning:focus-visible {
   @apply outline-warning;
@@ -1012,7 +1022,7 @@ exports[`'radio/styled.scss' > snap 1`] = `
   @apply border-warning bg-warning text-warning-content;
 }
 .radio-error {
-  @apply border-error [@media(hover:hover)]:hover:border-error;
+  @apply border-error hover:border-error;
 }
 .radio-error:focus-visible {
   @apply outline-error;
@@ -1021,7 +1031,7 @@ exports[`'radio/styled.scss' > snap 1`] = `
   @apply border-error bg-error text-error-content;
 }
 .radio-info {
-  @apply border-info [@media(hover:hover)]:hover:border-info;
+  @apply border-info hover:border-info;
 }
 .radio-info:focus-visible {
   @apply outline-info;
@@ -1030,7 +1040,7 @@ exports[`'radio/styled.scss' > snap 1`] = `
   @apply border-info bg-info text-info-content;
 }
 .radio-neutral {
-  @apply border-neutral [@media(hover:hover)]:hover:border-neutral;
+  @apply border-neutral hover:border-neutral;
 }
 .radio-neutral:focus-visible {
   @apply outline-neutral;

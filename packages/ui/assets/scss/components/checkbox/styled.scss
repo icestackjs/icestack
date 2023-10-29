@@ -1,9 +1,10 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
+$S: inject("checkbox.selector");
 $TypeMap: inject("checkbox.colors");
 $DefaultMap: inject("checkbox.defaults.styled");
 
-.checkbox {
+@mixin styled {
   @include resolve(map.get($DefaultMap, "default"));
   &:focus-visible {
     @include resolve(map.get($DefaultMap, "focusVisible"));
@@ -33,6 +34,10 @@ $DefaultMap: inject("checkbox.defaults.styled");
   &:disabled {
     @include resolve(map.get($DefaultMap, "disabled"));
   }
+}
+
+#{$S} {
+  @include styled;
 }
 
 @keyframes checkmark {

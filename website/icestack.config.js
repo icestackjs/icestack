@@ -1,5 +1,5 @@
 /**
- * @type {import('@icestack/ui').CodegenOptions}
+ * @type {import('@icestack/ui').Config}
  */
 const config = {}
 

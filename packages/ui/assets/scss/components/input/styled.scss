@@ -2,8 +2,9 @@
 @use "sass:map";
 $TypeMap: inject("input.colors");
 $DefaultMap: inject("input.defaults.styled");
+$S: inject("input.selector");
 
-.input {
+@mixin styled {
   @include resolve(map.get($DefaultMap, "default"));
   input:focus {
     @apply outline-none;
@@ -42,4 +43,8 @@ $DefaultMap: inject("input.defaults.styled");
   &[disabled] {
     @include resolve(map.get($DefaultMap, "disabled"));
   }
+}
+
+#{$S} {
+  @include styled;
 }

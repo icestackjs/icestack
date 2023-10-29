@@ -1,6 +1,9 @@
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
 .link {
   @apply cursor-pointer underline;
   &-hover {
-    @apply no-underline [@media(hover:hover)]:hover:underline;
+    @apply no-underline hover:underline;
   }
 }

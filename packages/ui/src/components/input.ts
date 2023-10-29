@@ -37,11 +37,30 @@ const defaults: IDefaults = {
     }
   },
   base: {
-    default: 'flex-shrink h-8 px-3 text-sm leading-loose'
+    default: {
+      apply: 'flex-shrink h-8 px-3 text-sm leading-loose'
+    }
+  },
+  utils: {
+    sizes: {
+      xs: {
+        apply: 'h-6 px-2 text-xs leading-relaxed'
+      },
+      sm: {
+        apply: 'h-8 px-3 text-sm leading-8'
+      },
+      md: {
+        apply: 'h-12 px-4 text-sm leading-loose'
+      },
+      lg: {
+        apply: 'h-16 px-6 text-lg leading-loose'
+      }
+    }
   }
 }
 export const options: OptionFn = (opts) => {
-  const d = {
+  return {
+    selector: '.input',
     colors: expandColorsMap(opts.types, (cur) => {
       return {
         default: generateDefault(cur),
@@ -50,5 +69,4 @@ export const options: OptionFn = (opts) => {
     }),
     defaults
   }
-  return d
 }

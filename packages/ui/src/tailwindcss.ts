@@ -3,6 +3,7 @@ import fs from 'node:fs'
 import plugin from 'tailwindcss/plugin'
 import merge from 'merge'
 import type { CssInJs } from 'postcss-js'
+import type { PluginCreator } from 'tailwindcss/types/config'
 import type * as _base from '../assets/js/base/index.js'
 import type * as _components from '../assets/js/components/index.js'
 import type * as _utilities from '../assets/js/utilities/index.js'
@@ -25,6 +26,8 @@ function isRunByVscodePlugin() {
   return process.env.VSCODE_PID !== undefined
 }
 
+const noop: PluginCreator = () => {}
+
 export const icestackPlugin = plugin.withOptions(
   function (opts?: DeepPartial<CodegenOptions>) {
     try {
@@ -45,6 +48,9 @@ export const icestackPlugin = plugin.withOptions(
           const { outdir } = options
           // fs.writeFileSync(path.resolve(outdir, './env.json'), JSON.stringify(process.env), 'utf8')
           loadDirPath = outdir
+        }
+        if (!fs.existsSync(loadDirPath)) {
+          return noop
         }
         const base = requireLib('js/base/index.js', loadDirPath) as typeof _base
         const components = requireLib('js/components/index.js', loadDirPath) as typeof _components
@@ -88,10 +94,10 @@ export const icestackPlugin = plugin.withOptions(
         }
       }
 
-      return function () {}
+      return noop
     } catch (error) {
       console.error(error)
-      return function () {}
+      return noop
     }
   },
   function (opts?: DeepPartial<CodegenOptions>) {

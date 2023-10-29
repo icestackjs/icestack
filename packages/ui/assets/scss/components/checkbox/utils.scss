@@ -1,11 +1,16 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
-
+$S: inject("checkbox.selector");
 $DefaultMap: inject("checkbox.defaults.utils");
-.checkbox {
+
+@mixin utils {
   @each $s, $v in map.get($DefaultMap, "sizes") {
     &#{getSelector($s)} {
       @include resolve($v);
     }
   }
+}
+
+#{$S} {
+  @include utils;
 }

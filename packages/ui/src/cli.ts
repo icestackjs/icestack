@@ -20,9 +20,14 @@ export async function load(cwd?: string) {
   return config
 }
 
-cli.command('init', 'init config').action(async () => {
-  await fs.writeFile(path.resolve(process.cwd(), './icestack.config.ts'), `import { defineConfig } from '@icestack/ui'\n\nexport default defineConfig({})`)
-})
+const tsT = `import { defineConfig } from '@icestack/ui'\n\nexport default defineConfig()\n`
+const jsT = `/**\n* @type {import('@icestack/ui').Config}\n*/\nconst config = {}\nmodule.exports = config\n`
+cli
+  .command('init', 'init config')
+  .option('--ts', 'typescript config')
+  .action(async ({ ts }) => {
+    await (ts ? fs.writeFile(path.resolve(process.cwd(), './icestack.config.ts'), tsT) : fs.writeFile(path.resolve(process.cwd(), './icestack.config.js'), jsT))
+  })
 
 cli.command('codegen', 'code generate').action(async () => {
   const config = await load()

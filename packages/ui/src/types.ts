@@ -1,6 +1,6 @@
 // import type { ConfigOptions } from 'rtlcss'
 // import type { AcceptedPlugin } from 'postcss'
-import type { Config } from 'tailwindcss'
+import type { Config as TailwindcssConfig } from 'tailwindcss'
 // import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
 import type { CssInJs } from 'postcss-js'
 import type allComponents from './allComponents'
@@ -92,12 +92,14 @@ export type CodegenOptions = {
   }
 }
 
+export type Config = Partial<CodegenOptions>
+
 // export type TailwindcssPluginOptions = CodegenOptions | LoadCodeOptions
 
 export interface IBuildScssOptions<T> {
   outdir?: string
   filename: string
-  resolveConfig?: (config: Config) => void
+  resolveConfig?: (config: TailwindcssConfig) => void
   outSideLayerCss: 'base' | 'components' | 'utilities'
   options: T
 }

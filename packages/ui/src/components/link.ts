@@ -6,7 +6,9 @@ function generateDefault(typeName: string) {
 
 const defaults: IDefaults = {
   styled: {
-    focus: 'outline-none',
+    focus: {
+      apply: 'outline-none'
+    },
     focusVisible: {
       css: {
         outline: '2px solid currentColor',
@@ -16,7 +18,7 @@ const defaults: IDefaults = {
   }
 }
 export const options: OptionFn = (opts) => {
-  const d = {
+  return {
     colors: expandColorsMap(opts.types, (cur) => {
       return {
         default: generateDefault(cur)
@@ -24,5 +26,4 @@ export const options: OptionFn = (opts) => {
     }),
     defaults
   }
-  return d
 }

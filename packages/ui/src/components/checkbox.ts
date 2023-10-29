@@ -90,7 +90,8 @@ const defaults: IDefaults = {
   }
 }
 export const options: OptionFn = (opts) => {
-  const d = {
+  return {
+    selector: '.checkbox',
     colors: expandColorsMap(opts.types, (cur) => {
       return {
         default: generateDefault(cur),
@@ -100,5 +101,4 @@ export const options: OptionFn = (opts) => {
     }),
     defaults
   }
-  return d
 }

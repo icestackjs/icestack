@@ -12,7 +12,8 @@ const defaults: IDefaults = {
   }
 }
 export const options: OptionFn = (opts) => {
-  const d = {
+  return {
+    selector: '.chat',
     colors: expandColorsMap(opts.types, (t) => {
       return {
         default: `bg-${t} text-${t}-content`
@@ -20,5 +21,4 @@ export const options: OptionFn = (opts) => {
     }),
     defaults
   }
-  return d
 }

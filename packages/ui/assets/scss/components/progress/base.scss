@@ -1,3 +1,9 @@
-.progress {
-  @apply relative w-full appearance-none overflow-hidden;
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
+$DefaultMap: inject("progress.defaults.base");
+$S: inject("progress.selector");
+
+#{$S} {
+  @include resolve(map.get($DefaultMap, "default"));
 }

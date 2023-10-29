@@ -1,9 +1,12 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
 
-.link {
-  @apply cursor-pointer underline;
+$DefaultMap: inject("link.defaults.base");
+$S: inject("link.selector");
+
+#{$S} {
+  @include resolve(map.get($DefaultMap, "default"));
   &-hover {
-    @apply no-underline hover:underline;
+    @include resolve(map.get($DefaultMap, "hover"));
   }
 }

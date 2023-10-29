@@ -12,7 +12,8 @@ import * as toggle from '@/components/toggle'
 import * as select from '@/components/select'
 import * as radio from '@/components/radio'
 import * as range from '@/components/range'
-
+import * as loading from '@/components/loading'
+import * as mask from '@/components/mask'
 export const componentsMap = {
   alert,
   avatar,
@@ -27,5 +28,7 @@ export const componentsMap = {
   toggle,
   select,
   radio,
-  range
+  range,
+  loading,
+  mask
 }

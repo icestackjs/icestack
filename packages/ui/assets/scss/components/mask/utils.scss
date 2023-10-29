@@ -1,0 +1,12 @@
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+$S: inject("mask.selector");
+$DefaultMap: inject("mask.defaults.utils");
+
+#{$S} {
+  @each $s, $v in map.get($DefaultMap, "shapes") {
+    &#{getSelector($s)} {
+      @include resolve($v);
+    }
+  }
+}

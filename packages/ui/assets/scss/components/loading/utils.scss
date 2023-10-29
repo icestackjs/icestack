@@ -1,12 +1,18 @@
-.loading-xs {
-  @apply w-4;
-}
-.loading-sm {
-  @apply w-5;
-}
-.loading-md {
-  @apply w-6;
-}
-.loading-lg {
-  @apply w-10;
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+$S: inject("loading.selector");
+$DefaultMap: inject("loading.defaults.utils");
+
+#{$S} {
+  @each $s, $v in map.get($DefaultMap, "sizes") {
+    &#{getSelector($s)} {
+      @include resolve($v);
+    }
+  }
+
+  @each $s, $v in map.get($DefaultMap, "shapes") {
+    &#{getSelector($s)} {
+      @include resolve($v);
+    }
+  }
 }

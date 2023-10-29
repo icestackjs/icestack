@@ -1,7 +1,11 @@
-.mask {
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
+$DefaultMap: inject("mask.defaults.base");
+$S: inject("mask.selector");
+
+#{$S} {
+  @include resolve(map.get($DefaultMap, "default"));
 
   &-half-1 {
     mask-size: 200%;

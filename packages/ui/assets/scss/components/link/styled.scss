@@ -2,8 +2,8 @@
 @use "sass:map";
 $TypeMap: inject("link.colors");
 $DefaultMap: inject("link.defaults.styled");
-
-.link {
+$S: inject("link.selector");
+#{$S} {
   @each $typeName, $map in $TypeMap {
     &#{getSelector($typeName)} {
       @include resolve(map.get($map, "default"));

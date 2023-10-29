@@ -4,13 +4,19 @@ function generateDefault(typeName: string) {
   return `bg-${typeName}`
 }
 export const options: OptionFn = (opts) => {
-  const d = {
+  return {
+    selector: '.progress',
     colors: expandColorsMap(opts.types, (cur) => {
       return {
         default: generateDefault(cur)
       }
-    })
-    // defaults
+    }),
+    defaults: {
+      base: {
+        default: {
+          apply: 'relative w-full appearance-none overflow-hidden'
+        }
+      }
+    }
   }
-  return d
 }

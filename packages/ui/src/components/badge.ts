@@ -10,13 +10,13 @@ function generateOutline(typeName: string) {
 const defaults: IDefaults = {
   styled: {
     default: {
-      apply: 'rounded-badge border border-base-200 bg-base-100 text-base-content'
+      apply: 'rounded-badge border border-base-400 bg-base-100 text-base-content'
     },
     outline: {
       apply: 'border-current border-opacity-50 bg-transparent text-current'
     },
     ghost: {
-      apply: 'border-base-200 bg-base-200 text-base-content'
+      apply: 'border-base-400 bg-base-400 text-base-content'
     }
   },
   base: {

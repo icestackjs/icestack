@@ -8,7 +8,7 @@ exports[`'alert/base.scss' prefixer > snap 1`] = `
 
 exports[`'alert/styled.scss' prefixer > snap 1`] = `
 ".som-alert {
-  @apply rounded-box border p-4 text-base-content border-base-200;
+  @apply rounded-box border p-4 text-base-content border-base-400;
 }
 .som-alert-primary {
   @apply text-primary-content border-primary/20 bg-primary;
@@ -64,7 +64,7 @@ exports[`'badge/base.scss' prefixer > snap 1`] = `
 
 exports[`'badge/styled.scss' prefixer > snap 1`] = `
 ".som-badge {
-  @apply rounded-badge border border-base-200 bg-base-100 text-base-content;
+  @apply rounded-badge border border-base-400 bg-base-100 text-base-content;
 }
 .som-badge-primary {
   @apply border-primary bg-primary text-primary-content;
@@ -85,7 +85,7 @@ exports[`'badge/styled.scss' prefixer > snap 1`] = `
   @apply border-neutral bg-neutral text-neutral-content;
 }
 .som-badge-ghost {
-  @apply border-base-200 bg-base-200 text-base-content;
+  @apply border-base-400 bg-base-400 text-base-content;
 }
 .som-badge-outline {
   @apply border-current border-opacity-50 bg-transparent text-current;
@@ -526,6 +526,8 @@ exports[`'checkbox/base.scss' prefixer > snap 1`] = `
 exports[`'checkbox/styled.scss' prefixer > snap 1`] = `
 ".som-som-checkbox {
   @apply border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20;
+  --ice-chkbg: var(--ice-base-content);
+  --ice-chkfg: var(--ice-base-400);
 }
 .som-som-checkbox:focus-visible {
   @apply outline-base-content outline outline-2 outline-offset-2;
@@ -533,13 +535,17 @@ exports[`'checkbox/styled.scss' prefixer > snap 1`] = `
 .som-som-checkbox:checked, .som-som-checkbox[checked=true], .som-som-checkbox[aria-checked=true] {
   @apply bg-base-content bg-no-repeat;
   animation: checkmark var(--ice-animation-input, 0.2s) ease-out;
+  background-image: linear-gradient(-45deg, transparent 65%, rgba(var(--ice-chkbg)) 65.99%), linear-gradient(45deg, transparent 75%, rgba(var(--ice-chkbg)) 75.99%), linear-gradient(-45deg, rgba(var(--ice-chkbg)) 40%, transparent 40.99%), linear-gradient( 45deg, rgba(var(--ice-chkbg)) 30%, rgba(var(--ice-chkfg)) 30.99%, rgba(var(--ice-chkfg)) 40%, transparent 40.99% ), linear-gradient(-45deg, rgba(var(--ice-chkfg)) 50%, rgba(var(--ice-chkbg)) 50.99%);
 }
 .som-som-checkbox:indeterminate {
   @apply bg-base-content bg-no-repeat;
   animation: checkmark var(--ice-animation-input, 0.2s) ease-out;
+  background-image: linear-gradient(90deg, transparent 80%, rgba(var(--ice-chkbg)) 80%), linear-gradient(-90deg, transparent 80%, rgba(var(--ice-chkbg)) 80%), linear-gradient( 0deg, rgba(var(--ice-chkbg)) 43%, rgba(var(--ice-chkfg)) 43%, rgba(var(--ice-chkfg)) 57%, rgba(var(--ice-chkbg)) 57% );
 }
 .som-som-checkbox-primary {
   @apply border-primary [@media(hover:hover)]:hover:border-primary;
+  --ice-chkbg: var(--ice-primary);
+  --ice-chkfg: var(--ice-primary-content);
 }
 .som-som-checkbox-primary:focus-visible {
   @apply outline-primary;
@@ -549,6 +555,8 @@ exports[`'checkbox/styled.scss' prefixer > snap 1`] = `
 }
 .som-som-checkbox-success {
   @apply border-success [@media(hover:hover)]:hover:border-success;
+  --ice-chkbg: var(--ice-success);
+  --ice-chkfg: var(--ice-success-content);
 }
 .som-som-checkbox-success:focus-visible {
   @apply outline-success;
@@ -558,6 +566,8 @@ exports[`'checkbox/styled.scss' prefixer > snap 1`] = `
 }
 .som-som-checkbox-warning {
   @apply border-warning [@media(hover:hover)]:hover:border-warning;
+  --ice-chkbg: var(--ice-warning);
+  --ice-chkfg: var(--ice-warning-content);
 }
 .som-som-checkbox-warning:focus-visible {
   @apply outline-warning;
@@ -567,6 +577,8 @@ exports[`'checkbox/styled.scss' prefixer > snap 1`] = `
 }
 .som-som-checkbox-error {
   @apply border-error [@media(hover:hover)]:hover:border-error;
+  --ice-chkbg: var(--ice-error);
+  --ice-chkfg: var(--ice-error-content);
 }
 .som-som-checkbox-error:focus-visible {
   @apply outline-error;
@@ -576,6 +588,8 @@ exports[`'checkbox/styled.scss' prefixer > snap 1`] = `
 }
 .som-som-checkbox-info {
   @apply border-info [@media(hover:hover)]:hover:border-info;
+  --ice-chkbg: var(--ice-info);
+  --ice-chkfg: var(--ice-info-content);
 }
 .som-som-checkbox-info:focus-visible {
   @apply outline-info;
@@ -585,6 +599,8 @@ exports[`'checkbox/styled.scss' prefixer > snap 1`] = `
 }
 .som-som-checkbox-neutral {
   @apply border-neutral [@media(hover:hover)]:hover:border-neutral;
+  --ice-chkbg: var(--ice-neutral);
+  --ice-chkfg: var(--ice-neutral-content);
 }
 .som-som-checkbox-neutral:focus-visible {
   @apply outline-neutral;

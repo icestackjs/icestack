@@ -1,33 +1,71 @@
 import { IDefaults, OptionFn, expandColorsMap } from './shared'
 function generateDefault(typeName: string) {
-  return `border-${typeName} [@media(hover:hover)]:hover:border-${typeName}`
+  return {
+    apply: `border-${typeName} [@media(hover:hover)]:hover:border-${typeName}`,
+    css: {
+      '--chkbg': `var(--${typeName})`,
+      '--chkfg': `var(--${typeName}-content)`
+    }
+  }
 }
 
 function generateFocus(typeName: string) {
-  return `outline-${typeName}`
+  return {
+    apply: `outline-${typeName}`
+  }
 }
 
 function generateChecked(typeName: string) {
-  return `border-${typeName} bg-${typeName} text-${typeName}-content`
+  return {
+    apply: `border-${typeName} bg-${typeName} text-${typeName}-content`
+  }
 }
 
 const defaults: IDefaults = {
   styled: {
-    default: 'border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20',
+    default: {
+      apply: 'border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20',
+      css: {
+        '--chkbg': 'var(--base-content)',
+        '--chkfg': 'var(--base-400)'
+      }
+    },
+    focusVisible: {
+      apply: 'outline-base-content outline outline-2 outline-offset-2'
+    },
     checked: {
       apply: 'bg-base-content bg-no-repeat',
       css: {
-        animation: 'checkmark var(--animation-input, 0.2s) ease-out'
+        animation: 'checkmark var(--animation-input, 0.2s) ease-out',
+        'background-image': `linear-gradient(-45deg, transparent 65%, rgba(var(--chkbg)) 65.99%),
+        linear-gradient(45deg, transparent 75%, rgba(var(--chkbg)) 75.99%),
+        linear-gradient(-45deg, rgba(var(--chkbg)) 40%, transparent 40.99%),
+        linear-gradient(
+          45deg,
+          rgba(var(--chkbg)) 30%,
+          rgba(var(--chkfg)) 30.99%,
+          rgba(var(--chkfg)) 40%,
+          transparent 40.99%
+        ),
+        linear-gradient(-45deg, rgba(var(--chkfg)) 50%, rgba(var(--chkbg)) 50.99%)`
       }
     },
     indeterminate: {
       apply: 'bg-base-content bg-no-repeat',
       css: {
-        animation: 'checkmark var(--animation-input, 0.2s) ease-out'
+        animation: 'checkmark var(--animation-input, 0.2s) ease-out',
+        'background-image': `linear-gradient(90deg, transparent 80%, rgba(var(--chkbg)) 80%),
+        linear-gradient(-90deg, transparent 80%, rgba(var(--chkbg)) 80%),
+        linear-gradient(
+          0deg,
+          rgba(var(--chkbg)) 43%,
+          rgba(var(--chkfg)) 43%,
+          rgba(var(--chkfg)) 57%,
+          rgba(var(--chkbg)) 57%
+        )`
       }
     },
-    disabled: 'bg-base-content cursor-not-allowed border-transparent opacity-20',
-    focusVisible: 'outline-base-content outline outline-2 outline-offset-2'
+    disabled: 'bg-base-content cursor-not-allowed border-transparent opacity-20'
   }
 }
 export const options: OptionFn = (opts) => {

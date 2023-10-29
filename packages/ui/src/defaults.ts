@@ -181,7 +181,7 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
     mode: 'styled',
     varPrefix: defaultVarPrefix,
     log: true,
-    autobuild: true,
+    autobuild: false,
     dryRun: false,
     // rtl: false,
     // styled: true,

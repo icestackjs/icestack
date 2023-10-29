@@ -1,11 +1,15 @@
 import { IDefaults, OptionFn, expandColorsMap } from './shared'
 
 function generateDefault(typeName: string) {
-  return `border-${typeName}`
+  return {
+    apply: `border-${typeName}`
+  }
 }
 
 function generateFocus(typeName: string) {
-  return `outline-${typeName}`
+  return {
+    apply: `shadow-${typeName}/10` // outline-${typeName}`
+  }
 }
 
 const defaults: IDefaults = {
@@ -17,7 +21,7 @@ const defaults: IDefaults = {
       apply: 'border-opacity-20'
     },
     focus: {
-      apply: 'outline-base-content/20 outline outline-2 outline-offset-2'
+      apply: 'outline-0 shadow-[0_0_0_2px] shadow-base-content/10' //  outline-base-content/20 outline outline-1 outline-offset-1'
     },
     ghost: {
       apply: 'bg-opacity-5'
@@ -33,7 +37,7 @@ const defaults: IDefaults = {
     }
   },
   base: {
-    default: 'flex-shrink h-12 px-4 text-sm leading-loose'
+    default: 'flex-shrink h-8 px-3 text-sm leading-loose'
   }
 }
 export const options: OptionFn = (opts) => {

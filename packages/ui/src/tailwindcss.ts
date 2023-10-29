@@ -1,4 +1,5 @@
 import path from 'node:path'
+import fs from 'node:fs'
 import plugin from 'tailwindcss/plugin'
 import merge from 'merge'
 import type { CssInJs } from 'postcss-js'
@@ -20,6 +21,10 @@ function requireLib(id: string, basedir?: string) {
   return require(basedir ? path.resolve(basedir, id) : path.join('../assets', id))
 }
 
+function isRunByVscodePlugin() {
+  return process.env.VSCODE_PID !== undefined
+}
+
 export const icestackPlugin = plugin.withOptions(
   function (opts?: DeepPartial<CodegenOptions>) {
     try {
@@ -31,13 +36,14 @@ export const icestackPlugin = plugin.withOptions(
           const { loaddir } = options
           loadDirPath = loaddir
         } else {
-          if (options.autobuild) {
+          if (options.autobuild || !isRunByVscodePlugin()) {
             const start = performance.now()
             buildAll(options)
             const now = performance.now()
             console.log(`buildAll: ${now - start}ms`)
           }
           const { outdir } = options
+          // fs.writeFileSync(path.resolve(outdir, './env.json'), JSON.stringify(process.env), 'utf8')
           loadDirPath = outdir
         }
         const base = requireLib('js/base/index.js', loadDirPath) as typeof _base

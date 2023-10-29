@@ -1,5 +1,4 @@
-import { IDefaults, IOptionReturnType } from './shared'
-import { CreatePresetOptions } from '@/sass/functions'
+import { IDefaults, OptionFn } from './shared'
 const defaults: IDefaults = {
   styled: {
     group: {
@@ -25,7 +24,7 @@ const defaults: IDefaults = {
   }
 }
 
-export const options: (opts: CreatePresetOptions) => IOptionReturnType = () => {
+export const options: OptionFn = () => {
   return {
     selector: '.avatar',
     defaults

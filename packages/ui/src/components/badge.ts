@@ -1,5 +1,4 @@
-import { expandColorsMap, IDefaults, IOptionReturnType } from './shared'
-import { CreatePresetOptions } from '@/sass/functions'
+import { expandColorsMap, IDefaults, OptionFn } from './shared'
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
 }
@@ -59,7 +58,7 @@ const defaults: IDefaults = {
   }
 }
 
-export const options: (opts: CreatePresetOptions) => IOptionReturnType = (opts) => {
+export const options: OptionFn = (opts) => {
   return {
     selector: '.badge',
     colors: expandColorsMap(opts.types, (cur) => {

@@ -1,5 +1,4 @@
-import { IDefaults, expandColorsMap } from './shared'
-import { CreatePresetOptions } from '@/sass/functions'
+import { IDefaults, OptionFn, expandColorsMap } from './shared'
 
 function generateDefault(typeName: string) {
   return `border-${typeName}`
@@ -24,7 +23,7 @@ const defaults: IDefaults = {
     disabled: 'border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20'
   }
 }
-export const options = (opts: CreatePresetOptions) => {
+export const options: OptionFn = (opts) => {
   const d = {
     colors: expandColorsMap(opts.types, (cur) => {
       return {

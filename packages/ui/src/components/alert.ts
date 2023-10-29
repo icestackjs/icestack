@@ -1,6 +1,5 @@
 // import defu from 'defu'
-import { expandColorsMap, IDefaults, IOptionReturnType } from './shared'
-import { CreatePresetOptions } from '@/sass/functions'
+import { expandColorsMap, IDefaults, OptionFn } from './shared'
 const defaults: IDefaults = {
   styled: {
     default: {
@@ -17,7 +16,7 @@ const defaults: IDefaults = {
   }
 }
 
-export const options: (opts: CreatePresetOptions) => IOptionReturnType = (opts) => {
+export const options: OptionFn = (opts) => {
   const d = {
     selector: '.alert',
     colors: expandColorsMap(opts.types, (typeName) => {

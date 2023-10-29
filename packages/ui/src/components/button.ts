@@ -1,5 +1,4 @@
-import { IDefaults, IOptionReturnType, expandColorsMap } from './shared'
-import { CreatePresetOptions } from '@/sass/functions'
+import { IDefaults, OptionFn, expandColorsMap } from './shared'
 
 export function generateBtnInjectVars(type: string) {
   return {
@@ -149,7 +148,7 @@ const defaults: IDefaults = {
     }
   }
 }
-export const options: (opts: CreatePresetOptions) => IOptionReturnType = (opts) => {
+export const options: OptionFn = (opts) => {
   return {
     selector: '.btn',
     colors: expandColorsMap(opts.types, (cur) => {

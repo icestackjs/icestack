@@ -1,5 +1,4 @@
-import { IDefaults, expandColorsMap } from './shared'
-import { CreatePresetOptions } from '@/sass/functions'
+import { IDefaults, OptionFn, expandColorsMap } from './shared'
 
 function generateDefault(typeName: string) {
   return `text-${typeName} [@media(hover:hover)]:hover:text-${typeName}-active`
@@ -16,7 +15,7 @@ const defaults: IDefaults = {
     }
   }
 }
-export const options = (opts: CreatePresetOptions) => {
+export const options: OptionFn = (opts) => {
   const d = {
     colors: expandColorsMap(opts.types, (cur) => {
       return {

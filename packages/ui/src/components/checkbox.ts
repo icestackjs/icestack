@@ -1,5 +1,4 @@
-import { IDefaults, expandColorsMap } from './shared'
-import { CreatePresetOptions } from '@/sass/functions'
+import { IDefaults, OptionFn, expandColorsMap } from './shared'
 function generateDefault(typeName: string) {
   return `border-${typeName} [@media(hover:hover)]:hover:border-${typeName}`
 }
@@ -31,7 +30,7 @@ const defaults: IDefaults = {
     focusVisible: 'outline-base-content outline outline-2 outline-offset-2'
   }
 }
-export const options = (opts: CreatePresetOptions) => {
+export const options: OptionFn = (opts) => {
   const d = {
     colors: expandColorsMap(opts.types, (cur) => {
       return {

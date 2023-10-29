@@ -1,5 +1,4 @@
-import { expandColorsMap, IDefaults } from './shared'
-import { CreatePresetOptions } from '@/sass/functions'
+import { expandColorsMap, IDefaults, OptionFn } from './shared'
 
 const defaults: IDefaults = {
   styled: {
@@ -65,7 +64,7 @@ const defaults: IDefaults = {
   }
 }
 
-export const options = (opts: CreatePresetOptions) => {
+export const options: OptionFn = (opts) => {
   const d = {
     colors: expandColorsMap(opts.types, (typeName) => {
       return {

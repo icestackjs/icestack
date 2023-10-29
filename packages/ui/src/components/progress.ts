@@ -1,10 +1,9 @@
-import { expandColorsMap } from './shared'
-import { CreatePresetOptions } from '@/sass/functions'
+import { OptionFn, expandColorsMap } from './shared'
 
 function generateDefault(typeName: string) {
   return `bg-${typeName}`
 }
-export const options = (opts: CreatePresetOptions) => {
+export const options: OptionFn = (opts) => {
   const d = {
     colors: expandColorsMap(opts.types, (cur) => {
       return {

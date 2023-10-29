@@ -1,3 +1,5 @@
+import type { CreatePresetOptions } from '@/sass/functions'
+
 export type IDefaults = {
   styled?: object
   base?: object
@@ -19,8 +21,10 @@ export type IValue =
     }
 
 export type IOptionReturnType = {
-  selector: string
+  selector?: string
   colors?: object
-  defaults: IDefaults
+  defaults?: IDefaults
   // index: object
 }
+
+export type OptionFn = (opts: CreatePresetOptions) => IOptionReturnType

@@ -4,16 +4,17 @@ export function generateBtnInjectVars(type: string) {
   return {
     outline: `text-${type}`,
     default: `border-${type} bg-${type} text-${type}-content outline-${type}`,
-    // hover: `border-${type}-hover bg-${type}-hover`,
+    hover: `border-${type}-hover bg-${type}-hover`,
     active: `border-${type}-active bg-${type}-active`,
-    outlineActive: `border-${type}-active bg-${type}-active text-${type}-content`
+    outlineActive: `border-${type}-active bg-${type}-active text-${type}-content`,
+    outlineHover: `border-${type}-hover bg-${type}-hover text-${type}-content`
   }
 }
 
 const defaults: IDefaults = {
   styled: {
     default: {
-      apply: 'border-base-200 bg-base-200 text-base-content outline-base-200 no-underline',
+      apply: 'border-base-400 bg-base-400 text-base-content outline-base-400 no-underline',
       css: {
         'border-width': 'var(--border-btn, 1px)'
       }
@@ -21,13 +22,16 @@ const defaults: IDefaults = {
     focusVisible: {
       apply: 'outline outline-2 outline-offset-2'
     },
-    // hover: 'border-base-100 bg-base-100',
-    active: { apply: 'border-base-300 bg-base-300' },
+    hover: 'border-base-300 bg-base-300',
+    active: { apply: 'border-base-500 bg-base-500' },
     outline: {
       apply: 'border-current bg-transparent shadow-none text-base-content'
     },
+    outlineHover: {
+      apply: `border-base-900 bg-base-900 text-base-100`
+    },
     outlineActive: {
-      apply: 'border-base-content bg-base-content text-base-100'
+      apply: 'border-base-1100 bg-base-1100 text-base-100'
     },
     ghost: {
       apply: 'border border-transparent bg-transparent text-current shadow-none outline-current'

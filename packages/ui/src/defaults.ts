@@ -20,6 +20,7 @@ export function getDefaultBase(raw?: boolean) {
     : {
         primary: {
           light: {
+            // blue-6
             primary: '#1677ff',
             // blue-5
             'primary-hover': '#4096ff',
@@ -105,15 +106,16 @@ export function getDefaultBase(raw?: boolean) {
         },
         neutral: {
           light: {
-            neutral: '#bfbfbf',
-            'neutral-hover': '#d9d9d9',
-            'neutral-active': '#8c8c8c',
+            // gray-10
+            neutral: '#262626',
+            'neutral-hover': '#434343',
+            'neutral-active': '#1f1f1f',
             'neutral-content': '#ffffff'
           },
           dark: {
-            neutral: '#bfbfbf',
-            'neutral-hover': '#d9d9d9',
-            'neutral-active': '#8c8c8c',
+            neutral: '#262626',
+            'neutral-hover': '#434343',
+            'neutral-active': '#1f1f1f',
             'neutral-content': '#ffffff'
           }
         }
@@ -131,15 +133,35 @@ export function getDefaultBase(raw?: boolean) {
     extraColors: {
       light: {
         'base-100': '#ffffff',
-        'base-200': 'rgb(242, 242, 242)',
-        'base-300': 'rgb(229, 230, 230)',
-        'base-content': 'rgb(31, 41, 55)'
+        'base-200': '#fafafa',
+        'base-300': '#f5f5f5',
+        'base-400': '#f0f0f0',
+        'base-500': '#d9d9d9',
+        'base-600': '#bfbfbf',
+        'base-700': '#8c8c8c',
+        'base-800': '#595959',
+        'base-900': '#434343',
+        'base-1000': '#262626',
+        'base-1100': '#1f1f1f',
+        'base-1200': '#141414',
+        'base-1300': '#000000',
+        'base-content': '#000000' // 'rgb(31, 41, 55)'
       },
       dark: {
-        'base-100': 'rgb(29, 35, 42)',
-        'base-200': 'rgb(25, 30, 36)',
-        'base-300': 'rgb(21, 25, 30)',
-        'base-content': 'rgb(166, 173, 186)'
+        'base-1300': '#ffffff',
+        'base-1200': '#fafafa',
+        'base-1100': '#f5f5f5',
+        'base-1000': '#f0f0f0',
+        'base-900': '#d9d9d9',
+        'base-800': '#bfbfbf',
+        'base-700': '#8c8c8c',
+        'base-600': '#595959',
+        'base-500': '#434343',
+        'base-400': '#262626',
+        'base-300': '#1f1f1f',
+        'base-200': '#141414',
+        'base-100': '#000000',
+        'base-content': '#ffffff' // 'rgb(166, 173, 186)'
       }
     },
     extraVars: {

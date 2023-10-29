@@ -1,6 +1,6 @@
 export function DemoWithIcon() {
   return (
-    <>
+    <div className="space-x-2">
       <div className="badge badge-info gap-1">
         <i className="i-mdi-close h-4 w-4" />
         info
@@ -17,6 +17,6 @@ export function DemoWithIcon() {
         <i className="i-mdi-close h-4 w-4" />
         error
       </div>
-    </>
+    </div>
   )
 }

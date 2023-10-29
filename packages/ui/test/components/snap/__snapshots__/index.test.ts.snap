@@ -148,20 +148,26 @@ exports[`'button/base.scss' > snap 1`] = `
 
 exports[`'button/styled.scss' > snap 1`] = `
 ".btn {
-  @apply border-base-200 bg-base-200 text-base-content outline-base-200 no-underline;
+  @apply border-base-400 bg-base-400 text-base-content outline-base-400 no-underline;
   border-width: var(--ice-border-btn, 1px);
 }
 .btn:focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
-.btn:active {
+.btn:hover {
   @apply border-base-300 bg-base-300;
 }
+.btn:active {
+  @apply border-base-500 bg-base-500;
+}
 .btn.btn-active {
-  @apply border-base-300 bg-base-300;
+  @apply border-base-500 bg-base-500;
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
+}
+.btn-primary:hover {
+  @apply border-primary-hover bg-primary-hover;
 }
 .btn-primary:active {
   @apply border-primary-active bg-primary-active;
@@ -172,6 +178,9 @@ exports[`'button/styled.scss' > snap 1`] = `
 .btn-success {
   @apply border-success bg-success text-success-content outline-success;
 }
+.btn-success:hover {
+  @apply border-success-hover bg-success-hover;
+}
 .btn-success:active {
   @apply border-success-active bg-success-active;
 }
@@ -180,6 +189,9 @@ exports[`'button/styled.scss' > snap 1`] = `
 }
 .btn-warning {
   @apply border-warning bg-warning text-warning-content outline-warning;
+}
+.btn-warning:hover {
+  @apply border-warning-hover bg-warning-hover;
 }
 .btn-warning:active {
   @apply border-warning-active bg-warning-active;
@@ -190,6 +202,9 @@ exports[`'button/styled.scss' > snap 1`] = `
 .btn-error {
   @apply border-error bg-error text-error-content outline-error;
 }
+.btn-error:hover {
+  @apply border-error-hover bg-error-hover;
+}
 .btn-error:active {
   @apply border-error-active bg-error-active;
 }
@@ -199,6 +214,9 @@ exports[`'button/styled.scss' > snap 1`] = `
 .btn-info {
   @apply border-info bg-info text-info-content outline-info;
 }
+.btn-info:hover {
+  @apply border-info-hover bg-info-hover;
+}
 .btn-info:active {
   @apply border-info-active bg-info-active;
 }
@@ -207,6 +225,9 @@ exports[`'button/styled.scss' > snap 1`] = `
 }
 .btn-neutral {
   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+}
+.btn-neutral:hover {
+  @apply border-neutral-hover bg-neutral-hover;
 }
 .btn-neutral:active {
   @apply border-neutral-active bg-neutral-active;
@@ -246,14 +267,20 @@ exports[`'button/styled.scss' > snap 1`] = `
 .btn-outline {
   @apply border-current bg-transparent shadow-none text-base-content;
 }
+.btn-outline:hover {
+  @apply border-base-900 bg-base-900 text-base-100;
+}
 .btn-outline:active {
-  @apply border-base-content bg-base-content text-base-100;
+  @apply border-base-1100 bg-base-1100 text-base-100;
 }
 .btn-outline.btn-active {
-  @apply border-base-content bg-base-content text-base-100;
+  @apply border-base-1100 bg-base-1100 text-base-100;
 }
 .btn-outline.btn-primary {
   @apply text-primary;
+}
+.btn-outline.btn-primary:hover {
+  @apply border-primary-hover bg-primary-hover text-primary-content;
 }
 .btn-outline.btn-primary:active {
   @apply border-primary-active bg-primary-active text-primary-content;
@@ -264,6 +291,9 @@ exports[`'button/styled.scss' > snap 1`] = `
 .btn-outline.btn-success {
   @apply text-success;
 }
+.btn-outline.btn-success:hover {
+  @apply border-success-hover bg-success-hover text-success-content;
+}
 .btn-outline.btn-success:active {
   @apply border-success-active bg-success-active text-success-content;
 }
@@ -272,6 +302,9 @@ exports[`'button/styled.scss' > snap 1`] = `
 }
 .btn-outline.btn-warning {
   @apply text-warning;
+}
+.btn-outline.btn-warning:hover {
+  @apply border-warning-hover bg-warning-hover text-warning-content;
 }
 .btn-outline.btn-warning:active {
   @apply border-warning-active bg-warning-active text-warning-content;
@@ -282,6 +315,9 @@ exports[`'button/styled.scss' > snap 1`] = `
 .btn-outline.btn-error {
   @apply text-error;
 }
+.btn-outline.btn-error:hover {
+  @apply border-error-hover bg-error-hover text-error-content;
+}
 .btn-outline.btn-error:active {
   @apply border-error-active bg-error-active text-error-content;
 }
@@ -291,6 +327,9 @@ exports[`'button/styled.scss' > snap 1`] = `
 .btn-outline.btn-info {
   @apply text-info;
 }
+.btn-outline.btn-info:hover {
+  @apply border-info-hover bg-info-hover text-info-content;
+}
 .btn-outline.btn-info:active {
   @apply border-info-active bg-info-active text-info-content;
 }
@@ -299,6 +338,9 @@ exports[`'button/styled.scss' > snap 1`] = `
 }
 .btn-outline.btn-neutral {
   @apply text-neutral;
+}
+.btn-outline.btn-neutral:hover {
+  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
 }
 .btn-outline.btn-neutral:active {
   @apply border-neutral-active bg-neutral-active text-neutral-content;

@@ -148,20 +148,26 @@ exports[`'button/base.scss' prefixer > snap 1`] = `
 
 exports[`'button/styled.scss' prefixer > snap 1`] = `
 ".som-som-btn {
-  @apply border-base-200 bg-base-200 text-base-content outline-base-200 no-underline;
+  @apply border-base-400 bg-base-400 text-base-content outline-base-400 no-underline;
   border-width: var(--ice-border-btn, 1px);
 }
 .som-som-btn:focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
-.som-som-btn:active {
+.som-som-btn:hover {
   @apply border-base-300 bg-base-300;
 }
+.som-som-btn:active {
+  @apply border-base-500 bg-base-500;
+}
 .som-som-btn.som-som-btn-active {
-  @apply border-base-300 bg-base-300;
+  @apply border-base-500 bg-base-500;
 }
 .som-som-btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
+}
+.som-som-btn-primary:hover {
+  @apply border-primary-hover bg-primary-hover;
 }
 .som-som-btn-primary:active {
   @apply border-primary-active bg-primary-active;
@@ -172,6 +178,9 @@ exports[`'button/styled.scss' prefixer > snap 1`] = `
 .som-som-btn-success {
   @apply border-success bg-success text-success-content outline-success;
 }
+.som-som-btn-success:hover {
+  @apply border-success-hover bg-success-hover;
+}
 .som-som-btn-success:active {
   @apply border-success-active bg-success-active;
 }
@@ -180,6 +189,9 @@ exports[`'button/styled.scss' prefixer > snap 1`] = `
 }
 .som-som-btn-warning {
   @apply border-warning bg-warning text-warning-content outline-warning;
+}
+.som-som-btn-warning:hover {
+  @apply border-warning-hover bg-warning-hover;
 }
 .som-som-btn-warning:active {
   @apply border-warning-active bg-warning-active;
@@ -190,6 +202,9 @@ exports[`'button/styled.scss' prefixer > snap 1`] = `
 .som-som-btn-error {
   @apply border-error bg-error text-error-content outline-error;
 }
+.som-som-btn-error:hover {
+  @apply border-error-hover bg-error-hover;
+}
 .som-som-btn-error:active {
   @apply border-error-active bg-error-active;
 }
@@ -199,6 +214,9 @@ exports[`'button/styled.scss' prefixer > snap 1`] = `
 .som-som-btn-info {
   @apply border-info bg-info text-info-content outline-info;
 }
+.som-som-btn-info:hover {
+  @apply border-info-hover bg-info-hover;
+}
 .som-som-btn-info:active {
   @apply border-info-active bg-info-active;
 }
@@ -207,6 +225,9 @@ exports[`'button/styled.scss' prefixer > snap 1`] = `
 }
 .som-som-btn-neutral {
   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+}
+.som-som-btn-neutral:hover {
+  @apply border-neutral-hover bg-neutral-hover;
 }
 .som-som-btn-neutral:active {
   @apply border-neutral-active bg-neutral-active;
@@ -246,14 +267,20 @@ exports[`'button/styled.scss' prefixer > snap 1`] = `
 .som-som-btn-outline {
   @apply border-current bg-transparent shadow-none text-base-content;
 }
+.som-som-btn-outline:hover {
+  @apply border-base-900 bg-base-900 text-base-100;
+}
 .som-som-btn-outline:active {
-  @apply border-base-content bg-base-content text-base-100;
+  @apply border-base-1100 bg-base-1100 text-base-100;
 }
 .som-som-btn-outline.som-som-btn-active {
-  @apply border-base-content bg-base-content text-base-100;
+  @apply border-base-1100 bg-base-1100 text-base-100;
 }
 .som-som-btn-outline.som-som-btn-primary {
   @apply text-primary;
+}
+.som-som-btn-outline.som-som-btn-primary:hover {
+  @apply border-primary-hover bg-primary-hover text-primary-content;
 }
 .som-som-btn-outline.som-som-btn-primary:active {
   @apply border-primary-active bg-primary-active text-primary-content;
@@ -264,6 +291,9 @@ exports[`'button/styled.scss' prefixer > snap 1`] = `
 .som-som-btn-outline.som-som-btn-success {
   @apply text-success;
 }
+.som-som-btn-outline.som-som-btn-success:hover {
+  @apply border-success-hover bg-success-hover text-success-content;
+}
 .som-som-btn-outline.som-som-btn-success:active {
   @apply border-success-active bg-success-active text-success-content;
 }
@@ -272,6 +302,9 @@ exports[`'button/styled.scss' prefixer > snap 1`] = `
 }
 .som-som-btn-outline.som-som-btn-warning {
   @apply text-warning;
+}
+.som-som-btn-outline.som-som-btn-warning:hover {
+  @apply border-warning-hover bg-warning-hover text-warning-content;
 }
 .som-som-btn-outline.som-som-btn-warning:active {
   @apply border-warning-active bg-warning-active text-warning-content;
@@ -282,6 +315,9 @@ exports[`'button/styled.scss' prefixer > snap 1`] = `
 .som-som-btn-outline.som-som-btn-error {
   @apply text-error;
 }
+.som-som-btn-outline.som-som-btn-error:hover {
+  @apply border-error-hover bg-error-hover text-error-content;
+}
 .som-som-btn-outline.som-som-btn-error:active {
   @apply border-error-active bg-error-active text-error-content;
 }
@@ -291,6 +327,9 @@ exports[`'button/styled.scss' prefixer > snap 1`] = `
 .som-som-btn-outline.som-som-btn-info {
   @apply text-info;
 }
+.som-som-btn-outline.som-som-btn-info:hover {
+  @apply border-info-hover bg-info-hover text-info-content;
+}
 .som-som-btn-outline.som-som-btn-info:active {
   @apply border-info-active bg-info-active text-info-content;
 }
@@ -299,6 +338,9 @@ exports[`'button/styled.scss' prefixer > snap 1`] = `
 }
 .som-som-btn-outline.som-som-btn-neutral {
   @apply text-neutral;
+}
+.som-som-btn-outline.som-som-btn-neutral:hover {
+  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
 }
 .som-som-btn-outline.som-som-btn-neutral:active {
   @apply border-neutral-active bg-neutral-active text-neutral-content;

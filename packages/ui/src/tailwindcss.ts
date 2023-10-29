@@ -51,7 +51,7 @@ export const icestackPlugin = plugin.withOptions(
           const baseObj = baseProcess(base)
 
           return function ({ addBase, addComponents, addUtilities }) {
-            addBase([baseObj])
+            addBase(baseObj)
 
             for (const [name, item] of componentsEntries) {
               // 优先级 utils > index > base

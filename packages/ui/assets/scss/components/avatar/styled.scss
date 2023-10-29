@@ -1,11 +1,11 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
-
+$S: inject("avatar.selector");
 $DefaultMap: inject("avatar.defaults.styled");
 
-.avatar-group {
+#{$S}-group {
   @include resolve(map.get($DefaultMap, "group"));
-  :where(.avatar) {
+  :where(#{$S}) {
     @include resolve(map.get($DefaultMap, "default"));
   }
 }

@@ -1,6 +1,6 @@
 export type IDefaults = {
   styled?: object
-  unstyled?: object
+  base?: object
 }
 
 export type IValue =
@@ -13,3 +13,10 @@ export type IValue =
       apply: string
       css: Record<string, string>
     }
+
+export type IOptionReturnType = {
+  selector: string
+  colors?: object
+  defaults: IDefaults
+  // index: object
+}

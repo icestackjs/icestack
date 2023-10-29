@@ -56,7 +56,7 @@ export type GlobalOptions = {
   }
 }
 
-export type CodegenMode = 'styled' | 'unstyled' | 'raw'
+export type CodegenMode = 'styled' | 'base' | 'raw'
 
 export type LoadCodeOptions = {
   loaddir: string

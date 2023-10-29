@@ -4,7 +4,7 @@ import dedent from 'dedent'
 import { camelCase } from 'lodash'
 
 async function main() {
-  const list = await fs.readdir(path.resolve(__dirname, '../assets/scss/components/unstyled'))
+  const list = await fs.readdir(path.resolve(__dirname, '../assets/scss/components'))
   await fs.writeFile(
     path.resolve(__dirname, '../src/allComponents.ts'),
     dedent`export default [\n${list

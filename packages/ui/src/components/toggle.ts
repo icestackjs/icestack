@@ -60,7 +60,7 @@ const defaults: IDefaults = {
       }
     }
   },
-  unstyled: {
+  base: {
     default: ''
   }
 }

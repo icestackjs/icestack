@@ -1,7 +1,7 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
 
-$DefaultMap: inject("button.defaults.unstyled");
+$DefaultMap: inject("button.defaults.base");
 
 .btn {
   @include resolve(map.get($DefaultMap, "default"));

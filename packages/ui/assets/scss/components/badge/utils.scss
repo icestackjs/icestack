@@ -1,4 +1,6 @@
-.badge {
+$S: inject("badge.selector");
+
+#{$S} {
   &-xs {
     @apply h-3 text-xs leading-3;
     padding-left: 0.313rem;

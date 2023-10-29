@@ -15,7 +15,7 @@ const defaults: IDefaults = {
     },
     disabled: 'border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20'
   },
-  unstyled: {
+  base: {
     default: 'min-h-12 flex-shrink px-4 py-2 text-sm leading-loose'
   }
 }

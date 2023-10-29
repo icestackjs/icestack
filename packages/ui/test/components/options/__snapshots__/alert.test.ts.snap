@@ -4,18 +4,7 @@ exports[`alert > merge options case 0 1`] = `
 {
   "colors": {},
   "defaults": {
-    "styled": {
-      "default": {
-        "apply": [
-          "rounded-box",
-          "border",
-          "p-4",
-          "text-base-content",
-          "border-base-200",
-        ],
-      },
-    },
-    "unstyled": {
+    "base": {
       "default": {
         "apply": [
           "grid",
@@ -33,7 +22,19 @@ exports[`alert > merge options case 0 1`] = `
         ],
       },
     },
+    "styled": {
+      "default": {
+        "apply": [
+          "rounded-box",
+          "border",
+          "p-4",
+          "text-base-content",
+          "border-base-200",
+        ],
+      },
+    },
   },
+  "selector": ".alert",
 }
 `;
 
@@ -41,12 +42,7 @@ exports[`alert > merge options case 1 1`] = `
 {
   "colors": {},
   "defaults": {
-    "styled": {
-      "default": {
-        "apply": [],
-      },
-    },
-    "unstyled": {
+    "base": {
       "default": {
         "apply": [
           "bg-base-200",
@@ -56,7 +52,13 @@ exports[`alert > merge options case 1 1`] = `
         },
       },
     },
+    "styled": {
+      "default": {
+        "apply": [],
+      },
+    },
   },
+  "selector": ".alert",
 }
 `;
 
@@ -64,12 +66,7 @@ exports[`alert > merge options case 2 1`] = `
 {
   "colors": {},
   "defaults": {
-    "styled": {
-      "default": {
-        "apply": [],
-      },
-    },
-    "unstyled": {
+    "base": {
       "default": {
         "apply": [
           "bg-base-200",
@@ -80,7 +77,13 @@ exports[`alert > merge options case 2 1`] = `
         },
       },
     },
+    "styled": {
+      "default": {
+        "apply": [],
+      },
+    },
   },
+  "selector": ".alert",
 }
 `;
 
@@ -88,18 +91,7 @@ exports[`alert > merge options case 3 1`] = `
 {
   "colors": {},
   "defaults": {
-    "styled": {
-      "default": {
-        "apply": [
-          "rounded-box",
-          "border",
-          "p-4",
-          "text-base-content",
-          "border-base-200",
-        ],
-      },
-    },
-    "unstyled": {
+    "base": {
       "default": {
         "apply": [
           "bg-base-200",
@@ -121,6 +113,18 @@ exports[`alert > merge options case 3 1`] = `
         },
       },
     },
+    "styled": {
+      "default": {
+        "apply": [
+          "rounded-box",
+          "border",
+          "p-4",
+          "text-base-content",
+          "border-base-200",
+        ],
+      },
+    },
   },
+  "selector": ".alert",
 }
 `;

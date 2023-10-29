@@ -31,7 +31,7 @@ describe('alert', () => {
                 apply: []
               }
             },
-            unstyled: {
+            base: {
               default: {
                 apply: ['bg-base-200'],
                 css: {
@@ -60,7 +60,7 @@ describe('alert', () => {
                 apply: []
               }
             },
-            unstyled: {
+            base: {
               default: {
                 apply: ['bg-base-200'],
                 css: {
@@ -77,7 +77,7 @@ describe('alert', () => {
                 apply: []
               }
             },
-            unstyled: {
+            base: {
               default: {
                 apply: ['bg-base-200'],
                 css: {
@@ -106,7 +106,7 @@ describe('alert', () => {
                 apply: []
               }
             },
-            unstyled: {
+            base: {
               default: {
                 apply: ['bg-base-200'],
                 css: {

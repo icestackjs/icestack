@@ -1,7 +1,12 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
-$DefaultMap: inject("alert.defaults.unstyled");
+$DefaultMap: inject("alert.defaults.base");
+$S: inject("alert.selector");
 
-.alert {
+@mixin base {
   @include resolve(map.get($DefaultMap, "default"));
+}
+
+#{$S} {
+  @include base;
 }

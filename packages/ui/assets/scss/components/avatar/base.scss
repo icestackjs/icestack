@@ -1,14 +1,23 @@
-.avatar {
-  @apply relative inline-flex;
-  & > div {
-    @apply block aspect-square overflow-hidden;
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+$S: inject("avatar.selector");
+$DefaultMap: inject("avatar.defaults.base");
+
+@mixin base {
+  @include resolve(map.get($DefaultMap, "default"));
+  > div {
+    @include resolve(map.get($DefaultMap, "childDiv"));
   }
   img {
-    @apply h-full w-full object-cover;
+    @include resolve(map.get($DefaultMap, "img"));
   }
   &.placeholder {
-    & > div {
-      @apply flex items-center justify-center;
+    > div {
+      @include resolve(map.get($DefaultMap, "placeholderChildDiv"));
     }
   }
+}
+
+#{$S} {
+  @include base;
 }

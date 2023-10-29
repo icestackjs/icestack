@@ -70,7 +70,7 @@ const defaults: IDefaults = {
     //   focusVisible: 'outline-primary'
     // }
   },
-  unstyled: {
+  base: {
     default: {
       apply:
         'rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4',

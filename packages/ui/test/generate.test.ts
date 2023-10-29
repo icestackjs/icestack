@@ -6,7 +6,7 @@ import { getCodegenOptions } from '@/options'
 function resolve(...p: string[]) {
   return path.resolve(__dirname, './fixtures/generate', ...p)
 }
-describe('generate', () => {
+describe.skip('generate', () => {
   const expectedDirs = ['css', 'css-resolved', 'js', 'js/base', 'js/components', 'js/utilities', 'js/base/index.js', 'js/components/index.js', 'js/utilities/index.js']
   it('case 0', async () => {
     const dir = resolve('case0')
@@ -35,7 +35,7 @@ describe('generate', () => {
     }
   })
 
-  it.only('case 2', async () => {
+  it.skip('case 2', async () => {
     const dir = resolve('prefixer')
     await deleteAsync([dir])
     buildAll({

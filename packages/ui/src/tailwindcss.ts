@@ -55,7 +55,7 @@ export const icestackPlugin = plugin.withOptions(
 
             for (const [name, item] of componentsEntries) {
               // 优先级 utils > index > base
-              const cssItems: (CssInJs | undefined)[] = [item.base, item.index, item.utils]
+              const cssItems: (CssInJs | undefined)[] = [item.base, item.styled, item.utils]
 
               let cssObj = merge.recursive(true, ...cssItems)
 

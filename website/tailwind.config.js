@@ -8,7 +8,7 @@ module.exports = {
   theme: {},
   plugins: [
     icestackPlugin({
-      outdir: path.resolve(__dirname, './ice-ui'),
+      outdir: path.resolve(__dirname, './ice-ui')
       // prefix: 'som-'
     }),
     iconsPlugin({

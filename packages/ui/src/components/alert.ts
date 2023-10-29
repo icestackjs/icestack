@@ -4,7 +4,7 @@ import { CreatePresetOptions } from '@/sass/functions'
 const defaults: IDefaults = {
   styled: {
     default: {
-      apply: 'rounded-box border p-4 text-base-content border-base-200'.split(' ')
+      apply: 'rounded-box border p-4 text-base-content border-base-200'
     }
   },
   base: {
@@ -23,7 +23,7 @@ export const options: (opts: CreatePresetOptions) => IOptionReturnType = (opts) 
     colors: expandColorsMap(opts.types, (typeName) => {
       return {
         default: {
-          apply: `text-${typeName}-content border-${typeName}/20 bg-${typeName}`.split(' ')
+          apply: `text-${typeName}-content border-${typeName}/20 bg-${typeName}`
         }
       }
     }),

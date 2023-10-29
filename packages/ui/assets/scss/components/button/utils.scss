@@ -1,55 +1,24 @@
-.btn {
-  &-xs {
-    @apply min-h-6 h-6 px-2;
-    font-size: 0.75rem;
-  }
-  &-sm {
-    @apply min-h-8 h-8 px-3;
-    font-size: 0.875rem;
-  }
-  &-md {
-    @apply min-h-12 h-12 px-4;
-    font-size: 0.875rem;
-  }
-  &-lg {
-    @apply min-h-16 h-16 px-6;
-    font-size: 1.125rem;
-  }
-  &-wide {
-    @apply w-64;
-  }
-  &-block {
-    @apply w-full;
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+$S: inject("button.selector");
+$DefaultMap: inject("button.defaults.utils");
+
+#{$S} {
+  @each $size, $map in map.get($DefaultMap, "sizes") {
+    &#{getSelector($size)} {
+      @include resolve($map);
+    }
   }
 
-  &-square {
-    @apply h-12 w-12 p-0;
-    &:where(.btn-xs) {
-      @apply h-6 w-6 p-0;
-    }
-    &:where(.btn-sm) {
-      @apply h-8 w-8 p-0;
-    }
-    &:where(.btn-md) {
-      @apply h-12 w-12 p-0;
-    }
-    &:where(.btn-lg) {
-      @apply h-16 w-16 p-0;
-    }
-  }
-  &-circle {
-    @apply h-12 w-12 rounded-full p-0;
-    &:where(.btn-xs) {
-      @apply h-6 w-6 rounded-full p-0;
-    }
-    &:where(.btn-sm) {
-      @apply h-8 w-8 rounded-full p-0;
-    }
-    &:where(.btn-md) {
-      @apply h-12 w-12 rounded-full p-0;
-    }
-    &:where(.btn-lg) {
-      @apply h-16 w-16 rounded-full p-0;
+  @each $shape, $map in map.get($DefaultMap, "shapes") {
+    &#{getSelector($shape)} {
+      @include resolve(map.get($map, "default"));
+
+      @each $size, $m in map.get($map, "sizes") {
+        &:where(#{getSelector($size,#{$S}-)}) {
+          @include resolve($m);
+        }
+      }
     }
   }
 }

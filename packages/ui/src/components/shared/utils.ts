@@ -57,10 +57,27 @@ export function applyListToString<T extends Record<string, T>>(obj: T) {
   return obj
 }
 
+export function applyStringToArray(obj: Record<string, any>) {
+  const keys = Object.keys(obj)
+  for (const key of keys) {
+    if (key === 'apply') {
+      const value = obj[key]
+      if (typeof value === 'string') {
+        obj[key] = value.split(' ')
+      }
+      // do nothing
+    } else if (isObject(obj[key])) {
+      applyStringToArray(obj[key])
+    }
+  }
+  return obj
+}
+
 export function handleOptions(d: object, { extend, override }: Partial<ComponentsValue>) {
-  let xx = d
+  const de = applyStringToArray(d)
+  let xx = de
   if (override) {
-    xx = recursive(true, d, override)
+    xx = recursive(true, de, override)
   }
   return defu(extend, xx)
 }

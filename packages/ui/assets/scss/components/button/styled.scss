@@ -1,7 +1,7 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
 @use "sass:meta";
-
+$S: inject("button.selector");
 $TypeMap: inject("button.colors");
 $DefaultMap: inject("button.defaults.styled");
 $hoverMedia: map.get($DefaultMap, "hoverMedia");
@@ -45,7 +45,7 @@ $hoverMedia: map.get($DefaultMap, "hoverMedia");
   }
 }
 
-.btn {
+#{$S} {
   &:focus-visible {
     @include resolve(map.get($DefaultMap, "focusVisible"));
   }

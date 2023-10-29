@@ -45,7 +45,7 @@ export const icestackPlugin = plugin.withOptions(
         const utilities = requireLib('js/utilities/index.js', loadDirPath) as typeof _utilities
         if (base && components && utilities) {
           const componentsEntries = Object.entries(components)
-          // const utilitiesEntries = Object.entries(utilities)
+          const utilitiesEntries = Object.entries(utilities)
           const { baseProcess, componentsProcess, utilitiesProcess } = getJsProcess(options)
 
           const baseObj = baseProcess(base)
@@ -64,18 +64,20 @@ export const icestackPlugin = plugin.withOptions(
               addComponents(cssObj)
             }
 
-            const cssItems: (CssInJs | undefined)[] = [utilities.global]
+            for (const [name, item] of utilitiesEntries) {
+              const cssItems: (CssInJs | undefined)[] = [item.glass, item.variables]
 
-            // @ts-ignore
-            const hit = options?.components?.[name]
-            if (hit && Array.isArray(hit.append)) {
-              cssItems.push(...hit.append)
+              // @ts-ignore
+              const hit = options?.components?.[name]
+              if (hit && Array.isArray(hit.append)) {
+                cssItems.push(...hit.append)
+              }
+              let cssObj = merge.recursive(true, ...cssItems)
+
+              cssObj = utilitiesProcess(cssObj)
+
+              addUtilities(cssObj)
             }
-            let cssObj = merge.recursive(true, ...cssItems)
-
-            cssObj = utilitiesProcess(cssObj)
-
-            addUtilities(cssObj)
           }
         }
       }

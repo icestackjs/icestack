@@ -1,6 +1,10 @@
 export type IDefaults = {
   styled?: object
   base?: object
+  utils?: {
+    sizes?: object
+    shapes?: object
+  }
 }
 
 export type IValue =

@@ -1,9 +1,9 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
-
+$S: inject("button.selector");
 $DefaultMap: inject("button.defaults.base");
 
-.btn {
+#{$S} {
   @include resolve(map.get($DefaultMap, "default"));
 
   &-disabled,

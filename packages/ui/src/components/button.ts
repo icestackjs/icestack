@@ -1,15 +1,6 @@
-import { IDefaults, expandColorsMap } from './shared'
+import { IDefaults, IOptionReturnType, expandColorsMap } from './shared'
 import { CreatePresetOptions } from '@/sass/functions'
-// const sassColors = transformJsToSass(colorsMap)
-// const sassDefaults = transformJsToSass(defaults)
-// export const inject = {
-//   [injectName.colors]: () => {
-//     return sassColors
-//   },
-//   [injectName.defaults]: () => {
-//     return sassDefaults
-//   }
-// }
+
 export function generateBtnInjectVars(type: string) {
   return {
     outline: `text-${type}`,
@@ -23,7 +14,7 @@ export function generateBtnInjectVars(type: string) {
 const defaults: IDefaults = {
   styled: {
     default: {
-      apply: 'border-base-200 bg-base-200 text-base-content outline-base-200 no-underline'.split(' '),
+      apply: 'border-base-200 bg-base-200 text-base-content outline-base-200 no-underline',
       css: {
         'border-width': 'var(--border-btn, 1px)'
       }
@@ -82,14 +73,88 @@ const defaults: IDefaults = {
     disabled: {
       apply: 'pointer-events-none'
     }
+  },
+  utils: {
+    sizes: {
+      xs: {
+        apply: 'min-h-6 h-6 px-2',
+        css: {
+          'font-size': '0.75rem'
+        }
+      },
+      sm: {
+        apply: 'min-h-8 h-8 px-3',
+        css: {
+          'font-size': '0.875rem'
+        }
+      },
+      md: {
+        apply: 'min-h-12 h-12 px-4',
+        css: {
+          'font-size': '0.875rem'
+        }
+      },
+      lg: {
+        apply: 'min-h-16 h-16 px-6',
+        css: {
+          'font-size': '1.125rem'
+        }
+      },
+      wide: {
+        apply: 'w-64'
+      },
+      block: {
+        apply: 'w-full'
+      }
+    },
+    shapes: {
+      square: {
+        default: {
+          apply: 'h-12 w-12 p-0'
+        },
+        sizes: {
+          xs: {
+            apply: 'h-6 w-6 p-0'
+          },
+          sm: {
+            apply: 'h-8 w-8 p-0'
+          },
+          md: {
+            apply: 'h-12 w-12 p-0'
+          },
+          lg: {
+            apply: 'h-16 w-16 p-0'
+          }
+        }
+      },
+      circle: {
+        default: {
+          apply: 'h-12 w-12 rounded-full p-0'
+        },
+        sizes: {
+          xs: {
+            apply: 'h-6 w-6 rounded-full p-0'
+          },
+          sm: {
+            apply: 'h-8 w-8 rounded-full p-0'
+          },
+          md: {
+            apply: 'h-12 w-12 rounded-full p-0'
+          },
+          lg: {
+            apply: 'h-16 w-16 rounded-full p-0'
+          }
+        }
+      }
+    }
   }
 }
-export const options = (opts: CreatePresetOptions) => {
-  const d = {
+export const options: (opts: CreatePresetOptions) => IOptionReturnType = (opts) => {
+  return {
+    selector: '.btn',
     colors: expandColorsMap(opts.types, (cur) => {
       return generateBtnInjectVars(cur)
     }),
     defaults
   }
-  return d
 }

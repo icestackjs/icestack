@@ -8,6 +8,9 @@ const plugin = () => {
       if (rule.selector.includes('a,summary,button,input,[tabindex]:not([tabindex="-1"])')) {
         rule.remove()
       }
+      if (rule.selector.includes(':focus-visible')) {
+        rule.remove()
+      }
     }
   }
 }

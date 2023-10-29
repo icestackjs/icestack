@@ -642,8 +642,7 @@ exports[`'checkbox/utils.scss' prefixer > snap 1`] = `
 
 exports[`'input/base.scss' prefixer > snap 1`] = `
 ".som-input {
-  @apply flex-shrink;
-  @apply h-12 px-4 text-sm leading-loose;
+  @apply flex-shrink h-12 px-4 text-sm leading-loose;
 }"
 `;
 

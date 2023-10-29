@@ -29,7 +29,8 @@
     "nextra": "^2.13.2",
     "nextra-theme-docs": "^2.13.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-shadow": "^20.4.0"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.4.0",

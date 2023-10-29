@@ -1,3 +1,7 @@
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+$DefaultMap: inject("checkbox.defaults.base");
+
 .checkbox {
-  @apply shrink-0;
+  @include resolve(map.get($DefaultMap, "default"));
 }

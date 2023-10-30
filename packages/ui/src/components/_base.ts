@@ -1,24 +1,12 @@
-import { expandColorsMap, IDefaults, OptionFn } from './shared'
-const defaults: IDefaults = {
-  styled: {
-    default: {
-      apply: ''
-    }
-  },
-  base: {
-    default: {
-      apply: ''
-    }
-  }
-}
+import { OptionFn } from './shared'
 
 export const options: OptionFn = (opts) => {
-  const d = {
+  return {
     selector: '',
-    colors: expandColorsMap(opts.types, (typeName) => {
-      return {}
-    }),
-    defaults
+    defaults: {
+      styled: {},
+      base: {},
+      utils: {}
+    }
   }
-  return d
 }

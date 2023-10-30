@@ -1,4 +1,4 @@
-import { Types, expandColorsMap } from './shared'
+import { Types, expandColorsMap } from '../../src/components/shared'
 function generateDefault(typeName: string) {
   return `border-${typeName}`
 }

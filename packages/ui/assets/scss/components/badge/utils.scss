@@ -1,12 +1,3 @@
 @use "../../utils/index.scss" as *;
-@use "sass:map";
-$S: inject("badge.selector");
-$DefaultMap: inject("badge.defaults.utils");
 
-#{$S} {
-  @each $typeName, $map in map.get($DefaultMap, "sizes") {
-    &#{getSelector($typeName)} {
-      @include resolve(map.get($map, "default"));
-    }
-  }
-}
+@include spread(inject("badge.defaults.utils"));

@@ -1,6 +1,7 @@
 import defu from 'defu'
 import { isObject } from 'lodash'
 import { recursive } from 'merge'
+import { IOptionReturnType } from './types'
 import type { ComponentsValue } from '@/types'
 // import { pascalCase } from '@/utils'
 
@@ -20,8 +21,24 @@ export function expandColorsMap<T extends object>(typeArr: string[], fn: (typeNa
   }, {})
 }
 
-export function expandTypes(typeArr: string[], fn: (typeName: string) => { key: string; value: object }) {
-  return typeArr.reduce<Record<string, object>>((acc, cur) => {
+export function expandTypes(types: string[], fn: (typeName: string) => { key: string; value: object }) {
+  return types.reduce<Record<string, object>>((acc, cur) => {
+    const { key, value } = fn(cur)
+    acc[key] = value
+    return acc
+  }, {})
+}
+
+export function expandSizes(sizes: string[], fn: (typeName: string) => { key: string; value: object }) {
+  return sizes.reduce<Record<string, object>>((acc, cur) => {
+    const { key, value } = fn(cur)
+    acc[key] = value
+    return acc
+  }, {})
+}
+
+export function expandShapes(shapes: string[], fn: (typeName: string) => { key: string; value: object }) {
+  return shapes.reduce<Record<string, object>>((acc, cur) => {
     const { key, value } = fn(cur)
     acc[key] = value
     return acc
@@ -81,13 +98,48 @@ export function applyStringToArray(obj: Record<string, any>) {
   return obj
 }
 
-export function handleOptions(d: object, { extend, override }: Partial<ComponentsValue>) {
-  const de = applyStringToArray(d)
+export function handleOptions(d: IOptionReturnType, { extend, override, selector }: Partial<ComponentsValue>) {
+  const de = applyStringToArray(d) as IOptionReturnType
   let xx = de
   if (override) {
-    xx = recursive(true, de, override)
+    xx = recursive(true, de, {
+      selector,
+      defaults: {
+        base: {
+          // @ts-ignore
+          [selector as string]: override?.base
+        },
+        styled: {
+          // @ts-ignore
+          [selector as string]: override?.styled
+        },
+        utils: {
+          // @ts-ignore
+          [selector as string]: override?.utils
+        }
+      }
+    })
   }
-  return defu(extend, xx)
+  return defu(
+    {
+      selector,
+      defaults: {
+        base: {
+          // @ts-ignore
+          [selector as string]: extend?.base
+        },
+        styled: {
+          // @ts-ignore
+          [selector as string]: extend?.styled
+        },
+        utils: {
+          // @ts-ignore
+          [selector as string]: extend?.utils
+        }
+      }
+    },
+    xx
+  )
 }
 
 // @function getSelector($type, $prefix: "-") {

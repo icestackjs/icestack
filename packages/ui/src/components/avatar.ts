@@ -1,7 +1,9 @@
 import { OptionFn, DefaultsFn } from './shared'
 
-export const selector = '.avatar'
-const getDefaults: DefaultsFn = () => {
+export const defaultSelector = '.avatar'
+
+const getDefaults: DefaultsFn = (opts) => {
+  const { selector } = opts
   return {
     styled: {
       [selector + '-group']: {
@@ -30,9 +32,14 @@ const getDefaults: DefaultsFn = () => {
   }
 }
 
-export const options: OptionFn = (opt) => {
+export const options: OptionFn = (opts) => {
+  const selector = opts.selector ?? defaultSelector
+
   return {
     selector,
-    defaults: getDefaults(opt)
+    defaults: getDefaults({
+      ...opts,
+      selector
+    })
   }
 }

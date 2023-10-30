@@ -1,13 +1,14 @@
 // import defu from 'defu'
 import { DefaultsFn, OptionFn, getSelector, expandTypes } from './shared'
 
-export const selector = '.alert'
+export const defaultSelector = '.alert'
 const getDefaults: DefaultsFn = (opts) => {
+  const { selector, types } = opts
   return {
     styled: {
       [selector]: {
         apply: 'rounded-box border p-4 text-base-content border-base-400',
-        ...expandTypes(opts.types, (typeName) => {
+        ...expandTypes(types, (typeName) => {
           return {
             key: `&${getSelector(typeName)}`,
             value: {
@@ -27,9 +28,13 @@ const getDefaults: DefaultsFn = (opts) => {
 }
 
 export const options: OptionFn = (opts) => {
-  const d = {
+  const selector = opts.selector ?? defaultSelector
+
+  return {
     selector,
-    defaults: getDefaults(opts)
+    defaults: getDefaults({
+      ...opts,
+      selector
+    })
   }
-  return d
 }

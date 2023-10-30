@@ -6,6 +6,13 @@ import tailwindcss from 'tailwindcss'
 import type { Config } from 'tailwindcss'
 import defu from 'defu'
 import klawSync from 'klaw-sync'
+import selectorParser from 'postcss-selector-parser'
+
+const defaultSelectorParser = selectorParser()
+
+export function compressCssSelector(selectors: string) {
+  return defaultSelectorParser.processSync(selectors, { lossless: false })
+}
 
 export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]> {
   if (!Array.isArray(arr)) {

@@ -24,7 +24,7 @@ const opt = {
     //     // dirs: ['./components']
     //   })
     // )
-    console.log(config)
+    // console.log(config)
     return config
   }
 

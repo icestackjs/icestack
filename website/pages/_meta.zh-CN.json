@@ -5,6 +5,8 @@
   },
   "components": {
     "title": "CSS 范式",
+    "href": "https://github.com/sonofmagic/icestack",
+    "newWindow": true,
     "type": "page"
   }
 }

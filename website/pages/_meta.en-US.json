@@ -5,6 +5,8 @@
   },
   "components": {
     "title": "Components",
+    "href": "https://github.com/sonofmagic/icestack",
+    "newWindow": true,
     "type": "page"
   }
 }

@@ -1,4 +1,4 @@
-import { DefaultsFn, expandColorsMap, expandTypes, OptionFn, getSelector, expandSizes } from './shared'
+import { DefaultsFn, expandTypes, OptionFn, getSelector } from './shared'
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
 }
@@ -84,12 +84,6 @@ export const options: OptionFn = (opts) => {
 
   return {
     selector,
-    colors: expandColorsMap(opts.types, (cur) => {
-      return {
-        default: generateDefault(cur),
-        outline: generateOutline(cur)
-      }
-    }),
     defaults: getDefaults({
       ...opts,
       selector

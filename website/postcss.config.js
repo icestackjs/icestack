@@ -9,7 +9,7 @@
 // }
 module.exports = {
   plugins: {
-    './custom-postcss-plugin.js': {},
+    // './custom-postcss-plugin.js': {},
     tailwindcss: {},
     autoprefixer: {}
   }

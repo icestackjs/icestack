@@ -1,14 +1,13 @@
-.radio {
-  &-xs {
-    @apply h-4 w-4;
-  }
-  &-sm {
-    @apply h-5 w-5;
-  }
-  &-md {
-    @apply h-6 w-6;
-  }
-  &-lg {
-    @apply h-8 w-8;
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
+$D: inject("radio.defaults.utils");
+$S: inject("radio.selector");
+
+#{$S} {
+  @each $s, $v in map.get($D, "sizes") {
+    &#{getSelector($s)} {
+      @include resolve($v);
+    }
   }
 }

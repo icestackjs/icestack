@@ -1,5 +1,6 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
+
 $DefaultMap: inject("alert.defaults.base");
 $S: inject("alert.selector");
 

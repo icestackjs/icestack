@@ -1,58 +1,41 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
 $TypeMap: inject("progress.colors");
-
-.progress {
-  @apply rounded-box bg-base-content/20 h-2;
-
-  &::-moz-progress-bar {
-    @apply bg-base-content rounded-box;
-  }
+$D: inject("progress.defaults.styled");
+$S: inject("progress.selector");
+#{$S} {
+  @include resolve(map.get($D, "default"));
 
   @each $typeName, $map in $TypeMap {
     &#{getSelector($typeName)}::-moz-progress-bar {
-      @apply bg-#{$typeName} rounded-box;
+      @include resolve(map.get($map, "mozProgressBar"));
     }
-  }
-
-  &::-webkit-progress-bar {
-    @apply rounded-box bg-transparent;
-  }
-  &::-webkit-progress-value {
-    @apply bg-base-content rounded-box;
   }
 
   @each $typeName, $map in $TypeMap {
     &#{getSelector($typeName)}::-webkit-progress-value {
-      @include resolve(map.get($map, "default"));
+      @include resolve(map.get($map, "progressValue"));
     }
   }
-}
 
-.progress:indeterminate {
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--progress-color) -1%,
-    var(--progress-color) 10%,
-    transparent 10%,
-    transparent 90%
-  );
-  background-size: 200%;
-  background-position-x: 15%;
-  animation: progress-loading 5s ease-in-out infinite;
-}
-.progress:indeterminate::-moz-progress-bar {
-  @apply bg-transparent;
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--progress-color) -1%,
-    var(--progress-color) 10%,
-    transparent 10%,
-    transparent 90%
-  );
-  background-size: 200%;
-  background-position-x: 15%;
-  animation: progress-loading 5s ease-in-out infinite;
+  &::-moz-progress-bar {
+    @include resolve(map.get($D, "mozProgressBar"));
+  }
+
+  &::-webkit-progress-bar {
+    @include resolve(map.get($D, "progressBar"));
+  }
+  &::-webkit-progress-value {
+    @include resolve(map.get($D, "progressValue"));
+  }
+
+  &:indeterminate {
+    @include resolve(map.get($D, "indeterminate"));
+
+    &::-moz-progress-bar {
+      @include resolve(map.get($D, "indeterminateMozProgressBar"));
+    }
+  }
 }
 
 @keyframes progress-loading {

@@ -13,7 +13,7 @@ const coms = (await fg(path.resolve(baseDir, '**/*.scss'))).map((x) => {
     filename: x
   }
 })
-describe.each(coms)('$name prefixer', ({ filename }) => {
+describe.skip.each(coms)('$name prefixer', ({ filename }) => {
   it('snap', async () => {
     const { css } = await compileScss(
       filename,

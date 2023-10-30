@@ -7,7 +7,7 @@ import { loadConfig } from 'c12'
 import type { CodegenOptions, DeepPartial } from './types'
 import { buildAll } from './generate'
 import { getCodegenOptions } from './options'
-import { getDefaultCacheDir } from '@/cache'
+// import { getDefaultCacheDir } from '@/cache'
 // import { getCodegenOptions } from '@/options'
 const cli = createCli()
 
@@ -38,17 +38,17 @@ cli.command('codegen', 'code generate').action(async () => {
   }
 })
 
-cli
-  .command('cache [sub]')
-  .option('-cwd <cwd>', 'cwd path')
-  .action(async (sub, options) => {
-    if (sub === 'clean') {
-      const { deleteAsync } = await import('del')
-      const p = getDefaultCacheDir(options.cwd)
-      const res = await deleteAsync(p)
-      console.log(`delete successfully: ${res}`)
-    }
-  })
+// cli
+//   .command('cache [sub]')
+//   .option('-cwd <cwd>', 'cwd path')
+//   .action(async (sub, options) => {
+//     if (sub === 'clean') {
+//       const { deleteAsync } = await import('del')
+//       const p = getDefaultCacheDir(options.cwd)
+//       const res = await deleteAsync(p)
+//       console.log(`delete successfully: ${res}`)
+//     }
+//   })
 
 cli.help()
 cli.version('0.0.0')

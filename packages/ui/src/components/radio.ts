@@ -2,8 +2,12 @@ import { IDefaults, OptionFn, expandColorsMap } from './shared'
 
 const defaults: IDefaults = {
   styled: {
-    default: 'border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20',
-    focusVisible: 'outline-base-content outline outline-2 outline-offset-2',
+    default: {
+      apply: 'border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20'
+    },
+    focusVisible: {
+      apply: 'outline-base-content outline outline-2 outline-offset-2'
+    },
     checked: {
       apply: 'bg-base-content',
       css: {
@@ -12,7 +16,30 @@ const defaults: IDefaults = {
         0 0 0 4px rgba(var(--base-400)) inset`
       }
     },
-    disabled: 'cursor-not-allowed opacity-20'
+    disabled: {
+      apply: 'cursor-not-allowed opacity-20'
+    }
+  },
+  base: {
+    default: {
+      apply: 'shrink-0'
+    }
+  },
+  utils: {
+    sizes: {
+      xs: {
+        apply: 'h-4 w-4'
+      },
+      sm: {
+        apply: 'h-5 w-5'
+      },
+      md: {
+        apply: 'h-6 w-6'
+      },
+      lg: {
+        apply: 'h-8 w-8'
+      }
+    }
   }
 }
 

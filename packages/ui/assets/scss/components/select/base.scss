@@ -1,14 +1,13 @@
-.select {
-  @apply inline-flex cursor-pointer select-none appearance-none;
-  @apply min-h-12 h-12 pl-4 pr-10 text-sm leading-loose;
+@use "../../utils/index.scss" as *;
+@use "sass:map";
 
-  /* disabled */
-  /* &-disabled,
-  &[disabled] {
-    @apply pointer-events-none;
-  } */
-  /* multiple */
+$D: inject("select.defaults.base");
+$S: inject("select.selector");
+
+#{$S} {
+  @include resolve(map.get($D, "default"));
+
   &[multiple] {
-    @apply h-auto;
+    @include resolve(map.get($D, "multiple"));
   }
 }

@@ -1,6 +1,12 @@
-.range {
-  @apply h-6 w-full cursor-pointer;
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
+$D: inject("range.defaults.base");
+$S: inject("range.selector");
+
+#{$S} {
+  @include resolve(map.get($D, "default"));
   &:focus {
-    outline: none;
+    @include resolve(map.get($D, "focus"));
   }
 }

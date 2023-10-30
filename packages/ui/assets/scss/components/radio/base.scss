@@ -1,3 +1,9 @@
-.radio {
-  @apply shrink-0;
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
+$D: inject("radio.defaults.base");
+$S: inject("radio.selector");
+
+#{$S} {
+  @include resolve(map.get($D, "default"));
 }

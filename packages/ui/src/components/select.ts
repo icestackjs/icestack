@@ -20,6 +20,17 @@ const defaults: IDefaults = {
     ghostFocus: 'text-base-content bg-opacity-100',
     disabled: 'border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20',
     multiple: 'bg-none pr-4'
+  },
+  base: {
+    default: {
+      apply: 'inline-flex cursor-pointer select-none appearance-none min-h-12 h-12 pl-4 pr-10 text-sm leading-loose'
+    },
+    multiple: {
+      apply: 'h-auto'
+    }
+  },
+  utils: {
+    sizes: {}
   }
 }
 

@@ -1,3 +1,5 @@
+@use "../../utils/index.scss" as *;
+
 .glass {
   &,
   &.btn-active {
@@ -15,7 +17,8 @@
       0 0 0 2px rgb(0 0 0 / 5%);
     text-shadow: 0 1px rgb(0 0 0 / var(--glass-text-shadow-opacity, 5%));
   }
-  @media (hover: hover) {
+
+  @include AtMediaHover {
     &.btn-active {
       border: none;
       backdrop-filter: blur(var(--glass-blur, 40px));

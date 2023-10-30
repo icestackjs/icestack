@@ -902,9 +902,6 @@ exports[`'progress/styled.scss' prefixer > snap 1`] = `
 ".som-som-progress {
   @apply rounded-box bg-base-content/20 h-2;
 }
-.som-som-progress::-moz-progress-bar {
-  @apply bg-base-content rounded-box;
-}
 .som-som-progress-primary::-moz-progress-bar {
   @apply bg-primary rounded-box;
 }
@@ -922,12 +919,6 @@ exports[`'progress/styled.scss' prefixer > snap 1`] = `
 }
 .som-som-progress-neutral::-moz-progress-bar {
   @apply bg-neutral rounded-box;
-}
-.som-som-progress::-webkit-progress-bar {
-  @apply rounded-box bg-transparent;
-}
-.som-som-progress::-webkit-progress-value {
-  @apply bg-base-content rounded-box;
 }
 .som-som-progress-primary::-webkit-progress-value {
   @apply bg-primary;
@@ -947,17 +938,24 @@ exports[`'progress/styled.scss' prefixer > snap 1`] = `
 .som-som-progress-neutral::-webkit-progress-value {
   @apply bg-neutral;
 }
-
+.som-som-progress::-moz-progress-bar {
+  @apply bg-base-content rounded-box;
+}
+.som-som-progress::-webkit-progress-bar {
+  @apply rounded-box bg-transparent;
+}
+.som-som-progress::-webkit-progress-value {
+  @apply bg-base-content rounded-box;
+}
 .som-som-progress:indeterminate {
-  background-image: repeating-linear-gradient(90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90%);
+  background-image: repeating-linear-gradient( 90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90% );
   background-size: 200%;
   background-position-x: 15%;
   animation: progress-loading 5s ease-in-out infinite;
 }
-
 .som-som-progress:indeterminate::-moz-progress-bar {
   @apply bg-transparent;
-  background-image: repeating-linear-gradient(90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90%);
+  background-image: repeating-linear-gradient( 90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90% );
   background-size: 200%;
   background-position-x: 15%;
   animation: progress-loading 5s ease-in-out infinite;
@@ -1050,17 +1048,14 @@ exports[`'radio/styled.scss' prefixer > snap 1`] = `
 
 @keyframes radiomark {
   0% {
-    box-shadow: 0 0 0 12px rgba(var(--ice-base-100)) inset, 0 0 0 12px rgba(var(--ice-base-100)) inset;
+    box-shadow: 0 0 0 12px rgba(var(--ice-base-400)) inset, 0 0 0 12px rgba(var(--ice-base-400)) inset;
   }
   50% {
-    box-shadow: 0 0 0 3px rgba(var(--ice-base-100)) inset, 0 0 0 3px rgba(var(--ice-base-100)) inset;
+    box-shadow: 0 0 0 3px rgba(var(--ice-base-400)) inset, 0 0 0 3px rgba(var(--ice-base-400)) inset;
   }
   100% {
-    box-shadow: 0 0 0 4px rgba(var(--ice-base-100)) inset, 0 0 0 4px rgba(var(--ice-base-100)) inset;
+    box-shadow: 0 0 0 4px rgba(var(--ice-base-400)) inset, 0 0 0 4px rgba(var(--ice-base-400)) inset;
   }
-}
-.som-som-radio-mark {
-  @apply hidden;
 }"
 `;
 
@@ -1090,15 +1085,15 @@ exports[`'range/base.scss' prefixer > snap 1`] = `
 
 exports[`'range/styled.scss' prefixer > snap 1`] = `
 ".som-som-range {
+  @apply rounded-box overflow-hidden bg-transparent;
   appearance: none;
   --ice-range-shdw: var(--ice-base-content);
-  @apply rounded-box overflow-hidden bg-transparent;
 }
 .som-som-range:focus-visible::-webkit-slider-thumb {
-  --ice-focus-shadow: 0 0 0 6px rgba(var(--ice-base-100)) inset, 0 0 0 2rem rgba(var(--ice-range-shdw)) inset;
+  --ice-focus-shadow: 0 0 0 6px rgba(var(--ice-base-400)) inset, 0 0 0 2rem rgba(var(--ice-range-shdw)) inset;
 }
 .som-som-range:focus-visible::-moz-range-thumb {
-  --ice-focus-shadow: 0 0 0 6px rgba(var(--ice-base-100)) inset, 0 0 0 2rem rgba(var(--ice-range-shdw)) inset;
+  --ice-focus-shadow: 0 0 0 6px rgba(var(--ice-base-400)) inset, 0 0 0 2rem rgba(var(--ice-range-shdw)) inset;
 }
 .som-som-range::-webkit-slider-runnable-track {
   @apply rounded-box bg-base-content/10 h-2 w-full;
@@ -1107,17 +1102,17 @@ exports[`'range/styled.scss' prefixer > snap 1`] = `
   @apply rounded-box bg-base-content/10 h-2 w-full;
 }
 .som-som-range::-webkit-slider-thumb {
-  @apply rounded-box bg-base-100 relative h-6 w-6 border-none;
+  @apply rounded-box bg-base-400 relative h-6 w-6 border-none;
   appearance: none;
   top: 50%;
-  color: rgba(var(--ice-range-shdw));
   transform: translateY(-50%);
+  color: rgba(var(--ice-range-shdw));
   --ice-filler-size: 100rem;
   --ice-filler-offset: 0.6rem;
   box-shadow: 0 0 0 3px rgba(var(--ice-range-shdw)) inset, var(--ice-focus-shadow, 0 0), calc(var(--ice-filler-size) * -1 - var(--ice-filler-offset)) 0 0 var(--ice-filler-size);
 }
 .som-som-range::-moz-range-thumb {
-  @apply rounded-box bg-base-100 relative h-6 w-6 border-none;
+  @apply rounded-box bg-base-400 relative h-6 w-6 border-none;
   top: 50%;
   color: rgba(var(--ice-range-shdw));
   --ice-filler-size: 100rem;

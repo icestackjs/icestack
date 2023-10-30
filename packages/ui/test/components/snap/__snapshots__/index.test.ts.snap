@@ -142,7 +142,7 @@ exports[`'button/base.scss' > snap 1`] = `
   line-height: 1em;
 }
 .btn-disabled, .btn[disabled], .btn:disabled {
-  @apply pointer-events-none;
+  @apply pointer-events-none cursor-not-allowed;
 }
 
 /* radio input and checkbox as button */"

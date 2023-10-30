@@ -6,9 +6,5 @@
   "components": {
     "title": "CSS 范式",
     "type": "page"
-  },
-  "playground": {
-    "title": "尝试一下",
-    "type": "page"
   }
 }

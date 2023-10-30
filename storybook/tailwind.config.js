@@ -1,5 +1,5 @@
 const path = require('node:path')
-const icestackUi = require('@icestack/ui/tailwindcss')
+const { icestackPlugin } = require('@icestack/ui/tailwindcss')
 const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
 // const colors = require('tailwindcss/colors')
 /** @type {import('tailwindcss').Config} */
@@ -11,7 +11,9 @@ module.exports = {
     extend: {}
   },
   plugins: [
-    icestackUi,
+    icestackPlugin({
+      outdir: path.resolve(__dirname, 'ice-ui')
+    }),
     iconsPlugin({
       collections: getIconCollections(['mdi'])
     })

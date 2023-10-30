@@ -74,7 +74,7 @@ const defaults: IDefaults = {
       }
     },
     disabled: {
-      apply: 'pointer-events-none'
+      apply: 'pointer-events-none cursor-not-allowed'
     }
   },
   utils: {

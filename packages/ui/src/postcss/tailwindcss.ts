@@ -3,6 +3,7 @@ import tailwindcss, { type Config } from 'tailwindcss'
 export function resolveTailwindcss(options: { css: string; config: Config }) {
   const { config, css } = options
   const tw = tailwindcss(config)
+  // https://github.com/tailwindlabs/tailwindcss/blob/28e96baf3ac000f6ddca814a40ad402dbcf6a6a5/src/util/validateConfig.js#L7
   const result = postcss([tw])
     // @tailwind base;\n
     // @ts-ignore
@@ -15,7 +16,7 @@ export function resolveTailwindcss(options: { css: string; config: Config }) {
 
 export function initConfig() {
   const config: Config = {
-    content: [{ raw: '' }],
+    content: [{ raw: 'hidden' }],
     theme: {
       extend: {}
     },

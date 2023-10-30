@@ -155,6 +155,50 @@ exports[`options > getCodegenOptions snap 1`] = `
       },
     },
   },
+  "components": {
+    "alert": {
+      "selector": ".alert",
+    },
+    "avatar": {
+      "selector": ".avatar",
+    },
+    "badge": {
+      "selector": ".badge",
+    },
+    "button": {
+      "selector": ".btn",
+    },
+    "chat": {
+      "selector": ".chat",
+    },
+    "checkbox": {
+      "selector": ".checkbox",
+    },
+    "input": {
+      "selector": ".input",
+    },
+    "link": {
+      "selector": ".link",
+    },
+    "progress": {
+      "selector": ".progress",
+    },
+    "radio": {
+      "selector": ".radio",
+    },
+    "range": {
+      "selector": ".range",
+    },
+    "select": {
+      "selector": ".select",
+    },
+    "textarea": {
+      "selector": ".textarea",
+    },
+    "toggle": {
+      "selector": ".toggle",
+    },
+  },
   "dryRun": false,
   "global": {
     "atMedia": {
@@ -244,6 +288,50 @@ exports[`options > getRawCodegenOptions snap 1`] = `
       },
     },
     "types": {},
+  },
+  "components": {
+    "alert": {
+      "selector": ".alert",
+    },
+    "avatar": {
+      "selector": ".avatar",
+    },
+    "badge": {
+      "selector": ".badge",
+    },
+    "button": {
+      "selector": ".btn",
+    },
+    "chat": {
+      "selector": ".chat",
+    },
+    "checkbox": {
+      "selector": ".checkbox",
+    },
+    "input": {
+      "selector": ".input",
+    },
+    "link": {
+      "selector": ".link",
+    },
+    "progress": {
+      "selector": ".progress",
+    },
+    "radio": {
+      "selector": ".radio",
+    },
+    "range": {
+      "selector": ".range",
+    },
+    "select": {
+      "selector": ".select",
+    },
+    "textarea": {
+      "selector": ".textarea",
+    },
+    "toggle": {
+      "selector": ".toggle",
+    },
   },
   "dryRun": false,
   "global": {

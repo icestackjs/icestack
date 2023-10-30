@@ -175,6 +175,51 @@ export function getDefaultBase(raw?: boolean) {
   }
 }
 
+export const defaultSelectorMap = {
+  alert: {
+    selector: '.alert'
+  },
+  avatar: {
+    selector: '.avatar'
+  },
+  badge: {
+    selector: '.badge'
+  },
+  button: {
+    selector: '.btn'
+  },
+  chat: {
+    selector: '.chat'
+  },
+  checkbox: {
+    selector: '.checkbox'
+  },
+  input: {
+    selector: '.input'
+  },
+  link: {
+    selector: '.link'
+  },
+  progress: {
+    selector: '.progress'
+  },
+  radio: {
+    selector: '.radio'
+  },
+  range: {
+    selector: '.range'
+  },
+  select: {
+    selector: '.select'
+  },
+  textarea: {
+    selector: '.textarea'
+  },
+  toggle: {
+    selector: '.toggle'
+  }
+}
+
 export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
   const base = getDefaultBase(raw)
   return {
@@ -201,6 +246,9 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
     runtime: {
       atMedia: {},
       selector: {}
+    },
+    components: {
+      ...defaultSelectorMap
     }
   }
 }

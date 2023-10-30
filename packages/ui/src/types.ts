@@ -3,7 +3,7 @@
 import type { Config as TailwindcssConfig } from 'tailwindcss'
 // import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
 import type { CssInJs } from 'postcss-js'
-import type allComponents from './allComponents'
+import allComponents from './allComponents'
 import type { Options as PrefixerOptions } from '@/postcss/prefixer'
 // export interface SharedOptions {
 //   // https://daisyui.com/docs/config/
@@ -38,7 +38,7 @@ export type ComponentsValue = {
   // }
 }
 
-export type ComponentsOptions = Record<(typeof allComponents)[number] | string, ComponentsValue>
+export type ComponentsOptions = Record<(typeof allComponents)[number], ComponentsValue>
 
 export type GlobalOptions = {
   atMedia: {

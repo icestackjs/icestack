@@ -1,32 +1,38 @@
-import { IDefaults, OptionFn } from './shared'
-const defaults: IDefaults = {
-  styled: {
-    group: {
-      apply: 'flex overflow-hidden'
+import { OptionFn, DefaultsFn } from './shared'
+
+export const selector = '.avatar'
+const getDefaults: DefaultsFn = () => {
+  return {
+    styled: {
+      [selector + '-group']: {
+        apply: 'flex overflow-hidden',
+        [`:where(${selector})`]: {
+          apply: 'border-base-100 overflow-hidden rounded-full border-4'
+        }
+      }
     },
-    default: {
-      apply: 'border-base-100 overflow-hidden rounded-full border-4'
-    }
-  },
-  base: {
-    default: {
-      apply: 'relative inline-flex'
-    },
-    childDiv: {
-      apply: 'block aspect-square overflow-hidden'
-    },
-    img: {
-      apply: 'h-full w-full object-cover'
-    },
-    placeholderChildDiv: {
-      apply: 'flex items-center justify-center'
+    base: {
+      [selector]: {
+        apply: 'relative inline-flex',
+        '> div': {
+          apply: 'block aspect-square overflow-hidden'
+        },
+        img: {
+          apply: 'h-full w-full object-cover'
+        },
+        '&.placeholder': {
+          '> div': {
+            apply: 'flex items-center justify-center'
+          }
+        }
+      }
     }
   }
 }
 
-export const options: OptionFn = () => {
+export const options: OptionFn = (opt) => {
   return {
-    selector: '.avatar',
-    defaults
+    selector,
+    defaults: getDefaults(opt)
   }
 }

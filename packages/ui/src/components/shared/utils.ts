@@ -20,6 +20,14 @@ export function expandColorsMap<T extends object>(typeArr: string[], fn: (typeNa
   }, {})
 }
 
+export function expandTypes(typeArr: string[], fn: (typeName: string) => { key: string; value: object }) {
+  return typeArr.reduce<Record<string, object>>((acc, cur) => {
+    const { key, value } = fn(cur)
+    acc[key] = value
+    return acc
+  }, {})
+}
+
 export function expandInject<T extends Record<string, T>>(obj: T) {
   if (isObject(obj)) {
     const keys = Object.keys(obj)
@@ -80,4 +88,15 @@ export function handleOptions(d: object, { extend, override }: Partial<Component
     xx = recursive(true, de, override)
   }
   return defu(extend, xx)
+}
+
+// @function getSelector($type, $prefix: "-") {
+//   @if ($type == "") {
+//     @return "";
+//   } @else {
+//     @return "#{$prefix}#{$type}";
+//   }
+// }
+export function getSelector(type: string, prefix: string = '-') {
+  return type === '' ? type : `${prefix}${type}`
 }

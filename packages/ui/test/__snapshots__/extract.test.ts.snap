@@ -2,6 +2,9 @@
 
 exports[`extract > getJsObj base 1`] = `
 {
+  ".hidden": {
+    "display": "none",
+  },
   ":root": {
     "--ice-animation-btn": "0.25s",
     "--ice-animation-input": "0.2s",

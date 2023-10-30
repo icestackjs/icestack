@@ -1,19 +1,3 @@
 @use "../../utils/index.scss" as *;
-@use "sass:map";
-$TypeMap: inject("alert.colors");
-$DefaultMap: inject("alert.defaults.styled");
-$S: inject("alert.selector");
 
-@mixin styled {
-  @include resolve(map.get($DefaultMap, "default"));
-
-  @each $typeName, $map in $TypeMap {
-    &#{getSelector($typeName)} {
-      @include resolve(map.get($map, "default"));
-    }
-  }
-}
-
-#{$S} {
-  @include styled;
-}
+@include spread(inject("alert.defaults.styled"));

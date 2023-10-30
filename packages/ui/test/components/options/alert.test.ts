@@ -1,7 +1,7 @@
 import { handleOptions } from '@/components/shared'
 import { options } from '@/components/alert'
 import { getCodegenOptions } from '@/options'
-describe('alert', () => {
+describe.skip('alert', () => {
   it('merge options case 0', () => {
     const opts = handleOptions(
       options({

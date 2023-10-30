@@ -1,9 +1,10 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
+$S: inject("chat.selector");
 $TypeMap: inject("chat.colors"); // injectChatColors();
 $DefaultMap: inject("chat.defaults.styled"); // map.get(injectChatDefaults(), "styled");
 
-.chat {
+#{$S} {
   &-bubble {
     @include resolve(map.get($DefaultMap, "default"));
 

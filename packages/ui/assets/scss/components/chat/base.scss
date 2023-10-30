@@ -1,13 +1,19 @@
-.chat {
-  @apply grid grid-cols-2 gap-x-3 py-1;
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
+$S: inject("chat.selector");
+$D: inject("chat.defaults.base");
+
+#{$S} {
+  @include resolve(map.get($D, "default"));
   &-image {
-    @apply row-span-2 self-end;
+    @include resolve(map.get($D, "image"));
   }
   &-header {
-    @apply row-start-1 text-sm;
+    @include resolve(map.get($D, "header"));
   }
   &-footer {
-    @apply row-start-3 text-sm;
+    @include resolve(map.get($D, "footer"));
   }
   &-bubble {
     @apply relative block w-fit px-4 py-2;

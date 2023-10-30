@@ -60,7 +60,45 @@ const defaults: IDefaults = {
     }
   },
   base: {
-    default: ''
+    default: {
+      apply: 'shrink-0'
+    }
+  },
+  utils: {
+    sizes: {
+      xs: {
+        default: {
+          apply: 'h-4 w-6',
+          css: {
+            '--handleoffset': '0.5rem'
+          }
+        }
+      },
+      sm: {
+        default: {
+          apply: 'h-5 w-8',
+          css: {
+            '--handleoffset': '0.75rem'
+          }
+        }
+      },
+      md: {
+        default: {
+          apply: 'h-6 w-12',
+          css: {
+            '--handleoffset': '1.5rem'
+          }
+        }
+      },
+      lg: {
+        default: {
+          apply: 'h-8 w-16',
+          css: {
+            '--handleoffset': '2rem'
+          }
+        }
+      }
+    }
   }
 }
 

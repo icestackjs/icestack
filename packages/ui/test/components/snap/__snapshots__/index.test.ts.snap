@@ -1468,28 +1468,24 @@ exports[`'toggle/styled.scss' > snap 1`] = `
 .toggle:disabled {
   @apply border-base-content cursor-not-allowed bg-transparent opacity-30;
   --ice-togglehandleborder: 0 0 0 3px rgba(var(--ice-base-content)) inset, var(--ice-handleoffsetcalculator) 0 0 3px rgba(var(--ice-base-content)) inset;
-}
-
-.toggle-mark {
-  @apply hidden;
 }"
 `;
 
 exports[`'toggle/utils.scss' > snap 1`] = `
 ".toggle-xs {
-  --ice-handleoffset: 0.5rem;
   @apply h-4 w-6;
+  --ice-handleoffset: 0.5rem;
 }
 .toggle-sm {
-  --ice-handleoffset: 0.75rem;
   @apply h-5 w-8;
+  --ice-handleoffset: 0.75rem;
 }
 .toggle-md {
-  --ice-handleoffset: 1.5rem;
   @apply h-6 w-12;
+  --ice-handleoffset: 1.5rem;
 }
 .toggle-lg {
-  --ice-handleoffset: 2rem;
   @apply h-8 w-16;
+  --ice-handleoffset: 2rem;
 }"
 `;

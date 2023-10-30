@@ -2,8 +2,8 @@
 @use "sass:map";
 $TypeMap: inject("toggle.colors");
 $DefaultMap: inject("toggle.defaults.styled");
-
-.toggle {
+$S: inject("toggle.selector");
+#{$S} {
   @include resolve(map.get($DefaultMap, "default"));
 
   [dir="rtl"] & {
@@ -45,8 +45,4 @@ $DefaultMap: inject("toggle.defaults.styled");
   &:disabled {
     @include resolve(map.get($DefaultMap, "disabled"));
   }
-}
-
-.toggle-mark {
-  @apply hidden;
 }

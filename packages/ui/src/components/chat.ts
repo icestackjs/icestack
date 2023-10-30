@@ -9,6 +9,21 @@ const defaults: IDefaults = {
         'min-width': '2.75rem'
       }
     }
+  },
+  base: {
+    default: {
+      apply: 'grid grid-cols-2 gap-x-3 py-1'
+    },
+    image: {
+      apply: 'row-span-2 self-end'
+    },
+    header: {
+      apply: 'row-start-1 text-sm'
+    },
+    footer: {
+      apply: 'row-start-3 text-sm'
+    },
+    bubble: {}
   }
 }
 export const options: OptionFn = (opts) => {

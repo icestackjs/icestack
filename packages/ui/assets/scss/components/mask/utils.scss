@@ -6,7 +6,7 @@ $DefaultMap: inject("mask.defaults.utils");
 #{$S} {
   @each $s, $v in map.get($DefaultMap, "shapes") {
     &#{getSelector($s)} {
-      @include resolve($v);
+      @include resolve(map.get($v, "default"));
     }
   }
 }

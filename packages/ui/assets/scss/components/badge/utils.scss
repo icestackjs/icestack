@@ -6,7 +6,7 @@ $DefaultMap: inject("badge.defaults.utils");
 #{$S} {
   @each $typeName, $map in map.get($DefaultMap, "sizes") {
     &#{getSelector($typeName)} {
-      @include resolve($map);
+      @include resolve(map.get($map, "default"));
     }
   }
 }

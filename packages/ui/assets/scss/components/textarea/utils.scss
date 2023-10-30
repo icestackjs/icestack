@@ -1,14 +1,13 @@
-.textarea {
-  &-xs {
-    @apply px-2 py-1 text-xs leading-relaxed;
-  }
-  &-sm {
-    @apply px-3 py-1 text-sm leading-8;
-  }
-  &-md {
-    @apply px-4 py-3 text-sm leading-loose;
-  }
-  &-lg {
-    @apply px-6 py-4 text-lg leading-loose;
+@use "../../utils/index.scss" as *;
+@use "sass:map";
+
+$D: inject("textarea.defaults.utils");
+$S: inject("textarea.selector");
+
+#{$S} {
+  @each $s, $v in map.get($D, "sizes") {
+    &#{getSelector($s)} {
+      @include resolve(map.get($v, "default"));
+    }
   }
 }

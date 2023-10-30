@@ -2,7 +2,7 @@
 @use "sass:map";
 
 $DefaultMap: inject("textarea.defaults.base");
-
-.textarea {
+$S: inject("textarea.selector");
+#{$S} {
   @include resolve(map.get($DefaultMap, "default"));
 }

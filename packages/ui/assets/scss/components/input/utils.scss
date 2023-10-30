@@ -6,7 +6,7 @@ $DefaultMap: inject("input.defaults.utils");
 @mixin utils {
   @each $s, $v in map.get($DefaultMap, "sizes") {
     &#{getSelector($s)} {
-      @include resolve($v);
+      @include resolve(map.get($v, "default"));
     }
   }
 }

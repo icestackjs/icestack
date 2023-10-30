@@ -6,7 +6,7 @@ $DefaultMap: inject("button.defaults.utils");
 #{$S} {
   @each $size, $map in map.get($DefaultMap, "sizes") {
     &#{getSelector($size)} {
-      @include resolve($map);
+      @include resolve(map.get($map, "default"));
     }
   }
 
@@ -16,7 +16,7 @@ $DefaultMap: inject("button.defaults.utils");
 
       @each $size, $m in map.get($map, "sizes") {
         &:where(#{getSelector($size,#{$S}-)}) {
-          @include resolve($m);
+          @include resolve(map.get($m, "default"));
         }
       }
     }

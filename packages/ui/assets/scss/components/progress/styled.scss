@@ -6,18 +6,6 @@ $S: inject("progress.selector");
 #{$S} {
   @include resolve(map.get($D, "default"));
 
-  @each $typeName, $map in $TypeMap {
-    &#{getSelector($typeName)}::-moz-progress-bar {
-      @include resolve(map.get($map, "mozProgressBar"));
-    }
-  }
-
-  @each $typeName, $map in $TypeMap {
-    &#{getSelector($typeName)}::-webkit-progress-value {
-      @include resolve(map.get($map, "progressValue"));
-    }
-  }
-
   &::-moz-progress-bar {
     @include resolve(map.get($D, "mozProgressBar"));
   }
@@ -34,6 +22,18 @@ $S: inject("progress.selector");
 
     &::-moz-progress-bar {
       @include resolve(map.get($D, "indeterminateMozProgressBar"));
+    }
+  }
+
+  @each $typeName, $map in $TypeMap {
+    &#{getSelector($typeName)}::-moz-progress-bar {
+      @include resolve(map.get($map, "mozProgressBar"));
+    }
+  }
+
+  @each $typeName, $map in $TypeMap {
+    &#{getSelector($typeName)}::-webkit-progress-value {
+      @include resolve(map.get($map, "progressValue"));
     }
   }
 }

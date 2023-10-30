@@ -16,6 +16,30 @@ const defaults: IDefaults = {
   },
   base: {
     default: 'min-h-12 flex-shrink px-4 py-2 text-sm leading-loose'
+  },
+  utils: {
+    sizes: {
+      xs: {
+        default: {
+          apply: 'px-2 py-1 text-xs leading-relaxed'
+        }
+      },
+      sm: {
+        default: {
+          apply: 'px-3 py-1 text-sm leading-8'
+        }
+      },
+      md: {
+        default: {
+          apply: 'px-4 py-3 text-sm leading-loose'
+        }
+      },
+      lg: {
+        default: {
+          apply: 'px-6 py-4 text-lg leading-loose'
+        }
+      }
+    }
   }
 }
 

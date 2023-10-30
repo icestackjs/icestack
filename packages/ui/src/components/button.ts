@@ -80,34 +80,46 @@ const defaults: IDefaults = {
   utils: {
     sizes: {
       xs: {
-        apply: 'min-h-6 h-6 px-2',
-        css: {
-          'font-size': '0.75rem'
+        default: {
+          apply: 'min-h-6 h-6 px-2',
+          css: {
+            'font-size': '0.75rem'
+          }
         }
       },
       sm: {
-        apply: 'min-h-8 h-8 px-3',
-        css: {
-          'font-size': '0.875rem'
+        default: {
+          apply: 'min-h-8 h-8 px-3',
+          css: {
+            'font-size': '0.875rem'
+          }
         }
       },
       md: {
-        apply: 'min-h-12 h-12 px-4',
-        css: {
-          'font-size': '0.875rem'
+        default: {
+          apply: 'min-h-12 h-12 px-4',
+          css: {
+            'font-size': '0.875rem'
+          }
         }
       },
       lg: {
-        apply: 'min-h-16 h-16 px-6',
-        css: {
-          'font-size': '1.125rem'
+        default: {
+          apply: 'min-h-16 h-16 px-6',
+          css: {
+            'font-size': '1.125rem'
+          }
         }
       },
       wide: {
-        apply: 'w-64'
+        default: {
+          apply: 'w-64'
+        }
       },
       block: {
-        apply: 'w-full'
+        default: {
+          apply: 'w-full'
+        }
       }
     },
     shapes: {
@@ -117,16 +129,24 @@ const defaults: IDefaults = {
         },
         sizes: {
           xs: {
-            apply: 'h-6 w-6 p-0'
+            default: {
+              apply: 'h-6 w-6 p-0'
+            }
           },
           sm: {
-            apply: 'h-8 w-8 p-0'
+            default: {
+              apply: 'h-8 w-8 p-0'
+            }
           },
           md: {
-            apply: 'h-12 w-12 p-0'
+            default: {
+              apply: 'h-12 w-12 p-0'
+            }
           },
           lg: {
-            apply: 'h-16 w-16 p-0'
+            default: {
+              apply: 'h-16 w-16 p-0'
+            }
           }
         }
       },
@@ -136,16 +156,24 @@ const defaults: IDefaults = {
         },
         sizes: {
           xs: {
-            apply: 'h-6 w-6 rounded-full p-0'
+            default: {
+              apply: 'h-6 w-6 rounded-full p-0'
+            }
           },
           sm: {
-            apply: 'h-8 w-8 rounded-full p-0'
+            default: {
+              apply: 'h-8 w-8 rounded-full p-0'
+            }
           },
           md: {
-            apply: 'h-12 w-12 rounded-full p-0'
+            default: {
+              apply: 'h-12 w-12 rounded-full p-0'
+            }
           },
           lg: {
-            apply: 'h-16 w-16 rounded-full p-0'
+            default: {
+              apply: 'h-16 w-16 rounded-full p-0'
+            }
           }
         }
       }

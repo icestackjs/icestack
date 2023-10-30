@@ -902,6 +902,28 @@ exports[`'progress/styled.scss' > snap 1`] = `
 ".progress {
   @apply rounded-box bg-base-content/20 h-2;
 }
+.progress::-moz-progress-bar {
+  @apply bg-base-content rounded-box;
+}
+.progress::-webkit-progress-bar {
+  @apply rounded-box bg-transparent;
+}
+.progress::-webkit-progress-value {
+  @apply bg-base-content rounded-box;
+}
+.progress:indeterminate {
+  background-image: repeating-linear-gradient( 90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90% );
+  background-size: 200%;
+  background-position-x: 15%;
+  animation: progress-loading 5s ease-in-out infinite;
+}
+.progress:indeterminate::-moz-progress-bar {
+  @apply bg-transparent;
+  background-image: repeating-linear-gradient( 90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90% );
+  background-size: 200%;
+  background-position-x: 15%;
+  animation: progress-loading 5s ease-in-out infinite;
+}
 .progress-primary::-moz-progress-bar {
   @apply bg-primary rounded-box;
 }
@@ -937,28 +959,6 @@ exports[`'progress/styled.scss' > snap 1`] = `
 }
 .progress-neutral::-webkit-progress-value {
   @apply bg-neutral;
-}
-.progress::-moz-progress-bar {
-  @apply bg-base-content rounded-box;
-}
-.progress::-webkit-progress-bar {
-  @apply rounded-box bg-transparent;
-}
-.progress::-webkit-progress-value {
-  @apply bg-base-content rounded-box;
-}
-.progress:indeterminate {
-  background-image: repeating-linear-gradient( 90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90% );
-  background-size: 200%;
-  background-position-x: 15%;
-  animation: progress-loading 5s ease-in-out infinite;
-}
-.progress:indeterminate::-moz-progress-bar {
-  @apply bg-transparent;
-  background-image: repeating-linear-gradient( 90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90% );
-  background-size: 200%;
-  background-position-x: 15%;
-  animation: progress-loading 5s ease-in-out infinite;
 }
 
 @keyframes progress-loading {
@@ -1288,17 +1288,17 @@ exports[`'select/styled.scss' > snap 1`] = `
 `;
 
 exports[`'select/utils.scss' > snap 1`] = `
-".select-sm {
-  @apply min-h-8 h-8 pl-3 pr-8 text-sm leading-8;
-}
-[dir=rtl] .select-sm {
-  @apply pl-8 pr-3;
-}
-.select-xs {
+".select-xs {
   @apply min-h-6 h-6 pl-2 pr-8 text-xs leading-relaxed;
 }
 [dir=rtl] .select-xs {
   @apply pl-8 pr-2;
+}
+.select-sm {
+  @apply min-h-8 h-8 pl-3 pr-8 text-sm leading-8;
+}
+[dir=rtl] .select-sm {
+  @apply pl-8 pr-3;
 }
 .select-md {
   @apply min-h-12 h-12 pl-4 pr-10 text-sm leading-loose;

@@ -75,16 +75,24 @@ const defaults: IDefaults = {
   utils: {
     sizes: {
       xs: {
-        apply: 'h-4 w-4'
+        default: {
+          apply: 'h-4 w-4'
+        }
       },
       sm: {
-        apply: 'h-5 w-5'
+        default: {
+          apply: 'h-5 w-5'
+        }
       },
       md: {
-        apply: 'h-6 w-6'
+        default: {
+          apply: 'h-6 w-6'
+        }
       },
       lg: {
-        apply: 'h-8 w-8'
+        default: {
+          apply: 'h-8 w-8'
+        }
       }
     }
   }

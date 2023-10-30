@@ -7,7 +7,7 @@ $S: inject("radio.selector");
 #{$S} {
   @each $s, $v in map.get($D, "sizes") {
     &#{getSelector($s)} {
-      @include resolve($v);
+      @include resolve(map.get($v, "default"));
     }
   }
 }

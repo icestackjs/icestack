@@ -44,16 +44,24 @@ const defaults: IDefaults = {
   utils: {
     sizes: {
       xs: {
-        apply: 'h-6 px-2 text-xs leading-relaxed'
+        default: {
+          apply: 'h-6 px-2 text-xs leading-relaxed'
+        }
       },
       sm: {
-        apply: 'h-8 px-3 text-sm leading-8'
+        default: {
+          apply: 'h-8 px-3 text-sm leading-8'
+        }
       },
       md: {
-        apply: 'h-12 px-4 text-sm leading-loose'
+        default: {
+          apply: 'h-12 px-4 text-sm leading-loose'
+        }
       },
       lg: {
-        apply: 'h-16 px-6 text-lg leading-loose'
+        default: {
+          apply: 'h-16 px-6 text-lg leading-loose'
+        }
       }
     }
   }

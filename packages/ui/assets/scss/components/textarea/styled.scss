@@ -3,8 +3,9 @@
 
 $TypeMap: inject("textarea.colors");
 $DefaultMap: inject("textarea.defaults.styled");
+$S: inject("textarea.selector");
 
-.textarea {
+#{$S} {
   @include resolve(map.get($DefaultMap, "default"));
 
   &-bordered {

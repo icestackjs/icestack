@@ -30,7 +30,40 @@ const defaults: IDefaults = {
     }
   },
   utils: {
-    sizes: {}
+    sizes: {
+      xs: {
+        default: {
+          apply: 'min-h-6 h-6 pl-2 pr-8 text-xs leading-relaxed'
+        },
+        rtl: {
+          apply: 'pl-8 pr-2'
+        }
+      },
+      sm: {
+        default: {
+          apply: 'min-h-8 h-8 pl-3 pr-8 text-sm leading-8'
+        },
+        rtl: {
+          apply: 'pl-8 pr-3'
+        }
+      },
+      md: {
+        default: {
+          apply: 'min-h-12 h-12 pl-4 pr-10 text-sm leading-loose'
+        },
+        rtl: {
+          apply: 'pl-10 pr-4'
+        }
+      },
+      lg: {
+        default: {
+          apply: 'min-h-16 h-16 pl-6 pr-8 text-lg leading-loose'
+        },
+        rtl: {
+          apply: 'pl-8 pr-6'
+        }
+      }
+    }
   }
 }
 

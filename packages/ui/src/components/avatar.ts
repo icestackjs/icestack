@@ -1,7 +1,5 @@
 import { OptionFn, DefaultsFn } from './shared'
 
-export const defaultSelector = '.avatar'
-
 const getDefaults: DefaultsFn = (opts) => {
   const { selector } = opts
   return {
@@ -33,13 +31,10 @@ const getDefaults: DefaultsFn = (opts) => {
 }
 
 export const options: OptionFn = (opts) => {
-  const selector = opts.selector ?? defaultSelector
+  const selector = opts.selector
 
   return {
     selector,
-    defaults: getDefaults({
-      ...opts,
-      selector
-    })
+    defaults: getDefaults(opts)
   }
 }

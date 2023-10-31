@@ -1,7 +1,6 @@
 // import defu from 'defu'
 import { DefaultsFn, OptionFn, getSelector, expandTypes } from './shared'
 
-export const defaultSelector = '.alert'
 const getDefaults: DefaultsFn = (opts) => {
   const { selector, types } = opts
   return {
@@ -28,13 +27,10 @@ const getDefaults: DefaultsFn = (opts) => {
 }
 
 export const options: OptionFn = (opts) => {
-  const selector = opts.selector ?? defaultSelector
+  const selector = opts.selector
 
   return {
     selector,
-    defaults: getDefaults({
-      ...opts,
-      selector
-    })
+    defaults: getDefaults(opts)
   }
 }

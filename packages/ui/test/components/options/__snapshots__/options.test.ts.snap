@@ -108,166 +108,151 @@ exports[`'badge' options > snap 1`] = `
 
 exports[`'button' options > snap 1`] = `
 {
-  "colors": {},
   "defaults": {
     "base": {
-      "default": {
+      ".btn": {
+        "&-disabled,
+        &[disabled],
+        &:disabled": {
+          "apply": "pointer-events-none cursor-not-allowed",
+        },
         "apply": "rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4",
         "css": {
           "font-size": "0.875rem",
           "line-height": "1em",
         },
       },
-      "disabled": {
-        "apply": "pointer-events-none cursor-not-allowed",
-      },
     },
     "styled": {
-      "active": {
-        "apply": "border-base-500 bg-base-500",
-      },
-      "default": {
+      ".btn": {
+        "&-ghost": {
+          "&.btn-active": {
+            "apply": "border-opacity-0 bg-base-content bg-opacity-20",
+          },
+          "&:active": {
+            "apply": "border-opacity-0 bg-base-content bg-opacity-20",
+          },
+          "apply": "border border-transparent bg-transparent text-current shadow-none outline-current",
+        },
+        "&-link": {
+          "&.btn-active": {
+            "apply": "border-transparent bg-transparent underline",
+          },
+          "&:active": {
+            "apply": "border-transparent bg-transparent underline",
+          },
+          "apply": "text-primary border-transparent bg-transparent underline shadow-none outline-current",
+        },
+        "&-outline": {
+          "&.btn-active": {
+            "apply": "border-base-1100 bg-base-1100 text-base-100",
+          },
+          "&:active": {
+            "apply": "border-base-1100 bg-base-1100 text-base-100",
+          },
+          "&:hover": {
+            "apply": "border-base-900 bg-base-900 text-base-100",
+          },
+          "apply": "border-current bg-transparent shadow-none text-base-content",
+        },
+        "&.btn-active": {
+          "apply": "border-base-500 bg-base-500",
+        },
+        "&.btn-disabled,
+          &[disabled],
+          &:disabled": {
+          "apply": "bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20",
+        },
+        "&.glass": {
+          "&.btn-active": {
+            "css": {
+              "--glass-border-opacity": "15%",
+              "--glass-opacity": "25%",
+            },
+          },
+          "&:active": {
+            "css": {
+              "--glass-border-opacity": "15%",
+              "--glass-opacity": "25%",
+            },
+          },
+          "apply": "shadow-none outline-current",
+        },
+        "&:active": {
+          "apply": "border-base-500 bg-base-500",
+        },
+        "&:focus-visible": {
+          "apply": "outline outline-2 outline-offset-2",
+        },
+        "&:hover": {
+          "apply": "border-base-300 bg-base-300",
+        },
         "apply": "border-base-400 bg-base-400 text-base-content outline-base-400 no-underline",
         "css": {
           "border-width": "var(--border-btn, 1px)",
         },
       },
-      "disabled": {
-        "apply": "bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20",
-      },
-      "focusVisible": {
-        "apply": "outline outline-2 outline-offset-2",
-      },
-      "ghost": {
-        "apply": "border border-transparent bg-transparent text-current shadow-none outline-current",
-      },
-      "ghostActive": {
-        "apply": "border-opacity-0 bg-base-content bg-opacity-20",
-      },
-      "glass": {
-        "apply": "shadow-none outline-current",
-      },
-      "glassActive": {
-        "css": {
-          "--glass-border-opacity": "15%",
-          "--glass-opacity": "25%",
-        },
-      },
-      "hover": "border-base-300 bg-base-300",
-      "link": {
-        "apply": "text-primary border-transparent bg-transparent underline shadow-none outline-current",
-      },
-      "linkActive": {
-        "apply": "border-transparent bg-transparent underline",
-      },
-      "outline": {
-        "apply": "border-current bg-transparent shadow-none text-base-content",
-      },
-      "outlineActive": {
-        "apply": "border-base-1100 bg-base-1100 text-base-100",
-      },
-      "outlineHover": {
-        "apply": "border-base-900 bg-base-900 text-base-100",
-      },
     },
     "utils": {
-      "shapes": {
-        "circle": {
-          "default": {
+      ".btn": {
+        "&-block": {
+          "apply": "w-full",
+        },
+        "&-circle": {
+          "&:where(.btn-lg)": {
+            "apply": "h-16 w-16 rounded-full p-0",
+          },
+          "&:where(.btn-md)": {
             "apply": "h-12 w-12 rounded-full p-0",
           },
-          "sizes": {
-            "lg": {
-              "default": {
-                "apply": "h-16 w-16 rounded-full p-0",
-              },
-            },
-            "md": {
-              "default": {
-                "apply": "h-12 w-12 rounded-full p-0",
-              },
-            },
-            "sm": {
-              "default": {
-                "apply": "h-8 w-8 rounded-full p-0",
-              },
-            },
-            "xs": {
-              "default": {
-                "apply": "h-6 w-6 rounded-full p-0",
-              },
-            },
+          "&:where(.btn-sm)": {
+            "apply": "h-8 w-8 rounded-full p-0",
+          },
+          "&:where(.btn-xs)": {
+            "apply": "h-6 w-6 rounded-full p-0",
+          },
+          "apply": "h-12 w-12 rounded-full p-0",
+        },
+        "&-lg": {
+          "apply": "min-h-16 h-16 px-6",
+          "css": {
+            "font-size": "1.125rem",
           },
         },
-        "square": {
-          "default": {
+        "&-md": {
+          "apply": "min-h-12 h-12 px-4",
+          "css": {
+            "font-size": "0.875rem",
+          },
+        },
+        "&-sm": {
+          "apply": "min-h-8 h-8 px-3",
+          "css": {
+            "font-size": "0.875rem",
+          },
+        },
+        "&-square": {
+          "&:where(.btn-lg)": {
+            "apply": "h-16 w-16 p-0",
+          },
+          "&:where(.btn-md)": {
             "apply": "h-12 w-12 p-0",
           },
-          "sizes": {
-            "lg": {
-              "default": {
-                "apply": "h-16 w-16 p-0",
-              },
-            },
-            "md": {
-              "default": {
-                "apply": "h-12 w-12 p-0",
-              },
-            },
-            "sm": {
-              "default": {
-                "apply": "h-8 w-8 p-0",
-              },
-            },
-            "xs": {
-              "default": {
-                "apply": "h-6 w-6 p-0",
-              },
-            },
+          "&:where(.btn-sm)": {
+            "apply": "h-8 w-8 p-0",
           },
-        },
-      },
-      "sizes": {
-        "block": {
-          "default": {
-            "apply": "w-full",
+          "&:where(.btn-xs)": {
+            "apply": "h-6 w-6 p-0",
           },
+          "apply": "h-12 w-12 p-0",
         },
-        "lg": {
-          "default": {
-            "apply": "min-h-16 h-16 px-6",
-            "css": {
-              "font-size": "1.125rem",
-            },
-          },
+        "&-wide": {
+          "apply": "w-64",
         },
-        "md": {
-          "default": {
-            "apply": "min-h-12 h-12 px-4",
-            "css": {
-              "font-size": "0.875rem",
-            },
-          },
-        },
-        "sm": {
-          "default": {
-            "apply": "min-h-8 h-8 px-3",
-            "css": {
-              "font-size": "0.875rem",
-            },
-          },
-        },
-        "wide": {
-          "default": {
-            "apply": "w-64",
-          },
-        },
-        "xs": {
-          "default": {
-            "apply": "min-h-6 h-6 px-2",
-            "css": {
-              "font-size": "0.75rem",
-            },
+        "&-xs": {
+          "apply": "min-h-6 h-6 px-2",
+          "css": {
+            "font-size": "0.75rem",
           },
         },
       },
@@ -279,29 +264,118 @@ exports[`'button' options > snap 1`] = `
 
 exports[`'chat' options > snap 1`] = `
 {
-  "colors": {},
   "defaults": {
     "base": {
-      "bubble": {},
-      "default": {
+      ".chat": {
+        "&-bubble": {
+          "&:before": {
+            "apply": "absolute bottom-0 h-3 w-3",
+            "css": {
+              "background-color": "inherit",
+              "content": "\\"\\"",
+              "mask-position": "center",
+              "mask-repeat": "no-repeat",
+              "mask-size": "contain",
+            },
+          },
+          "apply": "relative block w-fit px-4 py-2",
+          "css": {
+            "max-width": "90%",
+          },
+        },
+        "&-end": {
+          ".chat-bubble": {
+            "&:before": {
+              "[dir=\\"rtl\\"] &": {
+                "css": {
+                  "mask-image": "url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 3 3 L 3 0 C 3 1 1 3 0 3'/%3e%3c/svg%3e\\")",
+                },
+              },
+              "css": {
+                "mask-image": "url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 1 3 L 3 3 C 2 3 0 1 0 0'/%3e%3c/svg%3e\\")",
+              },
+            },
+            "apply": "col-start-1",
+          },
+          ".chat-footer": {
+            "apply": "col-start-1",
+          },
+          ".chat-header": {
+            "apply": "col-start-1",
+          },
+          ".chat-image": {
+            "apply": "col-start-2",
+          },
+          "apply": "place-items-end",
+          "css": {
+            "grid-template-columns": "1fr auto",
+          },
+        },
+        "&-footer": {
+          "apply": "row-start-3 text-sm",
+        },
+        "&-header": {
+          "apply": "row-start-1 text-sm",
+        },
+        "&-image": {
+          "apply": "row-span-2 self-end",
+        },
+        "&-start": {
+          ".chat-bubble": {
+            "&:before": {
+              "[dir=\\"rtl\\"] &": {
+                "css": {
+                  "mask-image": "url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 1 3 L 3 3 C 2 3 0 1 0 0'/%3e%3c/svg%3e\\")",
+                },
+              },
+              "css": {
+                "mask-image": "url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 3 3 L 3 0 C 3 1 1 3 0 3'/%3e%3c/svg%3e\\")",
+              },
+            },
+            "apply": "col-start-2",
+          },
+          ".chat-footer": {
+            "apply": "col-start-2",
+          },
+          ".chat-header": {
+            "apply": "col-start-2",
+          },
+          ".chat-image": {
+            "apply": "col-start-1",
+          },
+          "apply": "place-items-start",
+          "css": {
+            "grid-template-columns": "auto 1fr",
+          },
+        },
         "apply": "grid grid-cols-2 gap-x-3 py-1",
       },
-      "footer": {
-        "apply": "row-start-3 text-sm",
-      },
-      "header": {
-        "apply": "row-start-1 text-sm",
-      },
-      "image": {
-        "apply": "row-span-2 self-end",
-      },
+      "bubble": {},
     },
     "styled": {
-      "default": {
-        "apply": "bg-neutral text-neutral-content rounded-box",
-        "css": {
-          "min-height": "2.75rem",
-          "min-width": "2.75rem",
+      ".chat": {
+        "&-bubble": {
+          "apply": "bg-neutral text-neutral-content rounded-box",
+          "css": {
+            "min-height": "2.75rem",
+            "min-width": "2.75rem",
+          },
+        },
+        "&-end .chat-bubble": {
+          "&:before": {
+            "css": {
+              "left": "99.9%",
+            },
+          },
+          "apply": "rounded-br-none",
+        },
+        "&-start .chat-bubble": {
+          "&:before": {
+            "css": {
+              "left": "-0.749rem",
+            },
+          },
+          "apply": "rounded-bl-none",
         },
       },
     },

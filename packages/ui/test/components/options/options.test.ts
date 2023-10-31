@@ -8,12 +8,15 @@ describe.each(
       value: x[1]
     }
   })
-)('$name options', ({ value }) => {
+)('$name options', ({ name, value }) => {
   it('snap', () => {
+    const opts = getCodegenOptions()
     expect(
       value.options({
-        options: getCodegenOptions(),
-        types: []
+        options: opts,
+        types: [],
+        // @ts-ignore
+        selector: opts.components[name]?.selector
       })
     ).toMatchSnapshot()
   })

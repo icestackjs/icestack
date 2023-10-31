@@ -143,9 +143,7 @@ exports[`'button/base.scss' > snap 1`] = `
 }
 .btn-disabled, .btn[disabled], .btn:disabled {
   @apply pointer-events-none cursor-not-allowed;
-}
-
-/* radio input and checkbox as button */"
+}"
 `;
 
 exports[`'button/styled.scss' > snap 1`] = `

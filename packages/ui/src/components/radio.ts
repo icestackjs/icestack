@@ -39,6 +39,26 @@ export const options: OptionFn = (opts) => {
           '&:disabled': {
             apply: 'cursor-not-allowed opacity-20'
           }
+        },
+        '@keyframes radiomark': {
+          '0%': {
+            css: {
+              'box-shadow': `0 0 0 12px rgba(var(--base-400)) inset,
+              0 0 0 12px rgba(var(--base-400)) inset`
+            }
+          },
+          '50%': {
+            css: {
+              'box-shadow': `0 0 0 3px rgba(var(--base-400)) inset,
+              0 0 0 3px rgba(var(--base-400)) inset`
+            }
+          },
+          '100%': {
+            css: {
+              'box-shadow': `0 0 0 4px rgba(var(--base-400)) inset,
+              0 0 0 4px rgba(var(--base-400)) inset`
+            }
+          }
         }
       },
       base: {

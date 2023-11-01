@@ -62,6 +62,13 @@ export const options: OptionFn = (opts) => {
               }
             }
           })
+        },
+        '@keyframes progress-loading': {
+          '50%': {
+            css: {
+              'background-position-x': '-115%'
+            }
+          }
         }
       },
       base: {

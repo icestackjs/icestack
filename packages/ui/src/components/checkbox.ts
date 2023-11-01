@@ -73,24 +73,24 @@ export const options: OptionFn = (opts) => {
           '&:disabled': {
             apply: 'bg-base-content cursor-not-allowed border-transparent opacity-20'
           }
+        },
+        '@keyframes checkmark': {
+          '0%': {
+            css: {
+              'background-position-y': '5px'
+            }
+          },
+          '50%': {
+            css: {
+              'background-position-y': '-2px'
+            }
+          },
+          '100%': {
+            css: {
+              'background-position-y': '0'
+            }
+          }
         }
-        // '@keyframes checkmark': {
-        //   '0%': {
-        //     css: {
-        //       'background-position-y': '5px'
-        //     }
-        //   },
-        //   '50%': {
-        //     css: {
-        //       'background-position-y': '-2px'
-        //     }
-        //   },
-        //   '100%': {
-        //     css: {
-        //       'background-position-y': '0'
-        //     }
-        //   }
-        // }
       },
       base: {
         [selector]: {

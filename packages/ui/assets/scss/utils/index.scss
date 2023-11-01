@@ -146,8 +146,16 @@ $globalAtMediaHover: globalAtMediaHover();
           }
         }
       } @else {
-        #{$s} {
-          @include spread($m, $depth + 1);
+        $keyword: "@keyframes";
+        $l: string.length($keyword) + 2;
+        @if (string.index($s, $keyword) == 1) {
+          @keyframes #{string.slice($s, $l)} {
+            @include spread($m, $depth + 1);
+          }
+        } @else {
+          #{$s} {
+            @include spread($m, $depth + 1);
+          }
         }
       }
     }

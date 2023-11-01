@@ -440,6 +440,23 @@ exports[`'checkbox' options > snap 1`] = `
           "--chkfg": "var(--base-400)",
         },
       },
+      "@keyframes checkmark": {
+        "0%": {
+          "css": {
+            "background-position-y": "5px",
+          },
+        },
+        "100%": {
+          "css": {
+            "background-position-y": "0",
+          },
+        },
+        "50%": {
+          "css": {
+            "background-position-y": "-2px",
+          },
+        },
+      },
     },
     "utils": {
       ".checkbox": {
@@ -800,6 +817,13 @@ exports[`'progress' options > snap 1`] = `
         },
         "apply": "rounded-box bg-base-content/20 h-2",
       },
+      "@keyframes progress-loading": {
+        "50%": {
+          "css": {
+            "background-position-x": "-115%",
+          },
+        },
+      },
     },
   },
   "selector": ".progress",
@@ -832,6 +856,26 @@ exports[`'radio' options > snap 1`] = `
           "apply": "outline-base-content outline outline-2 outline-offset-2",
         },
         "apply": "border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20",
+      },
+      "@keyframes radiomark": {
+        "0%": {
+          "css": {
+            "box-shadow": "0 0 0 12px rgba(var(--base-400)) inset,
+              0 0 0 12px rgba(var(--base-400)) inset",
+          },
+        },
+        "100%": {
+          "css": {
+            "box-shadow": "0 0 0 4px rgba(var(--base-400)) inset,
+              0 0 0 4px rgba(var(--base-400)) inset",
+          },
+        },
+        "50%": {
+          "css": {
+            "box-shadow": "0 0 0 3px rgba(var(--base-400)) inset,
+              0 0 0 3px rgba(var(--base-400)) inset",
+          },
+        },
       },
     },
     "utils": {

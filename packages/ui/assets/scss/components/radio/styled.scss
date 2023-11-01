@@ -1,35 +1,6 @@
 @use "../../utils/index.scss" as *;
-@use "sass:map";
-$TypeMap: inject("radio.colors");
-$DefaultMap: inject("radio.defaults.styled");
-$S: inject("radio.selector");
-#{$S} {
-  @include resolve(map.get($DefaultMap, "default"));
-  &:focus-visible {
-    @include resolve(map.get($DefaultMap, "focusVisible"));
-  }
-  &:checked,
-  &[aria-checked="true"] {
-    @include resolve(map.get($DefaultMap, "checked"));
-  }
 
-  @each $typeName, $map in $TypeMap {
-    &#{getSelector($typeName)} {
-      @include resolve(map.get($map, "default"));
-      &:focus-visible {
-        @include resolve(map.get($map, "focusVisible"));
-      }
-      &:checked,
-      &[aria-checked="true"] {
-        @include resolve(map.get($map, "checked"));
-      }
-    }
-  }
-
-  &:disabled {
-    @include resolve(map.get($DefaultMap, "disabled"));
-  }
-}
+@include spread(inject("radio.defaults.styled"));
 
 @keyframes radiomark {
   0% {

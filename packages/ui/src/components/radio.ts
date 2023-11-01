@@ -1,73 +1,67 @@
-import { IDefaults, OptionFn, expandColorsMap } from './shared'
-
-const defaults: IDefaults = {
-  styled: {
-    default: {
-      apply: 'border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20'
-    },
-    focusVisible: {
-      apply: 'outline-base-content outline outline-2 outline-offset-2'
-    },
-    checked: {
-      apply: 'bg-base-content',
-      css: {
-        animation: 'radiomark var(--animation-input, 0.2s) ease-out',
-        'box-shadow': `0 0 0 4px rgba(var(--base-400)) inset,
-        0 0 0 4px rgba(var(--base-400)) inset`
-      }
-    },
-    disabled: {
-      apply: 'cursor-not-allowed opacity-20'
-    }
-  },
-  base: {
-    default: {
-      apply: 'shrink-0'
-    }
-  },
-  utils: {
-    sizes: {
-      xs: {
-        default: {
-          apply: 'h-4 w-4'
-        }
-      },
-      sm: {
-        default: {
-          apply: 'h-5 w-5'
-        }
-      },
-      md: {
-        default: {
-          apply: 'h-6 w-6'
-        }
-      },
-      lg: {
-        default: {
-          apply: 'h-8 w-8'
-        }
-      }
-    }
-  }
-}
+import { OptionFn, getSelector, expandTypes } from './shared'
 
 export const options: OptionFn = (opts) => {
+  const { selector, types } = opts
   return {
-    selector: '.radio',
-    colors: expandColorsMap(opts.types, (cur) => {
-      // global hover
-      return {
-        default: {
-          apply: `border-${cur} hover:border-${cur}`
-        },
-        checked: {
-          apply: `border-${cur} bg-${cur} text-${cur}-content`
-        },
-        focusVisible: {
-          apply: `outline-${cur}`
+    selector,
+
+    defaults: {
+      styled: {
+        [selector]: {
+          apply: 'border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20',
+          '&:focus-visible': {
+            apply: 'outline-base-content outline outline-2 outline-offset-2'
+          },
+          [`&:checked,
+          &[aria-checked="true"]`]: {
+            apply: 'bg-base-content',
+            css: {
+              animation: 'radiomark var(--animation-input, 0.2s) ease-out',
+              'box-shadow': `0 0 0 4px rgba(var(--base-400)) inset,
+            0 0 0 4px rgba(var(--base-400)) inset`
+            }
+          },
+          ...expandTypes(types, (type) => {
+            return {
+              key: `&${getSelector(type)}`,
+              value: {
+                apply: `border-${type} hover:border-${type}`,
+                '&:focus-visible': {
+                  apply: `outline-${type}`
+                },
+                [`&:checked,
+                &[aria-checked="true"]`]: {
+                  apply: `border-${type} bg-${type} text-${type}-content`
+                }
+              }
+            }
+          }),
+          '&:disabled': {
+            apply: 'cursor-not-allowed opacity-20'
+          }
+        }
+      },
+      base: {
+        [selector]: {
+          apply: 'shrink-0'
+        }
+      },
+      utils: {
+        [selector]: {
+          [`&${getSelector('xs')}`]: {
+            apply: 'h-4 w-4'
+          },
+          [`&${getSelector('sm')}`]: {
+            apply: 'h-5 w-5'
+          },
+          [`&${getSelector('md')}`]: {
+            apply: 'h-6 w-6'
+          },
+          [`&${getSelector('lg')}`]: {
+            apply: 'h-8 w-8'
+          }
         }
       }
-    }),
-    defaults
+    }
   }
 }

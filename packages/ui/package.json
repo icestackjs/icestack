@@ -21,7 +21,6 @@
       "import": "./dist/defaults.mjs",
       "require": "./dist/defaults.cjs"
     },
-    "./scss/*": "./assets/scss/*",
     "./css/*": "./assets/css/*",
     "./css-resolved/*": "./assets/css-resolved/*",
     "./js/*": "./assets/js/*",

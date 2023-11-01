@@ -752,54 +752,53 @@ exports[`'mask' options > snap 1`] = `
 
 exports[`'progress' options > snap 1`] = `
 {
-  "colors": {},
   "defaults": {
     "base": {
-      "default": {
+      ".progress": {
         "apply": "relative w-full appearance-none overflow-hidden",
       },
     },
     "styled": {
-      "default": {
+      ".progress": {
+        "&::-moz-progress-bar": {
+          "apply": "bg-base-content rounded-box",
+        },
+        "&::-webkit-progress-bar": {
+          "apply": "rounded-box bg-transparent",
+        },
+        "&::-webkit-progress-value": {
+          "apply": "bg-base-content rounded-box",
+        },
+        "&:indeterminate": {
+          "&::-moz-progress-bar": {
+            "apply": "bg-transparent",
+            "css": {
+              "animation": "progress-loading 5s ease-in-out infinite",
+              "background-image": "repeating-linear-gradient(
+                  90deg,
+                  var(--progress-color) -1%,
+                  var(--progress-color) 10%,
+                  transparent 10%,
+                  transparent 90%
+                )",
+              "background-position-x": "15%",
+              "background-size": "200%",
+            },
+          },
+          "css": {
+            "animation": "progress-loading 5s ease-in-out infinite",
+            "background-image": "repeating-linear-gradient(
+                90deg,
+                var(--progress-color) -1%,
+                var(--progress-color) 10%,
+                transparent 10%,
+                transparent 90%
+              )",
+            "background-position-x": "15%",
+            "background-size": "200%",
+          },
+        },
         "apply": "rounded-box bg-base-content/20 h-2",
-      },
-      "indeterminate": {
-        "css": {
-          "animation": "progress-loading 5s ease-in-out infinite",
-          "background-image": "repeating-linear-gradient(
-              90deg,
-              var(--progress-color) -1%,
-              var(--progress-color) 10%,
-              transparent 10%,
-              transparent 90%
-            )",
-          "background-position-x": "15%",
-          "background-size": "200%",
-        },
-      },
-      "indeterminateMozProgressBar": {
-        "apply": "bg-transparent",
-        "css": {
-          "animation": "progress-loading 5s ease-in-out infinite",
-          "background-image": "repeating-linear-gradient(
-              90deg,
-              var(--progress-color) -1%,
-              var(--progress-color) 10%,
-              transparent 10%,
-              transparent 90%
-            )",
-          "background-position-x": "15%",
-          "background-size": "200%",
-        },
-      },
-      "mozProgressBar": {
-        "apply": "bg-base-content rounded-box",
-      },
-      "progressBar": {
-        "apply": "rounded-box bg-transparent",
-      },
-      "progressValue": {
-        "apply": "bg-base-content rounded-box",
       },
     },
   },
@@ -809,53 +808,45 @@ exports[`'progress' options > snap 1`] = `
 
 exports[`'radio' options > snap 1`] = `
 {
-  "colors": {},
   "defaults": {
     "base": {
-      "default": {
+      ".radio": {
         "apply": "shrink-0",
       },
     },
     "styled": {
-      "checked": {
-        "apply": "bg-base-content",
-        "css": {
-          "animation": "radiomark var(--animation-input, 0.2s) ease-out",
-          "box-shadow": "0 0 0 4px rgba(var(--base-400)) inset,
-        0 0 0 4px rgba(var(--base-400)) inset",
+      ".radio": {
+        "&:checked,
+          &[aria-checked=\\"true\\"]": {
+          "apply": "bg-base-content",
+          "css": {
+            "animation": "radiomark var(--animation-input, 0.2s) ease-out",
+            "box-shadow": "0 0 0 4px rgba(var(--base-400)) inset,
+            0 0 0 4px rgba(var(--base-400)) inset",
+          },
         },
-      },
-      "default": {
+        "&:disabled": {
+          "apply": "cursor-not-allowed opacity-20",
+        },
+        "&:focus-visible": {
+          "apply": "outline-base-content outline outline-2 outline-offset-2",
+        },
         "apply": "border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20",
-      },
-      "disabled": {
-        "apply": "cursor-not-allowed opacity-20",
-      },
-      "focusVisible": {
-        "apply": "outline-base-content outline outline-2 outline-offset-2",
       },
     },
     "utils": {
-      "sizes": {
-        "lg": {
-          "default": {
-            "apply": "h-8 w-8",
-          },
+      ".radio": {
+        "&-lg": {
+          "apply": "h-8 w-8",
         },
-        "md": {
-          "default": {
-            "apply": "h-6 w-6",
-          },
+        "&-md": {
+          "apply": "h-6 w-6",
         },
-        "sm": {
-          "default": {
-            "apply": "h-5 w-5",
-          },
+        "&-sm": {
+          "apply": "h-5 w-5",
         },
-        "xs": {
-          "default": {
-            "apply": "h-4 w-4",
-          },
+        "&-xs": {
+          "apply": "h-4 w-4",
         },
       },
     },
@@ -866,162 +857,153 @@ exports[`'radio' options > snap 1`] = `
 
 exports[`'range' options > snap 1`] = `
 {
-  "colors": {},
   "defaults": {
     "base": {
-      "default": {
-        "apply": "h-6 w-full cursor-pointer",
-      },
-      "focus": {
-        "css": {
-          "outline": "none",
+      ".range": {
+        "&:focus": {
+          "css": {
+            "outline": "none",
+          },
         },
+        "apply": "h-6 w-full cursor-pointer",
       },
     },
     "styled": {
-      "default": {
+      ".range": {
+        "&::-moz-range-thumb": {
+          "apply": "rounded-box bg-base-400 relative h-6 w-6 border-none",
+          "css": {
+            "--filler-offset": "0.5rem",
+            "--filler-size": "100rem",
+            "box-shadow": "0 0 0 3px rgba(var(--range-shdw)) inset,
+          var(--focus-shadow, 0 0),
+          calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size)",
+            "color": "rgba(var(--range-shdw))",
+            "top": "50%",
+          },
+        },
+        "&::-moz-range-track": {
+          "apply": "rounded-box bg-base-content/10 h-2 w-full",
+        },
+        "&::-webkit-slider-runnable-track": {
+          "apply": "rounded-box bg-base-content/10 h-2 w-full",
+        },
+        "&::-webkit-slider-thumb": {
+          "apply": "rounded-box bg-base-400 relative h-6 w-6 border-none",
+          "css": {
+            "--filler-offset": "0.6rem",
+            "--filler-size": "100rem",
+            "appearance": "none",
+            "box-shadow": "0 0 0 3px rgba(var(--range-shdw)) inset,
+          var(--focus-shadow, 0 0),
+          calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size)",
+            "color": "rgba(var(--range-shdw))",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+          },
+        },
+        "&:focus-visible::-moz-range-thumb": {
+          "css": {
+            "--focus-shadow": "0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset",
+          },
+        },
+        "&:focus-visible::-webkit-slider-thumb": {
+          "css": {
+            "--focus-shadow": "0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset",
+          },
+        },
         "apply": "rounded-box overflow-hidden bg-transparent",
         "css": {
           "--range-shdw": "var(--base-content)",
           "appearance": "none",
         },
       },
-      "focusVisibleMozRangeThumb": {
-        "css": {
-          "--focus-shadow": "0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset",
-        },
-      },
-      "focusVisibleSliderThumb": {
-        "css": {
-          "--focus-shadow": "0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset",
-        },
-      },
-      "mozRangeThumb": {
-        "apply": "rounded-box bg-base-400 relative h-6 w-6 border-none",
-        "css": {
-          "--filler-offset": "0.5rem",
-          "--filler-size": "100rem",
-          "box-shadow": "0 0 0 3px rgba(var(--range-shdw)) inset,
-      var(--focus-shadow, 0 0),
-      calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size)",
-          "color": "rgba(var(--range-shdw))",
-          "top": "50%",
-        },
-      },
-      "mozRangeTrack": {
-        "apply": "rounded-box bg-base-content/10 h-2 w-full",
-      },
-      "sliderRunnableTrack": {
-        "apply": "rounded-box bg-base-content/10 h-2 w-full",
-      },
-      "sliderThumb": {
-        "apply": "rounded-box bg-base-400 relative h-6 w-6 border-none",
-        "css": {
-          "--filler-offset": "0.6rem",
-          "--filler-size": "100rem",
-          "appearance": "none",
-          "box-shadow": "0 0 0 3px rgba(var(--range-shdw)) inset,
-      var(--focus-shadow, 0 0),
-      calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size)",
-          "color": "rgba(var(--range-shdw))",
-          "top": "50%",
-          "transform": "translateY(-50%)",
-        },
-      },
     },
     "utils": {
-      "sizes": {
-        "lg": {
-          "default": {
-            "apply": "h-8",
-          },
-          "mozRangeThumb": {
+      ".range": {
+        "&-lg": {
+          "&::-moz-range-thumb": {
             "apply": "h-8 w-8",
             "css": {
               "--filler-offset": "1rem",
             },
           },
-          "mozRangeTrack": {
+          "&::-moz-range-track": {
             "apply": "h-4",
           },
-          "sliderRunnableTrack": {
+          "&::-webkit-slider-runnable-track": {
             "apply": "h-4",
           },
-          "sliderThumb": {
+          "&::-webkit-slider-thumb": {
             "apply": "h-8 w-8",
             "css": {
               "--filler-offset": "1rem",
             },
           },
+          "apply": "h-8",
         },
-        "md": {
-          "default": {
-            "apply": "h-6",
-          },
-          "mozRangeThumb": {
+        "&-md": {
+          "&::-moz-range-thumb": {
             "apply": "h-6 w-6",
             "css": {
               "--filler-offset": "0.6rem",
             },
           },
-          "mozRangeTrack": {
+          "&::-moz-range-track": {
             "apply": "h-2",
           },
-          "sliderRunnableTrack": {
+          "&::-webkit-slider-runnable-track": {
             "apply": "h-2",
           },
-          "sliderThumb": {
+          "&::-webkit-slider-thumb": {
             "apply": "h-6 w-6",
             "css": {
               "--filler-offset": "0.6rem",
             },
           },
+          "apply": "h-6",
         },
-        "sm": {
-          "default": {
-            "apply": "h-5",
-          },
-          "mozRangeThumb": {
+        "&-sm": {
+          "&::-moz-range-thumb": {
             "apply": "h-5 w-5",
             "css": {
               "--filler-offset": "0.5rem",
             },
           },
-          "mozRangeTrack": {
+          "&::-moz-range-track": {
             "apply": "h-1",
           },
-          "sliderRunnableTrack": {
+          "&::-webkit-slider-runnable-track": {
             "apply": "h-1",
           },
-          "sliderThumb": {
+          "&::-webkit-slider-thumb": {
             "apply": "h-5 w-5",
             "css": {
               "--filler-offset": "0.5rem",
             },
           },
+          "apply": "h-5",
         },
-        "xs": {
-          "default": {
-            "apply": "h-4",
-          },
-          "mozRangeThumb": {
+        "&-xs": {
+          "&::-moz-range-thumb": {
             "apply": "h-4 w-4",
             "css": {
               "--filler-offset": "0.4rem",
             },
           },
-          "mozRangeTrack": {
+          "&::-moz-range-track": {
             "apply": "h-1",
           },
-          "sliderRunnableTrack": {
+          "&::-webkit-slider-runnable-track": {
             "apply": "h-1",
           },
-          "sliderThumb": {
+          "&::-webkit-slider-thumb": {
             "apply": "h-4 w-4",
             "css": {
               "--filler-offset": "0.4rem",
             },
           },
+          "apply": "h-4",
         },
       },
     },
@@ -1032,69 +1014,82 @@ exports[`'range' options > snap 1`] = `
 
 exports[`'select' options > snap 1`] = `
 {
-  "colors": {},
   "defaults": {
     "base": {
-      "default": {
+      ".select": {
+        "&[multiple]": {
+          "apply": "h-auto",
+        },
         "apply": "inline-flex cursor-pointer select-none appearance-none min-h-12 h-12 pl-4 pr-10 text-sm leading-loose",
-      },
-      "multiple": {
-        "apply": "h-auto",
       },
     },
     "styled": {
-      "bordered": "border-opacity-20",
-      "default": {
+      ".select": {
+        "&-bordered": {
+          "apply": "border-opacity-20",
+        },
+        "&-disabled,
+          &:disabled,
+          &[disabled]": {
+          "apply": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20",
+        },
+        "&-ghost": {
+          "&:focus": {
+            "apply": "text-base-content bg-opacity-100",
+          },
+          "apply": "bg-opacity-5",
+        },
+        "&-multiple,
+          &[multiple],
+          &[size]:not([size=\\"1\\"])": {
+          "apply": "bg-none pr-4",
+        },
+        "&:focus": {
+          "apply": "outline-base-content/20 outline outline-2 outline-offset-2",
+        },
         "apply": "border-base-content bg-base-100 rounded-btn border border-opacity-0 pr-10",
         "css": {
           "background-image": "linear-gradient(45deg, transparent 50%, currentColor 50%),
-        linear-gradient(135deg, currentColor 50%, transparent 50%)",
+            linear-gradient(135deg, currentColor 50%, transparent 50%)",
           "background-position": "calc(100% - 20px) calc(1px + 50%),
-        calc(100% - 16.1px) calc(1px + 50%)",
+            calc(100% - 16.1px) calc(1px + 50%)",
           "background-repeat": "no-repeat",
           "background-size": "4px 4px,
-        4px 4px",
+            4px 4px",
         },
       },
-      "disabled": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20",
-      "focus": "outline-base-content/20 outline outline-2 outline-offset-2",
-      "ghost": "bg-opacity-5",
-      "ghostFocus": "text-base-content bg-opacity-100",
-      "multiple": "bg-none pr-4",
+      "[dir=\\"rtl\\"] .select": {
+        "css": {
+          "background-position": "calc(0% + 12px) calc(1px + 50%),
+    calc(0% + 16px) calc(1px + 50%)",
+        },
+      },
     },
     "utils": {
-      "sizes": {
-        "lg": {
-          "default": {
-            "apply": "min-h-16 h-16 pl-6 pr-8 text-lg leading-loose",
-          },
-          "rtl": {
+      ".select": {
+        "&-lg": {
+          "[dir=\\"rtl\\"] &": {
             "apply": "pl-8 pr-6",
           },
+          "apply": "min-h-16 h-16 pl-6 pr-8 text-lg leading-loose",
         },
-        "md": {
-          "default": {
-            "apply": "min-h-12 h-12 pl-4 pr-10 text-sm leading-loose",
-          },
-          "rtl": {
+        "&-md": {
+          "[dir=\\"rtl\\"] &": {
             "apply": "pl-10 pr-4",
           },
+          "apply": "min-h-12 h-12 pl-4 pr-10 text-sm leading-loose",
         },
-        "sm": {
-          "default": {
-            "apply": "min-h-8 h-8 pl-3 pr-8 text-sm leading-8",
-          },
-          "rtl": {
+        "&-sm": {
+          "[dir=\\"rtl\\"] &": {
             "apply": "pl-8 pr-3",
           },
+          "apply": "min-h-8 h-8 pl-3 pr-8 text-sm leading-8",
         },
-        "xs": {
-          "default": {
-            "apply": "min-h-6 h-6 pl-2 pr-8 text-xs leading-relaxed",
-          },
-          "rtl": {
+        "&-xs": {
+          "[dir=\\"rtl\\"] &": {
             "apply": "pl-8 pr-2",
           },
+          "apply": "min-h-6 h-6 pl-2 pr-8 text-xs leading-relaxed",
         },
       },
     },

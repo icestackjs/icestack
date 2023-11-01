@@ -1,42 +1,6 @@
 @use "../../utils/index.scss" as *;
-@use "sass:map";
-$TypeMap: inject("progress.colors");
-$D: inject("progress.defaults.styled");
-$S: inject("progress.selector");
-#{$S} {
-  @include resolve(map.get($D, "default"));
 
-  &::-moz-progress-bar {
-    @include resolve(map.get($D, "mozProgressBar"));
-  }
-
-  &::-webkit-progress-bar {
-    @include resolve(map.get($D, "progressBar"));
-  }
-  &::-webkit-progress-value {
-    @include resolve(map.get($D, "progressValue"));
-  }
-
-  &:indeterminate {
-    @include resolve(map.get($D, "indeterminate"));
-
-    &::-moz-progress-bar {
-      @include resolve(map.get($D, "indeterminateMozProgressBar"));
-    }
-  }
-
-  @each $typeName, $map in $TypeMap {
-    &#{getSelector($typeName)}::-moz-progress-bar {
-      @include resolve(map.get($map, "mozProgressBar"));
-    }
-  }
-
-  @each $typeName, $map in $TypeMap {
-    &#{getSelector($typeName)}::-webkit-progress-value {
-      @include resolve(map.get($map, "progressValue"));
-    }
-  }
-}
+@include spread(inject("progress.defaults.styled"));
 
 @keyframes progress-loading {
   50% {

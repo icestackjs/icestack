@@ -1,25 +1,3 @@
 @use "../../utils/index.scss" as *;
-@use "sass:map";
 
-$D: inject("range.defaults.utils");
-$S: inject("range.selector");
-
-#{$S} {
-  @each $s, $v in map.get($D, "sizes") {
-    &#{getSelector($s)} {
-      @include resolve(map.get($v, "default"));
-      &::-webkit-slider-runnable-track {
-        @include resolve(map.get($v, "sliderRunnableTrack"));
-      }
-      &::-moz-range-track {
-        @include resolve(map.get($v, "mozRangeTrack"));
-      }
-      &::-webkit-slider-thumb {
-        @include resolve(map.get($v, "sliderThumb"));
-      }
-      &::-moz-range-thumb {
-        @include resolve(map.get($v, "mozRangeThumb"));
-      }
-    }
-  }
-}
+@include spread(inject("range.defaults.utils"));

@@ -1,4 +1,4 @@
-import type { CodegenOptions, DeepPartial } from './types'
+import type { CodegenOptions, DeepPartial, ComponentsOptions } from './types'
 import { defaultVarPrefix } from './constants'
 
 const shareVars = {
@@ -175,7 +175,7 @@ export function getDefaultBase(raw?: boolean) {
   }
 }
 
-export const defaultSelectorMap = {
+export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   alert: {
     selector: '.alert'
   },
@@ -217,6 +217,12 @@ export const defaultSelectorMap = {
   },
   toggle: {
     selector: '.toggle'
+  },
+  loading: {
+    selector: '.loading'
+  },
+  mask: {
+    selector: '.mask'
   }
 }
 

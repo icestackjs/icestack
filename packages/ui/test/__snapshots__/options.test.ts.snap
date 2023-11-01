@@ -180,6 +180,12 @@ exports[`options > getCodegenOptions snap 1`] = `
     "link": {
       "selector": ".link",
     },
+    "loading": {
+      "selector": ".loading",
+    },
+    "mask": {
+      "selector": ".mask",
+    },
     "progress": {
       "selector": ".progress",
     },
@@ -313,6 +319,12 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     },
     "link": {
       "selector": ".link",
+    },
+    "loading": {
+      "selector": ".loading",
+    },
+    "mask": {
+      "selector": ".mask",
     },
     "progress": {
       "selector": ".progress",

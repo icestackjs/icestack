@@ -1,38 +1,6 @@
 @use "../../utils/index.scss" as *;
 @use "sass:map";
-
+@include spread(inject("textarea.defaults.styled"));
 $TypeMap: inject("textarea.colors");
 $DefaultMap: inject("textarea.defaults.styled");
 $S: inject("textarea.selector");
-
-#{$S} {
-  @include resolve(map.get($DefaultMap, "default"));
-
-  &-bordered {
-    @include resolve(map.get($DefaultMap, "bordered"));
-  }
-  &:focus {
-    @include resolve(map.get($DefaultMap, "focus"));
-  }
-  &-ghost {
-    @include resolve(map.get($DefaultMap, "ghost"));
-    &:focus {
-      @include resolve(map.get($DefaultMap, "ghostFocus"));
-    }
-  }
-
-  @each $typeName, $map in $TypeMap {
-    &#{getSelector($typeName)} {
-      @include resolve(map.get($map, "default"));
-      &:focus {
-        @include resolve(map.get($map, "focus"));
-      }
-    }
-  }
-
-  &-disabled,
-  &:disabled,
-  &[disabled] {
-    @include resolve(map.get($DefaultMap, "disabled"));
-  }
-}

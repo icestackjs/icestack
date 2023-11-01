@@ -1100,45 +1100,50 @@ exports[`'select' options > snap 1`] = `
 
 exports[`'textarea' options > snap 1`] = `
 {
-  "colors": {},
   "defaults": {
     "base": {
-      "default": "min-h-12 flex-shrink px-4 py-2 text-sm leading-loose",
+      ".textarea": {
+        "apply": "min-h-12 flex-shrink px-4 py-2 text-sm leading-loose",
+      },
     },
     "styled": {
-      "bordered": "border-opacity-20",
-      "default": "border-base-content bg-base-100 rounded-btn border border-opacity-0",
-      "disabled": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20",
-      "focus": "outline-base-content/20 outline outline-2 outline-offset-2",
-      "ghost": "bg-opacity-5",
-      "ghostFocus": {
-        "apply": "text-base-content bg-opacity-100",
-        "css": {
-          "box-shadow": "none",
+      ".textarea": {
+        "&-bordered": {
+          "apply": "border-opacity-20",
         },
+        "&-disabled,
+          &:disabled,
+          &[disabled]": {
+          "apply": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20",
+        },
+        "&-ghost": {
+          "&:focus": {
+            "apply": "text-base-content bg-opacity-100",
+            "css": {
+              "box-shadow": "none",
+            },
+          },
+          "apply": "bg-opacity-5",
+        },
+        "&:focus": {
+          "apply": "outline-base-content/20 outline outline-2 outline-offset-2",
+        },
+        "apply": "border-base-content bg-base-100 rounded-btn border border-opacity-0",
       },
     },
     "utils": {
-      "sizes": {
-        "lg": {
-          "default": {
-            "apply": "px-6 py-4 text-lg leading-loose",
-          },
+      ".textarea": {
+        "&-lg": {
+          "apply": "px-6 py-4 text-lg leading-loose",
         },
-        "md": {
-          "default": {
-            "apply": "px-4 py-3 text-sm leading-loose",
-          },
+        "&-md": {
+          "apply": "px-4 py-3 text-sm leading-loose",
         },
-        "sm": {
-          "default": {
-            "apply": "px-3 py-1 text-sm leading-8",
-          },
+        "&-sm": {
+          "apply": "px-3 py-1 text-sm leading-8",
         },
-        "xs": {
-          "default": {
-            "apply": "px-2 py-1 text-xs leading-relaxed",
-          },
+        "&-xs": {
+          "apply": "px-2 py-1 text-xs leading-relaxed",
         },
       },
     },
@@ -1149,21 +1154,56 @@ exports[`'textarea' options > snap 1`] = `
 
 exports[`'toggle' options > snap 1`] = `
 {
-  "colors": {},
   "defaults": {
     "base": {
-      "default": {
+      ".toggle": {
         "apply": "shrink-0",
       },
     },
     "styled": {
-      "checked": {
-        "apply": "border-opacity-100 bg-opacity-100",
-        "css": {
-          "--handleoffsetcalculator": "var(--handleoffset)",
+      ".toggle": {
+        "&:checked,
+          &[checked=\\"true\\"],
+          &[aria-checked=\\"true\\"]": {
+          "[dir=\\"rtl\\"] &": {
+            "css": {
+              "--handleoffsetcalculator": "calc(var(--handleoffset) * -1)",
+            },
+          },
+          "apply": "border-opacity-100 bg-opacity-100",
+          "css": {
+            "--handleoffsetcalculator": "var(--handleoffset)",
+          },
         },
-      },
-      "default": {
+        "&:disabled": {
+          "apply": "border-base-content cursor-not-allowed bg-transparent opacity-30",
+          "css": {
+            "--togglehandleborder": "0 0 0 3px rgba(var(--base-content)) inset, var(--handleoffsetcalculator) 0 0 3px rgba(var(--base-content)) inset",
+          },
+        },
+        "&:focus-visible": {
+          "apply": "outline-base-content/20 outline outline-2 outline-offset-2",
+        },
+        "&:indeterminate": {
+          "[dir=\\"rtl\\"] &": {
+            "css": {
+              "box-shadow": "calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
+                calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
+                0 0 0 2px var(--tglbg) inset",
+            },
+          },
+          "apply": "border-opacity-100 bg-opacity-100",
+          "css": {
+            "box-shadow": "calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
+            calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
+            0 0 0 2px var(--tglbg) inset",
+          },
+        },
+        "[dir=\\"rtl\\"] &": {
+          "css": {
+            "--handleoffsetcalculator": "calc(var(--handleoffset) * 1)",
+          },
+        },
         "apply": "border-base-content bg-base-content rounded-badge h-6 w-12 cursor-pointer appearance-none border border-opacity-20 bg-opacity-50",
         "css": {
           "--handleoffset": "1.5rem",
@@ -1171,81 +1211,37 @@ exports[`'toggle' options > snap 1`] = `
           "--tglbg": "rgba(var(--base-100))",
           "--togglehandleborder": "0 0",
           "box-shadow": "var(--handleoffsetcalculator) 0 0 2px var(--tglbg) inset,
-        0 0 0 2px var(--tglbg) inset,
-        var(--togglehandleborder)",
+            0 0 0 2px var(--tglbg) inset,
+            var(--togglehandleborder)",
           "transition": "background,
-        box-shadow var(--animation-input, 0.2s) ease-out",
-        },
-      },
-      "disabled": {
-        "apply": "border-base-content cursor-not-allowed bg-transparent opacity-30",
-        "css": {
-          "--togglehandleborder": "0 0 0 3px rgba(var(--base-content)) inset, var(--handleoffsetcalculator) 0 0 3px rgba(var(--base-content)) inset",
-        },
-      },
-      "focusVisible": {
-        "apply": "outline-base-content/20 outline outline-2 outline-offset-2",
-      },
-      "indeterminate": {
-        "apply": "border-opacity-100 bg-opacity-100",
-        "css": {
-          "box-shadow": "calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
-        calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
-        0 0 0 2px var(--tglbg) inset",
-        },
-      },
-      "rtl": {
-        "checked": {
-          "css": {
-            "--handleoffsetcalculator": "calc(var(--handleoffset) * -1)",
-          },
-        },
-        "default": {
-          "css": {
-            "--handleoffsetcalculator": "calc(var(--handleoffset) * 1)",
-          },
-        },
-        "indeterminate": {
-          "css": {
-            "box-shadow": "calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
-          calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
-          0 0 0 2px var(--tglbg) inset",
-          },
+            box-shadow var(--animation-input, 0.2s) ease-out",
         },
       },
     },
     "utils": {
-      "sizes": {
-        "lg": {
-          "default": {
-            "apply": "h-8 w-16",
-            "css": {
-              "--handleoffset": "2rem",
-            },
+      ".toggle": {
+        "&-lg": {
+          "apply": "h-8 w-16",
+          "css": {
+            "--handleoffset": "2rem",
           },
         },
-        "md": {
-          "default": {
-            "apply": "h-6 w-12",
-            "css": {
-              "--handleoffset": "1.5rem",
-            },
+        "&-md": {
+          "apply": "h-6 w-12",
+          "css": {
+            "--handleoffset": "1.5rem",
           },
         },
-        "sm": {
-          "default": {
-            "apply": "h-5 w-8",
-            "css": {
-              "--handleoffset": "0.75rem",
-            },
+        "&-sm": {
+          "apply": "h-5 w-8",
+          "css": {
+            "--handleoffset": "0.75rem",
           },
         },
-        "xs": {
-          "default": {
-            "apply": "h-4 w-6",
-            "css": {
-              "--handleoffset": "0.5rem",
-            },
+        "&-xs": {
+          "apply": "h-4 w-6",
+          "css": {
+            "--handleoffset": "0.5rem",
           },
         },
       },

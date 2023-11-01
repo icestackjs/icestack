@@ -1,44 +1,6 @@
 @use "../../utils/index.scss" as *;
-@use "sass:map";
-$S: inject("checkbox.selector");
-$TypeMap: inject("checkbox.colors");
-$DefaultMap: inject("checkbox.defaults.styled");
 
-@mixin styled {
-  @include resolve(map.get($DefaultMap, "default"));
-  &:focus-visible {
-    @include resolve(map.get($DefaultMap, "focusVisible"));
-  }
-  &:checked,
-  &[checked="true"],
-  &[aria-checked="true"] {
-    @include resolve(map.get($DefaultMap, "checked"));
-  }
-  &:indeterminate {
-    @include resolve(map.get($DefaultMap, "indeterminate"));
-  }
-  @each $typeName, $map in $TypeMap {
-    &#{getSelector($typeName)} {
-      @include resolve(map.get($map, "default"));
-      &:focus-visible {
-        @include resolve(map.get($map, "focusVisible"));
-      }
-      &:checked,
-      &[checked="true"],
-      &[aria-checked="true"] {
-        @include resolve(map.get($map, "checked"));
-      }
-    }
-  }
-
-  &:disabled {
-    @include resolve(map.get($DefaultMap, "disabled"));
-  }
-}
-
-#{$S} {
-  @include styled;
-}
+@include spread(inject("checkbox.defaults.styled"));
 
 @keyframes checkmark {
   0% {

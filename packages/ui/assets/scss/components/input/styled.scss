@@ -4,47 +4,4 @@ $TypeMap: inject("input.colors");
 $DefaultMap: inject("input.defaults.styled");
 $S: inject("input.selector");
 
-@mixin styled {
-  @include resolve(map.get($DefaultMap, "default"));
-  input:focus {
-    @apply outline-none;
-  }
-  &[list]::-webkit-calendar-picker-indicator {
-    line-height: 1em;
-  }
-  &-bordered {
-    @include resolve(map.get($DefaultMap, "bordered"));
-  }
-  &:focus,
-  &:focus-within {
-    @include resolve(map.get($DefaultMap, "focus"));
-  }
-  &-ghost {
-    @include resolve(map.get($DefaultMap, "ghost"));
-    &:focus,
-    &:focus-within {
-      @include resolve(map.get($DefaultMap, "ghostFocus"));
-    }
-  }
-
-  @each $typeName, $map in $TypeMap {
-    $f: map.get($map, "focus");
-    &#{getSelector($typeName)} {
-      @include resolve(map.get($map, "default"));
-      &:focus,
-      &:focus-within {
-        @include resolve(map.get($map, "focus"));
-      }
-    }
-  }
-
-  &-disabled,
-  &:disabled,
-  &[disabled] {
-    @include resolve(map.get($DefaultMap, "disabled"));
-  }
-}
-
-#{$S} {
-  @include styled;
-}
+@include spread(inject("input.defaults.styled"));

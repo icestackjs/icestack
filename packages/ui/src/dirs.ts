@@ -8,6 +8,8 @@ const cssDir = path.resolve(assetsDir, 'css')
 const cssResolvedDir = path.resolve(assetsDir, 'css-resolved')
 const pluginsDir = path.resolve(assetsDir, 'plugins')
 
+const componentTemplate = path.resolve(scssDir, 'components/t.scss')
+
 function resolveCssDir(dir?: string) {
   return dir ? path.resolve(dir, 'css') : cssDir
 }
@@ -57,5 +59,6 @@ export {
   getCssResolvedpath,
   resolveCssDir,
   resolveCssResolvedDir,
-  resolveJsDir
+  resolveJsDir,
+  componentTemplate
 }

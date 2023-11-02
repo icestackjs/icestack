@@ -1,12 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`'alert/base.scss' > snap 1`] = `
+exports[`'alert' > base 1`] = `
 ".alert {
   @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
 }"
 `;
 
-exports[`'alert/styled.scss' > snap 1`] = `
+exports[`'alert' > styled 1`] = `
 ".alert {
   @apply rounded-box border p-4 text-base-content border-base-400;
 }
@@ -27,9 +27,9 @@ exports[`'alert/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'alert/utils.scss' > snap 1`] = `""`;
+exports[`'alert' > utils 1`] = `""`;
 
-exports[`'avatar/base.scss' > snap 1`] = `
+exports[`'avatar' > base 1`] = `
 ".avatar {
   @apply relative inline-flex;
 }
@@ -44,7 +44,7 @@ exports[`'avatar/base.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'avatar/styled.scss' > snap 1`] = `
+exports[`'avatar' > styled 1`] = `
 ".avatar-group {
   @apply flex overflow-hidden;
 }
@@ -53,15 +53,15 @@ exports[`'avatar/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'avatar/utils.scss' > snap 1`] = `""`;
+exports[`'avatar' > utils 1`] = `""`;
 
-exports[`'badge/base.scss' > snap 1`] = `
+exports[`'badge' > base 1`] = `
 ".badge {
   @apply inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem];
 }"
 `;
 
-exports[`'badge/styled.scss' > snap 1`] = `
+exports[`'badge' > styled 1`] = `
 ".badge {
   @apply rounded-badge border border-base-400 bg-base-100 text-base-content;
 }
@@ -103,7 +103,7 @@ exports[`'badge/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'badge/utils.scss' > snap 1`] = `
+exports[`'badge' > utils 1`] = `
 ".badge-xs {
   @apply h-3 text-xs leading-3;
   padding-left: 0.313rem;
@@ -126,7 +126,7 @@ exports[`'badge/utils.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'button/base.scss' > snap 1`] = `
+exports[`'button' > base 1`] = `
 ".btn {
   @apply rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4;
   font-size: 0.875rem;
@@ -137,7 +137,7 @@ exports[`'button/base.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'button/styled.scss' > snap 1`] = `
+exports[`'button' > styled 1`] = `
 ".btn {
   @apply border-base-400 bg-base-400 text-base-content outline-base-400 no-underline;
   border-width: var(--ice-border-btn, 1px);
@@ -320,7 +320,7 @@ exports[`'button/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'button/utils.scss' > snap 1`] = `
+exports[`'button' > utils 1`] = `
 ".btn-xs {
   @apply min-h-6 h-6 px-2;
   font-size: 0.75rem;
@@ -375,7 +375,7 @@ exports[`'button/utils.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'chat/base.scss' > snap 1`] = `
+exports[`'chat' > base 1`] = `
 ".chat {
   @apply grid grid-cols-2 gap-x-3 py-1;
 }
@@ -446,7 +446,7 @@ exports[`'chat/base.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'chat/styled.scss' > snap 1`] = `
+exports[`'chat' > styled 1`] = `
 ".chat-bubble {
   @apply bg-neutral text-neutral-content rounded-box;
   min-height: 2.75rem;
@@ -481,15 +481,15 @@ exports[`'chat/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'chat/utils.scss' > snap 1`] = `""`;
+exports[`'chat' > utils 1`] = `""`;
 
-exports[`'checkbox/base.scss' > snap 1`] = `
+exports[`'checkbox' > base 1`] = `
 ".checkbox {
   @apply shrink-0;
 }"
 `;
 
-exports[`'checkbox/styled.scss' > snap 1`] = `
+exports[`'checkbox' > styled 1`] = `
 ".checkbox {
   @apply border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20;
   --ice-chkbg: var(--ice-base-content);
@@ -580,7 +580,7 @@ exports[`'checkbox/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'checkbox/utils.scss' > snap 1`] = `
+exports[`'checkbox' > utils 1`] = `
 ".checkbox-xs {
   @apply h-4 w-4;
 }
@@ -595,7 +595,7 @@ exports[`'checkbox/utils.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'form/base.scss' > snap 1`] = `
+exports[`'form' > base 1`] = `
 ".form-control {
   @apply flex flex-col;
 }
@@ -605,7 +605,7 @@ exports[`'form/base.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'form/styled.scss' > snap 1`] = `
+exports[`'form' > styled 1`] = `
 ".label {
   @apply px-1 py-2;
 }
@@ -620,15 +620,15 @@ exports[`'form/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'form/utils.scss' > snap 1`] = `""`;
+exports[`'form' > utils 1`] = `""`;
 
-exports[`'input/base.scss' > snap 1`] = `
+exports[`'input' > base 1`] = `
 ".input {
   @apply flex-shrink h-8 px-3 text-sm leading-loose;
 }"
 `;
 
-exports[`'input/styled.scss' > snap 1`] = `
+exports[`'input' > styled 1`] = `
 ".input {
   @apply border-base-content bg-base-100 rounded-btn border border-opacity-0 text-base;
 }
@@ -686,7 +686,7 @@ exports[`'input/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'input/utils.scss' > snap 1`] = `
+exports[`'input' > utils 1`] = `
 ".input-xs {
   @apply h-6 px-2 text-xs leading-relaxed;
 }
@@ -701,7 +701,7 @@ exports[`'input/utils.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'link/base.scss' > snap 1`] = `
+exports[`'link' > base 1`] = `
 ".link {
   @apply cursor-pointer underline;
 }
@@ -710,7 +710,7 @@ exports[`'link/base.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'link/styled.scss' > snap 1`] = `
+exports[`'link' > styled 1`] = `
 ".link-primary {
   @apply text-primary [@media(hover:hover)]:hover:text-primary-active;
 }
@@ -735,9 +735,9 @@ exports[`'link/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'link/utils.scss' > snap 1`] = `""`;
+exports[`'link' > utils 1`] = `""`;
 
-exports[`'loading/base.scss' > snap 1`] = `
+exports[`'loading' > base 1`] = `
 ".loading {
   @apply pointer-events-none inline-block aspect-square w-6;
   background-color: currentColor;
@@ -748,9 +748,9 @@ exports[`'loading/base.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'loading/styled.scss' > snap 1`] = `""`;
+exports[`'loading' > styled 1`] = `""`;
 
-exports[`'loading/utils.scss' > snap 1`] = `
+exports[`'loading' > utils 1`] = `
 ".loading-xs {
   @apply w-4;
 }
@@ -783,7 +783,7 @@ exports[`'loading/utils.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'mask/base.scss' > snap 1`] = `
+exports[`'mask' > base 1`] = `
 ".mask {
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -799,9 +799,9 @@ exports[`'mask/base.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'mask/styled.scss' > snap 1`] = `""`;
+exports[`'mask' > styled 1`] = `""`;
 
-exports[`'mask/utils.scss' > snap 1`] = `
+exports[`'mask' > utils 1`] = `
 ".mask-squircle {
   mask-image: url(\\"data:image/svg+xml,%3csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M100 0C20 0 0 20 0 100s20 100 100 100 100-20 100-100S180 0 100 0Z'/%3e%3c/svg%3e\\");
 }
@@ -861,13 +861,13 @@ exports[`'mask/utils.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'progress/base.scss' > snap 1`] = `
+exports[`'progress' > base 1`] = `
 ".progress {
   @apply relative w-full appearance-none overflow-hidden;
 }"
 `;
 
-exports[`'progress/styled.scss' > snap 1`] = `
+exports[`'progress' > styled 1`] = `
 ".progress {
   @apply rounded-box bg-base-content/20 h-2;
 }
@@ -931,15 +931,15 @@ exports[`'progress/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'progress/utils.scss' > snap 1`] = `""`;
+exports[`'progress' > utils 1`] = `""`;
 
-exports[`'radio/base.scss' > snap 1`] = `
+exports[`'radio' > base 1`] = `
 ".radio {
   @apply shrink-0;
 }"
 `;
 
-exports[`'radio/styled.scss' > snap 1`] = `
+exports[`'radio' > styled 1`] = `
 ".radio {
   @apply border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20;
 }
@@ -1013,7 +1013,7 @@ exports[`'radio/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'radio/utils.scss' > snap 1`] = `
+exports[`'radio' > utils 1`] = `
 ".radio-xs {
   @apply h-4 w-4;
 }
@@ -1028,7 +1028,7 @@ exports[`'radio/utils.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'range/base.scss' > snap 1`] = `
+exports[`'range' > base 1`] = `
 ".range {
   @apply h-6 w-full cursor-pointer;
 }
@@ -1037,7 +1037,7 @@ exports[`'range/base.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'range/styled.scss' > snap 1`] = `
+exports[`'range' > styled 1`] = `
 ".range {
   @apply rounded-box overflow-hidden bg-transparent;
   appearance: none;
@@ -1090,7 +1090,7 @@ exports[`'range/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'range/utils.scss' > snap 1`] = `
+exports[`'range' > utils 1`] = `
 ".range-xs {
   @apply h-4;
 }
@@ -1161,7 +1161,7 @@ exports[`'range/utils.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'select/base.scss' > snap 1`] = `
+exports[`'select' > base 1`] = `
 ".select {
   @apply inline-flex cursor-pointer select-none appearance-none min-h-12 h-12 pl-4 pr-10 text-sm leading-loose;
 }
@@ -1170,7 +1170,7 @@ exports[`'select/base.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'select/styled.scss' > snap 1`] = `
+exports[`'select' > styled 1`] = `
 ".select {
   @apply border-base-content bg-base-100 rounded-btn border border-opacity-0 pr-10;
   background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
@@ -1232,7 +1232,7 @@ exports[`'select/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'select/utils.scss' > snap 1`] = `
+exports[`'select' > utils 1`] = `
 ".select-xs {
   @apply min-h-6 h-6 pl-2 pr-8 text-xs leading-relaxed;
 }
@@ -1259,15 +1259,13 @@ exports[`'select/utils.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'t.scss' > snap 1`] = `""`;
-
-exports[`'textarea/base.scss' > snap 1`] = `
+exports[`'textarea' > base 1`] = `
 ".textarea {
   @apply min-h-12 flex-shrink px-4 py-2 text-sm leading-loose;
 }"
 `;
 
-exports[`'textarea/styled.scss' > snap 1`] = `
+exports[`'textarea' > styled 1`] = `
 ".textarea {
   @apply border-base-content bg-base-100 rounded-btn border border-opacity-0;
 }
@@ -1319,7 +1317,7 @@ exports[`'textarea/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'textarea/utils.scss' > snap 1`] = `
+exports[`'textarea' > utils 1`] = `
 ".textarea-xs {
   @apply px-2 py-1 text-xs leading-relaxed;
 }
@@ -1334,13 +1332,13 @@ exports[`'textarea/utils.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'toggle/base.scss' > snap 1`] = `
+exports[`'toggle' > base 1`] = `
 ".toggle {
   @apply shrink-0;
 }"
 `;
 
-exports[`'toggle/styled.scss' > snap 1`] = `
+exports[`'toggle' > styled 1`] = `
 ".toggle {
   @apply border-base-content bg-base-content rounded-badge h-6 w-12 cursor-pointer appearance-none border border-opacity-20 bg-opacity-50;
   --ice-tglbg: rgba(var(--ice-base-100));
@@ -1406,7 +1404,7 @@ exports[`'toggle/styled.scss' > snap 1`] = `
 }"
 `;
 
-exports[`'toggle/utils.scss' > snap 1`] = `
+exports[`'toggle' > utils 1`] = `
 ".toggle-xs {
   @apply h-4 w-6;
   --ice-handleoffset: 0.5rem;

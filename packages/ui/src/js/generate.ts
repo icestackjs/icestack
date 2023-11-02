@@ -1,6 +1,7 @@
 import path from 'node:path'
 import * as t from '@babel/types'
 import _babelGenerate from '@babel/generator'
+import { stages } from '@/constants'
 // https://github.com/babel/babel/issues/15269
 function _interopDefaultCompat(e: any) {
   return e && typeof e === 'object' && 'default' in e ? e.default : e
@@ -42,7 +43,7 @@ export function generateIndexCode(basenames: string[]) {
 export function generateComponentsIndexCode(basenames: string[]) {
   const props = Object.entries(
     basenames.reduce<Record<string, t.ObjectProperty[]>>((acc, name) => {
-      for (const stage of ['base', 'styled', 'utils']) {
+      for (const stage of stages) {
         const node = t.objectProperty(t.stringLiteral(stage), t.callExpression(t.identifier('require'), [t.stringLiteral(`./${name}/${stage}.js`)]))
         if (acc[name]) {
           acc[name].push(node)

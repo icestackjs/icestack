@@ -8,12 +8,13 @@ import { set } from 'lodash'
 import { createFunctions } from './functions'
 import { transformJsToSass } from './utils'
 import { ensureDirSync } from '@/utils'
-import { getCssPath, getJsPath, scssDir, getCssResolvedpath } from '@/dirs'
+import { getCssPath, getJsPath, scssDir, getCssResolvedpath, componentTemplate } from '@/dirs'
 import { CodegenOptions, IBuildScssOptions } from '@/types'
 import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
 import { getPlugin as getCssVarsPrefixerPlugin } from '@/postcss/custom-property-prefixer'
 import prefixer from '@/postcss/prefixer'
 import allComponents from '@/allComponents'
+import { stages } from '@/constants'
 // 1. scss
 // 2. add var prefix
 export function compileScss(filename: string, opts: CodegenOptions, functions: Record<string, sass.CustomFunction<'sync'>> = {}) {
@@ -94,11 +95,11 @@ export function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
 export function buildComponents(opts: IBuildScssOptions<CodegenOptions>) {
   const { resolveConfig, outdir, options } = opts
   const { dryRun } = options
-  const filename = path.resolve(scssDir, 'components/t.scss')
+
   const res: Record<string, Record<string, CssInJs>> = {}
   for (const componentName of allComponents) {
-    for (const stage of ['base', 'styled', 'utils']) {
-      const { css: cssOutput } = compileScss(filename, options, {
+    for (const stage of stages) {
+      const { css: cssOutput } = compileScss(componentTemplate, options, {
         'cp()': () => {
           return transformJsToSass(`${componentName}.defaults.${stage}`)
         }

@@ -128,6 +128,9 @@ $globalAtMediaHover: globalAtMediaHover();
   }
 }
 
+$keyword: "@keyframes";
+$l: string.length($keyword) + 2;
+
 @mixin spread($map, $depth: 0) {
   @if (meta.type-of($map) == map) {
     @each $s, $m in $map {
@@ -146,8 +149,6 @@ $globalAtMediaHover: globalAtMediaHover();
           }
         }
       } @else {
-        $keyword: "@keyframes";
-        $l: string.length($keyword) + 2;
         @if (string.index($s, $keyword) == 1) {
           @keyframes #{string.slice($s, $l)} {
             @include spread($m, $depth + 1);

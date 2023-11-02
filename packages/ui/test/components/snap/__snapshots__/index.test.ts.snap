@@ -642,6 +642,33 @@ exports[`'checkbox/utils.scss' > snap 1`] = `
 }"
 `;
 
+exports[`'form/base.scss' > snap 1`] = `
+".form-control {
+  @apply flex flex-col;
+}
+
+.label {
+  @apply flex select-none items-center justify-between;
+}"
+`;
+
+exports[`'form/styled.scss' > snap 1`] = `
+".label {
+  @apply px-1 py-2;
+}
+.label-text {
+  @apply text-base-content text-sm;
+}
+.label-text-alt {
+  @apply text-base-content text-xs;
+}
+.label a {
+  @apply [@media(hover:hover)]:hover:text-base-content;
+}"
+`;
+
+exports[`'form/utils.scss' > snap 1`] = `""`;
+
 exports[`'input/base.scss' > snap 1`] = `
 ".input {
   @apply flex-shrink h-8 px-3 text-sm leading-loose;
@@ -1311,6 +1338,8 @@ exports[`'select/utils.scss' > snap 1`] = `
   @apply pl-8 pr-6;
 }"
 `;
+
+exports[`'t.scss' > snap 1`] = `""`;
 
 exports[`'textarea/base.scss' > snap 1`] = `
 ".textarea {

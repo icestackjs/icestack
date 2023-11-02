@@ -14,6 +14,7 @@ import * as radio from '@/components/radio'
 import * as range from '@/components/range'
 import * as loading from '@/components/loading'
 import * as mask from '@/components/mask'
+import * as form from '@/components/form'
 export const componentsMap = {
   alert,
   avatar,
@@ -30,5 +31,6 @@ export const componentsMap = {
   radio,
   range,
   loading,
-  mask
+  mask,
+  form
 }

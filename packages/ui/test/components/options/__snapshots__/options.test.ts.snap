@@ -479,6 +479,37 @@ exports[`'checkbox' options > snap 1`] = `
 }
 `;
 
+exports[`'form' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".form-control": {
+        "apply": "flex flex-col",
+      },
+      ".label": {
+        "apply": "flex select-none items-center justify-between",
+      },
+    },
+    "styled": {
+      ".label": {
+        "&-text": {
+          "apply": "text-base-content text-sm",
+        },
+        "&-text-alt": {
+          "apply": "text-base-content text-xs",
+        },
+        "a": {
+          "apply": "[@media(hover:hover)]:hover:text-base-content",
+        },
+        "apply": "px-1 py-2",
+      },
+    },
+    "utils": {},
+  },
+  "selector": undefined,
+}
+`;
+
 exports[`'input' options > snap 1`] = `
 {
   "defaults": {

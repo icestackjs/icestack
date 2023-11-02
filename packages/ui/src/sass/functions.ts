@@ -25,7 +25,7 @@ export const createPreset: (opts: CreatePresetOptions) => Record<(typeof allComp
     acc[name] = handleOptions(
       lib?.options({
         ...opts,
-        selector: comOpt.selector
+        selector: comOpt.selector!
       }),
       comOpt
     )

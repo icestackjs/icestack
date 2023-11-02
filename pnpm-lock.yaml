@@ -485,9 +485,9 @@ importers:
       storybook:
         specifier: ^7.5.2
         version: 7.5.2
-      storybook-react-i18next:
-        specifier: ^2.0.9
-        version: 2.0.9(@storybook/components@7.5.2)(@storybook/manager-api@7.5.2)(@storybook/preview-api@7.5.2)(@storybook/types@7.5.2)(i18next-browser-languagedetector@7.1.0)(i18next-http-backend@2.3.1)(i18next@23.6.0)(react-dom@18.2.0)(react-i18next@13.3.1)(react@18.2.0)
+      storybook-i18n:
+        specifier: ^2.0.13
+        version: 2.0.13(@storybook/components@7.5.2)(@storybook/manager-api@7.5.2)(@storybook/preview-api@7.5.2)(@storybook/types@7.5.2)(react-dom@18.2.0)(react@18.2.0)
       tailwindcss:
         specifier: ^3.3.5
         version: 3.3.5(ts-node@10.9.1)
@@ -9690,6 +9690,7 @@ packages:
       node-fetch: 2.7.0
     transitivePeerDependencies:
       - encoding
+    dev: false
 
   /cross-spawn@5.1.0:
     resolution: {integrity: sha512-pTgQJ5KC0d2hcY8eyL1IzlBPYjTkyH72XRZPnLyKus2mBfNjQs3klqbJU2VILqZryAZUt9JOb3h/mWMy23/f5A==}
@@ -12702,6 +12703,7 @@ packages:
     resolution: {integrity: sha512-KknJ50kTInJ7qIScF3jeaFRpMpE8/lfiTdzf/twXyPBLAGrLRTmkz3AdTnKeh40X8k9L2fdYwEp/42WGXIRGcg==}
     dependencies:
       void-elements: 3.1.0
+    dev: false
 
   /html-tags@3.3.1:
     resolution: {integrity: sha512-ztqyC3kLto0e9WbNp0aeP+M3kTt+nbaIveGmUxAtZa+8iFgKLUOD4YKM5j+f3QD89bra7UeumolZHKuOXnTmeQ==}
@@ -12806,6 +12808,7 @@ packages:
     resolution: {integrity: sha512-cr2k7u1XJJ4HTOjM9GyOMtbOA47RtUoWRAtt52z43r3AoMs2StYKyjS3URPhzHaf+mn10hY9dZWamga5WPQjhA==}
     dependencies:
       '@babel/runtime': 7.23.2
+    dev: false
 
   /i18next-http-backend@2.3.1:
     resolution: {integrity: sha512-jnagFs5cnq4ryb+g92Hex4tB5kj3tWmiRWx8gHMCcE/PEgV1fjH5rC7xyJmPSgyb9r2xgcP8rvZxPKgsmvMqTw==}
@@ -12813,11 +12816,13 @@ packages:
       cross-fetch: 4.0.0
     transitivePeerDependencies:
       - encoding
+    dev: false
 
   /i18next@23.6.0:
     resolution: {integrity: sha512-z0Cxr0MGkt+kli306WS4nNNM++9cgt2b2VCMprY92j+AIab/oclgPxdwtTZVLP1zn5t5uo8M6uLsZmYrcjr3HA==}
     dependencies:
       '@babel/runtime': 7.23.2
+    dev: false
 
   /iconv-lite@0.4.24:
     resolution: {integrity: sha512-v3MXnZAcvnywkTUEZomIActle7RXXeedOR31wwl7VlyoXO4Qi9arvSenNQWne1TcRwhCL1HwLI21bEqdpj8/rA==}
@@ -16371,6 +16376,7 @@ packages:
       i18next: 23.6.0
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /react-inspector@6.0.2(react@18.2.0):
     resolution: {integrity: sha512-x+b7LxhmHXjHoU/VrFAzw5iutsILRoYyDq97EDYdFpPLcvqtEzk4ZSZSQjnFPbr5T57tLXnHcqFYoN1pI6u8uQ==}
@@ -17593,38 +17599,6 @@ packages:
       '@storybook/types': 7.5.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
-    dev: true
-
-  /storybook-react-i18next@2.0.9(@storybook/components@7.5.2)(@storybook/manager-api@7.5.2)(@storybook/preview-api@7.5.2)(@storybook/types@7.5.2)(i18next-browser-languagedetector@7.1.0)(i18next-http-backend@2.3.1)(i18next@23.6.0)(react-dom@18.2.0)(react-i18next@13.3.1)(react@18.2.0):
-    resolution: {integrity: sha512-GFTOrYwOWShLqWNuTesPNhC79P3OHw1jkZ4gU3R50yTD2MUclF5DHLnuKeVfKZ323iV+I9fxLxuLIVHWVDJgXA==}
-    peerDependencies:
-      '@storybook/components': ^7.0.0
-      '@storybook/manager-api': ^7.0.0
-      '@storybook/preview-api': ^7.0.0
-      '@storybook/types': ^7.0.0
-      i18next: ^22.0.0 || ^23.0.0
-      i18next-browser-languagedetector: ^7.0.0
-      i18next-http-backend: ^2.0.0
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-i18next: ^12.0.0 || ^13.0.0
-    peerDependenciesMeta:
-      react:
-        optional: true
-      react-dom:
-        optional: true
-    dependencies:
-      '@storybook/components': 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
-      '@storybook/manager-api': 7.5.2(react-dom@18.2.0)(react@18.2.0)
-      '@storybook/preview-api': 7.5.2
-      '@storybook/types': 7.5.2
-      i18next: 23.6.0
-      i18next-browser-languagedetector: 7.1.0
-      i18next-http-backend: 2.3.1
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      react-i18next: 13.3.1(i18next@23.6.0)(react-dom@18.2.0)(react@18.2.0)
-      storybook-i18n: 2.0.13(@storybook/components@7.5.2)(@storybook/manager-api@7.5.2)(@storybook/preview-api@7.5.2)(@storybook/types@7.5.2)(react-dom@18.2.0)(react@18.2.0)
     dev: true
 
   /storybook@7.5.2:
@@ -19360,6 +19334,7 @@ packages:
   /void-elements@3.1.0:
     resolution: {integrity: sha512-Dhxzh5HZuiHQhbvTW9AMetFfBHDMYpo23Uo9btPXgdYP+3T5S+p+jgNy7spra+veYhBP2dCSgxR/i2Y02h5/6w==}
     engines: {node: '>=0.10.0'}
+    dev: false
 
   /vscode-css-languageservice@6.2.10:
     resolution: {integrity: sha512-sYUZPku4mQ06AWGCbMyjv2tdR6juBW6hTbVPFwbJvNVzdtEfBioQOgkdXg7yMJNWnXkvWSU1FL2kb4Vxu5Cdyw==}

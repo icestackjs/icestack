@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import Pig from './assets/image/pig.jpg'
+import Pig from '../assets/image/pig.jpg'
 export type AvatarProps = VariantProps<typeof avatar> & { textContent?: string }
 
 // export const allTypes = typePrefix('avatar-')

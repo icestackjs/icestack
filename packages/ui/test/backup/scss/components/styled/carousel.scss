@@ -1,9 +1,0 @@
-@use "../../utils/index.scss" as *;
-
-.carousel {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    @apply hidden;
-  }
-}

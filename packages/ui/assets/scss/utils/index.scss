@@ -128,9 +128,6 @@ $globalAtMediaHover: globalAtMediaHover();
   }
 }
 
-$keyword: "@keyframes";
-$l: string.length($keyword) + 2;
-
 @mixin spread($map, $depth: 0) {
   @if (meta.type-of($map) == map) {
     @each $s, $m in $map {
@@ -149,8 +146,9 @@ $l: string.length($keyword) + 2;
           }
         }
       } @else {
-        @if (string.index($s, $keyword) == 1) {
-          @keyframes #{string.slice($s, $l)} {
+        @if (string.index($s, "@") == 1) {
+          $spaceIdx: string.index($s, " ");
+          @#{string.slice($s, 2,$spaceIdx - 1)} #{string.slice($s, $spaceIdx+1)} {
             @include spread($m, $depth + 1);
           }
         } @else {

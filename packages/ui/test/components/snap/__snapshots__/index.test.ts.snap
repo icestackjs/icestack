@@ -22,9 +22,6 @@ exports[`'alert/styled.scss' > snap 1`] = `
 .alert-error {
   @apply text-error-content border-error/20 bg-error;
 }
-.alert-info {
-  @apply text-info-content border-info/20 bg-info;
-}
 .alert-neutral {
   @apply text-neutral-content border-neutral/20 bg-neutral;
 }"
@@ -80,9 +77,6 @@ exports[`'badge/styled.scss' > snap 1`] = `
 .badge-error {
   @apply border-error bg-error text-error-content;
 }
-.badge-info {
-  @apply border-info bg-info text-info-content;
-}
 .badge-neutral {
   @apply border-neutral bg-neutral text-neutral-content;
 }
@@ -103,9 +97,6 @@ exports[`'badge/styled.scss' > snap 1`] = `
 }
 .badge-outline.badge-error {
   @apply text-error;
-}
-.badge-outline.badge-info {
-  @apply text-info;
 }
 .badge-outline.badge-neutral {
   @apply text-neutral;
@@ -211,18 +202,6 @@ exports[`'button/styled.scss' > snap 1`] = `
 .btn-error.btn-active {
   @apply border-error-active bg-error-active;
 }
-.btn-info {
-  @apply border-info bg-info text-info-content outline-info;
-}
-.btn-info:hover {
-  @apply border-info-hover bg-info-hover;
-}
-.btn-info:active {
-  @apply border-info-active bg-info-active;
-}
-.btn-info.btn-active {
-  @apply border-info-active bg-info-active;
-}
 .btn-neutral {
   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
 }
@@ -323,18 +302,6 @@ exports[`'button/styled.scss' > snap 1`] = `
 }
 .btn-outline.btn-error.btn-active {
   @apply border-error-active bg-error-active text-error-content;
-}
-.btn-outline.btn-info {
-  @apply text-info;
-}
-.btn-outline.btn-info:hover {
-  @apply border-info-hover bg-info-hover text-info-content;
-}
-.btn-outline.btn-info:active {
-  @apply border-info-active bg-info-active text-info-content;
-}
-.btn-outline.btn-info.btn-active {
-  @apply border-info-active bg-info-active text-info-content;
 }
 .btn-outline.btn-neutral {
   @apply text-neutral;
@@ -497,9 +464,6 @@ exports[`'chat/styled.scss' > snap 1`] = `
 .chat-bubble-error {
   @apply bg-error text-error-content;
 }
-.chat-bubble-info {
-  @apply bg-info text-info-content;
-}
 .chat-bubble-neutral {
   @apply bg-neutral text-neutral-content;
 }
@@ -587,17 +551,6 @@ exports[`'checkbox/styled.scss' > snap 1`] = `
 }
 .checkbox-error:checked, .checkbox-error[checked=true], .checkbox-error[aria-checked=true] {
   @apply border-error bg-error text-error-content;
-}
-.checkbox-info {
-  @apply border-info [@media(hover:hover)]:hover:border-info;
-  --ice-chkbg: var(--ice-info);
-  --ice-chkfg: var(--ice-info-content);
-}
-.checkbox-info:focus-visible {
-  @apply outline-info;
-}
-.checkbox-info:checked, .checkbox-info[checked=true], .checkbox-info[aria-checked=true] {
-  @apply border-info bg-info text-info-content;
 }
 .checkbox-neutral {
   @apply border-neutral [@media(hover:hover)]:hover:border-neutral;
@@ -722,12 +675,6 @@ exports[`'input/styled.scss' > snap 1`] = `
 .input-error:focus, .input-error:focus-within {
   @apply shadow-error/10;
 }
-.input-info {
-  @apply border-info;
-}
-.input-info:focus, .input-info:focus-within {
-  @apply shadow-info/10;
-}
 .input-neutral {
   @apply border-neutral;
 }
@@ -775,9 +722,6 @@ exports[`'link/styled.scss' > snap 1`] = `
 }
 .link-error {
   @apply text-error [@media(hover:hover)]:hover:text-error-active;
-}
-.link-info {
-  @apply text-info [@media(hover:hover)]:hover:text-info-active;
 }
 .link-neutral {
   @apply text-neutral [@media(hover:hover)]:hover:text-neutral-active;
@@ -961,9 +905,6 @@ exports[`'progress/styled.scss' > snap 1`] = `
 .progress-error::-moz-progress-bar {
   @apply bg-error rounded-box;
 }
-.progress-info::-moz-progress-bar {
-  @apply bg-info rounded-box;
-}
 .progress-neutral::-moz-progress-bar {
   @apply bg-neutral rounded-box;
 }
@@ -978,9 +919,6 @@ exports[`'progress/styled.scss' > snap 1`] = `
 }
 .progress-error::-webkit-progress-value {
   @apply bg-error;
-}
-.progress-info::-webkit-progress-value {
-  @apply bg-info;
 }
 .progress-neutral::-webkit-progress-value {
   @apply bg-neutral;
@@ -1048,15 +986,6 @@ exports[`'radio/styled.scss' > snap 1`] = `
 }
 .radio-error:checked, .radio-error[aria-checked=true] {
   @apply border-error bg-error text-error-content;
-}
-.radio-info {
-  @apply border-info hover:border-info;
-}
-.radio-info:focus-visible {
-  @apply outline-info;
-}
-.radio-info:checked, .radio-info[aria-checked=true] {
-  @apply border-info bg-info text-info-content;
 }
 .radio-neutral {
   @apply border-neutral hover:border-neutral;
@@ -1155,9 +1084,6 @@ exports[`'range/styled.scss' > snap 1`] = `
 }
 .range-error {
   --ice-range-shdw: var(--ice-error);
-}
-.range-info {
-  --ice-range-shdw: var(--ice-info);
 }
 .range-neutral {
   --ice-range-shdw: var(--ice-neutral);
@@ -1288,12 +1214,6 @@ exports[`'select/styled.scss' > snap 1`] = `
 .select-error:focus {
   @apply outline-error;
 }
-.select-info {
-  @apply border-info;
-}
-.select-info:focus {
-  @apply outline-info;
-}
 .select-neutral {
   @apply border-neutral;
 }
@@ -1388,12 +1308,6 @@ exports[`'textarea/styled.scss' > snap 1`] = `
 .textarea-error:focus {
   @apply outline-error;
 }
-.textarea-info {
-  @apply border-info;
-}
-.textarea-info:focus {
-  @apply outline-info;
-}
 .textarea-neutral {
   @apply border-neutral;
 }
@@ -1479,12 +1393,6 @@ exports[`'toggle/styled.scss' > snap 1`] = `
 }
 .toggle-error:checked, .toggle-error[checked=true], .toggle-error[aria-checked=true] {
   @apply border-error bg-error text-error-content border-opacity-10;
-}
-.toggle-info:focus-visible {
-  @apply outline-info;
-}
-.toggle-info:checked, .toggle-info[checked=true], .toggle-info[aria-checked=true] {
-  @apply border-info bg-info text-info-content border-opacity-10;
 }
 .toggle-neutral:focus-visible {
   @apply outline-neutral;

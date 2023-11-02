@@ -18,10 +18,6 @@ exports[`base > snap 1`] = `
   --ice-error-hover: 255 77 79;
   --ice-error-active: 207 19 34;
   --ice-error-content: 255 255 255;
-  --ice-info: 22 119 255;
-  --ice-info-hover: 64 150 255;
-  --ice-info-active: 9 88 217;
-  --ice-info-content: 255 255 255;
   --ice-neutral: 38 38 38;
   --ice-neutral-hover: 67 67 67;
   --ice-neutral-active: 31 31 31;
@@ -66,10 +62,7 @@ exports[`base > snap 1`] = `
   --ice-error: 211 32 41;
   --ice-error-hover: 166 29 36;
   --ice-error-active: 232 71 73;
-  --ice-info-content: 255 255 255;
-  --ice-info: 22 104 220;
-  --ice-info-hover: 21 84 173;
-  --ice-info-active: 60 137 232;
+  --ice-error-content: 255 255 255;
   --ice-neutral: 38 38 38;
   --ice-neutral-hover: 67 67 67;
   --ice-neutral-active: 31 31 31;
@@ -117,10 +110,6 @@ exports[`base > snap case 1 1`] = `
   --ice-error-hover: 255 77 79;
   --ice-error-active: 207 19 34;
   --ice-error-content: 255 255 255;
-  --ice-info: 22 119 255;
-  --ice-info-hover: 64 150 255;
-  --ice-info-active: 9 88 217;
-  --ice-info-content: 255 255 255;
   --ice-neutral: 38 38 38;
   --ice-neutral-hover: 67 67 67;
   --ice-neutral-active: 31 31 31;
@@ -165,10 +154,7 @@ exports[`base > snap case 1 1`] = `
   --ice-error: 211 32 41;
   --ice-error-hover: 166 29 36;
   --ice-error-active: 232 71 73;
-  --ice-info-content: 255 255 255;
-  --ice-info: 22 104 220;
-  --ice-info-hover: 21 84 173;
-  --ice-info-active: 60 137 232;
+  --ice-error-content: 255 255 255;
   --ice-neutral: 38 38 38;
   --ice-neutral-hover: 67 67 67;
   --ice-neutral-active: 31 31 31;

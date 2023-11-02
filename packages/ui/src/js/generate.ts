@@ -38,3 +38,27 @@ export function generateIndexCode(basenames: string[]) {
 
   return babelGenerate(ast).code
 }
+
+export function generateComponentsIndexCode(basenames: string[]) {
+  const props = Object.entries(
+    basenames.reduce<Record<string, t.ObjectProperty[]>>((acc, name) => {
+      for (const stage of ['base', 'styled', 'utils']) {
+        const node = t.objectProperty(t.stringLiteral(stage), t.callExpression(t.identifier('require'), [t.stringLiteral(`./${name}/${stage}.js`)]))
+        if (acc[name]) {
+          acc[name].push(node)
+        } else {
+          acc[name] = [node]
+        }
+      }
+      return acc
+    }, {})
+  ).map(([key, props]) => {
+    return t.objectProperty(t.stringLiteral(key), t.objectExpression(props))
+  })
+
+  const ast = t.file(
+    t.program([t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('module'), t.identifier('exports')), t.objectExpression(props)))])
+  )
+
+  return babelGenerate(ast).code
+}

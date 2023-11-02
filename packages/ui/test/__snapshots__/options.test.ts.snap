@@ -73,28 +73,14 @@ exports[`options > getCodegenOptions snap 1`] = `
         "dark": {
           "error": "#d32029",
           "error-active": "#e84749",
+          "error-content": "#ffffff",
           "error-hover": "#a61d24",
-          "info-content": "#ffffff",
         },
         "light": {
           "error": "#f5222d",
           "error-active": "#cf1322",
           "error-content": "#ffffff",
           "error-hover": "#ff4d4f",
-        },
-      },
-      "info": {
-        "dark": {
-          "info": "#1668dc",
-          "info-active": "#3c89e8",
-          "info-content": "#ffffff",
-          "info-hover": "#1554ad",
-        },
-        "light": {
-          "info": "#1677ff",
-          "info-active": "#0958d9",
-          "info-content": "#ffffff",
-          "info-hover": "#4096ff",
         },
       },
       "neutral": {

@@ -2,14 +2,14 @@ import fs from 'node:fs'
 import path from 'node:path'
 import plugin from 'tailwindcss/plugin'
 import { set } from 'lodash'
-import { generateIndexCode } from './js/generate'
+import { generateComponentsIndexCode, generateIndexCode } from './js/generate'
 import { getColors } from './colors'
 import { walkScssSync } from './utils'
-import { buildScss } from '@/sass'
+import { buildComponents, buildScss } from './sass'
 import { resolveJsDir, scssDir } from '@/dirs'
 import { someExtends } from '@/constants'
 import { CodegenOptions } from '@/types'
-
+import allComponents from '@/allComponents'
 export type IOptions = {
   options: CodegenOptions
   outSideLayerCss: 'base' | 'utilities' | 'components'
@@ -60,43 +60,31 @@ export function generate(opts: IOptions) {
       return res
     }
     case 'components': {
-      // const utilitiesJs = path.resolve(resolveJsDir(outdir), 'utilities')
+      const res = buildComponents({
+        outdir,
+        filename: '',
+        outSideLayerCss: 'components',
+        resolveConfig: (config) => {
+          set(config, 'theme.extend.colors', colors)
+          config.plugins = [
+            plugin(() => {}, {
+              theme: {
+                extend: {
+                  ...someExtends
+                }
+              }
+            })
+          ]
+        },
+        options
+      })
 
-      const basenameArray = []
-      const fromDir = path.resolve(scssDir, 'components')
-      const res = []
-      for (const file of walkScssSync(fromDir)) {
-        basenameArray.push(path.relative(fromDir, file.path).replace(/\.scss$/, ''))
-        res.push(
-          buildScss({
-            outdir,
-            filename: file.path,
-            resolveConfig: (config) => {
-              set(config, 'theme.extend.colors', colors)
-              config.plugins = [
-                plugin(
-                  () => {
-                    //  const obj = require(path.resolve(utilitiesJs, 'index.js'))
-                    // @ts-ignore
-                    // addUtilities(Object.values(obj))
-                  },
-                  {
-                    theme: {
-                      extend: {
-                        ...someExtends
-                      }
-                    }
-                  }
-                )
-              ]
-            },
-            outSideLayerCss,
-            options
-          })
-        )
+      if (!dryRun) {
+        const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
+        const code = generateComponentsIndexCode(allComponents)
+        fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.js'), code, 'utf8')
       }
-      const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
-      !dryRun && fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.js'), generateIndexCode(basenameArray), 'utf8')
+
       return res
     }
     default:

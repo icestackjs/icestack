@@ -85,25 +85,25 @@ export function getDefaultBase(raw?: boolean) {
             // red-5
             'error-hover': '#a61d24',
             'error-active': '#e84749',
-            'info-content': '#ffffff'
+            'error-content': '#ffffff'
           }
         },
-        info: {
-          light: {
-            info: '#1677ff',
-            // blue-5
-            'info-hover': '#4096ff',
-            'info-active': '#0958d9',
-            'info-content': '#ffffff'
-          },
-          dark: {
-            info: '#1668dc',
-            // blue-5
-            'info-hover': '#1554ad',
-            'info-active': '#3c89e8',
-            'info-content': '#ffffff'
-          }
-        },
+        // info: {
+        //   light: {
+        //     info: '#1677ff',
+        //     // blue-5
+        //     'info-hover': '#4096ff',
+        //     'info-active': '#0958d9',
+        //     'info-content': '#ffffff'
+        //   },
+        //   dark: {
+        //     info: '#1668dc',
+        //     // blue-5
+        //     'info-hover': '#1554ad',
+        //     'info-active': '#3c89e8',
+        //     'info-content': '#ffffff'
+        //   }
+        // },
         neutral: {
           light: {
             // gray-10

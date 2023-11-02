@@ -1,11 +1,11 @@
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, addPrefix } from './share'
+import { expands, typePrefix } from './share'
 export type ButtonProps = VariantProps<typeof button> & { textContent?: string }
 
 // ['primary', 'neutral', 'success', 'warning', 'error']
 
-export const allTypes = addPrefix('btn-', ['primary', 'neutral', 'success', 'warning', 'error'])
+export const allTypes = typePrefix('btn')
 
 export const allSizes = ['btn-xs', 'btn-sm', 'btn-md', 'btn-lg', 'btn-wide', 'btn-block']
 

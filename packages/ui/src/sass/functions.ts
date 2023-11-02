@@ -17,7 +17,6 @@ function getComsOpts(opts: CreatePresetOptions, name: string): Partial<Component
   return get(opts, `options.components.${name}`, {})
 }
 
-// @ts-ignore
 export const createPreset: (opts: CreatePresetOptions) => Record<(typeof allComponents)[number], any> = (opts) => {
   return Object.entries(componentsMap).reduce<Record<string, object>>((acc, [name, lib]) => {
     const comOpt = getComsOpts(opts, name)

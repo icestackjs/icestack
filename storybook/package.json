@@ -15,10 +15,12 @@
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.4.0",
     "@iconify-json/mdi": "^1.1.55",
+    "@storybook/addon-a11y": "^7.5.2",
     "@storybook/addon-essentials": "^7.5.2",
     "@storybook/addon-interactions": "^7.5.2",
     "@storybook/addon-links": "^7.5.2",
     "@storybook/addon-onboarding": "^1.0.8",
+    "@storybook/addon-storysource": "^7.5.2",
     "@storybook/addon-styling-webpack": "^0.0.5",
     "@storybook/addon-themes": "^7.5.2",
     "@storybook/blocks": "^7.5.2",
@@ -36,11 +38,16 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "storybook": "^7.5.2",
+    "storybook-react-i18next": "^2.0.9",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.2.2"
   },
   "dependencies": {
     "@icestack/ui": "workspace:^",
-    "class-variance-authority": "^0.7.0"
+    "class-variance-authority": "^0.7.0",
+    "i18next": "^23.6.0",
+    "i18next-browser-languagedetector": "^7.1.0",
+    "i18next-http-backend": "^2.3.1",
+    "react-i18next": "^13.3.1"
   }
 }

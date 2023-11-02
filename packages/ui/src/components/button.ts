@@ -17,11 +17,7 @@ function buttonFocusVisible(obj: IValue) {
     '&:focus-visible': obj
   }
 }
-// const extraSelectorMap = {
-//   '&.glass': 'glass',
-//   '&-ghost': 'ghost',
-//   '&-link': 'link'
-// }
+
 export const options: OptionFn = (opts) => {
   const { selector, types } = opts
 

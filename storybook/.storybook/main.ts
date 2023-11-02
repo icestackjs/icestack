@@ -16,7 +16,10 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-essentials'),
     getAbsolutePath('@storybook/addon-interactions'),
     // '@storybook/addon-styling-webpack',
-    '@storybook/addon-themes'
+    '@storybook/addon-themes',
+    '@storybook/addon-storysource',
+    '@storybook/addon-a11y'
+    // 'storybook-react-i18next'
   ],
   framework: {
     name: getAbsolutePath('@storybook/html-vite'),

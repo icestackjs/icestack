@@ -66,7 +66,7 @@ export const icestackPlugin = plugin.withOptions(
           return function ({ addBase, addComponents, addUtilities }) {
             addBase(baseObj)
 
-            for (const [name, item] of componentsEntries) {
+            for (const [, item] of componentsEntries) {
               // 优先级 utils > index > base
               const cssItems: (CssInJs | undefined)[] = [item.base, item.styled, item.utils]
 

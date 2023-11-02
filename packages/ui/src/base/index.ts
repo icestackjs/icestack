@@ -1,8 +1,17 @@
 import { SassMap, Value } from 'sass'
 import { OrderedMap } from 'immutable'
-import { getVarsEntries } from './css-vars'
 import { transformBaseJs, transformJsToSass } from '@/sass/utils'
 import { CodegenOptions } from '@/types'
+
+export const composeVarsEntries = (colorsMap: Record<string, string>, shareVars: Record<string, string>, shareVars1: Record<string, string>): [string, string][] => {
+  return Object.entries({
+    ...colorsMap,
+    ...shareVars,
+    ...shareVars1
+  }).map(([key, value]) => {
+    return ['--' + key, value]
+  })
+}
 
 export const calcBase = (options: CodegenOptions) => {
   const types = options?.base?.types
@@ -15,7 +24,7 @@ export const calcBase = (options: CodegenOptions) => {
     functions: {
       'injectCssVars($mode:null)': (args: Value[]) => {
         const mode = args[0].assertString().text
-        const vars = getVarsEntries(
+        const vars = composeVarsEntries(
           values
             .map((x) => x[mode])
             .reduce<Record<string, string>>((acc, cur) => {

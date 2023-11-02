@@ -1,9 +1,18 @@
 import 'tailwindcss/tailwind.css'
+// import i18n from './i18next';
 import { withThemeByDataAttribute } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/html'
 
 const preview: Preview = {
+  globals: {
+    locale: 'en',
+    locales: {
+      en: 'English',
+      zh: '中文',
+    },
+  },
   parameters: {
+    // i18n,
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {

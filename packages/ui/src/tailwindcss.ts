@@ -13,6 +13,7 @@ import { getCodegenOptions } from './options.js'
 import { getJsProcess } from '@/postcss/js'
 import { buildAll } from '@/generate'
 import { getColors } from '@/colors'
+import { logger } from '@/log'
 
 // function isRgba(colorString: string) {
 //   return typeof colorString === 'string' && colorString.includes('/')
@@ -43,7 +44,7 @@ export const icestackPlugin = plugin.withOptions(
             const start = performance.now()
             buildAll(options)
             const now = performance.now()
-            console.log(`buildAll: ${now - start}ms`)
+            logger.success(`buildAll: ${now - start}ms`)
           }
           const { outdir } = options
           // fs.writeFileSync(path.resolve(outdir, './env.json'), JSON.stringify(process.env), 'utf8')

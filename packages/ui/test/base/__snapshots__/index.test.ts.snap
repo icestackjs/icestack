@@ -46,7 +46,7 @@ exports[`base > snap 1`] = `
   --ice-tab-radius: 0.5rem;
 }
 
-[data-theme=dark] {
+[data-mode=dark] {
   --ice-primary: 22 104 220;
   --ice-primary-hover: 21 84 173;
   --ice-primary-active: 60 137 232;

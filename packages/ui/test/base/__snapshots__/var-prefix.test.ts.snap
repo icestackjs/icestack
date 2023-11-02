@@ -46,7 +46,7 @@ exports[`var-prefix > snap case 0 1`] = `
   --ice-tab-radius: 0.5rem;
 }
 
-[data-theme=dark] {
+[data-mode=dark] {
   --ice-primary: 22 104 220;
   --ice-primary-hover: 21 84 173;
   --ice-primary-active: 60 137 232;
@@ -138,7 +138,7 @@ exports[`var-prefix > snap case 1 1`] = `
   --som-tab-radius: 0.5rem;
 }
 
-[data-theme=dark] {
+[data-mode=dark] {
   --som-primary: 22 104 220;
   --som-primary-hover: 21 84 173;
   --som-primary-active: 60 137 232;

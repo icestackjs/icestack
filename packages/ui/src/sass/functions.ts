@@ -7,7 +7,6 @@ import { applyListToString, handleOptions } from '@/components/shared'
 import { componentsMap } from '@/components'
 import * as base from '@/base'
 import { CodegenOptions, ComponentsValue } from '@/types'
-// import { getCodegenOptions } from '@/options'
 
 export interface CreatePresetOptions {
   types: string[]

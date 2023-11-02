@@ -62,7 +62,7 @@ exports[`options > getCodegenOptions snap 1`] = `
     },
     "themes": {
       "dark": {
-        "selector": "[data-theme=\\"dark\\"]",
+        "selector": "[data-mode=\\"dark\\"]",
       },
       "light": {
         "selector": ":root",
@@ -273,7 +273,7 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     },
     "themes": {
       "dark": {
-        "selector": "[data-theme=\\"dark\\"]",
+        "selector": "[data-mode=\\"dark\\"]",
       },
       "light": {
         "selector": ":root",

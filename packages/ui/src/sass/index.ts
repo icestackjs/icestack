@@ -36,7 +36,7 @@ export function compileScss(filename: string, opts: CodegenOptions, functions: R
   } else if (typeof opts.prefix === 'object') {
     plugins.push(prefixer(opts.prefix))
   }
-  // console.log(filename)
+
   // @ts-ignore
   return postcss(plugins).process(result.css, {
     from: undefined

@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import icebreakerAvatar from './assets/image/icebreaker.jpeg'
+import Pig from './assets/image/pig.jpg'
 export type AvatarProps = VariantProps<typeof avatar> & { textContent?: string }
 
 // export const allTypes = typePrefix('avatar-')
@@ -17,7 +17,7 @@ export const createAvatar = (props: AvatarProps) => {
   wrapperDiv.className = 'w-24 rounded'
   const img = document.createElement('img')
   wrapperDiv.append(img)
-  img.src = icebreakerAvatar
+  img.src = Pig
   div.append(wrapperDiv)
   return div
 }

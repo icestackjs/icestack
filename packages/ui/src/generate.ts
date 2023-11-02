@@ -10,6 +10,8 @@ import { resolveJsDir, scssDir } from '@/dirs'
 import { someExtends } from '@/constants'
 import { CodegenOptions } from '@/types'
 import allComponents from '@/allComponents'
+import { logger } from '@/log'
+
 export type IOptions = {
   options: CodegenOptions
   outSideLayerCss: 'base' | 'utilities' | 'components'
@@ -99,21 +101,21 @@ export function buildAll(options: CodegenOptions) {
     outSideLayerCss: 'base'
   })
   let end = performance.now()
-  console.log('build base finished!' + `${end - start}ms`)
+  logger.success('build base finished!' + `${end - start}ms`)
   start = performance.now()
   const utilities = generate({
     options,
     outSideLayerCss: 'utilities'
   })
   end = performance.now()
-  console.log('build utilities finished!' + `${end - start}ms`)
+  logger.success('build utilities finished!' + `${end - start}ms`)
   start = performance.now()
   const components = generate({
     options,
     outSideLayerCss: 'components'
   })
   end = performance.now()
-  console.log('build components finished!' + `${end - start}ms`)
+  logger.success('build components finished!' + `${end - start}ms`)
 
   return {
     base,

@@ -21,3 +21,30 @@ describe.each(allComponents.map((x) => ({ name: x })))('$name', ({ name }) => {
     })
   }
 })
+
+describe('custom components', () => {
+  for (const stage of stages) {
+    it('custom component ' + stage, () => {
+      const { css } = compileScssWithCp(
+        getCodegenOptions({
+          components: {
+            custom: {
+              extra: {
+                '.custom': {
+                  css: {
+                    color: 'red'
+                  },
+                  apply: ['bg-blue-500']
+                }
+              },
+              selector: '.custom'
+            }
+          }
+        }),
+        'custom',
+        stage
+      )
+      expect(css).toMatchSnapshot()
+    })
+  }
+})

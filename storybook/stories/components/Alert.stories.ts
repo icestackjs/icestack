@@ -1,8 +1,8 @@
 import type { StoryObj, Meta } from '@storybook/html'
-
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
 import { expands, typePrefix } from './share'
+
 type AlertProps = VariantProps<typeof alert> & { textContent?: string }
 
 const allTypes = typePrefix('alert')

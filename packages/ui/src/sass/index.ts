@@ -77,14 +77,6 @@ export function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
   !dryRun && fs.writeFileSync(cssResolvedPath, css, 'utf8')
   const cssJsObj = postcssJs.objectify(root as Root)
 
-  // if (outSideLayerCss === 'utilities') {
-  //   // @ts-ignore
-  //   // eslint-disable-next-line unicorn/consistent-destructuring
-  //   const hit = options?.components?.[name]
-  //   if (hit && Array.isArray(hit.append)) {
-  //     merge(cssJsObj, ...hit.append)
-  //   }
-  // }
   if (!dryRun) {
     const data = 'module.exports = ' + JSON.stringify(cssJsObj, null, 2)
     // css -> js

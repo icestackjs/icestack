@@ -108,4 +108,35 @@ describe('createPreset options', () => {
     })
     expect(res.alert).toMatchSnapshot()
   })
+
+  it('add custom component raw override case 0', () => {
+    const options = getCodegenOptions({
+      // prefix: 'som-',
+      mode: 'raw',
+      components: {
+        alert: {
+          extra: {
+            '.my-xxx': {
+              css: {
+                color: 'red'
+              },
+              apply: ['bg-blue-500'],
+              '&:hover': {
+                css: {
+                  color: 'blue'
+                }
+              }
+            }
+          },
+          selector: '.my-xxx'
+        }
+      }
+    })
+    // const { allTypes } = calcBase(options)
+    const res = createPreset({
+      options,
+      types: []
+    })
+    expect(res.alert).toMatchSnapshot()
+  })
 })

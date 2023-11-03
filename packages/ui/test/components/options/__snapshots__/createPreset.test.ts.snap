@@ -1,5 +1,34 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`createPreset options > add custom component raw override case 0 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".my-xxx": undefined,
+    },
+    "styled": {
+      ".my-xxx": undefined,
+    },
+    "utils": {
+      ".my-xxx": {
+        "&:hover": {
+          "css": {
+            "color": "blue",
+          },
+        },
+        "apply": [
+          "bg-blue-500",
+        ],
+        "css": {
+          "color": "red",
+        },
+      },
+    },
+  },
+  "selector": ".my-xxx",
+}
+`;
+
 exports[`createPreset options > alert base case 0 1`] = `
 {
   "defaults": {

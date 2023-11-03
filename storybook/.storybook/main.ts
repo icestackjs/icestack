@@ -1,5 +1,5 @@
 import type { StorybookConfig } from '@storybook/html-vite'
-
+// import remarkGfm from 'remark-gfm'
 import { join, dirname } from 'path'
 
 /**
@@ -18,7 +18,17 @@ const config: StorybookConfig = {
     // '@storybook/addon-styling-webpack',
     '@storybook/addon-themes',
     // '@storybook/addon-storysource',
-    '@storybook/addon-a11y'
+    '@storybook/addon-a11y',
+    // {
+    //   name: '@storybook/addon-docs',
+    //   options: {
+    //     mdxPluginOptions: {
+    //       mdxCompileOptions: {
+    //         remarkPlugins: [remarkGfm],
+    //       },
+    //     },
+    //   },
+    // }
     // 'storybook-react-i18next'
   ],
   framework: {

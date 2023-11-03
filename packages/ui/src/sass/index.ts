@@ -92,6 +92,14 @@ export function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
   return cssJsObj
 }
 
+export function compileScssWithCp(options: CodegenOptions, componentName: string, stage: string) {
+  return compileScss(componentTemplate, options, {
+    'cp()': () => {
+      return transformJsToSass(`${componentName}.defaults.${stage}`)
+    }
+  })
+}
+
 export function buildComponents(opts: IBuildScssOptions<CodegenOptions>) {
   const { resolveConfig, outdir, options } = opts
   const { dryRun } = options
@@ -99,11 +107,7 @@ export function buildComponents(opts: IBuildScssOptions<CodegenOptions>) {
   const res: Record<string, Record<string, CssInJs>> = {}
   for (const componentName of allComponents) {
     for (const stage of stages) {
-      const { css: cssOutput } = compileScss(componentTemplate, options, {
-        'cp()': () => {
-          return transformJsToSass(`${componentName}.defaults.${stage}`)
-        }
-      })
+      const { css: cssOutput } = compileScssWithCp(options, componentName, stage)
       const relPath = `components/${componentName}/${stage}.scss`
       const cssPath = getCssPath(relPath, outdir)
       const jsPath = getJsPath(relPath, outdir)

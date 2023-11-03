@@ -1,8 +1,9 @@
 import defu from 'defu'
 import { isObject } from 'lodash'
 import { recursive } from 'merge'
+import { CssInJs } from 'postcss-js'
 import { IOptionReturnType } from './types'
-import type { ComponentsValue } from '@/types'
+import type { CodegenMode, ComponentsValue } from '@/types'
 // import { pascalCase } from '@/utils'
 
 // export function createInjectName(componentName: string) {
@@ -98,48 +99,54 @@ export function applyStringToArray(obj: Record<string, any>) {
   return obj
 }
 
-export function handleOptions(d: IOptionReturnType, { extend, override, selector }: Partial<ComponentsValue>) {
+export function makeDefaults(obj?: CssInJs, selector?: string, mode?: CodegenMode) {
+  if (mode === 'styled') {
+    return {
+      base: {
+        [selector as string]: obj?.base
+      },
+      styled: {
+        [selector as string]: obj?.styled
+      },
+      utils: {
+        [selector as string]: obj?.utils
+      }
+    }
+  } else if (mode === 'base') {
+    return {
+      base: {
+        [selector as string]: obj?.base
+      }
+    }
+  } else {
+    return {}
+  }
+}
+
+export function handleOptions(d: IOptionReturnType, { extend, override, selector, extra = {}, mode }: Partial<ComponentsValue>) {
   const de = applyStringToArray(d) as IOptionReturnType
   let xx = de
   if (override) {
     xx = recursive(true, de, {
       selector,
-      defaults: {
-        base: {
-          // @ts-ignore
-          [selector as string]: override?.base
-        },
-        styled: {
-          // @ts-ignore
-          [selector as string]: override?.styled
-        },
-        utils: {
-          // @ts-ignore
-          [selector as string]: override?.utils
-        }
-      }
+      defaults: makeDefaults(override, selector, mode)
     })
   }
-  return defu(
+  const res = defu(
     {
       selector,
-      defaults: {
-        base: {
-          // @ts-ignore
-          [selector as string]: extend?.base
+      defaults: defu(
+        {
+          utils: {
+            ...extra
+          }
         },
-        styled: {
-          // @ts-ignore
-          [selector as string]: extend?.styled
-        },
-        utils: {
-          // @ts-ignore
-          [selector as string]: extend?.utils
-        }
-      }
+        makeDefaults(extend, selector, mode)
+      )
     },
     xx
   )
+  return res
 }
 
 // @function getSelector($type, $prefix: "-") {

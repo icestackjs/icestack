@@ -9,17 +9,18 @@ export const miniprogramPreset: () => DeepPartial<CodegenOptions> = () => {
       },
       selector: {
         universal: 'view'
-      }
+      },
+      pseudo: {}
     },
     components: {
       button: {
-        append: [
-          {
-            '.btn::after': {
+        extra: {
+          '.btn::after': {
+            css: {
               border: 'none'
             }
           }
-        ]
+        }
       }
     },
     base: {

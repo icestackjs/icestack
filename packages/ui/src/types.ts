@@ -29,8 +29,9 @@ export type BaseOptions = {
 
 export type ComponentsValue = {
   mode: CodegenMode
-  override: object
-  extend: object
+  override: CssInJs
+  extend: CssInJs
+  extra: CssInJs
   append: CssInJs[]
   selector: string
   // postcss: {

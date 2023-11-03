@@ -1,12 +1,9 @@
-import path from 'node:path'
 // import { without } from 'lodash'
 
-import { scssDir, componentTemplate } from '@/dirs'
-import { compileScss } from '@/sass'
+import { compileScssWithCp } from '@/sass'
 import { getCodegenOptions } from '@/options'
 import allComponents from '@/allComponents'
 import { stages } from '@/constants'
-import { transformJsToSass } from '@/sass/utils'
 
 // const baseDir = path.resolve(scssDir, 'components')
 
@@ -18,12 +15,8 @@ import { transformJsToSass } from '@/sass/utils'
 // })
 describe.each(allComponents.map((x) => ({ name: x })))('$name', ({ name }) => {
   for (const stage of stages) {
-    it(stage, async () => {
-      const { css } = await compileScss(componentTemplate, getCodegenOptions(), {
-        'cp()': () => {
-          return transformJsToSass(`${name}.defaults.${stage}`)
-        }
-      })
+    it(stage, () => {
+      const { css } = compileScssWithCp(getCodegenOptions(), name, stage)
       expect(css).toMatchSnapshot()
     })
   }

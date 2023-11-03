@@ -101,21 +101,21 @@ export function buildAll(options: CodegenOptions) {
     outSideLayerCss: 'base'
   })
   let end = performance.now()
-  logger.success('build base finished!' + `${end - start}ms`)
+  logger.success('build base finished! ' + `${end - start}ms`)
   start = performance.now()
   const utilities = generate({
     options,
     outSideLayerCss: 'utilities'
   })
   end = performance.now()
-  logger.success('build utilities finished!' + `${end - start}ms`)
+  logger.success('build utilities finished! ' + `${end - start}ms`)
   start = performance.now()
   const components = generate({
     options,
     outSideLayerCss: 'components'
   })
   end = performance.now()
-  logger.success('build components finished!' + `${end - start}ms`)
+  logger.success('build components finished! ' + `${end - start}ms`)
 
   return {
     base,

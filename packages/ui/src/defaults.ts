@@ -241,8 +241,8 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
         hover: false
       },
       selector: {
-        universal: '*',
-        globalKeyword: 'global'
+        universal: '*'
+        // globalKeyword: 'global'
       }
       // pseudo: {
       //   where: true

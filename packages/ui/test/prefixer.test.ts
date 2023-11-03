@@ -40,6 +40,18 @@ describe('Prefixer', () => {
     expect(css).toEqual(mocks.default.expected)
   })
 
+  test('should prefix class case 0', () => {
+    const { css } = postcss([postcssPrefixer({ prefix: 'prefix-' })]).process(`.a {}`)
+
+    expect(css).toEqual(`.prefix-a {}`)
+  })
+
+  test('should prefix class case 1', () => {
+    const { css } = postcss([postcssPrefixer({ prefix: 'prefix-' })]).process(`.a {}`)
+
+    expect(css).toEqual(`.prefix-a {}`)
+  })
+
   test('should ignore selectors from ignore array option', () => {
     const { css } = postcss([
       postcssPrefixer({

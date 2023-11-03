@@ -15,10 +15,6 @@ import { buildAll } from '@/generate'
 import { getColors } from '@/colors'
 import { logger } from '@/log'
 
-// function isRgba(colorString: string) {
-//   return typeof colorString === 'string' && colorString.includes('/')
-// }
-
 function requireLib(id: string, basedir?: string) {
   return require(basedir ? path.resolve(basedir, id) : path.join('../assets', id))
 }

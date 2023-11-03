@@ -8,15 +8,13 @@ import type { CodegenOptions, DeepPartial } from './types'
 import { buildAll } from './generate'
 import { getCodegenOptions } from './options'
 import { logger } from '@/log'
-// import { getDefaultCacheDir } from '@/cache'
-// import { getCodegenOptions } from '@/options'
 const cli = createCli()
 
 export async function load(cwd?: string) {
   const { config } = await loadConfig<DeepPartial<CodegenOptions>>({
     name: 'icestack',
-    cwd
-    // defaultConfig: getCodegenOptions()
+    cwd,
+    defaultConfig: getCodegenOptions()
   })
   return config
 }
@@ -34,7 +32,7 @@ cli.command('codegen', 'code generate').action(async () => {
   const config = await load()
   if (config) {
     const cfg = getCodegenOptions(config, true)
-    await buildAll(cfg)
+    buildAll(cfg)
     logger.success('codegen successfully!')
   }
 })

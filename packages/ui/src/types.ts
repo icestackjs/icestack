@@ -54,7 +54,7 @@ export type GlobalOptions = {
     // default *
     universal: string // | (() => string)
     // default global
-    globalKeyword: string
+    // globalKeyword: string
   }
 }
 
@@ -81,6 +81,7 @@ export type CodegenOptions = {
   autobuild: boolean
   dryRun: boolean
   loaddir: string
+  tailwindcssConfig: TailwindcssConfig
   // tailwindcss plugin
   runtime: {
     prefix: string | PrefixerOptions

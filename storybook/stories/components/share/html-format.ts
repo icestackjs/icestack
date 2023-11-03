@@ -4,6 +4,4 @@ export function formatHtml(value: string) {
   return jb.html_beautify(value, {
     indent_size: 2
   })
-  // const doc = parseFragment(value)
-  // return serializeOuter(doc)
 }

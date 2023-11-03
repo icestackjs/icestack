@@ -5,6 +5,7 @@ import { merge } from 'merge'
 import postcssJs, { CssInJs } from 'postcss-js'
 import postcss, { Root, AcceptedPlugin } from 'postcss'
 import { set } from 'lodash'
+import defu from 'defu'
 import { createFunctions } from './functions'
 import { transformJsToSass } from './utils'
 import { ensureDirSync } from '@/utils'
@@ -47,7 +48,7 @@ export function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
   const { filename, resolveConfig, outdir, options, outSideLayerCss } = opts
 
   const name = path.basename(filename, '.scss')
-  const { dryRun } = options
+  const { dryRun, tailwindcssConfig } = options
   const { css: cssOutput } = compileScss(filename, options)
 
   const relPath = path.relative(scssDir, filename)
@@ -61,7 +62,7 @@ export function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
     ensureDirSync(path.dirname(cssResolvedPath))
   }
 
-  const config = initConfig()
+  const config = defu(tailwindcssConfig, initConfig())
 
   resolveConfig?.(config)
 
@@ -69,7 +70,8 @@ export function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
   !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
   const { root, css } = resolveTailwindcss({
     css: cssOutput,
-    config
+    config,
+    options
   })
 
   !dryRun && fs.writeFileSync(cssResolvedPath, css, 'utf8')
@@ -127,7 +129,8 @@ export function buildComponents(opts: IBuildScssOptions<CodegenOptions>) {
       !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
       const { root, css } = resolveTailwindcss({
         css: cssOutput,
-        config
+        config,
+        options
       })
 
       !dryRun && fs.writeFileSync(cssResolvedPath, css, 'utf8')

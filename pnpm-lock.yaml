@@ -452,6 +452,9 @@ importers:
       '@storybook/addon-themes':
         specifier: ^7.5.2
         version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/addon-toolbars':
+        specifier: ^7.5.2
+        version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/blocks':
         specifier: ^7.5.2
         version: 7.5.2(@types/react-dom@18.2.14)(@types/react@18.2.34)(react-dom@18.2.0)(react@18.2.0)

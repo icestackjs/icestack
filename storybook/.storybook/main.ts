@@ -19,6 +19,8 @@ const config: StorybookConfig = {
     '@storybook/addon-themes',
     // '@storybook/addon-storysource',
     '@storybook/addon-a11y',
+    '@storybook/addon-toolbars',
+    'storybook-i18n'
     // {
     //   name: '@storybook/addon-docs',
     //   options: {

@@ -99,7 +99,7 @@ export function applyStringToArray(obj: Record<string, any>) {
   return obj
 }
 
-export function makeDefaults(obj?: CssInJs, selector?: string, mode?: CodegenMode) {
+export function makeDefaults(obj?: CssInJs, selector?: string, mode: CodegenMode = 'styled') {
   if (mode === 'styled') {
     return {
       base: {
@@ -124,10 +124,10 @@ export function makeDefaults(obj?: CssInJs, selector?: string, mode?: CodegenMod
 }
 
 export function handleOptions(d: IOptionReturnType, { extend, override, selector, extra = {}, mode }: Partial<ComponentsValue>) {
-  const de = applyStringToArray(d) as IOptionReturnType
-  let xx = de
+  let de = applyStringToArray(d) as IOptionReturnType
+  // de.defaults = makeDefaults(de.defaults, selector, mode)
   if (override) {
-    xx = recursive(true, de, {
+    de = recursive(true, de, {
       selector,
       defaults: makeDefaults(override, selector, mode)
     })
@@ -141,10 +141,10 @@ export function handleOptions(d: IOptionReturnType, { extend, override, selector
             ...extra
           }
         },
-        makeDefaults(extend, selector, mode)
+        makeDefaults(extend, selector, 'styled')
       )
     },
-    xx
+    de
   )
   return res
 }

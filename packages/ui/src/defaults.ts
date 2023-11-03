@@ -249,10 +249,10 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
       // }
     },
     base,
-    runtime: {
-      atMedia: {},
-      selector: {}
-    },
+    // runtime: {
+    //   atMedia: {},
+    //   selector: {}
+    // },
     components: {
       ...defaultSelectorMap
     }

@@ -39,9 +39,6 @@ export const createFunctions: (options: CodegenOptions) => Options<'sync'>['func
   })
   return {
     ...baseResult.functions,
-    // 'globalAtMediaHover()': () => {
-    //   return transformJsToSass(options?.global?.atMedia?.hover)
-    // },
     'inject($path:null)': (args: Value[]) => {
       const p = args[0].assertString().text
       const map = get(presets, p, {})

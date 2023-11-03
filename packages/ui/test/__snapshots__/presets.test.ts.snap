@@ -244,10 +244,6 @@ exports[`presets > miniprogramPreset 1`] = `
       },
     },
   ],
-  "runtime": {
-    "atMedia": {},
-    "selector": {},
-  },
   "varPrefix": "--ice-",
 }
 `;

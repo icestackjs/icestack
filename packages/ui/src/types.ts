@@ -83,16 +83,16 @@ export type CodegenOptions = {
   loaddir: string
   tailwindcssConfig: TailwindcssConfig
   // tailwindcss plugin
-  runtime: {
-    prefix: string | PrefixerOptions
-    atMedia: {
-      hover: boolean
-    }
-    selector: {
-      // default *
-      universal: string // | (() => string)
-    }
-  }
+  // runtime: {
+  //   prefix: string | PrefixerOptions
+  //   atMedia: {
+  //     hover: boolean
+  //   }
+  //   selector: {
+  //     // default *
+  //     universal: string // | (() => string)
+  //   }
+  // }
 }
 
 export type Config = Partial<CodegenOptions>

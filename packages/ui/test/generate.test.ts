@@ -6,7 +6,7 @@ import { getCodegenOptions } from '@/options'
 function resolve(...p: string[]) {
   return path.resolve(__dirname, './fixtures/generate', ...p)
 }
-describe.skip('generate', () => {
+describe.concurrent('generate', () => {
   const expectedDirs = ['css', 'css-resolved', 'js', 'js/base', 'js/components', 'js/utilities', 'js/base/index.js', 'js/components/index.js', 'js/utilities/index.js']
   it('case 0', async () => {
     const dir = resolve('case0')
@@ -21,15 +21,16 @@ describe.skip('generate', () => {
     }
   })
 
-  it('case 1', async () => {
+  it('dryRun case 0', async () => {
     const dir = resolve('dryRun')
     await deleteAsync([dir])
-    buildAll({
+    const res = buildAll({
       ...getCodegenOptions({
         dryRun: true
       }),
       outdir: dir
     })
+    expect(res).toMatchSnapshot()
     for (const x of expectedDirs) {
       expect(fs.existsSync(path.resolve(dir, x))).toBe(false)
     }

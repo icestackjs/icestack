@@ -1,6 +1,50 @@
 import type { StoryObj, Meta } from '@storybook/html'
-import type { ButtonProps } from './Button'
-import { createButton, allTypes, allSizes, allShapes } from './Button'
+import { cva } from 'class-variance-authority'
+import type { VariantProps } from 'class-variance-authority'
+import { expands, typePrefix, addPrefix } from './share'
+type ButtonProps = VariantProps<typeof button> & { textContent?: string }
+
+// ['primary', 'neutral', 'success', 'warning', 'error']
+
+const allTypes = typePrefix('btn')
+
+const allSizes = ['btn-xs', 'btn-sm', 'btn-md', 'btn-lg', 'btn-wide', 'btn-block']
+
+const allShapes = ['btn-square', 'btn-circle']
+
+const button = cva(['btn'], {
+  variants: {
+    type: expands(allTypes),
+    outline: {
+      true: 'btn-outline',
+      false: ''
+    },
+    size: expands(allSizes),
+    glass: {
+      true: 'glass',
+      false: ''
+    },
+    disabled: {
+      true: 'btn-disabled',
+      false: ''
+    },
+    shape: expands(allShapes)
+    // block: {
+    //   true: 'btn-block',
+    //   false: ''
+    // }
+  },
+  defaultVariants: {
+    // size: 'btn-md'
+  }
+})
+
+const createButton = (props: ButtonProps) => {
+  const btn = document.createElement('button')
+  btn.textContent = props.textContent ?? 'Button'
+  btn.className = button(props)
+  return btn
+}
 
 const meta: Meta<ButtonProps> = {
   title: 'Css/Button',
@@ -20,8 +64,8 @@ const meta: Meta<ButtonProps> = {
       // defaultValue: {}
     },
     textContent: {
-      control: { type: 'text' }
-      // defaultValue: 'Button'
+      control: { type: 'text' },
+      defaultValue: 'Button'
     },
     size: {
       description: 'default: btn-md',

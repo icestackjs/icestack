@@ -16,13 +16,11 @@ const button = cva(['btn'], {
   variants: {
     type: expands(allTypes),
     outline: {
-      true: 'btn-outline',
-      false: ''
+      true: 'btn-outline'
     },
     size: expands(allSizes),
     glass: {
-      true: 'glass',
-      false: ''
+      true: 'glass'
     },
     disabled: {
       true: 'btn-disabled',
@@ -52,6 +50,9 @@ const meta: Meta<ButtonProps> = {
   render: (args) => {
     return createButton(args)
   },
+  args: {
+    textContent: 'Button'
+  },
   argTypes: {
     type: {
       options: allTypes,
@@ -61,24 +62,20 @@ const meta: Meta<ButtonProps> = {
       description: 'btn-outline',
       // options: ['btn-outline', 'default'],
       control: { type: 'boolean' }
-      // defaultValue: {}
     },
     textContent: {
-      control: { type: 'text' },
-      defaultValue: 'Button'
+      control: { type: 'text' }
     },
     size: {
       description: 'default: btn-md',
       options: allSizes,
       control: { type: 'inline-radio' },
       type: 'string'
-      // defaultValue: 'btn-md'
     },
     glass: {
       description: 'glass',
       // options: ['btn-outline', 'default'],
       control: { type: 'boolean' }
-      // defaultValue: 'default'
     },
     disabled: {
       description: 'btn-disabled',

@@ -11,8 +11,7 @@ const badge = cva(['badge'], {
   variants: {
     type: expands(allTypes),
     outline: {
-      true: 'badge-outline',
-      false: ''
+      true: 'badge-outline'
     },
     size: expands(allSizes)
   },
@@ -31,6 +30,9 @@ const meta: Meta<BadgeProps> = {
   render: (args) => {
     return create(args)
   },
+  args: {
+    textContent: 'Badge'
+  },
   argTypes: {
     type: {
       options: allTypes,
@@ -45,11 +47,9 @@ const meta: Meta<BadgeProps> = {
       options: allSizes,
       control: { type: 'inline-radio' },
       type: 'string'
-      // defaultValue: 'btn-md'
     },
     textContent: {
-      control: { type: 'text' },
-      defaultValue: 'Button'
+      control: { type: 'text' }
     }
   }
 }

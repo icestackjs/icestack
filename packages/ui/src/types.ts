@@ -117,7 +117,9 @@ export interface IBuildScssOptions<T> {
 //     : T[P]
 // }
 
-export type DeepPartial<T> = { [P in keyof T]?: DeepPartial<T[P]> }
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : Partial<T[P]>
+}
 
 export type DeepRequired<T> = Required<{
   [K in keyof T]: T[K] extends Required<T[K]> ? T[K] : DeepRequired<T[K]>

@@ -205,7 +205,6 @@ exports[`presets > miniprogramPreset 1`] = `
     },
     "pseudo": {},
     "selector": {
-      "globalKeyword": "global",
       "universal": "view",
     },
   },

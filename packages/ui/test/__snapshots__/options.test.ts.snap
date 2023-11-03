@@ -197,7 +197,6 @@ exports[`options > getCodegenOptions snap 1`] = `
       "hover": false,
     },
     "selector": {
-      "globalKeyword": "global",
       "universal": "*",
     },
   },
@@ -337,7 +336,6 @@ exports[`options > getRawCodegenOptions snap 1`] = `
       "hover": false,
     },
     "selector": {
-      "globalKeyword": "global",
       "universal": "*",
     },
   },

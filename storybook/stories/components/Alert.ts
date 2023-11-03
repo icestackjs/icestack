@@ -3,7 +3,7 @@ import type { VariantProps } from 'class-variance-authority'
 import { expands, typePrefix } from './share'
 export type AlertProps = VariantProps<typeof alert> & { textContent?: string }
 
-export const allTypes = typePrefix('alert-')
+export const allTypes = typePrefix('alert')
 
 const alert = cva(['alert'], {
   variants: {

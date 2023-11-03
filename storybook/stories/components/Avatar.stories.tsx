@@ -16,4 +16,25 @@ export const Default: Story = {
   args: {}
 }
 
+export const Sizes: Story = {
+  args: {},
+  render: (args) => {
+    const div = document.createElement('div')
+
+    div.append(
+      createAvatar({
+        wrapperClassName: 'w-32 rounded'
+      }),
+      createAvatar({
+        wrapperClassName: 'w-16 rounded'
+      }),
+      createAvatar({
+        wrapperClassName: 'w-8 rounded'
+      })
+    )
+    div.className = 'space-x-2'
+    return div
+  }
+}
+
 export default meta

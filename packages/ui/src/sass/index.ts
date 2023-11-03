@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import * as sass from 'sass'
-import { merge } from 'merge'
+// import { merge } from 'merge'
 import postcssJs, { CssInJs } from 'postcss-js'
 import postcss, { Root, AcceptedPlugin } from 'postcss'
 import { set } from 'lodash'
@@ -45,9 +45,9 @@ export function compileScss(filename: string, opts: CodegenOptions, functions: R
 }
 
 export function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
-  const { filename, resolveConfig, outdir, options, outSideLayerCss } = opts
+  const { filename, resolveConfig, outdir, options } = opts
 
-  const name = path.basename(filename, '.scss')
+  // const name = path.basename(filename, '.scss')
   const { dryRun, tailwindcssConfig } = options
   const { css: cssOutput } = compileScss(filename, options)
 
@@ -77,14 +77,14 @@ export function buildScss(opts: IBuildScssOptions<CodegenOptions>) {
   !dryRun && fs.writeFileSync(cssResolvedPath, css, 'utf8')
   const cssJsObj = postcssJs.objectify(root as Root)
 
-  if (outSideLayerCss === 'utilities') {
-    // @ts-ignore
-    // eslint-disable-next-line unicorn/consistent-destructuring
-    const hit = options?.components?.[name]
-    if (hit && Array.isArray(hit.append)) {
-      merge(cssJsObj, ...hit.append)
-    }
-  }
+  // if (outSideLayerCss === 'utilities') {
+  //   // @ts-ignore
+  //   // eslint-disable-next-line unicorn/consistent-destructuring
+  //   const hit = options?.components?.[name]
+  //   if (hit && Array.isArray(hit.append)) {
+  //     merge(cssJsObj, ...hit.append)
+  //   }
+  // }
   if (!dryRun) {
     const data = 'module.exports = ' + JSON.stringify(cssJsObj, null, 2)
     // css -> js

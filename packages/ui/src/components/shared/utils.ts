@@ -1,9 +1,10 @@
 import defu from 'defu'
-import { isObject } from 'lodash'
+import { isObject, pick } from 'lodash'
 import { recursive } from 'merge'
 import { CssInJs } from 'postcss-js'
 import { IOptionReturnType } from './types'
 import type { CodegenMode, ComponentsValue } from '@/types'
+
 // import { pascalCase } from '@/utils'
 
 // export function createInjectName(componentName: string) {
@@ -99,37 +100,41 @@ export function applyStringToArray(obj: Record<string, any>) {
   return obj
 }
 
-export function makeDefaults(obj?: CssInJs, selector?: string, mode: CodegenMode = 'styled') {
-  if (mode === 'styled') {
-    return {
-      base: {
-        [selector as string]: obj?.base
-      },
-      styled: {
-        [selector as string]: obj?.styled
-      },
-      utils: {
-        [selector as string]: obj?.utils
-      }
+export function makeDefaults(obj?: CssInJs, selector?: string) {
+  return {
+    base: {
+      [selector as string]: obj?.base
+    },
+    styled: {
+      [selector as string]: obj?.styled
+    },
+    utils: {
+      [selector as string]: obj?.utils
     }
-  } else if (mode === 'base') {
-    return {
-      base: {
-        [selector as string]: obj?.base
-      }
+  }
+}
+
+function getPickedProps(mode: CodegenMode = 'styled') {
+  switch (mode) {
+    case 'base': {
+      return ['base']
     }
-  } else {
-    return {}
+    case 'styled': {
+      return ['base', 'styled', 'utils']
+    }
+    default: {
+      return []
+    }
   }
 }
 
 export function handleOptions(d: IOptionReturnType, { extend, override, selector, extra = {}, mode }: Partial<ComponentsValue>) {
   let de = applyStringToArray(d) as IOptionReturnType
-  // de.defaults = makeDefaults(de.defaults, selector, mode)
+  de.defaults = pick(de.defaults, getPickedProps(mode))
   if (override) {
     de = recursive(true, de, {
       selector,
-      defaults: makeDefaults(override, selector, mode)
+      defaults: makeDefaults(override, selector)
     })
   }
   const res = defu(
@@ -141,7 +146,7 @@ export function handleOptions(d: IOptionReturnType, { extend, override, selector
             ...extra
           }
         },
-        makeDefaults(extend, selector, 'styled')
+        makeDefaults(extend, selector)
       )
     },
     de

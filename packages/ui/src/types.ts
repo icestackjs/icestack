@@ -32,7 +32,7 @@ export type ComponentsValue = {
   override: CssInJs
   extend: CssInJs
   extra: CssInJs
-  append: CssInJs[]
+  // append: CssInJs[]
   selector: string
   // postcss: {
   //   plugins: AcceptedPlugin[]

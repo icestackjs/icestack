@@ -1,6 +1,7 @@
 import type { Options } from 'sass'
 import { Value } from 'sass'
 import { get } from 'lodash'
+import defu from 'defu'
 import type allComponents from '../allComponents'
 import { transformJsToSass } from './utils'
 import { applyListToString, handleOptions } from '@/components/shared'
@@ -14,7 +15,7 @@ export interface CreatePresetOptions {
 }
 
 function getComsOpts(opts: CreatePresetOptions, name: string): Partial<ComponentsValue> {
-  return get(opts, `options.components.${name}`, {})
+  return defu(get(opts, `options.components.${name}`, {}), { mode: opts.options.mode })
 }
 
 export const createPreset: (opts: CreatePresetOptions) => Record<(typeof allComponents)[number], any> = (opts) => {

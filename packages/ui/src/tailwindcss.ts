@@ -73,14 +73,14 @@ export const icestackPlugin = plugin.withOptions(
               addComponents(cssObj)
             }
 
-            for (const [name, item] of utilitiesEntries) {
+            for (const [, item] of utilitiesEntries) {
               const cssItems: (CssInJs | undefined)[] = [item.glass, item.variables]
 
               // @ts-ignore
-              const hit = options?.components?.[name]
-              if (hit && Array.isArray(hit.append)) {
-                cssItems.push(...hit.append)
-              }
+              // const hit = options?.components?.[name]
+              // if (hit && Array.isArray(hit.append)) {
+              //   cssItems.push(...hit.append)
+              // }
               let cssObj = merge.recursive(true, ...cssItems)
 
               cssObj = utilitiesProcess(cssObj)

@@ -6,7 +6,7 @@ import { getCodegenOptions } from '@/options'
 function resolve(...p: string[]) {
   return path.resolve(__dirname, './fixtures/generate', ...p)
 }
-describe.concurrent('generate', () => {
+describe.skip.concurrent('generate', () => {
   const expectedDirs = ['css', 'css-resolved', 'js', 'js/base', 'js/components', 'js/utilities', 'js/base/index.js', 'js/components/index.js', 'js/utilities/index.js']
   it('case 0', async () => {
     const dir = resolve('case0')

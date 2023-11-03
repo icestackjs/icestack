@@ -1,6 +1,6 @@
-import type { StoryObj, Meta } from '@storybook/html'
+import { type StoryObj, type Meta, HtmlRenderer } from '@storybook/html'
 import { AvatarProps, createAvatar } from './Avatar'
-
+import { formatHtml } from './share'
 const meta: Meta<AvatarProps> = {
   title: 'Css/Avatar',
   tags: ['autodocs'],
@@ -19,9 +19,8 @@ export const Default: Story = {
 export const Sizes: Story = {
   args: {},
   render: (args) => {
-    const div = document.createElement('div')
-
-    div.append(
+    return formatHtml(`<div class="space-x-2">
+    ${[
       createAvatar({
         wrapperClassName: 'w-32 rounded'
       }),
@@ -31,9 +30,8 @@ export const Sizes: Story = {
       createAvatar({
         wrapperClassName: 'w-8 rounded'
       })
-    )
-    div.className = 'space-x-2'
-    return div
+    ].join('\n')}
+    </div>`)
   }
 }
 

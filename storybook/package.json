@@ -31,6 +31,7 @@
     "@storybook/react-vite": "^7.5.2",
     "@storybook/testing-library": "^0.2.2",
     "@storybook/theming": "^7.5.2",
+    "@types/js-beautify": "^1.14.2",
     "@types/klaw-sync": "^6.0.3",
     "autoprefixer": "^10.4.16",
     "eslint-plugin-storybook": "^0.6.15",
@@ -46,10 +47,13 @@
   },
   "dependencies": {
     "@icestack/ui": "workspace:^",
+    "@prettier/sync": "^0.3.0",
     "class-variance-authority": "^0.7.0",
     "i18next": "^23.6.0",
     "i18next-browser-languagedetector": "^7.1.0",
     "i18next-http-backend": "^2.3.1",
+    "js-beautify": "^1.14.9",
+    "parse5": "^7.1.2",
     "react-i18next": "^13.3.1"
   }
 }

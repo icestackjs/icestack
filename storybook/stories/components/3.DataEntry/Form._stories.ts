@@ -15,11 +15,11 @@ import { expands, formatHtml, typePrefix } from '../share'
 // })
 
 const create = () => {
-  return formatHtml(`<div class="chat chat-start">
-  <div class="chat-bubble">It's over Anakin, <br/>I have the high ground.</div>
-</div>
-<div class="chat chat-end">
-  <div class="chat-bubble">You underestimate my power!</div>
+  return formatHtml(`<div class="form-control w-64">
+  <label class="cursor-pointer label">
+    <span class="label-text">Remember me</span>
+    <span class="label-text">Remember me</span>
+  </label>
 </div>`)
 }
 
@@ -29,7 +29,8 @@ const meta: Meta<object> = {
   render: () => {
     return create()
   },
-  argTypes: {}
+  argTypes: {},
+  parameters: {}
 }
 
 type Story = StoryObj<object>

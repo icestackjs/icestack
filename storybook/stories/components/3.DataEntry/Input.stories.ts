@@ -1,43 +1,73 @@
 import type { StoryObj, Meta } from '@storybook/html'
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, typePrefix } from '../share'
+import { expands, formatHtml, sizePrefix, typePrefix } from '../share'
 
-// type AlertProps = VariantProps<typeof alert> & { textContent?: string }
+type Props = VariantProps<typeof com> & { placeholder?: string }
 
 // const allTypes = typePrefix('alert')
+const className = 'input'
 
-// const alert = cva(['alert'], {
-//   variants: {
-//     type: expands(allTypes)
-//   },
-//   defaultVariants: {}
-// })
+const types = typePrefix(className)
 
-const create = () => {
-  return formatHtml(`<div class="chat chat-start">
-  <div class="chat-bubble">It's over Anakin, <br/>I have the high ground.</div>
-</div>
-<div class="chat chat-end">
-  <div class="chat-bubble">You underestimate my power!</div>
-</div>`)
+const sizes = sizePrefix(className)
+
+const com = cva([className, 'w-full', 'max-w-xs'], {
+  variants: {
+    type: expands(types),
+    size: expands(sizes),
+    bordered: {
+      true: 'input-bordered'
+    },
+    ghost: {
+      true: 'input-ghost'
+    }
+  },
+  defaultVariants: {}
+})
+
+const create = (props: Props) => {
+  return formatHtml(`<input type="text" placeholder="${props.placeholder ?? ''}" class="${com(props)}" />`)
 }
 
-const meta: Meta<object> = {
+const meta: Meta<Props> = {
   title: 'Data Entry/Input',
   tags: ['autodocs'],
-  render: () => {
-    return create()
+  render: (args) => {
+    return create(args)
+  },
+  args: {
+    placeholder: 'Type here'
   },
   argTypes: {}
 }
 
-type Story = StoryObj<object>
+type Story = StoryObj<Props>
 
 export const Default: Story = {
-  args: {},
-  render: () => {
-    return formatHtml(`<input type="checkbox" checked="checked" class="checkbox" />`)
+  args: {}
+}
+
+export const Types: Story = {
+  args: {
+    placeholder: 'Type here'
+  },
+  render: (args) => {
+    return `<div class="flex flex-col space-y-3">${types
+      .map((x) => {
+        return create({
+          ...args,
+          type: x
+        })
+      })
+      .join('')}</div>`
+  }
+}
+
+export const Borderd: Story = {
+  args: {
+    placeholder: 'Type here',
+    bordered: true
   }
 }
 

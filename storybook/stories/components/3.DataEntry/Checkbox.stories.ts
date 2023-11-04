@@ -1,43 +1,57 @@
 import type { StoryObj, Meta } from '@storybook/html'
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, typePrefix } from '../share'
+import { expands, formatHtml, typePrefix, sizePrefix } from '../share'
 
-// type AlertProps = VariantProps<typeof alert> & { textContent?: string }
+type Props = VariantProps<typeof com> & { disabled?: boolean; checked?: boolean }
 
-// const allTypes = typePrefix('alert')
+const className = 'checkbox'
 
-// const alert = cva(['alert'], {
-//   variants: {
-//     type: expands(allTypes)
-//   },
-//   defaultVariants: {}
-// })
+const types = typePrefix(className)
 
-const create = () => {
-  return formatHtml(`<div class="chat chat-start">
-  <div class="chat-bubble">It's over Anakin, <br/>I have the high ground.</div>
-</div>
-<div class="chat chat-end">
-  <div class="chat-bubble">You underestimate my power!</div>
-</div>`)
+const sizes = sizePrefix(className)
+
+const com = cva([className], {
+  variants: {
+    type: expands(types),
+    size: expands(sizes)
+  },
+  defaultVariants: {}
+})
+
+const create = (props: Props) => {
+  return formatHtml(`<input type="checkbox" class="${com(props)}" ${props.disabled ? 'disabled' : ''} ${props.checked ? 'checked' : ''}  />`)
 }
 
-const meta: Meta<object> = {
+const meta: Meta<Props> = {
   title: 'Data Entry/Checkbox',
   tags: ['autodocs'],
-  render: () => {
-    return create()
+  render: (args) => {
+    return create(args)
   },
-  argTypes: {}
+  argTypes: {
+    checked: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    size: { control: 'inline-radio', options: sizes },
+    type: { control: 'inline-radio', options: types }
+  }
 }
 
-type Story = StoryObj<object>
+type Story = StoryObj<Props>
 
 export const Default: Story = {
+  args: {}
+}
+
+export const Form: Story = {
   args: {},
-  render: () => {
-    return formatHtml(`<input type="checkbox" checked="checked" class="checkbox" />`)
+  render: (args) => {
+    return `<div class="form-control w-64">
+    <label class="cursor-pointer label">
+      <span class="label-text">Remember me</span>
+      ${create(args)}
+    </label>
+  </div>`
   }
 }
 

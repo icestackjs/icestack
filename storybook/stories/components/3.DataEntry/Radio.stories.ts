@@ -1,33 +1,40 @@
 import type { StoryObj, Meta } from '@storybook/html'
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, typePrefix } from '../share'
+import { expands, formatHtml, typePrefix, sizePrefix } from '../share'
 
-// type AlertProps = VariantProps<typeof alert> & { textContent?: string }
+type Props = VariantProps<typeof com> & { checked?: boolean }
 
-// const allTypes = typePrefix('alert')
+const prefix = 'radio'
 
-// const alert = cva(['alert'], {
-//   variants: {
-//     type: expands(allTypes)
-//   },
-//   defaultVariants: {}
-// })
+const types = typePrefix(prefix)
 
-const create = () => {
-  return formatHtml(`<div class="chat chat-start">
-  <div class="chat-bubble">It's over Anakin, <br/>I have the high ground.</div>
-</div>
-<div class="chat chat-end">
-  <div class="chat-bubble">You underestimate my power!</div>
-</div>`)
+const sizes = sizePrefix(prefix)
+
+const com = cva([prefix], {
+  variants: {
+    type: expands(types),
+    size: expands(sizes)
+  },
+  defaultVariants: {}
+})
+
+const create = (props: Props) => {
+  return formatHtml(`<input type="radio" name="radio-0" class="${com(props)}" ${props.checked ? 'checked' : ''} />`)
 }
 
 const meta: Meta<object> = {
   title: 'Data Entry/Radio',
   tags: ['autodocs'],
-  render: () => {
-    return create()
+  render: (args) => {
+    return [
+      create({
+        ...args,
+        checked: true
+      }),
+      create(args),
+      create(args)
+    ].join('')
   },
   argTypes: {}
 }
@@ -35,9 +42,24 @@ const meta: Meta<object> = {
 type Story = StoryObj<object>
 
 export const Default: Story = {
+  args: {}
+}
+
+export const Form: Story = {
   args: {},
   render: () => {
-    return formatHtml(`<input type="checkbox" checked="checked" class="checkbox" />`)
+    return `<div class="form-control">
+    <label class="label cursor-pointer">
+      <span class="label-text">Red pill</span> 
+      <input type="radio" name="radio-10" class="radio checked:bg-red-500" checked />
+    </label>
+  </div>
+  <div class="form-control">
+    <label class="label cursor-pointer">
+      <span class="label-text">Blue pill</span> 
+      <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked />
+    </label>
+  </div>`
   }
 }
 

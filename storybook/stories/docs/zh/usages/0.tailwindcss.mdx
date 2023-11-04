@@ -2,3 +2,17 @@ import { Meta } from '@storybook/addon-docs'
 
 <Meta id="usages/tailwindcss" title="文档/安装及使用/Tailwindcss Plugin" parameters={{ viewMode: 'docs' }} />
 
+```js
+const path = require('node:path')
+const { icestackPlugin } = require('@icestack/ui/tailwindcss')
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // ...
+  plugins: [
+    icestackPlugin({
+      outdir: path.resolve(__dirname, 'ice-ui')
+    })
+  ]
+}
+```

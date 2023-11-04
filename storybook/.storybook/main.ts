@@ -1,7 +1,8 @@
 import type { StorybookConfig } from '@storybook/html-vite'
 // import remarkGfm from 'remark-gfm'
 import { join, dirname } from 'path'
-
+import rehypeHighlight from 'rehype-highlight'
+// import '@storybook/addon-docs'
 /**
  * This function is used to resolve the absolute path of a package.
  * It is needed in projects that use Yarn PnP or are set up within a monorepo.
@@ -25,17 +26,20 @@ const config: StorybookConfig = {
     '@storybook/addon-toolbars',
     'storybook-dark-mode',
     'storybook-i18n',
+    '@storybook/addon-highlight',
     // '@a110/storybook-expand-all'
-    // {
-    //   name: '@storybook/addon-docs',
-    //   options: {
-    //     mdxPluginOptions: {
-    //       mdxCompileOptions: {
-    //         remarkPlugins: [remarkGfm],
-    //       },
-    //     },
-    //   },
-    // }
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+
+          mdxCompileOptions: {
+            rehypePlugins: [rehypeHighlight],
+            // remarkPlugins: [rehypeHighlight],
+          },
+        },
+      },
+    }
     // 'storybook-react-i18next'
   ],
   framework: {

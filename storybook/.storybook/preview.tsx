@@ -4,6 +4,7 @@ import { withThemeByDataAttribute } from '@storybook/addon-themes'
 import type { Preview } from '@storybook/html'
 import { addons } from '@storybook/preview-api'
 import { themes } from '@storybook/theming'
+
 // import type { Renderer, ProjectAnnotations } from '@storybook/types';
 // import i18n from 'storybook-i18n/preview';
 // import { withYourI18nDecorator } from './withYourDecorator';
@@ -44,6 +45,9 @@ const preview: Preview = {
         unsafeTocbotOptions: {
           orderedList: false
         }
+      },
+      source: {
+        state: 'open'
       }
     },
     darkMode: {

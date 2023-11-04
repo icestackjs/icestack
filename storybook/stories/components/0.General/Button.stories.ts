@@ -45,7 +45,7 @@ const createButton = (props: ButtonProps) => {
 }
 
 const meta: Meta<ButtonProps> = {
-  title: 'Css/General/Button',
+  title: 'General/Button',
   tags: ['autodocs'],
   render: (args) => {
     return createButton(args)
@@ -121,7 +121,7 @@ export const Type: Story = {
 export const Size: Story = {
   render(args) {
     const div = document.createElement('div')
-    div.className = 'space-x-2'
+    div.className = 'space-x-2 space-y-1'
     for (const btn of allSizes.map((size) =>
       createButton({
         ...args,

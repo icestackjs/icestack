@@ -25,7 +25,7 @@ const create = (props: BadgeProps) => {
 }
 
 const meta: Meta<BadgeProps> = {
-  title: 'Css/Data Display/Badge',
+  title: 'Data Display/Badge',
   tags: ['autodocs'],
   render: (args) => {
     return create(args)

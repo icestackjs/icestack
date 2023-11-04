@@ -25,7 +25,7 @@ const config: StorybookConfig = {
     '@storybook/addon-toolbars',
     'storybook-dark-mode',
     'storybook-i18n',
-    '@a110/storybook-expand-all'
+    // '@a110/storybook-expand-all'
     // {
     //   name: '@storybook/addon-docs',
     //   options: {
@@ -44,6 +44,7 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: 'tag'
-  }
+  },
+
 }
 export default config

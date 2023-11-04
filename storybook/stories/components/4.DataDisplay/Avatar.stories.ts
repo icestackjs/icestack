@@ -20,7 +20,7 @@ const createAvatar = (props: AvatarProps) => {
     </div>`)
 }
 const meta: Meta<AvatarProps> = {
-  title: 'Css/Data Display/Avatar',
+  title: 'Data Display/Avatar',
   tags: ['autodocs'],
   render: (args) => {
     return createAvatar(args)
@@ -36,7 +36,7 @@ export const Default: Story = {
 
 export const Sizes: Story = {
   args: {},
-  render: (args) => {
+  render: () => {
     return formatHtml(`<div class="space-x-2">
     ${[
       createAvatar({
@@ -47,6 +47,50 @@ export const Sizes: Story = {
       }),
       createAvatar({
         wrapperClassName: 'w-8 rounded'
+      })
+    ].join('\n')}
+    </div>`)
+  }
+}
+
+export const Shapes: Story = {
+  args: {},
+  render: () => {
+    return formatHtml(`<div class="space-x-2">
+    ${[
+      createAvatar({
+        wrapperClassName: 'w-32 rounded-full'
+      }),
+      createAvatar({
+        wrapperClassName: 'w-32 mask mask-squircle'
+      }),
+      createAvatar({
+        wrapperClassName: 'w-32 mask mask-hexagon'
+      }),
+      createAvatar({
+        wrapperClassName: 'w-32 mask mask-triangle'
+      })
+    ].join('\n')}
+    </div>`)
+  }
+}
+
+export const Grouped: Story = {
+  args: {},
+  render: () => {
+    return formatHtml(`<div class="avatar-group -space-x-6">
+    ${[
+      createAvatar({
+        wrapperClassName: 'w-10 rounded-full'
+      }),
+      createAvatar({
+        wrapperClassName: 'w-10 rounded-full'
+      }),
+      createAvatar({
+        wrapperClassName: 'w-10 rounded-full'
+      }),
+      createAvatar({
+        wrapperClassName: 'w-10 rounded-full'
       })
     ].join('\n')}
     </div>`)

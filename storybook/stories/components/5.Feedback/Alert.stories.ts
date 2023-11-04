@@ -27,8 +27,8 @@ const createAlert = (props: AlertProps) => {
 }
 
 const meta: Meta<AlertProps> = {
-  // id: 'css/alert',
-  title: 'Css/Feedback/Alert',
+  // id: 'alert',
+  title: 'Feedback/Alert',
   tags: ['autodocs'],
   render: (args) => {
     return createAlert(args)

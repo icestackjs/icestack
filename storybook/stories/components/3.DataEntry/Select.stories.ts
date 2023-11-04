@@ -24,7 +24,7 @@ const create = () => {
 }
 
 const meta: Meta<object> = {
-  title: 'Css/Data Entry/Checkbox',
+  title: 'Data Entry/Select',
   tags: ['autodocs'],
   render: () => {
     return create()

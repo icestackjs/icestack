@@ -14,7 +14,7 @@ import { expands, formatHtml, typePrefix } from '../share'
 //   defaultVariants: {}
 // })
 
-const create = () => {
+const create = (props: AlertProps) => {
   return formatHtml(`<div class="chat chat-start">
   <div class="chat-bubble">It's over Anakin, <br/>I have the high ground.</div>
 </div>
@@ -24,21 +24,24 @@ const create = () => {
 }
 
 const meta: Meta<object> = {
-  title: 'Css/Data Entry/Form',
+  // id: 'alert',
+  title: 'Data Display/Chat',
   tags: ['autodocs'],
-  render: () => {
-    return create()
+  render: (args) => {
+    return create(args)
   },
-  argTypes: {}
+  argTypes: {
+    // type: {
+    //   options: allTypes,
+    //   control: { type: 'inline-radio' }
+    // }
+  }
 }
 
 type Story = StoryObj<object>
 
 export const Default: Story = {
-  args: {},
-  render: () => {
-    return formatHtml(`<input type="checkbox" checked="checked" class="checkbox" />`)
-  }
+  args: {}
 }
 
 export default meta

@@ -9,8 +9,11 @@ import { join, dirname } from 'path'
 function getAbsolutePath(value: string): any {
   return dirname(require.resolve(join(value, 'package.json')))
 }
+
+const lang = process.env.LANG
+console.log(`lang: ${lang}`)
 const config: StorybookConfig = {
-  stories: ['../stories/**/*.mdx', '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  stories: [`../stories/docs/${lang ?? ''}/**/*.mdx`, '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     getAbsolutePath('@storybook/addon-links'),
     getAbsolutePath('@storybook/addon-essentials'),
@@ -20,7 +23,7 @@ const config: StorybookConfig = {
     // '@storybook/addon-storysource',
     '@storybook/addon-a11y',
     '@storybook/addon-toolbars',
-    'storybook-i18n'
+    // 'storybook-i18n'
     // {
     //   name: '@storybook/addon-docs',
     //   options: {

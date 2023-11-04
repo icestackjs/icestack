@@ -25,6 +25,18 @@ i18n// .use(initReactI18next)
     interpolation: {
       escapeValue: false,
     },
+    resources: {
+      en: {
+        translation: {
+          "key": "hello world"
+        }
+      },
+      zh: {
+        translation: {
+          "key": "你好世界"
+        }
+      }
+    }
   });
 
 export default i18n;

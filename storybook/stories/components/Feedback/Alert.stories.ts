@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/html'
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, typePrefix } from './share'
+import { expands, typePrefix } from '../share'
 
 type AlertProps = VariantProps<typeof alert> & { textContent?: string }
 
@@ -28,7 +28,7 @@ const createAlert = (props: AlertProps) => {
 
 const meta: Meta<AlertProps> = {
   // id: 'css/alert',
-  title: 'Css/Alert',
+  title: 'Css/Feedback/Alert',
   tags: ['autodocs'],
   render: (args) => {
     return createAlert(args)

@@ -2,7 +2,7 @@ import { type StoryObj, type Meta } from '@storybook/html'
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
 import Pig from '../assets/image/pig.jpg'
-import { formatHtml } from './share'
+import { formatHtml } from '../share'
 
 type AvatarProps = VariantProps<typeof avatar> & { textContent?: string; wrapperClassName?: string }
 
@@ -20,7 +20,7 @@ const createAvatar = (props: AvatarProps) => {
     </div>`)
 }
 const meta: Meta<AvatarProps> = {
-  title: 'Css/Avatar',
+  title: 'Css/Data Display/Avatar',
   tags: ['autodocs'],
   render: (args) => {
     return createAvatar(args)

@@ -1,8 +1,9 @@
 import 'tailwindcss/tailwind.css'
-// import i18n from './i18next';
-import { withThemeByDataAttribute } from '@storybook/addon-themes';
+import i18n from './i18next'
+import { withThemeByDataAttribute } from '@storybook/addon-themes'
 import type { Preview } from '@storybook/html'
 import { addons } from '@storybook/preview-api'
+
 // import type { Renderer, ProjectAnnotations } from '@storybook/types';
 // import i18n from 'storybook-i18n/preview';
 // import { withYourI18nDecorator } from './withYourDecorator';
@@ -13,17 +14,17 @@ import { addons } from '@storybook/preview-api'
 // const i18nDecorators = i18n?.decorators || [];
 
 addons.getChannel().on('LOCALE_CHANGED', (newLocale) => {
-  console.log(newLocale)
-});
+  i18n.changeLanguage(newLocale)
+})
 
 const preview: Preview = {
-  globals: {
-    locale: 'en',
-    locales: {
-      en: 'English',
-      zh: '中文',
-    },
-  },
+  // globals: {
+  //   locale: 'en',
+  //   locales: {
+  //     en: 'English',
+  //     zh: '中文'
+  //   }
+  // },
   parameters: {
     // i18n,
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -41,12 +42,12 @@ const preview: Preview = {
         title: 'Table of Contents',
         disable: false,
         unsafeTocbotOptions: {
-          orderedList: false,
-        },
-      },
-    },
-  },
-  
+          orderedList: false
+        }
+      }
+    }
+  }
+
   // ...i18n,
   // decorators: [...i18nDecorators]
 }
@@ -55,11 +56,11 @@ export const decorators = [
   withThemeByDataAttribute({
     themes: {
       light: 'light',
-      dark: 'dark',
+      dark: 'dark'
     },
     defaultTheme: 'light',
-    attributeName: 'data-mode',
-  }),
-];
+    attributeName: 'data-mode'
+  })
+]
 
 export default preview

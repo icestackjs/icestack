@@ -5,8 +5,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "storybook dev -p 6006",
-    "build": "storybook build",
+    "dev": "cross-env LANG=zh storybook dev -p 6006",
+    "dev:en": "cross-env LANG=en storybook dev -p 6006",
+    "build:zh": "cross-env LANG=zh storybook build",
+    "build:en": "cross-env LANG=en storybook build",
     "tailwind-config-viewer": "tailwind-config-viewer -o"
   },
   "keywords": [],

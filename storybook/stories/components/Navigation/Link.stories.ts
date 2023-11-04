@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/html'
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, typePrefix } from './share'
+import { expands, formatHtml, typePrefix } from '../share'
 
 // type AlertProps = VariantProps<typeof alert> & { textContent?: string }
 
@@ -24,10 +24,10 @@ const create = () => {
 }
 
 const meta: Meta<object> = {
-  title: 'Css/Checkbox',
+  title: 'Css/Navigation/Link',
   tags: ['autodocs'],
-  render: (args) => {
-    return create(args)
+  render: () => {
+    return create()
   },
   argTypes: {}
 }

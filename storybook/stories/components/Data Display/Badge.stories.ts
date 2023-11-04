@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/html'
 import { VariantProps, cva } from 'class-variance-authority'
-import { expands, formatHtml, typePrefix, sizePrefix } from './share'
+import { expands, formatHtml, typePrefix, sizePrefix } from '../share'
 
 type BadgeProps = VariantProps<typeof badge> & { textContent?: string }
 
@@ -25,7 +25,7 @@ const create = (props: BadgeProps) => {
 }
 
 const meta: Meta<BadgeProps> = {
-  title: 'Css/Badge',
+  title: 'Css/Data Display/Badge',
   tags: ['autodocs'],
   render: (args) => {
     return create(args)

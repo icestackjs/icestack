@@ -1,7 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/html'
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, typePrefix, addPrefix } from './share'
+import { expands, typePrefix, addPrefix } from '../share'
 type ButtonProps = VariantProps<typeof button> & { textContent?: string }
 
 // ['primary', 'neutral', 'success', 'warning', 'error']
@@ -45,7 +45,7 @@ const createButton = (props: ButtonProps) => {
 }
 
 const meta: Meta<ButtonProps> = {
-  title: 'Css/Button',
+  title: 'Css/General/Button',
   tags: ['autodocs'],
   render: (args) => {
     return createButton(args)

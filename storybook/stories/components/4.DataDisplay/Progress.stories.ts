@@ -3,42 +3,49 @@ import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
 import { expands, formatHtml, typePrefix } from '../share'
 
-// type AlertProps = VariantProps<typeof alert> & { textContent?: string }
+type Props = VariantProps<typeof com> & { value: number; indeterminate?: boolean }
 
-// const allTypes = typePrefix('alert')
+const prefix = 'progress'
 
-// const alert = cva(['alert'], {
-//   variants: {
-//     type: expands(allTypes)
-//   },
-//   defaultVariants: {}
-// })
+const types = typePrefix(prefix)
 
-const create = () => {
-  return formatHtml(`<div class="chat chat-start">
-  <div class="chat-bubble">It's over Anakin, <br/>I have the high ground.</div>
-</div>
-<div class="chat chat-end">
-  <div class="chat-bubble">You underestimate my power!</div>
-</div>`)
+// const sizes = sizePrefix(prefix)
+
+const com = cva([prefix], {
+  variants: {
+    type: expands(types)
+  },
+  defaultVariants: {}
+})
+
+const create = (props: Props) => {
+  const s = props.indeterminate ? '' : `value="${props.value ?? 40}" max="100"`
+  return formatHtml(`<progress class="${com(props)} w-56" ${s}></progress>`)
 }
+// @ts-ignore
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const s = ['progress-primary', 'progress-neutral', 'progress-success', 'progress-warning', 'progress-error']
 
-const meta: Meta<object> = {
+const meta: Meta<Props> = {
   title: 'Data Display/Progress',
   tags: ['autodocs'],
-  render: () => {
-    return create()
+  render: (args) => {
+    return create(args)
   },
-  argTypes: {}
+  args: {
+    value: 40
+  },
+  argTypes: {
+    type: { control: 'inline-radio', options: types },
+    value: { control: { type: 'range', min: 0, max: 100, step: 1 } }
+    // indeterminate: { control: 'boolean' }
+  }
 }
 
-type Story = StoryObj<object>
+type Story = StoryObj<Props>
 
 export const Default: Story = {
-  args: {},
-  render: () => {
-    return formatHtml(`<input type="checkbox" checked="checked" class="checkbox" />`)
-  }
+  args: {}
 }
 
 export default meta

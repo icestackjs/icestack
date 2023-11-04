@@ -1,44 +1,44 @@
 import type { StoryObj, Meta } from '@storybook/html'
 import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, typePrefix } from '../share'
+import { expands, formatHtml, sizePrefix, typePrefix } from '../share'
 
-// type AlertProps = VariantProps<typeof alert> & { textContent?: string }
+type Props = VariantProps<typeof com>
 
-// const allTypes = typePrefix('alert')
+const prefix = 'range'
 
-// const alert = cva(['alert'], {
-//   variants: {
-//     type: expands(allTypes)
-//   },
-//   defaultVariants: {}
-// })
+const types = typePrefix(prefix)
 
-const create = () => {
-  return formatHtml(`<div class="chat chat-start">
-  <div class="chat-bubble">It's over Anakin, <br/>I have the high ground.</div>
-</div>
-<div class="chat chat-end">
-  <div class="chat-bubble">You underestimate my power!</div>
-</div>`)
+const sizes = sizePrefix(prefix)
+
+const com = cva([prefix], {
+  variants: {
+    type: expands(types),
+    size: expands(sizes)
+  },
+  defaultVariants: {}
+})
+
+const create = (props: Props) => {
+  return formatHtml(`<input type="range" min="0" max="100" value="40" class="${com(props)}" />`)
 }
 
-const meta: Meta<object> = {
+const meta: Meta<Props> = {
   title: 'Data Entry/Range',
   tags: ['autodocs'],
-  render: () => {
-    return create()
+  render: (args) => {
+    return create(args)
   },
-  argTypes: {}
+  argTypes: {
+    size: { control: 'inline-radio', options: sizes },
+    type: { control: 'inline-radio', options: types }
+  }
 }
 
-type Story = StoryObj<object>
+type Story = StoryObj<Props>
 
 export const Default: Story = {
-  args: {},
-  render: () => {
-    return formatHtml(`<input type="checkbox" checked="checked" class="checkbox" />`)
-  }
+  args: {}
 }
 
 export default meta

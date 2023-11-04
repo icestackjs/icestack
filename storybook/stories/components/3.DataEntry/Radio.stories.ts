@@ -3,7 +3,7 @@ import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
 import { expands, formatHtml, typePrefix, sizePrefix } from '../share'
 
-type Props = VariantProps<typeof com> & { checked?: boolean }
+type Props = VariantProps<typeof com> & { checked?: boolean; disabled?: boolean }
 
 const prefix = 'radio'
 
@@ -20,10 +20,10 @@ const com = cva([prefix], {
 })
 
 const create = (props: Props) => {
-  return formatHtml(`<input type="radio" name="radio-0" class="${com(props)}" ${props.checked ? 'checked' : ''} />`)
+  return formatHtml(`<input type="radio" name="radio-0" class="${com(props)}" ${props.checked ? 'checked' : ''} ${props.disabled ? 'disabled' : ''} />`)
 }
 
-const meta: Meta<object> = {
+const meta: Meta<Props> = {
   title: 'Data Entry/Radio',
   tags: ['autodocs'],
   render: (args) => {
@@ -36,10 +36,15 @@ const meta: Meta<object> = {
       create(args)
     ].join('')
   },
-  argTypes: {}
+  argTypes: {
+    checked: { control: 'boolean' },
+    disabled: { control: 'boolean' },
+    size: { control: 'inline-radio', options: sizes },
+    type: { control: 'inline-radio', options: types }
+  }
 }
 
-type Story = StoryObj<object>
+type Story = StoryObj<Props>
 
 export const Default: Story = {
   args: {}

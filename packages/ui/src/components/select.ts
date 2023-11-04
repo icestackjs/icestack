@@ -60,7 +60,7 @@ export const options: OptionFn = (opts) => {
       },
       base: {
         [selector]: {
-          apply: 'inline-flex cursor-pointer select-none appearance-none min-h-12 h-12 pl-4 pr-10 text-sm leading-loose',
+          apply: 'inline-flex cursor-pointer select-none appearance-none min-h-8 h-8 pl-3 pr-8 text-sm leading-8',
           '&[multiple]': {
             apply: 'h-auto'
           }

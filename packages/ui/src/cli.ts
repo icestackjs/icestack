@@ -1,5 +1,3 @@
-// codegen
-// prepare
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import createCli from 'cac'
@@ -20,12 +18,15 @@ export async function load(cwd?: string) {
 }
 
 const tsT = `import { defineConfig } from '@icestack/ui'\n\nexport default defineConfig()\n`
-const jsT = `/**\n* @type {import('@icestack/ui').Config}\n*/\nconst config = {}\nmodule.exports = config\n`
+const jsT = `/**\n * @type {import('@icestack/ui').Config}\n */\nconst config = {}\n\nmodule.exports = config\n`
 cli
   .command('init', 'init config')
   .option('--ts', 'typescript config')
   .action(async ({ ts }) => {
-    await (ts ? fs.writeFile(path.resolve(process.cwd(), './icestack.config.ts'), tsT) : fs.writeFile(path.resolve(process.cwd(), './icestack.config.js'), jsT))
+    const f = ts ? 'icestack.config.ts' : 'icestack.config.js'
+    const p = path.resolve(process.cwd(), f)
+    await fs.writeFile(p, ts ? tsT : jsT)
+    logger.success(`init ${f} successfully!`)
   })
 
 cli.command('codegen', 'code generate').action(async () => {

@@ -9,12 +9,12 @@ const withNextra = require('nextra')({
  **/
 const opt = {
   i18n: {
-    locales: ['zh-CN'], // 'en-US',
+    locales: ['zh-CN', 'en-US'], // ,
     defaultLocale: 'zh-CN',
     localeDetection: false
   },
   webpack: (config) => {
-    config.resolve.fallback = { fs: false, path: false, module: false, v8: false, perf_hooks: false }
+    // config.resolve.fallback = { fs: false, path: false, module: false, v8: false, perf_hooks: false }
     // config.plugins.push(
     //   autoImport({
     //     imports: ['react'],

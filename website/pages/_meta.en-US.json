@@ -3,9 +3,13 @@
     "title": "Home",
     "type": "page"
   },
+  "docs": {
+    "title": "Guide",
+    "type": "page"
+  },
   "components": {
     "title": "Components",
-    "href": "https://github.com/sonofmagic/icestack",
+    "href": "https://icestack-storybook.vercel.app/",
     "newWindow": true,
     "type": "page"
   }

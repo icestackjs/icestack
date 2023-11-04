@@ -3,6 +3,10 @@
     "title": "主页",
     "type": "page"
   },
+  "docs": {
+    "title": "使用指南",
+    "type": "page"
+  },
   "components": {
     "title": "CSS 范式",
     "href": "https://github.com/sonofmagic/icestack",

@@ -1,0 +1,22 @@
+# 作为 tailwindcss plugin 来使用
+
+默认情况下 `@icestack/ui` 会把所有的资源文件生成在你的本地，你需要指定一个目录来存放这些文件。
+
+比如我们要把生成文件放在当前目录的 `my-ui` 文件夹内，我们可以传递这样一个 `outdir` 参数
+
+```js
+const path = require('node:path')
+const { icestackPlugin } = require('@icestack/ui/tailwindcss')
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // ...
+  plugins: [
+    icestackPlugin({
+      outdir: path.resolve(__dirname, 'my-ui')
+    })
+  ]
+}
+```
+
+> 你可以把 `my-ui` 放入你的 `.gitignore` 来避免被提交到 `git`

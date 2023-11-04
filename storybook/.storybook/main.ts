@@ -23,7 +23,9 @@ const config: StorybookConfig = {
     // '@storybook/addon-storysource',
     '@storybook/addon-a11y',
     '@storybook/addon-toolbars',
-    // 'storybook-i18n'
+    'storybook-dark-mode',
+    'storybook-i18n',
+    '@a110/storybook-expand-all'
     // {
     //   name: '@storybook/addon-docs',
     //   options: {

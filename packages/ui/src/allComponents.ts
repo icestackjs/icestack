@@ -1,34 +1,5 @@
-export default [
-  'alert',
-  'artboard',
-  'avatar',
-  'badge',
-  'button',
-  'carousel',
-  'chat',
-  'checkbox',
-  'countdown',
-  'divider',
-  'drawer',
-  'form',
-  'indicator',
-  'input',
-  'join',
-  'kbd',
-  'link',
-  'mask',
-  'mockup',
-  'progress',
-  'radialProgress',
-  'radio',
-  'range',
-  'rating',
-  'select',
-  'stack',
-  'stat',
-  'steps',
-  'swap',
-  'textarea',
-  'toast',
-  'toggle'
-] as const
+import { componentsMap } from '@/components'
+
+const allComponents = Object.keys(componentsMap)
+
+export default allComponents

@@ -1,8 +1,11 @@
-export const Types = ['primary', 'info', 'success', 'warning', 'error', 'neutral']
+export interface CreatePresetOptions {
+  types: string[]
+}
 
 export type IDefaults = {
   styled?: object
-  unstyled?: object
+  base?: object
+  utils?: object
 }
 
 export type IValue =
@@ -15,3 +18,14 @@ export type IValue =
       apply: string
       css: Record<string, string>
     }
+
+export type IOptionReturnType = {
+  selector?: string
+  colors?: object
+  defaults?: IDefaults
+  // index: object
+}
+
+export type OptionFn = (opts: CreatePresetOptions & { selector: string }) => IOptionReturnType
+
+export type DefaultsFn = (opts: CreatePresetOptions & { selector: string }) => IDefaults

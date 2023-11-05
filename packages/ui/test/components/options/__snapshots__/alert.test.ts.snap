@@ -1,0 +1,171 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`alert > merge options case 0 1`] = `
+{
+  "colors": {},
+  "defaults": {
+    "base": {
+      "apply": [
+        "grid",
+        "w-full",
+        "grid-flow-row",
+        "content-start",
+        "items-center",
+        "justify-items-center",
+        "gap-4",
+        "text-center",
+        "sm:grid-flow-col",
+        "sm:grid-cols-[auto_minmax(auto,1fr)]",
+        "sm:justify-items-start",
+        "sm:text-left",
+      ],
+    },
+    "styled": {
+      "apply": [
+        "rounded-box",
+        "border",
+        "p-4",
+        "text-base-content",
+        "border-base-400",
+      ],
+    },
+  },
+  "selector": ".alert",
+}
+`;
+
+exports[`alert > merge options case 1 1`] = `
+{
+  "colors": {},
+  "defaults": {
+    "base": {
+      "apply": [
+        "grid",
+        "w-full",
+        "grid-flow-row",
+        "content-start",
+        "items-center",
+        "justify-items-center",
+        "gap-4",
+        "text-center",
+        "sm:grid-flow-col",
+        "sm:grid-cols-[auto_minmax(auto,1fr)]",
+        "sm:justify-items-start",
+        "sm:text-left",
+      ],
+      "default": {
+        "apply": [
+          "bg-base-200",
+        ],
+        "css": {
+          "color": "red",
+        },
+      },
+    },
+    "styled": {
+      "apply": [
+        "rounded-box",
+        "border",
+        "p-4",
+        "text-base-content",
+        "border-base-400",
+      ],
+      "default": {
+        "apply": [],
+      },
+    },
+  },
+  "selector": ".alert",
+}
+`;
+
+exports[`alert > merge options case 2 1`] = `
+{
+  "colors": {},
+  "defaults": {
+    "base": {
+      "apply": [
+        "grid",
+        "w-full",
+        "grid-flow-row",
+        "content-start",
+        "items-center",
+        "justify-items-center",
+        "gap-4",
+        "text-center",
+        "sm:grid-flow-col",
+        "sm:grid-cols-[auto_minmax(auto,1fr)]",
+        "sm:justify-items-start",
+        "sm:text-left",
+      ],
+      "default": {
+        "apply": [
+          "bg-base-200",
+          "bg-base-200",
+        ],
+        "css": {
+          "color": "red",
+        },
+      },
+    },
+    "styled": {
+      "apply": [
+        "rounded-box",
+        "border",
+        "p-4",
+        "text-base-content",
+        "border-base-400",
+      ],
+      "default": {
+        "apply": [],
+      },
+    },
+  },
+  "selector": ".alert",
+}
+`;
+
+exports[`alert > merge options case 3 1`] = `
+{
+  "colors": {},
+  "defaults": {
+    "base": {
+      "apply": [
+        "grid",
+        "w-full",
+        "grid-flow-row",
+        "content-start",
+        "items-center",
+        "justify-items-center",
+        "gap-4",
+        "text-center",
+        "sm:grid-flow-col",
+        "sm:grid-cols-[auto_minmax(auto,1fr)]",
+        "sm:justify-items-start",
+        "sm:text-left",
+      ],
+      "default": {
+        "apply": [
+          "bg-base-200",
+        ],
+        "css": {
+          "color": "red",
+        },
+      },
+    },
+    "styled": {
+      "apply": [
+        "rounded-box",
+        "border",
+        "p-4",
+        "text-base-content",
+        "border-base-400",
+      ],
+      "default": {
+        "apply": [],
+      },
+    },
+  },
+  "selector": ".alert",
+}
+`;

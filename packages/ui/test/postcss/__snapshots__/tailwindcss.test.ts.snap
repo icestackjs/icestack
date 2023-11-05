@@ -1,0 +1,60 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`resolveTailwindcss > css case 0 1`] = `
+".link-primary {
+    --tw-text-opacity: 1;
+    color: rgb(229 231 235 / var(--tw-text-opacity))
+}
+.link-primary:hover {
+    --tw-text-opacity: 1;
+    color: rgb(243 244 246 / var(--tw-text-opacity))
+}"
+`;
+
+exports[`resolveTailwindcss > css case 1 1`] = `
+".link-primary {
+    --tw-text-opacity: 1;
+    color: rgb(229 231 235 / var(--tw-text-opacity))
+}
+@media (hover:hover) {
+    .link-primary:hover {
+        --tw-text-opacity: 1;
+        color: rgb(243 244 246 / var(--tw-text-opacity))
+    }
+}"
+`;
+
+exports[`resolveTailwindcss > css case 2 1`] = `
+"@media (hover:hover) {
+        .link-primary:hover {
+            --tw-text-opacity: 1;
+            color: rgb(243 244 246 / var(--tw-text-opacity))
+        }
+    }"
+`;
+
+exports[`resolveTailwindcss > css case 3 1`] = `
+"
+        .link-primary:hover {
+            --tw-text-opacity: 1;
+            color: rgb(243 244 246 / var(--tw-text-opacity))
+        }"
+`;
+
+exports[`resolveTailwindcss > css case 4 1`] = `
+"
+        .link-primary>view{
+            --tw-text-opacity: 1;
+            color: rgb(243 244 246 / var(--tw-text-opacity))
+        }
+    "
+`;
+
+exports[`resolveTailwindcss > css case 4 2`] = `
+"
+        .link-primary>*{
+            --tw-text-opacity: 1;
+            color: rgb(243 244 246 / var(--tw-text-opacity))
+        }
+    "
+`;

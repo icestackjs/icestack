@@ -1,87 +1,117 @@
-import type { Stats } from 'node:fs'
-import type { ConfigOptions } from 'rtlcss'
-import type { AcceptedPlugin } from 'postcss'
-import type { Config } from 'tailwindcss'
-import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
-import type allComponents from './allComponents'
+// import type { ConfigOptions } from 'rtlcss'
+// import type { AcceptedPlugin } from 'postcss'
+import type { Config as TailwindcssConfig } from 'tailwindcss'
+// import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
+import type { CssInJs } from 'postcss-js'
+import allComponents from './allComponents'
 import type { Options as PrefixerOptions } from '@/postcss/prefixer'
+// export interface SharedOptions {
+//   // https://daisyui.com/docs/config/
+//   // themes: only light + dark, and custom
+//   // darkTheme
+//   // base
+//   // styled
+//   // utils: true
+// }
 
-export interface SharedOptions {
-  varPrefix: PropertyPrefixerOptions['prefix']
-  styled: boolean
-  log: boolean
-  prefix: string | PrefixerOptions
-  rtl: boolean | ConfigOptions
-  global: {
-    atMedia: {
-      // default false
-      hover: boolean
-    }
-    pseudo: {
-      // default true
-      where: boolean
-    }
-    selector: {
-      // default *
-      universal: string | (() => string)
-      // default global
-      globalKeyword: string
-    }
-  }
-
-  // https://daisyui.com/docs/config/
-  // themes: only light + dark, and custom
-  // darkTheme
-  // base
-  // styled
-  // utils: true
-}
-
-export type CodegenOptions = SharedOptions & {
-  components: Record<
-    (typeof allComponents)[number],
+export type BaseOptions<T extends string = string> = {
+  themes: Record<
+    T,
     {
-      override: object
-      extend: object
-      postcss: {
-        plugins: AcceptedPlugin[]
-      }
+      selector: string
     }
   >
+  //           typeName        themeName       cssVars
+  types: Record<string, Record<keyof BaseOptions['themes'], Record<string, string>>>
+  extraColors: Record<keyof BaseOptions['themes'], Record<string, string>>
+  extraVars: Record<keyof BaseOptions['themes'], Record<string, string>>
+}
+
+// const a: BaseOptions = {
+//   extraColors: {},
+//   themes: {
+//     xxx: {
+//       selector: '.xxx'
+//     }
+//   }
+// }
+
+export type ComponentsValue = {
+  mode: CodegenMode
+  override: CssInJs
+  extend: CssInJs
+  extra: CssInJs
+  // append: CssInJs[]
+  selector: string
+  // postcss: {
+  //   plugins: AcceptedPlugin[]
+  // }
+}
+
+export type ComponentsOptions = Record<(typeof allComponents)[number], ComponentsValue>
+
+export type GlobalOptions = {
+  atMedia: {
+    // default false
+    hover: boolean
+  }
+  pseudo: {
+    // default true
+    where: boolean
+  }
+  selector: {
+    // default *
+    universal: string // | (() => string)
+    // default global
+    // globalKeyword: string
+  }
+}
+
+export type CodegenMode = 'styled' | 'base' | 'raw'
+
+export type LoadCodeOptions = {
+  loaddir: string
+}
+
+export type CodegenOptions = {
+  // default styled
+  mode: CodegenMode
+  components: ComponentsOptions
+  global: GlobalOptions
+  base: BaseOptions
+  varPrefix: string // PropertyPrefixerOptions['prefix']
+  // styled: boolean
+  log: boolean
+  prefix: string | PrefixerOptions
+  // rtl: boolean | ConfigOptions
+  presets: DeepPartial<CodegenOptions>[]
 
   outdir: string
-  base: {
-    selector: {
-      // default
-      light: string
-      dark: string
-    }
-    types: {
-      light: Record<string, string>
-      dark: Record<string, string>
-    }
-    extraVars: Record<string, string>
-  }
-  presets: DeepPartial<CodegenOptions>[]
+  autobuild: boolean
+  dryRun: boolean
+  loaddir: string
+  tailwindcssConfig: TailwindcssConfig
+  // tailwindcss plugin
+  // runtime: {
+  //   prefix: string | PrefixerOptions
+  //   atMedia: {
+  //     hover: boolean
+  //   }
+  //   selector: {
+  //     // default *
+  //     universal: string // | (() => string)
+  //   }
+  // }
 }
 
-export type TailwindcssPluginOptions = SharedOptions & {
-  basedir: string
-  base: {
-    selector: {
-      entries: { find: string | RegExp; replacement: string }[]
-    }
-  }
-  presets: DeepPartial<TailwindcssPluginOptions>[]
-}
+export type Config = Partial<CodegenOptions>
+
+// export type TailwindcssPluginOptions = CodegenOptions | LoadCodeOptions
 
 export interface IBuildScssOptions {
-  outdir?: string
   filename: string
-  stats?: Stats
-  resolveConfig?: (config: Config) => void
+  resolveConfig?: (config: TailwindcssConfig) => void
   outSideLayerCss: 'base' | 'components' | 'utilities'
-  options: CodegenOptions
 }
 
 // export type DeepRequired<T> = {
@@ -94,10 +124,10 @@ export interface IBuildScssOptions {
 //     : T[P]
 // }
 
-export declare type DeepPartial<T> = {
-  [K in keyof T]?: DeepPartial<T[K]>
+export type DeepPartial<T> = {
+  [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : Partial<T[P]>
 }
 
-export declare type DeepRequired<T> = {
-  [K in keyof T]-?: DeepRequired<NonNullable<T[K]>>
-}
+export type DeepRequired<T> = Required<{
+  [K in keyof T]: T[K] extends Required<T[K]> ? T[K] : DeepRequired<T[K]>
+}>

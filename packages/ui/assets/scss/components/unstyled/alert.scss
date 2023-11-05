@@ -1,7 +1,0 @@
-@use "../../utils/index.scss" as *;
-@use "sass:map";
-$DefaultMap: inject("alert.defaults.unstyled");
-
-.alert {
-  @include resolve(map.get($DefaultMap, "default"));
-}

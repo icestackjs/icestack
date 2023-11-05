@@ -1,0 +1,1327 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`'alert' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".alert": {
+        "apply": "grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left",
+      },
+    },
+    "styled": {
+      ".alert": {
+        "apply": "rounded-box border p-4 text-base-content border-base-400",
+      },
+    },
+  },
+  "selector": ".alert",
+}
+`;
+
+exports[`'avatar' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".avatar": {
+        "&.placeholder": {
+          "> div": {
+            "apply": "flex items-center justify-center",
+          },
+        },
+        "> div": {
+          "apply": "block aspect-square overflow-hidden",
+        },
+        "apply": "relative inline-flex",
+        "img": {
+          "apply": "h-full w-full object-cover",
+        },
+      },
+    },
+    "styled": {
+      ".avatar-group": {
+        ":where(.avatar)": {
+          "apply": "border-base-100 overflow-hidden rounded-full border-4",
+        },
+        "apply": "flex overflow-hidden",
+      },
+    },
+  },
+  "selector": ".avatar",
+}
+`;
+
+exports[`'badge' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".badge": {
+        "apply": "inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem]",
+      },
+    },
+    "styled": {
+      ".badge": {
+        "&-ghost": {
+          "apply": "border-base-400 bg-base-400 text-base-content",
+        },
+        "&-outline": {
+          "apply": "border-current border-opacity-50 bg-transparent text-current",
+        },
+        "apply": "rounded-badge border border-base-400 bg-base-100 text-base-content",
+      },
+    },
+    "utils": {
+      ".badge": {
+        "&-lg": {
+          "apply": "h-6 text-base leading-6",
+          "css": {
+            "padding-left": "0.688rem",
+            "padding-right": "0.688rem",
+          },
+        },
+        "&-md": {
+          "apply": "h-5 text-sm leading-5",
+          "css": {
+            "padding-left": "0.563rem",
+            "padding-right": "0.563rem",
+          },
+        },
+        "&-sm": {
+          "apply": "h-4 text-xs leading-4",
+          "css": {
+            "padding-left": "0.438rem",
+            "padding-right": "0.438rem",
+          },
+        },
+        "&-xs": {
+          "apply": "h-3 text-xs leading-3",
+          "css": {
+            "padding-left": "0.313rem",
+            "padding-right": "0.313rem",
+          },
+        },
+      },
+    },
+  },
+  "selector": ".badge",
+}
+`;
+
+exports[`'button' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".btn": {
+        "&-disabled,
+        &[disabled],
+        &:disabled": {
+          "apply": "pointer-events-none cursor-not-allowed",
+        },
+        "apply": "rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4",
+        "css": {
+          "font-size": "0.875rem",
+          "line-height": "1em",
+        },
+      },
+    },
+    "styled": {
+      ".btn": {
+        "&-ghost": {
+          "&.btn-active": {
+            "apply": "border-opacity-0 bg-base-content bg-opacity-20",
+          },
+          "&:active": {
+            "apply": "border-opacity-0 bg-base-content bg-opacity-20",
+          },
+          "apply": "border border-transparent bg-transparent text-current shadow-none outline-current",
+        },
+        "&-link": {
+          "&.btn-active": {
+            "apply": "border-transparent bg-transparent underline",
+          },
+          "&:active": {
+            "apply": "border-transparent bg-transparent underline",
+          },
+          "apply": "text-primary border-transparent bg-transparent underline shadow-none outline-current",
+        },
+        "&-outline": {
+          "&.btn-active": {
+            "apply": "border-base-1100 bg-base-1100 text-base-100",
+          },
+          "&:active": {
+            "apply": "border-base-1100 bg-base-1100 text-base-100",
+          },
+          "&:hover": {
+            "apply": "border-base-900 bg-base-900 text-base-100",
+          },
+          "apply": "border-current bg-transparent shadow-none text-base-content",
+        },
+        "&.btn-active": {
+          "apply": "border-base-500 bg-base-500",
+        },
+        "&.btn-disabled,
+          &[disabled],
+          &:disabled": {
+          "apply": "bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20",
+        },
+        "&.glass": {
+          "&.btn-active": {
+            "css": {
+              "--glass-border-opacity": "15%",
+              "--glass-opacity": "25%",
+            },
+          },
+          "&:active": {
+            "css": {
+              "--glass-border-opacity": "15%",
+              "--glass-opacity": "25%",
+            },
+          },
+          "apply": "shadow-none outline-current",
+        },
+        "&:active": {
+          "apply": "border-base-500 bg-base-500",
+        },
+        "&:focus-visible": {
+          "apply": "outline outline-2 outline-offset-2",
+        },
+        "&:hover": {
+          "apply": "border-base-300 bg-base-300",
+        },
+        "apply": "border-base-400 bg-base-400 text-base-content outline-base-400 no-underline",
+        "css": {
+          "border-width": "var(--border-btn, 1px)",
+        },
+      },
+    },
+    "utils": {
+      ".btn": {
+        "&-block": {
+          "apply": "w-full",
+        },
+        "&-circle": {
+          "&:where(.btn-lg)": {
+            "apply": "h-16 w-16 rounded-full p-0",
+          },
+          "&:where(.btn-md)": {
+            "apply": "h-12 w-12 rounded-full p-0",
+          },
+          "&:where(.btn-sm)": {
+            "apply": "h-8 w-8 rounded-full p-0",
+          },
+          "&:where(.btn-xs)": {
+            "apply": "h-6 w-6 rounded-full p-0",
+          },
+          "apply": "h-12 w-12 rounded-full p-0",
+        },
+        "&-lg": {
+          "apply": "min-h-16 h-16 px-6",
+          "css": {
+            "font-size": "1.125rem",
+          },
+        },
+        "&-md": {
+          "apply": "min-h-12 h-12 px-4",
+          "css": {
+            "font-size": "0.875rem",
+          },
+        },
+        "&-sm": {
+          "apply": "min-h-8 h-8 px-3",
+          "css": {
+            "font-size": "0.875rem",
+          },
+        },
+        "&-square": {
+          "&:where(.btn-lg)": {
+            "apply": "h-16 w-16 p-0",
+          },
+          "&:where(.btn-md)": {
+            "apply": "h-12 w-12 p-0",
+          },
+          "&:where(.btn-sm)": {
+            "apply": "h-8 w-8 p-0",
+          },
+          "&:where(.btn-xs)": {
+            "apply": "h-6 w-6 p-0",
+          },
+          "apply": "h-12 w-12 p-0",
+        },
+        "&-wide": {
+          "apply": "w-64",
+        },
+        "&-xs": {
+          "apply": "min-h-6 h-6 px-2",
+          "css": {
+            "font-size": "0.75rem",
+          },
+        },
+      },
+    },
+  },
+  "selector": ".btn",
+}
+`;
+
+exports[`'chat' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".chat": {
+        "&-bubble": {
+          "&:before": {
+            "apply": "absolute bottom-0 h-3 w-3",
+            "css": {
+              "background-color": "inherit",
+              "content": "\\"\\"",
+              "mask-position": "center",
+              "mask-repeat": "no-repeat",
+              "mask-size": "contain",
+            },
+          },
+          "apply": "relative block w-fit px-4 py-2",
+          "css": {
+            "max-width": "90%",
+          },
+        },
+        "&-end": {
+          ".chat-bubble": {
+            "&:before": {
+              "[dir=\\"rtl\\"] &": {
+                "css": {
+                  "mask-image": "url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 3 3 L 3 0 C 3 1 1 3 0 3'/%3e%3c/svg%3e\\")",
+                },
+              },
+              "css": {
+                "mask-image": "url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 1 3 L 3 3 C 2 3 0 1 0 0'/%3e%3c/svg%3e\\")",
+              },
+            },
+            "apply": "col-start-1",
+          },
+          ".chat-footer": {
+            "apply": "col-start-1",
+          },
+          ".chat-header": {
+            "apply": "col-start-1",
+          },
+          ".chat-image": {
+            "apply": "col-start-2",
+          },
+          "apply": "place-items-end",
+          "css": {
+            "grid-template-columns": "1fr auto",
+          },
+        },
+        "&-footer": {
+          "apply": "row-start-3 text-sm",
+        },
+        "&-header": {
+          "apply": "row-start-1 text-sm",
+        },
+        "&-image": {
+          "apply": "row-span-2 self-end",
+        },
+        "&-start": {
+          ".chat-bubble": {
+            "&:before": {
+              "[dir=\\"rtl\\"] &": {
+                "css": {
+                  "mask-image": "url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 1 3 L 3 3 C 2 3 0 1 0 0'/%3e%3c/svg%3e\\")",
+                },
+              },
+              "css": {
+                "mask-image": "url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 3 3 L 3 0 C 3 1 1 3 0 3'/%3e%3c/svg%3e\\")",
+              },
+            },
+            "apply": "col-start-2",
+          },
+          ".chat-footer": {
+            "apply": "col-start-2",
+          },
+          ".chat-header": {
+            "apply": "col-start-2",
+          },
+          ".chat-image": {
+            "apply": "col-start-1",
+          },
+          "apply": "place-items-start",
+          "css": {
+            "grid-template-columns": "auto 1fr",
+          },
+        },
+        "apply": "grid grid-cols-2 gap-x-3 py-1",
+      },
+      "bubble": {},
+    },
+    "styled": {
+      ".chat": {
+        "&-bubble": {
+          "apply": "bg-neutral text-neutral-content rounded-box",
+          "css": {
+            "min-height": "2.75rem",
+            "min-width": "2.75rem",
+          },
+        },
+        "&-end .chat-bubble": {
+          "&:before": {
+            "css": {
+              "left": "99.9%",
+            },
+          },
+          "apply": "rounded-br-none",
+        },
+        "&-start .chat-bubble": {
+          "&:before": {
+            "css": {
+              "left": "-0.749rem",
+            },
+          },
+          "apply": "rounded-bl-none",
+        },
+      },
+    },
+  },
+  "selector": ".chat",
+}
+`;
+
+exports[`'checkbox' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".checkbox": {
+        "apply": "shrink-0",
+      },
+    },
+    "styled": {
+      ".checkbox": {
+        "&:checked,
+          &[checked=\\"true\\"],
+          &[aria-checked=\\"true\\"]": {
+          "apply": "bg-base-content bg-no-repeat",
+          "css": {
+            "animation": "checkmark var(--animation-input, 0.2s) ease-out",
+            "background-image": "linear-gradient(-45deg, transparent 65%, rgba(var(--chkbg)) 65.99%),
+              linear-gradient(45deg, transparent 75%, rgba(var(--chkbg)) 75.99%),
+              linear-gradient(-45deg, rgba(var(--chkbg)) 40%, transparent 40.99%),
+              linear-gradient(
+                45deg,
+                rgba(var(--chkbg)) 30%,
+                rgba(var(--chkfg)) 30.99%,
+                rgba(var(--chkfg)) 40%,
+                transparent 40.99%
+              ),
+              linear-gradient(-45deg, rgba(var(--chkfg)) 50%, rgba(var(--chkbg)) 50.99%)",
+          },
+        },
+        "&:disabled": {
+          "apply": "bg-base-content cursor-not-allowed border-transparent opacity-20",
+        },
+        "&:focus-visible": {
+          "apply": "outline-base-content outline outline-2 outline-offset-2",
+        },
+        "&:indeterminate": {
+          "apply": "bg-base-content bg-no-repeat",
+          "css": {
+            "animation": "checkmark var(--animation-input, 0.2s) ease-out",
+            "background-image": "linear-gradient(90deg, transparent 80%, rgba(var(--chkbg)) 80%),
+          linear-gradient(-90deg, transparent 80%, rgba(var(--chkbg)) 80%),
+          linear-gradient(
+            0deg,
+            rgba(var(--chkbg)) 43%,
+            rgba(var(--chkfg)) 43%,
+            rgba(var(--chkfg)) 57%,
+            rgba(var(--chkbg)) 57%
+          )",
+          },
+        },
+        "apply": "border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20",
+        "css": {
+          "--chkbg": "var(--base-content)",
+          "--chkfg": "var(--base-400)",
+        },
+      },
+      "@keyframes checkmark": {
+        "0%": {
+          "css": {
+            "background-position-y": "5px",
+          },
+        },
+        "100%": {
+          "css": {
+            "background-position-y": "0",
+          },
+        },
+        "50%": {
+          "css": {
+            "background-position-y": "-2px",
+          },
+        },
+      },
+    },
+    "utils": {
+      ".checkbox": {
+        "&-lg": {
+          "apply": "h-8 w-8",
+        },
+        "&-md": {
+          "apply": "h-6 w-6",
+        },
+        "&-sm": {
+          "apply": "h-5 w-5",
+        },
+        "&-xs": {
+          "apply": "h-4 w-4",
+        },
+      },
+    },
+  },
+  "selector": ".checkbox",
+}
+`;
+
+exports[`'form' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".form-control": {
+        "apply": "flex flex-col",
+      },
+      ".label": {
+        "apply": "flex select-none items-center justify-between",
+      },
+    },
+    "styled": {
+      ".label": {
+        "&-text": {
+          "apply": "text-base-content text-sm",
+        },
+        "&-text-alt": {
+          "apply": "text-base-content text-xs",
+        },
+        "a": {
+          "apply": "[@media(hover:hover)]:hover:text-base-content",
+        },
+        "apply": "px-1 py-2",
+      },
+    },
+    "utils": {},
+  },
+  "selector": undefined,
+}
+`;
+
+exports[`'input' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".input": {
+        "apply": "flex-shrink h-8 px-3 text-sm leading-loose",
+      },
+    },
+    "styled": {
+      ".input": {
+        "&-bordered": {
+          "apply": "border-opacity-20",
+        },
+        "&-disabled,
+          &:disabled,
+          &[disabled]": {
+          "apply": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20",
+        },
+        "&-ghost": {
+          "&:focus,
+            &:focus-within": {
+            "apply": "text-base-content bg-opacity-100",
+            "css": {
+              "box-shadow": "none",
+            },
+          },
+          "apply": "bg-opacity-5",
+        },
+        "&:focus,
+          &:focus-within": {
+          "apply": "outline-0 shadow-[0_0_0_2px] shadow-base-content/10",
+        },
+        "&[list]::-webkit-calendar-picker-indicator": {
+          "css": {
+            "line-height": "1em",
+          },
+        },
+        "apply": "border-base-content bg-base-100 rounded-btn border border-opacity-0 text-base",
+        "input:focus": {
+          "apply": "outline-none",
+        },
+      },
+    },
+    "utils": {
+      ".input": {
+        "&-lg": {
+          "apply": "h-16 px-6 text-lg leading-loose",
+        },
+        "&-md": {
+          "apply": "h-12 px-4 text-sm leading-loose",
+        },
+        "&-sm": {
+          "apply": "h-8 px-3 text-sm leading-8",
+        },
+        "&-xs": {
+          "apply": "h-6 px-2 text-xs leading-relaxed",
+        },
+      },
+    },
+  },
+  "selector": ".input",
+}
+`;
+
+exports[`'link' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".link": {
+        "&-hover": {
+          "apply": "no-underline hover:underline",
+        },
+        "apply": "cursor-pointer underline",
+      },
+    },
+    "styled": {
+      ".link": {
+        "&:focus": {
+          "apply": "outline-none",
+        },
+        "&:focus-visible": {
+          "css": {
+            "outline": "2px solid currentColor",
+            "outline-offset": "2px",
+          },
+        },
+      },
+    },
+  },
+  "selector": ".link",
+}
+`;
+
+exports[`'loading' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".loading": {
+        "apply": "pointer-events-none inline-block aspect-square w-6",
+        "css": {
+          "background-color": "currentColor",
+          "mask-image": "url(\\"data:image/svg+xml,%3Csvg width='24' height='24' stroke='%23000' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_V8m1%7Btransform-origin:center;animation:spinner_zKoa 2s linear infinite%7D.spinner_V8m1 circle%7Bstroke-linecap:round;animation:spinner_YpZS 1.5s ease-out infinite%7D%40keyframes spinner_zKoa%7B100%25%7Btransform:rotate(360deg)%7D%7D%40keyframes spinner_YpZS%7B0%25%7Bstroke-dasharray:0 150;stroke-dashoffset:0%7D47.5%25%7Bstroke-dasharray:42 150;stroke-dashoffset:-16%7D95%25%2C100%25%7Bstroke-dasharray:42 150;stroke-dashoffset:-59%7D%7D%3C%2Fstyle%3E%3Cg class='spinner_V8m1'%3E%3Ccircle cx='12' cy='12' r='9.5' fill='none' stroke-width='3'%3E%3C%2Fcircle%3E%3C%2Fg%3E%3C%2Fsvg%3E\\")",
+          "mask-position": "center",
+          "mask-repeat": "no-repeat",
+          "mask-size": "100%",
+        },
+      },
+    },
+    "styled": {},
+    "utils": {
+      ".loading": {
+        "&-ball": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%0A%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_rXNP%7Banimation:spinner_YeBj .8s infinite%7D@keyframes spinner_YeBj%7B0%25%7Banimation-timing-function:cubic-bezier(0.33,0,.66,.33);cy:5px%7D46.875%25%7Bcy:20px;rx:4px;ry:4px%7D50%25%7Banimation-timing-function:cubic-bezier(0.33,.66,.66,1);cy:20.5px;rx:4.8px;ry:3px%7D53.125%25%7Brx:4px;ry:4px%7D100%25%7Bcy:5px%7D%7D%3C/style%3E%3Cellipse class='spinner_rXNP' cx='12' cy='5' rx='4' ry='4'/%3E%3C/svg%3E\\")",
+          },
+        },
+        "&-bars": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%0A%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_hzlK%7Banimation:spinner_vc4H .8s linear infinite;animation-delay:-.8s%7D.spinner_koGT%7Banimation-delay:-.65s%7D.spinner_YF1u%7Banimation-delay:-.5s%7D@keyframes spinner_vc4H%7B0%25%7By:1px;height:22px%7D93.75%25%7By:5px;height:14px;opacity:.2%7D%7D%3C/style%3E%3Crect class='spinner_hzlK' x='1' y='1' width='6' height='22'/%3E%3Crect class='spinner_hzlK spinner_koGT' x='9' y='1' width='6' height='22'/%3E%3Crect class='spinner_hzlK spinner_YF1u' x='17' y='1' width='6' height='22'/%3E%3C/svg%3E\\")",
+          },
+        },
+        "&-dots": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_qM83%7Banimation:spinner_8HQG 1.05s infinite%7D.spinner_oXPr%7Banimation-delay:.1s%7D.spinner_ZTLf%7Banimation-delay:.2s%7D@keyframes spinner_8HQG%7B0%25,57.14%25%7Banimation-timing-function:cubic-bezier(0.33,.66,.66,1);transform:translate(0)%7D28.57%25%7Banimation-timing-function:cubic-bezier(0.33,0,.66,.33);transform:translateY(-6px)%7D100%25%7Btransform:translate(0)%7D%7D%3C/style%3E%3Ccircle class='spinner_qM83' cx='4' cy='12' r='3'/%3E%3Ccircle class='spinner_qM83 spinner_oXPr' cx='12' cy='12' r='3'/%3E%3Ccircle class='spinner_qM83 spinner_ZTLf' cx='20' cy='12' r='3'/%3E%3C/svg%3E\\")",
+          },
+        },
+        "&-infinity": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='shape-rendering: auto;' width='200px' height='200px' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid'%3E%3Cpath fill='none' stroke='%230a0a0a' stroke-width='10' stroke-dasharray='205.271142578125 51.317785644531256' d='M24.3 30C11.4 30 5 43.3 5 50s6.4 20 19.3 20c19.3 0 32.1-40 51.4-40 C88.6 30 95 43.3 95 50s-6.4 20-19.3 20C56.4 70 43.6 30 24.3 30z' stroke-linecap='round' style='transform:scale(0.8);transform-origin:50px 50px'%3E%3Canimate attributeName='stroke-dashoffset' repeatCount='indefinite' dur='2s' keyTimes='0;1' values='0;256.58892822265625'%3E%3C/animate%3E%3C/path%3E%3C/svg%3E\\")",
+          },
+        },
+        "&-lg": {
+          "apply": "w-10",
+        },
+        "&-md": {
+          "apply": "w-6",
+        },
+        "&-ring": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 44 44' xmlns='http://www.w3.org/2000/svg' stroke='%23fff'%3E%3Cg fill='none' fill-rule='evenodd' stroke-width='2'%3E%3Ccircle cx='22' cy='22' r='1'%3E%3Canimate attributeName='r' begin='0s' dur='1.8s' values='1; 20' calcMode='spline' keyTimes='0; 1' keySplines='0.165, 0.84, 0.44, 1' repeatCount='indefinite' /%3E%3Canimate attributeName='stroke-opacity' begin='0s' dur='1.8s' values='1; 0' calcMode='spline' keyTimes='0; 1' keySplines='0.3, 0.61, 0.355, 1' repeatCount='indefinite' /%3E%3C/circle%3E%3Ccircle cx='22' cy='22' r='1'%3E%3Canimate attributeName='r' begin='-0.9s' dur='1.8s' values='1; 20' calcMode='spline' keyTimes='0; 1' keySplines='0.165, 0.84, 0.44, 1' repeatCount='indefinite' /%3E%3Canimate attributeName='stroke-opacity' begin='-0.9s' dur='1.8s' values='1; 0' calcMode='spline' keyTimes='0; 1' keySplines='0.3, 0.61, 0.355, 1' repeatCount='indefinite' /%3E%3C/circle%3E%3C/g%3E%3C/svg%3E\\")",
+          },
+        },
+        "&-sm": {
+          "apply": "w-5",
+        },
+        "&-spinner": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3Csvg width='24' height='24' stroke='%23000' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_V8m1%7Btransform-origin:center;animation:spinner_zKoa 2s linear infinite%7D.spinner_V8m1 circle%7Bstroke-linecap:round;animation:spinner_YpZS 1.5s ease-out infinite%7D%40keyframes spinner_zKoa%7B100%25%7Btransform:rotate(360deg)%7D%7D%40keyframes spinner_YpZS%7B0%25%7Bstroke-dasharray:0 150;stroke-dashoffset:0%7D47.5%25%7Bstroke-dasharray:42 150;stroke-dashoffset:-16%7D95%25%2C100%25%7Bstroke-dasharray:42 150;stroke-dashoffset:-59%7D%7D%3C%2Fstyle%3E%3Cg class='spinner_V8m1'%3E%3Ccircle cx='12' cy='12' r='9.5' fill='none' stroke-width='3'%3E%3C%2Fcircle%3E%3C%2Fg%3E%3C%2Fsvg%3E\\")",
+          },
+        },
+        "&-xs": {
+          "apply": "w-4",
+        },
+      },
+    },
+  },
+  "selector": ".loading",
+}
+`;
+
+exports[`'mask' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".mask": {
+        "&-half-1": {
+          "css": {
+            "mask-position": "left",
+            "mask-size": "200%",
+          },
+        },
+        "&-half-2": {
+          "css": {
+            "mask-position": "right",
+            "mask-size": "200%",
+          },
+        },
+        "css": {
+          "mask-position": "center",
+          "mask-repeat": "no-repeat",
+          "mask-size": "contain",
+        },
+      },
+    },
+    "utils": {
+      ".mask": {
+        "&-circle": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle fill='black' cx='100' cy='100' r='100' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-decagon": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='192' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m96 0 58.779 19.098 36.327 50v61.804l-36.327 50L96 200l-58.779-19.098-36.327-50V69.098l36.327-50z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-diamond": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m100 0 100 100-100 100L0 100z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-heart": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='200' height='185' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M100 184.606a15.384 15.384 0 0 1-8.653-2.678C53.565 156.28 37.205 138.695 28.182 127.7 8.952 104.264-.254 80.202.005 54.146.308 24.287 24.264 0 53.406 0c21.192 0 35.869 11.937 44.416 21.879a2.884 2.884 0 0 0 4.356 0C110.725 11.927 125.402 0 146.594 0c29.142 0 53.098 24.287 53.4 54.151.26 26.061-8.956 50.122-28.176 73.554-9.023 10.994-25.383 28.58-63.165 54.228a15.384 15.384 0 0 1-8.653 2.673Z' fill='black' fill-rule='nonzero'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-hexagon": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='182' height='201' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M.3 65.486c0-9.196 6.687-20.063 14.211-25.078l61.86-35.946c8.36-5.016 20.899-5.016 29.258 0l61.86 35.946c8.36 5.015 14.211 15.882 14.211 25.078v71.055c0 9.196-6.687 20.063-14.211 25.079l-61.86 35.945c-8.36 4.18-20.899 4.18-29.258 0L14.51 161.62C6.151 157.44.3 145.737.3 136.54V65.486Z' fill='black' fill-rule='nonzero'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-hexagon-2": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='200' height='182' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M64.786 181.4c-9.196 0-20.063-6.687-25.079-14.21L3.762 105.33c-5.016-8.36-5.016-20.9 0-29.259l35.945-61.86C44.723 5.851 55.59 0 64.786 0h71.055c9.196 0 20.063 6.688 25.079 14.211l35.945 61.86c4.18 8.36 4.18 20.899 0 29.258l-35.945 61.86c-4.18 8.36-15.883 14.211-25.079 14.211H64.786Z' fill='black' fill-rule='nonzero'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-parallelogram": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='200' height='154' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='M46.154 0H200l-46.154 153.846H0z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-parallelogram-2": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='200' height='154' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='M153.846 0H0l46.154 153.846H200z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-parallelogram-3": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='154' height='201' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='M.077 47.077v153.846l153.846-46.154V.923z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-parallelogram-4": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='154' height='201' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='M153.923 47.077v153.846L.077 154.77V.923z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-pentagon": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='192' height='181' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m96 0 95.106 69.098-36.327 111.804H37.22L.894 69.098z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-square": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='M0 0h200v200H0z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-squircle": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M100 0C20 0 0 20 0 100s20 100 100 100 100-20 100-100S180 0 100 0Z'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-star": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='192' height='180' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m96 137.263-58.779 42.024 22.163-68.389L.894 68.481l72.476-.243L96 0l22.63 68.238 72.476.243-58.49 42.417 22.163 68.389z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-star-2": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='192' height='180' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m96 153.044-58.779 26.243 7.02-63.513L.894 68.481l63.117-13.01L96 0l31.989 55.472 63.117 13.01-43.347 47.292 7.02 63.513z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-triangle": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='174' height='149' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m87 148.476-86.603.185L43.86 74.423 87 0l43.14 74.423 43.463 74.238z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-triangle-2": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='174' height='150' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m87 .738 86.603-.184-43.463 74.238L87 149.214 43.86 74.792.397.554z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-triangle-3": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='150' height='174' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m149.369 87.107.185 86.603-74.239-43.463L.893 87.107l74.422-43.14L149.554.505z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+        "&-triangle-4": {
+          "css": {
+            "mask-image": "url(\\"data:image/svg+xml,%3csvg width='150' height='174' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='M.631 87.107.446.505l74.239 43.462 74.422 43.14-74.422 43.14L.446 173.71z' fill-rule='evenodd'/%3e%3c/svg%3e\\")",
+          },
+        },
+      },
+    },
+  },
+  "selector": ".mask",
+}
+`;
+
+exports[`'progress' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".progress": {
+        "apply": "relative w-full appearance-none overflow-hidden",
+      },
+    },
+    "styled": {
+      ".progress": {
+        "&::-moz-progress-bar": {
+          "apply": "bg-base-content rounded-box",
+        },
+        "&::-webkit-progress-bar": {
+          "apply": "rounded-box bg-transparent",
+        },
+        "&::-webkit-progress-value": {
+          "apply": "bg-base-content rounded-box",
+        },
+        "&:indeterminate": {
+          "&::-moz-progress-bar": {
+            "apply": "bg-transparent",
+            "css": {
+              "animation": "progress-loading 5s ease-in-out infinite",
+              "background-image": "repeating-linear-gradient(
+                  90deg,
+                  var(--progress-color) -1%,
+                  var(--progress-color) 10%,
+                  transparent 10%,
+                  transparent 90%
+                )",
+              "background-position-x": "15%",
+              "background-size": "200%",
+            },
+          },
+          "css": {
+            "animation": "progress-loading 5s ease-in-out infinite",
+            "background-image": "repeating-linear-gradient(
+                90deg,
+                var(--progress-color) -1%,
+                var(--progress-color) 10%,
+                transparent 10%,
+                transparent 90%
+              )",
+            "background-position-x": "15%",
+            "background-size": "200%",
+          },
+        },
+        "apply": "rounded-box bg-base-content/20 h-2",
+      },
+      "@keyframes progress-loading": {
+        "50%": {
+          "css": {
+            "background-position-x": "-115%",
+          },
+        },
+      },
+    },
+  },
+  "selector": ".progress",
+}
+`;
+
+exports[`'radio' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".radio": {
+        "apply": "shrink-0",
+      },
+    },
+    "styled": {
+      ".radio": {
+        "&:checked,
+          &[aria-checked=\\"true\\"]": {
+          "apply": "bg-base-content",
+          "css": {
+            "animation": "radiomark var(--animation-input, 0.2s) ease-out",
+            "box-shadow": "0 0 0 4px rgba(var(--base-400)) inset,
+            0 0 0 4px rgba(var(--base-400)) inset",
+          },
+        },
+        "&:disabled": {
+          "apply": "cursor-not-allowed opacity-20",
+        },
+        "&:focus-visible": {
+          "apply": "outline-base-content outline outline-2 outline-offset-2",
+        },
+        "apply": "border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20",
+      },
+      "@keyframes radiomark": {
+        "0%": {
+          "css": {
+            "box-shadow": "0 0 0 12px rgba(var(--base-400)) inset,
+              0 0 0 12px rgba(var(--base-400)) inset",
+          },
+        },
+        "100%": {
+          "css": {
+            "box-shadow": "0 0 0 4px rgba(var(--base-400)) inset,
+              0 0 0 4px rgba(var(--base-400)) inset",
+          },
+        },
+        "50%": {
+          "css": {
+            "box-shadow": "0 0 0 3px rgba(var(--base-400)) inset,
+              0 0 0 3px rgba(var(--base-400)) inset",
+          },
+        },
+      },
+    },
+    "utils": {
+      ".radio": {
+        "&-lg": {
+          "apply": "h-8 w-8",
+        },
+        "&-md": {
+          "apply": "h-6 w-6",
+        },
+        "&-sm": {
+          "apply": "h-5 w-5",
+        },
+        "&-xs": {
+          "apply": "h-4 w-4",
+        },
+      },
+    },
+  },
+  "selector": ".radio",
+}
+`;
+
+exports[`'range' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".range": {
+        "&:focus": {
+          "css": {
+            "outline": "none",
+          },
+        },
+        "apply": "h-6 w-full cursor-pointer",
+      },
+    },
+    "styled": {
+      ".range": {
+        "&::-moz-range-thumb": {
+          "apply": "rounded-box bg-base-400 relative h-6 w-6 border-none",
+          "css": {
+            "--filler-offset": "0.5rem",
+            "--filler-size": "100rem",
+            "box-shadow": "0 0 0 3px rgba(var(--range-shdw)) inset,
+          var(--focus-shadow, 0 0),
+          calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size)",
+            "color": "rgba(var(--range-shdw))",
+            "top": "50%",
+          },
+        },
+        "&::-moz-range-track": {
+          "apply": "rounded-box bg-base-content/10 h-2 w-full",
+        },
+        "&::-webkit-slider-runnable-track": {
+          "apply": "rounded-box bg-base-content/10 h-2 w-full",
+        },
+        "&::-webkit-slider-thumb": {
+          "apply": "rounded-box bg-base-400 relative h-6 w-6 border-none",
+          "css": {
+            "--filler-offset": "0.6rem",
+            "--filler-size": "100rem",
+            "appearance": "none",
+            "box-shadow": "0 0 0 3px rgba(var(--range-shdw)) inset,
+          var(--focus-shadow, 0 0),
+          calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size)",
+            "color": "rgba(var(--range-shdw))",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+          },
+        },
+        "&:focus-visible::-moz-range-thumb": {
+          "css": {
+            "--focus-shadow": "0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset",
+          },
+        },
+        "&:focus-visible::-webkit-slider-thumb": {
+          "css": {
+            "--focus-shadow": "0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset",
+          },
+        },
+        "apply": "rounded-box overflow-hidden bg-transparent",
+        "css": {
+          "--range-shdw": "var(--base-content)",
+          "appearance": "none",
+        },
+      },
+    },
+    "utils": {
+      ".range": {
+        "&-lg": {
+          "&::-moz-range-thumb": {
+            "apply": "h-8 w-8",
+            "css": {
+              "--filler-offset": "1rem",
+            },
+          },
+          "&::-moz-range-track": {
+            "apply": "h-4",
+          },
+          "&::-webkit-slider-runnable-track": {
+            "apply": "h-4",
+          },
+          "&::-webkit-slider-thumb": {
+            "apply": "h-8 w-8",
+            "css": {
+              "--filler-offset": "1rem",
+            },
+          },
+          "apply": "h-8",
+        },
+        "&-md": {
+          "&::-moz-range-thumb": {
+            "apply": "h-6 w-6",
+            "css": {
+              "--filler-offset": "0.6rem",
+            },
+          },
+          "&::-moz-range-track": {
+            "apply": "h-2",
+          },
+          "&::-webkit-slider-runnable-track": {
+            "apply": "h-2",
+          },
+          "&::-webkit-slider-thumb": {
+            "apply": "h-6 w-6",
+            "css": {
+              "--filler-offset": "0.6rem",
+            },
+          },
+          "apply": "h-6",
+        },
+        "&-sm": {
+          "&::-moz-range-thumb": {
+            "apply": "h-5 w-5",
+            "css": {
+              "--filler-offset": "0.5rem",
+            },
+          },
+          "&::-moz-range-track": {
+            "apply": "h-1",
+          },
+          "&::-webkit-slider-runnable-track": {
+            "apply": "h-1",
+          },
+          "&::-webkit-slider-thumb": {
+            "apply": "h-5 w-5",
+            "css": {
+              "--filler-offset": "0.5rem",
+            },
+          },
+          "apply": "h-5",
+        },
+        "&-xs": {
+          "&::-moz-range-thumb": {
+            "apply": "h-4 w-4",
+            "css": {
+              "--filler-offset": "0.4rem",
+            },
+          },
+          "&::-moz-range-track": {
+            "apply": "h-1",
+          },
+          "&::-webkit-slider-runnable-track": {
+            "apply": "h-1",
+          },
+          "&::-webkit-slider-thumb": {
+            "apply": "h-4 w-4",
+            "css": {
+              "--filler-offset": "0.4rem",
+            },
+          },
+          "apply": "h-4",
+        },
+      },
+    },
+  },
+  "selector": ".range",
+}
+`;
+
+exports[`'select' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".select": {
+        "&[multiple]": {
+          "apply": "h-auto",
+        },
+        "apply": "inline-flex cursor-pointer select-none appearance-none min-h-8 h-8 pl-3 pr-8 text-sm leading-8",
+      },
+    },
+    "styled": {
+      ".select": {
+        "&-bordered": {
+          "apply": "border-opacity-20",
+        },
+        "&-disabled,
+          &:disabled,
+          &[disabled]": {
+          "apply": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20",
+        },
+        "&-ghost": {
+          "&:focus": {
+            "apply": "text-base-content bg-opacity-100",
+          },
+          "apply": "bg-opacity-5",
+        },
+        "&-multiple,
+          &[multiple],
+          &[size]:not([size=\\"1\\"])": {
+          "apply": "bg-none pr-4",
+        },
+        "&:focus": {
+          "apply": "outline-base-content/20 outline outline-2 outline-offset-2",
+        },
+        "apply": "border-base-content bg-base-100 rounded-btn border border-opacity-0 pr-10",
+        "css": {
+          "background-image": "linear-gradient(45deg, transparent 50%, currentColor 50%),
+            linear-gradient(135deg, currentColor 50%, transparent 50%)",
+          "background-position": "calc(100% - 20px) calc(1px + 50%),
+            calc(100% - 16.1px) calc(1px + 50%)",
+          "background-repeat": "no-repeat",
+          "background-size": "4px 4px,
+            4px 4px",
+        },
+      },
+      "[dir=\\"rtl\\"] .select": {
+        "css": {
+          "background-position": "calc(0% + 12px) calc(1px + 50%),
+    calc(0% + 16px) calc(1px + 50%)",
+        },
+      },
+    },
+    "utils": {
+      ".select": {
+        "&-lg": {
+          "[dir=\\"rtl\\"] &": {
+            "apply": "pl-8 pr-6",
+          },
+          "apply": "min-h-16 h-16 pl-6 pr-8 text-lg leading-loose",
+        },
+        "&-md": {
+          "[dir=\\"rtl\\"] &": {
+            "apply": "pl-10 pr-4",
+          },
+          "apply": "min-h-12 h-12 pl-4 pr-10 text-sm leading-loose",
+        },
+        "&-sm": {
+          "[dir=\\"rtl\\"] &": {
+            "apply": "pl-8 pr-3",
+          },
+          "apply": "min-h-8 h-8 pl-3 pr-8 text-sm leading-8",
+        },
+        "&-xs": {
+          "[dir=\\"rtl\\"] &": {
+            "apply": "pl-8 pr-2",
+          },
+          "apply": "min-h-6 h-6 pl-2 pr-8 text-xs leading-relaxed",
+        },
+      },
+    },
+  },
+  "selector": ".select",
+}
+`;
+
+exports[`'textarea' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".textarea": {
+        "apply": "min-h-12 flex-shrink px-4 py-2 text-sm leading-loose",
+      },
+    },
+    "styled": {
+      ".textarea": {
+        "&-bordered": {
+          "apply": "border-opacity-20",
+        },
+        "&-disabled,
+          &:disabled,
+          &[disabled]": {
+          "apply": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20",
+        },
+        "&-ghost": {
+          "&:focus": {
+            "apply": "text-base-content bg-opacity-100",
+            "css": {
+              "box-shadow": "none",
+            },
+          },
+          "apply": "bg-opacity-5",
+        },
+        "&:focus": {
+          "apply": "outline-base-content/20 outline outline-2 outline-offset-2",
+        },
+        "apply": "border-base-content bg-base-100 rounded-btn border border-opacity-0",
+      },
+    },
+    "utils": {
+      ".textarea": {
+        "&-lg": {
+          "apply": "px-6 py-4 text-lg leading-loose",
+        },
+        "&-md": {
+          "apply": "px-4 py-3 text-sm leading-loose",
+        },
+        "&-sm": {
+          "apply": "px-3 py-1 text-sm leading-8",
+        },
+        "&-xs": {
+          "apply": "px-2 py-1 text-xs leading-relaxed",
+        },
+      },
+    },
+  },
+  "selector": ".textarea",
+}
+`;
+
+exports[`'toggle' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".toggle": {
+        "apply": "shrink-0",
+      },
+    },
+    "styled": {
+      ".toggle": {
+        "&:checked,
+          &[checked=\\"true\\"],
+          &[aria-checked=\\"true\\"]": {
+          "[dir=\\"rtl\\"] &": {
+            "css": {
+              "--handleoffsetcalculator": "calc(var(--handleoffset) * -1)",
+            },
+          },
+          "apply": "border-opacity-100 bg-opacity-100",
+          "css": {
+            "--handleoffsetcalculator": "var(--handleoffset)",
+          },
+        },
+        "&:disabled": {
+          "apply": "border-base-content cursor-not-allowed bg-transparent opacity-30",
+          "css": {
+            "--togglehandleborder": "0 0 0 3px rgba(var(--base-content)) inset, var(--handleoffsetcalculator) 0 0 3px rgba(var(--base-content)) inset",
+          },
+        },
+        "&:focus-visible": {
+          "apply": "outline-base-content/20 outline outline-2 outline-offset-2",
+        },
+        "&:indeterminate": {
+          "[dir=\\"rtl\\"] &": {
+            "css": {
+              "box-shadow": "calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
+                calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
+                0 0 0 2px var(--tglbg) inset",
+            },
+          },
+          "apply": "border-opacity-100 bg-opacity-100",
+          "css": {
+            "box-shadow": "calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
+            calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
+            0 0 0 2px var(--tglbg) inset",
+          },
+        },
+        "[dir=\\"rtl\\"] &": {
+          "css": {
+            "--handleoffsetcalculator": "calc(var(--handleoffset) * 1)",
+          },
+        },
+        "apply": "border-base-content bg-base-content rounded-badge h-6 w-12 cursor-pointer appearance-none border border-opacity-20 bg-opacity-50",
+        "css": {
+          "--handleoffset": "1.5rem",
+          "--handleoffsetcalculator": "calc(var(--handleoffset) * -1)",
+          "--tglbg": "rgba(var(--base-100))",
+          "--togglehandleborder": "0 0",
+          "box-shadow": "var(--handleoffsetcalculator) 0 0 2px var(--tglbg) inset,
+            0 0 0 2px var(--tglbg) inset,
+            var(--togglehandleborder)",
+          "transition": "background,
+            box-shadow var(--animation-input, 0.2s) ease-out",
+        },
+      },
+    },
+    "utils": {
+      ".toggle": {
+        "&-lg": {
+          "apply": "h-8 w-16",
+          "css": {
+            "--handleoffset": "2rem",
+          },
+        },
+        "&-md": {
+          "apply": "h-6 w-12",
+          "css": {
+            "--handleoffset": "1.5rem",
+          },
+        },
+        "&-sm": {
+          "apply": "h-5 w-8",
+          "css": {
+            "--handleoffset": "0.75rem",
+          },
+        },
+        "&-xs": {
+          "apply": "h-4 w-6",
+          "css": {
+            "--handleoffset": "0.5rem",
+          },
+        },
+      },
+    },
+  },
+  "selector": ".toggle",
+}
+`;

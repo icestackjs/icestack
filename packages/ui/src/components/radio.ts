@@ -1,31 +1,87 @@
-import { IDefaults, Types, expandColorsMap } from './shared'
+import { OptionFn, getSelector, expandTypes } from './shared'
 
-const colorsMap = expandColorsMap(Types, (cur) => {
-  // global hover
+export const options: OptionFn = (opts) => {
+  const { selector, types } = opts
   return {
-    default: `border-${cur} [@media(hover:hover)]:hover:border-${cur}`,
-    checked: `border-${cur} bg-${cur} text-${cur}-content`,
-    focusVisible: `outline-${cur}`
-  }
-})
+    selector,
 
-const defaults: IDefaults = {
-  styled: {
-    default: 'border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20',
-    focusVisible: 'outline-base-content outline outline-2 outline-offset-2',
-    checked: {
-      apply: 'bg-base-content',
-      css: {
-        animation: 'radiomark var(--animation-input, 0.2s) ease-out',
-        'box-shadow': `0 0 0 4px hsl(var(--b1)) inset,
-        0 0 0 4px hsl(var(--b1)) inset`
+    defaults: {
+      styled: {
+        [selector]: {
+          apply: 'border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20',
+          '&:focus-visible': {
+            apply: 'outline-base-content outline outline-2 outline-offset-2'
+          },
+          [`&:checked,
+          &[aria-checked="true"]`]: {
+            apply: 'bg-base-content',
+            css: {
+              animation: 'radiomark var(--animation-input, 0.2s) ease-out',
+              'box-shadow': `0 0 0 4px rgba(var(--base-400)) inset,
+            0 0 0 4px rgba(var(--base-400)) inset`
+            }
+          },
+          ...expandTypes(types, (type) => {
+            return {
+              key: `&${getSelector(type)}`,
+              value: {
+                apply: `border-${type} hover:border-${type}`,
+                '&:focus-visible': {
+                  apply: `outline-${type}`
+                },
+                [`&:checked,
+                &[aria-checked="true"]`]: {
+                  apply: `border-${type} bg-${type} text-${type}-content`
+                }
+              }
+            }
+          }),
+          '&:disabled': {
+            apply: 'cursor-not-allowed opacity-20'
+          }
+        },
+        '@keyframes radiomark': {
+          '0%': {
+            css: {
+              'box-shadow': `0 0 0 12px rgba(var(--base-400)) inset,
+              0 0 0 12px rgba(var(--base-400)) inset`
+            }
+          },
+          '50%': {
+            css: {
+              'box-shadow': `0 0 0 3px rgba(var(--base-400)) inset,
+              0 0 0 3px rgba(var(--base-400)) inset`
+            }
+          },
+          '100%': {
+            css: {
+              'box-shadow': `0 0 0 4px rgba(var(--base-400)) inset,
+              0 0 0 4px rgba(var(--base-400)) inset`
+            }
+          }
+        }
+      },
+      base: {
+        [selector]: {
+          apply: 'shrink-0'
+        }
+      },
+      utils: {
+        [selector]: {
+          [`&${getSelector('xs')}`]: {
+            apply: 'h-4 w-4'
+          },
+          [`&${getSelector('sm')}`]: {
+            apply: 'h-5 w-5'
+          },
+          [`&${getSelector('md')}`]: {
+            apply: 'h-6 w-6'
+          },
+          [`&${getSelector('lg')}`]: {
+            apply: 'h-8 w-8'
+          }
+        }
       }
-    },
-    disabled: 'cursor-not-allowed opacity-20'
+    }
   }
-}
-
-export const options = {
-  colors: colorsMap,
-  defaults
 }

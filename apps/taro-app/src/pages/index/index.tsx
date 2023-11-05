@@ -1,43 +1,35 @@
-import { View, Text, Button, ViewProps } from '@tarojs/components'
+import { View } from '@tarojs/components'
 // import { useLoad } from '@tarojs/taro'
-// import React, { useState, Fc } from 'react'
+import React, { ReactNode, useState } from 'react'
 import './index.scss'
-import { useEffect } from 'react'
-import { io } from 'socket.io-client'
+import ThemeProvider from '../../components/ThemeProvider'
+import allComs from '@icestack/ui/allComponents'
+import { cx } from 'class-variance-authority'
+import Taro from '@tarojs/taro'
 
 export default function Index() {
-  // useEffect(() => {
-  //   // const ws = new WebSocket('http://localhost:3000')
-
-  //   const socket = io('http://localhost:3000/events', {
-  //     reconnectionDelayMax: 10000,
-  //     auth: {
-  //       token: '123'
-  //     },
-  //     query: {
-  //       'my-key': 'my-value'
-  //     },
-  //     transports: ['polling', 'websocket']
-  //   })
-  //   socket.on('connect', function () {
-  //     console.log('Connected')
-
-  //     socket.emit('events', { test: 'test' })
-  //     socket.emit('identity', 0, (response) => console.log('Identity:', response))
-  //   })
-  //   socket.on('events', function (data) {
-  //     console.log('event', data)
-  //   })
-  //   socket.on('exception', function (data) {
-  //     console.log('event', data)
-  //   })
-  //   socket.on('disconnect', function () {
-  //     console.log('Disconnected')
-  //   })
-
-  //   socket.on('connect_error', (error) => {
-  //     console.error(error)
-  //   })
-  // })
-  return <View className='bg-[rgb(37,37,37)] card'>12345</View>
+  const [mode, setMode] = useState<'light' | 'dark'>('light')
+  return (
+    <ThemeProvider mode={mode}>
+      <View className='min-h-screen space-y-4 mx-8'>
+        {allComs.reduce<ReactNode[]>((acc, x) => {
+          acc.push(
+            <View
+              className='bg-gray-200 py-2 rounded-full px-4'
+              hoverClass='bg-gray-400/50'
+              key={x}
+              onClick={() => {
+                Taro.navigateTo({
+                  url: 'component?id=' + x
+                })
+              }}
+            >
+              {x}
+            </View>
+          )
+          return acc
+        }, [])}
+      </View>
+    </ThemeProvider>
+  )
 }

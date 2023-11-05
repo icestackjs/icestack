@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { compileScss } from '@/sass'
+import { createContext, IContext } from '@/context'
 import { scssDir } from '@/dirs'
 import { getCodegenOptions } from '@/options'
 
@@ -8,23 +8,64 @@ export function resolve(filename: string) {
 }
 
 describe('base', () => {
-  it('snap', async () => {
-    const css = await compileScss(resolve('index'), getCodegenOptions())
-    expect(css).toMatchSnapshot()
+  let ctx: IContext
+  beforeEach(() => {
+    ctx = createContext(getCodegenOptions())
+  })
+  it('snap', () => {
+    const result = ctx.compileScss(resolve('index'))
+    expect(result.css).toMatchSnapshot()
   })
 
   it('snap case 1', async () => {
-    const css = await compileScss(
-      resolve('index'),
+    const ctx = createContext(
       getCodegenOptions({
         base: {
-          selector: {
-            light: '.light',
-            dark: '.dark'
+          themes: {
+            light: {
+              selector: '.light'
+            },
+            dark: {
+              selector: '.dark'
+            }
           }
         }
       })
     )
+    const { css } = await ctx.compileScss(resolve('index'))
+    expect(css).toMatchSnapshot()
+  })
+
+  it('add new theme case 0', async () => {
+    const ctx = createContext(
+      getCodegenOptions({
+        base: {
+          themes: {
+            light: {
+              selector: '.light'
+            },
+            dark: {
+              selector: '.dark'
+            },
+            fuck: {
+              selector: '.fuck'
+            },
+            shit: {
+              selector: '.shit'
+            }
+          },
+          extraVars: {
+            fuck: {
+              a: '#123456'
+            },
+            shit: {
+              b: '#654321'
+            }
+          }
+        }
+      })
+    )
+    const { css } = await ctx.compileScss(resolve('index'))
     expect(css).toMatchSnapshot()
   })
 })

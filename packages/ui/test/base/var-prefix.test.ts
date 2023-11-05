@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { compileScss } from '@/sass'
+import { createContext } from '@/context'
 import { scssDir } from '@/dirs'
 import { getCodegenOptions } from '@/options'
 
@@ -8,18 +8,19 @@ export function resolve(filename: string) {
 }
 
 describe('var-prefix', () => {
-  it('snap case 0', async () => {
-    const css = await compileScss(resolve('index'), getCodegenOptions({}))
+  it('snap case 0', () => {
+    const ctx = createContext(getCodegenOptions({}))
+    const { css } = ctx.compileScss(resolve('index'))
     expect(css).toMatchSnapshot()
   })
 
-  it('snap case 1', async () => {
-    const css = await compileScss(
-      resolve('index'),
+  it('snap case 1', () => {
+    const ctx = createContext(
       getCodegenOptions({
         varPrefix: '--som-'
       })
     )
+    const { css } = ctx.compileScss(resolve('index'))
     expect(css).toMatchSnapshot()
   })
 })

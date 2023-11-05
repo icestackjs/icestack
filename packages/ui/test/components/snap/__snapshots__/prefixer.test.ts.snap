@@ -1,0 +1,1502 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`'alert/base.scss' prefixer > snap 1`] = `
+".som-alert {
+  @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
+}"
+`;
+
+exports[`'alert/styled.scss' prefixer > snap 1`] = `
+".som-alert {
+  @apply rounded-box border p-4 text-base-content border-base-400;
+}
+.som-alert-primary {
+  @apply text-primary-content border-primary/20 bg-primary;
+}
+.som-alert-success {
+  @apply text-success-content border-success/20 bg-success;
+}
+.som-alert-warning {
+  @apply text-warning-content border-warning/20 bg-warning;
+}
+.som-alert-error {
+  @apply text-error-content border-error/20 bg-error;
+}
+.som-alert-info {
+  @apply text-info-content border-info/20 bg-info;
+}
+.som-alert-neutral {
+  @apply text-neutral-content border-neutral/20 bg-neutral;
+}"
+`;
+
+exports[`'alert/utils.scss' prefixer > snap 1`] = `""`;
+
+exports[`'avatar/base.scss' prefixer > snap 1`] = `
+".som-avatar {
+  @apply relative inline-flex;
+}
+.som-avatar > div {
+  @apply block aspect-square overflow-hidden;
+}
+.som-avatar img {
+  @apply h-full w-full object-cover;
+}
+.som-avatar.som-placeholder > div {
+  @apply flex items-center justify-center;
+}"
+`;
+
+exports[`'avatar/styled.scss' prefixer > snap 1`] = `
+".som-avatar-group {
+  @apply flex overflow-hidden;
+}
+.som-avatar-group :where(.som-avatar) {
+  @apply border-base-100 overflow-hidden rounded-full border-4;
+}"
+`;
+
+exports[`'avatar/utils.scss' prefixer > snap 1`] = `""`;
+
+exports[`'badge/base.scss' prefixer > snap 1`] = `
+".som-badge {
+  @apply inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem];
+}"
+`;
+
+exports[`'badge/styled.scss' prefixer > snap 1`] = `
+".som-badge {
+  @apply rounded-badge border border-base-400 bg-base-100 text-base-content;
+}
+.som-badge-primary {
+  @apply border-primary bg-primary text-primary-content;
+}
+.som-badge-success {
+  @apply border-success bg-success text-success-content;
+}
+.som-badge-warning {
+  @apply border-warning bg-warning text-warning-content;
+}
+.som-badge-error {
+  @apply border-error bg-error text-error-content;
+}
+.som-badge-info {
+  @apply border-info bg-info text-info-content;
+}
+.som-badge-neutral {
+  @apply border-neutral bg-neutral text-neutral-content;
+}
+.som-badge-ghost {
+  @apply border-base-400 bg-base-400 text-base-content;
+}
+.som-badge-outline {
+  @apply border-current border-opacity-50 bg-transparent text-current;
+}
+.som-badge-outline.som-badge-primary {
+  @apply text-primary;
+}
+.som-badge-outline.som-badge-success {
+  @apply text-success;
+}
+.som-badge-outline.som-badge-warning {
+  @apply text-warning;
+}
+.som-badge-outline.som-badge-error {
+  @apply text-error;
+}
+.som-badge-outline.som-badge-info {
+  @apply text-info;
+}
+.som-badge-outline.som-badge-neutral {
+  @apply text-neutral;
+}"
+`;
+
+exports[`'badge/utils.scss' prefixer > snap 1`] = `
+".som-badge-xs {
+  @apply h-3 text-xs leading-3;
+  padding-left: 0.313rem;
+  padding-right: 0.313rem;
+}
+.som-badge-sm {
+  @apply h-4 text-xs leading-4;
+  padding-left: 0.438rem;
+  padding-right: 0.438rem;
+}
+.som-badge-md {
+  @apply h-5 text-sm leading-5;
+  padding-left: 0.563rem;
+  padding-right: 0.563rem;
+}
+.som-badge-lg {
+  @apply h-6 text-base leading-6;
+  padding-left: 0.688rem;
+  padding-right: 0.688rem;
+}"
+`;
+
+exports[`'button/base.scss' prefixer > snap 1`] = `
+".som-btn {
+  @apply rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4;
+  font-size: 0.875rem;
+  line-height: 1em;
+}
+.som-btn-disabled, .som-btn[disabled], .som-btn:disabled {
+  @apply pointer-events-none;
+}
+
+/* radio input and checkbox as button */"
+`;
+
+exports[`'button/styled.scss' prefixer > snap 1`] = `
+".som-som-btn {
+  @apply border-base-400 bg-base-400 text-base-content outline-base-400 no-underline;
+  border-width: var(--ice-border-btn, 1px);
+}
+.som-som-btn:focus-visible {
+  @apply outline outline-2 outline-offset-2;
+}
+.som-som-btn:hover {
+  @apply border-base-300 bg-base-300;
+}
+.som-som-btn:active {
+  @apply border-base-500 bg-base-500;
+}
+.som-som-btn.som-som-btn-active {
+  @apply border-base-500 bg-base-500;
+}
+.som-som-btn-primary {
+  @apply border-primary bg-primary text-primary-content outline-primary;
+}
+.som-som-btn-primary:hover {
+  @apply border-primary-hover bg-primary-hover;
+}
+.som-som-btn-primary:active {
+  @apply border-primary-active bg-primary-active;
+}
+.som-som-btn-primary.som-som-btn-active {
+  @apply border-primary-active bg-primary-active;
+}
+.som-som-btn-success {
+  @apply border-success bg-success text-success-content outline-success;
+}
+.som-som-btn-success:hover {
+  @apply border-success-hover bg-success-hover;
+}
+.som-som-btn-success:active {
+  @apply border-success-active bg-success-active;
+}
+.som-som-btn-success.som-som-btn-active {
+  @apply border-success-active bg-success-active;
+}
+.som-som-btn-warning {
+  @apply border-warning bg-warning text-warning-content outline-warning;
+}
+.som-som-btn-warning:hover {
+  @apply border-warning-hover bg-warning-hover;
+}
+.som-som-btn-warning:active {
+  @apply border-warning-active bg-warning-active;
+}
+.som-som-btn-warning.som-som-btn-active {
+  @apply border-warning-active bg-warning-active;
+}
+.som-som-btn-error {
+  @apply border-error bg-error text-error-content outline-error;
+}
+.som-som-btn-error:hover {
+  @apply border-error-hover bg-error-hover;
+}
+.som-som-btn-error:active {
+  @apply border-error-active bg-error-active;
+}
+.som-som-btn-error.som-som-btn-active {
+  @apply border-error-active bg-error-active;
+}
+.som-som-btn-info {
+  @apply border-info bg-info text-info-content outline-info;
+}
+.som-som-btn-info:hover {
+  @apply border-info-hover bg-info-hover;
+}
+.som-som-btn-info:active {
+  @apply border-info-active bg-info-active;
+}
+.som-som-btn-info.som-som-btn-active {
+  @apply border-info-active bg-info-active;
+}
+.som-som-btn-neutral {
+  @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+}
+.som-som-btn-neutral:hover {
+  @apply border-neutral-hover bg-neutral-hover;
+}
+.som-som-btn-neutral:active {
+  @apply border-neutral-active bg-neutral-active;
+}
+.som-som-btn-neutral.som-som-btn-active {
+  @apply border-neutral-active bg-neutral-active;
+}
+.som-som-btn.som-som-glass {
+  @apply shadow-none outline-current;
+}
+.som-som-btn.som-som-glass:active {
+  --ice-glass-opacity: 25%;
+  --ice-glass-border-opacity: 15%;
+}
+.som-som-btn.som-som-glass.som-som-btn-active {
+  --ice-glass-opacity: 25%;
+  --ice-glass-border-opacity: 15%;
+}
+.som-som-btn-ghost {
+  @apply border border-transparent bg-transparent text-current shadow-none outline-current;
+}
+.som-som-btn-ghost:active {
+  @apply border-opacity-0 bg-base-content bg-opacity-20;
+}
+.som-som-btn-ghost.som-som-btn-active {
+  @apply border-opacity-0 bg-base-content bg-opacity-20;
+}
+.som-som-btn-link {
+  @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+}
+.som-som-btn-link:active {
+  @apply border-transparent bg-transparent underline;
+}
+.som-som-btn-link.som-som-btn-active {
+  @apply border-transparent bg-transparent underline;
+}
+.som-som-btn-outline {
+  @apply border-current bg-transparent shadow-none text-base-content;
+}
+.som-som-btn-outline:hover {
+  @apply border-base-900 bg-base-900 text-base-100;
+}
+.som-som-btn-outline:active {
+  @apply border-base-1100 bg-base-1100 text-base-100;
+}
+.som-som-btn-outline.som-som-btn-active {
+  @apply border-base-1100 bg-base-1100 text-base-100;
+}
+.som-som-btn-outline.som-som-btn-primary {
+  @apply text-primary;
+}
+.som-som-btn-outline.som-som-btn-primary:hover {
+  @apply border-primary-hover bg-primary-hover text-primary-content;
+}
+.som-som-btn-outline.som-som-btn-primary:active {
+  @apply border-primary-active bg-primary-active text-primary-content;
+}
+.som-som-btn-outline.som-som-btn-primary.som-som-btn-active {
+  @apply border-primary-active bg-primary-active text-primary-content;
+}
+.som-som-btn-outline.som-som-btn-success {
+  @apply text-success;
+}
+.som-som-btn-outline.som-som-btn-success:hover {
+  @apply border-success-hover bg-success-hover text-success-content;
+}
+.som-som-btn-outline.som-som-btn-success:active {
+  @apply border-success-active bg-success-active text-success-content;
+}
+.som-som-btn-outline.som-som-btn-success.som-som-btn-active {
+  @apply border-success-active bg-success-active text-success-content;
+}
+.som-som-btn-outline.som-som-btn-warning {
+  @apply text-warning;
+}
+.som-som-btn-outline.som-som-btn-warning:hover {
+  @apply border-warning-hover bg-warning-hover text-warning-content;
+}
+.som-som-btn-outline.som-som-btn-warning:active {
+  @apply border-warning-active bg-warning-active text-warning-content;
+}
+.som-som-btn-outline.som-som-btn-warning.som-som-btn-active {
+  @apply border-warning-active bg-warning-active text-warning-content;
+}
+.som-som-btn-outline.som-som-btn-error {
+  @apply text-error;
+}
+.som-som-btn-outline.som-som-btn-error:hover {
+  @apply border-error-hover bg-error-hover text-error-content;
+}
+.som-som-btn-outline.som-som-btn-error:active {
+  @apply border-error-active bg-error-active text-error-content;
+}
+.som-som-btn-outline.som-som-btn-error.som-som-btn-active {
+  @apply border-error-active bg-error-active text-error-content;
+}
+.som-som-btn-outline.som-som-btn-info {
+  @apply text-info;
+}
+.som-som-btn-outline.som-som-btn-info:hover {
+  @apply border-info-hover bg-info-hover text-info-content;
+}
+.som-som-btn-outline.som-som-btn-info:active {
+  @apply border-info-active bg-info-active text-info-content;
+}
+.som-som-btn-outline.som-som-btn-info.som-som-btn-active {
+  @apply border-info-active bg-info-active text-info-content;
+}
+.som-som-btn-outline.som-som-btn-neutral {
+  @apply text-neutral;
+}
+.som-som-btn-outline.som-som-btn-neutral:hover {
+  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+}
+.som-som-btn-outline.som-som-btn-neutral:active {
+  @apply border-neutral-active bg-neutral-active text-neutral-content;
+}
+.som-som-btn-outline.som-som-btn-neutral.som-som-btn-active {
+  @apply border-neutral-active bg-neutral-active text-neutral-content;
+}
+.som-som-btn.som-som-btn-disabled, .som-som-btn[disabled], .som-som-btn:disabled {
+  @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+}"
+`;
+
+exports[`'button/utils.scss' prefixer > snap 1`] = `
+".som-btn-xs {
+  @apply min-h-6 h-6 px-2;
+  font-size: 0.75rem;
+}
+.som-btn-sm {
+  @apply min-h-8 h-8 px-3;
+  font-size: 0.875rem;
+}
+.som-btn-md {
+  @apply min-h-12 h-12 px-4;
+  font-size: 0.875rem;
+}
+.som-btn-lg {
+  @apply min-h-16 h-16 px-6;
+  font-size: 1.125rem;
+}
+.som-btn-wide {
+  @apply w-64;
+}
+.som-btn-block {
+  @apply w-full;
+}
+.som-btn-square {
+  @apply h-12 w-12 p-0;
+}
+.som-btn-square:where(.som-btn-xs) {
+  @apply h-6 w-6 p-0;
+}
+.som-btn-square:where(.som-btn-sm) {
+  @apply h-8 w-8 p-0;
+}
+.som-btn-square:where(.som-btn-md) {
+  @apply h-12 w-12 p-0;
+}
+.som-btn-square:where(.som-btn-lg) {
+  @apply h-16 w-16 p-0;
+}
+.som-btn-circle {
+  @apply h-12 w-12 rounded-full p-0;
+}
+.som-btn-circle:where(.som-btn-xs) {
+  @apply h-6 w-6 rounded-full p-0;
+}
+.som-btn-circle:where(.som-btn-sm) {
+  @apply h-8 w-8 rounded-full p-0;
+}
+.som-btn-circle:where(.som-btn-md) {
+  @apply h-12 w-12 rounded-full p-0;
+}
+.som-btn-circle:where(.som-btn-lg) {
+  @apply h-16 w-16 rounded-full p-0;
+}"
+`;
+
+exports[`'chat/base.scss' prefixer > snap 1`] = `
+".som-chat {
+  @apply grid grid-cols-2 gap-x-3 py-1;
+}
+.som-chat-image {
+  @apply row-span-2 self-end;
+}
+.som-chat-header {
+  @apply row-start-1 text-sm;
+}
+.som-chat-footer {
+  @apply row-start-3 text-sm;
+}
+.som-chat-bubble {
+  @apply relative block w-fit px-4 py-2;
+  max-width: 90%;
+}
+.som-chat-bubble:before {
+  @apply absolute bottom-0 h-3 w-3;
+  background-color: inherit;
+  content: \\"\\";
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+.som-chat-start {
+  @apply place-items-start;
+  grid-template-columns: auto 1fr;
+}
+.som-chat-start .som-chat-header {
+  @apply col-start-2;
+}
+.som-chat-start .som-chat-footer {
+  @apply col-start-2;
+}
+.som-chat-start .som-chat-image {
+  @apply col-start-1;
+}
+.som-chat-start .som-chat-bubble {
+  @apply col-start-2;
+}
+.som-chat-start .som-chat-bubble:before {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 3 3 L 3 0 C 3 1 1 3 0 3'/%3e%3c/svg%3e\\");
+}
+[dir=rtl] .som-chat-start .som-chat-bubble:before {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 1 3 L 3 3 C 2 3 0 1 0 0'/%3e%3c/svg%3e\\");
+}
+.som-chat-end {
+  @apply place-items-end;
+  grid-template-columns: 1fr auto;
+}
+.som-chat-end .som-chat-header {
+  @apply col-start-1;
+}
+.som-chat-end .som-chat-footer {
+  @apply col-start-1;
+}
+.som-chat-end .som-chat-image {
+  @apply col-start-2;
+}
+.som-chat-end .som-chat-bubble {
+  @apply col-start-1;
+}
+.som-chat-end .som-chat-bubble:before {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 1 3 L 3 3 C 2 3 0 1 0 0'/%3e%3c/svg%3e\\");
+}
+[dir=rtl] .som-chat-end .som-chat-bubble:before {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 3 3 L 3 0 C 3 1 1 3 0 3'/%3e%3c/svg%3e\\");
+}"
+`;
+
+exports[`'chat/styled.scss' prefixer > snap 1`] = `
+".som-chat-bubble {
+  @apply bg-neutral text-neutral-content rounded-box;
+  min-height: 2.75rem;
+  min-width: 2.75rem;
+}
+.som-chat-bubble-primary {
+  @apply bg-primary text-primary-content;
+}
+.som-chat-bubble-success {
+  @apply bg-success text-success-content;
+}
+.som-chat-bubble-warning {
+  @apply bg-warning text-warning-content;
+}
+.som-chat-bubble-error {
+  @apply bg-error text-error-content;
+}
+.som-chat-bubble-info {
+  @apply bg-info text-info-content;
+}
+.som-chat-bubble-neutral {
+  @apply bg-neutral text-neutral-content;
+}
+.som-chat-start .som-chat-bubble {
+  @apply rounded-bl-none;
+}
+.som-chat-start .som-chat-bubble:before {
+  left: -0.749rem;
+}
+.som-chat-end .som-chat-bubble {
+  @apply rounded-br-none;
+}
+.som-chat-end .som-chat-bubble:before {
+  left: 99.9%;
+}"
+`;
+
+exports[`'chat/utils.scss' prefixer > snap 1`] = `""`;
+
+exports[`'checkbox/base.scss' prefixer > snap 1`] = `
+".som-checkbox {
+  @apply shrink-0;
+}"
+`;
+
+exports[`'checkbox/styled.scss' prefixer > snap 1`] = `
+".som-som-checkbox {
+  @apply border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20;
+  --ice-chkbg: var(--ice-base-content);
+  --ice-chkfg: var(--ice-base-400);
+}
+.som-som-checkbox:focus-visible {
+  @apply outline-base-content outline outline-2 outline-offset-2;
+}
+.som-som-checkbox:checked, .som-som-checkbox[checked=true], .som-som-checkbox[aria-checked=true] {
+  @apply bg-base-content bg-no-repeat;
+  animation: checkmark var(--ice-animation-input, 0.2s) ease-out;
+  background-image: linear-gradient(-45deg, transparent 65%, rgba(var(--ice-chkbg)) 65.99%), linear-gradient(45deg, transparent 75%, rgba(var(--ice-chkbg)) 75.99%), linear-gradient(-45deg, rgba(var(--ice-chkbg)) 40%, transparent 40.99%), linear-gradient( 45deg, rgba(var(--ice-chkbg)) 30%, rgba(var(--ice-chkfg)) 30.99%, rgba(var(--ice-chkfg)) 40%, transparent 40.99% ), linear-gradient(-45deg, rgba(var(--ice-chkfg)) 50%, rgba(var(--ice-chkbg)) 50.99%);
+}
+.som-som-checkbox:indeterminate {
+  @apply bg-base-content bg-no-repeat;
+  animation: checkmark var(--ice-animation-input, 0.2s) ease-out;
+  background-image: linear-gradient(90deg, transparent 80%, rgba(var(--ice-chkbg)) 80%), linear-gradient(-90deg, transparent 80%, rgba(var(--ice-chkbg)) 80%), linear-gradient( 0deg, rgba(var(--ice-chkbg)) 43%, rgba(var(--ice-chkfg)) 43%, rgba(var(--ice-chkfg)) 57%, rgba(var(--ice-chkbg)) 57% );
+}
+.som-som-checkbox-primary {
+  @apply border-primary [@media(hover:hover)]:hover:border-primary;
+  --ice-chkbg: var(--ice-primary);
+  --ice-chkfg: var(--ice-primary-content);
+}
+.som-som-checkbox-primary:focus-visible {
+  @apply outline-primary;
+}
+.som-som-checkbox-primary:checked, .som-som-checkbox-primary[checked=true], .som-som-checkbox-primary[aria-checked=true] {
+  @apply border-primary bg-primary text-primary-content;
+}
+.som-som-checkbox-success {
+  @apply border-success [@media(hover:hover)]:hover:border-success;
+  --ice-chkbg: var(--ice-success);
+  --ice-chkfg: var(--ice-success-content);
+}
+.som-som-checkbox-success:focus-visible {
+  @apply outline-success;
+}
+.som-som-checkbox-success:checked, .som-som-checkbox-success[checked=true], .som-som-checkbox-success[aria-checked=true] {
+  @apply border-success bg-success text-success-content;
+}
+.som-som-checkbox-warning {
+  @apply border-warning [@media(hover:hover)]:hover:border-warning;
+  --ice-chkbg: var(--ice-warning);
+  --ice-chkfg: var(--ice-warning-content);
+}
+.som-som-checkbox-warning:focus-visible {
+  @apply outline-warning;
+}
+.som-som-checkbox-warning:checked, .som-som-checkbox-warning[checked=true], .som-som-checkbox-warning[aria-checked=true] {
+  @apply border-warning bg-warning text-warning-content;
+}
+.som-som-checkbox-error {
+  @apply border-error [@media(hover:hover)]:hover:border-error;
+  --ice-chkbg: var(--ice-error);
+  --ice-chkfg: var(--ice-error-content);
+}
+.som-som-checkbox-error:focus-visible {
+  @apply outline-error;
+}
+.som-som-checkbox-error:checked, .som-som-checkbox-error[checked=true], .som-som-checkbox-error[aria-checked=true] {
+  @apply border-error bg-error text-error-content;
+}
+.som-som-checkbox-info {
+  @apply border-info [@media(hover:hover)]:hover:border-info;
+  --ice-chkbg: var(--ice-info);
+  --ice-chkfg: var(--ice-info-content);
+}
+.som-som-checkbox-info:focus-visible {
+  @apply outline-info;
+}
+.som-som-checkbox-info:checked, .som-som-checkbox-info[checked=true], .som-som-checkbox-info[aria-checked=true] {
+  @apply border-info bg-info text-info-content;
+}
+.som-som-checkbox-neutral {
+  @apply border-neutral [@media(hover:hover)]:hover:border-neutral;
+  --ice-chkbg: var(--ice-neutral);
+  --ice-chkfg: var(--ice-neutral-content);
+}
+.som-som-checkbox-neutral:focus-visible {
+  @apply outline-neutral;
+}
+.som-som-checkbox-neutral:checked, .som-som-checkbox-neutral[checked=true], .som-som-checkbox-neutral[aria-checked=true] {
+  @apply border-neutral bg-neutral text-neutral-content;
+}
+.som-som-checkbox:disabled {
+  @apply bg-base-content cursor-not-allowed border-transparent opacity-20;
+}
+
+@keyframes checkmark {
+  0% {
+    background-position-y: 5px;
+  }
+  50% {
+    background-position-y: -2px;
+  }
+  100% {
+    background-position-y: 0;
+  }
+}"
+`;
+
+exports[`'checkbox/utils.scss' prefixer > snap 1`] = `
+".som-checkbox-xs {
+  @apply h-4 w-4;
+}
+.som-checkbox-sm {
+  @apply h-5 w-5;
+}
+.som-checkbox-md {
+  @apply h-6 w-6;
+}
+.som-checkbox-lg {
+  @apply h-8 w-8;
+}"
+`;
+
+exports[`'input/base.scss' prefixer > snap 1`] = `
+".som-input {
+  @apply flex-shrink h-8 px-3 text-sm leading-loose;
+}"
+`;
+
+exports[`'input/styled.scss' prefixer > snap 1`] = `
+".som-input {
+  @apply border-base-content bg-base-100 rounded-btn border border-opacity-0 text-base;
+}
+.som-input input:focus {
+  @apply outline-none;
+}
+.som-input[list]::-webkit-calendar-picker-indicator {
+  line-height: 1em;
+}
+.som-input-bordered {
+  @apply border-opacity-20;
+}
+.som-input:focus, .som-input:focus-within {
+  @apply outline-0 shadow-[0_0_0_2px] shadow-base-content/10;
+}
+.som-input-ghost {
+  @apply bg-opacity-5;
+}
+.som-input-ghost:focus, .som-input-ghost:focus-within {
+  @apply text-base-content bg-opacity-100;
+  box-shadow: none;
+}
+.som-input-primary {
+  @apply border-primary;
+}
+.som-input-primary:focus, .som-input-primary:focus-within {
+  @apply shadow-primary/10;
+}
+.som-input-success {
+  @apply border-success;
+}
+.som-input-success:focus, .som-input-success:focus-within {
+  @apply shadow-success/10;
+}
+.som-input-warning {
+  @apply border-warning;
+}
+.som-input-warning:focus, .som-input-warning:focus-within {
+  @apply shadow-warning/10;
+}
+.som-input-error {
+  @apply border-error;
+}
+.som-input-error:focus, .som-input-error:focus-within {
+  @apply shadow-error/10;
+}
+.som-input-info {
+  @apply border-info;
+}
+.som-input-info:focus, .som-input-info:focus-within {
+  @apply shadow-info/10;
+}
+.som-input-neutral {
+  @apply border-neutral;
+}
+.som-input-neutral:focus, .som-input-neutral:focus-within {
+  @apply shadow-neutral/10;
+}
+.som-input-disabled, .som-input:disabled, .som-input[disabled] {
+  @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
+}"
+`;
+
+exports[`'input/utils.scss' prefixer > snap 1`] = `
+".som-input-xs {
+  @apply h-6 px-2 text-xs leading-relaxed;
+}
+.som-input-sm {
+  @apply h-8 px-3 text-sm leading-8;
+}
+.som-input-md {
+  @apply h-12 px-4 text-sm leading-loose;
+}
+.som-input-lg {
+  @apply h-16 px-6 text-lg leading-loose;
+}"
+`;
+
+exports[`'link/base.scss' prefixer > snap 1`] = `
+".som-link {
+  @apply cursor-pointer underline;
+}
+.som-link-hover {
+  @apply no-underline hover:underline;
+}"
+`;
+
+exports[`'link/styled.scss' prefixer > snap 1`] = `
+".som-link-primary {
+  @apply text-primary [@media(hover:hover)]:hover:text-primary-active;
+}
+.som-link-success {
+  @apply text-success [@media(hover:hover)]:hover:text-success-active;
+}
+.som-link-warning {
+  @apply text-warning [@media(hover:hover)]:hover:text-warning-active;
+}
+.som-link-error {
+  @apply text-error [@media(hover:hover)]:hover:text-error-active;
+}
+.som-link-info {
+  @apply text-info [@media(hover:hover)]:hover:text-info-active;
+}
+.som-link-neutral {
+  @apply text-neutral [@media(hover:hover)]:hover:text-neutral-active;
+}
+.som-link:focus {
+  @apply outline-none;
+}
+.som-link:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
+}"
+`;
+
+exports[`'link/utils.scss' prefixer > snap 1`] = `""`;
+
+exports[`'loading/base.scss' prefixer > snap 1`] = `
+".som-loading {
+  @apply pointer-events-none inline-block aspect-square w-6;
+  background-color: currentColor;
+  mask-size: 100%;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-image: url(\\"data:image/svg+xml,%3Csvg width='24' height='24' stroke='%23000' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_V8m1%7Btransform-origin:center;animation:spinner_zKoa 2s linear infinite%7D.spinner_V8m1 circle%7Bstroke-linecap:round;animation:spinner_YpZS 1.5s ease-out infinite%7D%40keyframes spinner_zKoa%7B100%25%7Btransform:rotate(360deg)%7D%7D%40keyframes spinner_YpZS%7B0%25%7Bstroke-dasharray:0 150;stroke-dashoffset:0%7D47.5%25%7Bstroke-dasharray:42 150;stroke-dashoffset:-16%7D95%25%2C100%25%7Bstroke-dasharray:42 150;stroke-dashoffset:-59%7D%7D%3C%2Fstyle%3E%3Cg class='spinner_V8m1'%3E%3Ccircle cx='12' cy='12' r='9.5' fill='none' stroke-width='3'%3E%3C%2Fcircle%3E%3C%2Fg%3E%3C%2Fsvg%3E\\");
+}"
+`;
+
+exports[`'loading/styled.scss' prefixer > snap 1`] = `""`;
+
+exports[`'loading/utils.scss' prefixer > snap 1`] = `
+".som-loading-xs {
+  @apply w-4;
+}
+.som-loading-sm {
+  @apply w-5;
+}
+.som-loading-md {
+  @apply w-6;
+}
+.som-loading-lg {
+  @apply w-10;
+}
+.som-loading-spinner {
+  mask-image: url(\\"data:image/svg+xml,%3Csvg width='24' height='24' stroke='%23000' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_V8m1%7Btransform-origin:center;animation:spinner_zKoa 2s linear infinite%7D.spinner_V8m1 circle%7Bstroke-linecap:round;animation:spinner_YpZS 1.5s ease-out infinite%7D%40keyframes spinner_zKoa%7B100%25%7Btransform:rotate(360deg)%7D%7D%40keyframes spinner_YpZS%7B0%25%7Bstroke-dasharray:0 150;stroke-dashoffset:0%7D47.5%25%7Bstroke-dasharray:42 150;stroke-dashoffset:-16%7D95%25%2C100%25%7Bstroke-dasharray:42 150;stroke-dashoffset:-59%7D%7D%3C%2Fstyle%3E%3Cg class='spinner_V8m1'%3E%3Ccircle cx='12' cy='12' r='9.5' fill='none' stroke-width='3'%3E%3C%2Fcircle%3E%3C%2Fg%3E%3C%2Fsvg%3E\\");
+}
+.som-loading-dots {
+  mask-image: url(\\"data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_qM83%7Banimation:spinner_8HQG 1.05s infinite%7D.spinner_oXPr%7Banimation-delay:.1s%7D.spinner_ZTLf%7Banimation-delay:.2s%7D@keyframes spinner_8HQG%7B0%25,57.14%25%7Banimation-timing-function:cubic-bezier(0.33,.66,.66,1);transform:translate(0)%7D28.57%25%7Banimation-timing-function:cubic-bezier(0.33,0,.66,.33);transform:translateY(-6px)%7D100%25%7Btransform:translate(0)%7D%7D%3C/style%3E%3Ccircle class='spinner_qM83' cx='4' cy='12' r='3'/%3E%3Ccircle class='spinner_qM83 spinner_oXPr' cx='12' cy='12' r='3'/%3E%3Ccircle class='spinner_qM83 spinner_ZTLf' cx='20' cy='12' r='3'/%3E%3C/svg%3E\\");
+}
+.som-loading-ring {
+  mask-image: url(\\"data:image/svg+xml,%3Csvg width='44' height='44' viewBox='0 0 44 44' xmlns='http://www.w3.org/2000/svg' stroke='%23fff'%3E%3Cg fill='none' fill-rule='evenodd' stroke-width='2'%3E%3Ccircle cx='22' cy='22' r='1'%3E%3Canimate attributeName='r' begin='0s' dur='1.8s' values='1; 20' calcMode='spline' keyTimes='0; 1' keySplines='0.165, 0.84, 0.44, 1' repeatCount='indefinite' /%3E%3Canimate attributeName='stroke-opacity' begin='0s' dur='1.8s' values='1; 0' calcMode='spline' keyTimes='0; 1' keySplines='0.3, 0.61, 0.355, 1' repeatCount='indefinite' /%3E%3C/circle%3E%3Ccircle cx='22' cy='22' r='1'%3E%3Canimate attributeName='r' begin='-0.9s' dur='1.8s' values='1; 20' calcMode='spline' keyTimes='0; 1' keySplines='0.165, 0.84, 0.44, 1' repeatCount='indefinite' /%3E%3Canimate attributeName='stroke-opacity' begin='-0.9s' dur='1.8s' values='1; 0' calcMode='spline' keyTimes='0; 1' keySplines='0.3, 0.61, 0.355, 1' repeatCount='indefinite' /%3E%3C/circle%3E%3C/g%3E%3C/svg%3E\\");
+}
+.som-loading-ball {
+  mask-image: url(\\"data:image/svg+xml,%0A%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_rXNP%7Banimation:spinner_YeBj .8s infinite%7D@keyframes spinner_YeBj%7B0%25%7Banimation-timing-function:cubic-bezier(0.33,0,.66,.33);cy:5px%7D46.875%25%7Bcy:20px;rx:4px;ry:4px%7D50%25%7Banimation-timing-function:cubic-bezier(0.33,.66,.66,1);cy:20.5px;rx:4.8px;ry:3px%7D53.125%25%7Brx:4px;ry:4px%7D100%25%7Bcy:5px%7D%7D%3C/style%3E%3Cellipse class='spinner_rXNP' cx='12' cy='5' rx='4' ry='4'/%3E%3C/svg%3E\\");
+}
+.som-loading-bars {
+  mask-image: url(\\"data:image/svg+xml,%0A%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_hzlK%7Banimation:spinner_vc4H .8s linear infinite;animation-delay:-.8s%7D.spinner_koGT%7Banimation-delay:-.65s%7D.spinner_YF1u%7Banimation-delay:-.5s%7D@keyframes spinner_vc4H%7B0%25%7By:1px;height:22px%7D93.75%25%7By:5px;height:14px;opacity:.2%7D%7D%3C/style%3E%3Crect class='spinner_hzlK' x='1' y='1' width='6' height='22'/%3E%3Crect class='spinner_hzlK spinner_koGT' x='9' y='1' width='6' height='22'/%3E%3Crect class='spinner_hzlK spinner_YF1u' x='17' y='1' width='6' height='22'/%3E%3C/svg%3E\\");
+}
+.som-loading-infinity {
+  mask-image: url(\\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' style='shape-rendering: auto;' width='200px' height='200px' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid'%3E%3Cpath fill='none' stroke='%230a0a0a' stroke-width='10' stroke-dasharray='205.271142578125 51.317785644531256' d='M24.3 30C11.4 30 5 43.3 5 50s6.4 20 19.3 20c19.3 0 32.1-40 51.4-40 C88.6 30 95 43.3 95 50s-6.4 20-19.3 20C56.4 70 43.6 30 24.3 30z' stroke-linecap='round' style='transform:scale(0.8);transform-origin:50px 50px'%3E%3Canimate attributeName='stroke-dashoffset' repeatCount='indefinite' dur='2s' keyTimes='0;1' values='0;256.58892822265625'%3E%3C/animate%3E%3C/path%3E%3C/svg%3E\\");
+}"
+`;
+
+exports[`'mask/base.scss' prefixer > snap 1`] = `
+".som-mask {
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+}
+.som-mask-half-1 {
+  mask-size: 200%;
+  mask-position: left;
+}
+.som-mask-half-2 {
+  mask-size: 200%;
+  mask-position: right;
+}"
+`;
+
+exports[`'mask/styled.scss' prefixer > snap 1`] = `""`;
+
+exports[`'mask/utils.scss' prefixer > snap 1`] = `
+".som-mask-squircle {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M100 0C20 0 0 20 0 100s20 100 100 100 100-20 100-100S180 0 100 0Z'/%3e%3c/svg%3e\\");
+}
+.som-mask-decagon {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='192' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m96 0 58.779 19.098 36.327 50v61.804l-36.327 50L96 200l-58.779-19.098-36.327-50V69.098l36.327-50z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-diamond {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m100 0 100 100-100 100L0 100z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-heart {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='200' height='185' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M100 184.606a15.384 15.384 0 0 1-8.653-2.678C53.565 156.28 37.205 138.695 28.182 127.7 8.952 104.264-.254 80.202.005 54.146.308 24.287 24.264 0 53.406 0c21.192 0 35.869 11.937 44.416 21.879a2.884 2.884 0 0 0 4.356 0C110.725 11.927 125.402 0 146.594 0c29.142 0 53.098 24.287 53.4 54.151.26 26.061-8.956 50.122-28.176 73.554-9.023 10.994-25.383 28.58-63.165 54.228a15.384 15.384 0 0 1-8.653 2.673Z' fill='black' fill-rule='nonzero'/%3e%3c/svg%3e\\");
+}
+.som-mask-hexagon {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='182' height='201' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M.3 65.486c0-9.196 6.687-20.063 14.211-25.078l61.86-35.946c8.36-5.016 20.899-5.016 29.258 0l61.86 35.946c8.36 5.015 14.211 15.882 14.211 25.078v71.055c0 9.196-6.687 20.063-14.211 25.079l-61.86 35.945c-8.36 4.18-20.899 4.18-29.258 0L14.51 161.62C6.151 157.44.3 145.737.3 136.54V65.486Z' fill='black' fill-rule='nonzero'/%3e%3c/svg%3e\\");
+}
+.som-mask-hexagon-2 {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='200' height='182' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M64.786 181.4c-9.196 0-20.063-6.687-25.079-14.21L3.762 105.33c-5.016-8.36-5.016-20.9 0-29.259l35.945-61.86C44.723 5.851 55.59 0 64.786 0h71.055c9.196 0 20.063 6.688 25.079 14.211l35.945 61.86c4.18 8.36 4.18 20.899 0 29.258l-35.945 61.86c-4.18 8.36-15.883 14.211-25.079 14.211H64.786Z' fill='black' fill-rule='nonzero'/%3e%3c/svg%3e\\");
+}
+.som-mask-circle {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle fill='black' cx='100' cy='100' r='100' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-parallelogram {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='200' height='154' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='M46.154 0H200l-46.154 153.846H0z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-parallelogram-2 {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='200' height='154' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='M153.846 0H0l46.154 153.846H200z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-parallelogram-3 {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='154' height='201' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='M.077 47.077v153.846l153.846-46.154V.923z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-parallelogram-4 {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='154' height='201' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='M153.923 47.077v153.846L.077 154.77V.923z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-pentagon {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='192' height='181' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m96 0 95.106 69.098-36.327 111.804H37.22L.894 69.098z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-square {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='M0 0h200v200H0z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-star {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='192' height='180' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m96 137.263-58.779 42.024 22.163-68.389L.894 68.481l72.476-.243L96 0l22.63 68.238 72.476.243-58.49 42.417 22.163 68.389z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-star-2 {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='192' height='180' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m96 153.044-58.779 26.243 7.02-63.513L.894 68.481l63.117-13.01L96 0l31.989 55.472 63.117 13.01-43.347 47.292 7.02 63.513z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-triangle {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='174' height='149' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m87 148.476-86.603.185L43.86 74.423 87 0l43.14 74.423 43.463 74.238z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-triangle-2 {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='174' height='150' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m87 .738 86.603-.184-43.463 74.238L87 149.214 43.86 74.792.397.554z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-triangle-3 {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='150' height='174' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m149.369 87.107.185 86.603-74.239-43.463L.893 87.107l74.422-43.14L149.554.505z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}
+.som-mask-triangle-4 {
+  mask-image: url(\\"data:image/svg+xml,%3csvg width='150' height='174' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='M.631 87.107.446.505l74.239 43.462 74.422 43.14-74.422 43.14L.446 173.71z' fill-rule='evenodd'/%3e%3c/svg%3e\\");
+}"
+`;
+
+exports[`'progress/base.scss' prefixer > snap 1`] = `
+".som-progress {
+  @apply relative w-full appearance-none overflow-hidden;
+}"
+`;
+
+exports[`'progress/styled.scss' prefixer > snap 1`] = `
+".som-som-progress {
+  @apply rounded-box bg-base-content/20 h-2;
+}
+.som-som-progress-primary::-moz-progress-bar {
+  @apply bg-primary rounded-box;
+}
+.som-som-progress-success::-moz-progress-bar {
+  @apply bg-success rounded-box;
+}
+.som-som-progress-warning::-moz-progress-bar {
+  @apply bg-warning rounded-box;
+}
+.som-som-progress-error::-moz-progress-bar {
+  @apply bg-error rounded-box;
+}
+.som-som-progress-info::-moz-progress-bar {
+  @apply bg-info rounded-box;
+}
+.som-som-progress-neutral::-moz-progress-bar {
+  @apply bg-neutral rounded-box;
+}
+.som-som-progress-primary::-webkit-progress-value {
+  @apply bg-primary;
+}
+.som-som-progress-success::-webkit-progress-value {
+  @apply bg-success;
+}
+.som-som-progress-warning::-webkit-progress-value {
+  @apply bg-warning;
+}
+.som-som-progress-error::-webkit-progress-value {
+  @apply bg-error;
+}
+.som-som-progress-info::-webkit-progress-value {
+  @apply bg-info;
+}
+.som-som-progress-neutral::-webkit-progress-value {
+  @apply bg-neutral;
+}
+.som-som-progress::-moz-progress-bar {
+  @apply bg-base-content rounded-box;
+}
+.som-som-progress::-webkit-progress-bar {
+  @apply rounded-box bg-transparent;
+}
+.som-som-progress::-webkit-progress-value {
+  @apply bg-base-content rounded-box;
+}
+.som-som-progress:indeterminate {
+  background-image: repeating-linear-gradient( 90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90% );
+  background-size: 200%;
+  background-position-x: 15%;
+  animation: progress-loading 5s ease-in-out infinite;
+}
+.som-som-progress:indeterminate::-moz-progress-bar {
+  @apply bg-transparent;
+  background-image: repeating-linear-gradient( 90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90% );
+  background-size: 200%;
+  background-position-x: 15%;
+  animation: progress-loading 5s ease-in-out infinite;
+}
+
+@keyframes progress-loading {
+  50% {
+    background-position-x: -115%;
+  }
+}"
+`;
+
+exports[`'progress/utils.scss' prefixer > snap 1`] = `""`;
+
+exports[`'radio/base.scss' prefixer > snap 1`] = `
+".som-radio {
+  @apply shrink-0;
+}"
+`;
+
+exports[`'radio/styled.scss' prefixer > snap 1`] = `
+".som-som-radio {
+  @apply border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20;
+}
+.som-som-radio:focus-visible {
+  @apply outline-base-content outline outline-2 outline-offset-2;
+}
+.som-som-radio:checked, .som-som-radio[aria-checked=true] {
+  @apply bg-base-content;
+  animation: radiomark var(--ice-animation-input, 0.2s) ease-out;
+  box-shadow: 0 0 0 4px rgba(var(--ice-base-400)) inset, 0 0 0 4px rgba(var(--ice-base-400)) inset;
+}
+.som-som-radio-primary {
+  @apply border-primary hover:border-primary;
+}
+.som-som-radio-primary:focus-visible {
+  @apply outline-primary;
+}
+.som-som-radio-primary:checked, .som-som-radio-primary[aria-checked=true] {
+  @apply border-primary bg-primary text-primary-content;
+}
+.som-som-radio-success {
+  @apply border-success hover:border-success;
+}
+.som-som-radio-success:focus-visible {
+  @apply outline-success;
+}
+.som-som-radio-success:checked, .som-som-radio-success[aria-checked=true] {
+  @apply border-success bg-success text-success-content;
+}
+.som-som-radio-warning {
+  @apply border-warning hover:border-warning;
+}
+.som-som-radio-warning:focus-visible {
+  @apply outline-warning;
+}
+.som-som-radio-warning:checked, .som-som-radio-warning[aria-checked=true] {
+  @apply border-warning bg-warning text-warning-content;
+}
+.som-som-radio-error {
+  @apply border-error hover:border-error;
+}
+.som-som-radio-error:focus-visible {
+  @apply outline-error;
+}
+.som-som-radio-error:checked, .som-som-radio-error[aria-checked=true] {
+  @apply border-error bg-error text-error-content;
+}
+.som-som-radio-info {
+  @apply border-info hover:border-info;
+}
+.som-som-radio-info:focus-visible {
+  @apply outline-info;
+}
+.som-som-radio-info:checked, .som-som-radio-info[aria-checked=true] {
+  @apply border-info bg-info text-info-content;
+}
+.som-som-radio-neutral {
+  @apply border-neutral hover:border-neutral;
+}
+.som-som-radio-neutral:focus-visible {
+  @apply outline-neutral;
+}
+.som-som-radio-neutral:checked, .som-som-radio-neutral[aria-checked=true] {
+  @apply border-neutral bg-neutral text-neutral-content;
+}
+.som-som-radio:disabled {
+  @apply cursor-not-allowed opacity-20;
+}
+
+@keyframes radiomark {
+  0% {
+    box-shadow: 0 0 0 12px rgba(var(--ice-base-400)) inset, 0 0 0 12px rgba(var(--ice-base-400)) inset;
+  }
+  50% {
+    box-shadow: 0 0 0 3px rgba(var(--ice-base-400)) inset, 0 0 0 3px rgba(var(--ice-base-400)) inset;
+  }
+  100% {
+    box-shadow: 0 0 0 4px rgba(var(--ice-base-400)) inset, 0 0 0 4px rgba(var(--ice-base-400)) inset;
+  }
+}"
+`;
+
+exports[`'radio/utils.scss' prefixer > snap 1`] = `
+".som-radio-xs {
+  @apply h-4 w-4;
+}
+.som-radio-sm {
+  @apply h-5 w-5;
+}
+.som-radio-md {
+  @apply h-6 w-6;
+}
+.som-radio-lg {
+  @apply h-8 w-8;
+}"
+`;
+
+exports[`'range/base.scss' prefixer > snap 1`] = `
+".som-range {
+  @apply h-6 w-full cursor-pointer;
+}
+.som-range:focus {
+  outline: none;
+}"
+`;
+
+exports[`'range/styled.scss' prefixer > snap 1`] = `
+".som-som-range {
+  @apply rounded-box overflow-hidden bg-transparent;
+  appearance: none;
+  --ice-range-shdw: var(--ice-base-content);
+}
+.som-som-range:focus-visible::-webkit-slider-thumb {
+  --ice-focus-shadow: 0 0 0 6px rgba(var(--ice-base-400)) inset, 0 0 0 2rem rgba(var(--ice-range-shdw)) inset;
+}
+.som-som-range:focus-visible::-moz-range-thumb {
+  --ice-focus-shadow: 0 0 0 6px rgba(var(--ice-base-400)) inset, 0 0 0 2rem rgba(var(--ice-range-shdw)) inset;
+}
+.som-som-range::-webkit-slider-runnable-track {
+  @apply rounded-box bg-base-content/10 h-2 w-full;
+}
+.som-som-range::-moz-range-track {
+  @apply rounded-box bg-base-content/10 h-2 w-full;
+}
+.som-som-range::-webkit-slider-thumb {
+  @apply rounded-box bg-base-400 relative h-6 w-6 border-none;
+  appearance: none;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(var(--ice-range-shdw));
+  --ice-filler-size: 100rem;
+  --ice-filler-offset: 0.6rem;
+  box-shadow: 0 0 0 3px rgba(var(--ice-range-shdw)) inset, var(--ice-focus-shadow, 0 0), calc(var(--ice-filler-size) * -1 - var(--ice-filler-offset)) 0 0 var(--ice-filler-size);
+}
+.som-som-range::-moz-range-thumb {
+  @apply rounded-box bg-base-400 relative h-6 w-6 border-none;
+  top: 50%;
+  color: rgba(var(--ice-range-shdw));
+  --ice-filler-size: 100rem;
+  --ice-filler-offset: 0.5rem;
+  box-shadow: 0 0 0 3px rgba(var(--ice-range-shdw)) inset, var(--ice-focus-shadow, 0 0), calc(var(--ice-filler-size) * -1 - var(--ice-filler-offset)) 0 0 var(--ice-filler-size);
+}
+.som-som-range-primary {
+  --ice-range-shdw: var(--ice-primary);
+}
+.som-som-range-success {
+  --ice-range-shdw: var(--ice-success);
+}
+.som-som-range-warning {
+  --ice-range-shdw: var(--ice-warning);
+}
+.som-som-range-error {
+  --ice-range-shdw: var(--ice-error);
+}
+.som-som-range-info {
+  --ice-range-shdw: var(--ice-info);
+}
+.som-som-range-neutral {
+  --ice-range-shdw: var(--ice-neutral);
+}"
+`;
+
+exports[`'range/utils.scss' prefixer > snap 1`] = `
+".som-som-range-xs {
+  @apply h-4;
+}
+.som-som-range-xs::-webkit-slider-runnable-track {
+  @apply h-1;
+}
+.som-som-range-xs::-moz-range-track {
+  @apply h-1;
+}
+.som-som-range-xs::-webkit-slider-thumb {
+  @apply h-4 w-4;
+  --ice-filler-offset: 0.4rem;
+}
+.som-som-range-xs::-moz-range-thumb {
+  @apply h-4 w-4;
+  --ice-filler-offset: 0.4rem;
+}
+.som-som-range-sm {
+  @apply h-5;
+}
+.som-som-range-sm::-webkit-slider-runnable-track {
+  @apply h-1;
+}
+.som-som-range-sm::-moz-range-track {
+  @apply h-1;
+}
+.som-som-range-sm::-webkit-slider-thumb {
+  @apply h-5 w-5;
+  --ice-filler-offset: 0.5rem;
+}
+.som-som-range-sm::-moz-range-thumb {
+  @apply h-5 w-5;
+  --ice-filler-offset: 0.5rem;
+}
+.som-som-range-md {
+  @apply h-6;
+}
+.som-som-range-md::-webkit-slider-runnable-track {
+  @apply h-2;
+}
+.som-som-range-md::-moz-range-track {
+  @apply h-2;
+}
+.som-som-range-md::-webkit-slider-thumb {
+  @apply h-6 w-6;
+  --ice-filler-offset: 0.6rem;
+}
+.som-som-range-md::-moz-range-thumb {
+  @apply h-6 w-6;
+  --ice-filler-offset: 0.6rem;
+}
+.som-som-range-lg {
+  @apply h-8;
+}
+.som-som-range-lg::-webkit-slider-runnable-track {
+  @apply h-4;
+}
+.som-som-range-lg::-moz-range-track {
+  @apply h-4;
+}
+.som-som-range-lg::-webkit-slider-thumb {
+  @apply h-8 w-8;
+  --ice-filler-offset: 1rem;
+}
+.som-som-range-lg::-moz-range-thumb {
+  @apply h-8 w-8;
+  --ice-filler-offset: 1rem;
+}"
+`;
+
+exports[`'select/base.scss' prefixer > snap 1`] = `
+".som-select {
+  @apply inline-flex cursor-pointer select-none appearance-none;
+  @apply min-h-12 h-12 pl-4 pr-10 text-sm leading-loose;
+  /* disabled */
+  /* &-disabled,
+  &[disabled] {
+    @apply pointer-events-none;
+  } */
+  /* multiple */
+}
+.som-select[multiple] {
+  @apply h-auto;
+}"
+`;
+
+exports[`'select/styled.scss' prefixer > snap 1`] = `
+".som-select {
+  @apply border-base-content bg-base-100 rounded-btn border border-opacity-0 pr-10;
+  background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
+  background-position: calc(100% - 20px) calc(1px + 50%), calc(100% - 16.1px) calc(1px + 50%);
+  background-size: 4px 4px, 4px 4px;
+  background-repeat: no-repeat;
+}
+.som-select-bordered {
+  @apply border-opacity-20;
+}
+.som-select:focus {
+  @apply outline-base-content/20 outline outline-2 outline-offset-2;
+}
+.som-select-ghost {
+  @apply bg-opacity-5;
+}
+.som-select-ghost:focus {
+  @apply text-base-content bg-opacity-100;
+}
+.som-select-primary {
+  @apply border-primary;
+}
+.som-select-primary:focus {
+  @apply outline-primary;
+}
+.som-select-success {
+  @apply border-success;
+}
+.som-select-success:focus {
+  @apply outline-success;
+}
+.som-select-warning {
+  @apply border-warning;
+}
+.som-select-warning:focus {
+  @apply outline-warning;
+}
+.som-select-error {
+  @apply border-error;
+}
+.som-select-error:focus {
+  @apply outline-error;
+}
+.som-select-info {
+  @apply border-info;
+}
+.som-select-info:focus {
+  @apply outline-info;
+}
+.som-select-neutral {
+  @apply border-neutral;
+}
+.som-select-neutral:focus {
+  @apply outline-neutral;
+}
+.som-select-disabled, .som-select:disabled, .som-select[disabled] {
+  @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
+}
+.som-select-multiple, .som-select[multiple], .som-select[size]:not([size=\\"1\\"]) {
+  @apply bg-none pr-4;
+}
+
+[dir=rtl] .som-select {
+  background-position: calc(0% + 12px) calc(1px + 50%), calc(0% + 16px) calc(1px + 50%);
+}"
+`;
+
+exports[`'select/utils.scss' prefixer > snap 1`] = `
+".som-select-md {
+  @apply min-h-12 h-12 pl-4 pr-10 text-sm leading-loose;
+}
+[dir=rtl] .som-select-md {
+  @apply pl-10 pr-4;
+}
+.som-select-lg {
+  @apply min-h-16 h-16 pl-6 pr-8 text-lg leading-loose;
+}
+[dir=rtl] .som-select-lg {
+  @apply pl-8 pr-6;
+}
+.som-select-sm {
+  @apply min-h-8 h-8 pl-3 pr-8 text-sm leading-8;
+}
+[dir=rtl] .som-select-sm {
+  @apply pl-8 pr-3;
+}
+.som-select-xs {
+  @apply min-h-6 h-6 pl-2 pr-8 text-xs leading-relaxed;
+}
+[dir=rtl] .som-select-xs {
+  @apply pl-8 pr-2;
+}"
+`;
+
+exports[`'textarea/base.scss' prefixer > snap 1`] = `
+".som-textarea {
+  @apply min-h-12 flex-shrink px-4 py-2 text-sm leading-loose;
+}"
+`;
+
+exports[`'textarea/styled.scss' prefixer > snap 1`] = `
+".som-textarea {
+  @apply border-base-content bg-base-100 rounded-btn border border-opacity-0;
+}
+.som-textarea-bordered {
+  @apply border-opacity-20;
+}
+.som-textarea:focus {
+  @apply outline-base-content/20 outline outline-2 outline-offset-2;
+}
+.som-textarea-ghost {
+  @apply bg-opacity-5;
+}
+.som-textarea-ghost:focus {
+  @apply text-base-content bg-opacity-100;
+  box-shadow: none;
+}
+.som-textarea-primary {
+  @apply border-primary;
+}
+.som-textarea-primary:focus {
+  @apply outline-primary;
+}
+.som-textarea-success {
+  @apply border-success;
+}
+.som-textarea-success:focus {
+  @apply outline-success;
+}
+.som-textarea-warning {
+  @apply border-warning;
+}
+.som-textarea-warning:focus {
+  @apply outline-warning;
+}
+.som-textarea-error {
+  @apply border-error;
+}
+.som-textarea-error:focus {
+  @apply outline-error;
+}
+.som-textarea-info {
+  @apply border-info;
+}
+.som-textarea-info:focus {
+  @apply outline-info;
+}
+.som-textarea-neutral {
+  @apply border-neutral;
+}
+.som-textarea-neutral:focus {
+  @apply outline-neutral;
+}
+.som-textarea-disabled, .som-textarea:disabled, .som-textarea[disabled] {
+  @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
+}"
+`;
+
+exports[`'textarea/utils.scss' prefixer > snap 1`] = `
+".som-textarea-xs {
+  @apply px-2 py-1 text-xs leading-relaxed;
+}
+.som-textarea-sm {
+  @apply px-3 py-1 text-sm leading-8;
+}
+.som-textarea-md {
+  @apply px-4 py-3 text-sm leading-loose;
+}
+.som-textarea-lg {
+  @apply px-6 py-4 text-lg leading-loose;
+}"
+`;
+
+exports[`'toggle/base.scss' prefixer > snap 1`] = `
+".som-toggle {
+  @apply shrink-0;
+}"
+`;
+
+exports[`'toggle/styled.scss' prefixer > snap 1`] = `
+".som-som-toggle {
+  @apply border-base-content bg-base-content rounded-badge h-6 w-12 cursor-pointer appearance-none border border-opacity-20 bg-opacity-50;
+  --ice-tglbg: rgba(var(--ice-base-100));
+  --ice-handleoffset: 1.5rem;
+  --ice-handleoffsetcalculator: calc(var(--ice-handleoffset) * -1);
+  --ice-togglehandleborder: 0 0;
+  transition: background, box-shadow var(--ice-animation-input, 0.2s) ease-out;
+  box-shadow: var(--ice-handleoffsetcalculator) 0 0 2px var(--ice-tglbg) inset, 0 0 0 2px var(--ice-tglbg) inset, var(--ice-togglehandleborder);
+}
+[dir=rtl] .som-som-toggle {
+  --ice-handleoffsetcalculator: calc(var(--ice-handleoffset) * 1);
+}
+.som-som-toggle:focus-visible {
+  @apply outline-base-content/20 outline outline-2 outline-offset-2;
+}
+.som-som-toggle:checked, .som-som-toggle[checked=true], .som-som-toggle[aria-checked=true] {
+  @apply border-opacity-100 bg-opacity-100;
+  --ice-handleoffsetcalculator: var(--ice-handleoffset);
+}
+[dir=rtl] .som-som-toggle:checked, [dir=rtl] .som-som-toggle[checked=true], [dir=rtl] .som-som-toggle[aria-checked=true] {
+  --ice-handleoffsetcalculator: calc(var(--ice-handleoffset) * -1);
+}
+.som-som-toggle:indeterminate {
+  @apply border-opacity-100 bg-opacity-100;
+  box-shadow: calc(var(--ice-handleoffset) / 2) 0 0 2px var(--ice-tglbg) inset, calc(var(--ice-handleoffset) / -2) 0 0 2px var(--ice-tglbg) inset, 0 0 0 2px var(--ice-tglbg) inset;
+}
+[dir=rtl] .som-som-toggle:indeterminate {
+  box-shadow: calc(var(--ice-handleoffset) / 2) 0 0 2px var(--ice-tglbg) inset, calc(var(--ice-handleoffset) / -2) 0 0 2px var(--ice-tglbg) inset, 0 0 0 2px var(--ice-tglbg) inset;
+}
+.som-som-toggle-primary:focus-visible {
+  @apply outline-primary;
+}
+.som-som-toggle-primary:checked, .som-som-toggle-primary[checked=true], .som-som-toggle-primary[aria-checked=true] {
+  @apply border-primary bg-primary text-primary-content border-opacity-10;
+}
+.som-som-toggle-success:focus-visible {
+  @apply outline-success;
+}
+.som-som-toggle-success:checked, .som-som-toggle-success[checked=true], .som-som-toggle-success[aria-checked=true] {
+  @apply border-success bg-success text-success-content border-opacity-10;
+}
+.som-som-toggle-warning:focus-visible {
+  @apply outline-warning;
+}
+.som-som-toggle-warning:checked, .som-som-toggle-warning[checked=true], .som-som-toggle-warning[aria-checked=true] {
+  @apply border-warning bg-warning text-warning-content border-opacity-10;
+}
+.som-som-toggle-error:focus-visible {
+  @apply outline-error;
+}
+.som-som-toggle-error:checked, .som-som-toggle-error[checked=true], .som-som-toggle-error[aria-checked=true] {
+  @apply border-error bg-error text-error-content border-opacity-10;
+}
+.som-som-toggle-info:focus-visible {
+  @apply outline-info;
+}
+.som-som-toggle-info:checked, .som-som-toggle-info[checked=true], .som-som-toggle-info[aria-checked=true] {
+  @apply border-info bg-info text-info-content border-opacity-10;
+}
+.som-som-toggle-neutral:focus-visible {
+  @apply outline-neutral;
+}
+.som-som-toggle-neutral:checked, .som-som-toggle-neutral[checked=true], .som-som-toggle-neutral[aria-checked=true] {
+  @apply border-neutral bg-neutral text-neutral-content border-opacity-10;
+}
+.som-som-toggle:disabled {
+  @apply border-base-content cursor-not-allowed bg-transparent opacity-30;
+  --ice-togglehandleborder: 0 0 0 3px rgba(var(--ice-base-content)) inset, var(--ice-handleoffsetcalculator) 0 0 3px rgba(var(--ice-base-content)) inset;
+}
+
+.som-som-toggle-mark {
+  @apply hidden;
+}"
+`;
+
+exports[`'toggle/utils.scss' prefixer > snap 1`] = `
+".som-som-toggle-xs {
+  --ice-handleoffset: 0.5rem;
+  @apply h-4 w-6;
+}
+.som-som-toggle-sm {
+  --ice-handleoffset: 0.75rem;
+  @apply h-5 w-8;
+}
+.som-som-toggle-md {
+  --ice-handleoffset: 1.5rem;
+  @apply h-6 w-12;
+}
+.som-som-toggle-lg {
+  --ice-handleoffset: 2rem;
+  @apply h-8 w-16;
+}"
+`;

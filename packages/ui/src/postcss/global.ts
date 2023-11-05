@@ -1,10 +1,10 @@
 import type { PluginCreator, AcceptedPlugin } from 'postcss'
 import parser from 'postcss-selector-parser'
-import type { TailwindcssPluginOptions } from '@/types'
+import type { CodegenOptions } from '@/types'
 
-const creator: PluginCreator<TailwindcssPluginOptions> = (options) => {
+const creator: PluginCreator<CodegenOptions> = (options) => {
   const universal = options?.global?.selector?.universal
-
+  const removeAtMediaHover = !options?.global?.atMedia?.hover
   const universalFn = typeof universal === 'string' ? () => universal : universal
   const ruleTransformer = parser((selectors) => {
     selectors.walk((selector) => {
@@ -24,7 +24,7 @@ const creator: PluginCreator<TailwindcssPluginOptions> = (options) => {
         postcssPlugin: 'deep-dark-fantastic',
         AtRule(atRule) {
           // hover
-          if (atRule.name === 'media' && /\(\s*hover\s*:\s*hover\s*\)/.test(atRule.params)) {
+          if (removeAtMediaHover && atRule.name === 'media' && /\(\s*hover\s*:\s*hover\s*\)/.test(atRule.params)) {
             atRule.before(atRule.nodes)
             atRule.remove()
           }

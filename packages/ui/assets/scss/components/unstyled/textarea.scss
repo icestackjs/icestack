@@ -1,8 +1,0 @@
-@use "../../utils/index.scss" as *;
-@use "sass:map";
-
-$DefaultMap: inject("textarea.defaults.unstyled");
-
-.textarea {
-  @include resolve(map.get($DefaultMap, "default"));
-}

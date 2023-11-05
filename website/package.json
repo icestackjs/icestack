@@ -25,27 +25,28 @@
     "clsx": "^2.0.0",
     "css-to-tailwindcss-plugin": "workspace:^",
     "lodash-es": "^4.17.21",
-    "next": "^13.5.6",
+    "next": "^14.0.1",
     "nextra": "^2.13.2",
     "nextra-theme-docs": "^2.13.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-shadow": "^20.4.0"
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.4.0",
     "@icestack/ui": "workspace:^",
-    "@iconify-json/mdi": "^1.1.54",
+    "@iconify-json/mdi": "^1.1.55",
     "@types/lodash-es": "^4.17.10",
-    "@types/node": "^20.8.7",
-    "@types/react": "^18.2.31",
+    "@types/node": "^20.8.10",
+    "@types/react": "^18.2.34",
     "@types/react-dom": "^18.2.14",
     "autoprefixer": "^10.4.16",
-    "eslint": "^8.52.0",
-    "eslint-config-next": "^13.5.6",
+    "eslint": "^8.53.0",
+    "eslint-config-next": "^14.0.1",
     "postcss": "^8.4.31",
-    "sass": "^1.69.4",
-    "tailwindcss": "^3.3.3",
+    "sass": "^1.69.5",
+    "tailwindcss": "^3.3.5",
     "typescript": "latest",
-    "unplugin-auto-import": "^0.16.6"
+    "unplugin-auto-import": "^0.16.7"
   }
 }

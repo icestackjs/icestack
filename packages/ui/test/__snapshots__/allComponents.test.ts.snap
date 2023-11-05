@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`allComponents exports > snap 1`] = `
+[
+  "alert",
+  "avatar",
+  "button",
+  "badge",
+  "chat",
+  "checkbox",
+  "input",
+  "link",
+  "progress",
+  "textarea",
+  "toggle",
+  "select",
+  "radio",
+  "range",
+  "loading",
+  "mask",
+  "form",
+]
+`;

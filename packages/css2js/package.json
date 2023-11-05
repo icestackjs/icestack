@@ -44,7 +44,7 @@
   },
   "optionalDependencies": {
     "less": "^4.2.0",
-    "sass": "^1.69.4",
-    "stylus": "^0.60.0"
+    "sass": "^1.69.5",
+    "stylus": "^0.61.0"
   }
 }

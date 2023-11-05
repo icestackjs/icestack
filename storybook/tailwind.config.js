@@ -1,17 +1,39 @@
 const path = require('node:path')
-const icestackUi = require('@icestack/ui/tailwindcss')
+const fs = require('node:fs')
+const { icestackPlugin } = require('@icestack/ui/tailwindcss')
 const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
+// const klawSync = require('klaw-sync')
+// const icestackPath = require.resolve('@icestack/ui/package.json')
+// const dir = path.resolve(path.dirname(icestackPath), 'assets/js')
+
 // const colors = require('tailwindcss/colors')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [path.resolve(__dirname, './stories/**/*.{ts,tsx}')],
+  content: [
+    path.resolve(__dirname, './stories/**/*.{ts,tsx}'),
+    {
+      raw: fs.readFileSync(path.resolve(__dirname, 'table.js'), 'utf8')
+    }
+    // ...klawSync(dir, {
+    //   nodir: true,
+    //   filter: (item) => {
+    //     return /\.js$/.test(item.path)
+    //   },
+    //   traverseAll: true
+    // }).map((x) => {
+    //   return {
+    //     raw: fs.readFileSync(x.path, 'utf8')
+    //   }
+    // })
+  ],
   darkMode: ['class', '[data-mode="dark"]'],
   theme: {
-    colors: {},
     extend: {}
   },
   plugins: [
-    icestackUi,
+    icestackPlugin({
+      outdir: path.resolve(__dirname, 'ice-ui')
+    }),
     iconsPlugin({
       collections: getIconCollections(['mdi'])
     })

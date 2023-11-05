@@ -1,5 +1,4 @@
-import { Types, expandColorsMap, IDefaults } from './shared'
-
+import { DefaultsFn, expandTypes, OptionFn, getSelector } from './shared'
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
 }
@@ -8,37 +7,86 @@ function generateOutline(typeName: string) {
   return `text-${typeName}`
 }
 
-const colorsMap = expandColorsMap(Types, (cur) => {
-  return {
-    default: generateDefault(cur),
-    outline: generateOutline(cur)
-  }
-})
+export const defaultSelector = '.badge'
 
-const defaults: IDefaults = {
-  styled: {
-    default: 'rounded-badge border border-base-200 bg-base-100 text-base-content',
-    outline: 'border-current border-opacity-50 bg-transparent text-current',
-    ghost: 'border-base-200 bg-base-200 text-base-content'
-  },
-  unstyled: {
-    default: 'inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem]'
+const getDefaults: DefaultsFn = (opts) => {
+  const { selector, types } = opts
+  return {
+    styled: {
+      [selector]: {
+        apply: 'rounded-badge border border-base-400 bg-base-100 text-base-content',
+        ...expandTypes(types, (type) => {
+          return {
+            key: `&${getSelector(type)}`,
+            value: {
+              apply: generateDefault(type)
+            }
+          }
+        }),
+        '&-ghost': {
+          apply: 'border-base-400 bg-base-400 text-base-content'
+        },
+        '&-outline': {
+          apply: 'border-current border-opacity-50 bg-transparent text-current',
+          ...expandTypes(types, (type) => {
+            return {
+              key: `&${getSelector(type, '.badge-')}`,
+              value: {
+                apply: generateOutline(type)
+              }
+            }
+          })
+        }
+      }
+    },
+    base: {
+      [selector]: {
+        apply: 'inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem]'
+      }
+    },
+    utils: {
+      [selector]: {
+        [`&${getSelector('xs')}`]: {
+          apply: 'h-3 text-xs leading-3',
+          css: {
+            'padding-left': '0.313rem',
+            'padding-right': '0.313rem'
+          }
+        },
+        [`&${getSelector('sm')}`]: {
+          apply: 'h-4 text-xs leading-4',
+          css: {
+            'padding-left': '0.438rem',
+            'padding-right': '0.438rem'
+          }
+        },
+        [`&${getSelector('md')}`]: {
+          apply: 'h-5 text-sm leading-5',
+          css: {
+            'padding-left': '0.563rem',
+            'padding-right': '0.563rem'
+          }
+        },
+        [`&${getSelector('lg')}`]: {
+          apply: 'h-6 text-base leading-6',
+          css: {
+            'padding-left': '0.688rem',
+            'padding-right': '0.688rem'
+          }
+        }
+      }
+    }
   }
 }
 
-// const injectName = createInjectName('badge')
-// const sassColors = transformJsToSass(colorsMap)
-// const sassDefaults = transformJsToSass(defaults)
-// export const inject = {
-//   [injectName.colors]: () => {
-//     return sassColors
-//   },
-//   [injectName.defaults]: () => {
-//     return sassDefaults
-//   }
-// }
+export const options: OptionFn = (opts) => {
+  const selector = opts.selector ?? defaultSelector
 
-export const options = {
-  colors: colorsMap,
-  defaults
+  return {
+    selector,
+    defaults: getDefaults({
+      ...opts,
+      selector
+    })
+  }
 }

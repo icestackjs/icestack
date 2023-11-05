@@ -3,12 +3,14 @@
     "title": "Home",
     "type": "page"
   },
-  "components": {
-    "title": "Components",
+  "docs": {
+    "title": "Guide",
     "type": "page"
   },
-  "playground": {
-    "title": "Playground",
+  "components": {
+    "title": "Components",
+    "href": "https://icestack-storybook.vercel.app/",
+    "newWindow": true,
     "type": "page"
   }
 }

@@ -1,6 +1,7 @@
+import path from 'node:path'
 import * as t from '@babel/types'
 import _babelGenerate from '@babel/generator'
-
+import { stages } from '@/constants'
 // https://github.com/babel/babel/issues/15269
 function _interopDefaultCompat(e: any) {
   return e && typeof e === 'object' && 'default' in e ? e.default : e
@@ -12,10 +13,10 @@ export function generateIndexCode(basenames: string[]) {
   const props = Object.entries(
     basenames
       .map((basename) => {
-        const s = basename.split('/')
+        const s = basename.split(path.sep)
         return {
-          key: s[1],
-          type: s[0],
+          key: s[0],
+          type: s[1],
           path: basename
         }
       })
@@ -28,6 +29,30 @@ export function generateIndexCode(basenames: string[]) {
         }
         return acc
       }, {})
+  ).map(([key, props]) => {
+    return t.objectProperty(t.stringLiteral(key), t.objectExpression(props))
+  })
+
+  const ast = t.file(
+    t.program([t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('module'), t.identifier('exports')), t.objectExpression(props)))])
+  )
+
+  return babelGenerate(ast).code
+}
+
+export function generateComponentsIndexCode(basenames: string[]) {
+  const props = Object.entries(
+    basenames.reduce<Record<string, t.ObjectProperty[]>>((acc, name) => {
+      for (const stage of stages) {
+        const node = t.objectProperty(t.stringLiteral(stage), t.callExpression(t.identifier('require'), [t.stringLiteral(`./${name}/${stage}.js`)]))
+        if (acc[name]) {
+          acc[name].push(node)
+        } else {
+          acc[name] = [node]
+        }
+      }
+      return acc
+    }, {})
   ).map(([key, props]) => {
     return t.objectProperty(t.stringLiteral(key), t.objectExpression(props))
   })

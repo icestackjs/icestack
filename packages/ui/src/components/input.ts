@@ -1,37 +1,78 @@
-import { IDefaults, Types, expandColorsMap } from './shared'
+import { OptionFn, getSelector, expandTypes } from './shared'
 
-function generateDefault(typeName: string) {
-  return `border-${typeName}`
-}
-
-function generateFocus(typeName: string) {
-  return `outline-${typeName}`
-}
-
-const colorsMap = expandColorsMap(Types, (cur) => {
+export const options: OptionFn = (opts) => {
+  const { selector, types } = opts
   return {
-    default: generateDefault(cur),
-    focus: generateFocus(cur)
-  }
-})
-
-const defaults: IDefaults = {
-  styled: {
-    default: 'border-base-content bg-base-100 rounded-btn border border-opacity-0 text-base',
-    bordered: 'border-opacity-20',
-    focus: 'outline-base-content/20 outline outline-2 outline-offset-2',
-    ghost: 'bg-opacity-5',
-    ghostFocus: {
-      apply: 'text-base-content bg-opacity-100',
-      css: {
-        'box-shadow': 'none'
+    selector,
+    defaults: {
+      styled: {
+        [selector]: {
+          apply: 'border-base-content bg-base-100 rounded-btn border border-opacity-0 text-base',
+          'input:focus': {
+            apply: 'outline-none'
+          },
+          '&[list]::-webkit-calendar-picker-indicator': {
+            css: {
+              'line-height': '1em'
+            }
+          },
+          '&-bordered': {
+            apply: 'border-opacity-20'
+          },
+          [`&:focus,
+          &:focus-within`]: {
+            apply: 'outline-0 shadow-[0_0_0_2px] shadow-base-content/10'
+          },
+          '&-ghost': {
+            apply: 'bg-opacity-5',
+            [`&:focus,
+            &:focus-within`]: {
+              apply: 'text-base-content bg-opacity-100',
+              css: {
+                'box-shadow': 'none'
+              }
+            }
+          },
+          ...expandTypes(types, (type) => {
+            return {
+              key: `&${getSelector(type)}`,
+              value: {
+                apply: `border-${type}`,
+                [`&:focus,
+            &:focus-within`]: {
+                  apply: `shadow-${type}/10`
+                }
+              }
+            }
+          }),
+          [`&-disabled,
+          &:disabled,
+          &[disabled]`]: {
+            apply: 'border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20'
+          }
+        }
+      },
+      base: {
+        [selector]: {
+          apply: 'flex-shrink h-8 px-3 text-sm leading-loose'
+        }
+      },
+      utils: {
+        [selector]: {
+          [`&${getSelector('xs')}`]: {
+            apply: 'h-6 px-2 text-xs leading-relaxed'
+          },
+          [`&${getSelector('sm')}`]: {
+            apply: 'h-8 px-3 text-sm leading-8'
+          },
+          [`&${getSelector('md')}`]: {
+            apply: 'h-12 px-4 text-sm leading-loose'
+          },
+          [`&${getSelector('lg')}`]: {
+            apply: 'h-16 px-6 text-lg leading-loose'
+          }
+        }
       }
-    },
-    disabled: 'border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20'
+    }
   }
-}
-
-export const options = {
-  colors: colorsMap,
-  defaults
 }

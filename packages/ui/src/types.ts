@@ -108,12 +108,10 @@ export type Config = Partial<CodegenOptions>
 
 // export type TailwindcssPluginOptions = CodegenOptions | LoadCodeOptions
 
-export interface IBuildScssOptions<T> {
-  outdir?: string
+export interface IBuildScssOptions {
   filename: string
   resolveConfig?: (config: TailwindcssConfig) => void
   outSideLayerCss: 'base' | 'components' | 'utilities'
-  options: T
 }
 
 // export type DeepRequired<T> = {

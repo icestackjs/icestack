@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`transformCss > case0 1`] = `
+{
+  ".alert": {
+    "&-primary": {
+      "css": {
+        "color": "red",
+      },
+    },
+    "&.alert-hover": {
+      "&:hover": {
+        "css": {
+          "color": "blue",
+        },
+      },
+    },
+    "css": {
+      "display": "grid",
+      "width": "100%",
+    },
+  },
+  "@media (min-width: 640px)": {
+    ".alert": {
+      "css": {
+        "grid-auto-flow": "column",
+        "grid-template-columns": "auto minmax(auto,1fr)",
+        "justify-items": "start",
+        "text-align": "left",
+      },
+    },
+  },
+}
+`;

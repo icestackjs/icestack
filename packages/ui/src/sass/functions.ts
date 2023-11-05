@@ -32,12 +32,22 @@ export const createPreset: (opts: CreatePresetOptions) => Record<(typeof allComp
   }, {})
 }
 
+// const weakmap = new WeakMap()
+
 export const createFunctions: (options: CodegenOptions) => Options<'sync'>['functions'] = (options) => {
+  // let baseResult, presets: ReturnType<typeof createPreset>
+  // if (weakmap.has(options)) {
+  //   let { baseResult, presets } = weakmap.get(options)
+  // } else {
+
+  //   weakmap.set(options, { baseResult, presets })
+  // }
   const baseResult = base.calcBase(options)
   const presets = createPreset({
     types: baseResult.allTypes,
     options
   })
+
   return {
     ...baseResult.functions,
     'inject($path:null)': (args: Value[]) => {

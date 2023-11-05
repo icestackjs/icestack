@@ -107,7 +107,6 @@
     "@types/klaw-sync": "^6.0.3",
     "@types/lodash": "^4.14.200",
     "@types/object-hash": "^3.0.5",
-    "@types/postcss-js": "^4.0.3",
     "@types/rtlcss": "^3.5.3",
     "@types/serialize-javascript": "^5.0.3",
     "compose-tailwindcss-plugins": "workspace:^",

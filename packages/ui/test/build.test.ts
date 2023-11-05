@@ -1,11 +1,9 @@
-import { generate } from '@/generate'
+import { createContext } from '@/context'
 import { getCodegenOptions } from '@/options'
 
 describe('build', () => {
   it('build base', () => {
-    generate({
-      options: getCodegenOptions(),
-      outSideLayerCss: 'base'
-    })
+    const ctx = createContext(getCodegenOptions())
+    ctx.generate('base')
   })
 })

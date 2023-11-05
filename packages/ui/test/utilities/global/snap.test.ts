@@ -14,3 +14,11 @@ describe.each(coms)('%s', (com) => {
     expect(css).toMatchSnapshot()
   })
 })
+
+// describe('for debugger', () => {
+//   it('snap', async () => {
+//     const ctx = createContext(getCodegenOptions())
+//     const { css } = await ctx.compileScss(resolve('glass'))
+//     expect(css).toMatchSnapshot()
+//   })
+// })

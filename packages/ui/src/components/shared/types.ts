@@ -1,4 +1,6 @@
-import type { CreatePresetOptions } from '@/sass/functions'
+export interface CreatePresetOptions {
+  types: string[]
+}
 
 export type IDefaults = {
   styled?: object

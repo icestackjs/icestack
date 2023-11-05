@@ -226,6 +226,23 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   }
 }
 
+export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {}) {
+  const { varPrefix = defaultVarPrefix } = opts
+  return {
+    borderRadius: {
+      box: `var(${varPrefix}rounded-box, 1rem)`,
+      btn: `var(${varPrefix}rounded-btn, 0.5rem)`,
+      badge: `var(${varPrefix}rounded-badge, 1.9rem)`
+    },
+    minHeight: {
+      6: '1.5rem',
+      8: '2rem',
+      12: '3rem',
+      16: '4rem'
+    }
+  }
+}
+
 export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
   const base = getDefaultBase(raw)
   return {

@@ -7,7 +7,7 @@ import type { PluginCreator } from 'tailwindcss/types/config'
 import type * as _base from '../assets/js/base/index.js'
 import type * as _components from '../assets/js/components/index.js'
 import type * as _utilities from '../assets/js/utilities/index.js'
-import { someExtends } from './constants.js'
+import { createDefaultTailwindcssExtends } from './defaults'
 import type { CodegenOptions, DeepPartial } from './types'
 import { getCodegenOptions } from './options.js'
 import { getJsProcess } from '@/postcss/js'
@@ -99,16 +99,17 @@ export const icestackPlugin = plugin.withOptions(
   },
   function (opts?: DeepPartial<CodegenOptions>) {
     const options = getCodegenOptions(opts)
-    // const base = requireLib('js/base/index.js', loaddir) as typeof _base
+    const { varPrefix } = options
 
-    const colors = getColors(options)
     return {
       theme: {
         extend: {
           colors: {
-            ...colors
+            ...getColors(options)
           },
-          ...someExtends
+          ...createDefaultTailwindcssExtends({
+            varPrefix
+          })
         }
       }
     }

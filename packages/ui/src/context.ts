@@ -1,16 +1,17 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import plugin from 'tailwindcss/plugin'
-import { set } from 'lodash'
+import { set, get } from 'lodash'
 import * as sass from 'sass'
 import postcssJs, { CssInJs } from 'postcss-js'
 import postcss, { Root, AcceptedPlugin } from 'postcss'
 import defu from 'defu'
+import type { Options } from 'sass'
+import { Value } from 'sass'
 import { CodegenOptions, IBuildScssOptions } from './types'
 import { generateComponentsIndexCode, generateIndexCode } from './js/generate'
 import { getColors } from './colors'
 import { walkScssSync } from './utils'
-import { createFunctions } from './sass/functions'
 import { transformJsToSass } from './sass/utils'
 import { resolveJsDir, scssDir, getCssPath, getJsPath, getCssResolvedpath, componentTemplate } from '@/dirs'
 import { someExtends, stages } from '@/constants'
@@ -21,9 +22,51 @@ import { ensureDirSync } from '@/utils'
 import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
 import { getPlugin as getCssVarsPrefixerPlugin } from '@/postcss/custom-property-prefixer'
 import prefixer from '@/postcss/prefixer'
+import { applyListToString, handleOptions } from '@/components/shared'
+import { componentsMap } from '@/components'
+import * as base from '@/base'
+import { ComponentsValue } from '@/types'
+
+export interface CreatePresetOptions {
+  types: string[]
+}
 
 export function createContext(options: CodegenOptions) {
-  const { outdir, dryRun, prefix, varPrefix } = options
+  const { outdir, dryRun, prefix, varPrefix, mode, components } = options
+  const baseResult = base.calcBase(options)
+  function getComsOpts(name: string): Partial<ComponentsValue> {
+    return defu(get(components, name, {}), { mode })
+  }
+  const createPreset: (opts: CreatePresetOptions) => Record<(typeof allComponents)[number], any> = (opts) => {
+    return Object.entries(componentsMap).reduce<Record<string, object>>((acc, [name, lib]) => {
+      const comOpt = getComsOpts(name)
+      acc[name] = handleOptions(
+        lib?.options({
+          ...opts,
+          selector: comOpt.selector!
+        }),
+        comOpt
+      )
+      return acc
+    }, {})
+  }
+
+  // const weakmap = new WeakMap()
+
+  const createFunctions: () => Options<'sync'>['functions'] = () => {
+    const presets = createPreset({
+      types: baseResult.allTypes
+    })
+
+    return {
+      ...baseResult.functions,
+      'inject($path:null)': (args: Value[]) => {
+        const p = args[0].assertString().text
+        const map = get(presets, p, {})
+        return transformJsToSass(applyListToString(map))
+      }
+    }
+  }
 
   function compileScss(filename: string, functions: Record<string, sass.CustomFunction<'sync'>> = {}) {
     const sassOptions: sass.Options<'sync'> = {
@@ -218,7 +261,9 @@ export function createContext(options: CodegenOptions) {
     compileScssWithCp,
     buildComponents,
     buildScss,
-    compileScss
+    compileScss,
+    createPreset,
+    createFunctions
   }
 }
 

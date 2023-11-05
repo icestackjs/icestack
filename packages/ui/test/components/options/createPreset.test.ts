@@ -1,12 +1,12 @@
-import { createPreset } from '@/sass/functions'
+import { createContext } from '@/context'
 import { getCodegenOptions } from '@/options'
 import { calcBase } from '@/base'
 describe('createPreset options', () => {
   it.skip('case 0', () => {
     const options = getCodegenOptions()
+    const ctx = createContext(options)
     const { allTypes } = calcBase(options)
-    const res = createPreset({
-      options,
+    const res = ctx.createPreset({
       types: allTypes
     })
     expect(res).toMatchSnapshot()
@@ -14,9 +14,9 @@ describe('createPreset options', () => {
 
   it('alert case 0', () => {
     const options = getCodegenOptions()
+    const ctx = createContext(options)
     const { allTypes } = calcBase(options)
-    const res = createPreset({
-      options,
+    const res = ctx.createPreset({
       types: allTypes
     })
     expect(res.alert).toMatchSnapshot()
@@ -24,9 +24,10 @@ describe('createPreset options', () => {
 
   it('alert case 1', () => {
     const options = getCodegenOptions()
+    const ctx = createContext(options)
+
     // const { allTypes } = calcBase(options)
-    const res = createPreset({
-      options,
+    const res = ctx.createPreset({
       types: []
     })
     expect(res.alert).toMatchSnapshot()
@@ -36,9 +37,10 @@ describe('createPreset options', () => {
     const options = getCodegenOptions({
       mode: 'base'
     })
+
+    const ctx = createContext(options)
     // const { allTypes } = calcBase(options)
-    const res = createPreset({
-      options,
+    const res = ctx.createPreset({
       types: []
     })
     expect(res.alert).toMatchSnapshot()
@@ -48,9 +50,9 @@ describe('createPreset options', () => {
     const options = getCodegenOptions({
       mode: 'raw'
     })
+    const ctx = createContext(options)
     // const { allTypes } = calcBase(options)
-    const res = createPreset({
-      options,
+    const res = ctx.createPreset({
       types: []
     })
     expect(res.alert).toMatchSnapshot()
@@ -65,9 +67,9 @@ describe('createPreset options', () => {
         }
       }
     })
+    const ctx = createContext(options)
     // const { allTypes } = calcBase(options)
-    const res = createPreset({
-      options,
+    const res = ctx.createPreset({
       types: []
     })
     expect(res.alert).toMatchSnapshot()
@@ -101,9 +103,9 @@ describe('createPreset options', () => {
         }
       }
     })
+    const ctx = createContext(options)
     // const { allTypes } = calcBase(options)
-    const res = createPreset({
-      options,
+    const res = ctx.createPreset({
       types: []
     })
     expect(res.alert).toMatchSnapshot()
@@ -132,9 +134,9 @@ describe('createPreset options', () => {
         }
       }
     })
+    const ctx = createContext(options)
     // const { allTypes } = calcBase(options)
-    const res = createPreset({
-      options,
+    const res = ctx.createPreset({
       types: []
     })
     expect(res.alert).toMatchSnapshot()

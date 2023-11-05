@@ -14,18 +14,27 @@ import type { Options as PrefixerOptions } from '@/postcss/prefixer'
 //   // utils: true
 // }
 
-export type BaseOptions = {
+export type BaseOptions<T extends string = string> = {
   themes: Record<
-    string,
+    T,
     {
       selector: string
     }
   >
   //           typeName        themeName       cssVars
-  types: Record<string, Record<string, Record<string, string>>>
-  extraColors: Record<string, Record<string, string>>
-  extraVars: Record<string, Record<string, string>>
+  types: Record<string, Record<keyof BaseOptions['themes'], Record<string, string>>>
+  extraColors: Record<keyof BaseOptions['themes'], Record<string, string>>
+  extraVars: Record<keyof BaseOptions['themes'], Record<string, string>>
 }
+
+// const a: BaseOptions = {
+//   extraColors: {},
+//   themes: {
+//     xxx: {
+//       selector: '.xxx'
+//     }
+//   }
+// }
 
 export type ComponentsValue = {
   mode: CodegenMode

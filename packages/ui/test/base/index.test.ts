@@ -31,4 +31,37 @@ describe('base', () => {
     )
     expect(css).toMatchSnapshot()
   })
+
+  it('add new theme case 0', async () => {
+    const { css } = await compileScss(
+      resolve('index'),
+      getCodegenOptions({
+        base: {
+          themes: {
+            light: {
+              selector: '.light'
+            },
+            dark: {
+              selector: '.dark'
+            },
+            fuck: {
+              selector: '.fuck'
+            },
+            shit: {
+              selector: '.shit'
+            }
+          },
+          extraVars: {
+            fuck: {
+              a: '#123456'
+            },
+            shit: {
+              b: '#654321'
+            }
+          }
+        }
+      })
+    )
+    expect(css).toMatchSnapshot()
+  })
 })

@@ -366,6 +366,9 @@ importers:
       '@types/rtlcss':
         specifier: ^3.5.3
         version: 3.5.3
+      '@types/serialize-javascript':
+        specifier: ^5.0.3
+        version: 5.0.3
       compose-tailwindcss-plugins:
         specifier: workspace:^
         version: link:../compose-tailwindcss-plugins
@@ -393,6 +396,9 @@ importers:
       sass-true:
         specifier: ^7.0.0
         version: 7.0.0(sass@1.69.5)
+      serialize-javascript:
+        specifier: ^6.0.1
+        version: 6.0.1
 
   storybook:
     dependencies:
@@ -7117,6 +7123,10 @@ packages:
       '@types/node': 20.8.10
     dev: true
 
+  /@types/serialize-javascript@5.0.3:
+    resolution: {integrity: sha512-jz2WlMFHH85UD+SH9soACEO7v4I6kThWb7RcbT6aSCJ4hXsxOwZxwFkmXCC2ZpIjzaRKRfxVw+DvRtvqE8Ntig==}
+    dev: true
+
   /@types/serve-static@1.15.4:
     resolution: {integrity: sha512-aqqNfs1XTF0HDrFdlY//+SGUxmdSUbjeRXb5iaZc3x0/vMbYmdw9qvOgHWOyyLFxSSRnUuP5+724zBgfw8/WAw==}
     dependencies:
@@ -11166,7 +11176,7 @@ packages:
       doctrine: 2.1.0
       eslint: 8.53.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.9.1)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.5.5)(eslint@8.53.0)
+      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.9.1)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.53.0)
       has: 1.0.3
       is-core-module: 2.13.0
       is-glob: 4.0.3
@@ -11201,7 +11211,7 @@ packages:
       doctrine: 2.1.0
       eslint: 8.53.0
       eslint-import-resolver-node: 0.3.9
-      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.9.1)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.5.5)(eslint@8.53.0)
+      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.9.1)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.53.0)
       hasown: 2.0.0
       is-core-module: 2.13.1
       is-glob: 4.0.3

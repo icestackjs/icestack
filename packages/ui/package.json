@@ -72,6 +72,7 @@
     "build:utilities": "ts-node --esm scripts/build-scss.ts utilities",
     "build:components": "ts-node --esm scripts/build-scss.ts components",
     "get-coms": "ts-node --esm scripts/get-coms.ts",
+    "get-table": "node scripts/get-table.js",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
     "raw": "node bin/icestack.js cache clean"
   },
@@ -108,6 +109,7 @@
     "@types/object-hash": "^3.0.5",
     "@types/postcss-js": "^4.0.3",
     "@types/rtlcss": "^3.5.3",
+    "@types/serialize-javascript": "^5.0.3",
     "compose-tailwindcss-plugins": "workspace:^",
     "css-to-tailwindcss-plugin": "workspace:^",
     "del": "^7.1.0",
@@ -116,7 +118,8 @@
     "lru-cache": "^10.0.1",
     "merge": "^2.1.1",
     "object-hash": "^3.0.0",
-    "sass-true": "^7.0.0"
+    "sass-true": "^7.0.0",
+    "serialize-javascript": "^6.0.1"
   },
   "publishConfig": {
     "access": "public",

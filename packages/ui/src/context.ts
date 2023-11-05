@@ -74,7 +74,7 @@ export function createContext(options: CodegenOptions) {
     } else if (typeof prefix === 'object') {
       plugins.push(prefixer(prefix))
     }
-
+    // @ts-ignore
     return postcss(plugins).process(result.css, {
       from: undefined
     })

@@ -32,3 +32,29 @@ exports[`transformCss > case0 1`] = `
   },
 }
 `;
+
+exports[`transformCss > case1 1`] = `
+{
+  ".alert": {
+    "&-primary": {
+      "apply": "text-sm bg-red-200",
+      "css": {
+        "color": "red",
+      },
+    },
+    "&.alert-hover": {
+      "&:hover": {
+        "apply": "text-md",
+        "css": {
+          "color": "blue",
+        },
+      },
+    },
+    "apply": "text-xs",
+    "css": {
+      "display": "grid",
+      "width": "100%",
+    },
+  },
+}
+`;

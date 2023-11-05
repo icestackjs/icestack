@@ -1,45 +1,7 @@
-import postcss from 'postcss'
-import { set, get } from 'lodash'
-
-// function recursive(obj: Record<string, any>) {
-//   for (const k in obj) {
-//     if (Object.prototype.hasOwnProperty.call(obj, k)) {
-//       if (typeof obj[k] === 'object') {
-//         recursive(obj[k])
-//       } else {
-//         console.log(`${k}:${obj[k]}`)
-//       }
-//     }
-//   }
-// }
-
-function recursiveNodes(nodes: postcss.ChildNode[], result: Record<string, any> = {}) {
-  for (const node of nodes) {
-    switch (node.type) {
-      case 'atrule': {
-        const selector = `@${node.name} ${node.params}`
-        result[selector] = {}
-        recursiveNodes(node.nodes, result[selector])
-        break
-      }
-      case 'rule': {
-        result[node.selector] = {}
-        recursiveNodes(node.nodes, result[node.selector])
-        break
-      }
-      case 'decl': {
-        set(result, `css.${node.prop}`, node.value)
-        break
-      }
-      // No default
-    }
-  }
-  return result
-}
-
+import { transformCss2Js } from '@/utils'
 describe('transformCss', () => {
   it('case0', () => {
-    const case0Css = `.alert {
+    const caseCss = `.alert {
       display: grid;
       width: 100%;
       &-primary {
@@ -59,8 +21,31 @@ describe('transformCss', () => {
           text-align: left
       }
     }`
-    const root = postcss.parse(case0Css)
-    const result = recursiveNodes(root.nodes)
+
+    const result = transformCss2Js(caseCss)
+    expect(result).toMatchSnapshot()
+  })
+
+  it('case1', () => {
+    const caseCss = `.alert {
+      display: grid;
+      width: 100%;
+      @apply text-xs;
+
+      &-primary {
+        color: red;
+        @apply text-sm bg-red-200;
+      }
+      &.alert-hover{
+        &:hover{
+          color: blue;
+          @apply text-md;
+        }
+      }
+    }
+    `
+
+    const result = transformCss2Js(caseCss)
     expect(result).toMatchSnapshot()
   })
 })

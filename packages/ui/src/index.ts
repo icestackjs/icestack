@@ -8,3 +8,5 @@ export function defineConfig(options?: Config) {
 }
 
 export { buildAll as build } from './generate'
+
+export { transformCss2Js } from './utils'

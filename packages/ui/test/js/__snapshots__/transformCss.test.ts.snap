@@ -58,3 +58,15 @@ exports[`transformCss > case1 1`] = `
   },
 }
 `;
+
+exports[`transformCss > case2 1`] = `
+{
+  ".alert": {
+    "apply": "text-xs bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content",
+    "css": {
+      "display": "grid",
+      "width": "100%",
+    },
+  },
+}
+`;

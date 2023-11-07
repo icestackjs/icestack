@@ -184,6 +184,12 @@ exports[`load config > load cjs config 1`] = `
     "select": {
       "selector": ".select",
     },
+    "table": {
+      "selector": ".table",
+    },
+    "tabs": {
+      "selector": ".tab",
+    },
     "textarea": {
       "selector": ".textarea",
     },
@@ -390,6 +396,12 @@ exports[`load config > load js config 1`] = `
     "select": {
       "selector": ".select",
     },
+    "table": {
+      "selector": ".table",
+    },
+    "tabs": {
+      "selector": ".tab",
+    },
     "textarea": {
       "selector": ".textarea",
     },
@@ -595,6 +607,12 @@ exports[`load config > load ts config 1`] = `
     },
     "select": {
       "selector": ".select",
+    },
+    "table": {
+      "selector": ".table",
+    },
+    "tabs": {
+      "selector": ".tab",
     },
     "textarea": {
       "selector": ".textarea",

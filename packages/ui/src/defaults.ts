@@ -223,7 +223,16 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   mask: {
     selector: '.mask'
+  },
+  table: {
+    selector: '.table'
+  },
+  tabs: {
+    selector: '.tab'
   }
+  // steps: {
+  //   selector: '.step'
+  // }
 }
 
 export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {}) {

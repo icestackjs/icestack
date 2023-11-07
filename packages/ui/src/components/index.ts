@@ -15,6 +15,10 @@ import * as range from '@/components/range'
 import * as loading from '@/components/loading'
 import * as mask from '@/components/mask'
 import * as form from '@/components/form'
+import * as table from '@/components/table'
+import * as tabs from '@/components/tabs'
+// import * as steps from '@/components/steps'
+
 export const componentsMap = {
   alert,
   avatar,
@@ -32,5 +36,10 @@ export const componentsMap = {
   range,
   loading,
   mask,
-  form
+  form,
+  table,
+  tabs
+  // steps
 }
+
+export const componentsNames = Object.keys(componentsMap) as (keyof typeof componentsMap)[]

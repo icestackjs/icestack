@@ -2,7 +2,7 @@
 
 import { createContext } from '@/context'
 import { getCodegenOptions } from '@/options'
-import allComponents from '@/allComponents'
+import { componentsNames } from '@/components'
 import { stages } from '@/constants'
 
 // const baseDir = path.resolve(scssDir, 'components')
@@ -13,7 +13,7 @@ import { stages } from '@/constants'
 //     filename: x
 //   }
 // })
-describe.each(allComponents.map((x) => ({ name: x })))('$name', ({ name }) => {
+describe.each(componentsNames.map((x) => ({ name: x })))('$name', ({ name }) => {
   const ctx = createContext(getCodegenOptions())
   for (const stage of stages) {
     it(stage, () => {

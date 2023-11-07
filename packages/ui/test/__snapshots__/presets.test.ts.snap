@@ -191,6 +191,12 @@ exports[`presets > miniprogramPreset 1`] = `
     "select": {
       "selector": ".select",
     },
+    "table": {
+      "selector": ".table",
+    },
+    "tabs": {
+      "selector": ".tab",
+    },
     "textarea": {
       "selector": ".textarea",
     },

@@ -1,7 +1,7 @@
-import allComponents from '@/allComponents'
+import { componentsNames } from '@/components'
 
 describe('allComponents exports', () => {
   it('snap', () => {
-    expect(allComponents).toMatchSnapshot()
+    expect(componentsNames).toMatchSnapshot()
   })
 })

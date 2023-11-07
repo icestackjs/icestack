@@ -1,6 +1,6 @@
 {
   "name": "@icestack/ui",
-  "version": "0.0.0-alpha.5",
+  "version": "0.0.0-alpha.6",
   "description": "❤️ IceStack, Web UI for Mobile and PC , open-source Headless component library generator",
   "license": "MIT",
   "sideEffects": false,
@@ -24,10 +24,10 @@
     "./css/*": "./assets/css/*",
     "./css-resolved/*": "./assets/css-resolved/*",
     "./js/*": "./assets/js/*",
-    "./allComponents": {
-      "types": "./dist/allComponents.d.ts",
-      "import": "./dist/allComponents.mjs",
-      "require": "./dist/allComponents.cjs"
+    "./components": {
+      "types": "./dist/components/index.d.ts",
+      "import": "./dist/components/index.mjs",
+      "require": "./dist/components/index.cjs"
     },
     "./presets": {
       "types": "./dist/presets.d.ts",

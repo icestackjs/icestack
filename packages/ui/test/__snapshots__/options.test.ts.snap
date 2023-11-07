@@ -184,6 +184,12 @@ exports[`options > getCodegenOptions snap 1`] = `
     "select": {
       "selector": ".select",
     },
+    "table": {
+      "selector": ".table",
+    },
+    "tabs": {
+      "selector": ".tab",
+    },
     "textarea": {
       "selector": ".textarea",
     },
@@ -318,6 +324,12 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     },
     "select": {
       "selector": ".select",
+    },
+    "table": {
+      "selector": ".table",
+    },
+    "tabs": {
+      "selector": ".tab",
     },
     "textarea": {
       "selector": ".textarea",

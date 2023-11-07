@@ -5,7 +5,7 @@ import postcss from 'postcss'
 import tailwindcss from 'tailwindcss'
 import type { Config } from 'tailwindcss'
 import defu from 'defu'
-import { set } from 'lodash'
+import { set, get } from 'lodash'
 import klawSync from 'klaw-sync'
 import selectorParser from 'postcss-selector-parser'
 
@@ -111,7 +111,12 @@ export function recursiveNodes(nodes: postcss.ChildNode[], result: Record<string
     switch (node.type) {
       case 'atrule': {
         if (node.name === 'apply') {
-          set(result, 'apply', node.params)
+          const v = get(result, 'apply')
+          if (typeof v === 'string' && v.length > 0) {
+            set(result, 'apply', v + ' ' + node.params)
+          } else {
+            set(result, 'apply', node.params)
+          }
         } else {
           const selector = `@${node.name} ${node.params}`
           result[selector] = {}

@@ -1259,6 +1259,224 @@ exports[`'select' > utils 1`] = `
 }"
 `;
 
+exports[`'table' > base 1`] = `
+".table {
+  @apply relative w-full;
+}
+.table :where(.table-pin-rows thead tr) {
+  @apply bg-base-100 sticky top-0 z-[1];
+}
+.table :where(.table-pin-rows tfoot tr) {
+  @apply bg-base-100 sticky bottom-0 z-[1];
+}
+.table :where(.table-pin-cols tr th) {
+  @apply bg-base-100 sticky left-0 right-0;
+}
+.table-zebra tbody tr:nth-child(even) :where(.table-pin-cols tr th) {
+  @apply bg-base-200;
+}"
+`;
+
+exports[`'table' > styled 1`] = `
+".table {
+  @apply rounded-box text-left text-sm;
+}
+.table :where(th, td) {
+  @apply px-4 py-3 align-middle;
+}
+.table tr.active, .table tr.active:nth-child(even), .table-zebra tbody tr:nth-child(even) {
+  @apply bg-base-200;
+}
+.table tr.hover, .table tr.hover:nth-child(even) {
+  @apply [@media(hover:hover)]:hover:bg-base-200;
+}
+.table-zebra tr.active, .table-zebra tr.active:nth-child(even), .table-zebra-zebra tbody tr:nth-child(even) {
+  @apply bg-base-300;
+}
+.table-zebra tr.hover, .table-zebra tr.hover:nth-child(even) {
+  @apply [@media(hover:hover)]:hover:bg-base-300;
+}
+.table :where(thead, tbody) :where(tr:not(:last-child)), .table :where(thead, tbody) :where(tr:first-child:last-child) {
+  @apply border-b-base-200 border-b;
+}
+.table :where(thead, tfoot) {
+  @apply text-base-content/60 whitespace-nowrap text-xs font-bold;
+}"
+`;
+
+exports[`'table' > utils 1`] = `
+".table .table-xs :not(thead):not(tfoot) tr {
+  @apply text-xs;
+}
+.table .table-xs :where(th, td) {
+  @apply px-2 py-1;
+}
+.table .table-sm :not(thead):not(tfoot) tr {
+  @apply text-sm;
+}
+.table .table-sm :where(th, td) {
+  @apply px-3 py-2;
+}
+.table .table-md :not(thead):not(tfoot) tr {
+  @apply text-sm;
+}
+.table .table-md :where(th, td) {
+  @apply px-4 py-3;
+}
+.table .table-lg :not(thead):not(tfoot) tr {
+  @apply text-base;
+}
+.table .table-lg :where(th, td) {
+  @apply px-6 py-4;
+}"
+`;
+
+exports[`'tabs' > base 1`] = `
+".tabs {
+  @apply flex flex-wrap items-end;
+}
+
+.tab {
+  @apply relative inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center h-8 text-sm leading-loose;
+  --ice-tab-padding: 1rem;
+}"
+`;
+
+exports[`'tabs' > styled 1`] = `
+".tab {
+  @apply text-opacity-50 [@media(hover:hover)]:hover:text-opacity-100;
+  --ice-tab-color: rgba(var(--ice-base-content) / var(--tw-text-opacity, 1));
+  --ice-tab-bg: rgba(var(--ice-base-400) / var(--tw-bg-opacity, 1));
+  --ice-tab-border-color: rgba(var(--ice-base-500) / var(--tw-bg-opacity, 1));
+  color: var(--ice-tab-color);
+  padding-left: var(--ice-tab-padding, 1rem);
+  padding-right: var(--ice-tab-padding, 1rem);
+}
+.tab.tab-active:not(.tab-disabled):not([disabled]) {
+  @apply border-base-content border-opacity-100 text-opacity-100;
+}
+.tab:focus {
+  @apply outline-none;
+}
+.tab:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -3px;
+}
+.tab:focus-visible.tab-lifted {
+  border-bottom-right-radius: var(--ice-tab-radius, 0.5rem);
+  border-bottom-left-radius: var(--ice-tab-radius, 0.5rem);
+}
+.tab-disabled, .tab[disabled] {
+  @apply text-base-content cursor-not-allowed text-opacity-20;
+}
+@media (hover: hover) {
+  .tab[disabled], .tab[disabled]:hover {
+    @apply text-base-content cursor-not-allowed text-opacity-20;
+  }
+}
+
+.tab-bordered {
+  @apply border-base-content border-opacity-20;
+  border-style: solid;
+  border-bottom-width: calc(var(--ice-tab-border, 1px) + 1px);
+}
+
+.tab-lifted {
+  border: var(--ice-tab-border, 1px) solid transparent;
+  border-width: 0 0 var(--ice-tab-border, 1px) 0;
+  border-top-left-radius: var(--ice-tab-radius, 0.5rem);
+  border-top-right-radius: var(--ice-tab-radius, 0.5rem);
+  border-bottom-color: var(--ice-tab-border-color);
+  padding-left: var(--ice-tab-padding, 1rem);
+  padding-right: var(--ice-tab-padding, 1rem);
+  padding-top: var(--ice-tab-border, 1px);
+}
+.tab-lifted.tab-active:not(.tab-disabled):not([disabled]) {
+  background-color: var(--ice-tab-bg);
+  border-width: var(--ice-tab-border, 1px) var(--ice-tab-border, 1px) 0 var(--ice-tab-border, 1px);
+  border-left-color: var(--ice-tab-border-color);
+  border-right-color: var(--ice-tab-border-color);
+  border-top-color: var(--ice-tab-border-color);
+  padding-left: calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px));
+  padding-right: calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px));
+  padding-bottom: var(--ice-tab-border, 1px);
+  padding-top: 0;
+}
+.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before, .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after {
+  z-index: 1;
+  content: \\"\\";
+  display: block;
+  position: absolute;
+  width: var(--ice-tab-radius, 0.5rem);
+  height: var(--ice-tab-radius, 0.5rem);
+  bottom: 0;
+  --ice-tab-grad: calc(68% - var(--ice-tab-border, 1px));
+  --ice-tab-corner-bg: radial-gradient( circle at var(--ice-circle-pos), transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.3px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.3px) );
+}
+.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before {
+  left: calc(var(--ice-tab-radius, 0.5rem) * -1);
+  --ice-circle-pos: top left;
+  background-image: var(--ice-tab-corner-bg);
+}
+[dir=rtl] .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before {
+  --ice-circle-pos: top right;
+}
+.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after {
+  right: calc(var(--ice-tab-radius, 0.5rem) * -1);
+  --ice-circle-pos: top right;
+  background-image: var(--ice-tab-corner-bg);
+}
+[dir=rtl] .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after {
+  --ice-circle-pos: top left;
+}
+.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):first-child:before {
+  background: none;
+}
+.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):last-child:after {
+  background: none;
+}
+
+.tab-lifted.tab-active:not(.tab-disabled):not([disabled]) + .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before {
+  background: none;
+}
+
+.tabs-boxed {
+  @apply bg-base-200 rounded-btn p-1;
+}
+.tabs-boxed .tab {
+  @apply rounded-btn;
+}
+.tabs-boxed .tab-active:not(.tab-disabled):not([disabled]) {
+  @apply bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content;
+}"
+`;
+
+exports[`'tabs' > utils 1`] = `
+".tab-border-none {
+  --ice-tab-border: 0px;
+}
+
+.tab-border {
+  --ice-tab-border: 1px;
+}
+
+.tab-border-2 {
+  --ice-tab-border: 2px;
+}
+
+.tab-border-3 {
+  --ice-tab-border: 3px;
+}
+
+.tab-rounded-none {
+  --ice-tab-radius: 0;
+}
+
+.tab-rounded-lg {
+  --ice-tab-radius: 0.5rem;
+}"
+`;
+
 exports[`'textarea' > base 1`] = `
 ".textarea {
   @apply min-h-12 flex-shrink px-4 py-2 text-sm leading-loose;

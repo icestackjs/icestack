@@ -19,5 +19,7 @@ exports[`allComponents exports > snap 1`] = `
   "loading",
   "mask",
   "form",
+  "table",
+  "tabs",
 ]
 `;

@@ -15,13 +15,12 @@ import { transformJsToSass } from './sass/utils'
 import { createDefaultTailwindcssExtends } from './defaults'
 import { resolveJsDir, scssDir, getCssPath, getJsPath, getCssResolvedpath, componentTemplate } from '@/dirs'
 import { stages } from '@/constants'
-import allComponents from '@/allComponents'
 import { ensureDirSync } from '@/utils'
 import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
 import { getPlugin as getCssVarsPrefixerPlugin } from '@/postcss/custom-property-prefixer'
 import prefixer from '@/postcss/prefixer'
 import { CreatePresetOptions, applyListToString, handleOptions } from '@/components/shared'
-import { componentsMap } from '@/components'
+import { componentsMap, componentsNames } from '@/components'
 import * as base from '@/base'
 import { ComponentsValue } from '@/types'
 
@@ -33,7 +32,7 @@ export function createContext(options: CodegenOptions) {
     return defu(get(components, name, {}), { mode })
   }
 
-  function createPreset(opts: CreatePresetOptions): Record<(typeof allComponents)[number], any> {
+  function createPreset(opts: CreatePresetOptions): Record<(typeof componentsNames)[number], any> {
     return Object.entries(componentsMap).reduce<Record<string, object>>((acc, [name, lib]) => {
       const comOpt = getComponentOptions(name)
       acc[name] = handleOptions(
@@ -130,7 +129,7 @@ export function createContext(options: CodegenOptions) {
     const { resolveConfig } = opts
 
     const res: Record<string, Record<string, CssInJs>> = {}
-    for (const componentName of allComponents) {
+    for (const componentName of componentsNames) {
       for (const stage of stages) {
         const { css: cssOutput } = compileScssWithCp(componentName, stage)
         const relPath = `components/${componentName}/${stage}.scss`
@@ -228,7 +227,7 @@ export function createContext(options: CodegenOptions) {
 
         if (!dryRun) {
           const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
-          const code = generateComponentsIndexCode(allComponents)
+          const code = generateComponentsIndexCode(componentsNames)
           fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.js'), code, 'utf8')
         }
 

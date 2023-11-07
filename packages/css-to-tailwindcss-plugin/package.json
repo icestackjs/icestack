@@ -83,8 +83,8 @@
   },
   "devDependencies": {
     "@babel/standalone": "^7.23.2",
-    "@types/babel__generator": "^7.6.6",
-    "@types/babel__standalone": "^7.1.6",
+    "@types/babel__generator": "^7.6.7",
+    "@types/babel__standalone": "^7.1.7",
     "@types/md5": "^2.3.4",
     "@types/object-hash": "^3.0.5",
     "@types/postcss-import": "^14.0.2",

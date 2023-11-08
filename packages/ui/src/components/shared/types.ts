@@ -21,7 +21,6 @@ export type IValue =
 
 export type IOptionReturnType = {
   selector?: string
-  colors?: object
   defaults?: IDefaults
   // index: object
 }

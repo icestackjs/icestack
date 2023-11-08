@@ -1,4 +1,4 @@
-import { compressCssSelector } from '@/utils'
+import { compressCssSelector } from '@/components/shared'
 
 describe('utils', () => {
   it('compressCssSelector case 0', () => {

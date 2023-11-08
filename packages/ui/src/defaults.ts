@@ -260,6 +260,7 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
     log: true,
     autobuild: false,
     dryRun: false,
+    cache: true,
     // rtl: false,
     // styled: true,
     global: {

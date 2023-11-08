@@ -5,15 +5,7 @@ import postcss from 'postcss'
 import tailwindcss from 'tailwindcss'
 import type { Config } from 'tailwindcss'
 import defu from 'defu'
-import { set, get } from 'lodash'
 import klawSync from 'klaw-sync'
-import selectorParser from 'postcss-selector-parser'
-
-const defaultSelectorParser = selectorParser()
-
-export function compressCssSelector(selectors: string) {
-  return defaultSelectorParser.processSync(selectors, { lossless: false })
-}
 
 export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]> {
   if (!Array.isArray(arr)) {
@@ -104,43 +96,4 @@ export function walkScssSync(dir: string) {
     },
     traverseAll: true
   })
-}
-
-export function recursiveNodes(nodes: postcss.ChildNode[], result: Record<string, any> = {}) {
-  for (const node of nodes) {
-    switch (node.type) {
-      case 'atrule': {
-        if (node.name === 'apply') {
-          const v = get(result, 'apply')
-          if (typeof v === 'string' && v.length > 0) {
-            set(result, 'apply', v + ' ' + node.params)
-          } else {
-            set(result, 'apply', node.params)
-          }
-        } else {
-          const selector = `@${node.name} ${node.params}`
-          result[selector] = {}
-          recursiveNodes(node.nodes, result[selector])
-        }
-
-        break
-      }
-      case 'rule': {
-        result[node.selector] = {}
-        recursiveNodes(node.nodes, result[node.selector])
-        break
-      }
-      case 'decl': {
-        set(result, `css.${node.prop}`, node.value)
-        break
-      }
-    }
-  }
-  return result
-}
-
-export function transformCss2Js(css: string) {
-  const root = postcss.parse(css)
-  const result = recursiveNodes(root.nodes)
-  return result
 }

@@ -1196,36 +1196,29 @@ exports[`'table' options > snap 1`] = `
     "styled": {
       ".table": {
         "&-zebra": {
-          "tr.active,
-          tr.active:nth-child(even),
-          &-zebra tbody tr:nth-child(even)": {
+          "tr.active,tr.active:nth-child(even),&-zebra tbody tr:nth-child(even)": {
             "apply": "bg-base-300",
           },
         },
-        "&-zebra tr.hover,
-        &-zebra tr.hover:nth-child(even)": {
+        "&-zebra tr.hover,&-zebra tr.hover:nth-child(even)": {
           "apply": "[@media(hover:hover)]:hover:bg-base-300",
         },
-        ":where(th, td)": {
+        ":where(th,td)": {
           "apply": "px-4 py-3 align-middle",
         },
-        ":where(thead, tbody)": {
-          ":where(tr:not(:last-child)),
-          :where(tr:first-child:last-child)": {
+        ":where(thead,tbody)": {
+          ":where(tr:not(:last-child)),:where(tr:first-child:last-child)": {
             "apply": "border-b-base-200 border-b",
           },
         },
-        ":where(thead, tfoot)": {
+        ":where(thead,tfoot)": {
           "apply": "text-base-content/60 whitespace-nowrap text-xs font-bold",
         },
         "apply": "rounded-box text-left text-sm",
-        "tr.active,
-        tr.active:nth-child(even),
-        &-zebra tbody tr:nth-child(even)": {
+        "tr.active,tr.active:nth-child(even),&-zebra tbody tr:nth-child(even)": {
           "apply": "bg-base-200",
         },
-        "tr.hover,
-        tr.hover:nth-child(even)": {
+        "tr.hover,tr.hover:nth-child(even)": {
           "apply": "[@media(hover:hover)]:hover:bg-base-200",
         },
       },
@@ -1235,25 +1228,25 @@ exports[`'table' options > snap 1`] = `
         ".table-lg :not(thead):not(tfoot) tr": {
           "apply": "text-base",
         },
-        ".table-lg :where(th, td)": {
+        ".table-lg :where(th,td)": {
           "apply": "px-6 py-4",
         },
         ".table-md :not(thead):not(tfoot) tr": {
           "apply": "text-sm",
         },
-        ".table-md :where(th, td)": {
+        ".table-md :where(th,td)": {
           "apply": "px-4 py-3",
         },
         ".table-sm :not(thead):not(tfoot) tr": {
           "apply": "text-sm",
         },
-        ".table-sm :where(th, td)": {
+        ".table-sm :where(th,td)": {
           "apply": "px-3 py-2",
         },
         ".table-xs :not(thead):not(tfoot) tr": {
           "apply": "text-xs",
         },
-        ".table-xs :where(th, td)": {
+        ".table-xs :where(th,td)": {
           "apply": "px-2 py-1",
         },
       },
@@ -1279,8 +1272,7 @@ exports[`'tabs' options > snap 1`] = `
     },
     "styled": {
       ".tab": {
-        "&-disabled,
-        &[disabled]": {
+        "&-disabled,&[disabled]": {
           "apply": "text-base-content cursor-not-allowed text-opacity-20",
         },
         "&.tab-active:not(.tab-disabled):not([disabled])": {
@@ -1302,8 +1294,7 @@ exports[`'tabs' options > snap 1`] = `
           },
         },
         "@media (hover: hover)": {
-          "&[disabled],
-          &[disabled]:hover": {
+          "&[disabled],&[disabled]:hover": {
             "apply": "text-base-content cursor-not-allowed text-opacity-20",
           },
         },
@@ -1350,8 +1341,7 @@ exports[`'tabs' options > snap 1`] = `
               "left": "calc(var(--tab-radius, 0.5rem) * -1)",
             },
           },
-          "&:before,
-          &:after": {
+          "&:before,&:after": {
             "css": {
               "--tab-corner-bg": "radial-gradient(
               circle at var(--circle-pos),
@@ -1403,8 +1393,7 @@ exports[`'tabs' options > snap 1`] = `
           "padding-top": "var(--tab-border, 1px)",
         },
       },
-      ".tab-lifted.tab-active:not(.tab-disabled):not([disabled])
-        + .tab-lifted.tab-active:not(.tab-disabled):not([disabled])": {
+      ".tab-lifted.tab-active:not(.tab-disabled):not([disabled])+.tab-lifted.tab-active:not(.tab-disabled):not([disabled])": {
         "&:before": {
           "css": {
             "background": "none",

@@ -141,6 +141,7 @@ exports[`presets > miniprogramPreset 1`] = `
       },
     },
   },
+  "cache": true,
   "components": {
     "alert": {
       "selector": ".alert",

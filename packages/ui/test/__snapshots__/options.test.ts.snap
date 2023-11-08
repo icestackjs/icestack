@@ -141,6 +141,7 @@ exports[`options > getCodegenOptions snap 1`] = `
       },
     },
   },
+  "cache": true,
   "components": {
     "alert": {
       "selector": ".alert",
@@ -282,6 +283,7 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     },
     "types": {},
   },
+  "cache": true,
   "components": {
     "alert": {
       "selector": ".alert",

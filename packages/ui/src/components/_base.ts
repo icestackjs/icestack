@@ -1,7 +1,7 @@
-import { OptionFn } from './shared'
-import { transformCss2Js } from '@/utils'
+import { OptionFn, transformCss2Js } from './shared'
+
 export const options: OptionFn = (opts) => {
-  const { selector, types } = opts
+  const { selector } = opts
   return {
     selector,
     defaults: {

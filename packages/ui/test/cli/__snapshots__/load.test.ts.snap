@@ -141,6 +141,7 @@ exports[`load config > load cjs config 1`] = `
       },
     },
   },
+  "cache": true,
   "components": {
     "alert": {
       "selector": ".alert",
@@ -353,6 +354,7 @@ exports[`load config > load js config 1`] = `
       },
     },
   },
+  "cache": true,
   "components": {
     "alert": {
       "selector": ".alert",
@@ -565,6 +567,7 @@ exports[`load config > load ts config 1`] = `
       },
     },
   },
+  "cache": true,
   "components": {
     "alert": {
       "selector": ".alert",

@@ -1,9 +1,17 @@
 import defu from 'defu'
-import { isObject, pick } from 'lodash'
+import { isObject, pick, set, get } from 'lodash'
 import { recursive } from 'merge'
-import { CssInJs } from 'postcss-js'
+import type { CssInJs } from 'postcss-js'
+import postcss from 'postcss'
+import selectorParser from 'postcss-selector-parser'
 import { IOptionReturnType } from './types'
 import type { CodegenMode, ComponentsValue } from '@/types'
+
+const defaultSelectorParser = selectorParser()
+
+export function compressCssSelector(selectors: string) {
+  return defaultSelectorParser.processSync(selectors, { lossless: false })
+}
 
 // import { pascalCase } from '@/utils'
 
@@ -76,7 +84,6 @@ export function applyListToString<T extends Record<string, T>>(obj: T) {
         // @ts-ignore
         obj[key] = value.join(' ')
       }
-      // do nothing
     } else if (isObject(obj[key])) {
       applyListToString(obj[key])
     }
@@ -163,4 +170,44 @@ export function handleOptions(d: IOptionReturnType, { extend, override, selector
 // }
 export function getSelector(type: string, prefix: string = '-') {
   return type === '' ? type : `${prefix}${type}`
+}
+
+export function recursiveNodes(nodes: postcss.ChildNode[], result: Record<string, any> = {}) {
+  for (const node of nodes) {
+    switch (node.type) {
+      case 'atrule': {
+        if (node.name === 'apply') {
+          const v = get(result, 'apply')
+          if (typeof v === 'string' && v.length > 0) {
+            set(result, 'apply', v + ' ' + node.params)
+          } else {
+            set(result, 'apply', node.params)
+          }
+        } else {
+          const selector = `@${node.name} ${node.params}`
+          result[selector] = {}
+          recursiveNodes(node.nodes, result[selector])
+        }
+
+        break
+      }
+      case 'rule': {
+        const s = compressCssSelector(node.selector)
+        result[s] = {}
+        recursiveNodes(node.nodes, result[s])
+        break
+      }
+      case 'decl': {
+        set(result, `css.${node.prop}`, node.value)
+        break
+      }
+    }
+  }
+  return result
+}
+
+export function transformCss2Js(css: string) {
+  const root = postcss.parse(css)
+  const result = recursiveNodes(root.nodes)
+  return result
 }

@@ -4,6 +4,7 @@ import plugin from 'tailwindcss/plugin'
 import merge from 'merge'
 import type { CssInJs } from 'postcss-js'
 import type { PluginCreator } from 'tailwindcss/types/config'
+import objHash from 'object-hash'
 import type * as _base from '../assets/js/base/index.js'
 import type * as _components from '../assets/js/components/index.js'
 import type * as _utilities from '../assets/js/utilities/index.js'
@@ -14,6 +15,7 @@ import { getJsProcess } from '@/postcss/js'
 import { buildAll } from '@/generate'
 import { getColors } from '@/colors'
 import { logger } from '@/log'
+import { getFileCache } from '@/cache'
 
 function requireLib(id: string, basedir?: string) {
   return require(basedir ? path.resolve(basedir, id) : path.join('../assets', id))
@@ -29,6 +31,14 @@ export const icestackPlugin = plugin.withOptions(
   function (opts?: DeepPartial<CodegenOptions>) {
     try {
       const options = getCodegenOptions(opts)
+      let hasChanged = true
+
+      if (options.cache) {
+        const cache = getFileCache('tailwindcss-plugin')
+        const cachedOptionsHash = cache.getKey('options')
+        const optionsHash = objHash(options)
+        hasChanged = cachedOptionsHash !== optionsHash
+      }
 
       if (options.loaddir || options.outdir) {
         let loadDirPath: string
@@ -36,7 +46,7 @@ export const icestackPlugin = plugin.withOptions(
           const { loaddir } = options
           loadDirPath = loaddir
         } else {
-          if (options.autobuild || !isRunByVscodePlugin()) {
+          if (hasChanged && (options.autobuild || !isRunByVscodePlugin())) {
             const start = performance.now()
             buildAll(options)
             const now = performance.now()
@@ -76,11 +86,6 @@ export const icestackPlugin = plugin.withOptions(
             for (const [, item] of utilitiesEntries) {
               const cssItems: (CssInJs | undefined)[] = [item.glass, item.variables]
 
-              // @ts-ignore
-              // const hit = options?.components?.[name]
-              // if (hit && Array.isArray(hit.append)) {
-              //   cssItems.push(...hit.append)
-              // }
               let cssObj = merge.recursive(true, ...cssItems)
 
               cssObj = utilitiesProcess(cssObj)

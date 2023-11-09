@@ -52,7 +52,7 @@ export function createContext(options: CodegenOptions) {
 
   function compileScss(filename: string, defaultPath?: string) {
     const functions = baseResult.functions
-    set(functions, "inject($path:'')", (args: Value[]) => {
+    set(functions, "injectComponent($path:'')", (args: Value[]) => {
       const p = (args[0].assertString().text || defaultPath) ?? ''
       const map = get(presets, p, {})
       return transformJsToSass(applyListToString(map))

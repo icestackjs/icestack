@@ -1,5 +1,5 @@
 @use "../../utils/index.scss" as *;
-$s: inject("button.selector");
+$s: injectComponent("button.selector");
 .glass {
   &,
   &#{$s}-active {

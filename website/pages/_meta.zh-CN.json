@@ -7,10 +7,8 @@
     "title": "使用指南",
     "type": "page"
   },
-  "components": {
+  "schemas": {
     "title": "CSS 范式",
-    "href": "https://github.com/sonofmagic/icestack",
-    "newWindow": true,
     "type": "page"
   }
 }

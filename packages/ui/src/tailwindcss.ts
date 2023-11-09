@@ -25,7 +25,7 @@ function isRunByVscodePlugin() {
   return process.env.VSCODE_PID !== undefined
 }
 
-const noop: PluginCreator = () => { }
+const noop: PluginCreator = () => {}
 
 export const icestackPlugin = plugin.withOptions(
   function (opts?: DeepPartial<CodegenOptions>) {

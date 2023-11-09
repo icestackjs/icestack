@@ -91,20 +91,25 @@ export function applyListToString<T extends Record<string, T>>(obj: T) {
   return obj
 }
 
-export function applyStringToArray(obj: Record<string, any>) {
+export function applyStringToArray(obj: Record<string, any>, res: Record<string, any> = {}) {
   const keys = Object.keys(obj)
+
   for (const key of keys) {
+    const value = obj[key]
     if (key === 'apply') {
-      const value = obj[key]
       if (typeof value === 'string') {
-        obj[key] = value.split(' ')
+        res[key] = value.split(' ')
       }
       // do nothing
-    } else if (isObject(obj[key])) {
-      applyStringToArray(obj[key])
+    } else if (key === 'css') {
+      res[key] = value
+    } else if (isObject(value)) {
+      const s = compressCssSelector(key)
+      res[s] = {}
+      applyStringToArray(obj[key], res[s])
     }
   }
-  return obj
+  return res
 }
 
 export function makeDefaults(obj?: CssInJs, selector?: string) {

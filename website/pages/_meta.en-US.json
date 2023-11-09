@@ -7,10 +7,8 @@
     "title": "Guide",
     "type": "page"
   },
-  "components": {
-    "title": "Components",
-    "href": "https://icestack-storybook.vercel.app/",
-    "newWindow": true,
+  "schemas": {
+    "title": "Schemas",
     "type": "page"
   }
 }

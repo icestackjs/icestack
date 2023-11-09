@@ -25,9 +25,22 @@ module.exports = config
 npx icestack build
 ```
 
-这样在 `my-ui` 就生成出了所有的 `css` 和 `Css in js` 文件，你可以根据自己的需求去加载使用它们，
+或者把这个脚本加入你的 `package.json`:
 
-或者也交给 `tailwindcss` 来使用:
+```diff package.json
+{
+  "scripts": {
++   "build:ui": "icestack build"
+  },
+}
+
+```
+
+这样在 `my-ui` 就生成出了所有的 `css` 和 `js` 文件，你可以根据自己的需求去加载使用它们，
+
+## 把产物交给 `tailwindcss` 使用
+
+我们可以把生成产物交给 `tailwindcss` 来使用，这能够享受它自动的智能提示与 `Css Purge`:
 
 ```js
 const path = require('node:path')

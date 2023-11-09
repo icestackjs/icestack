@@ -20,8 +20,8 @@ export type IValue =
     }
 
 export type IOptionReturnType = {
-  selector?: string
-  defaults?: IDefaults
+  selector: string
+  defaults: IDefaults
   // index: object
 }
 

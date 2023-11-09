@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`utils > applyStringToArray case 0 1`] = `
+{
+  ".x": {
+    "&-x .c>.b": {
+      "apply": [
+        "bg-gray-100",
+        "text-blue",
+      ],
+      "css": {
+        "color": "red",
+      },
+    },
+    "apply": [
+      "bg-gray-100",
+      "text-blue",
+    ],
+    "css": {
+      "color": "red",
+    },
+  },
+}
+`;
+
+exports[`utils > applyStringToArray case 1 1`] = `
+{
+  ".x .x": {
+    "apply": [
+      "bg-gray-300",
+      "text-blue",
+    ],
+    "css": {
+      "color": "yello",
+    },
+  },
+}
+`;

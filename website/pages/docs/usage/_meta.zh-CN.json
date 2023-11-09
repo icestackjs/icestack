@@ -1,5 +1,5 @@
 {
-  "tailwindcss": "Tailwindcss Plugin",
   "cli": "CLI",
+  "tailwindcss": "Tailwindcss Plugin",
   "nodejs": "Nodejs API"
 }

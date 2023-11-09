@@ -17,8 +17,12 @@ export async function load(cwd?: string) {
   return config
 }
 
-const tsT = `import { defineConfig } from '@icestack/ui'\n\nexport default defineConfig()\n`
-const jsT = `/**\n * @type {import('@icestack/ui').Config}\n */\nconst config = {}\n\nmodule.exports = config\n`
+const tsT = `import { defineConfig } from '@icestack/ui'\n\nexport default defineConfig({
+  outdir: './my-ui'
+})\n`
+const jsT = `/**\n * @type {import('@icestack/ui').Config}\n */\nconst config = {
+  outdir: './my-ui'
+}\n\nmodule.exports = config\n`
 cli
   .command('init', 'init config')
   .option('--ts', 'typescript config')
@@ -29,12 +33,16 @@ cli
     logger.success(`init ${f} successfully!`)
   })
 
-cli.command('codegen', 'code generate').action(async () => {
+cli.command('build', 'code generate').action(async () => {
   const config = await load()
   if (config) {
+    if (!config.outdir) {
+      logger.error('outdir option must be passed!')
+      return
+    }
     const cfg = getCodegenOptions(config, true)
     buildAll(cfg)
-    logger.success('codegen successfully!')
+    logger.success('build successfully!')
   }
 })
 

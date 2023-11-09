@@ -2,7 +2,6 @@
 
 exports[`load config > load cjs config 1`] = `
 {
-  "autobuild": false,
   "base": {
     "extraColors": {
       "dark": {
@@ -215,7 +214,6 @@ exports[`load config > load cjs config 1`] = `
 
 exports[`load config > load js config 1`] = `
 {
-  "autobuild": false,
   "base": {
     "extraColors": {
       "dark": {
@@ -428,7 +426,6 @@ exports[`load config > load js config 1`] = `
 
 exports[`load config > load ts config 1`] = `
 {
-  "autobuild": false,
   "base": {
     "extraColors": {
       "dark": {

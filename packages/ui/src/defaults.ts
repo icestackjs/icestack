@@ -7,8 +7,6 @@ const shareVars = {
   'rounded-badge': '1.9rem',
   'animation-btn': '0.25s',
   'animation-input': '0.2s',
-  // 'btn-text-case': 'uppercase',
-  // 'btn-active-scale': '0.95',
   'border-btn': '1px',
   'tab-border': '1px',
   'tab-radius': '0.5rem'
@@ -88,22 +86,6 @@ export function getDefaultBase(raw?: boolean) {
             'error-content': '#ffffff'
           }
         },
-        // info: {
-        //   light: {
-        //     info: '#1677ff',
-        //     // blue-5
-        //     'info-hover': '#4096ff',
-        //     'info-active': '#0958d9',
-        //     'info-content': '#ffffff'
-        //   },
-        //   dark: {
-        //     info: '#1668dc',
-        //     // blue-5
-        //     'info-hover': '#1554ad',
-        //     'info-active': '#3c89e8',
-        //     'info-content': '#ffffff'
-        //   }
-        // },
         neutral: {
           light: {
             // gray-10
@@ -258,7 +240,7 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
     mode: 'styled',
     varPrefix: defaultVarPrefix,
     log: true,
-    autobuild: false,
+    // autobuild: false,
     dryRun: false,
     cache: true,
     // rtl: false,

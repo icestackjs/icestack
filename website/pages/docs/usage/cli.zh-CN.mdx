@@ -1,0 +1,46 @@
+# 以 Cli 命令行使用
+
+首先在安装好之后你可以执行:
+
+```bash
+npx icestack init
+```
+
+这个命令会在当前执行目录下生成一个 `icestack.config.js` 文件，默认内容如下:
+
+```js
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui'
+}
+
+module.exports = config
+```
+
+你可以在 `config` 中，配置你自己的样式和选项，完成之后执行:
+
+```bash
+npx icestack build
+```
+
+这样在 `my-ui` 就生成出了所有的 `css` 和 `Css in js` 文件，你可以根据自己的需求去加载使用它们，
+
+或者也交给 `tailwindcss` 来使用:
+
+```js
+const path = require('node:path')
+const { icestackPlugin } = require('@icestack/ui/tailwindcss')
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // ...
+  plugins: [
+    icestackPlugin({
+      // 注意是 loaddir 不是 outdir
+      loaddir: path.resolve(__dirname, './my-ui')
+    })
+  ]
+}
+```

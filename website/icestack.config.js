@@ -1,5 +1,7 @@
 /**
  * @type {import('@icestack/ui').Config}
  */
-const config = {}
+const config = {
+  outdir: './my-ui'
+}
 module.exports = config

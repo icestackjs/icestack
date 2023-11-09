@@ -2,7 +2,6 @@
 
 exports[`presets > miniprogramPreset 1`] = `
 {
-  "autobuild": false,
   "base": {
     "extraColors": {
       "dark": {

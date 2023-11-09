@@ -2,7 +2,6 @@
 
 exports[`options > getCodegenOptions snap 1`] = `
 {
-  "autobuild": false,
   "base": {
     "extraColors": {
       "dark": {
@@ -215,7 +214,6 @@ exports[`options > getCodegenOptions snap 1`] = `
 
 exports[`options > getRawCodegenOptions snap 1`] = `
 {
-  "autobuild": false,
   "base": {
     "extraColors": {
       "dark": {

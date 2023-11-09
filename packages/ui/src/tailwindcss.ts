@@ -25,7 +25,7 @@ function isRunByVscodePlugin() {
   return process.env.VSCODE_PID !== undefined
 }
 
-const noop: PluginCreator = () => {}
+const noop: PluginCreator = () => { }
 
 export const icestackPlugin = plugin.withOptions(
   function (opts?: DeepPartial<CodegenOptions>) {
@@ -46,7 +46,7 @@ export const icestackPlugin = plugin.withOptions(
           const { loaddir } = options
           loadDirPath = loaddir
         } else {
-          if (hasChanged && (options.autobuild || !isRunByVscodePlugin())) {
+          if (hasChanged && !isRunByVscodePlugin()) {
             const start = performance.now()
             buildAll(options)
             const now = performance.now()
@@ -57,6 +57,7 @@ export const icestackPlugin = plugin.withOptions(
           loadDirPath = outdir
         }
         if (!fs.existsSync(loadDirPath)) {
+          logger.warn(`Can not find loadDirPath:${loadDirPath}, make sure this dir is existed`)
           return noop
         }
         const base = requireLib('js/base/index.js', loadDirPath) as typeof _base

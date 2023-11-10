@@ -5,12 +5,31 @@ exports[`'alert' options > snap 1`] = `
   "defaults": {
     "base": {
       ".alert": {
-        "apply": "grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left",
+        "apply": [
+          "grid",
+          "w-full",
+          "grid-flow-row",
+          "content-start",
+          "items-center",
+          "justify-items-center",
+          "gap-4",
+          "text-center",
+          "sm:grid-flow-col",
+          "sm:grid-cols-[auto_minmax(auto,1fr)]",
+          "sm:justify-items-start",
+          "sm:text-left",
+        ],
       },
     },
     "styled": {
       ".alert": {
-        "apply": "rounded-box border p-4 text-base-content border-base-400",
+        "apply": [
+          "rounded-box",
+          "border",
+          "p-4",
+          "text-base-content",
+          "border-base-400",
+        ],
       },
     },
   },
@@ -24,25 +43,48 @@ exports[`'avatar' options > snap 1`] = `
     "base": {
       ".avatar": {
         "&.placeholder": {
-          "> div": {
-            "apply": "flex items-center justify-center",
+          ">div": {
+            "apply": [
+              "flex",
+              "items-center",
+              "justify-center",
+            ],
           },
         },
-        "> div": {
-          "apply": "block aspect-square overflow-hidden",
+        ">div": {
+          "apply": [
+            "block",
+            "aspect-square",
+            "overflow-hidden",
+          ],
         },
-        "apply": "relative inline-flex",
+        "apply": [
+          "relative",
+          "inline-flex",
+        ],
         "img": {
-          "apply": "h-full w-full object-cover",
+          "apply": [
+            "h-full",
+            "w-full",
+            "object-cover",
+          ],
         },
       },
     },
     "styled": {
       ".avatar-group": {
         ":where(.avatar)": {
-          "apply": "border-base-100 overflow-hidden rounded-full border-4",
+          "apply": [
+            "border-base-100",
+            "overflow-hidden",
+            "rounded-full",
+            "border-4",
+          ],
         },
-        "apply": "flex overflow-hidden",
+        "apply": [
+          "flex",
+          "overflow-hidden",
+        ],
       },
     },
   },
@@ -55,45 +97,89 @@ exports[`'badge' options > snap 1`] = `
   "defaults": {
     "base": {
       ".badge": {
-        "apply": "inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem]",
+        "apply": [
+          "inline-flex",
+          "items-center",
+          "justify-center",
+          "transition",
+          "duration-200",
+          "ease-out",
+          "h-5",
+          "text-sm",
+          "leading-5",
+          "w-[fit-content]",
+          "pl-[0.563rem]",
+          "pr-[0.563rem]",
+        ],
       },
     },
     "styled": {
       ".badge": {
         "&-ghost": {
-          "apply": "border-base-400 bg-base-400 text-base-content",
+          "apply": [
+            "border-base-400",
+            "bg-base-400",
+            "text-base-content",
+          ],
         },
         "&-outline": {
-          "apply": "border-current border-opacity-50 bg-transparent text-current",
+          "apply": [
+            "border-current",
+            "border-opacity-50",
+            "bg-transparent",
+            "text-current",
+          ],
         },
-        "apply": "rounded-badge border border-base-400 bg-base-100 text-base-content",
+        "apply": [
+          "rounded-badge",
+          "border",
+          "border-base-400",
+          "bg-base-100",
+          "text-base-content",
+        ],
       },
     },
     "utils": {
       ".badge": {
         "&-lg": {
-          "apply": "h-6 text-base leading-6",
+          "apply": [
+            "h-6",
+            "text-base",
+            "leading-6",
+          ],
           "css": {
             "padding-left": "0.688rem",
             "padding-right": "0.688rem",
           },
         },
         "&-md": {
-          "apply": "h-5 text-sm leading-5",
+          "apply": [
+            "h-5",
+            "text-sm",
+            "leading-5",
+          ],
           "css": {
             "padding-left": "0.563rem",
             "padding-right": "0.563rem",
           },
         },
         "&-sm": {
-          "apply": "h-4 text-xs leading-4",
+          "apply": [
+            "h-4",
+            "text-xs",
+            "leading-4",
+          ],
           "css": {
             "padding-left": "0.438rem",
             "padding-right": "0.438rem",
           },
         },
         "&-xs": {
-          "apply": "h-3 text-xs leading-3",
+          "apply": [
+            "h-3",
+            "text-xs",
+            "leading-3",
+          ],
           "css": {
             "padding-left": "0.313rem",
             "padding-right": "0.313rem",
@@ -111,12 +197,30 @@ exports[`'button' options > snap 1`] = `
   "defaults": {
     "base": {
       ".btn": {
-        "&-disabled,
-        &[disabled],
-        &:disabled": {
-          "apply": "pointer-events-none cursor-not-allowed",
+        "&-disabled,&[disabled],&:disabled": {
+          "apply": [
+            "pointer-events-none",
+            "cursor-not-allowed",
+          ],
         },
-        "apply": "rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4",
+        "apply": [
+          "rounded-btn",
+          "inline-flex",
+          "flex-shrink-0",
+          "cursor-pointer",
+          "select-none",
+          "flex-wrap",
+          "items-center",
+          "justify-center",
+          "border-transparent",
+          "text-center",
+          "transition",
+          "duration-200",
+          "ease-out",
+          "min-h-12",
+          "h-12",
+          "px-4",
+        ],
         "css": {
           "font-size": "0.875rem",
           "line-height": "1em",
@@ -127,41 +231,95 @@ exports[`'button' options > snap 1`] = `
       ".btn": {
         "&-ghost": {
           "&.btn-active": {
-            "apply": "border-opacity-0 bg-base-content bg-opacity-20",
+            "apply": [
+              "border-opacity-0",
+              "bg-base-content",
+              "bg-opacity-20",
+            ],
           },
           "&:active": {
-            "apply": "border-opacity-0 bg-base-content bg-opacity-20",
+            "apply": [
+              "border-opacity-0",
+              "bg-base-content",
+              "bg-opacity-20",
+            ],
           },
-          "apply": "border border-transparent bg-transparent text-current shadow-none outline-current",
+          "apply": [
+            "border",
+            "border-transparent",
+            "bg-transparent",
+            "text-current",
+            "shadow-none",
+            "outline-current",
+          ],
         },
         "&-link": {
           "&.btn-active": {
-            "apply": "border-transparent bg-transparent underline",
+            "apply": [
+              "border-transparent",
+              "bg-transparent",
+              "underline",
+            ],
           },
           "&:active": {
-            "apply": "border-transparent bg-transparent underline",
+            "apply": [
+              "border-transparent",
+              "bg-transparent",
+              "underline",
+            ],
           },
-          "apply": "text-primary border-transparent bg-transparent underline shadow-none outline-current",
+          "apply": [
+            "text-primary",
+            "border-transparent",
+            "bg-transparent",
+            "underline",
+            "shadow-none",
+            "outline-current",
+          ],
         },
         "&-outline": {
           "&.btn-active": {
-            "apply": "border-base-1100 bg-base-1100 text-base-100",
+            "apply": [
+              "border-base-1100",
+              "bg-base-1100",
+              "text-base-100",
+            ],
           },
           "&:active": {
-            "apply": "border-base-1100 bg-base-1100 text-base-100",
+            "apply": [
+              "border-base-1100",
+              "bg-base-1100",
+              "text-base-100",
+            ],
           },
           "&:hover": {
-            "apply": "border-base-900 bg-base-900 text-base-100",
+            "apply": [
+              "border-base-900",
+              "bg-base-900",
+              "text-base-100",
+            ],
           },
-          "apply": "border-current bg-transparent shadow-none text-base-content",
+          "apply": [
+            "border-current",
+            "bg-transparent",
+            "shadow-none",
+            "text-base-content",
+          ],
         },
         "&.btn-active": {
-          "apply": "border-base-500 bg-base-500",
+          "apply": [
+            "border-base-500",
+            "bg-base-500",
+          ],
         },
-        "&.btn-disabled,
-          &[disabled],
-          &:disabled": {
-          "apply": "bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20",
+        "&.btn-disabled,&[disabled],&:disabled": {
+          "apply": [
+            "bg-neutral",
+            "text-base-content",
+            "border-opacity-0",
+            "bg-opacity-20",
+            "text-opacity-20",
+          ],
         },
         "&.glass": {
           "&.btn-active": {
@@ -176,18 +334,37 @@ exports[`'button' options > snap 1`] = `
               "--glass-opacity": "25%",
             },
           },
-          "apply": "shadow-none outline-current",
+          "apply": [
+            "shadow-none",
+            "outline-current",
+          ],
         },
         "&:active": {
-          "apply": "border-base-500 bg-base-500",
+          "apply": [
+            "border-base-500",
+            "bg-base-500",
+          ],
         },
         "&:focus-visible": {
-          "apply": "outline outline-2 outline-offset-2",
+          "apply": [
+            "outline",
+            "outline-2",
+            "outline-offset-2",
+          ],
         },
         "&:hover": {
-          "apply": "border-base-300 bg-base-300",
+          "apply": [
+            "border-base-300",
+            "bg-base-300",
+          ],
         },
-        "apply": "border-base-400 bg-base-400 text-base-content outline-base-400 no-underline",
+        "apply": [
+          "border-base-400",
+          "bg-base-400",
+          "text-base-content",
+          "outline-base-400",
+          "no-underline",
+        ],
         "css": {
           "border-width": "var(--border-btn, 1px)",
         },
@@ -196,61 +373,126 @@ exports[`'button' options > snap 1`] = `
     "utils": {
       ".btn": {
         "&-block": {
-          "apply": "w-full",
+          "apply": [
+            "w-full",
+          ],
         },
         "&-circle": {
           "&:where(.btn-lg)": {
-            "apply": "h-16 w-16 rounded-full p-0",
+            "apply": [
+              "h-16",
+              "w-16",
+              "rounded-full",
+              "p-0",
+            ],
           },
           "&:where(.btn-md)": {
-            "apply": "h-12 w-12 rounded-full p-0",
+            "apply": [
+              "h-12",
+              "w-12",
+              "rounded-full",
+              "p-0",
+            ],
           },
           "&:where(.btn-sm)": {
-            "apply": "h-8 w-8 rounded-full p-0",
+            "apply": [
+              "h-8",
+              "w-8",
+              "rounded-full",
+              "p-0",
+            ],
           },
           "&:where(.btn-xs)": {
-            "apply": "h-6 w-6 rounded-full p-0",
+            "apply": [
+              "h-6",
+              "w-6",
+              "rounded-full",
+              "p-0",
+            ],
           },
-          "apply": "h-12 w-12 rounded-full p-0",
+          "apply": [
+            "h-12",
+            "w-12",
+            "rounded-full",
+            "p-0",
+          ],
         },
         "&-lg": {
-          "apply": "min-h-16 h-16 px-6",
+          "apply": [
+            "min-h-16",
+            "h-16",
+            "px-6",
+          ],
           "css": {
             "font-size": "1.125rem",
           },
         },
         "&-md": {
-          "apply": "min-h-12 h-12 px-4",
+          "apply": [
+            "min-h-12",
+            "h-12",
+            "px-4",
+          ],
           "css": {
             "font-size": "0.875rem",
           },
         },
         "&-sm": {
-          "apply": "min-h-8 h-8 px-3",
+          "apply": [
+            "min-h-8",
+            "h-8",
+            "px-3",
+          ],
           "css": {
             "font-size": "0.875rem",
           },
         },
         "&-square": {
           "&:where(.btn-lg)": {
-            "apply": "h-16 w-16 p-0",
+            "apply": [
+              "h-16",
+              "w-16",
+              "p-0",
+            ],
           },
           "&:where(.btn-md)": {
-            "apply": "h-12 w-12 p-0",
+            "apply": [
+              "h-12",
+              "w-12",
+              "p-0",
+            ],
           },
           "&:where(.btn-sm)": {
-            "apply": "h-8 w-8 p-0",
+            "apply": [
+              "h-8",
+              "w-8",
+              "p-0",
+            ],
           },
           "&:where(.btn-xs)": {
-            "apply": "h-6 w-6 p-0",
+            "apply": [
+              "h-6",
+              "w-6",
+              "p-0",
+            ],
           },
-          "apply": "h-12 w-12 p-0",
+          "apply": [
+            "h-12",
+            "w-12",
+            "p-0",
+          ],
         },
         "&-wide": {
-          "apply": "w-64",
+          "apply": [
+            "w-64",
+          ],
         },
         "&-xs": {
-          "apply": "min-h-6 h-6 px-2",
+          "apply": [
+            "min-h-6",
+            "h-6",
+            "px-2",
+          ],
           "css": {
             "font-size": "0.75rem",
           },
@@ -269,7 +511,12 @@ exports[`'chat' options > snap 1`] = `
       ".chat": {
         "&-bubble": {
           "&:before": {
-            "apply": "absolute bottom-0 h-3 w-3",
+            "apply": [
+              "absolute",
+              "bottom-0",
+              "h-3",
+              "w-3",
+            ],
             "css": {
               "background-color": "inherit",
               "content": "\\"\\"",
@@ -278,7 +525,13 @@ exports[`'chat' options > snap 1`] = `
               "mask-size": "contain",
             },
           },
-          "apply": "relative block w-fit px-4 py-2",
+          "apply": [
+            "relative",
+            "block",
+            "w-fit",
+            "px-4",
+            "py-2",
+          ],
           "css": {
             "max-width": "90%",
           },
@@ -295,30 +548,49 @@ exports[`'chat' options > snap 1`] = `
                 "mask-image": "url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 1 3 L 3 3 C 2 3 0 1 0 0'/%3e%3c/svg%3e\\")",
               },
             },
-            "apply": "col-start-1",
+            "apply": [
+              "col-start-1",
+            ],
           },
           ".chat-footer": {
-            "apply": "col-start-1",
+            "apply": [
+              "col-start-1",
+            ],
           },
           ".chat-header": {
-            "apply": "col-start-1",
+            "apply": [
+              "col-start-1",
+            ],
           },
           ".chat-image": {
-            "apply": "col-start-2",
+            "apply": [
+              "col-start-2",
+            ],
           },
-          "apply": "place-items-end",
+          "apply": [
+            "place-items-end",
+          ],
           "css": {
             "grid-template-columns": "1fr auto",
           },
         },
         "&-footer": {
-          "apply": "row-start-3 text-sm",
+          "apply": [
+            "row-start-3",
+            "text-sm",
+          ],
         },
         "&-header": {
-          "apply": "row-start-1 text-sm",
+          "apply": [
+            "row-start-1",
+            "text-sm",
+          ],
         },
         "&-image": {
-          "apply": "row-span-2 self-end",
+          "apply": [
+            "row-span-2",
+            "self-end",
+          ],
         },
         "&-start": {
           ".chat-bubble": {
@@ -332,30 +604,49 @@ exports[`'chat' options > snap 1`] = `
                 "mask-image": "url(\\"data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 3 3 L 3 0 C 3 1 1 3 0 3'/%3e%3c/svg%3e\\")",
               },
             },
-            "apply": "col-start-2",
+            "apply": [
+              "col-start-2",
+            ],
           },
           ".chat-footer": {
-            "apply": "col-start-2",
+            "apply": [
+              "col-start-2",
+            ],
           },
           ".chat-header": {
-            "apply": "col-start-2",
+            "apply": [
+              "col-start-2",
+            ],
           },
           ".chat-image": {
-            "apply": "col-start-1",
+            "apply": [
+              "col-start-1",
+            ],
           },
-          "apply": "place-items-start",
+          "apply": [
+            "place-items-start",
+          ],
           "css": {
             "grid-template-columns": "auto 1fr",
           },
         },
-        "apply": "grid grid-cols-2 gap-x-3 py-1",
+        "apply": [
+          "grid",
+          "grid-cols-2",
+          "gap-x-3",
+          "py-1",
+        ],
       },
       "bubble": {},
     },
     "styled": {
       ".chat": {
         "&-bubble": {
-          "apply": "bg-neutral text-neutral-content rounded-box",
+          "apply": [
+            "bg-neutral",
+            "text-neutral-content",
+            "rounded-box",
+          ],
           "css": {
             "min-height": "2.75rem",
             "min-width": "2.75rem",
@@ -367,7 +658,9 @@ exports[`'chat' options > snap 1`] = `
               "left": "99.9%",
             },
           },
-          "apply": "rounded-br-none",
+          "apply": [
+            "rounded-br-none",
+          ],
         },
         "&-start .chat-bubble": {
           "&:before": {
@@ -375,7 +668,9 @@ exports[`'chat' options > snap 1`] = `
               "left": "-0.749rem",
             },
           },
-          "apply": "rounded-bl-none",
+          "apply": [
+            "rounded-bl-none",
+          ],
         },
       },
     },
@@ -389,15 +684,18 @@ exports[`'checkbox' options > snap 1`] = `
   "defaults": {
     "base": {
       ".checkbox": {
-        "apply": "shrink-0",
+        "apply": [
+          "shrink-0",
+        ],
       },
     },
     "styled": {
       ".checkbox": {
-        "&:checked,
-          &[checked=\\"true\\"],
-          &[aria-checked=\\"true\\"]": {
-          "apply": "bg-base-content bg-no-repeat",
+        "&:checked,&[checked=\\"true\\"],&[aria-checked=\\"true\\"]": {
+          "apply": [
+            "bg-base-content",
+            "bg-no-repeat",
+          ],
           "css": {
             "animation": "checkmark var(--animation-input, 0.2s) ease-out",
             "background-image": "linear-gradient(-45deg, transparent 65%, rgba(var(--chkbg)) 65.99%),
@@ -414,13 +712,26 @@ exports[`'checkbox' options > snap 1`] = `
           },
         },
         "&:disabled": {
-          "apply": "bg-base-content cursor-not-allowed border-transparent opacity-20",
+          "apply": [
+            "bg-base-content",
+            "cursor-not-allowed",
+            "border-transparent",
+            "opacity-20",
+          ],
         },
         "&:focus-visible": {
-          "apply": "outline-base-content outline outline-2 outline-offset-2",
+          "apply": [
+            "outline-base-content",
+            "outline",
+            "outline-2",
+            "outline-offset-2",
+          ],
         },
         "&:indeterminate": {
-          "apply": "bg-base-content bg-no-repeat",
+          "apply": [
+            "bg-base-content",
+            "bg-no-repeat",
+          ],
           "css": {
             "animation": "checkmark var(--animation-input, 0.2s) ease-out",
             "background-image": "linear-gradient(90deg, transparent 80%, rgba(var(--chkbg)) 80%),
@@ -434,7 +745,16 @@ exports[`'checkbox' options > snap 1`] = `
           )",
           },
         },
-        "apply": "border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20",
+        "apply": [
+          "border-base-content",
+          "rounded-btn",
+          "h-6",
+          "w-6",
+          "cursor-pointer",
+          "appearance-none",
+          "border",
+          "border-opacity-20",
+        ],
         "css": {
           "--chkbg": "var(--base-content)",
           "--chkfg": "var(--base-400)",
@@ -461,16 +781,28 @@ exports[`'checkbox' options > snap 1`] = `
     "utils": {
       ".checkbox": {
         "&-lg": {
-          "apply": "h-8 w-8",
+          "apply": [
+            "h-8",
+            "w-8",
+          ],
         },
         "&-md": {
-          "apply": "h-6 w-6",
+          "apply": [
+            "h-6",
+            "w-6",
+          ],
         },
         "&-sm": {
-          "apply": "h-5 w-5",
+          "apply": [
+            "h-5",
+            "w-5",
+          ],
         },
         "&-xs": {
-          "apply": "h-4 w-4",
+          "apply": [
+            "h-4",
+            "w-4",
+          ],
         },
       },
     },
@@ -484,24 +816,43 @@ exports[`'form' options > snap 1`] = `
   "defaults": {
     "base": {
       ".form-control": {
-        "apply": "flex flex-col",
+        "apply": [
+          "flex",
+          "flex-col",
+        ],
       },
       ".label": {
-        "apply": "flex select-none items-center justify-between",
+        "apply": [
+          "flex",
+          "select-none",
+          "items-center",
+          "justify-between",
+        ],
       },
     },
     "styled": {
       ".label": {
         "&-text": {
-          "apply": "text-base-content text-sm",
+          "apply": [
+            "text-base-content",
+            "text-sm",
+          ],
         },
         "&-text-alt": {
-          "apply": "text-base-content text-xs",
+          "apply": [
+            "text-base-content",
+            "text-xs",
+          ],
         },
         "a": {
-          "apply": "[@media(hover:hover)]:hover:text-base-content",
+          "apply": [
+            "[@media(hover:hover)]:hover:text-base-content",
+          ],
         },
-        "apply": "px-1 py-2",
+        "apply": [
+          "px-1",
+          "py-2",
+        ],
       },
     },
     "utils": {},
@@ -515,57 +866,106 @@ exports[`'input' options > snap 1`] = `
   "defaults": {
     "base": {
       ".input": {
-        "apply": "flex-shrink h-8 px-3 text-sm leading-loose",
+        "apply": [
+          "flex-shrink",
+          "h-8",
+          "px-3",
+          "text-sm",
+          "leading-loose",
+        ],
       },
     },
     "styled": {
       ".input": {
         "&-bordered": {
-          "apply": "border-opacity-20",
+          "apply": [
+            "border-opacity-20",
+          ],
         },
-        "&-disabled,
-          &:disabled,
-          &[disabled]": {
-          "apply": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20",
+        "&-disabled,&:disabled,&[disabled]": {
+          "apply": [
+            "border-base-200",
+            "bg-base-200",
+            "placeholder-base-content",
+            "cursor-not-allowed",
+            "text-opacity-20",
+            "placeholder-opacity-20",
+          ],
         },
         "&-ghost": {
-          "&:focus,
-            &:focus-within": {
-            "apply": "text-base-content bg-opacity-100",
+          "&:focus,&:focus-within": {
+            "apply": [
+              "text-base-content",
+              "bg-opacity-100",
+            ],
             "css": {
               "box-shadow": "none",
             },
           },
-          "apply": "bg-opacity-5",
+          "apply": [
+            "bg-opacity-5",
+          ],
         },
-        "&:focus,
-          &:focus-within": {
-          "apply": "outline-0 shadow-[0_0_0_2px] shadow-base-content/10",
+        "&:focus,&:focus-within": {
+          "apply": [
+            "outline-0",
+            "shadow-[0_0_0_2px]",
+            "shadow-base-content/10",
+          ],
         },
         "&[list]::-webkit-calendar-picker-indicator": {
           "css": {
             "line-height": "1em",
           },
         },
-        "apply": "border-base-content bg-base-100 rounded-btn border border-opacity-0 text-base",
+        "apply": [
+          "border-base-content",
+          "bg-base-100",
+          "rounded-btn",
+          "border",
+          "border-opacity-0",
+          "text-base",
+        ],
         "input:focus": {
-          "apply": "outline-none",
+          "apply": [
+            "outline-none",
+          ],
         },
       },
     },
     "utils": {
       ".input": {
         "&-lg": {
-          "apply": "h-16 px-6 text-lg leading-loose",
+          "apply": [
+            "h-16",
+            "px-6",
+            "text-lg",
+            "leading-loose",
+          ],
         },
         "&-md": {
-          "apply": "h-12 px-4 text-sm leading-loose",
+          "apply": [
+            "h-12",
+            "px-4",
+            "text-sm",
+            "leading-loose",
+          ],
         },
         "&-sm": {
-          "apply": "h-8 px-3 text-sm leading-8",
+          "apply": [
+            "h-8",
+            "px-3",
+            "text-sm",
+            "leading-8",
+          ],
         },
         "&-xs": {
-          "apply": "h-6 px-2 text-xs leading-relaxed",
+          "apply": [
+            "h-6",
+            "px-2",
+            "text-xs",
+            "leading-relaxed",
+          ],
         },
       },
     },
@@ -580,15 +980,23 @@ exports[`'link' options > snap 1`] = `
     "base": {
       ".link": {
         "&-hover": {
-          "apply": "no-underline hover:underline",
+          "apply": [
+            "no-underline",
+            "hover:underline",
+          ],
         },
-        "apply": "cursor-pointer underline",
+        "apply": [
+          "cursor-pointer",
+          "underline",
+        ],
       },
     },
     "styled": {
       ".link": {
         "&:focus": {
-          "apply": "outline-none",
+          "apply": [
+            "outline-none",
+          ],
         },
         "&:focus-visible": {
           "css": {
@@ -608,7 +1016,12 @@ exports[`'loading' options > snap 1`] = `
   "defaults": {
     "base": {
       ".loading": {
-        "apply": "pointer-events-none inline-block aspect-square w-6",
+        "apply": [
+          "pointer-events-none",
+          "inline-block",
+          "aspect-square",
+          "w-6",
+        ],
         "css": {
           "background-color": "currentColor",
           "mask-image": "url(\\"data:image/svg+xml,%3Csvg width='24' height='24' stroke='%23000' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cstyle%3E.spinner_V8m1%7Btransform-origin:center;animation:spinner_zKoa 2s linear infinite%7D.spinner_V8m1 circle%7Bstroke-linecap:round;animation:spinner_YpZS 1.5s ease-out infinite%7D%40keyframes spinner_zKoa%7B100%25%7Btransform:rotate(360deg)%7D%7D%40keyframes spinner_YpZS%7B0%25%7Bstroke-dasharray:0 150;stroke-dashoffset:0%7D47.5%25%7Bstroke-dasharray:42 150;stroke-dashoffset:-16%7D95%25%2C100%25%7Bstroke-dasharray:42 150;stroke-dashoffset:-59%7D%7D%3C%2Fstyle%3E%3Cg class='spinner_V8m1'%3E%3Ccircle cx='12' cy='12' r='9.5' fill='none' stroke-width='3'%3E%3C%2Fcircle%3E%3C%2Fg%3E%3C%2Fsvg%3E\\")",
@@ -642,10 +1055,14 @@ exports[`'loading' options > snap 1`] = `
           },
         },
         "&-lg": {
-          "apply": "w-10",
+          "apply": [
+            "w-10",
+          ],
         },
         "&-md": {
-          "apply": "w-6",
+          "apply": [
+            "w-6",
+          ],
         },
         "&-ring": {
           "css": {
@@ -653,7 +1070,9 @@ exports[`'loading' options > snap 1`] = `
           },
         },
         "&-sm": {
-          "apply": "w-5",
+          "apply": [
+            "w-5",
+          ],
         },
         "&-spinner": {
           "css": {
@@ -661,7 +1080,9 @@ exports[`'loading' options > snap 1`] = `
           },
         },
         "&-xs": {
-          "apply": "w-4",
+          "apply": [
+            "w-4",
+          ],
         },
       },
     },
@@ -803,23 +1224,39 @@ exports[`'progress' options > snap 1`] = `
   "defaults": {
     "base": {
       ".progress": {
-        "apply": "relative w-full appearance-none overflow-hidden",
+        "apply": [
+          "relative",
+          "w-full",
+          "appearance-none",
+          "overflow-hidden",
+        ],
       },
     },
     "styled": {
       ".progress": {
         "&::-moz-progress-bar": {
-          "apply": "bg-base-content rounded-box",
+          "apply": [
+            "bg-base-content",
+            "rounded-box",
+          ],
         },
         "&::-webkit-progress-bar": {
-          "apply": "rounded-box bg-transparent",
+          "apply": [
+            "rounded-box",
+            "bg-transparent",
+          ],
         },
         "&::-webkit-progress-value": {
-          "apply": "bg-base-content rounded-box",
+          "apply": [
+            "bg-base-content",
+            "rounded-box",
+          ],
         },
         "&:indeterminate": {
           "&::-moz-progress-bar": {
-            "apply": "bg-transparent",
+            "apply": [
+              "bg-transparent",
+            ],
             "css": {
               "animation": "progress-loading 5s ease-in-out infinite",
               "background-image": "repeating-linear-gradient(
@@ -846,7 +1283,11 @@ exports[`'progress' options > snap 1`] = `
             "background-size": "200%",
           },
         },
-        "apply": "rounded-box bg-base-content/20 h-2",
+        "apply": [
+          "rounded-box",
+          "bg-base-content/20",
+          "h-2",
+        ],
       },
       "@keyframes progress-loading": {
         "50%": {
@@ -866,14 +1307,17 @@ exports[`'radio' options > snap 1`] = `
   "defaults": {
     "base": {
       ".radio": {
-        "apply": "shrink-0",
+        "apply": [
+          "shrink-0",
+        ],
       },
     },
     "styled": {
       ".radio": {
-        "&:checked,
-          &[aria-checked=\\"true\\"]": {
-          "apply": "bg-base-content",
+        "&:checked,&[aria-checked=\\"true\\"]": {
+          "apply": [
+            "bg-base-content",
+          ],
           "css": {
             "animation": "radiomark var(--animation-input, 0.2s) ease-out",
             "box-shadow": "0 0 0 4px rgba(var(--base-400)) inset,
@@ -881,12 +1325,29 @@ exports[`'radio' options > snap 1`] = `
           },
         },
         "&:disabled": {
-          "apply": "cursor-not-allowed opacity-20",
+          "apply": [
+            "cursor-not-allowed",
+            "opacity-20",
+          ],
         },
         "&:focus-visible": {
-          "apply": "outline-base-content outline outline-2 outline-offset-2",
+          "apply": [
+            "outline-base-content",
+            "outline",
+            "outline-2",
+            "outline-offset-2",
+          ],
         },
-        "apply": "border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20",
+        "apply": [
+          "border-base-content",
+          "h-6",
+          "w-6",
+          "cursor-pointer",
+          "appearance-none",
+          "rounded-full",
+          "border",
+          "border-opacity-20",
+        ],
       },
       "@keyframes radiomark": {
         "0%": {
@@ -912,16 +1373,28 @@ exports[`'radio' options > snap 1`] = `
     "utils": {
       ".radio": {
         "&-lg": {
-          "apply": "h-8 w-8",
+          "apply": [
+            "h-8",
+            "w-8",
+          ],
         },
         "&-md": {
-          "apply": "h-6 w-6",
+          "apply": [
+            "h-6",
+            "w-6",
+          ],
         },
         "&-sm": {
-          "apply": "h-5 w-5",
+          "apply": [
+            "h-5",
+            "w-5",
+          ],
         },
         "&-xs": {
-          "apply": "h-4 w-4",
+          "apply": [
+            "h-4",
+            "w-4",
+          ],
         },
       },
     },
@@ -940,13 +1413,24 @@ exports[`'range' options > snap 1`] = `
             "outline": "none",
           },
         },
-        "apply": "h-6 w-full cursor-pointer",
+        "apply": [
+          "h-6",
+          "w-full",
+          "cursor-pointer",
+        ],
       },
     },
     "styled": {
       ".range": {
         "&::-moz-range-thumb": {
-          "apply": "rounded-box bg-base-400 relative h-6 w-6 border-none",
+          "apply": [
+            "rounded-box",
+            "bg-base-400",
+            "relative",
+            "h-6",
+            "w-6",
+            "border-none",
+          ],
           "css": {
             "--filler-offset": "0.5rem",
             "--filler-size": "100rem",
@@ -958,13 +1442,30 @@ exports[`'range' options > snap 1`] = `
           },
         },
         "&::-moz-range-track": {
-          "apply": "rounded-box bg-base-content/10 h-2 w-full",
+          "apply": [
+            "rounded-box",
+            "bg-base-content/10",
+            "h-2",
+            "w-full",
+          ],
         },
         "&::-webkit-slider-runnable-track": {
-          "apply": "rounded-box bg-base-content/10 h-2 w-full",
+          "apply": [
+            "rounded-box",
+            "bg-base-content/10",
+            "h-2",
+            "w-full",
+          ],
         },
         "&::-webkit-slider-thumb": {
-          "apply": "rounded-box bg-base-400 relative h-6 w-6 border-none",
+          "apply": [
+            "rounded-box",
+            "bg-base-400",
+            "relative",
+            "h-6",
+            "w-6",
+            "border-none",
+          ],
           "css": {
             "--filler-offset": "0.6rem",
             "--filler-size": "100rem",
@@ -987,7 +1488,11 @@ exports[`'range' options > snap 1`] = `
             "--focus-shadow": "0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset",
           },
         },
-        "apply": "rounded-box overflow-hidden bg-transparent",
+        "apply": [
+          "rounded-box",
+          "overflow-hidden",
+          "bg-transparent",
+        ],
         "css": {
           "--range-shdw": "var(--base-content)",
           "appearance": "none",
@@ -998,87 +1503,135 @@ exports[`'range' options > snap 1`] = `
       ".range": {
         "&-lg": {
           "&::-moz-range-thumb": {
-            "apply": "h-8 w-8",
+            "apply": [
+              "h-8",
+              "w-8",
+            ],
             "css": {
               "--filler-offset": "1rem",
             },
           },
           "&::-moz-range-track": {
-            "apply": "h-4",
+            "apply": [
+              "h-4",
+            ],
           },
           "&::-webkit-slider-runnable-track": {
-            "apply": "h-4",
+            "apply": [
+              "h-4",
+            ],
           },
           "&::-webkit-slider-thumb": {
-            "apply": "h-8 w-8",
+            "apply": [
+              "h-8",
+              "w-8",
+            ],
             "css": {
               "--filler-offset": "1rem",
             },
           },
-          "apply": "h-8",
+          "apply": [
+            "h-8",
+          ],
         },
         "&-md": {
           "&::-moz-range-thumb": {
-            "apply": "h-6 w-6",
+            "apply": [
+              "h-6",
+              "w-6",
+            ],
             "css": {
               "--filler-offset": "0.6rem",
             },
           },
           "&::-moz-range-track": {
-            "apply": "h-2",
+            "apply": [
+              "h-2",
+            ],
           },
           "&::-webkit-slider-runnable-track": {
-            "apply": "h-2",
+            "apply": [
+              "h-2",
+            ],
           },
           "&::-webkit-slider-thumb": {
-            "apply": "h-6 w-6",
+            "apply": [
+              "h-6",
+              "w-6",
+            ],
             "css": {
               "--filler-offset": "0.6rem",
             },
           },
-          "apply": "h-6",
+          "apply": [
+            "h-6",
+          ],
         },
         "&-sm": {
           "&::-moz-range-thumb": {
-            "apply": "h-5 w-5",
+            "apply": [
+              "h-5",
+              "w-5",
+            ],
             "css": {
               "--filler-offset": "0.5rem",
             },
           },
           "&::-moz-range-track": {
-            "apply": "h-1",
+            "apply": [
+              "h-1",
+            ],
           },
           "&::-webkit-slider-runnable-track": {
-            "apply": "h-1",
+            "apply": [
+              "h-1",
+            ],
           },
           "&::-webkit-slider-thumb": {
-            "apply": "h-5 w-5",
+            "apply": [
+              "h-5",
+              "w-5",
+            ],
             "css": {
               "--filler-offset": "0.5rem",
             },
           },
-          "apply": "h-5",
+          "apply": [
+            "h-5",
+          ],
         },
         "&-xs": {
           "&::-moz-range-thumb": {
-            "apply": "h-4 w-4",
+            "apply": [
+              "h-4",
+              "w-4",
+            ],
             "css": {
               "--filler-offset": "0.4rem",
             },
           },
           "&::-moz-range-track": {
-            "apply": "h-1",
+            "apply": [
+              "h-1",
+            ],
           },
           "&::-webkit-slider-runnable-track": {
-            "apply": "h-1",
+            "apply": [
+              "h-1",
+            ],
           },
           "&::-webkit-slider-thumb": {
-            "apply": "h-4 w-4",
+            "apply": [
+              "h-4",
+              "w-4",
+            ],
             "css": {
               "--filler-offset": "0.4rem",
             },
           },
-          "apply": "h-4",
+          "apply": [
+            "h-4",
+          ],
         },
       },
     },
@@ -1093,36 +1646,74 @@ exports[`'select' options > snap 1`] = `
     "base": {
       ".select": {
         "&[multiple]": {
-          "apply": "h-auto",
+          "apply": [
+            "h-auto",
+          ],
         },
-        "apply": "inline-flex cursor-pointer select-none appearance-none min-h-8 h-8 pl-3 pr-8 text-sm leading-8",
+        "apply": [
+          "inline-flex",
+          "cursor-pointer",
+          "select-none",
+          "appearance-none",
+          "min-h-8",
+          "h-8",
+          "pl-3",
+          "pr-8",
+          "text-sm",
+          "leading-8",
+        ],
       },
     },
     "styled": {
       ".select": {
         "&-bordered": {
-          "apply": "border-opacity-20",
+          "apply": [
+            "border-opacity-20",
+          ],
         },
-        "&-disabled,
-          &:disabled,
-          &[disabled]": {
-          "apply": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20",
+        "&-disabled,&:disabled,&[disabled]": {
+          "apply": [
+            "border-base-200",
+            "bg-base-200",
+            "placeholder-base-content",
+            "cursor-not-allowed",
+            "text-opacity-20",
+            "placeholder-opacity-20",
+          ],
         },
         "&-ghost": {
           "&:focus": {
-            "apply": "text-base-content bg-opacity-100",
+            "apply": [
+              "text-base-content",
+              "bg-opacity-100",
+            ],
           },
-          "apply": "bg-opacity-5",
+          "apply": [
+            "bg-opacity-5",
+          ],
         },
-        "&-multiple,
-          &[multiple],
-          &[size]:not([size=\\"1\\"])": {
-          "apply": "bg-none pr-4",
+        "&-multiple,&[multiple],&[size]:not([size=\\"1\\"])": {
+          "apply": [
+            "bg-none",
+            "pr-4",
+          ],
         },
         "&:focus": {
-          "apply": "outline-base-content/20 outline outline-2 outline-offset-2",
+          "apply": [
+            "outline-base-content/20",
+            "outline",
+            "outline-2",
+            "outline-offset-2",
+          ],
         },
-        "apply": "border-base-content bg-base-100 rounded-btn border border-opacity-0 pr-10",
+        "apply": [
+          "border-base-content",
+          "bg-base-100",
+          "rounded-btn",
+          "border",
+          "border-opacity-0",
+          "pr-10",
+        ],
         "css": {
           "background-image": "linear-gradient(45deg, transparent 50%, currentColor 50%),
             linear-gradient(135deg, currentColor 50%, transparent 50%)",
@@ -1144,27 +1735,67 @@ exports[`'select' options > snap 1`] = `
       ".select": {
         "&-lg": {
           "[dir=\\"rtl\\"] &": {
-            "apply": "pl-8 pr-6",
+            "apply": [
+              "pl-8",
+              "pr-6",
+            ],
           },
-          "apply": "min-h-16 h-16 pl-6 pr-8 text-lg leading-loose",
+          "apply": [
+            "min-h-16",
+            "h-16",
+            "pl-6",
+            "pr-8",
+            "text-lg",
+            "leading-loose",
+          ],
         },
         "&-md": {
           "[dir=\\"rtl\\"] &": {
-            "apply": "pl-10 pr-4",
+            "apply": [
+              "pl-10",
+              "pr-4",
+            ],
           },
-          "apply": "min-h-12 h-12 pl-4 pr-10 text-sm leading-loose",
+          "apply": [
+            "min-h-12",
+            "h-12",
+            "pl-4",
+            "pr-10",
+            "text-sm",
+            "leading-loose",
+          ],
         },
         "&-sm": {
           "[dir=\\"rtl\\"] &": {
-            "apply": "pl-8 pr-3",
+            "apply": [
+              "pl-8",
+              "pr-3",
+            ],
           },
-          "apply": "min-h-8 h-8 pl-3 pr-8 text-sm leading-8",
+          "apply": [
+            "min-h-8",
+            "h-8",
+            "pl-3",
+            "pr-8",
+            "text-sm",
+            "leading-8",
+          ],
         },
         "&-xs": {
           "[dir=\\"rtl\\"] &": {
-            "apply": "pl-8 pr-2",
+            "apply": [
+              "pl-8",
+              "pr-2",
+            ],
           },
-          "apply": "min-h-6 h-6 pl-2 pr-8 text-xs leading-relaxed",
+          "apply": [
+            "min-h-6",
+            "h-6",
+            "pl-2",
+            "pr-8",
+            "text-xs",
+            "leading-relaxed",
+          ],
         },
       },
     },
@@ -1179,75 +1810,139 @@ exports[`'table' options > snap 1`] = `
     "base": {
       ".table": {
         "&-zebra tbody tr:nth-child(even) :where(.table-pin-cols tr th)": {
-          "apply": "bg-base-200",
+          "apply": [
+            "bg-base-200",
+          ],
         },
         ":where(.table-pin-cols tr th)": {
-          "apply": "bg-base-100 sticky left-0 right-0",
+          "apply": [
+            "bg-base-100",
+            "sticky",
+            "left-0",
+            "right-0",
+          ],
         },
         ":where(.table-pin-rows tfoot tr)": {
-          "apply": "bg-base-100 sticky bottom-0 z-[1]",
+          "apply": [
+            "bg-base-100",
+            "sticky",
+            "bottom-0",
+            "z-[1]",
+          ],
         },
         ":where(.table-pin-rows thead tr)": {
-          "apply": "bg-base-100 sticky top-0 z-[1]",
+          "apply": [
+            "bg-base-100",
+            "sticky",
+            "top-0",
+            "z-[1]",
+          ],
         },
-        "apply": "relative w-full",
+        "apply": [
+          "relative",
+          "w-full",
+        ],
       },
     },
     "styled": {
       ".table": {
         "&-zebra": {
           "tr.active,tr.active:nth-child(even),&-zebra tbody tr:nth-child(even)": {
-            "apply": "bg-base-300",
+            "apply": [
+              "bg-base-300",
+            ],
           },
         },
         "&-zebra tr.hover,&-zebra tr.hover:nth-child(even)": {
-          "apply": "[@media(hover:hover)]:hover:bg-base-300",
+          "apply": [
+            "[@media(hover:hover)]:hover:bg-base-300",
+          ],
         },
         ":where(th,td)": {
-          "apply": "px-4 py-3 align-middle",
+          "apply": [
+            "px-4",
+            "py-3",
+            "align-middle",
+          ],
         },
         ":where(thead,tbody)": {
           ":where(tr:not(:last-child)),:where(tr:first-child:last-child)": {
-            "apply": "border-b-base-200 border-b",
+            "apply": [
+              "border-b-base-200",
+              "border-b",
+            ],
           },
         },
         ":where(thead,tfoot)": {
-          "apply": "text-base-content/60 whitespace-nowrap text-xs font-bold",
+          "apply": [
+            "text-base-content/60",
+            "whitespace-nowrap",
+            "text-xs",
+            "font-bold",
+          ],
         },
-        "apply": "rounded-box text-left text-sm",
+        "apply": [
+          "rounded-box",
+          "text-left",
+          "text-sm",
+        ],
         "tr.active,tr.active:nth-child(even),&-zebra tbody tr:nth-child(even)": {
-          "apply": "bg-base-200",
+          "apply": [
+            "bg-base-200",
+          ],
         },
         "tr.hover,tr.hover:nth-child(even)": {
-          "apply": "[@media(hover:hover)]:hover:bg-base-200",
+          "apply": [
+            "[@media(hover:hover)]:hover:bg-base-200",
+          ],
         },
       },
     },
     "utils": {
       ".table": {
         ".table-lg :not(thead):not(tfoot) tr": {
-          "apply": "text-base",
+          "apply": [
+            "text-base",
+          ],
         },
         ".table-lg :where(th,td)": {
-          "apply": "px-6 py-4",
+          "apply": [
+            "px-6",
+            "py-4",
+          ],
         },
         ".table-md :not(thead):not(tfoot) tr": {
-          "apply": "text-sm",
+          "apply": [
+            "text-sm",
+          ],
         },
         ".table-md :where(th,td)": {
-          "apply": "px-4 py-3",
+          "apply": [
+            "px-4",
+            "py-3",
+          ],
         },
         ".table-sm :not(thead):not(tfoot) tr": {
-          "apply": "text-sm",
+          "apply": [
+            "text-sm",
+          ],
         },
         ".table-sm :where(th,td)": {
-          "apply": "px-3 py-2",
+          "apply": [
+            "px-3",
+            "py-2",
+          ],
         },
         ".table-xs :not(thead):not(tfoot) tr": {
-          "apply": "text-xs",
+          "apply": [
+            "text-xs",
+          ],
         },
         ".table-xs :where(th,td)": {
-          "apply": "px-2 py-1",
+          "apply": [
+            "px-2",
+            "py-1",
+          ],
         },
       },
     },
@@ -1261,25 +1956,51 @@ exports[`'tabs' options > snap 1`] = `
   "defaults": {
     "base": {
       ".tab": {
-        "apply": "relative inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center h-8 text-sm leading-loose",
+        "apply": [
+          "relative",
+          "inline-flex",
+          "cursor-pointer",
+          "select-none",
+          "flex-wrap",
+          "items-center",
+          "justify-center",
+          "text-center",
+          "h-8",
+          "text-sm",
+          "leading-loose",
+        ],
         "css": {
           "--tab-padding": "1rem",
         },
       },
       ".tabs": {
-        "apply": "flex flex-wrap items-end",
+        "apply": [
+          "flex",
+          "flex-wrap",
+          "items-end",
+        ],
       },
     },
     "styled": {
       ".tab": {
         "&-disabled,&[disabled]": {
-          "apply": "text-base-content cursor-not-allowed text-opacity-20",
+          "apply": [
+            "text-base-content",
+            "cursor-not-allowed",
+            "text-opacity-20",
+          ],
         },
         "&.tab-active:not(.tab-disabled):not([disabled])": {
-          "apply": "border-base-content border-opacity-100 text-opacity-100",
+          "apply": [
+            "border-base-content",
+            "border-opacity-100",
+            "text-opacity-100",
+          ],
         },
         "&:focus": {
-          "apply": "outline-none",
+          "apply": [
+            "outline-none",
+          ],
         },
         "&:focus-visible": {
           "&.tab-lifted": {
@@ -1295,10 +2016,17 @@ exports[`'tabs' options > snap 1`] = `
         },
         "@media (hover: hover)": {
           "&[disabled],&[disabled]:hover": {
-            "apply": "text-base-content cursor-not-allowed text-opacity-20",
+            "apply": [
+              "text-base-content",
+              "cursor-not-allowed",
+              "text-opacity-20",
+            ],
           },
         },
-        "apply": "text-opacity-50 [@media(hover:hover)]:hover:text-opacity-100",
+        "apply": [
+          "text-opacity-50",
+          "[@media(hover:hover)]:hover:text-opacity-100",
+        ],
         "css": {
           "--tab-bg": "rgba(var(--base-400) / var(--tw-bg-opacity, 1))",
           "--tab-border-color": "rgba(var(--base-500) / var(--tw-bg-opacity, 1))",
@@ -1309,7 +2037,10 @@ exports[`'tabs' options > snap 1`] = `
         },
       },
       ".tab-bordered": {
-        "apply": "border-base-content border-opacity-20",
+        "apply": [
+          "border-base-content",
+          "border-opacity-20",
+        ],
         "css": {
           "border-bottom-width": "calc(var(--tab-border, 1px) + 1px)",
           "border-style": "solid",
@@ -1402,12 +2133,22 @@ exports[`'tabs' options > snap 1`] = `
       },
       ".tabs-boxed": {
         ".tab": {
-          "apply": "rounded-btn",
+          "apply": [
+            "rounded-btn",
+          ],
         },
         ".tab-active:not(.tab-disabled):not([disabled])": {
-          "apply": "bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content",
+          "apply": [
+            "bg-primary",
+            "text-primary-content",
+            "[@media(hover:hover)]:hover:text-primary-content",
+          ],
         },
-        "apply": "bg-base-200 rounded-btn p-1",
+        "apply": [
+          "bg-base-200",
+          "rounded-btn",
+          "p-1",
+        ],
       },
     },
     "utils": {
@@ -1452,47 +2193,97 @@ exports[`'textarea' options > snap 1`] = `
   "defaults": {
     "base": {
       ".textarea": {
-        "apply": "min-h-12 flex-shrink px-4 py-2 text-sm leading-loose",
+        "apply": [
+          "min-h-12",
+          "flex-shrink",
+          "px-4",
+          "py-2",
+          "text-sm",
+          "leading-loose",
+        ],
       },
     },
     "styled": {
       ".textarea": {
         "&-bordered": {
-          "apply": "border-opacity-20",
+          "apply": [
+            "border-opacity-20",
+          ],
         },
-        "&-disabled,
-          &:disabled,
-          &[disabled]": {
-          "apply": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20",
+        "&-disabled,&:disabled,&[disabled]": {
+          "apply": [
+            "border-base-200",
+            "bg-base-200",
+            "placeholder-base-content",
+            "cursor-not-allowed",
+            "text-opacity-20",
+            "placeholder-opacity-20",
+          ],
         },
         "&-ghost": {
           "&:focus": {
-            "apply": "text-base-content bg-opacity-100",
+            "apply": [
+              "text-base-content",
+              "bg-opacity-100",
+            ],
             "css": {
               "box-shadow": "none",
             },
           },
-          "apply": "bg-opacity-5",
+          "apply": [
+            "bg-opacity-5",
+          ],
         },
         "&:focus": {
-          "apply": "outline-base-content/20 outline outline-2 outline-offset-2",
+          "apply": [
+            "outline-base-content/20",
+            "outline",
+            "outline-2",
+            "outline-offset-2",
+          ],
         },
-        "apply": "border-base-content bg-base-100 rounded-btn border border-opacity-0",
+        "apply": [
+          "border-base-content",
+          "bg-base-100",
+          "rounded-btn",
+          "border",
+          "border-opacity-0",
+        ],
       },
     },
     "utils": {
       ".textarea": {
         "&-lg": {
-          "apply": "px-6 py-4 text-lg leading-loose",
+          "apply": [
+            "px-6",
+            "py-4",
+            "text-lg",
+            "leading-loose",
+          ],
         },
         "&-md": {
-          "apply": "px-4 py-3 text-sm leading-loose",
+          "apply": [
+            "px-4",
+            "py-3",
+            "text-sm",
+            "leading-loose",
+          ],
         },
         "&-sm": {
-          "apply": "px-3 py-1 text-sm leading-8",
+          "apply": [
+            "px-3",
+            "py-1",
+            "text-sm",
+            "leading-8",
+          ],
         },
         "&-xs": {
-          "apply": "px-2 py-1 text-xs leading-relaxed",
+          "apply": [
+            "px-2",
+            "py-1",
+            "text-xs",
+            "leading-relaxed",
+          ],
         },
       },
     },
@@ -1506,32 +2297,45 @@ exports[`'toggle' options > snap 1`] = `
   "defaults": {
     "base": {
       ".toggle": {
-        "apply": "shrink-0",
+        "apply": [
+          "shrink-0",
+        ],
       },
     },
     "styled": {
       ".toggle": {
-        "&:checked,
-          &[checked=\\"true\\"],
-          &[aria-checked=\\"true\\"]": {
+        "&:checked,&[checked=\\"true\\"],&[aria-checked=\\"true\\"]": {
           "[dir=\\"rtl\\"] &": {
             "css": {
               "--handleoffsetcalculator": "calc(var(--handleoffset) * -1)",
             },
           },
-          "apply": "border-opacity-100 bg-opacity-100",
+          "apply": [
+            "border-opacity-100",
+            "bg-opacity-100",
+          ],
           "css": {
             "--handleoffsetcalculator": "var(--handleoffset)",
           },
         },
         "&:disabled": {
-          "apply": "border-base-content cursor-not-allowed bg-transparent opacity-30",
+          "apply": [
+            "border-base-content",
+            "cursor-not-allowed",
+            "bg-transparent",
+            "opacity-30",
+          ],
           "css": {
             "--togglehandleborder": "0 0 0 3px rgba(var(--base-content)) inset, var(--handleoffsetcalculator) 0 0 3px rgba(var(--base-content)) inset",
           },
         },
         "&:focus-visible": {
-          "apply": "outline-base-content/20 outline outline-2 outline-offset-2",
+          "apply": [
+            "outline-base-content/20",
+            "outline",
+            "outline-2",
+            "outline-offset-2",
+          ],
         },
         "&:indeterminate": {
           "[dir=\\"rtl\\"] &": {
@@ -1541,7 +2345,10 @@ exports[`'toggle' options > snap 1`] = `
                 0 0 0 2px var(--tglbg) inset",
             },
           },
-          "apply": "border-opacity-100 bg-opacity-100",
+          "apply": [
+            "border-opacity-100",
+            "bg-opacity-100",
+          ],
           "css": {
             "box-shadow": "calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
             calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
@@ -1553,7 +2360,18 @@ exports[`'toggle' options > snap 1`] = `
             "--handleoffsetcalculator": "calc(var(--handleoffset) * 1)",
           },
         },
-        "apply": "border-base-content bg-base-content rounded-badge h-6 w-12 cursor-pointer appearance-none border border-opacity-20 bg-opacity-50",
+        "apply": [
+          "border-base-content",
+          "bg-base-content",
+          "rounded-badge",
+          "h-6",
+          "w-12",
+          "cursor-pointer",
+          "appearance-none",
+          "border",
+          "border-opacity-20",
+          "bg-opacity-50",
+        ],
         "css": {
           "--handleoffset": "1.5rem",
           "--handleoffsetcalculator": "calc(var(--handleoffset) * -1)",
@@ -1570,25 +2388,37 @@ exports[`'toggle' options > snap 1`] = `
     "utils": {
       ".toggle": {
         "&-lg": {
-          "apply": "h-8 w-16",
+          "apply": [
+            "h-8",
+            "w-16",
+          ],
           "css": {
             "--handleoffset": "2rem",
           },
         },
         "&-md": {
-          "apply": "h-6 w-12",
+          "apply": [
+            "h-6",
+            "w-12",
+          ],
           "css": {
             "--handleoffset": "1.5rem",
           },
         },
         "&-sm": {
-          "apply": "h-5 w-8",
+          "apply": [
+            "h-5",
+            "w-8",
+          ],
           "css": {
             "--handleoffset": "0.75rem",
           },
         },
         "&-xs": {
-          "apply": "h-4 w-6",
+          "apply": [
+            "h-4",
+            "w-6",
+          ],
           "css": {
             "--handleoffset": "0.5rem",
           },

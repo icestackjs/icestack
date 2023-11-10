@@ -99,6 +99,9 @@ export function applyStringToArray(obj: Record<string, any>, res: Record<string,
     if (key === 'apply') {
       if (typeof value === 'string') {
         res[key] = value.split(' ')
+      } else if (Array.isArray(value)) {
+        // has been handled
+        res[key] = value
       }
       // do nothing
     } else if (key === 'css') {

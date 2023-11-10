@@ -50,7 +50,7 @@ for (const componentName of Object.keys(_componentsMap)) {
       const { defaults, selector } = o(...args)
       return {
         selector,
-        defaults // : applyStringToArray(defaults)
+        defaults: applyStringToArray(defaults)
       }
     }
   }

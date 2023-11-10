@@ -1,6 +1,6 @@
+import { TinyColor } from '@ctrl/tinycolor'
 import { transformJsToSass } from '@/sass/utils'
 import { CodegenOptions } from '@/types'
-import { TinyColor } from '@ctrl/tinycolor'
 
 export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, shareVars1: Record<string, string>) => {
   return Object.entries({
@@ -43,7 +43,6 @@ export const calcBase = (options: CodegenOptions) => {
           options?.base?.extraVars?.[theme] ?? {}
         )
       }
-
     }
     return acc
   }, {})

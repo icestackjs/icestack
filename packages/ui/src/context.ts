@@ -19,7 +19,7 @@ import { ensureDirSync } from '@/utils'
 import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
 import { getPlugin as getCssVarsPrefixerPlugin } from '@/postcss/custom-property-prefixer'
 import prefixer from '@/postcss/prefixer'
-import { CreatePresetOptions, applyListToString, handleOptions } from '@/components/shared'
+import { CreatePresetOptions, handleOptions } from '@/components/shared'
 import { componentsMap, componentsNames } from '@/components'
 import * as base from '@/base'
 import { ComponentsValue } from '@/types'
@@ -55,7 +55,7 @@ export function createContext(options: CodegenOptions) {
     set(functions, "injectComponent($path:'')", (args: Value[]) => {
       const p = (args[0].assertString().text || defaultPath) ?? ''
       const map = get(presets, p, {})
-      return transformJsToSass(applyListToString(map))
+      return transformJsToSass(map)
     })
     const sassOptions: sass.Options<'sync'> = {
       functions

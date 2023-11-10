@@ -1,29 +1,16 @@
-// import base from '../assets/js/base/index.js'
-// import { defaultVarPrefix } from './constants'
-import { CodegenOptions } from './types.js'
+import type { CodegenOptions } from './types'
 
-// function isRgba(colorString: string) {
-//   return typeof colorString === 'string' && colorString.includes('/')
-// }
-
-// export const colors = {
-//   transparent: 'transparent',
-//   current: 'currentColor',
-//   ...Object.entries(base[':root']).reduce<Record<string, string>>((acc, [key, value]) => {
-//     // remove -- var prefix
-//     // "ice-"
-//     const varName = key.slice(defaultVarPrefix.length)
-//     acc[varName] = isRgba(value) ? `rgba(var(${key}))` : `rgba(var(${key}) / <alpha-value>)`
-
-//     return acc
-//   }, {})
-// }
+export function makeRgbaValue(key: string) {
+  return `rgba(var(${key}) / <alpha-value>)`
+}
 
 export function getColors(options: CodegenOptions) {
+  const { base, varPrefix } = options
+
   return {
     transparent: 'transparent',
     current: 'currentColor',
-    ...Object.values(options.base.types).reduce<Record<string, string>>((acc, cur) => {
+    ...Object.values(base.types).reduce<Record<string, string>>((acc, cur) => {
       const set = Object.values(cur).reduce<Set<string>>((acc, cur) => {
         for (const x of Object.keys(cur)) {
           acc.add(x)
@@ -32,15 +19,15 @@ export function getColors(options: CodegenOptions) {
       }, new Set())
 
       for (const x of set) {
-        const key = options.varPrefix + x // x.slice(options.varPrefix.length)
-        acc[x] = `rgba(var(${key}) / <alpha-value>)`
+        const key = varPrefix + x
+        acc[x] = makeRgbaValue(key)
       }
       return acc
     }, {}),
-    ...Object.values(options.base.extraColors).reduce<Record<string, string>>((acc, cur) => {
+    ...Object.values(base.extraColors).reduce<Record<string, string>>((acc, cur) => {
       for (const x of Object.keys(cur)) {
-        const key = options.varPrefix + x // x.slice(options.varPrefix.length)
-        acc[x] = `rgba(var(${key}) / <alpha-value>)`
+        const key = varPrefix + x
+        acc[x] = makeRgbaValue(key)
       }
       return acc
     }, {})

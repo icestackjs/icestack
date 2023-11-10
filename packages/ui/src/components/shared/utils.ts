@@ -75,21 +75,21 @@ export function expandInject<T extends Record<string, T>>(obj: T) {
   return obj
 }
 
-export function applyListToString<T extends Record<string, T>>(obj: T) {
-  const keys = Object.keys(obj)
-  for (const key of keys) {
-    if (key === 'apply') {
-      const value = obj[key]
-      if (Array.isArray(value)) {
-        // @ts-ignore
-        obj[key] = value.join(' ')
-      }
-    } else if (isObject(obj[key])) {
-      applyListToString(obj[key])
-    }
-  }
-  return obj
-}
+// export function applyListToString<T extends Record<string, T>>(obj: T) {
+//   const keys = Object.keys(obj)
+//   for (const key of keys) {
+//     if (key === 'apply') {
+//       const value = obj[key]
+//       if (Array.isArray(value)) {
+//         // @ts-ignore
+//         obj[key] = value.join(' ')
+//       }
+//     } else if (isObject(obj[key])) {
+//       applyListToString(obj[key])
+//     }
+//   }
+//   return obj
+// }
 
 export function applyStringToArray(obj: Record<string, any>, res: Record<string, any> = {}) {
   const keys = Object.keys(obj)

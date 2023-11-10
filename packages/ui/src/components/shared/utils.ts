@@ -1,11 +1,11 @@
 import defu from 'defu'
 import { isObject, pick, set, get } from 'lodash'
 import { recursive } from 'merge'
-import type { CssInJs } from 'postcss-js'
+// import type { CssInJs } from 'postcss-js'
 import postcss from 'postcss'
 import selectorParser from 'postcss-selector-parser'
 import { IOptionReturnType } from './types'
-import type { CodegenMode, ComponentsValue } from '@/types'
+import type { CodegenMode, ComponentsValue, ModeMergeValue } from '@/types'
 
 const defaultSelectorParser = selectorParser()
 
@@ -115,7 +115,7 @@ export function applyStringToArray(obj: Record<string, any>, res: Record<string,
   return res
 }
 
-export function makeDefaults(obj?: CssInJs, selector?: string) {
+export function makeDefaults(obj?: ModeMergeValue, selector?: string) {
   return {
     base: {
       [selector as string]: obj?.base

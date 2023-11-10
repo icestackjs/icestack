@@ -1,0 +1,70 @@
+# 修改和扩展颜色种类
+
+作为一名开发者，在设计我们自己应用的时候，很少有对第三方控件库默认的组件样式感到满意的
+
+在 `@icestack/ui` 的默认预设下，颜色类型主要有五种分别为 `primary`,`success`,`warning`,`error`,`neutral`
+
+于是 `css` 产物中就生成出了
+
+```js
+'btn-primary', 'btn-success', 'btn-warning', 'btn-error', 'btn-neutral'
+'badge-primary', 'badge-success', 'badge-warning', 'badge-error', 'badge-neutral'
+```
+
+这类的css产物
+
+同样的原理，因为默认尺寸有 `xs`,`sm`,`md`,`lg` 所以会生成出:
+
+```js
+'btn-xs', 'btn-sm', 'btn-md', 'btn-lg', 'badge-xs', 'badge-sm', 'badge-md', 'badge-lg'
+```
+
+幸运的是，这些统统都可以修改或者扩展。
+
+## 修改和扩展配置
+
+```js
+const { sharedExtraColors, sharedExtraVars } = require('@icestack/ui/defaults')
+
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  base: {
+    types: {
+      // override primary type
+      primary: {
+        // light mode
+        light: {
+          primary: '#1677ff',
+          'primary-hover': '#4096ff',
+          'primary-active': '#0958d9',
+          'primary-content': '#ffffff'
+        }
+        // dark mode
+        // dark: {}
+      },
+      // add new type
+      pure: {
+        // light mode colors
+        light: {
+          pure: '#1677ff',
+          'pure-hover': '#4096ff',
+          'pure-active': '#0958d9',
+          'pure-content': '#ffffff'
+        },
+        // dark mode colors
+        dark: {
+          pure: '#1677ff',
+          'pure-hover': '#4096ff',
+          'pure-active': '#0958d9',
+          'pure-content': '#ffffff'
+        }
+        // custom mode colors
+      }
+    }
+  }
+}
+module.exports = config
+```

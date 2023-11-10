@@ -1,0 +1,34 @@
+# 自定义组件样式
+
+```js
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  components: {
+    // 组件名称
+    button: {
+      // 覆盖, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
+      override: {
+        base: {},
+        styled: {},
+        utils: {}
+      },
+      // 扩展, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
+      extend: {
+        base: {},
+        styled: {},
+        utils: {}
+      },
+      // 额外的,传入一个 CssInJs 对象，在 `selector` 包裹之外， 优先级最高
+      extra: {}
+      // 模式，单个组件的模式，默认 styled
+      // mode: 'styled',
+      // 选择器
+      // selector: '.btn'
+    }
+  }
+}
+module.exports = config
+```

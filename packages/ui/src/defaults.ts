@@ -1,7 +1,7 @@
 import type { CodegenOptions, DeepPartial, ComponentsOptions } from './types'
 import { defaultVarPrefix } from './constants'
 
-const shareVars = {
+export const sharedExtraVars = {
   'rounded-box': '1rem',
   'rounded-btn': '0.5rem',
   'rounded-badge': '1.9rem',
@@ -10,6 +10,41 @@ const shareVars = {
   'border-btn': '1px',
   'tab-border': '1px',
   'tab-radius': '0.5rem'
+}
+
+export const sharedExtraColors = {
+  light: {
+    'base-100': '#ffffff',
+    'base-200': '#fafafa',
+    'base-300': '#f5f5f5',
+    'base-400': '#f0f0f0',
+    'base-500': '#d9d9d9',
+    'base-600': '#bfbfbf',
+    'base-700': '#8c8c8c',
+    'base-800': '#595959',
+    'base-900': '#434343',
+    'base-1000': '#262626',
+    'base-1100': '#1f1f1f',
+    'base-1200': '#141414',
+    'base-1300': '#000000',
+    'base-content': '#000000' // 'rgb(31, 41, 55)'
+  },
+  dark: {
+    'base-1300': '#ffffff',
+    'base-1200': '#fafafa',
+    'base-1100': '#f5f5f5',
+    'base-1000': '#f0f0f0',
+    'base-900': '#d9d9d9',
+    'base-800': '#bfbfbf',
+    'base-700': '#8c8c8c',
+    'base-600': '#595959',
+    'base-500': '#434343',
+    'base-400': '#262626',
+    'base-300': '#1f1f1f',
+    'base-200': '#141414',
+    'base-100': '#000000',
+    'base-content': '#ffffff' // 'rgb(166, 173, 186)'
+  }
 }
 
 export function getDefaultBase(raw?: boolean) {
@@ -112,47 +147,10 @@ export function getDefaultBase(raw?: boolean) {
       }
     },
     types,
-    extraColors: {
-      light: {
-        'base-100': '#ffffff',
-        'base-200': '#fafafa',
-        'base-300': '#f5f5f5',
-        'base-400': '#f0f0f0',
-        'base-500': '#d9d9d9',
-        'base-600': '#bfbfbf',
-        'base-700': '#8c8c8c',
-        'base-800': '#595959',
-        'base-900': '#434343',
-        'base-1000': '#262626',
-        'base-1100': '#1f1f1f',
-        'base-1200': '#141414',
-        'base-1300': '#000000',
-        'base-content': '#000000' // 'rgb(31, 41, 55)'
-      },
-      dark: {
-        'base-1300': '#ffffff',
-        'base-1200': '#fafafa',
-        'base-1100': '#f5f5f5',
-        'base-1000': '#f0f0f0',
-        'base-900': '#d9d9d9',
-        'base-800': '#bfbfbf',
-        'base-700': '#8c8c8c',
-        'base-600': '#595959',
-        'base-500': '#434343',
-        'base-400': '#262626',
-        'base-300': '#1f1f1f',
-        'base-200': '#141414',
-        'base-100': '#000000',
-        'base-content': '#ffffff' // 'rgb(166, 173, 186)'
-      }
-    },
+    extraColors: sharedExtraColors,
     extraVars: {
-      light: {
-        ...shareVars
-      },
-      dark: {
-        ...shareVars
-      }
+      light: sharedExtraVars,
+      dark: sharedExtraVars
     }
   }
 }
@@ -240,7 +238,6 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
     mode: 'styled',
     varPrefix: defaultVarPrefix,
     log: true,
-    // autobuild: false,
     dryRun: false,
     cache: true,
     // rtl: false,

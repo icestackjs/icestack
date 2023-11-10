@@ -1,0 +1,125 @@
+# 核心概念
+
+`@icestack/ui` 在设计时候的目的就是要打造一个非常灵活的 `Css` 组件框架生成器。
+
+它默认为我们提供了一套预设方案，我们可以直接开箱即用，然而它的魔力远不止如此。
+
+围绕 `CssInJs` 的思想，`@icestack/ui` 构建了一整套强大的样式编译能力。
+
+这让我们可以灵活可自由生成出我们想要的样式。
+
+我们可以通过传入参数来:
+
+- 生成出各种不同的主题，包括但不限于 `Light`,`Dark`,`Tritanopia`,`Dimmed` 等等你想要的主题
+
+- 也可以为控件添加上不同的主题颜色，比如 `btn-primary`,`btn-secondary`,`btn-accent` 你想要的主题颜色
+
+- 也可以为他们提供包括但不限于 `xs`,`sm`,`md`,`lg` 更多的尺寸, 就像 `xl`,`2xl`,`3xl`
+
+- 不限于 `square`,`circle` 的更多的形状
+
+- 而且也能便捷的去扩展和覆盖原有的样式
+
+## 组件样式
+
+在默认情况下，一个组件由三部分样式组成，分别为 `base`,`styled`, 和 `utils`.它们之间样式的优先级为:
+
+`utils` > `styled` > `base`
+
+### base
+
+顾名思义，这里是组件中最基础的样式,通常这里优先级最低
+
+### styled
+
+这里保存着组件的一些样式变种，比如颜色，默认大小，行为等等
+
+### utils
+
+这里保存这组件的一些尺寸，形状等等样式，通常这里优先级最高
+
+## 组件模式
+
+目前的组件模式主要分为三个 `styled`,`base` 和 `raw`
+
+### styled
+
+- 在这个模式下会加载所有的组件样式，包括 `base`,`styled`,`utils`
+
+### base
+
+- 在这个模式下，只加载 `base` 组件样式
+
+### raw
+
+- 在这个模式下，什么预设样式都不加载，此时整个生成器就变成了一块等待作画的画布，你可以通过配置项完全控制所以组件的生成
+
+
+## CssInJs
+
+对于所有用法中，我们都可以传入这样的对象来扩展和覆盖组件的行为
+
+结构类似于:
+
+```js
+{
+  ".btn": {
+    "&-block": {
+      "apply": [
+        "w-full",
+      ],
+      "css":{
+
+      }
+    },
+    "&-circle": {
+      "&:where(.btn-lg)": {
+        "apply": [
+          "h-16",
+          "w-16",
+          "rounded-full",
+          "p-0",
+        ],
+        "css":{
+
+        }
+      },
+    },
+  },
+}
+```
+
+这样的:
+
+```ts
+{
+  ${selector}:{
+    apply: string[]
+    css: Record<string,string>
+    ${childSelector}:{
+      // ...
+      // css
+      // apply
+      // child selector
+    }
+  }
+}
+```
+
+最终我们扩展和覆盖组件都会使用这样的语法，其中 `css` 这个对象，就是最基础的 `CssInJs` 对象
+
+`apply` 这个字符串数组则会交给 `tailwindcss` 进行处理，然后 `resolve` 成 `CSS` 在和 `css` 字段中的对象进行合并
+
+> 你可以使用 `@icestack/ui` 中导出的 `transformCss2Js` 方法，快速把任意 `css` 字符串转化成这种格式！
+
+## 生成产物
+
+在执行 `build` 命令之后，`@icestack/ui` 会在指定文件夹生成三类文件:
+
+1. `css` 这个文件夹用来存放已经初加工的 `css`,里面还包含着大量的 `@apply` 指令，这个里面的 `css` 产物想要直接使用必须要配合 `tailwindcss`
+2. `css-resolved` 这个文件夹用来存放已经被 `tailwindcss` 处理过的 `css` 产物，你可以直接使用
+3. `js` 这个文件夹用来存放 `css-resolved` 中样式对应的 `js` 形态
+
+## 原子类样式的计算
+
+你应该使用 `class-variance-authority`

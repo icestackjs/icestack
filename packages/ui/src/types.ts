@@ -27,19 +27,16 @@ export type BaseOptions<T extends string = string> = {
   extraVars: Record<keyof BaseOptions['themes'], Record<string, string>>
 }
 
-// const a: BaseOptions = {
-//   extraColors: {},
-//   themes: {
-//     xxx: {
-//       selector: '.xxx'
-//     }
-//   }
-// }
+export type ModeMergeValue = {
+  base?: CssInJs
+  styled?: CssInJs
+  utils?: CssInJs
+}
 
 export type ComponentsValue = {
   mode: CodegenMode
-  override: CssInJs
-  extend: CssInJs
+  override: ModeMergeValue
+  extend: ModeMergeValue
   extra: CssInJs
   // append: CssInJs[]
   selector: string
@@ -87,7 +84,6 @@ export type CodegenOptions = {
   presets: DeepPartial<CodegenOptions>[]
   cache: boolean
   outdir: string
-  autobuild: boolean
   dryRun: boolean
   loaddir: string
   tailwindcssConfig: TailwindcssConfig

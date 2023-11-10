@@ -1,4 +1,7 @@
 {
   "introduction": "简介",
-  "usage": "安装及使用"
+  "usage": "安装及使用",
+  "core": "核心概念",
+  "options": "通用配置项",
+  "contribute": "贡献"
 }

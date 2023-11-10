@@ -1,0 +1,32 @@
+# 添加组件
+
+```js
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  components: {
+    // 组件名称
+    xxxxx: {
+      // 覆盖, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
+      override: {
+        base: {},
+        styled: {},
+        utils: {}
+      },
+      // 扩展, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
+      extend: {
+        base: {},
+        styled: {},
+        utils: {}
+      },
+      // 额外的,传入一个 CssInJs 对象，在 `selector` 包裹之外， 优先级最高
+      extra: {}
+      // 选择器
+      selector: '.xxxxxx'
+    }
+  }
+}
+module.exports = config
+```

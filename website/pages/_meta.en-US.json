@@ -7,8 +7,8 @@
     "title": "Guide",
     "type": "page"
   },
-  "schemas": {
-    "title": "Schemas",
+  "components": {
+    "title": "Components",
     "type": "page"
   }
 }

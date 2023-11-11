@@ -1,5 +1,4 @@
 import { TinyColor } from '@ctrl/tinycolor'
-import { transformJsToSass } from '@/sass/utils'
 import { CodegenOptions } from '@/types'
 
 export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, shareVars1: Record<string, string>) => {
@@ -22,12 +21,11 @@ export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: 
 export const calcBase = (options: CodegenOptions) => {
   const types = options?.base?.types
   const themes = options?.base?.themes
-  // const extraColors = options?.base?.extraColors
   const allTypes = types === undefined ? [] : Object.keys(types)
   const values = types === undefined ? [] : Object.values(types)
   const themesMap = themes === undefined ? {} : themes
 
-  const obj = Object.entries(themesMap).reduce<Record<string, any>>((acc, [theme, { selector }]) => {
+  const presets = Object.entries(themesMap).reduce<Record<string, any>>((acc, [theme, { selector }]) => {
     if (selector) {
       acc[selector] = {
         css: composeVarsObject(
@@ -47,11 +45,7 @@ export const calcBase = (options: CodegenOptions) => {
     return acc
   }, {})
   return {
-    functions: {
-      'injectBase()': () => {
-        return transformJsToSass(obj)
-      }
-    },
+    presets,
     allTypes
   }
 }

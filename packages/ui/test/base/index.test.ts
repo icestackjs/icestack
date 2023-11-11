@@ -1,11 +1,6 @@
-import path from 'node:path'
 import { createContext, IContext } from '@/context'
-import { scssDir } from '@/dirs'
+import { scssTemplate } from '@/dirs'
 import { getCodegenOptions } from '@/options'
-
-export function resolve(filename: string) {
-  return path.resolve(scssDir, 'base', filename + '.scss')
-}
 
 describe('base', () => {
   let ctx: IContext
@@ -13,7 +8,7 @@ describe('base', () => {
     ctx = createContext(getCodegenOptions())
   })
   it('snap', () => {
-    const result = ctx.compileScss(resolve('index'))
+    const result = ctx.compileScss(scssTemplate, 'base.index')
     expect(result.css).toMatchSnapshot()
   })
 
@@ -32,7 +27,7 @@ describe('base', () => {
         }
       })
     )
-    const { css } = await ctx.compileScss(resolve('index'))
+    const { css } = await ctx.compileScss(scssTemplate, 'base.index')
     expect(css).toMatchSnapshot()
   })
 
@@ -65,7 +60,7 @@ describe('base', () => {
         }
       })
     )
-    const { css } = await ctx.compileScss(resolve('index'))
+    const { css } = await ctx.compileScss(scssTemplate, 'base.index')
     expect(css).toMatchSnapshot()
   })
 })

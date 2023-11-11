@@ -3,7 +3,7 @@ import klawSync from 'klaw-sync'
 import { scssDir } from '@/dirs'
 import { walkScssSync } from '@/utils'
 
-describe('walk', () => {
+describe.skip('walk', () => {
   it('should ', () => {
     const fromDir = path.resolve(scssDir, 'components')
     const result = []

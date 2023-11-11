@@ -4,6 +4,7 @@ import { createContext } from '@/context'
 import { getCodegenOptions } from '@/options'
 import { componentsNames } from '@/components'
 import { stages } from '@/constants'
+import { scssTemplate } from '@/dirs'
 
 // const baseDir = path.resolve(scssDir, 'components')
 
@@ -13,11 +14,11 @@ import { stages } from '@/constants'
 //     filename: x
 //   }
 // })
-describe.each(componentsNames.map((x) => ({ name: x })))('$name', ({ name }) => {
+describe.each(componentsNames.map((x) => ({ name: x })))('$name', ({ name: componentName }) => {
   const ctx = createContext(getCodegenOptions())
   for (const stage of stages) {
     it(stage, () => {
-      const { css } = ctx.compileScssWithCp(name, stage)
+      const { css } = ctx.compileScss(scssTemplate, `components.${componentName}.defaults.${stage}`)
       expect(css).toMatchSnapshot()
     })
   }
@@ -43,7 +44,7 @@ describe('custom components', () => {
   )
   for (const stage of stages) {
     it('custom component ' + stage, () => {
-      const { css } = ctx.compileScssWithCp('custom', stage)
+      const { css } = ctx.compileScss(scssTemplate, `components.${'custom'}.defaults.${stage}`)
       expect(css).toMatchSnapshot()
     })
   }

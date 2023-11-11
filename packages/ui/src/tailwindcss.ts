@@ -85,7 +85,7 @@ export const icestackPlugin = plugin.withOptions(
             }
 
             for (const [, item] of utilitiesEntries) {
-              const cssItems: (CssInJs | undefined)[] = [item.glass, item.variables]
+              const cssItems: (CssInJs | undefined)[] = [item]
 
               let cssObj = merge.recursive(true, ...cssItems)
 

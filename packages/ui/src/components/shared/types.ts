@@ -27,4 +27,4 @@ export type IOptionReturnType = {
 
 export type OptionFn = (opts: CreatePresetOptions & { selector: string }) => IOptionReturnType
 
-export type DefaultsFn = (opts: CreatePresetOptions & { selector: string }) => IDefaults
+// export type DefaultsFn = (opts: CreatePresetOptions & { selector: string }) => IDefaults

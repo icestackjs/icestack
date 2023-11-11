@@ -8,7 +8,7 @@ const cssDir = path.resolve(assetsDir, 'css')
 const cssResolvedDir = path.resolve(assetsDir, 'css-resolved')
 const pluginsDir = path.resolve(assetsDir, 'plugins')
 
-const componentTemplate = path.resolve(scssDir, 'components/t.scss')
+const scssTemplate = path.resolve(scssDir, 't.scss')
 
 function resolveCssDir(dir?: string) {
   return dir ? path.resolve(dir, 'css') : cssDir
@@ -28,7 +28,7 @@ function getCssPath(relPath: string, dir?: string) {
   return cssPath.replace(/scss$/, 'css')
 }
 
-function getCssResolvedpath(relPath: string, dir?: string) {
+function getCssResolvedPath(relPath: string, dir?: string) {
   const targetCssDir = resolveCssResolvedDir(dir)
   const jsPath = path.resolve(targetCssDir, relPath)
   return jsPath.replace(/scss$/, 'css')
@@ -56,9 +56,9 @@ export {
   getCssPath,
   getJsPath,
   getPluginsPath,
-  getCssResolvedpath,
+  getCssResolvedPath,
   resolveCssDir,
   resolveCssResolvedDir,
   resolveJsDir,
-  componentTemplate
+  scssTemplate
 }

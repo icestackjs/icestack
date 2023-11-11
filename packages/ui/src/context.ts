@@ -1,6 +1,5 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import plugin from 'tailwindcss/plugin'
 import { set, get } from 'lodash'
 import * as sass from 'sass'
 import postcssJs, { CssInJs } from 'postcss-js'
@@ -12,7 +11,7 @@ import { generateIndexCode } from './js/generate'
 import { getColors } from './colors'
 import { transformJsToSass } from './sass/utils'
 import { createDefaultTailwindcssExtends } from './defaults'
-import { resolveJsDir, scssDir, getCssPath, getJsPath, getCssResolvedPath, scssTemplate } from '@/dirs'
+import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, scssTemplate } from '@/dirs'
 import { stages } from '@/constants'
 import { ensureDirSync } from '@/utils'
 import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
@@ -69,9 +68,7 @@ export function createContext(options: CodegenOptions) {
           const { options } = get(utilitiesMap, p, {
             options: () => {}
           })
-
           const map = options?.()
-
           return transformJsToSass(map)
         }
         // No default
@@ -98,48 +95,6 @@ export function createContext(options: CodegenOptions) {
     return postcss(plugins).process(result.css, {
       from: undefined
     })
-  }
-
-  function buildScss(opts: IBuildScssOptions) {
-    const { filename, resolveConfig } = opts
-
-    // const name = path.basename(filename, '.scss')
-    const { dryRun, tailwindcssConfig } = options
-    const { css: cssOutput } = compileScss(filename)
-
-    const relPath = path.relative(scssDir, filename)
-    const cssPath = getCssPath(relPath, outdir)
-    const jsPath = getJsPath(relPath, outdir)
-    const cssResolvedPath = getCssResolvedPath(relPath, outdir)
-
-    if (!dryRun) {
-      ensureDirSync(path.dirname(cssPath))
-      ensureDirSync(path.dirname(jsPath))
-      ensureDirSync(path.dirname(cssResolvedPath))
-    }
-
-    const config = defu(tailwindcssConfig, initConfig())
-
-    resolveConfig?.(config)
-
-    // scss -> css
-    !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
-    const { root, css } = resolveTailwindcss({
-      css: cssOutput,
-      config,
-      options
-    })
-
-    !dryRun && fs.writeFileSync(cssResolvedPath, css, 'utf8')
-    const cssJsObj = postcssJs.objectify(root as Root)
-
-    if (!dryRun) {
-      const data = 'module.exports = ' + JSON.stringify(cssJsObj, null, 2)
-      // css -> js
-      fs.writeFileSync(jsPath, data, 'utf8')
-    }
-
-    return cssJsObj
   }
 
   function buildComponents(opts: IBuildScssOptions) {
@@ -274,15 +229,10 @@ export function createContext(options: CodegenOptions) {
     const colors = getColors(options)
     switch (outSideLayerCss) {
       case 'base': {
-        return buildBase({
-          filename: '',
-          outSideLayerCss
-        })
+        return buildBase({})
       }
       case 'utilities': {
         const res = buildUtilities({
-          filename: '',
-          outSideLayerCss,
           resolveConfig(config) {
             set(config, 'theme.extend.colors', colors)
           }
@@ -298,19 +248,11 @@ export function createContext(options: CodegenOptions) {
       }
       case 'components': {
         const res = buildComponents({
-          filename: '',
-          outSideLayerCss: 'components',
           resolveConfig: (config) => {
-            set(config, 'theme.extend.colors', colors)
-            config.plugins = [
-              plugin(() => {}, {
-                theme: {
-                  extend: {
-                    ...createDefaultTailwindcssExtends({ varPrefix })
-                  }
-                }
-              })
-            ]
+            set(config, 'theme.extend', {
+              ...createDefaultTailwindcssExtends({ varPrefix }),
+              colors
+            })
           }
         })
 
@@ -331,7 +273,6 @@ export function createContext(options: CodegenOptions) {
     generate,
     buildBase,
     buildComponents,
-    buildScss,
     compileScss,
     createPreset,
     getComponentOptions

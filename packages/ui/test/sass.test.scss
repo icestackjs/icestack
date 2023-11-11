@@ -1,6 +1,6 @@
 @use "true" as *;
 @use "sass:meta";
-@use "../assets/scss/utils/index.scss" as *;
+@use "../scss/utils/index.scss" as *;
 // https://www.oddbird.net/true/docs/
 @include test-module("sass") {
   @include test("removePrefix") {

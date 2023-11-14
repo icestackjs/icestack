@@ -1,0 +1,583 @@
+import CssTable from '../../components/CssTable'
+
+## Class Table
+
+<CssTable name="button" />
+
+## Demo and Playground
+
+[Go to Storybook](https://icestack-storybook.vercel.app/?path=/docs/general-button--docs)
+
+## Css Schema
+
+```js
+{
+"selector": ".btn",
+"defaults": {
+  "styled": {
+    ".btn": {
+      "apply": [
+        "border-base-400",
+        "bg-base-400",
+        "text-base-content",
+        "outline-base-400",
+        "no-underline"
+      ],
+      "css": {
+        "border-width": "var(--border-btn, 1px)"
+      },
+      "&:focus-visible": {
+        "apply": [
+          "outline",
+          "outline-2",
+          "outline-offset-2"
+        ]
+      },
+      "&:hover": {
+        "apply": [
+          "border-base-300",
+          "bg-base-300"
+        ]
+      },
+      "&:active": {
+        "apply": [
+          "border-base-500",
+          "bg-base-500"
+        ]
+      },
+      "&.btn-active": {
+        "apply": [
+          "border-base-500",
+          "bg-base-500"
+        ]
+      },
+      "&-primary": {
+        "apply": [
+          "border-primary",
+          "bg-primary",
+          "text-primary-content",
+          "outline-primary"
+        ],
+        "&:hover": {
+          "apply": [
+            "border-primary-hover",
+            "bg-primary-hover"
+          ]
+        },
+        "&:active": {
+          "apply": [
+            "border-primary-active",
+            "bg-primary-active"
+          ]
+        },
+        "&.btn-active": {
+          "apply": [
+            "border-primary-active",
+            "bg-primary-active"
+          ]
+        }
+      },
+      "&-success": {
+        "apply": [
+          "border-success",
+          "bg-success",
+          "text-success-content",
+          "outline-success"
+        ],
+        "&:hover": {
+          "apply": [
+            "border-success-hover",
+            "bg-success-hover"
+          ]
+        },
+        "&:active": {
+          "apply": [
+            "border-success-active",
+            "bg-success-active"
+          ]
+        },
+        "&.btn-active": {
+          "apply": [
+            "border-success-active",
+            "bg-success-active"
+          ]
+        }
+      },
+      "&-warning": {
+        "apply": [
+          "border-warning",
+          "bg-warning",
+          "text-warning-content",
+          "outline-warning"
+        ],
+        "&:hover": {
+          "apply": [
+            "border-warning-hover",
+            "bg-warning-hover"
+          ]
+        },
+        "&:active": {
+          "apply": [
+            "border-warning-active",
+            "bg-warning-active"
+          ]
+        },
+        "&.btn-active": {
+          "apply": [
+            "border-warning-active",
+            "bg-warning-active"
+          ]
+        }
+      },
+      "&-error": {
+        "apply": [
+          "border-error",
+          "bg-error",
+          "text-error-content",
+          "outline-error"
+        ],
+        "&:hover": {
+          "apply": [
+            "border-error-hover",
+            "bg-error-hover"
+          ]
+        },
+        "&:active": {
+          "apply": [
+            "border-error-active",
+            "bg-error-active"
+          ]
+        },
+        "&.btn-active": {
+          "apply": [
+            "border-error-active",
+            "bg-error-active"
+          ]
+        }
+      },
+      "&-neutral": {
+        "apply": [
+          "border-neutral",
+          "bg-neutral",
+          "text-neutral-content",
+          "outline-neutral"
+        ],
+        "&:hover": {
+          "apply": [
+            "border-neutral-hover",
+            "bg-neutral-hover"
+          ]
+        },
+        "&:active": {
+          "apply": [
+            "border-neutral-active",
+            "bg-neutral-active"
+          ]
+        },
+        "&.btn-active": {
+          "apply": [
+            "border-neutral-active",
+            "bg-neutral-active"
+          ]
+        }
+      },
+      "&.glass": {
+        "apply": [
+          "shadow-none",
+          "outline-current"
+        ],
+        "&:active": {
+          "css": {
+            "--glass-opacity": "25%",
+            "--glass-border-opacity": "15%"
+          }
+        },
+        "&.btn-active": {
+          "css": {
+            "--glass-opacity": "25%",
+            "--glass-border-opacity": "15%"
+          }
+        }
+      },
+      "&-ghost": {
+        "apply": [
+          "border",
+          "border-transparent",
+          "bg-transparent",
+          "text-current",
+          "shadow-none",
+          "outline-current"
+        ],
+        "&:active": {
+          "apply": [
+            "border-opacity-0",
+            "bg-base-content",
+            "bg-opacity-20"
+          ]
+        },
+        "&.btn-active": {
+          "apply": [
+            "border-opacity-0",
+            "bg-base-content",
+            "bg-opacity-20"
+          ]
+        }
+      },
+      "&-link": {
+        "apply": [
+          "text-primary",
+          "border-transparent",
+          "bg-transparent",
+          "underline",
+          "shadow-none",
+          "outline-current"
+        ],
+        "&:active": {
+          "apply": [
+            "border-transparent",
+            "bg-transparent",
+            "underline"
+          ]
+        },
+        "&.btn-active": {
+          "apply": [
+            "border-transparent",
+            "bg-transparent",
+            "underline"
+          ]
+        }
+      },
+      "&-outline": {
+        "apply": [
+          "border-current",
+          "bg-transparent",
+          "shadow-none",
+          "text-base-content"
+        ],
+        "&:hover": {
+          "apply": [
+            "border-base-900",
+            "bg-base-900",
+            "text-base-100"
+          ]
+        },
+        "&:active": {
+          "apply": [
+            "border-base-1100",
+            "bg-base-1100",
+            "text-base-100"
+          ]
+        },
+        "&.btn-active": {
+          "apply": [
+            "border-base-1100",
+            "bg-base-1100",
+            "text-base-100"
+          ]
+        },
+        "&.btn-primary": {
+          "apply": [
+            "text-primary"
+          ],
+          "&:hover": {
+            "apply": [
+              "border-primary-hover",
+              "bg-primary-hover",
+              "text-primary-content"
+            ]
+          },
+          "&:active": {
+            "apply": [
+              "border-primary-active",
+              "bg-primary-active",
+              "text-primary-content"
+            ]
+          },
+          "&.btn-active": {
+            "apply": [
+              "border-primary-active",
+              "bg-primary-active",
+              "text-primary-content"
+            ]
+          }
+        },
+        "&.btn-success": {
+          "apply": [
+            "text-success"
+          ],
+          "&:hover": {
+            "apply": [
+              "border-success-hover",
+              "bg-success-hover",
+              "text-success-content"
+            ]
+          },
+          "&:active": {
+            "apply": [
+              "border-success-active",
+              "bg-success-active",
+              "text-success-content"
+            ]
+          },
+          "&.btn-active": {
+            "apply": [
+              "border-success-active",
+              "bg-success-active",
+              "text-success-content"
+            ]
+          }
+        },
+        "&.btn-warning": {
+          "apply": [
+            "text-warning"
+          ],
+          "&:hover": {
+            "apply": [
+              "border-warning-hover",
+              "bg-warning-hover",
+              "text-warning-content"
+            ]
+          },
+          "&:active": {
+            "apply": [
+              "border-warning-active",
+              "bg-warning-active",
+              "text-warning-content"
+            ]
+          },
+          "&.btn-active": {
+            "apply": [
+              "border-warning-active",
+              "bg-warning-active",
+              "text-warning-content"
+            ]
+          }
+        },
+        "&.btn-error": {
+          "apply": [
+            "text-error"
+          ],
+          "&:hover": {
+            "apply": [
+              "border-error-hover",
+              "bg-error-hover",
+              "text-error-content"
+            ]
+          },
+          "&:active": {
+            "apply": [
+              "border-error-active",
+              "bg-error-active",
+              "text-error-content"
+            ]
+          },
+          "&.btn-active": {
+            "apply": [
+              "border-error-active",
+              "bg-error-active",
+              "text-error-content"
+            ]
+          }
+        },
+        "&.btn-neutral": {
+          "apply": [
+            "text-neutral"
+          ],
+          "&:hover": {
+            "apply": [
+              "border-neutral-hover",
+              "bg-neutral-hover",
+              "text-neutral-content"
+            ]
+          },
+          "&:active": {
+            "apply": [
+              "border-neutral-active",
+              "bg-neutral-active",
+              "text-neutral-content"
+            ]
+          },
+          "&.btn-active": {
+            "apply": [
+              "border-neutral-active",
+              "bg-neutral-active",
+              "text-neutral-content"
+            ]
+          }
+        }
+      },
+      "&.btn-disabled,&[disabled],&:disabled": {
+        "apply": [
+          "bg-neutral",
+          "text-base-content",
+          "border-opacity-0",
+          "bg-opacity-20",
+          "text-opacity-20"
+        ]
+      }
+    }
+  },
+  "base": {
+    ".btn": {
+      "apply": [
+        "rounded-btn",
+        "inline-flex",
+        "flex-shrink-0",
+        "cursor-pointer",
+        "select-none",
+        "flex-wrap",
+        "items-center",
+        "justify-center",
+        "border-transparent",
+        "text-center",
+        "transition",
+        "duration-200",
+        "ease-out",
+        "min-h-12",
+        "h-12",
+        "px-4"
+      ],
+      "css": {
+        "font-size": "0.875rem",
+        "line-height": "1em"
+      },
+      "&-disabled,&[disabled],&:disabled": {
+        "apply": [
+          "pointer-events-none",
+          "cursor-not-allowed"
+        ]
+      }
+    }
+  },
+  "utils": {
+    ".btn": {
+      "&-xs": {
+        "apply": [
+          "min-h-6",
+          "h-6",
+          "px-2"
+        ],
+        "css": {
+          "font-size": "0.75rem"
+        }
+      },
+      "&-sm": {
+        "apply": [
+          "min-h-8",
+          "h-8",
+          "px-3"
+        ],
+        "css": {
+          "font-size": "0.875rem"
+        }
+      },
+      "&-md": {
+        "apply": [
+          "min-h-12",
+          "h-12",
+          "px-4"
+        ],
+        "css": {
+          "font-size": "0.875rem"
+        }
+      },
+      "&-lg": {
+        "apply": [
+          "min-h-16",
+          "h-16",
+          "px-6"
+        ],
+        "css": {
+          "font-size": "1.125rem"
+        }
+      },
+      "&-wide": {
+        "apply": [
+          "w-64"
+        ]
+      },
+      "&-block": {
+        "apply": [
+          "w-full"
+        ]
+      },
+      "&-square": {
+        "apply": [
+          "h-12",
+          "w-12",
+          "p-0"
+        ],
+        "&:where(.btn-xs)": {
+          "apply": [
+            "h-6",
+            "w-6",
+            "p-0"
+          ]
+        },
+        "&:where(.btn-sm)": {
+          "apply": [
+            "h-8",
+            "w-8",
+            "p-0"
+          ]
+        },
+        "&:where(.btn-md)": {
+          "apply": [
+            "h-12",
+            "w-12",
+            "p-0"
+          ]
+        },
+        "&:where(.btn-lg)": {
+          "apply": [
+            "h-16",
+            "w-16",
+            "p-0"
+          ]
+        }
+      },
+      "&-circle": {
+        "apply": [
+          "h-12",
+          "w-12",
+          "rounded-full",
+          "p-0"
+        ],
+        "&:where(.btn-xs)": {
+          "apply": [
+            "h-6",
+            "w-6",
+            "rounded-full",
+            "p-0"
+          ]
+        },
+        "&:where(.btn-sm)": {
+          "apply": [
+            "h-8",
+            "w-8",
+            "rounded-full",
+            "p-0"
+          ]
+        },
+        "&:where(.btn-md)": {
+          "apply": [
+            "h-12",
+            "w-12",
+            "rounded-full",
+            "p-0"
+          ]
+        },
+        "&:where(.btn-lg)": {
+          "apply": [
+            "h-16",
+            "w-16",
+            "rounded-full",
+            "p-0"
+          ]
+        }
+      }
+    }
+  }
+}
+}
+```

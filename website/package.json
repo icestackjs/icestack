@@ -22,6 +22,7 @@
     "css-to-tailwindcss-plugin": "workspace:^",
     "lodash-es": "^4.17.21",
     "next": "^14.0.2",
+    "next-international": "^1.1.4",
     "next-translate": "^2.6.2",
     "nextra": "^2.13.2",
     "nextra-theme-docs": "^2.13.2",

@@ -1,11 +1,11 @@
 // import {componentsNames} from '@icestack/ui/components'
-import useTranslation from 'next-translate/useTranslation'
 import type { FC } from 'react'
 import { useMemo } from 'react'
+import { useI18n } from '../locales'
 import tableData from './table'
 // import { useRouter } from 'next/router'
 const Com: FC<{ name: string }> = (props) => {
-  const { t } = useTranslation('common')
+  const t = useI18n()
   const { name } = props
   const res = useMemo(() => {
     if (name in tableData) {
@@ -18,7 +18,7 @@ const Com: FC<{ name: string }> = (props) => {
     }
   }, [name])
   return (
-    <div className="overflow-x-auto max-h-[25rem]">
+    <div className="overflow-x-auto">
       <table className="table table-sm">
         <thead>
           <tr>

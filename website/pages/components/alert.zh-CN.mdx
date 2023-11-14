@@ -1,0 +1,83 @@
+import CssTable from '../../components/CssTable'
+
+## 类名表格
+
+<CssTable name="alert" />
+
+## 样例和演示
+
+[前往 Storybook](https://icestack-storybook.vercel.app/?path=/docs/feedback-alert--docs)
+
+## Css 结构
+
+```js
+{
+"selector": ".alert",
+"defaults": {
+  "styled": {
+    ".alert": {
+      "apply": [
+        "rounded-box",
+        "border",
+        "p-4",
+        "text-base-content",
+        "border-base-400"
+      ],
+      "&-primary": {
+        "apply": [
+          "text-primary-content",
+          "border-primary/20",
+          "bg-primary"
+        ]
+      },
+      "&-success": {
+        "apply": [
+          "text-success-content",
+          "border-success/20",
+          "bg-success"
+        ]
+      },
+      "&-warning": {
+        "apply": [
+          "text-warning-content",
+          "border-warning/20",
+          "bg-warning"
+        ]
+      },
+      "&-error": {
+        "apply": [
+          "text-error-content",
+          "border-error/20",
+          "bg-error"
+        ]
+      },
+      "&-neutral": {
+        "apply": [
+          "text-neutral-content",
+          "border-neutral/20",
+          "bg-neutral"
+        ]
+      }
+    }
+  },
+  "base": {
+    ".alert": {
+      "apply": [
+        "grid",
+        "w-full",
+        "grid-flow-row",
+        "content-start",
+        "items-center",
+        "justify-items-center",
+        "gap-4",
+        "text-center",
+        "sm:grid-flow-col",
+        "sm:grid-cols-[auto_minmax(auto,1fr)]",
+        "sm:justify-items-start",
+        "sm:text-left"
+      ]
+    }
+  }
+}
+}
+```

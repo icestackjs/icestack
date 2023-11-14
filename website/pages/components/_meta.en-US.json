@@ -1,0 +1,39 @@
+{
+  "overview": "overview",
+  "-- General": {
+    "type": "separator",
+    "title": "General"
+  },
+  "button": "Button",
+  "loading": "Loading",
+  "mask": "Mask",
+  "-- Navigation": {
+    "type": "separator",
+    "title": "Navigation"
+  },
+  "link": "Link",
+  "-- Data Entry": {
+    "type": "separator",
+    "title": "Data Entry"
+  },
+  "checkbox": "Checkbox",
+  "input": "Input",
+  "radio": "Radio",
+  "range": "Range",
+  "select": "Select",
+  "textarea": "Textarea",
+  "toggle": "Toggle",
+  "-- Data Display": {
+    "type": "separator",
+    "title": "Data Display"
+  },
+  "avatar": "Avatar",
+  "badge": "Badge",
+  "chat": "Chat",
+  "progress": "Progress",
+  "-- Feedback": {
+    "type": "separator",
+    "title": "Feedback"
+  },
+  "alert": "Alert"
+}

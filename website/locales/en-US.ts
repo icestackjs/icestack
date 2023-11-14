@@ -4,5 +4,9 @@ export default {
       className: 'ClassName',
       type: 'Type'
     }
+  },
+  home: {
+    startBtnText: 'Get started',
+    componentsBtnText: 'See Css Components'
   }
 } as const

@@ -1,3 +1,7 @@
 {
-  "introduction": "Introduction"
+  "introduction": "Brief introduction",
+  "usage": "Installation and use",
+  "core": "Core Concepts:",
+  "options": "Common configuration items",
+  "contribute": "contribute"
 }

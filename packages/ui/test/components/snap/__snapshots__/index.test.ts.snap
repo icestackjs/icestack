@@ -1305,28 +1305,35 @@ exports[`'table' > styled 1`] = `
 `;
 
 exports[`'table' > utils 1`] = `
-".table .table-xs :not(thead):not(tfoot) tr {
+".table-xs :not(thead):not(tfoot) tr {
   @apply text-xs;
 }
-.table .table-xs :where(th, td) {
+
+.table-xs :where(th, td) {
   @apply px-2 py-1;
 }
-.table .table-sm :not(thead):not(tfoot) tr {
+
+.table-sm :not(thead):not(tfoot) tr {
   @apply text-sm;
 }
-.table .table-sm :where(th, td) {
+
+.table-sm :where(th, td) {
   @apply px-3 py-2;
 }
-.table .table-md :not(thead):not(tfoot) tr {
+
+.table-md :not(thead):not(tfoot) tr {
   @apply text-sm;
 }
-.table .table-md :where(th, td) {
+
+.table-md :where(th, td) {
   @apply px-4 py-3;
 }
-.table .table-lg :not(thead):not(tfoot) tr {
+
+.table-lg :not(thead):not(tfoot) tr {
   @apply text-base;
 }
-.table .table-lg :where(th, td) {
+
+.table-lg :where(th, td) {
   @apply px-6 py-4;
 }"
 `;

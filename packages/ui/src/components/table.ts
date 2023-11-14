@@ -56,7 +56,7 @@ export const options: OptionFn = (opts) => {
         }`)
       },
       utils: {
-        [selector]: transformCss2Js(`${selector}-xs :not(thead):not(tfoot) tr {
+        ...transformCss2Js(`${selector}-xs :not(thead):not(tfoot) tr {
           @apply text-xs;
         }
         ${selector}-xs :where(th, td) {

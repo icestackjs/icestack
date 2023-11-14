@@ -93,6 +93,13 @@
       "cwd": "${workspaceFolder}/website"
     },
     {
+      "command": "npm run build:doc",
+      "name": "website build:doc",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/website"
+    },
+    {
       "command": "npm run codegen",
       "name": "[taro-app] codegen",
       "request": "launch",

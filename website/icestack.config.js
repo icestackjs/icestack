@@ -14,7 +14,12 @@ const config = {
       // dark: {
       //   selector: '[data-mode="dark"]'
       // },
-
+      light: {
+        selector: ':root'
+      },
+      dark: {
+        selector: '.dark'
+      },
       // your new theme can be write here
       dimmed: {
         selector: '[data-mode="dimmed"]'

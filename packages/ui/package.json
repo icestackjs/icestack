@@ -25,9 +25,9 @@
     "./css-resolved/*": "./assets/css-resolved/*",
     "./js/*": "./assets/js/*",
     "./components": {
-      "types": "./dist/components/index.d.ts",
-      "import": "./dist/components/index.mjs",
-      "require": "./dist/components/index.cjs"
+      "types": "./dist/components.d.ts",
+      "import": "./dist/components.mjs",
+      "require": "./dist/components.cjs"
     },
     "./presets": {
       "types": "./dist/presets.d.ts",

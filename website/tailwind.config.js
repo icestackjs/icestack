@@ -36,18 +36,7 @@ module.exports = {
     //   })
     // }),
     icestackPlugin({
-      outdir: path.resolve(__dirname, './ice-ui'),
-      base: {
-        themes: {
-          light: {
-            selector: ':root'
-          },
-          dark: {
-            selector: '.dark'
-          }
-        }
-      }
-      // prefix: 'som-'
+      loaddir: path.resolve(__dirname, './my-ui')
     }),
     iconsPlugin({
       collections: getIconCollections(['mdi'])

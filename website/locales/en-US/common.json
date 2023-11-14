@@ -1,0 +1,9 @@
+{
+  "components": {
+    "table": {
+      "className": "ClassName",
+      "type": "Type"
+    }
+  },
+  "xxx": "xxx"
+}

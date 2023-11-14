@@ -19,16 +19,19 @@ function getSelectors(obj) {
     }).processSync(ss)
   }
 
-  return [...res]
+  return res
 }
 
 function main() {
   const result = {}
   for (const [name, { base, styled, utils }] of Object.entries(components)) {
+    const baseSet = getSelectors(base)
     result[name] = {
-      base: getSelectors(base),
-      styled: getSelectors(styled),
-      utils: getSelectors(utils)
+      base: [...baseSet],
+      styled: [...getSelectors(styled)].filter((x) => {
+        return !baseSet.has(x)
+      }),
+      utils: [...getSelectors(utils)]
     }
   }
   fs.writeFileSync(

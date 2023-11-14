@@ -1,40 +1,72 @@
-import { componentsMap, componentsNames } from '@icestack/ui/components/index'
-
-export const Com = () => {
+// import {componentsNames} from '@icestack/ui/components'
+import useTranslation from 'next-translate/useTranslation'
+import type { FC } from 'react'
+import { useMemo } from 'react'
+import tableData from './table'
+// import { useRouter } from 'next/router'
+const Com: FC<{ name: string }> = (props) => {
+  const { t } = useTranslation('common')
+  const { name } = props
+  const res = useMemo(() => {
+    if (name in tableData) {
+      return tableData[name]
+    }
+    return {
+      base: [],
+      styled: [],
+      utils: []
+    }
+  }, [name])
   return (
-    <div className="overflow-x-auto">
-      <table className="table">
+    <div className="overflow-x-auto max-h-[25rem]">
+      <table className="table table-sm">
         <thead>
           <tr>
+            <th>{t('components.table.className')}</th>
+            <th>{t('components.table.type')}</th>
             <th></th>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>1</th>
-            <td>Cy Ganderton</td>
-            <td>Quality Control Specialist</td>
-            <td>Blue</td>
-          </tr>
+          {res.base.map((x) => {
+            return (
+              <tr key={x}>
+                <td>{x}</td>
+                <td>
+                  <span className="badge badge-primary badge-sm">base</span>
+                </td>
+                <td></td>
+              </tr>
+            )
+          })}
 
-          <tr>
-            <th>2</th>
-            <td>Hart Hagerty</td>
-            <td>Desktop Support Technician</td>
-            <td>Purple</td>
-          </tr>
+          {res.styled.map((x) => {
+            return (
+              <tr key={x}>
+                <td>{x}</td>
+                <td>
+                  <span className="badge badge-success badge-sm">styled</span>
+                </td>
+                <td></td>
+              </tr>
+            )
+          })}
 
-          <tr>
-            <th>3</th>
-            <td>Brice Swyre</td>
-            <td>Tax Accountant</td>
-            <td>Red</td>
-          </tr>
+          {res.utils.map((x) => {
+            return (
+              <tr key={x}>
+                <td>{x}</td>
+                <td>
+                  <span className="badge badge-warning badge-sm">utils</span>
+                </td>
+                <td></td>
+              </tr>
+            )
+          })}
         </tbody>
       </table>
     </div>
   )
 }
+
+export default Com

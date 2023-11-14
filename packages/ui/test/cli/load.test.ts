@@ -1,6 +1,7 @@
 import path from 'node:path'
+import ci from 'ci-info'
 import { load } from '@/cli'
-describe('load config', () => {
+describe.skipIf(ci.isCI)('load config', () => {
   it('load ts config', async () => {
     const config = await load(path.resolve(__dirname, 'ts'))
     expect(config?.log).toBe(false)

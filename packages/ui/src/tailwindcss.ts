@@ -4,7 +4,7 @@ import plugin from 'tailwindcss/plugin'
 import merge from 'merge'
 import type { CssInJs } from 'postcss-js'
 import type { PluginCreator } from 'tailwindcss/types/config'
-import objHash from 'object-hash'
+// import objHash from 'object-hash'
 import type * as _base from '../assets/js/base/index.js'
 import type * as _components from '../assets/js/components/index.js'
 import type * as _utilities from '../assets/js/utilities/index.js'
@@ -12,18 +12,18 @@ import { createDefaultTailwindcssExtends } from './defaults'
 import type { CodegenOptions, DeepPartial } from './types'
 import { getCodegenOptions } from './options.js'
 import { getJsProcess } from '@/postcss/js'
-import { buildAll } from '@/generate'
+// import { buildAll } from '@/generate'
 import { getColors } from '@/colors'
 import { logger } from '@/log'
-import { getFileCache } from '@/cache'
+// import { getFileCache } from '@/cache'
 
 function requireLib(id: string, basedir?: string) {
   return require(basedir ? path.resolve(basedir, id) : path.join('../assets', id))
 }
 
-function isRunByVscodePlugin() {
-  return process.env.VSCODE_PID !== undefined
-}
+// function isRunByVscodePlugin() {
+//   return process.env.VSCODE_PID !== undefined
+// }
 
 const noop: PluginCreator = () => {}
 
@@ -31,31 +31,11 @@ export const icestackPlugin = plugin.withOptions(
   function (opts?: DeepPartial<CodegenOptions>) {
     try {
       const options = getCodegenOptions(opts)
-      let hasChanged = true
 
-      if (options.cache) {
-        const cache = getFileCache('tailwindcss-plugin')
-        const cachedOptionsHash = cache.getKey('options')
-        const optionsHash = objHash(options)
-        hasChanged = cachedOptionsHash !== optionsHash
-      }
+      if (options.loaddir) {
+        const { loaddir } = options
+        const loadDirPath = loaddir
 
-      if (options.loaddir || options.outdir) {
-        let loadDirPath: string
-        if (options.loaddir) {
-          const { loaddir } = options
-          loadDirPath = loaddir
-        } else {
-          if (hasChanged && !isRunByVscodePlugin()) {
-            const start = performance.now()
-            buildAll(options)
-            const now = performance.now()
-            logger.success(`buildAll: ${now - start}ms`)
-          }
-          const { outdir } = options
-          // fs.writeFileSync(path.resolve(outdir, './env.json'), JSON.stringify(process.env), 'utf8')
-          loadDirPath = outdir
-        }
         if (!fs.existsSync(loadDirPath)) {
           logger.warn(`Can not find loadDirPath:${loadDirPath}, make sure this dir is existed`)
           return noop

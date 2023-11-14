@@ -14,6 +14,7 @@ export function resolveTailwindcss(opts: { css: string; config: Config; options:
     .process(css, {
       from: undefined
     })
+    .async()
   // delete process.env.JEST_WORKER_ID
   return result
 }

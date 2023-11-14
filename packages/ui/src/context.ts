@@ -97,7 +97,7 @@ export function createContext(options: CodegenOptions) {
     })
   }
 
-  function buildComponents(opts: IBuildScssOptions) {
+  async function buildComponents(opts: IBuildScssOptions) {
     const { resolveConfig } = opts
 
     const res: Record<string, Record<string, CssInJs>> = {}
@@ -121,7 +121,7 @@ export function createContext(options: CodegenOptions) {
 
         // scss -> css
         !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
-        const { root, css } = resolveTailwindcss({
+        const { root, css } = await resolveTailwindcss({
           css: cssOutput,
           config,
           options
@@ -142,7 +142,7 @@ export function createContext(options: CodegenOptions) {
     return res
   }
 
-  function buildUtilities(opts: IBuildScssOptions) {
+  async function buildUtilities(opts: IBuildScssOptions) {
     const { resolveConfig } = opts
 
     const res: Record<string, Record<string, CssInJs>> = {}
@@ -165,7 +165,7 @@ export function createContext(options: CodegenOptions) {
 
       // scss -> css
       !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
-      const { root, css } = resolveTailwindcss({
+      const { root, css } = await resolveTailwindcss({
         css: cssOutput,
         config,
         options
@@ -184,7 +184,7 @@ export function createContext(options: CodegenOptions) {
     return res
   }
 
-  function buildBase(opts: IBuildScssOptions) {
+  async function buildBase(opts: IBuildScssOptions) {
     const { resolveConfig } = opts
 
     // const name = path.basename(filename, '.scss')
@@ -207,7 +207,7 @@ export function createContext(options: CodegenOptions) {
 
     // scss -> css
     !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
-    const { root, css } = resolveTailwindcss({
+    const { root, css } = await resolveTailwindcss({
       css: cssOutput,
       config,
       options
@@ -225,14 +225,14 @@ export function createContext(options: CodegenOptions) {
     return cssJsObj
   }
 
-  function generate(outSideLayerCss: 'base' | 'utilities' | 'components') {
+  async function generate(outSideLayerCss: 'base' | 'utilities' | 'components') {
     const colors = getColors(options)
     switch (outSideLayerCss) {
       case 'base': {
-        return buildBase({})
+        return await buildBase({})
       }
       case 'utilities': {
-        const res = buildUtilities({
+        const res = await buildUtilities({
           resolveConfig(config) {
             set(config, 'theme.extend.colors', colors)
           }
@@ -247,7 +247,7 @@ export function createContext(options: CodegenOptions) {
         return res
       }
       case 'components': {
-        const res = buildComponents({
+        const res = await buildComponents({
           resolveConfig: (config) => {
             set(config, 'theme.extend', {
               ...createDefaultTailwindcssExtends({ varPrefix }),

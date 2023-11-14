@@ -1,8 +1,7 @@
 {
   "name": "@icestack/ui",
-  "version": "0.0.0-alpha.7",
+  "version": "0.0.0-alpha.8",
   "description": "❤️ IceStack, Web UI for Mobile and PC , open-source Headless component library generator",
-  "license": "MIT",
   "sideEffects": false,
   "type": "commonjs",
   "exports": {
@@ -77,8 +76,6 @@
     "tailwind-config-viewer": "tailwind-config-viewer -o",
     "raw": "node bin/icestack.js cache clean"
   },
-  "keywords": [],
-  "author": "",
   "dependencies": {
     "@babel/generator": "^7.23.3",
     "@babel/types": "^7.23.3",
@@ -87,17 +84,14 @@
     "cac": "^6.7.14",
     "consola": "^3.2.3",
     "css-selector-tokenizer": "^0.8.0",
-    "findup-sync": "^5.0.0",
     "immutable": "^4.0.0",
-    "klaw-sync": "^6.0.0",
     "lodash": "^4.17.21",
     "postcss": "^8.4.31",
     "postcss-custom-property-prefixer": "workspace:^",
     "postcss-js": "^4.0.1",
     "postcss-selector-parser": "^6.0.13",
-    "rtlcss": "^4.1.1",
     "sass": "^1.69.5",
-    "tailwindcss": "3.3.2"
+    "tailwindcss": "3.3.5"
   },
   "devDependencies": {
     "@types/css-selector-tokenizer": "^0.7.4",
@@ -114,15 +108,28 @@
     "css-to-tailwindcss-plugin": "workspace:^",
     "del": "^7.1.0",
     "fast-glob": "^3.3.2",
-    "flat-cache": "^3.1.1",
+    "findup-sync": "^5.0.0",
+    "flat-cache": "^3.2.0",
+    "klaw-sync": "^6.0.0",
     "lru-cache": "^10.0.2",
     "merge": "^2.1.1",
     "object-hash": "^3.0.0",
+    "rtlcss": "^4.1.1",
     "sass-true": "^7.0.0",
     "serialize-javascript": "^6.0.1"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
+  },
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "homepage": "https://icestack.vercel.app",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
   }
 }

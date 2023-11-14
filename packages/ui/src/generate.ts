@@ -2,18 +2,18 @@ import { CodegenOptions } from '@/types'
 import { logger } from '@/log'
 import { createContext } from '@/context'
 
-export function buildAll(options: CodegenOptions) {
+export async function buildAll(options: CodegenOptions) {
   const ctx = createContext(options)
   let start = performance.now()
-  const base = ctx.generate('base')
+  const base = await ctx.generate('base')
   let end = performance.now()
   logger.success('build base finished! ' + `${end - start}ms`)
   start = performance.now()
-  const utilities = ctx.generate('utilities')
+  const utilities = await ctx.generate('utilities')
   end = performance.now()
   logger.success('build utilities finished! ' + `${end - start}ms`)
   start = performance.now()
-  const components = ctx.generate('components')
+  const components = await ctx.generate('components')
   end = performance.now()
   logger.success('build components finished! ' + `${end - start}ms`)
 

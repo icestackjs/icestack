@@ -12,7 +12,7 @@
     "release": "turbo run release",
     "publish-packages": "turbo run build test --filter='./packages/*' && changeset version && changeset publish",
     "preinstall": "npx only-allow pnpm",
-    "sync": "cnpm sync css-to-tailwindcss-plugin compose-tailwindcss-plugins postcss-custom-property-prefixer @icestack/ui @icestack/css2js"
+    "sync": "cnpm sync css-to-tailwindcss-plugin compose-tailwindcss-plugins postcss-custom-property-prefixer @icestack/ui"
   },
   "devDependencies": {
     "@babel/generator": "^7.23.3",

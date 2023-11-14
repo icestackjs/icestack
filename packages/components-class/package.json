@@ -1,5 +1,6 @@
 {
   "name": "@icestack/components-class",
+  "private": true,
   "version": "0.0.0",
   "description": "internal package",
   "main": "index.js",

@@ -30,7 +30,7 @@
     "dev:quickapp": "npm run build:quickapp -- --watch",
     "open": "weapp open -p dist",
     "postinstall": "weapp-tw patch",
-    "codegen": "icestack codegen"
+    "build:ui": "icestack build"
   },
   "browserslist": [
     "last 3 versions",

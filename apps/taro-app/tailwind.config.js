@@ -11,22 +11,11 @@ module.exports = {
   },
   // plugins: [require('@icestack/ui')({})],
   plugins: [
-    // require('css-to-tailwindcss-plugin/tailwindcss')({
-    //   entries: [
-    //     './scss/index.scss'
-    //   ],
-    //   withOptionsWalkCSSRuleObject(x, layer) {
-    //     console.log(x, layer)
-    //     return x
-    //   },
-
-    // })
     iconsPlugin({
       collections: getIconCollections(['mdi'])
     }),
     icestackPlugin({
-      basedir: path.resolve(__dirname, './my-ui'),
-      // presets: [miniprogramPreset()]
+      loaddir: path.resolve(__dirname, './my-ui'),
     })
 
   ],

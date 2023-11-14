@@ -41,7 +41,7 @@ cli.command('build', 'code generate').action(async () => {
       return
     }
     const cfg = getCodegenOptions(config, true)
-    buildAll(cfg)
+    await buildAll(cfg)
     logger.success('build successfully!')
   }
 })

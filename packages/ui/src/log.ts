@@ -3,14 +3,15 @@ import { pkgName } from '@/constants'
 export const consola = createConsola({})
 
 export const logger = {
+  logFlag: true,
   success(message: any, ...args: any[]) {
-    return consola.success(`[${pkgName}]: ${message}`, ...args)
+    return this.logFlag && consola.success(`[${pkgName}]: ${message}`, ...args)
   },
   warn(message: any, ...args: any[]) {
-    return consola.warn(`[${pkgName}]: ${message}`, ...args)
+    return this.logFlag && consola.warn(`[${pkgName}]: ${message}`, ...args)
   },
   error(message: any, ...args: any[]) {
-    return consola.error(`[${pkgName}]: ${message}`, ...args)
+    return this.logFlag && consola.error(`[${pkgName}]: ${message}`, ...args)
   }
 }
 // const originSuccess = logger.success

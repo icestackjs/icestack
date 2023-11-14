@@ -1,5 +1,6 @@
 {
   "name": "@icestack/css2js",
+  "private": true,
   "version": "0.0.2",
   "description": "css2js utils, support scss and css to js object",
   "exports": {

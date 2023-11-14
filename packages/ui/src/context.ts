@@ -11,6 +11,7 @@ import { generateIndexCode } from './js/generate'
 import { getColors } from './colors'
 import { transformJsToSass } from './sass/utils'
 import { createDefaultTailwindcssExtends } from './defaults'
+import { logger } from './log'
 import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, scssTemplate } from '@/dirs'
 import { stages } from '@/constants'
 import { ensureDirSync } from '@/utils'
@@ -24,7 +25,8 @@ import * as base from '@/base'
 import { ComponentsValue } from '@/types'
 
 export function createContext(options: CodegenOptions) {
-  const { outdir, dryRun, prefix, varPrefix, mode, components } = options
+  const { outdir, dryRun, prefix, varPrefix, mode, components, log } = options
+  logger.logFlag = log
   const { allTypes, presets: basePresets } = base.calcBase(options)
 
   function getComponentOptions(name: string): Partial<ComponentsValue> {

@@ -15,7 +15,7 @@ export const options: OptionFn = (opts) => {
         }
       }`),
       styled: transformCss2Js(`${selector} {
-        @apply bg-base-200;
+        @apply bg-base-300;
       }`),
       utils: transformCss2Js(`
       ${selector}-title {

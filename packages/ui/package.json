@@ -1,6 +1,6 @@
 {
   "name": "@icestack/ui",
-  "version": "0.0.0-alpha.8",
+  "version": "0.0.1",
   "description": "❤️ IceStack, Web UI for Mobile and PC , open-source Headless component library generator",
   "sideEffects": false,
   "type": "commonjs",
@@ -54,10 +54,9 @@
   "scripts": {
     "build": "npm run clean && npm run build:all && npm run build:plugin",
     "build:all": "ts-node --esm scripts/build-scss.ts",
-    "build:dev": "unbuild --sourcemap",
+    "dev": "unbuild --sourcemap",
     "build:plugin": "unbuild",
     "clean": "node scripts/clean.js",
-    "dev": "unbuild --watch",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
     "lint:fix": "eslint --cache --ext .ts,.js,.mjs,.cjs . --fix && prettier -c src test -w",
     "prepack": "pnpm run build",
@@ -70,14 +69,14 @@
     "get-coms": "ts-node --esm scripts/get-coms.ts",
     "get-table": "node scripts/get-table.js",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
-    "raw": "node bin/icestack.js cache clean"
+    "raw": "node bin/icestack.js inspect -o ./all0.json"
   },
   "dependencies": {
     "@babel/generator": "^7.23.3",
     "@babel/types": "^7.23.3",
     "@ctrl/tinycolor": "^4.0.2",
     "c12": "^1.5.1",
-    "cac": "^6.7.14",
+    "commander": "^11.1.0",
     "consola": "^3.2.3",
     "css-selector-tokenizer": "^0.8.0",
     "immutable": "^4.0.0",

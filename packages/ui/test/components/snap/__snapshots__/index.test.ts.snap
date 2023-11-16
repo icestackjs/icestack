@@ -1273,7 +1273,7 @@ exports[`'skeleton' > base 1`] = `
 
 exports[`'skeleton' > styled 1`] = `
 ".skeleton {
-  @apply bg-base-200;
+  @apply bg-base-300;
 }"
 `;
 

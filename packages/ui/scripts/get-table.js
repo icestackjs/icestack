@@ -21,7 +21,7 @@ function getSelectors(obj) {
 
   return res
 }
-
+const root = path.resolve(__dirname, '../../../')
 function main() {
   const result = {}
   for (const [name, { base, styled, utils }] of Object.entries(components)) {
@@ -34,14 +34,19 @@ function main() {
       utils: [...getSelectors(utils)]
     }
   }
+
+  const p = path.resolve(__dirname, 'table.js')
   fs.writeFileSync(
-    path.resolve(__dirname, 'table.js'),
+    p,
     `module.exports = ` +
       serialize(result, {
         space: 2
       }),
     'utf8'
   )
+
+  fs.copyFileSync(p, path.resolve(root, 'storybook/table.js'))
+  fs.copyFileSync(p, path.resolve(root, 'website/table.js'))
   return result
 }
 

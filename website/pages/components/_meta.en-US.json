@@ -35,5 +35,6 @@
     "type": "separator",
     "title": "Feedback"
   },
-  "alert": "Alert"
+  "alert": "Alert",
+  "skeleton": "Skeleton"
 }

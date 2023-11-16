@@ -35,5 +35,6 @@
     "type": "separator",
     "title": "反馈"
   },
-  "alert": "Alert 警告提示"
+  "alert": "Alert 警告提示",
+  "skeleton": "Skeleton 骨架屏"
 }

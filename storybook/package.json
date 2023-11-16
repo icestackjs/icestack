@@ -9,7 +9,8 @@
     "build": "npm run build:ui && storybook build",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
     "deploy:cos": "npm run build && ice-deploy -c --dir=storybook-static",
-    "build:ui": "icestack build"
+    "build:ui": "icestack build",
+    "inspect": "icestack inspect"
   },
   "keywords": [],
   "author": "",
@@ -56,6 +57,7 @@
     "typescript": "^5.2.2"
   },
   "dependencies": {
+    "@faker-js/faker": "^8.3.1",
     "@icestack/ui": "workspace:^",
     "@prettier/sync": "^0.3.0",
     "class-variance-authority": "^0.7.0",

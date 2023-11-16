@@ -14,7 +14,7 @@ import { createDefaultTailwindcssExtends } from './defaults'
 import { logger } from './log'
 import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, scssTemplate } from '@/dirs'
 import { stages } from '@/constants'
-import { ensureDirSync } from '@/utils'
+import { JSONStringify, ensureDirSync } from '@/utils'
 import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
 import { getPlugin as getCssVarsPrefixerPlugin } from '@/postcss/custom-property-prefixer'
 import prefixer from '@/postcss/prefixer'
@@ -33,7 +33,7 @@ export function createContext(options: CodegenOptions) {
     return defu(get(components, name, {}), { mode })
   }
 
-  function createPreset(opts: CreatePresetOptions): Record<(typeof componentsNames)[number], any> {
+  function createPreset(opts: CreatePresetOptions): Record<(typeof componentsNames)[number], object> {
     return Object.entries(componentsMap).reduce<Record<string, object>>((acc, [name, lib]) => {
       const comOpt = getComponentOptions(name)
       acc[name] = handleOptions(
@@ -52,33 +52,35 @@ export function createContext(options: CodegenOptions) {
   })
 
   function compileScss(filename: string, defaultPath?: string) {
-    const functions = {}
-    set(functions, "inject($path:'')", (args: Value[]) => {
-      const ppp = (args[0].assertString().text || defaultPath) ?? ''
-      const sign = ppp.indexOf('.')
-      const t = ppp.slice(0, Math.max(0, sign))
-      const p = ppp.slice(Math.max(0, sign + 1))
-      switch (t) {
-        case 'components': {
-          const map = get(presets, p, {})
-          return transformJsToSass(map)
-        }
-        case 'base': {
-          return transformJsToSass(basePresets)
-        }
-        case 'utilities': {
-          const { options } = get(utilitiesMap, p, {
-            options: () => {}
-          })
-          const map = options?.()
-          return transformJsToSass(map)
-        }
-        // No default
-      }
-    })
-
     const sassOptions: sass.Options<'sync'> = {
-      functions
+      functions: {
+        "inject($path:'')": (args: Value[]) => {
+          const ppp = (args[0].assertString().text || defaultPath) ?? ''
+          const sign = ppp.indexOf('.')
+          const t = ppp.slice(0, Math.max(0, sign))
+          const p = ppp.slice(Math.max(0, sign + 1))
+          let res = null
+          switch (t) {
+            case 'components': {
+              res = get(presets, p, {})
+              break
+            }
+            case 'base': {
+              res = basePresets
+              break
+            }
+            case 'utilities': {
+              const { options } = get(utilitiesMap, p, {
+                options: () => {}
+              })
+              res = options?.()
+              break
+            }
+            default:
+          }
+          return transformJsToSass(res)
+        }
+      }
     }
 
     const result = sass.compile(filename, sassOptions)
@@ -101,6 +103,8 @@ export function createContext(options: CodegenOptions) {
 
   async function buildComponents(opts: IBuildScssOptions) {
     const { resolveConfig } = opts
+    const config = initConfig()
+    resolveConfig?.(config)
 
     const res: Record<string, Record<string, CssInJs>> = {}
     for (const componentName of componentsNames) {
@@ -117,10 +121,6 @@ export function createContext(options: CodegenOptions) {
           ensureDirSync(path.dirname(cssResolvedPath))
         }
 
-        const config = initConfig()
-
-        resolveConfig?.(config)
-
         // scss -> css
         !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
         const { root, css } = await resolveTailwindcss({
@@ -133,7 +133,7 @@ export function createContext(options: CodegenOptions) {
         const cssJsObj = postcssJs.objectify(root as Root)
 
         if (!dryRun) {
-          const data = 'module.exports = ' + JSON.stringify(cssJsObj, null, 2)
+          const data = 'module.exports = ' + JSONStringify(cssJsObj)
           // css -> js
           fs.writeFileSync(jsPath, data, 'utf8')
         }
@@ -146,6 +146,8 @@ export function createContext(options: CodegenOptions) {
 
   async function buildUtilities(opts: IBuildScssOptions) {
     const { resolveConfig } = opts
+    const config = initConfig()
+    resolveConfig?.(config)
 
     const res: Record<string, Record<string, CssInJs>> = {}
     for (const utilityName of utilitiesNames) {
@@ -161,10 +163,6 @@ export function createContext(options: CodegenOptions) {
         ensureDirSync(path.dirname(cssResolvedPath))
       }
 
-      const config = initConfig()
-
-      resolveConfig?.(config)
-
       // scss -> css
       !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
       const { root, css } = await resolveTailwindcss({
@@ -177,7 +175,7 @@ export function createContext(options: CodegenOptions) {
       const cssJsObj = postcssJs.objectify(root as Root)
 
       if (!dryRun) {
-        const data = 'module.exports = ' + JSON.stringify(cssJsObj, null, 2)
+        const data = 'module.exports = ' + JSONStringify(cssJsObj)
         // css -> js
         fs.writeFileSync(jsPath, data, 'utf8')
       }
@@ -219,7 +217,7 @@ export function createContext(options: CodegenOptions) {
     const cssJsObj = postcssJs.objectify(root as Root)
 
     if (!dryRun) {
-      const data = 'module.exports = ' + JSON.stringify(cssJsObj, null, 2)
+      const data = 'module.exports = ' + JSONStringify(cssJsObj)
       // css -> js
       fs.writeFileSync(jsPath, data, 'utf8')
     }
@@ -271,6 +269,7 @@ export function createContext(options: CodegenOptions) {
   }
 
   return {
+    presets,
     options,
     generate,
     buildBase,

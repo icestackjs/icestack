@@ -1,51 +1,75 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import createCli from 'cac'
-import { loadConfig } from 'c12'
-import type { CodegenOptions, DeepPartial } from './types'
+import { Command } from 'commander'
+import pkg from '../package.json'
 import { buildAll } from './generate'
-import { getCodegenOptions } from './options'
+import { getCodegenOptions, load } from './options'
 import { logger } from '@/log'
-const cli = createCli()
+import { createContext } from '@/context'
+import { JSONStringify } from '@/utils'
+const cli = new Command()
 
-export async function load(cwd?: string) {
-  const { config } = await loadConfig<DeepPartial<CodegenOptions>>({
-    name: 'icestack',
-    cwd,
-    defaultConfig: getCodegenOptions()
-  })
-  return config
-}
+// const tsT = `import { defineConfig } from '@icestack/ui'\n\nexport default defineConfig({
+//   outdir: './my-ui'
+// })\n`
+// ts ? 'icestack.config.ts' :
 
-const tsT = `import { defineConfig } from '@icestack/ui'\n\nexport default defineConfig({
-  outdir: './my-ui'
-})\n`
 const jsT = `/**\n * @type {import('@icestack/ui').Config}\n */\nconst config = {
   outdir: './my-ui'
 }\n\nmodule.exports = config\n`
 cli
-  .command('init', 'init config')
-  .option('--ts', 'typescript config')
-  .action(async ({ ts }) => {
-    const f = ts ? 'icestack.config.ts' : 'icestack.config.js'
+  .command('init')
+  .description('init config')
+  .action(async () => {
+    const f = 'icestack.config.js'
     const p = path.resolve(process.cwd(), f)
-    await fs.writeFile(p, ts ? tsT : jsT)
+    await fs.writeFile(p, jsT) // ts ? tsT : jsT)
     logger.success(`init ${f} successfully!`)
   })
 
-cli.command('build', 'code generate').action(async () => {
-  const config = await load()
-  if (config) {
-    if (!config.outdir) {
-      logger.error('outdir option must be passed!')
-      return
+cli
+  .command('build')
+  .description('code generate')
+  .action(async () => {
+    const config = await load()
+    if (config) {
+      if (!config.outdir) {
+        logger.error('outdir option must be passed!')
+        return
+      }
+      const cfg = getCodegenOptions(config, true)
+      await buildAll(cfg)
+      logger.success('build successfully!')
     }
-    const cfg = getCodegenOptions(config, true)
-    await buildAll(cfg)
-    logger.success('build successfully!')
-  }
-})
+  })
 
-cli.help()
-cli.version('0.0.0')
+cli
+  .command('inspect [componentName]')
+  .description('inspect component to get css schema')
+  .option('-o, --out <filePath>', 'output file')
+  .action(async (componentName, options) => {
+    const cwd = process.cwd()
+    const config = await load()
+    if (config) {
+      const cfg = getCodegenOptions(config)
+      const ctx = createContext(cfg)
+      if (componentName) {
+        if (componentName in ctx.presets) {
+          const outfile = path.resolve(cwd, options.out ?? `${componentName}.json`)
+          const res = JSONStringify(ctx.presets[componentName])
+          await fs.writeFile(outfile, res, 'utf8')
+          logger.success(`[${componentName}] has been exported! \nfile: ${outfile}`)
+        } else {
+          logger.error(`\`${componentName}\` is not a valid componentName!`)
+        }
+      } else {
+        const res = JSONStringify(ctx.presets)
+        const outfile = path.resolve(cwd, options.out ?? `all.json`)
+        await fs.writeFile(outfile, res, 'utf8')
+        logger.success(`all components has been exported! \nfile: ${outfile}`)
+      }
+    }
+  })
+
+cli.version(pkg.version)
 cli.parse()

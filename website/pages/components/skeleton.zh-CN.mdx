@@ -1,0 +1,62 @@
+import CssTable from '../../components/CssTable'
+
+## 类名表格
+
+<CssTable name="skeleton" />
+
+## 样例和演示
+
+[前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/feedback-skeleton--docs)
+
+## Css 结构
+
+```js
+{
+"selector": ".skeleton",
+"defaults": {
+  "base": {
+    ".skeleton": {
+      "css": {
+        "animation": "skeleton-blink var(--skeleton-duration) ease-in-out
+        infinite"
+      }
+    },
+    "@keyframes skeleton-blink": {
+      "50%": {
+        "css": {
+          "opacity": "0.6"
+        }
+      }
+    }
+  },
+  "styled": {
+    ".skeleton": {
+      "apply": [
+        "bg-base-300"
+      ]
+    }
+  },
+  "utils": {
+    ".skeleton-title": {
+      "apply": [
+        "w-2/5",
+        "h-4"
+      ]
+    },
+    ".skeleton-paragraph": {
+      "apply": [
+        "w-full",
+        "h-4"
+      ]
+    },
+    ".skeleton-avatar": {
+      "apply": [
+        "h-8",
+        "w-8",
+        "rounded-full"
+      ]
+    }
+  }
+}
+}
+```

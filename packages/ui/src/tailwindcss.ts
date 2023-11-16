@@ -8,14 +8,9 @@ import type { PluginCreator } from 'tailwindcss/types/config'
 import type * as _base from '../assets/js/base/index.js'
 import type * as _components from '../assets/js/components/index.js'
 import type * as _utilities from '../assets/js/utilities/index.js'
-import { createDefaultTailwindcssExtends } from './defaults'
-import type { CodegenOptions, DeepPartial } from './types'
-import { getCodegenOptions } from './options.js'
+import type { DeepPartial, TailwindcssPluginOptions } from './types'
 import { getJsProcess } from '@/postcss/js'
-// import { buildAll } from '@/generate'
-import { getColors } from '@/colors'
 import { logger } from '@/log'
-// import { getFileCache } from '@/cache'
 
 function requireLib(id: string, basedir?: string) {
   return require(basedir ? path.resolve(basedir, id) : path.join('../assets', id))
@@ -28,12 +23,10 @@ function requireLib(id: string, basedir?: string) {
 const noop: PluginCreator = () => {}
 
 export const icestackPlugin = plugin.withOptions(
-  function (opts?: DeepPartial<CodegenOptions>) {
+  function (opts: DeepPartial<TailwindcssPluginOptions>) {
     try {
-      const options = getCodegenOptions(opts)
-
-      if (options.loaddir) {
-        const { loaddir } = options
+      if (opts && opts.loaddir) {
+        const { loaddir } = opts
         const loadDirPath = loaddir
 
         if (!fs.existsSync(loadDirPath)) {
@@ -46,7 +39,7 @@ export const icestackPlugin = plugin.withOptions(
         if (base && components && utilities) {
           const componentsEntries = Object.entries(components)
           const utilitiesEntries = Object.entries(utilities)
-          const { baseProcess, componentsProcess, utilitiesProcess } = getJsProcess(options)
+          const { baseProcess, componentsProcess, utilitiesProcess } = getJsProcess()
 
           const baseObj = baseProcess(base)
 
@@ -83,21 +76,7 @@ export const icestackPlugin = plugin.withOptions(
       return noop
     }
   },
-  function (opts?: DeepPartial<CodegenOptions>) {
-    const options = getCodegenOptions(opts)
-    const { varPrefix } = options
-
-    return {
-      theme: {
-        extend: {
-          colors: {
-            ...getColors(options)
-          },
-          ...createDefaultTailwindcssExtends({
-            varPrefix
-          })
-        }
-      }
-    }
+  function () {
+    return {}
   }
 )

@@ -85,7 +85,6 @@ export type CodegenOptions = {
   cache: boolean
   outdir: string
   dryRun: boolean
-  loaddir: string
   tailwindcssConfig: TailwindcssConfig
   // tailwindcss plugin
   // runtime: {
@@ -102,7 +101,9 @@ export type CodegenOptions = {
 
 export type Config = Partial<CodegenOptions>
 
-// export type TailwindcssPluginOptions = CodegenOptions | LoadCodeOptions
+export type TailwindcssPluginOptions = {
+  loaddir: string
+}
 
 export interface IBuildScssOptions {
   resolveConfig?: (config: TailwindcssConfig) => void

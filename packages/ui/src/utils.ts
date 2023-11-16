@@ -96,3 +96,7 @@ export function pascalCase(str: string) {
 //     traverseAll: true
 //   })
 // }
+
+export function JSONStringify(value: any) {
+  return JSON.stringify(value, null, 2)
+}

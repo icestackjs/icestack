@@ -112,6 +112,13 @@
       "request": "launch",
       "type": "node-terminal",
       "cwd": "${workspaceFolder}/apps/taro-app"
+    },
+    {
+      "command": "npm run inspect",
+      "name": "[storybook] inspect all",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/storybook"
     }
   ]
 }

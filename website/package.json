@@ -12,7 +12,9 @@
     "tailwind-config-viewer": "tailwind-config-viewer -o",
     "build:ui": "icestack build",
     "build:coms": "node scripts/generateComponents.js",
-    "build:docs": "node scripts/generateDocs.js"
+    "build:docs": "node scripts/generateDocs.js",
+    "build:cos": "cross-env NEXT_OUTPUT=export npm run build",
+    "deploy:cos": "npm run build:cos && ice-deploy -c --dir=storybook-static"
   },
   "keywords": [],
   "author": "",

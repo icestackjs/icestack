@@ -13,8 +13,9 @@ exports[`utilities > glass snap 1`] = `
 
 exports[`utilities > variables snap 1`] = `
 ".no-animation {
-  --ice-animation-btn: 0;
-  --ice-animation-input: 0;
+  --ice-animation-btn: 0s;
+  --ice-animation-input: 0s;
+  --ice-skeleton-duration: 0s;
 }
 
 .tab-border-none {

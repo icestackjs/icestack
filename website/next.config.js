@@ -12,6 +12,7 @@ const i18n = require('./i18n')
  **/
 const opt = {
   i18n,
+  // output: process.env.NEXT_OUTPUT,
   webpack: (config) => {
     // config.resolve.fallback = { fs: false, path: false, module: false, v8: false, perf_hooks: false }
     // config.plugins.push(

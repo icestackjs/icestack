@@ -18,6 +18,7 @@ import * as mask from '@/components/mask'
 import * as form from '@/components/form'
 import * as table from '@/components/table'
 import * as tabs from '@/components/tabs'
+import * as skeleton from '@/components/skeleton'
 // import * as steps from '@/components/steps'
 
 const _componentsMap = {
@@ -39,7 +40,8 @@ const _componentsMap = {
   mask,
   form,
   table,
-  tabs
+  tabs,
+  skeleton
   // steps
 } as Record<string, { options: OptionFn }>
 const componentsMap = {} as Record<string, { options: OptionFn }>

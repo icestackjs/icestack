@@ -41,6 +41,7 @@ exports[`var-prefix > snap case 0 1`] = `
   --ice-rounded-badge: 1.9rem;
   --ice-animation-btn: 0.25s;
   --ice-animation-input: 0.2s;
+  --ice-skeleton-duration: 1.2s;
   --ice-border-btn: 1px;
   --ice-tab-border: 1px;
   --ice-tab-radius: 0.5rem;
@@ -86,6 +87,7 @@ exports[`var-prefix > snap case 0 1`] = `
   --ice-rounded-badge: 1.9rem;
   --ice-animation-btn: 0.25s;
   --ice-animation-input: 0.2s;
+  --ice-skeleton-duration: 1.2s;
   --ice-border-btn: 1px;
   --ice-tab-border: 1px;
   --ice-tab-radius: 0.5rem;
@@ -133,6 +135,7 @@ exports[`var-prefix > snap case 1 1`] = `
   --som-rounded-badge: 1.9rem;
   --som-animation-btn: 0.25s;
   --som-animation-input: 0.2s;
+  --som-skeleton-duration: 1.2s;
   --som-border-btn: 1px;
   --som-tab-border: 1px;
   --som-tab-radius: 0.5rem;
@@ -178,6 +181,7 @@ exports[`var-prefix > snap case 1 1`] = `
   --som-rounded-badge: 1.9rem;
   --som-animation-btn: 0.25s;
   --som-animation-input: 0.2s;
+  --som-skeleton-duration: 1.2s;
   --som-border-btn: 1px;
   --som-tab-border: 1px;
   --som-tab-radius: 0.5rem;

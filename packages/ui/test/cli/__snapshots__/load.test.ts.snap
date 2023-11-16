@@ -45,6 +45,7 @@ exports[`load config > load cjs config 1`] = `
         "rounded-badge": "1.9rem",
         "rounded-box": "1rem",
         "rounded-btn": "0.5rem",
+        "skeleton-duration": "1.2s",
         "tab-border": "1px",
         "tab-radius": "0.5rem",
       },
@@ -55,6 +56,7 @@ exports[`load config > load cjs config 1`] = `
         "rounded-badge": "1.9rem",
         "rounded-box": "1rem",
         "rounded-btn": "0.5rem",
+        "skeleton-duration": "1.2s",
         "tab-border": "1px",
         "tab-radius": "0.5rem",
       },
@@ -183,6 +185,9 @@ exports[`load config > load cjs config 1`] = `
     },
     "select": {
       "selector": ".select",
+    },
+    "skeleton": {
+      "selector": ".skeleton",
     },
     "table": {
       "selector": ".table",
@@ -257,6 +262,7 @@ exports[`load config > load js config 1`] = `
         "rounded-badge": "1.9rem",
         "rounded-box": "1rem",
         "rounded-btn": "0.5rem",
+        "skeleton-duration": "1.2s",
         "tab-border": "1px",
         "tab-radius": "0.5rem",
       },
@@ -267,6 +273,7 @@ exports[`load config > load js config 1`] = `
         "rounded-badge": "1.9rem",
         "rounded-box": "1rem",
         "rounded-btn": "0.5rem",
+        "skeleton-duration": "1.2s",
         "tab-border": "1px",
         "tab-radius": "0.5rem",
       },
@@ -395,6 +402,9 @@ exports[`load config > load js config 1`] = `
     },
     "select": {
       "selector": ".select",
+    },
+    "skeleton": {
+      "selector": ".skeleton",
     },
     "table": {
       "selector": ".table",
@@ -469,6 +479,7 @@ exports[`load config > load ts config 1`] = `
         "rounded-badge": "1.9rem",
         "rounded-box": "1rem",
         "rounded-btn": "0.5rem",
+        "skeleton-duration": "1.2s",
         "tab-border": "1px",
         "tab-radius": "0.5rem",
       },
@@ -479,6 +490,7 @@ exports[`load config > load ts config 1`] = `
         "rounded-badge": "1.9rem",
         "rounded-box": "1rem",
         "rounded-btn": "0.5rem",
+        "skeleton-duration": "1.2s",
         "tab-border": "1px",
         "tab-radius": "0.5rem",
       },
@@ -607,6 +619,9 @@ exports[`load config > load ts config 1`] = `
     },
     "select": {
       "selector": ".select",
+    },
+    "skeleton": {
+      "selector": ".skeleton",
     },
     "table": {
       "selector": ".table",

@@ -1804,6 +1804,57 @@ exports[`'select' options > snap 1`] = `
 }
 `;
 
+exports[`'skeleton' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".skeleton": {
+        "css": {
+          "animation": "skeleton-blink var(--skeleton-duration) ease-in-out
+        infinite",
+        },
+      },
+      "@keyframes skeleton-blink": {
+        "50%": {
+          "css": {
+            "opacity": "0.6",
+          },
+        },
+      },
+    },
+    "styled": {
+      ".skeleton": {
+        "apply": [
+          "bg-base-200",
+        ],
+      },
+    },
+    "utils": {
+      ".skeleton-avatar": {
+        "apply": [
+          "h-8",
+          "w-8",
+          "rounded-full",
+        ],
+      },
+      ".skeleton-paragraph": {
+        "apply": [
+          "w-full",
+          "h-4",
+        ],
+      },
+      ".skeleton-title": {
+        "apply": [
+          "w-2/5",
+          "h-4",
+        ],
+      },
+    },
+  },
+  "selector": ".skeleton",
+}
+`;
+
 exports[`'table' options > snap 1`] = `
 {
   "defaults": {

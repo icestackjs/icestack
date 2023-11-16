@@ -1259,6 +1259,38 @@ exports[`'select' > utils 1`] = `
 }"
 `;
 
+exports[`'skeleton' > base 1`] = `
+".skeleton {
+  animation: skeleton-blink var(--ice-skeleton-duration) ease-in-out infinite;
+}
+
+@keyframes skeleton-blink {
+  50% {
+    opacity: 0.6;
+  }
+}"
+`;
+
+exports[`'skeleton' > styled 1`] = `
+".skeleton {
+  @apply bg-base-200;
+}"
+`;
+
+exports[`'skeleton' > utils 1`] = `
+".skeleton-title {
+  @apply w-2/5 h-4;
+}
+
+.skeleton-paragraph {
+  @apply w-full h-4;
+}
+
+.skeleton-avatar {
+  @apply h-8 w-8 rounded-full;
+}"
+`;
+
 exports[`'table' > base 1`] = `
 ".table {
   @apply relative w-full;

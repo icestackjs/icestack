@@ -7,6 +7,7 @@ export const sharedExtraVars = {
   'rounded-badge': '1.9rem',
   'animation-btn': '0.25s',
   'animation-input': '0.2s',
+  'skeleton-duration': '1.2s',
   'border-btn': '1px',
   'tab-border': '1px',
   'tab-radius': '0.5rem'
@@ -209,6 +210,9 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   tabs: {
     selector: '.tab'
+  },
+  skeleton: {
+    selector: '.skeleton'
   }
   // steps: {
   //   selector: '.step'

@@ -2,8 +2,9 @@ import { transformCss2Js } from '@/components/shared'
 
 export const options = () => {
   return transformCss2Js(`.no-animation {
-    --animation-btn: 0;
-    --animation-input: 0;
+    --animation-btn: 0s;
+    --animation-input: 0s;
+    --skeleton-duration: 0s;
   }
   .tab-border-none {
     --tab-border: 0px;

@@ -5,8 +5,8 @@ export const options: OptionFn = (opts) => {
   return {
     selector,
     defaults: {
-      styled: transformCss2Js(``),
       base: transformCss2Js(``),
+      styled: transformCss2Js(``),
       utils: transformCss2Js(``)
     }
   }

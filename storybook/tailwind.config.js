@@ -32,7 +32,7 @@ module.exports = {
   },
   plugins: [
     icestackPlugin({
-      outdir: path.resolve(__dirname, 'ice-ui')
+      loaddir: path.resolve(__dirname, 'my-ui')
     }),
     iconsPlugin({
       collections: getIconCollections(['mdi'])

@@ -1,6 +1,6 @@
 const fs = require('node:fs/promises')
 const path = require('node:path')
-const jb = require('js-beautify')
+// const jb = require('js-beautify')
 const { upperFirst, kebabCase, get } = require('lodash')
 const dedent = require('dedent')
 const { getDefaultBase, defaultSelectorMap } = require('@icestack/ui/defaults')
@@ -146,7 +146,7 @@ async function main() {
   
   ## ${t('Demo and Playground')}
   
-  [${t('Go to Storybook')}](https://icestack-storybook.vercel.app/?path=/docs/${kebabCase(groupName)}-${componentName}--docs)
+  [${t('Go to Storybook')}](https://story.ui.icebreaker.top/?path=/docs/${kebabCase(groupName)}-${componentName}--docs)
   
   ## ${t('Css Schema')}
   

@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "npm run build:ui && next build",
     "start": "next start",
     "lint": "next lint",
     "tailwind-config-viewer": "tailwind-config-viewer -o",

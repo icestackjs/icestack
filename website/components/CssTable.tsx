@@ -2,7 +2,7 @@
 import type { FC } from 'react'
 import { useMemo } from 'react'
 import { useI18n } from '../locales'
-import tableData from './table'
+import tableData from '../table'
 // import { useRouter } from 'next/router'
 const Com: FC<{ name: string }> = (props) => {
   const t = useI18n()

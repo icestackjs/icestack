@@ -6,9 +6,10 @@
   "main": "index.js",
   "scripts": {
     "dev": "storybook dev -p 6006",
-    "build": "storybook build",
+    "build": "npm run build:ui && storybook build",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
-    "deploy:cos": "npm run build && ice-deploy -c --dir=storybook-static"
+    "deploy:cos": "npm run build && ice-deploy -c --dir=storybook-static",
+    "build:ui": "icestack build"
   },
   "keywords": [],
   "author": "",

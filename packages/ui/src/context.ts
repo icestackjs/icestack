@@ -51,7 +51,7 @@ export function createContext(options: CodegenOptions) {
     types: allTypes
   })
 
-  function compileScss(filename: string, defaultPath?: string) {
+  function compileScss(defaultPath?: string) {
     const sassOptions: sass.Options<'sync'> = {
       functions: {
         "inject($path:'')": (args: Value[]) => {
@@ -83,13 +83,13 @@ export function createContext(options: CodegenOptions) {
       }
     }
 
-    const result = sass.compile(filename, sassOptions)
+    const result = sass.compile(scssTemplate, sassOptions)
     const plugins: AcceptedPlugin[] = [getCssVarsPrefixerPlugin(varPrefix)]
+
     if (typeof prefix === 'string') {
       plugins.push(
         prefixer({
-          prefix,
-          ignore: []
+          prefix
         })
       )
     } else if (typeof prefix === 'object') {
@@ -108,8 +108,9 @@ export function createContext(options: CodegenOptions) {
 
     const res: Record<string, Record<string, CssInJs>> = {}
     for (const componentName of componentsNames) {
+      // const start = performance.now()
       for (const stage of stages) {
-        const { css: cssOutput } = compileScss(scssTemplate, `components.${componentName}.defaults.${stage}`)
+        const { css: cssOutput } = compileScss(`components.${componentName}.defaults.${stage}`)
         const relPath = `components/${componentName}/${stage}.scss`
         const cssPath = getCssPath(relPath, outdir)
         const jsPath = getJsPath(relPath, outdir)
@@ -140,6 +141,8 @@ export function createContext(options: CodegenOptions) {
         set(res, `${componentName}.${stage}`, cssJsObj)
         // res[componentName][stage] = cssJsObj
       }
+      // const end = performance.now()
+      // logger.success(`build component [${componentName}] finished! ` + `${end - start}ms`)
     }
     return res
   }
@@ -151,7 +154,7 @@ export function createContext(options: CodegenOptions) {
 
     const res: Record<string, Record<string, CssInJs>> = {}
     for (const utilityName of utilitiesNames) {
-      const { css: cssOutput } = compileScss(scssTemplate, `utilities.${utilityName}`)
+      const { css: cssOutput } = compileScss(`utilities.${utilityName}`)
       const relPath = `utilities/${utilityName}.scss`
       const cssPath = getCssPath(relPath, outdir)
       const jsPath = getJsPath(relPath, outdir)
@@ -189,7 +192,7 @@ export function createContext(options: CodegenOptions) {
 
     // const name = path.basename(filename, '.scss')
     const { dryRun, tailwindcssConfig } = options
-    const { css: cssOutput } = compileScss(scssTemplate, 'base.index')
+    const { css: cssOutput } = compileScss('base.index')
     const relPath = `base/index.scss`
     const cssPath = getCssPath(relPath, outdir)
     const jsPath = getJsPath(relPath, outdir)

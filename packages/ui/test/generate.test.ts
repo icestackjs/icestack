@@ -24,7 +24,7 @@ describe.skip.concurrent('generate', () => {
   it('dryRun case 0', async () => {
     const dir = resolve('dryRun')
     await deleteAsync([dir])
-    const res = buildAll({
+    const res = await buildAll({
       ...getCodegenOptions({
         dryRun: true
       }),
@@ -39,7 +39,7 @@ describe.skip.concurrent('generate', () => {
   it.skip('case 2', async () => {
     const dir = resolve('prefixer')
     await deleteAsync([dir])
-    buildAll({
+    await buildAll({
       ...getCodegenOptions({
         prefix: 'som-'
       }),

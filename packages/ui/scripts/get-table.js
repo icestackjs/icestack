@@ -47,6 +47,7 @@ function main() {
 
   fs.copyFileSync(p, path.resolve(root, 'storybook/table.js'))
   fs.copyFileSync(p, path.resolve(root, 'website/table.js'))
+  fs.copyFileSync(p, path.resolve(root, 'apps/taro-app/src/table.js'))
   return result
 }
 

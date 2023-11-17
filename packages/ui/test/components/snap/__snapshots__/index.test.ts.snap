@@ -1680,6 +1680,255 @@ exports[`'toggle' > utils 1`] = `
 }"
 `;
 
+exports[`bug fixed > button prefix base 1`] = `
+".ice-btn {
+  @apply rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4;
+  font-size: 0.875rem;
+  line-height: 1em;
+}
+.ice-btn-disabled, .ice-btn[disabled], .ice-btn:disabled {
+  @apply pointer-events-none cursor-not-allowed;
+}"
+`;
+
+exports[`bug fixed > button prefix styled 1`] = `
+".ice-btn {
+  @apply border-base-400 bg-base-400 text-base-content outline-base-400 no-underline;
+  border-width: var(--ice-border-btn, 1px);
+}
+.ice-btn:focus-visible {
+  @apply outline outline-2 outline-offset-2;
+}
+.ice-btn:hover {
+  @apply border-base-300 bg-base-300;
+}
+.ice-btn:active {
+  @apply border-base-500 bg-base-500;
+}
+.ice-btn.ice-btn-active {
+  @apply border-base-500 bg-base-500;
+}
+.ice-btn-primary {
+  @apply border-primary bg-primary text-primary-content outline-primary;
+}
+.ice-btn-primary:hover {
+  @apply border-primary-hover bg-primary-hover;
+}
+.ice-btn-primary:active {
+  @apply border-primary-active bg-primary-active;
+}
+.ice-btn-primary.ice-btn-active {
+  @apply border-primary-active bg-primary-active;
+}
+.ice-btn-success {
+  @apply border-success bg-success text-success-content outline-success;
+}
+.ice-btn-success:hover {
+  @apply border-success-hover bg-success-hover;
+}
+.ice-btn-success:active {
+  @apply border-success-active bg-success-active;
+}
+.ice-btn-success.ice-btn-active {
+  @apply border-success-active bg-success-active;
+}
+.ice-btn-warning {
+  @apply border-warning bg-warning text-warning-content outline-warning;
+}
+.ice-btn-warning:hover {
+  @apply border-warning-hover bg-warning-hover;
+}
+.ice-btn-warning:active {
+  @apply border-warning-active bg-warning-active;
+}
+.ice-btn-warning.ice-btn-active {
+  @apply border-warning-active bg-warning-active;
+}
+.ice-btn-error {
+  @apply border-error bg-error text-error-content outline-error;
+}
+.ice-btn-error:hover {
+  @apply border-error-hover bg-error-hover;
+}
+.ice-btn-error:active {
+  @apply border-error-active bg-error-active;
+}
+.ice-btn-error.ice-btn-active {
+  @apply border-error-active bg-error-active;
+}
+.ice-btn-neutral {
+  @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+}
+.ice-btn-neutral:hover {
+  @apply border-neutral-hover bg-neutral-hover;
+}
+.ice-btn-neutral:active {
+  @apply border-neutral-active bg-neutral-active;
+}
+.ice-btn-neutral.ice-btn-active {
+  @apply border-neutral-active bg-neutral-active;
+}
+.ice-btn.ice-glass {
+  @apply shadow-none outline-current;
+}
+.ice-btn.ice-glass:active {
+  --ice-glass-opacity: 25%;
+  --ice-glass-border-opacity: 15%;
+}
+.ice-btn.ice-glass.ice-btn-active {
+  --ice-glass-opacity: 25%;
+  --ice-glass-border-opacity: 15%;
+}
+.ice-btn-ghost {
+  @apply border border-transparent bg-transparent text-current shadow-none outline-current;
+}
+.ice-btn-ghost:active {
+  @apply border-opacity-0 bg-base-content bg-opacity-20;
+}
+.ice-btn-ghost.ice-btn-active {
+  @apply border-opacity-0 bg-base-content bg-opacity-20;
+}
+.ice-btn-link {
+  @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+}
+.ice-btn-link:active {
+  @apply border-transparent bg-transparent underline;
+}
+.ice-btn-link.ice-btn-active {
+  @apply border-transparent bg-transparent underline;
+}
+.ice-btn-outline {
+  @apply border-current bg-transparent shadow-none text-base-content;
+}
+.ice-btn-outline:hover {
+  @apply border-base-900 bg-base-900 text-base-100;
+}
+.ice-btn-outline:active {
+  @apply border-base-1100 bg-base-1100 text-base-100;
+}
+.ice-btn-outline.ice-btn-active {
+  @apply border-base-1100 bg-base-1100 text-base-100;
+}
+.ice-btn-outline.ice-btn-primary {
+  @apply text-primary;
+}
+.ice-btn-outline.ice-btn-primary:hover {
+  @apply border-primary-hover bg-primary-hover text-primary-content;
+}
+.ice-btn-outline.ice-btn-primary:active {
+  @apply border-primary-active bg-primary-active text-primary-content;
+}
+.ice-btn-outline.ice-btn-primary.ice-btn-active {
+  @apply border-primary-active bg-primary-active text-primary-content;
+}
+.ice-btn-outline.ice-btn-success {
+  @apply text-success;
+}
+.ice-btn-outline.ice-btn-success:hover {
+  @apply border-success-hover bg-success-hover text-success-content;
+}
+.ice-btn-outline.ice-btn-success:active {
+  @apply border-success-active bg-success-active text-success-content;
+}
+.ice-btn-outline.ice-btn-success.ice-btn-active {
+  @apply border-success-active bg-success-active text-success-content;
+}
+.ice-btn-outline.ice-btn-warning {
+  @apply text-warning;
+}
+.ice-btn-outline.ice-btn-warning:hover {
+  @apply border-warning-hover bg-warning-hover text-warning-content;
+}
+.ice-btn-outline.ice-btn-warning:active {
+  @apply border-warning-active bg-warning-active text-warning-content;
+}
+.ice-btn-outline.ice-btn-warning.ice-btn-active {
+  @apply border-warning-active bg-warning-active text-warning-content;
+}
+.ice-btn-outline.ice-btn-error {
+  @apply text-error;
+}
+.ice-btn-outline.ice-btn-error:hover {
+  @apply border-error-hover bg-error-hover text-error-content;
+}
+.ice-btn-outline.ice-btn-error:active {
+  @apply border-error-active bg-error-active text-error-content;
+}
+.ice-btn-outline.ice-btn-error.ice-btn-active {
+  @apply border-error-active bg-error-active text-error-content;
+}
+.ice-btn-outline.ice-btn-neutral {
+  @apply text-neutral;
+}
+.ice-btn-outline.ice-btn-neutral:hover {
+  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+}
+.ice-btn-outline.ice-btn-neutral:active {
+  @apply border-neutral-active bg-neutral-active text-neutral-content;
+}
+.ice-btn-outline.ice-btn-neutral.ice-btn-active {
+  @apply border-neutral-active bg-neutral-active text-neutral-content;
+}
+.ice-btn.ice-btn-disabled, .ice-btn[disabled], .ice-btn:disabled {
+  @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+}"
+`;
+
+exports[`bug fixed > button prefix utils 1`] = `
+".ice-btn-xs {
+  @apply min-h-6 h-6 px-2;
+  font-size: 0.75rem;
+}
+.ice-btn-sm {
+  @apply min-h-8 h-8 px-3;
+  font-size: 0.875rem;
+}
+.ice-btn-md {
+  @apply min-h-12 h-12 px-4;
+  font-size: 0.875rem;
+}
+.ice-btn-lg {
+  @apply min-h-16 h-16 px-6;
+  font-size: 1.125rem;
+}
+.ice-btn-wide {
+  @apply w-64;
+}
+.ice-btn-block {
+  @apply w-full;
+}
+.ice-btn-square {
+  @apply h-12 w-12 p-0;
+}
+.ice-btn-square:where(.ice-btn-xs) {
+  @apply h-6 w-6 p-0;
+}
+.ice-btn-square:where(.ice-btn-sm) {
+  @apply h-8 w-8 p-0;
+}
+.ice-btn-square:where(.ice-btn-md) {
+  @apply h-12 w-12 p-0;
+}
+.ice-btn-square:where(.ice-btn-lg) {
+  @apply h-16 w-16 p-0;
+}
+.ice-btn-circle {
+  @apply h-12 w-12 rounded-full p-0;
+}
+.ice-btn-circle:where(.ice-btn-xs) {
+  @apply h-6 w-6 rounded-full p-0;
+}
+.ice-btn-circle:where(.ice-btn-sm) {
+  @apply h-8 w-8 rounded-full p-0;
+}
+.ice-btn-circle:where(.ice-btn-md) {
+  @apply h-12 w-12 rounded-full p-0;
+}
+.ice-btn-circle:where(.ice-btn-lg) {
+  @apply h-16 w-16 rounded-full p-0;
+}"
+`;
+
 exports[`custom components > custom component base 1`] = `""`;
 
 exports[`custom components > custom component styled 1`] = `""`;

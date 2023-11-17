@@ -1,5 +1,4 @@
 import { createContext, IContext } from '@/context'
-import { scssTemplate } from '@/dirs'
 import { getCodegenOptions } from '@/options'
 
 describe('base', () => {
@@ -8,7 +7,7 @@ describe('base', () => {
     ctx = createContext(getCodegenOptions())
   })
   it('snap', () => {
-    const result = ctx.compileScss(scssTemplate, 'base.index')
+    const result = ctx.compileScss('base.index')
     expect(result.css).toMatchSnapshot()
   })
 
@@ -27,7 +26,7 @@ describe('base', () => {
         }
       })
     )
-    const { css } = await ctx.compileScss(scssTemplate, 'base.index')
+    const { css } = await ctx.compileScss('base.index')
     expect(css).toMatchSnapshot()
   })
 
@@ -60,7 +59,7 @@ describe('base', () => {
         }
       })
     )
-    const { css } = await ctx.compileScss(scssTemplate, 'base.index')
+    const { css } = await ctx.compileScss('base.index')
     expect(css).toMatchSnapshot()
   })
 })

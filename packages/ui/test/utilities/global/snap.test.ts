@@ -1,7 +1,6 @@
 // import path from 'node:path'
 // import fg from 'fast-glob'
 // import { resolve } from './utils'
-import { scssTemplate } from '@/dirs'
 import { createContext } from '@/context'
 import { getCodegenOptions } from '@/options'
 // const coms = (await fg(path.resolve(scssDir, 'utilities/global', '*.scss'))).map((x) => {
@@ -10,13 +9,13 @@ import { getCodegenOptions } from '@/options'
 describe('utilities', () => {
   it('glass snap', async () => {
     const ctx = createContext(getCodegenOptions())
-    const { css } = await ctx.compileScss(scssTemplate, 'utilities.glass')
+    const { css } = await ctx.compileScss('utilities.glass')
     expect(css).toMatchSnapshot()
   })
 
   it('variables snap', async () => {
     const ctx = createContext(getCodegenOptions())
-    const { css } = await ctx.compileScss(scssTemplate, 'utilities.variables')
+    const { css } = await ctx.compileScss('utilities.variables')
     expect(css).toMatchSnapshot()
   })
 })

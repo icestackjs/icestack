@@ -3,7 +3,7 @@ import fss from 'node:fs'
 import postcss from 'postcss'
 import tailwindcss from 'tailwindcss'
 import type { Config } from 'tailwindcss'
-import defu from 'defu'
+import defu, { createDefu } from 'defu'
 // import klawSync from 'klaw-sync'
 
 export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]> {
@@ -84,6 +84,15 @@ export function pascalCase(str: string) {
   return mappedWords.join('')
 }
 
+const defuOverrideArray = createDefu((obj, key, value) => {
+  if (Array.isArray(obj[key]) && Array.isArray(value)) {
+    obj[key] = value
+    return true
+  }
+})
+
+export { defuOverrideArray }
+
 // export function walkScssSync(dir: string) {
 //   return klawSync(dir, {
 //     nodir: true,
@@ -100,3 +109,5 @@ export function pascalCase(str: string) {
 export function JSONStringify(value: any) {
   return JSON.stringify(value, null, 2)
 }
+
+export { default as defu } from 'defu'

@@ -1,12 +1,10 @@
-import path from 'node:path'
 import { createContext } from '@/context'
-import { scssTemplate } from '@/dirs'
 import { getCodegenOptions } from '@/options'
 
 describe('var-prefix', () => {
   it('snap case 0', () => {
     const ctx = createContext(getCodegenOptions({}))
-    const { css } = ctx.compileScss(scssTemplate, 'base.index')
+    const { css } = ctx.compileScss('base.index')
     expect(css).toMatchSnapshot()
   })
 
@@ -16,7 +14,7 @@ describe('var-prefix', () => {
         varPrefix: '--som-'
       })
     )
-    const { css } = ctx.compileScss(scssTemplate, 'base.index')
+    const { css } = ctx.compileScss('base.index')
     expect(css).toMatchSnapshot()
   })
 })

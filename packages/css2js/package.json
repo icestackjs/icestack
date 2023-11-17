@@ -39,6 +39,7 @@
     "postcss-js": "^4.0.1"
   },
   "devDependencies": {
+    "@types/postcss-js": "^4.0.4",
     "less": "^4.2.0",
     "sass": "^1.66.1",
     "stylus": "^0.60.0"

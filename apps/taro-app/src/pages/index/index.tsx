@@ -3,7 +3,7 @@ import { View } from '@tarojs/components'
 import React, { ReactNode, useState } from 'react'
 import './index.scss'
 import ThemeProvider from '../../components/ThemeProvider'
-import allComs from '@icestack/ui/allComponents'
+import { componentsNames } from '@icestack/ui/components'
 import { cx } from 'class-variance-authority'
 import Taro from '@tarojs/taro'
 

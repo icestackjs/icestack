@@ -1,8 +1,8 @@
 // @ts-nocheck
-
 import Tokenizer from 'css-selector-tokenizer'
 import type { PluginCreator } from 'postcss'
-import defu from 'defu'
+import { defuOverrideArray } from '@/utils'
+
 export interface Options {
   prefix?: string
 
@@ -79,7 +79,7 @@ function iterateSelectorNodes(selector: Tokenizer.SelectorsNode | Tokenizer.Sele
 const postcssPlugin = 'addprefix'
 
 const creator: PluginCreator<Options> = (opts = {}) => {
-  const { prefix, ignore } = defu<Required<Options>, Options[]>(opts, {
+  const { prefix, ignore } = defuOverrideArray<Options, Options[]>(opts, {
     prefix: '',
     ignore: []
   })
@@ -99,7 +99,7 @@ const creator: PluginCreator<Options> = (opts = {}) => {
 
   return {
     postcssPlugin,
-    Root(root) {
+    Once(root) {
       root.walkRules((rule) => {
         const parsed = Tokenizer.parse(rule.selector)
         const selector = iterateSelectorNodes(parsed, { prefix, ignore })

@@ -1,5 +1,6 @@
 import { AppProps } from 'next/app'
 import { I18nProvider } from '../locales'
+import 'nextra-theme-docs/style.css'
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import '../globals.scss'
 

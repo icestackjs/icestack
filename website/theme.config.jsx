@@ -4,12 +4,16 @@ export default {
   project: {
     link: 'https://github.com/sonofmagic/icestack'
   },
+  sidebar: {
+    defaultMenuCollapseLevel: 1
+  },
   docsRepositoryBase: 'https://github.com/sonofmagic/icestack/tree/main/website',
   useNextSeoProps() {
     return {
       titleTemplate: '%s | sonofmagic'
     }
   },
+  components: {},
   i18n: [
     { locale: 'en-US', text: 'English' },
     { locale: 'zh-CN', text: '简体中文' }

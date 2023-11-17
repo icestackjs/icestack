@@ -43,11 +43,31 @@ function generateMetaJson(options) {
   )
 }
 
+function generateOverview(options) {
+  const { local } = options
+  const t = createT(local)
+  const isZh = local === 'zh-CN'
+  return groupedComponents.reduce((acc, [groupName, componentNames]) => {
+    if (componentNames.length > 0) {
+      acc.push('\n' + t(groupName))
+
+      for (const componentName of componentNames) {
+        acc.push(`- [${isZh ? upperFirst(componentName) + ' ' + t(componentName) : upperFirst(componentName)}](./${componentName})`)
+      }
+    }
+
+    return acc
+  }, [])
+}
+
 async function main() {
   for (const local of i18n.locales) {
     const t = createT(local)
+    // const overview = []
     for (const [groupName, componentNames] of groupedComponents) {
+      // overview.push('\n' + groupName)
       for (const componentName of componentNames) {
+        // overview.push(`- [${componentName}](./${componentName})`)
         const p = componentsMap[componentName].options({
           selector: defaultSelectorMap[componentName]?.selector,
           types
@@ -76,6 +96,7 @@ async function main() {
       }
     }
     await fs.writeFile(resolve(`_meta.${local}.json`), JSONStringify(generateMetaJson({ local })))
+    await fs.writeFile(resolve(`overview.${local}.mdx`), generateOverview({ local }).join('\n'))
   }
 }
 

@@ -18,7 +18,7 @@ export const Home: FC = (props) => {
           <Link className="btn btn-primary outline-none" href="docs/introduction">
             {t('home.startBtnText')}
           </Link>
-          <Link className="btn btn-success outline-none" href="components">
+          <Link className="btn btn-success outline-none" href="components/overview">
             {t('home.componentsBtnText')}
           </Link>
         </div>

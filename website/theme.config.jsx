@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  logo: <span>IceStack</span>,
+  logo: <span>@icestack/ui</span>,
   project: {
     link: 'https://github.com/sonofmagic/icestack'
   },
@@ -16,12 +16,17 @@ export default {
   ],
   footer: {
     text: (
-      <span className="text-xs">
+      <span className="text-xs space-x-2">
         MIT {new Date().getFullYear()} ©{' '}
-        <a href="https://github.com/sonofmagic/icestack" target="_blank">
+        <a href="https://github.com/sonofmagic/icestack" rel="nofollow" target="_blank">
           IceStack
         </a>
-        .
+        <a rel="nofollow" target="_blank" href="http://beian.miit.gov.cn">
+          苏ICP备19002675号-2
+        </a>
+        <a rel="noreferrer" target="_blank" href="https://beian.mps.gov.cn/#/query/webSearch?code=32050602011962">
+          苏公网安备32050602011962
+        </a>
       </span>
     )
   }

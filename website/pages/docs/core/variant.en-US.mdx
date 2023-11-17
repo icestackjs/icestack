@@ -1,0 +1,92 @@
+# Modifying and Extending Color Types
+
+As a developer designing our own applications, it's not often that we're happy with the default component styles of third-party component libraries
+
+Under the `@icestack/ui` default preset.
+
+## Color
+
+There are five main color types: `primary`, `success`, `warning`, `error`, and `neutral`.
+
+The `css` output then produces the
+
+```js
+'btn-primary', 'btn-success', 'btn-warning', 'btn-error', 'btn-neutral', 'badge-primary', 'badge-primary', 'btn-success', 'btn-error', 'btn-neutral'
+'badge-primary', 'badge-success', 'badge-warning', 'badge-error', 'badge-neutral'
+```
+
+The css product of this type
+
+## Size shapes
+
+The same principle applies, the default sizes are `xs`,`sm`,`md`,`lg` so it generates.
+
+```js
+'btn-xs', 'btn-sm', 'btn-md', 'btn-lg', 'badge-xs', 'badge-sm', 'badge-md', 'badge-lg'
+```
+
+## Themes
+
+By default there are `light` and `dark`, which generate their own `CSS` variable blocks, which you can override and extend.
+
+## Modifying and extending configuration
+
+```js filename="icestack.config.js"
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  // 修改 base
+  base: {
+    // 颜色 type
+    types: {
+      // override primary type
+      // 覆盖 primary 色
+      primary: {
+        // 覆盖 light mode 下的颜色
+        light: {
+          primary: '#1677ff',
+          'primary-content': '#ffffff',
+          // hover 和 active 色是给部分组件使用的，比如 `button`
+          'primary-hover': '#4096ff',
+          'primary-active': '#0958d9'
+        }
+        // 同样也可以覆盖 dark mode 下的表现
+        // dark: {}
+      },
+      // 或者你添加一种新的颜色主题: pure
+      pure: {
+        // light mode colors
+        light: {
+          pure: '#1677ff',
+          'pure-hover': '#4096ff',
+          'pure-active': '#0958d9',
+          'pure-content': '#ffffff'
+        },
+        // dark mode colors
+        dark: {
+          pure: '#1677ff',
+          'pure-hover': '#4096ff',
+          'pure-active': '#0958d9',
+          'pure-content': '#ffffff'
+        }
+        // custom mode colors
+      }
+    }
+  }
+}
+module.exports = config
+```
+
+## Build
+
+Once you've made your changes, run the `icestack build` command to rebuild `my-ui`.
+
+You'll see that the new color theme, the overrides of the original theme colors, and the related changes are already in the new `my-ui` output.
+
+At this point you can use:
+
+```js
+'btn-pure', 'badge-pure'
+```

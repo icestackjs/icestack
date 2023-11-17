@@ -1,6 +1,8 @@
 {
-  "variant": "Modify the extended color dimensions",
-  "theme": "Modify the extension theme",
+  "variant": "Customize color",
+  "theme": "Customize themes",
   "override": "Customize component styles",
-  "extraComponent": "Add components"
+  "extraComponent": "Add extra components",
+  "preset": "Presets",
+  "composeClass": "Class Compose"
 }

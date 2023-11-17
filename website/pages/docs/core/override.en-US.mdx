@@ -1,0 +1,100 @@
+## Extending component size and shape styles
+
+## Introduction
+
+The previous section focused on the use of `base` in `icestack.config.js`.
+
+In order to make changes to the behavior of each component's dimensions and shapes, the `components` configuration item must be used:
+
+The effect is similar to the following: `base` in `icestack.config.js`.
+
+```js filename="icestack.config.js"
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  components: {
+    // 组件名称
+    button: {
+      // 覆盖, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
+      override: {
+        base: {},
+        styled: {},
+        utils: {}
+      },
+      // 扩展, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
+      extend: {
+        base: {},
+        styled: {},
+        utils: {}
+      },
+      // 额外的,传入一个 CssInJs 对象，在 `selector` 包裹之外， 优先级最高
+      // 你可以在这里定义动画，或者添加，覆盖整个组件的行为
+      extra: {}
+      // 模式，单个组件的模式，默认 styled
+      // mode: 'styled',
+      // 选择器
+      // selector: '.btn'
+    }
+  }
+}
+module.exports = config
+```
+
+They use `CssInJs` objects such as.
+
+```js
+const config = {
+  outdir: './my-ui',
+  components: {
+    // 组件名称
+    button: {
+      // 覆盖, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
+      override: {
+        base: {
+          '.btn': {
+            apply:
+              'rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4',
+            css: {
+              'font-size': '0.875rem',
+              'line-height': '1em'
+            },
+            [`&-disabled,
+        &[disabled],
+        &:disabled`]: {
+              apply: 'pointer-events-none cursor-not-allowed'
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+Of course you think this is more complicated, you can just use `transformCss2Js` `API`.
+
+```js
+const { transformCss2Js } = require('@icestack/ui')
+
+const config = {
+  outdir: './my-ui',
+  components: {
+    // 组件名称
+    alert: {
+      // 覆盖, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
+      override: {
+        base: transformCss2Js(`.alert {
+      display: grid;
+      width: 100%;
+      @apply text-xs;
+      @apply bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content;
+    }`)
+      }
+    }
+  }
+}
+```
+
+> You can use the `icestack inspect [componentName]` command to check the `Css schema` of each component.

@@ -6,6 +6,8 @@
 
 ## How to use?
 
-[Documentation](https://ui.icebreaker.top/)
+[Documentation](https://icestack.vercel.app/)
 
-[Storybook](https://story.ui.icebreaker.top/)
+[中文文档)](https://ui.icebreaker.top/)
+
+[Storybook/组件演示](https://story.ui.icebreaker.top/)

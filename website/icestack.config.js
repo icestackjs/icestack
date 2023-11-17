@@ -14,6 +14,7 @@ const config = {
         selector: '.dark'
       }
     }
-  }
+  },
+  presets: []
 }
 module.exports = config

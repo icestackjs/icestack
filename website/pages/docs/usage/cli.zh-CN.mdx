@@ -1,6 +1,8 @@
 # 以 Cli 命令行使用
 
-首先在安装好之后你可以执行:
+## 初始化配置
+
+首先在安装好 `@icestack/ui` 之后你可以执行:
 
 ```bash
 npx icestack init
@@ -8,7 +10,7 @@ npx icestack init
 
 这个命令会在当前执行目录下生成一个 `icestack.config.js` 文件，默认内容如下:
 
-```js
+```js filename="icestack.config.js"
 /**
  * @type {import('@icestack/ui').Config}
  */
@@ -19,6 +21,8 @@ const config = {
 module.exports = config
 ```
 
+## 构建样式
+
 你可以在 `config` 中，配置你自己的样式和选项，完成之后执行:
 
 ```bash
@@ -27,7 +31,7 @@ npx icestack build
 
 或者把这个脚本加入你的 `package.json`:
 
-```diff package.json
+```diff filename="package.json"
 {
   "scripts": {
 +   "build:ui": "icestack build"
@@ -36,24 +40,32 @@ npx icestack build
 
 ```
 
-这样在 `my-ui` 就生成出了所有的 `css` 和 `js` 文件，你可以根据自己的需求去加载使用它们，
+然后执行 `npm run build:ui` 也能达到同样的效果。
 
-## 把产物交给 `tailwindcss` 使用
+## 构建产物
 
-我们可以把生成产物交给 `tailwindcss` 来使用，这能够享受它自动的智能提示与 `Css Purge`:
+在执行构建命令后，如果构建成功，在当前目录下的 `my-ui` 目录就生成出了所有的 `css` 和 `js` 文件，你可以根据自己的需求去加载使用它们。
 
-```js
-const path = require('node:path')
-const { icestackPlugin } = require('@icestack/ui/tailwindcss')
+> 建议把 `my-ui` 放入你的 `.gitignore` 来避免产生过多文件被提交到 `git`
 
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  // ...
-  plugins: [
-    icestackPlugin({
-      // 注意是 loaddir 不是 outdir
-      loaddir: path.resolve(__dirname, './my-ui')
-    })
-  ]
-}
-```
+在 `my-ui` 中主要有三种类型的文件:
+
+### css
+
+`css` 这个文件夹用来存放已经初加工的 `css`,里面还包含着大量的 `@apply` 指令，这个里面的 `css` 产物想要直接使用必须要配合 `tailwindcss`
+
+### css-resolved
+
+`css-resolved` 这个文件夹用来存放已经被 `tailwindcss` 处理过的 `css` 产物，你可以直接使用，无需注册 `tailwindcss`
+
+### js
+
+`js` 这个文件夹用来存放 `css-resolved` 中样式对应的 `js` 形态，即 `CssInJs`，可交给 `js` 使用，或者作为 `tailwindcss plugin` 基础数据加载。
+
+## 命令
+
+|Options||
+|---|---|
+|`init`|在当前目录初始化配置|
+|`build`|读取配置，并构建样式产物|
+|`inspect [componentName] -o <path>`|加载一个组件的 `Css schema`，不传入 `componentName` 则导出所有，可使用 `-o`,`--out` 加文件名指定导出路径 |

@@ -1,0 +1,18 @@
+# 预设的提炼与使用
+
+## 介绍
+
+预设作为配置的一种，你可以把你的配置提炼出来，做成一个预设
+
+```js filename="icestack.config.js"
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  presets: [myPreset, myFunctionPreset(options)]
+}
+module.exports = config
+```
+
+## 小程序预设 (WIP)

@@ -7,6 +7,7 @@ export default {
   },
   home: {
     startBtnText: 'Get started',
-    componentsBtnText: 'See Css Components'
+    componentsBtnText: 'See Css Components',
+    motto: 'Build your own CSS UI libraries!'
   }
 } as const

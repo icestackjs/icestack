@@ -1,5 +1,7 @@
 # 添加组件
 
+当然，默认提供的组件可能满足不了你的需求，你也可以添加自己的组件
+
 ```js
 /**
  * @type {import('@icestack/ui').Config}
@@ -7,7 +9,7 @@
 const config = {
   outdir: './my-ui',
   components: {
-    // 组件名称
+    // 要添加的组件名称
     xxxxx: {
       // 覆盖, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
       override: {

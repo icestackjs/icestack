@@ -12,7 +12,7 @@ export const Home: FC = (props) => {
       </div>
       {/* <div></div> */}
       <div className="font-extrabold text-[max(48px,min(5vw,76px))]">@icestack/ui</div>
-      <div className="font-extrabold text-2xl mb-10">Build your own Css UI libraries!</div>
+      <div className="font-extrabold text-2xl mb-10">{t('home.motto')}</div>
       <div className="space-x-6">
         <Link className="btn btn-primary outline-none" href="docs/introduction">
           {t('home.startBtnText')}

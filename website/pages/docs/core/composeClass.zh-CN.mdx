@@ -1,0 +1,93 @@
+# 原子类样式的组合使用
+
+你应该使用 `class-variance-authority` 类似的工具来组合你的样式
+
+这里我们以 `button` 组件为例:
+
+## Raw Js
+
+```js
+import { cva } from 'class-variance-authority'
+
+const getButtonClassname = cva(['btn'], {
+  variants: {
+    type: {
+      primary: ['btn-primary'],
+      success: ['btn-success'],
+      warning: ['btn-warning'],
+      error: ['btn-error']
+    },
+    outline: {
+      true: 'btn-outline'
+    },
+    size: {
+      xs: ['btn-xs'],
+      sm: ['btn-sm'],
+      md: ['btn-md'],
+      lg: ['btn-lg'],
+      wide: ['btn-wide'],
+      block: ['btn-block']
+    },
+    glass: {
+      true: 'glass'
+    },
+    disabled: {
+      true: 'btn-disabled'
+    },
+    shape: {
+      square: ['btn-square'],
+      circle: ['btn-circle']
+    }
+  },
+  defaultVariants: {}
+})
+```
+
+## React 封装示例
+
+```tsx filename="MyButton.tsx"
+import { cva } from 'class-variance-authority'
+import type { VariantProps } from 'class-variance-authority'
+import type { FC, PropsWithChildren } from 'react'
+
+const getButtonClassname = cva(['btn'], {
+  variants: {
+    type: {
+      primary: ['btn-primary'],
+      success: ['btn-success'],
+      warning: ['btn-warning'],
+      error: ['btn-error']
+    },
+    outline: {
+      true: 'btn-outline'
+    },
+    size: {
+      xs: ['btn-xs'],
+      sm: ['btn-sm'],
+      md: ['btn-md'],
+      lg: ['btn-lg'],
+      wide: ['btn-wide'],
+      block: ['btn-block']
+    },
+    glass: {
+      true: 'glass'
+    },
+    disabled: {
+      true: 'btn-disabled'
+    },
+    shape: {
+      square: ['btn-square'],
+      circle: ['btn-circle']
+    }
+  },
+  defaultVariants: {}
+})
+
+export type ButtonProps = PropsWithChildren<VariantProps<typeof getButtonClassname>>
+
+const MyButton: FC<ButtonProps> = (props) => {
+  return <button className={getButtonClassname(props)}>{props.children}</button>
+}
+
+export default MyButton
+```

@@ -2,7 +2,11 @@
 
 作为一名开发者，在设计我们自己应用的时候，很少有对第三方控件库默认的组件样式感到满意的
 
-在 `@icestack/ui` 的默认预设下，颜色类型主要有五种分别为 `primary`,`success`,`warning`,`error`,`neutral`
+在 `@icestack/ui` 的默认预设下:
+
+## 颜色
+
+颜色类型主要有五种分别为 `primary`,`success`,`warning`,`error`,`neutral`
 
 于是 `css` 产物中就生成出了
 
@@ -13,39 +17,45 @@
 
 这类的css产物
 
-同样的原理，因为默认尺寸有 `xs`,`sm`,`md`,`lg` 所以会生成出:
+## 尺寸形状
+
+同样的原理，默认尺寸有 `xs`,`sm`,`md`,`lg` 所以会生成出:
 
 ```js
 'btn-xs', 'btn-sm', 'btn-md', 'btn-lg', 'badge-xs', 'badge-sm', 'badge-md', 'badge-lg'
 ```
 
-幸运的是，这些统统都可以修改或者扩展。
+## 主题
+
+默认有 `light` 和 `dark`，它们会生成出各自的 `CSS` 变量块，当然你也可以对它们进行覆盖和扩展。
 
 ## 修改和扩展配置
 
-```js
-const { sharedExtraColors, sharedExtraVars } = require('@icestack/ui/defaults')
-
+```js filename="icestack.config.js"
 /**
  * @type {import('@icestack/ui').Config}
  */
 const config = {
   outdir: './my-ui',
+  // 修改 base
   base: {
+    // 颜色 type
     types: {
       // override primary type
+      // 覆盖 primary 色
       primary: {
-        // light mode
+        // 覆盖 light mode 下的颜色
         light: {
           primary: '#1677ff',
+          'primary-content': '#ffffff',
+          // hover 和 active 色是给部分组件使用的，比如 `button`
           'primary-hover': '#4096ff',
-          'primary-active': '#0958d9',
-          'primary-content': '#ffffff'
+          'primary-active': '#0958d9'
         }
-        // dark mode
+        // 同样也可以覆盖 dark mode 下的表现
         // dark: {}
       },
-      // add new type
+      // 或者你添加一种新的颜色主题: pure
       pure: {
         // light mode colors
         light: {
@@ -68,3 +78,17 @@ const config = {
 }
 module.exports = config
 ```
+
+## 构建
+
+再修改好配置之后，执行 `icestack build` 指令, 重新构建 `my-ui`
+
+接着你会发现，新的颜色主题，和原先主题色的覆盖，相关的改动就已经出现新的 `my-ui` 产物中了，
+
+这时候你就可以使用:
+
+```js
+'btn-pure', 'badge-pure'
+```
+
+这种类名了。

@@ -1,13 +1,21 @@
 # 修改和扩展主题
 
-默认情况下，只包含 `light`,`dark` 2种主题
+## 介绍
+
+作为一个灵活的生成器，当然整个系统主题也可以进行扩展:
+
+> 默认情况下，只包含 `light`,`dark` 2种主题
 
 它们有各自的选择器和注入变量，你可以修改它们或者扩展出你自己的主题
 
+## 示例演示
+
 这里我们以 `icestack.config.js` 为例:
 
-```js
+```js filename="icestack.config.js"
 const { sharedExtraColors, sharedExtraVars } = require('@icestack/ui/defaults')
+// sharedExtraColors 是默认的额外中性色，包含 base-100,base-200 .... base-1300
+// sharedExtraVars 包含一些通用的非颜色 CSS 变量
 
 /**
  * @type {import('@icestack/ui').Config}
@@ -15,7 +23,9 @@ const { sharedExtraColors, sharedExtraVars } = require('@icestack/ui/defaults')
 const config = {
   outdir: './my-ui',
   base: {
+    // 在 themes 添加新的 theme ,并声明选择器
     themes: {
+      // 这里可以进行修改
       // default theme, you can update their selector by change the option
       // light: {
       //   selector: ':root'
@@ -31,23 +41,80 @@ const config = {
     },
     types: {
       primary: {
+        // 新的主题声明
         dimmed: {
           primary: '#1677ff',
+          'primary-content': '#ffffff',
           'primary-hover': '#4096ff',
-          'primary-active': '#0958d9',
-          'primary-content': '#ffffff'
+          'primary-active': '#0958d9'
         }
       }
       // ...
     },
     extraColors: {
       // you can set light or dark or custom
+      // 新的主题声明
       dimmed: sharedExtraColors.dark
     },
     extraVars: {
+      // 新的主题声明
       dimmed: sharedExtraVars
     }
   }
 }
 module.exports = config
+```
+
+## 构建
+
+修改好配置之后，执行 `icestack build` 指令, 重新构建 `my-ui`
+
+接着你会发现，新的主题，相关的改动就已经出现新的 `my-ui` 产物 `my-ui/css/base.index.css` 了，
+
+## 构建产物
+
+```scss
+// light 主题
+:root {
+  --ice-primary: 22 119 255;
+  // ...
+}
+// dark 主题
+[data-mode='dark'] {
+  --ice-primary: 22 104 220;
+  // ...
+}
+// 新扩展的 dimmed 主题
+[data-mode='dimmed'] {
+  // types.primary.dimmed
+  --ice-primary: 22 119 255;
+  --ice-primary-content: 255 255 255;
+  --ice-primary-hover: 64 150 255;
+  --ice-primary-active: 9 88 217;
+  // extraColors
+  --ice-base-1300: 255 255 255;
+  --ice-base-1200: 250 250 250;
+  --ice-base-1100: 245 245 245;
+  --ice-base-1000: 240 240 240;
+  --ice-base-900: 217 217 217;
+  --ice-base-800: 191 191 191;
+  --ice-base-700: 140 140 140;
+  --ice-base-600: 89 89 89;
+  --ice-base-500: 67 67 67;
+  --ice-base-400: 38 38 38;
+  --ice-base-300: 31 31 31;
+  --ice-base-200: 20 20 20;
+  --ice-base-100: 0 0 0;
+  --ice-base-content: 255 255 255;
+  // extraVars
+  --ice-rounded-box: 1rem;
+  --ice-rounded-btn: 0.5rem;
+  --ice-rounded-badge: 1.9rem;
+  --ice-animation-btn: 0.25s;
+  --ice-animation-input: 0.2s;
+  --ice-skeleton-duration: 1.2s;
+  --ice-border-btn: 1px;
+  --ice-tab-border: 1px;
+  --ice-tab-radius: 0.5rem;
+}
 ```

@@ -14,7 +14,8 @@
     "build:coms": "node scripts/generateComponents.js",
     "build:docs": "node scripts/generateDocs.js",
     "build:cos": "cross-env NEXT_OUTPUT=export npm run build",
-    "deploy:cos": "npm run build:cos && ice-deploy -c --dir=storybook-static"
+    "deploy:cos": "npm run build:cos && ice-deploy -c --dir=storybook-static",
+    "typedoc": "typedoc --plugin typedoc-plugin-markdown --out pages/options ../packages/ui/src/types.ts --readme none --tsconfig ./tsconfig.api.json"
   },
   "keywords": [],
   "author": "",
@@ -53,6 +54,8 @@
     "sass": "^1.69.5",
     "serialize-javascript": "^6.0.1",
     "tailwindcss": "^3.3.5",
+    "typedoc": "^0.25.3",
+    "typedoc-plugin-markdown": "^3.17.1",
     "typescript": "latest",
     "unplugin-auto-import": "^0.16.7"
   }

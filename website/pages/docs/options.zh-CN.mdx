@@ -10,23 +10,20 @@ export type CodegenOptions = {
   global: GlobalOptions
   // base 配置
   base: BaseOptions
-  // 变量前缀，防止 css 变量冲突
+  // css变量前缀，防止 css 变量冲突，默认为 `ice-`
   varPrefix: string
   // 打印日志，默认为 true
   log: boolean
-  // 组件前缀
+  // 组件前缀，比如 `.btn` 这里设置 `ice-` 后，相关的会变成 `.ice-btn`
+  // 你无需在 components 里手动添加
   prefix: string | PrefixerOptions
   // 加载的预设
   presets: DeepPartial<CodegenOptions>[]
-  // 配置缓存，默认开启防止每次启动都去生成组件目录
-  cache: boolean
   // 导出文件夹目录
   outdir: string
   // 不生成文件，仅仅获取 js 对象
   dryRun: boolean
-  // 加载文件夹，用于 tailwindcss plugin
-  loaddir: string
-  // 自定义的 tailwindcss config,用于 apply 的 resolve
+  // 自定义的 tailwindcss config, 用于 apply 的 resolve
   tailwindcssConfig: TailwindcssConfig
 }
 ```

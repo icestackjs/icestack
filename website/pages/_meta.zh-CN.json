@@ -10,5 +10,9 @@
   "components": {
     "title": "CSS 组件",
     "type": "page"
+  },
+  "options": {
+    "title": "配置项",
+    "type": "page"
   }
 }

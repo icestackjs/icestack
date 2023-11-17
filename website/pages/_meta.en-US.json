@@ -10,5 +10,9 @@
   "components": {
     "title": "Components",
     "type": "page"
+  },
+  "options": {
+    "title": "Options",
+    "type": "page"
   }
 }

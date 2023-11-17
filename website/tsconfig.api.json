@@ -1,4 +1,5 @@
 {
+  "extends": "../tsconfig.json",
   "compilerOptions": {
     "lib": [
       "dom",
@@ -18,17 +19,13 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": [
-        "components/*"
+      "@/*": [
+        "../packages/ui/src/*"
       ]
     }
   },
   "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    "tailwind.config.js",
-    "scripts/utils.js"
+    "../packages/ui/src/**/*.ts"
   ],
   "exclude": [
     "node_modules"

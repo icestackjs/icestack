@@ -4,13 +4,13 @@ export default {
   project: {
     link: 'https://github.com/sonofmagic/icestack'
   },
-  sidebar: {
-    defaultMenuCollapseLevel: 1
-  },
+  // sidebar: {
+  //   defaultMenuCollapseLevel: 1
+  // },
   docsRepositoryBase: 'https://github.com/sonofmagic/icestack/tree/main/website',
   useNextSeoProps() {
     return {
-      titleTemplate: '%s | sonofmagic'
+      titleTemplate: '%s | @icestack/ui'
     }
   },
   components: {},

@@ -169,6 +169,7 @@ exports[`presets > miniprogramPreset 1`] = `
     "checkbox": {
       "selector": ".checkbox",
     },
+    "form": {},
     "input": {
       "selector": ".input",
     },

@@ -2007,8 +2007,46 @@ exports[`bug fixed > button prefix utils 1`] = `
 }"
 `;
 
+exports[`bug fixed > custom component case 0 1`] = `
+".ice-subtitle {
+  @apply text-gray-600 text-sm pt-5 pb-4;
+}"
+`;
+
 exports[`custom components > custom component base 1`] = `""`;
 
 exports[`custom components > custom component styled 1`] = `""`;
 
-exports[`custom components > custom component utils 1`] = `""`;
+exports[`custom components > custom component utils 1`] = `
+".custom {
+  color: red;
+  @apply bg-blue-500;
+}"
+`;
+
+exports[`form bug > form prefix base 1`] = `
+".ice-form-control {
+  @apply flex flex-col;
+}
+
+.ice-label {
+  @apply flex select-none items-center justify-between;
+}"
+`;
+
+exports[`form bug > form prefix styled 1`] = `
+".ice-label {
+  @apply px-1 py-2;
+}
+.ice-label-text {
+  @apply text-base-content text-sm;
+}
+.ice-label-text-alt {
+  @apply text-base-content text-xs;
+}
+.ice-label a {
+  @apply [@media(hover:hover)]:hover:text-base-content;
+}"
+`;
+
+exports[`form bug > form prefix utils 1`] = `""`;

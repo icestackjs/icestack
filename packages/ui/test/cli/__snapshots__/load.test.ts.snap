@@ -162,6 +162,7 @@ exports[`load config > load cjs config 1`] = `
     "checkbox": {
       "selector": ".checkbox",
     },
+    "form": {},
     "input": {
       "selector": ".input",
     },
@@ -379,6 +380,7 @@ exports[`load config > load js config 1`] = `
     "checkbox": {
       "selector": ".checkbox",
     },
+    "form": {},
     "input": {
       "selector": ".input",
     },
@@ -596,6 +598,7 @@ exports[`load config > load ts config 1`] = `
     "checkbox": {
       "selector": ".checkbox",
     },
+    "form": {},
     "input": {
       "selector": ".input",
     },

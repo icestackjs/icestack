@@ -162,6 +162,7 @@ exports[`options > getCodegenOptions snap 1`] = `
     "checkbox": {
       "selector": ".checkbox",
     },
+    "form": {},
     "input": {
       "selector": ".input",
     },
@@ -308,6 +309,7 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     "checkbox": {
       "selector": ".checkbox",
     },
+    "form": {},
     "input": {
       "selector": ".input",
     },

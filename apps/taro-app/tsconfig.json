@@ -25,6 +25,9 @@
       "@/components/*": [
         "./src/components/*"
       ],
+      "@/store/*": [
+        "./src/store/*"
+      ],
       "@styled-system/*": [
         "styled-system/*"
       ]

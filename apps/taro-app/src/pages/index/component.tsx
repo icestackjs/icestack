@@ -1,31 +1,41 @@
 import { View, Text, Button, ViewProps } from '@tarojs/components'
 // import { useLoad } from '@tarojs/taro'
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import './index.scss'
-import ThemeProvider from '../../components/ThemeProvider'
+import { upperFirst } from 'lodash-es'
+import ThemeProvider from '@/components/ThemeProvider'
 import Taro, { useLoad } from '@tarojs/taro'
 
 const map = {
-  alert: (
-    <View>
-      <View className='ice-alert'>
-        <Text className='i-mdi-information-outline w-6 h-6'></Text>
-        <Text>默认alert</Text>
+  button: () => {
+    return (
+      <View>
+        <View className='ice-subtitle'>按钮类型</View>
       </View>
-      <View className='ice-alert ice-alert-primary'>
-        <Text className='i-mdi-information-outline w-6 h-6'></Text>
-        <Text>默认alert</Text>
+    )
+  },
+  alert: () => {
+    return (
+      <View>
+        <View className='ice-alert'>
+          <Text className='i-mdi-information-outline w-6 h-6'></Text>
+          <Text>默认alert</Text>
+        </View>
+        <View className='ice-alert ice-alert-primary'>
+          <Text className='i-mdi-information-outline w-6 h-6'></Text>
+          <Text>默认alert</Text>
+        </View>
+        <View className='ice-alert ice-alert-success'>
+          <Text className='i-mdi-information-outline w-6 h-6'></Text>
+          <Text>默认alert</Text>
+        </View>
+        <View className='ice-alert ice-alert-warning'>
+          <Text className='i-mdi-information-outline w-6 h-6'></Text>
+          <Text>默认alert</Text>
+        </View>
       </View>
-      <View className='ice-alert ice-alert-success'>
-        <Text className='i-mdi-information-outline w-6 h-6'></Text>
-        <Text>默认alert</Text>
-      </View>
-      <View className='ice-alert ice-alert-warning'>
-        <Text className='i-mdi-information-outline w-6 h-6'></Text>
-        <Text>默认alert</Text>
-      </View>
-    </View>
-  )
+    )
+  }
 }
 
 export default function Index() {
@@ -34,11 +44,17 @@ export default function Index() {
   useLoad<{ id: string }>((params) => {
     if (params.id) {
       Taro.setNavigationBarTitle({
-        title: params.id
+        title: upperFirst(params.id)
       })
       setCom(params.id)
     }
   })
-  const TargetCom = map[com]
-  return <ThemeProvider mode={mode}>{TargetCom}</ThemeProvider>
+  const TargetCom = useMemo(() => {
+    return map[com]
+  }, [com])
+  return (
+    <ThemeProvider mode={mode}>
+      <View className='px-4'>{TargetCom && <TargetCom></TargetCom>}</View>
+    </ThemeProvider>
+  )
 }

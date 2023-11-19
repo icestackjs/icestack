@@ -6,7 +6,7 @@ import postcssJs, { CssInJs } from 'postcss-js'
 import postcss, { Root, AcceptedPlugin } from 'postcss'
 import defu from 'defu'
 import { Value } from 'sass'
-import { CodegenOptions, IBuildScssOptions } from './types'
+import { CodegenOptions } from './types'
 import { generateIndexCode } from './js/generate'
 import { getColors } from './colors'
 import { transformJsToSass } from './sass/utils'
@@ -22,33 +22,50 @@ import { CreatePresetOptions, handleOptions } from '@/components/shared'
 import { componentsMap, componentsNames } from '@/components'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import * as base from '@/base'
-import { ComponentsValue } from '@/types'
 
 export function createContext(options: CodegenOptions) {
-  const { outdir, dryRun, prefix, varPrefix, mode, components, log } = options
+  const { outdir, dryRun, prefix, varPrefix, mode: globalMode, components, log } = options
   logger.logFlag = log
   const { allTypes, presets: basePresets } = base.calcBase(options)
 
-  function getComponentOptions(name: string): Partial<ComponentsValue> {
-    return defu(get(components, name, {}), { mode })
-  }
-
   function createPreset(opts: CreatePresetOptions): Record<(typeof componentsNames)[number], object> {
-    return Object.entries(componentsMap).reduce<Record<string, object>>((acc, [name, lib]) => {
-      const comOpt = getComponentOptions(name)
-      acc[name] = handleOptions(
-        lib?.options({
-          ...opts,
-          selector: comOpt.selector!
-        }),
-        comOpt
-      )
+    return Object.entries(components).reduce<Record<string, object>>((acc, [name, comOpt]) => {
+      if (comOpt === false) {
+        return acc
+      }
+      const lib = componentsMap[name]
+      if (comOpt.mode === undefined) {
+        comOpt.mode = globalMode
+      }
+      const defaults = lib?.options({
+        ...opts,
+        selector: comOpt.selector!
+      })
+      acc[name] = handleOptions(defaults, comOpt)
       return acc
     }, {})
   }
 
   const presets = createPreset({
     types: allTypes
+  })
+  const colors = getColors(options)
+  const allComponentsNames = Object.keys(presets)
+  const buildComponentsTwConfig = initConfig({
+    theme: {
+      extend: {
+        ...createDefaultTailwindcssExtends({ varPrefix }),
+        colors
+      }
+    }
+  })
+
+  const buildUtilitiesTwConfig = initConfig({
+    theme: {
+      extend: {
+        colors
+      }
+    }
   })
 
   function compileScss(defaultPath?: string) {
@@ -101,13 +118,11 @@ export function createContext(options: CodegenOptions) {
     })
   }
 
-  async function buildComponents(opts: IBuildScssOptions) {
-    const { resolveConfig } = opts
-    const config = initConfig()
-    resolveConfig?.(config)
+  async function buildComponents() {
+    const config = buildComponentsTwConfig
 
     const res: Record<string, Record<string, CssInJs>> = {}
-    for (const componentName of componentsNames) {
+    for (const componentName of allComponentsNames) {
       // const start = performance.now()
       for (const stage of stages) {
         const { css: cssOutput } = compileScss(`components.${componentName}.defaults.${stage}`)
@@ -147,10 +162,8 @@ export function createContext(options: CodegenOptions) {
     return res
   }
 
-  async function buildUtilities(opts: IBuildScssOptions) {
-    const { resolveConfig } = opts
-    const config = initConfig()
-    resolveConfig?.(config)
+  async function buildUtilities() {
+    const config = buildUtilitiesTwConfig
 
     const res: Record<string, Record<string, CssInJs>> = {}
     for (const utilityName of utilitiesNames) {
@@ -187,9 +200,7 @@ export function createContext(options: CodegenOptions) {
     return res
   }
 
-  async function buildBase(opts: IBuildScssOptions) {
-    const { resolveConfig } = opts
-
+  async function buildBase() {
     // const name = path.basename(filename, '.scss')
     const { dryRun, tailwindcssConfig } = options
     const { css: cssOutput } = compileScss('base.index')
@@ -205,8 +216,6 @@ export function createContext(options: CodegenOptions) {
     }
 
     const config = defu(tailwindcssConfig, initConfig())
-
-    resolveConfig?.(config)
 
     // scss -> css
     !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
@@ -229,17 +238,12 @@ export function createContext(options: CodegenOptions) {
   }
 
   async function generate(outSideLayerCss: 'base' | 'utilities' | 'components') {
-    const colors = getColors(options)
     switch (outSideLayerCss) {
       case 'base': {
-        return await buildBase({})
+        return await buildBase()
       }
       case 'utilities': {
-        const res = await buildUtilities({
-          resolveConfig(config) {
-            set(config, 'theme.extend.colors', colors)
-          }
-        })
+        const res = await buildUtilities()
 
         if (!dryRun) {
           const outputPath = path.resolve(resolveJsDir(outdir), 'utilities')
@@ -250,24 +254,20 @@ export function createContext(options: CodegenOptions) {
         return res
       }
       case 'components': {
-        const res = await buildComponents({
-          resolveConfig: (config) => {
-            set(config, 'theme.extend', {
-              ...createDefaultTailwindcssExtends({ varPrefix }),
-              colors
-            })
-          }
-        })
+        const res = await buildComponents()
 
         if (!dryRun) {
           const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
-          const code = generateIndexCode(componentsNames, 'components')
+          const code = generateIndexCode(allComponentsNames, 'components')
           fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.js'), code, 'utf8')
         }
 
         return res
       }
-      default:
+      default: {
+        logger.warn("outSideLayerCss should be in 'base' | 'utilities' | 'components' !")
+        break
+      }
     }
   }
 
@@ -278,8 +278,7 @@ export function createContext(options: CodegenOptions) {
     buildBase,
     buildComponents,
     compileScss,
-    createPreset,
-    getComponentOptions
+    createPreset
   }
 }
 

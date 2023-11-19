@@ -90,6 +90,9 @@ export function expandInject<T extends Record<string, T>>(obj: T) {
 // }
 
 export function applyStringToArray(obj: Record<string, any>, res: Record<string, any> = {}) {
+  if (typeof obj !== 'object') {
+    return res
+  }
   const keys = Object.keys(obj)
 
   for (const key of keys) {
@@ -114,16 +117,23 @@ export function applyStringToArray(obj: Record<string, any>, res: Record<string,
 }
 
 export function makeDefaults(obj?: ModeMergeValue, selector?: string) {
-  return {
-    base: {
-      [selector as string]: obj?.base
-    },
-    styled: {
-      [selector as string]: obj?.styled
-    },
-    utils: {
-      [selector as string]: obj?.utils
+  if (selector) {
+    return {
+      base: {
+        [selector]: obj?.base
+      },
+      styled: {
+        [selector]: obj?.styled
+      },
+      utils: {
+        [selector]: obj?.utils
+      }
     }
+  }
+  return {
+    base: {},
+    styled: {},
+    utils: {}
   }
 }
 
@@ -214,6 +224,6 @@ export function recursiveNodes(nodes: postcss.ChildNode[], result: Record<string
 
 export function transformCss2Js(css: string) {
   const root = postcss.parse(css)
-  const result = recursiveNodes(root.nodes)
+  const result = applyStringToArray(recursiveNodes(root.nodes))
   return result
 }

@@ -213,7 +213,8 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   skeleton: {
     selector: '.skeleton'
-  }
+  },
+  form: {}
   // steps: {
   //   selector: '.step'
   // }

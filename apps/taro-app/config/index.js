@@ -33,6 +33,7 @@ const config = {
   alias: {
     '@styled-system': path.resolve(__dirname, '..', 'src/styled-system'),
     '@/components': path.resolve(__dirname, '..', 'src/components'),
+    '@/store': path.resolve(__dirname, '..', 'src/store'),
   },
   terser: {
     enable: false

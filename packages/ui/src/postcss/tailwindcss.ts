@@ -1,7 +1,8 @@
 import postcss from 'postcss'
 import tailwindcss, { type Config } from 'tailwindcss'
-import { CodegenOptions } from '..'
 import gloablPostcss from './global'
+import type { CodegenOptions, DeepPartial } from '@/types'
+import { defuOverrideArray } from '@/utils'
 export function resolveTailwindcss(opts: { css: string; config: Config; options: CodegenOptions }) {
   const { config, css, options } = opts
 
@@ -19,8 +20,8 @@ export function resolveTailwindcss(opts: { css: string; config: Config; options:
   return result
 }
 
-export function initConfig() {
-  const config: Config = {
+export function initConfig(opt?: DeepPartial<Config>) {
+  const config = defuOverrideArray<DeepPartial<Config>, Config[]>(opt!, {
     content: [{ raw: 'hidden' }],
     theme: {
       extend: {}
@@ -28,6 +29,6 @@ export function initConfig() {
     corePlugins: {
       preflight: false
     }
-  }
-  return config
+  })
+  return config as Config
 }

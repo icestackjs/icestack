@@ -45,7 +45,7 @@ export type ComponentsValue = {
   // }
 }
 
-export type ComponentsOptions = Record<(typeof componentsNames)[number], ComponentsValue>
+export type ComponentsOptions = Record<(typeof componentsNames)[number], ComponentsValue | false>
 
 export type GlobalOptions = {
   atMedia: {
@@ -103,10 +103,6 @@ export type Config = Partial<CodegenOptions>
 
 export type TailwindcssPluginOptions = {
   loaddir: string
-}
-
-export interface IBuildScssOptions {
-  resolveConfig?: (config: TailwindcssConfig) => void
 }
 
 // export type DeepRequired<T> = {

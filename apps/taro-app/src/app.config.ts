@@ -6,7 +6,9 @@ export default defineAppConfig({
   window: {
     backgroundTextStyle: 'light',
     navigationBarBackgroundColor: '#fff',
-    navigationBarTitleText: 'WeChat',
+    navigationBarTitleText: 'IceStack',
     navigationBarTextStyle: 'black'
-  }
+  },
+  // https://github.com/NervJS/taro/blob/f7942f5dcdd51599b723c257a7934d597e8cac8a/packages/taro-service/src/platform-plugin-base/mini.ts#L30
+  //https://github.com/NervJS/taro/blob/f7942f5dcdd51599b723c257a7934d597e8cac8a/packages/taro-cli/src/presets/files/generateProjectConfig.ts#L6
 })

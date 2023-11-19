@@ -22,8 +22,8 @@
       "node_modules/@types"
     ],
     "paths": {
-      "@/*": [
-        "src/*"
+      "@/components/*": [
+        "./src/components/*"
       ],
       "@styled-system/*": [
         "styled-system/*"

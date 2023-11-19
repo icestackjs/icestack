@@ -68,6 +68,7 @@
     "build:components": "ts-node --esm scripts/build-scss.ts components",
     "get-coms": "ts-node --esm scripts/get-coms.ts",
     "get-table": "node scripts/get-table.js",
+    "get-group": "node scripts/get-group.js",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
     "raw": "node bin/icestack.js inspect -o ./all0.json"
   },

@@ -1,10 +1,8 @@
-import defu from 'defu'
 import { isObject, pick, set, get } from 'lodash'
-import { recursive } from 'merge'
-// import type { CssInJs } from 'postcss-js'
 import postcss from 'postcss'
 import selectorParser from 'postcss-selector-parser'
 import { IOptionReturnType } from './types'
+import { defu, defuOverrideArray } from '@/utils'
 import type { CodegenMode, ComponentsValue, ModeMergeValue } from '@/types'
 
 const defaultSelectorParser = selectorParser()
@@ -147,7 +145,7 @@ export function handleOptions(d: IOptionReturnType, { extend, override, selector
   let de = applyStringToArray(d) as IOptionReturnType
   de.defaults = pick(de.defaults, getPickedProps(mode))
   if (override) {
-    de = recursive(true, de, {
+    de = defuOverrideArray(de, {
       selector,
       defaults: makeDefaults(override, selector)
     })

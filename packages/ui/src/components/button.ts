@@ -1,25 +1,27 @@
 import { OptionFn, getSelector, IValue, expandTypes } from './shared'
 
-function buttonHover(obj: IValue) {
-  return {
-    '&:hover': obj
-  }
-}
-function buttonActive(obj: IValue) {
-  return {
-    '&:active': obj,
-    '&.btn-active': obj
-  }
-}
-
-function buttonFocusVisible(obj: IValue) {
-  return {
-    '&:focus-visible': obj
-  }
-}
-
 export const options: OptionFn = (opts) => {
   const { selector, types } = opts
+
+  function buttonHover(obj: IValue) {
+    return {
+      [`&${selector}-hover`]: obj,
+      '&:hover': obj
+    }
+  }
+  function buttonActive(obj: IValue) {
+    return {
+      '&:active': obj,
+      [`&${selector}-active`]: obj
+    }
+  }
+
+  function buttonFocusVisible(obj: IValue) {
+    return {
+      '&:focus-visible': obj,
+      [`&${selector}-focus-visible`]: obj
+    }
+  }
 
   return {
     selector,

@@ -7,7 +7,7 @@ import './app.scss'
 // window.WebSocket = WebSocket
 
 function App({ children }: PropsWithChildren) {
-  console.log(XMLHttpRequest)
+  // console.log(XMLHttpRequest)
   // useLaunch(() => {
   //   const ws = new WebSocket('ws://localhost:3000/socket.io')
   //   console.log(ws)

@@ -8,19 +8,19 @@ import Taro, { useLoad } from '@tarojs/taro'
 const map = {
   alert: (
     <View>
-      <View className='alert'>
+      <View className='ice-alert'>
         <Text className='i-mdi-information-outline w-6 h-6'></Text>
         <Text>默认alert</Text>
       </View>
-      <View className='alert alert-primary'>
+      <View className='ice-alert ice-alert-primary'>
         <Text className='i-mdi-information-outline w-6 h-6'></Text>
         <Text>默认alert</Text>
       </View>
-      <View className='alert alert-success'>
+      <View className='ice-alert ice-alert-success'>
         <Text className='i-mdi-information-outline w-6 h-6'></Text>
         <Text>默认alert</Text>
       </View>
-      <View className='alert alert-warning'>
+      <View className='ice-alert ice-alert-warning'>
         <Text className='i-mdi-information-outline w-6 h-6'></Text>
         <Text>默认alert</Text>
       </View>
@@ -28,18 +28,8 @@ const map = {
   )
 }
 
-// function Alert() {
-//   return (
-//     <View>
-//       <View className='alert'>
-//         <View className='i-mdi-information-outline w-6 h-6'></View>
-//         <View>默认alert</View>
-//       </View>
-//     </View>
-//   )
-// }
-
 export default function Index() {
+  const [mode, setMode] = useState<'light' | 'dark'>('light')
   const [com, setCom] = useState('')
   useLoad<{ id: string }>((params) => {
     if (params.id) {
@@ -49,12 +39,6 @@ export default function Index() {
       setCom(params.id)
     }
   })
-  const TargetCom = map[com] // ?? <></>
-  return (
-    <ThemeProvider>
-      {TargetCom}
-      {/* <Alert></Alert> */}
-      {/* <TargetCom></TargetCom> */}
-    </ThemeProvider>
-  )
+  const TargetCom = map[com]
+  return <ThemeProvider mode={mode}>{TargetCom}</ThemeProvider>
 }

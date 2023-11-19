@@ -285,6 +285,13 @@ exports[`'button' options > snap 1`] = `
               "text-base-100",
             ],
           },
+          "&.btn-hover": {
+            "apply": [
+              "border-base-900",
+              "bg-base-900",
+              "text-base-100",
+            ],
+          },
           "&:active": {
             "apply": [
               "border-base-1100",
@@ -319,6 +326,19 @@ exports[`'button' options > snap 1`] = `
             "border-opacity-0",
             "bg-opacity-20",
             "text-opacity-20",
+          ],
+        },
+        "&.btn-focus-visible": {
+          "apply": [
+            "outline",
+            "outline-2",
+            "outline-offset-2",
+          ],
+        },
+        "&.btn-hover": {
+          "apply": [
+            "border-base-300",
+            "bg-base-300",
           ],
         },
         "&.glass": {

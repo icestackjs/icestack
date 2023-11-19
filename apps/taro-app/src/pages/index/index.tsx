@@ -1,32 +1,45 @@
 import { View } from '@tarojs/components'
-// import { useLoad } from '@tarojs/taro'
-import React, { ReactNode, useState } from 'react'
+import Taro from '@tarojs/taro'
+import { upperFirst } from 'lodash-es'
+import { ReactNode, useState } from 'react'
 import './index.scss'
 import ThemeProvider from '../../components/ThemeProvider'
-import { componentsNames } from '@icestack/ui/components'
-import { cx } from 'class-variance-authority'
-import Taro from '@tarojs/taro'
+import { group, i18n } from '../../group'
 
 export default function Index() {
   const [mode, setMode] = useState<'light' | 'dark'>('light')
   return (
     <ThemeProvider mode={mode}>
-      <View className='min-h-screen space-y-4 mx-8'>
-        {allComs.reduce<ReactNode[]>((acc, x) => {
-          acc.push(
-            <View
-              className='bg-gray-200 py-2 rounded-full px-4'
-              hoverClass='bg-gray-400/50'
-              key={x}
-              onClick={() => {
-                Taro.navigateTo({
-                  url: 'component?id=' + x
-                })
-              }}
-            >
-              {x}
-            </View>
-          )
+      <View className='min-h-screen px-5 pt-10 pb-5'>
+        <View className='text-3xl text-gray-700 mb-4 ml-4'>@icestack/ui</View>
+        <View className='text-gray-600 text-sm mb-10 ml-4'>灵活自由的CSS组件生成器</View>
+        {Object.entries(group).reduce<ReactNode[]>((acc, [groupName, componentNames]) => {
+          if (componentNames.length) {
+            acc.push(<View className='text-gray-600 text-sm ml-4 mt-6 mb-2'>{i18n[groupName]}</View>)
+            // space-y-3
+            const res: ReactNode[] = []
+            for (const componentName of componentNames) {
+              res.push(
+                <View
+                  className='bg-gray-100 py-2.5 rounded-full pl-5 pr-3.5 flex justify-between items-center'
+                  hoverClass='bg-gray-300/50'
+                  key={componentName}
+                  onClick={() => {
+                    Taro.navigateTo({
+                      url: 'component?id=' + componentName
+                    })
+                  }}
+                >
+                  <View className='text-sm text-gray-700'>
+                    {upperFirst(componentName)} {i18n[componentName]}
+                  </View>
+                  <View className='i-mdi-chevron-right text-gray-500'></View>
+                </View>
+              )
+            }
+            acc.push(<View className='space-y-3'>{res}</View>)
+          }
+
           return acc
         }, [])}
       </View>

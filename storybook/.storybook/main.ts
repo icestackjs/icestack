@@ -49,6 +49,29 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag'
   },
+  
+  managerHead: (head) => `
+    ${head}
+    ${`<!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN32H8ZXRF"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    
+      gtag('config', 'G-JN32H8ZXRF');
+    </script>`}
+    ${`<script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?05397e75aea8e6211394440e776de61f";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+    `}
+  `,
 
 }
 export default config

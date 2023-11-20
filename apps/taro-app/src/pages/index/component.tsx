@@ -11,6 +11,11 @@ const map = {
     return (
       <View>
         <View className='ice-subtitle'>按钮类型</View>
+        <View className='grid grid-cols-3 gap-2'>
+
+        </View>
+        <View className='ice-subtitle'>朴素按钮</View>
+        <View></View>
       </View>
     )
   },

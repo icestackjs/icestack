@@ -5,16 +5,17 @@ const { miniprogramPreset } = require('@icestack/ui/presets')
  */
 const config = {
   outdir: './my-ui',
-  prefix: 'ice-',
+  // prefix: 'ice-',
   components: {
     subtitle: {
       selector: '.subtitle',
       extra: transformCss2Js(`.subtitle {
         @apply text-gray-600 text-sm pt-5 pb-4;
-      }`)
-    }
+      }`),
+    },
+    table: false
   },
-  presets: []
+  presets: [miniprogramPreset()]
 }
 
 module.exports = config

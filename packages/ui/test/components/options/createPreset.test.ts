@@ -34,11 +34,9 @@ describe('createPreset options', () => {
   })
 
   it('alert base case 0', () => {
-    const options = getCodegenOptions({
+    const ctx = createContext({
       mode: 'base'
     })
-
-    const ctx = createContext(options)
     // const { allTypes } = calcBase(options)
     const res = ctx.createPreset({
       types: []

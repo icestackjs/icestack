@@ -287,7 +287,78 @@ exports[`options > getRawCodegenOptions snap 1`] = `
         "selector": ":root",
       },
     },
-    "types": {},
+    "types": {
+      "error": {
+        "dark": {
+          "error": "#d32029",
+          "error-active": "#e84749",
+          "error-content": "#ffffff",
+          "error-hover": "#a61d24",
+        },
+        "light": {
+          "error": "#f5222d",
+          "error-active": "#cf1322",
+          "error-content": "#ffffff",
+          "error-hover": "#ff4d4f",
+        },
+      },
+      "neutral": {
+        "dark": {
+          "neutral": "#262626",
+          "neutral-active": "#1f1f1f",
+          "neutral-content": "#ffffff",
+          "neutral-hover": "#434343",
+        },
+        "light": {
+          "neutral": "#262626",
+          "neutral-active": "#1f1f1f",
+          "neutral-content": "#ffffff",
+          "neutral-hover": "#434343",
+        },
+      },
+      "primary": {
+        "dark": {
+          "primary": "#1668dc",
+          "primary-active": "#3c89e8",
+          "primary-content": "#ffffff",
+          "primary-hover": "#1554ad",
+        },
+        "light": {
+          "primary": "#1677ff",
+          "primary-active": "#0958d9",
+          "primary-content": "#ffffff",
+          "primary-hover": "#4096ff",
+        },
+      },
+      "success": {
+        "dark": {
+          "success": "#49aa19",
+          "success-active": "#6abe39",
+          "success-content": "#ffffff",
+          "success-hover": "#3c8618",
+        },
+        "light": {
+          "success": "#52c41a",
+          "success-active": "#389e0d",
+          "success-content": "#ffffff",
+          "success-hover": "#73d13d",
+        },
+      },
+      "warning": {
+        "dark": {
+          "warning": "#d89614",
+          "warning-active": "#e8b339",
+          "warning-content": "#ffffff",
+          "warning-hover": "#aa7714",
+        },
+        "light": {
+          "warning": "#faad14",
+          "warning-active": "#d48806",
+          "warning-content": "#ffffff",
+          "warning-hover": "#ffc53d",
+        },
+      },
+    },
   },
   "cache": true,
   "components": {

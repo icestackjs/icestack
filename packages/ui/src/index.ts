@@ -7,6 +7,6 @@ export function defineConfig(options?: Config) {
   return options
 }
 
-export { buildAll as build } from './generate'
+export * from './context'
 
 export { transformCss2Js } from './components/shared'

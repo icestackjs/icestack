@@ -21,17 +21,7 @@ exports[`createPreset options > add custom component raw override case 0 1`] = `
         ],
       },
     },
-    "styled": {
-      ".my-xxx": {
-        "apply": [
-          "rounded-box",
-          "border",
-          "p-4",
-          "text-base-content",
-          "border-base-400",
-        ],
-      },
-    },
+    "styled": {},
     "utils": {
       ".my-xxx": {
         "&:hover": {
@@ -73,20 +63,8 @@ exports[`createPreset options > alert base case 0 1`] = `
         ],
       },
     },
-    "styled": {
-      ".alert": {
-        "apply": [
-          "rounded-box",
-          "border",
-          "p-4",
-          "text-base-content",
-          "border-base-400",
-        ],
-      },
-    },
-    "utils": {
-      ".alert": undefined,
-    },
+    "styled": {},
+    "utils": {},
   },
   "selector": ".alert",
 }
@@ -159,9 +137,7 @@ exports[`createPreset options > alert case 0 1`] = `
         ],
       },
     },
-    "utils": {
-      ".alert": undefined,
-    },
+    "utils": {},
   },
   "selector": ".alert",
 }
@@ -199,9 +175,7 @@ exports[`createPreset options > alert case 1 1`] = `
         ],
       },
     },
-    "utils": {
-      ".alert": undefined,
-    },
+    "utils": {},
   },
   "selector": ".alert",
 }
@@ -228,20 +202,8 @@ exports[`createPreset options > alert raw case 0 1`] = `
         ],
       },
     },
-    "styled": {
-      ".alert": {
-        "apply": [
-          "rounded-box",
-          "border",
-          "p-4",
-          "text-base-content",
-          "border-base-400",
-        ],
-      },
-    },
-    "utils": {
-      ".alert": undefined,
-    },
+    "styled": {},
+    "utils": {},
   },
   "selector": ".alert",
 }
@@ -279,9 +241,7 @@ exports[`createPreset options > alert raw case 1 1`] = `
         ],
       },
     },
-    "utils": {
-      ".alert": undefined,
-    },
+    "utils": {},
   },
   "selector": ".alert",
 }
@@ -309,17 +269,7 @@ exports[`createPreset options > alert raw override case 0 1`] = `
         ],
       },
     },
-    "styled": {
-      ".xxx": {
-        "apply": [
-          "rounded-box",
-          "border",
-          "p-4",
-          "text-base-content",
-          "border-base-400",
-        ],
-      },
-    },
+    "styled": {},
     "utils": {
       ".ccc": {
         "apply": [
@@ -329,7 +279,6 @@ exports[`createPreset options > alert raw override case 0 1`] = `
           "color": "red",
         },
       },
-      ".xxx": undefined,
     },
   },
   "selector": ".xxx",

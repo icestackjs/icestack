@@ -13,11 +13,17 @@ export const miniprogramPreset: () => DeepPartial<CodegenOptions> = () => {
       pseudo: {}
     },
     components: {
+      table: false,
       button: {
         extra: {
           '.btn::after': {
             css: {
               border: 'none'
+            }
+          },
+          '.btn': {
+            css: {
+              'border-style': 'solid'
             }
           }
         }

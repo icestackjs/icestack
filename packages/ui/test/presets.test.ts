@@ -7,4 +7,11 @@ describe('presets', () => {
     })
     expect(opt).toMatchSnapshot()
   })
+
+  it('presets merge case 0', () => {
+    const opt = getCodegenOptions({
+      presets: [miniprogramPreset()]
+    })
+    expect(opt).toMatchSnapshot()
+  })
 })

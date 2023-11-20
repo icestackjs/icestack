@@ -2,8 +2,7 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { Command } from 'commander'
 import pkg from '../package.json'
-import { buildAll } from './generate'
-import { getCodegenOptions, load } from './options'
+import { load } from './options'
 import { logger } from '@/log'
 import { createContext } from '@/context'
 import { JSONStringify } from '@/utils'
@@ -37,8 +36,8 @@ cli
         logger.error('outdir option must be passed!')
         return
       }
-      const cfg = getCodegenOptions(config, true)
-      await buildAll(cfg)
+      const ctx = createContext(config)
+      await ctx.build()
       logger.success('build successfully!')
     }
   })
@@ -49,10 +48,9 @@ cli
   .option('-o, --out <filePath>', 'output file')
   .action(async (componentName, options) => {
     const cwd = process.cwd()
-    const config = await load()
+    const config = await load(cwd)
     if (config) {
-      const cfg = getCodegenOptions(config)
-      const ctx = createContext(cfg)
+      const ctx = createContext(config)
       if (componentName) {
         if (componentName in ctx.presets) {
           const outfile = path.resolve(cwd, options.out ?? `${componentName}.json`)

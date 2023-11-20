@@ -6,12 +6,13 @@ import postcssJs, { CssInJs } from 'postcss-js'
 import postcss, { Root, AcceptedPlugin } from 'postcss'
 import defu from 'defu'
 import { Value } from 'sass'
-import { CodegenOptions } from './types'
+import { CodegenOptions, DeepPartial } from './types'
 import { generateIndexCode } from './js/generate'
 import { getColors } from './colors'
 import { transformJsToSass } from './sass/utils'
 import { createDefaultTailwindcssExtends } from './defaults'
 import { logger } from './log'
+import { getCodegenOptions } from '@/options'
 import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, scssTemplate } from '@/dirs'
 import { stages } from '@/constants'
 import { JSONStringify, ensureDirSync } from '@/utils'
@@ -23,7 +24,8 @@ import { componentsMap, componentsNames } from '@/components'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import * as base from '@/base'
 
-export function createContext(options: CodegenOptions) {
+export function createContext(opts?: DeepPartial<CodegenOptions>) {
+  const options = getCodegenOptions(opts)
   const { outdir, dryRun, prefix, varPrefix, mode: globalMode, components, log } = options
   logger.logFlag = log
   const { allTypes, presets: basePresets } = base.calcBase(options)
@@ -271,12 +273,35 @@ export function createContext(options: CodegenOptions) {
     }
   }
 
+  async function build() {
+    let start = performance.now()
+    const base = await generate('base')
+    let end = performance.now()
+    logger.success('build base finished! ' + `${end - start}ms`)
+    start = performance.now()
+    const utilities = await generate('utilities')
+    end = performance.now()
+    logger.success('build utilities finished! ' + `${end - start}ms`)
+    start = performance.now()
+    const components = await generate('components')
+    end = performance.now()
+    logger.success('build components finished! ' + `${end - start}ms`)
+
+    return {
+      base,
+      components,
+      utilities
+    }
+  }
+
   return {
     presets,
     options,
     generate,
     buildBase,
     buildComponents,
+    buildUtilities,
+    build,
     compileScss,
     createPreset
   }

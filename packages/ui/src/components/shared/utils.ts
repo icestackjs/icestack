@@ -3,7 +3,7 @@ import postcss from 'postcss'
 import selectorParser from 'postcss-selector-parser'
 import { IOptionReturnType } from './types'
 import { defu, defuOverrideArray } from '@/utils'
-import type { CodegenMode, ComponentsValue, ModeMergeValue } from '@/types'
+import type { CodegenMode, ComponentsValue, CssInJs, ModeMergeValue } from '@/types'
 
 const defaultSelectorParser = selectorParser()
 
@@ -117,24 +117,23 @@ export function applyStringToArray(obj: Record<string, any>, res: Record<string,
 }
 
 export function makeDefaults(obj?: ModeMergeValue, selector?: string) {
-  if (selector) {
-    return {
-      base: {
-        [selector]: obj?.base
-      },
-      styled: {
-        [selector]: obj?.styled
-      },
-      utils: {
-        [selector]: obj?.utils
-      }
-    }
-  }
-  return {
+  const res: Record<string, Record<string, CssInJs>> = {
     base: {},
     styled: {},
     utils: {}
   }
+  if (selector) {
+    if (obj?.base) {
+      res.base[selector] = obj.base
+    }
+    if (obj?.styled) {
+      res.styled[selector] = obj.styled
+    }
+    if (obj?.utils) {
+      res.utils[selector] = obj.utils
+    }
+  }
+  return res
 }
 
 function getPickedProps(mode: CodegenMode = 'styled') {

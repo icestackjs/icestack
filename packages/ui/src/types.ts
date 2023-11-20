@@ -81,7 +81,7 @@ export type CodegenOptions = {
   log: boolean
   prefix: string | PrefixerOptions
   // rtl: boolean | ConfigOptions
-  presets: DeepPartial<CodegenOptions>[]
+  presets: (DeepPartial<CodegenOptions> | ((options?: any) => DeepPartial<CodegenOptions>))[]
   cache: boolean
   outdir: string
   dryRun: boolean

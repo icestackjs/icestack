@@ -37,6 +37,13 @@
       "cwd": "${workspaceFolder}/apps/taro-app"
     },
     {
+      "command": "npm run build:ui",
+      "name": "[Taro] build:ui",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/apps/taro-app"
+    },
+    {
       "command": "npm run test:dev",
       "name": "[UI] test watch",
       "request": "launch",

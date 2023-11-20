@@ -1,5 +1,5 @@
 const { transformCss2Js } = require('@icestack/ui')
-
+const { miniprogramPreset } = require('@icestack/ui/presets')
 /**
  * @type {import('@icestack/ui').Config}
  */
@@ -13,7 +13,8 @@ const config = {
         @apply text-gray-600 text-sm pt-5 pb-4;
       }`)
     }
-  }
+  },
+  presets: []
 }
 
 module.exports = config

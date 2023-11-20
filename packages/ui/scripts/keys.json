@@ -1,0 +1,16 @@
+{
+  "loading": [
+    "audio",
+    "ball-triangle",
+    "bars",
+    "circles",
+    "grid",
+    "hearts",
+    "oval",
+    "puff",
+    "rings",
+    "spinning-circles",
+    "tail-spin",
+    "three-dots"
+  ]
+}

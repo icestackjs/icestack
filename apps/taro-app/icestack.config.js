@@ -13,6 +13,12 @@ const config = {
         @apply text-gray-600 text-sm pt-5 pb-4;
       }`),
     },
+    tips: {
+      selector: '.tips',
+      extra: transformCss2Js(`.tips {
+        @apply text-gray-500 text-xs pt-2 pb-3 break-all;
+      }`),
+    },
     table: false
   },
   presets: [miniprogramPreset()]

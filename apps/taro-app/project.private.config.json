@@ -5,9 +5,23 @@
     "miniprogram": {
       "list": [
         {
+          "name": "mask",
+          "pathName": "pages/index/component",
+          "query": "id=mask",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "button",
           "pathName": "pages/index/component",
           "query": "id=button",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "link",
+          "pathName": "pages/index/component",
+          "query": "id=link",
           "launchMode": "default",
           "scene": null
         }

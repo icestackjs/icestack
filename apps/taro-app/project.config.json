@@ -19,12 +19,18 @@
   "compileType": "miniprogram",
   "condition": {
     "miniprogram": {
-      "current": 0,
       "list": [
         {
           "name": "button",
           "path": "pages/index/component",
           "query": "id=button"
+        },
+        {
+          "name": "mask",
+          "path": "pages/index/component",
+          "query": "id=mask",
+          "launchMode": "default",
+          "scene": null
         }
       ]
     }

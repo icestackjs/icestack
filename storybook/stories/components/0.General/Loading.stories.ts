@@ -7,7 +7,7 @@ type Props = VariantProps<typeof c> & { color?: string }
 
 // const types = typePrefix('text')
 const sizes = sizePrefix('loading')
-const shapes = addPrefix('loading', ['spinner', 'dots', 'ring', 'ball', 'bars', 'infinity'])
+const shapes = addPrefix('loading', ['audio', 'ball-triangle', 'bars', 'circles', 'grid', 'hearts', 'oval', 'puff', 'rings', 'spinning-circles', 'tail-spin', 'three-dots'])
 const c = cva(['loading'], {
   variants: {
     // type: expands(types),

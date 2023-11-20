@@ -22,12 +22,34 @@ module.exports = {
     ],
     "utils": []
   },
+  "badge": {
+    "base": [
+      "badge"
+    ],
+    "styled": [
+      "badge-primary",
+      "badge-success",
+      "badge-warning",
+      "badge-error",
+      "badge-neutral",
+      "badge-ghost",
+      "badge-outline"
+    ],
+    "utils": [
+      "badge-xs",
+      "badge-sm",
+      "badge-md",
+      "badge-lg"
+    ]
+  },
   "button": {
     "base": [
       "btn",
       "btn-disabled"
     ],
     "styled": [
+      "btn-focus-visible",
+      "btn-hover",
       "btn-active",
       "btn-primary",
       "btn-success",
@@ -48,26 +70,6 @@ module.exports = {
       "btn-block",
       "btn-square",
       "btn-circle"
-    ]
-  },
-  "badge": {
-    "base": [
-      "badge"
-    ],
-    "styled": [
-      "badge-primary",
-      "badge-success",
-      "badge-warning",
-      "badge-error",
-      "badge-neutral",
-      "badge-ghost",
-      "badge-outline"
-    ],
-    "utils": [
-      "badge-xs",
-      "badge-sm",
-      "badge-md",
-      "badge-lg"
     ]
   },
   "chat": {
@@ -155,6 +157,64 @@ module.exports = {
     ],
     "utils": []
   },
+  "radio": {
+    "base": [
+      "radio"
+    ],
+    "styled": [
+      "radio-primary",
+      "radio-success",
+      "radio-warning",
+      "radio-error",
+      "radio-neutral"
+    ],
+    "utils": [
+      "radio-xs",
+      "radio-sm",
+      "radio-md",
+      "radio-lg"
+    ]
+  },
+  "range": {
+    "base": [
+      "range"
+    ],
+    "styled": [
+      "range-primary",
+      "range-success",
+      "range-warning",
+      "range-error",
+      "range-neutral"
+    ],
+    "utils": [
+      "range-xs",
+      "range-sm",
+      "range-md",
+      "range-lg"
+    ]
+  },
+  "select": {
+    "base": [
+      "select"
+    ],
+    "styled": [
+      "select-bordered",
+      "select-ghost",
+      "select-primary",
+      "select-success",
+      "select-warning",
+      "select-error",
+      "select-neutral",
+      "select-disabled",
+      "select-multiple"
+    ],
+    "utils": [
+      "select-xs",
+      "select-sm",
+      "select-md",
+      "select-lg"
+    ]
+  },
   "textarea": {
     "base": [
       "textarea"
@@ -194,64 +254,6 @@ module.exports = {
       "toggle-lg"
     ]
   },
-  "select": {
-    "base": [
-      "select"
-    ],
-    "styled": [
-      "select-bordered",
-      "select-ghost",
-      "select-primary",
-      "select-success",
-      "select-warning",
-      "select-error",
-      "select-neutral",
-      "select-disabled",
-      "select-multiple"
-    ],
-    "utils": [
-      "select-xs",
-      "select-sm",
-      "select-md",
-      "select-lg"
-    ]
-  },
-  "radio": {
-    "base": [
-      "radio"
-    ],
-    "styled": [
-      "radio-primary",
-      "radio-success",
-      "radio-warning",
-      "radio-error",
-      "radio-neutral"
-    ],
-    "utils": [
-      "radio-xs",
-      "radio-sm",
-      "radio-md",
-      "radio-lg"
-    ]
-  },
-  "range": {
-    "base": [
-      "range"
-    ],
-    "styled": [
-      "range-primary",
-      "range-success",
-      "range-warning",
-      "range-error",
-      "range-neutral"
-    ],
-    "utils": [
-      "range-xs",
-      "range-sm",
-      "range-md",
-      "range-lg"
-    ]
-  },
   "loading": {
     "base": [
       "loading"
@@ -262,12 +264,18 @@ module.exports = {
       "loading-sm",
       "loading-md",
       "loading-lg",
-      "loading-spinner",
-      "loading-dots",
-      "loading-ring",
-      "loading-ball",
+      "loading-audio",
+      "loading-ball-triangle",
       "loading-bars",
-      "loading-infinity"
+      "loading-circles",
+      "loading-grid",
+      "loading-hearts",
+      "loading-oval",
+      "loading-puff",
+      "loading-rings",
+      "loading-spinning-circles",
+      "loading-tail-spin",
+      "loading-three-dots"
     ]
   },
   "mask": {
@@ -298,17 +306,6 @@ module.exports = {
       "mask-triangle-3",
       "mask-triangle-4"
     ]
-  },
-  "form": {
-    "base": [
-      "form-control",
-      "label"
-    ],
-    "styled": [
-      "label-text",
-      "label-text-alt"
-    ],
-    "utils": []
   },
   "table": {
     "base": [
@@ -360,5 +357,16 @@ module.exports = {
       "skeleton-paragraph",
       "skeleton-avatar"
     ]
+  },
+  "form": {
+    "base": [
+      "form-control",
+      "label"
+    ],
+    "styled": [
+      "label-text",
+      "label-text-alt"
+    ],
+    "utils": []
   }
 }

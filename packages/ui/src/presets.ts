@@ -1,4 +1,5 @@
 import type { CodegenOptions, DeepPartial } from './types'
+import { expandTypes, transformCss2Js } from '@/components/shared'
 
 // @ts-ignore
 export const miniprogramPreset: () => DeepPartial<CodegenOptions> = () => {
@@ -28,6 +29,19 @@ export const miniprogramPreset: () => DeepPartial<CodegenOptions> = () => {
           }
         }
       }
+      // checkbox: {
+      //   schema: (opts) => {
+      //     const { selector, types } = opts
+      //     return {
+      //       selector,
+      //       defaults: {
+      //         base: {},
+      //         styled: {},
+      //         utils: {}
+      //       }
+      //     }
+      //   }
+      // }
     },
     base: {
       themes: {

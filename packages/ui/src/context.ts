@@ -20,7 +20,6 @@ import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
 import { getPlugin as getCssVarsPrefixerPlugin } from '@/postcss/custom-property-prefixer'
 import prefixer from '@/postcss/prefixer'
 import { CreatePresetOptions, handleOptions } from '@/components/shared'
-import { schemaMap, names as componentsNames } from '@/components'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import * as base from '@/base'
 
@@ -30,16 +29,16 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
   logger.logFlag = log
   const { allTypes, presets: basePresets } = base.calcBase(options)
 
-  function createPreset(opts: CreatePresetOptions): Record<(typeof componentsNames)[number], object> {
+  function createPreset(opts: CreatePresetOptions): Record<string, object> {
     return Object.entries(components).reduce<Record<string, object>>((acc, [name, comOpt]) => {
       if (comOpt === false) {
         return acc
       }
-      const lib = schemaMap[name]
+
       if (comOpt.mode === undefined) {
         comOpt.mode = globalMode
       }
-      const defaults = lib?.schema({
+      const defaults = comOpt.schema?.({
         ...opts,
         selector: comOpt.selector!
       })

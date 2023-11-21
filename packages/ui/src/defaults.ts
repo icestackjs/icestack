@@ -1,6 +1,6 @@
 import type { CodegenOptions, DeepPartial, ComponentsOptions } from './types'
 import { defaultVarPrefix } from './constants'
-import { componentsMap } from './components'
+import { schemaMap } from '@/components'
 export const sharedExtraVars = {
   'rounded-box': '1rem',
   'rounded-btn': '0.5rem',
@@ -220,6 +220,16 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   // }
 }
 
+export function injectSchema(map: DeepPartial<ComponentsOptions>) {
+  return Object.entries(map).reduce<DeepPartial<ComponentsOptions>>((acc, [key, opts]) => {
+    acc[key] = {
+      ...opts,
+      schema: schemaMap[key].schema
+    }
+    return acc
+  }, {})
+}
+
 export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {}) {
   const { varPrefix = defaultVarPrefix } = opts
   return {
@@ -265,7 +275,7 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
     //   selector: {}
     // },
     components: {
-      ...defaultSelectorMap
+      ...injectSchema(defaultSelectorMap)
     }
   }
 }

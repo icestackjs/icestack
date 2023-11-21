@@ -11,55 +11,12 @@ export function compressCssSelector(selectors: string) {
   return defaultSelectorParser.processSync(selectors, { lossless: false })
 }
 
-export function expandColorsMap<T extends object>(typeArr: string[], fn: (typeName: string) => T) {
-  return typeArr.reduce<Record<string, T>>((acc, cur) => {
-    acc[cur] = fn(cur)
-    return acc
-  }, {})
-}
-
 export function expandTypes(types: string[], fn: (typeName: string) => { key: string; value: object }) {
   return types.reduce<Record<string, object>>((acc, cur) => {
     const { key, value } = fn(cur)
     acc[key] = value
     return acc
   }, {})
-}
-
-export function expandSizes(sizes: string[], fn: (typeName: string) => { key: string; value: object }) {
-  return sizes.reduce<Record<string, object>>((acc, cur) => {
-    const { key, value } = fn(cur)
-    acc[key] = value
-    return acc
-  }, {})
-}
-
-export function expandShapes(shapes: string[], fn: (typeName: string) => { key: string; value: object }) {
-  return shapes.reduce<Record<string, object>>((acc, cur) => {
-    const { key, value } = fn(cur)
-    acc[key] = value
-    return acc
-  }, {})
-}
-
-export function expandInject<T extends Record<string, T>>(obj: T) {
-  if (isObject(obj)) {
-    const keys = Object.keys(obj)
-    for (const key of keys) {
-      const value = obj[key]
-      if (key === 'css' || key === 'sort' || key === 'apply') {
-        // do nothing
-      } else if (typeof value === 'string') {
-        // @ts-ignore
-        obj[key] = {
-          apply: value
-        } as Record<string, string>
-      } else if (isObject(obj[key])) {
-        expandInject(obj[key])
-      }
-    }
-  }
-  return obj
 }
 
 export function applyStringToArray(obj: Record<string, any>, res: Record<string, any> = {}) {

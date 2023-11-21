@@ -1,0 +1,85 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`defaults > injectSchema 1`] = `
+{
+  "alert": {
+    "schema": [Function],
+    "selector": ".alert",
+  },
+  "avatar": {
+    "schema": [Function],
+    "selector": ".avatar",
+  },
+  "badge": {
+    "schema": [Function],
+    "selector": ".badge",
+  },
+  "button": {
+    "schema": [Function],
+    "selector": ".btn",
+  },
+  "chat": {
+    "schema": [Function],
+    "selector": ".chat",
+  },
+  "checkbox": {
+    "schema": [Function],
+    "selector": ".checkbox",
+  },
+  "form": {
+    "schema": [Function],
+  },
+  "input": {
+    "schema": [Function],
+    "selector": ".input",
+  },
+  "link": {
+    "schema": [Function],
+    "selector": ".link",
+  },
+  "loading": {
+    "schema": [Function],
+    "selector": ".loading",
+  },
+  "mask": {
+    "schema": [Function],
+    "selector": ".mask",
+  },
+  "progress": {
+    "schema": [Function],
+    "selector": ".progress",
+  },
+  "radio": {
+    "schema": [Function],
+    "selector": ".radio",
+  },
+  "range": {
+    "schema": [Function],
+    "selector": ".range",
+  },
+  "select": {
+    "schema": [Function],
+    "selector": ".select",
+  },
+  "skeleton": {
+    "schema": [Function],
+    "selector": ".skeleton",
+  },
+  "table": {
+    "schema": [Function],
+    "selector": ".table",
+  },
+  "tabs": {
+    "schema": [Function],
+    "selector": ".tab",
+  },
+  "textarea": {
+    "schema": [Function],
+    "selector": ".textarea",
+  },
+  "toggle": {
+    "schema": [Function],
+    "selector": ".toggle",
+  },
+}
+`;

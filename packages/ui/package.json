@@ -1,6 +1,6 @@
 {
   "name": "@icestack/ui",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "❤️ IceStack, Web UI for Mobile and PC , open-source Headless component library generator",
   "sideEffects": false,
   "type": "commonjs",
@@ -54,7 +54,7 @@
   "scripts": {
     "build": "npm run clean && npm run build:all && npm run build:plugin",
     "build:all": "ts-node --esm scripts/build-scss.ts",
-    "dev": "unbuild --sourcemap",
+    "dev": "npm run clean && npm run build:all && unbuild --sourcemap",
     "build:plugin": "unbuild",
     "clean": "node scripts/clean.js",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",
@@ -66,11 +66,10 @@
     "build:base": "ts-node --esm scripts/build-scss.ts base",
     "build:utilities": "ts-node --esm scripts/build-scss.ts utilities",
     "build:components": "ts-node --esm scripts/build-scss.ts components",
-    "get-coms": "ts-node --esm scripts/get-coms.ts",
     "get-table": "node scripts/get-table.js",
     "get-group": "node scripts/get-group.js",
     "get-svg": "node scripts/svg64.js",
-    "static": "npm run get-coms && npm run get-table && npm run get-group && && npm run get-svg",
+    "static": "npm run get-table && npm run get-group && npm run get-svg",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
     "raw": "node bin/icestack.js inspect -o ./all0.json"
   },

@@ -145,12 +145,15 @@ exports[`presets > miniprogramPreset 1`] = `
   "cache": true,
   "components": {
     "alert": {
+      "schema": [Function],
       "selector": ".alert",
     },
     "avatar": {
+      "schema": [Function],
       "selector": ".avatar",
     },
     "badge": {
+      "schema": [Function],
       "selector": ".badge",
     },
     "button": {
@@ -166,50 +169,67 @@ exports[`presets > miniprogramPreset 1`] = `
           },
         },
       },
+      "schema": [Function],
       "selector": ".btn",
     },
     "chat": {
+      "schema": [Function],
       "selector": ".chat",
     },
     "checkbox": {
+      "schema": [Function],
       "selector": ".checkbox",
     },
-    "form": {},
+    "form": {
+      "schema": [Function],
+    },
     "input": {
+      "schema": [Function],
       "selector": ".input",
     },
     "link": {
+      "schema": [Function],
       "selector": ".link",
     },
     "loading": {
+      "schema": [Function],
       "selector": ".loading",
     },
     "mask": {
+      "schema": [Function],
       "selector": ".mask",
     },
     "progress": {
+      "schema": [Function],
       "selector": ".progress",
     },
     "radio": {
+      "schema": [Function],
       "selector": ".radio",
     },
     "range": {
+      "schema": [Function],
       "selector": ".range",
     },
     "select": {
+      "schema": [Function],
       "selector": ".select",
     },
     "skeleton": {
+      "schema": [Function],
       "selector": ".skeleton",
     },
     "table": false,
     "tabs": {
+      "schema": [Function],
       "selector": ".tab",
     },
     "textarea": {
+      "schema": [Function],
       "selector": ".textarea",
     },
     "toggle": {
+      "schema": [Function],
       "selector": ".toggle",
     },
   },
@@ -266,6 +286,191 @@ exports[`presets > miniprogramPreset 1`] = `
     },
   ],
   "varPrefix": "--ice-",
+}
+`;
+
+exports[`presets > miniprogramPreset checkbox css 1`] = `
+{
+  "base": {
+    ".checkbox": {
+      "flexShrink": 0,
+    },
+  },
+  "styled": {
+    ".checkbox": {
+      "--ice-chkbg": "var(--ice-base-content)",
+      "--ice-chkfg": "var(--ice-base-400)",
+      "--tw-border-opacity": "0.2",
+      "appearance": "none",
+      "borderColor": "rgba(var(--ice-base-content) / var(--tw-border-opacity))",
+      "borderRadius": "var(--ice-rounded-btn, 0.5rem)",
+      "borderWidth": "1px",
+      "cursor": "pointer",
+      "height": "1.5rem",
+      "width": "1.5rem",
+    },
+    ".checkbox-error": {
+      "--ice-chkbg": "var(--ice-error)",
+      "--ice-chkfg": "var(--ice-error-content)",
+      "--tw-border-opacity": "1",
+      "borderColor": "rgba(var(--ice-error) / var(--tw-border-opacity))",
+    },
+    ".checkbox-error:checked,.checkbox-error[checked=true],.checkbox-error[aria-checked=true]": {
+      "--tw-bg-opacity": "1",
+      "--tw-border-opacity": "1",
+      "--tw-text-opacity": "1",
+      "backgroundColor": "rgba(var(--ice-error) / var(--tw-bg-opacity))",
+      "borderColor": "rgba(var(--ice-error) / var(--tw-border-opacity))",
+      "color": "rgba(var(--ice-error-content) / var(--tw-text-opacity))",
+    },
+    ".checkbox-error:focus-visible": {
+      "outlineColor": "rgba(var(--ice-error) / 1)",
+    },
+    ".checkbox-error:hover": {
+      "--tw-border-opacity": "1",
+      "borderColor": "rgba(var(--ice-error) / var(--tw-border-opacity))",
+    },
+    ".checkbox-neutral": {
+      "--ice-chkbg": "var(--ice-neutral)",
+      "--ice-chkfg": "var(--ice-neutral-content)",
+      "--tw-border-opacity": "1",
+      "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
+    },
+    ".checkbox-neutral:checked,.checkbox-neutral[checked=true],.checkbox-neutral[aria-checked=true]": {
+      "--tw-bg-opacity": "1",
+      "--tw-border-opacity": "1",
+      "--tw-text-opacity": "1",
+      "backgroundColor": "rgba(var(--ice-neutral) / var(--tw-bg-opacity))",
+      "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
+      "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+    },
+    ".checkbox-neutral:focus-visible": {
+      "outlineColor": "rgba(var(--ice-neutral) / 1)",
+    },
+    ".checkbox-neutral:hover": {
+      "--tw-border-opacity": "1",
+      "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
+    },
+    ".checkbox-primary": {
+      "--ice-chkbg": "var(--ice-primary)",
+      "--ice-chkfg": "var(--ice-primary-content)",
+      "--tw-border-opacity": "1",
+      "borderColor": "rgba(var(--ice-primary) / var(--tw-border-opacity))",
+    },
+    ".checkbox-primary:checked,.checkbox-primary[checked=true],.checkbox-primary[aria-checked=true]": {
+      "--tw-bg-opacity": "1",
+      "--tw-border-opacity": "1",
+      "--tw-text-opacity": "1",
+      "backgroundColor": "rgba(var(--ice-primary) / var(--tw-bg-opacity))",
+      "borderColor": "rgba(var(--ice-primary) / var(--tw-border-opacity))",
+      "color": "rgba(var(--ice-primary-content) / var(--tw-text-opacity))",
+    },
+    ".checkbox-primary:focus-visible": {
+      "outlineColor": "rgba(var(--ice-primary) / 1)",
+    },
+    ".checkbox-primary:hover": {
+      "--tw-border-opacity": "1",
+      "borderColor": "rgba(var(--ice-primary) / var(--tw-border-opacity))",
+    },
+    ".checkbox-success": {
+      "--ice-chkbg": "var(--ice-success)",
+      "--ice-chkfg": "var(--ice-success-content)",
+      "--tw-border-opacity": "1",
+      "borderColor": "rgba(var(--ice-success) / var(--tw-border-opacity))",
+    },
+    ".checkbox-success:checked,.checkbox-success[checked=true],.checkbox-success[aria-checked=true]": {
+      "--tw-bg-opacity": "1",
+      "--tw-border-opacity": "1",
+      "--tw-text-opacity": "1",
+      "backgroundColor": "rgba(var(--ice-success) / var(--tw-bg-opacity))",
+      "borderColor": "rgba(var(--ice-success) / var(--tw-border-opacity))",
+      "color": "rgba(var(--ice-success-content) / var(--tw-text-opacity))",
+    },
+    ".checkbox-success:focus-visible": {
+      "outlineColor": "rgba(var(--ice-success) / 1)",
+    },
+    ".checkbox-success:hover": {
+      "--tw-border-opacity": "1",
+      "borderColor": "rgba(var(--ice-success) / var(--tw-border-opacity))",
+    },
+    ".checkbox-warning": {
+      "--ice-chkbg": "var(--ice-warning)",
+      "--ice-chkfg": "var(--ice-warning-content)",
+      "--tw-border-opacity": "1",
+      "borderColor": "rgba(var(--ice-warning) / var(--tw-border-opacity))",
+    },
+    ".checkbox-warning:checked,.checkbox-warning[checked=true],.checkbox-warning[aria-checked=true]": {
+      "--tw-bg-opacity": "1",
+      "--tw-border-opacity": "1",
+      "--tw-text-opacity": "1",
+      "backgroundColor": "rgba(var(--ice-warning) / var(--tw-bg-opacity))",
+      "borderColor": "rgba(var(--ice-warning) / var(--tw-border-opacity))",
+      "color": "rgba(var(--ice-warning-content) / var(--tw-text-opacity))",
+    },
+    ".checkbox-warning:focus-visible": {
+      "outlineColor": "rgba(var(--ice-warning) / 1)",
+    },
+    ".checkbox-warning:hover": {
+      "--tw-border-opacity": "1",
+      "borderColor": "rgba(var(--ice-warning) / var(--tw-border-opacity))",
+    },
+    ".checkbox:checked,.checkbox[checked=true],.checkbox[aria-checked=true]": {
+      "--tw-bg-opacity": "1",
+      "animation": "checkmark var(--ice-animation-input, 0.2s) ease-out",
+      "backgroundColor": "rgba(var(--ice-base-content) / var(--tw-bg-opacity))",
+      "backgroundImage": "linear-gradient(-45deg, transparent 65%, rgba(var(--ice-chkbg)) 65.99%), linear-gradient(45deg, transparent 75%, rgba(var(--ice-chkbg)) 75.99%), linear-gradient(-45deg, rgba(var(--ice-chkbg)) 40%, transparent 40.99%), linear-gradient( 45deg, rgba(var(--ice-chkbg)) 30%, rgba(var(--ice-chkfg)) 30.99%, rgba(var(--ice-chkfg)) 40%, transparent 40.99% ), linear-gradient(-45deg, rgba(var(--ice-chkfg)) 50%, rgba(var(--ice-chkbg)) 50.99%)",
+      "backgroundRepeat": "no-repeat",
+    },
+    ".checkbox:disabled": {
+      "--tw-bg-opacity": "1",
+      "backgroundColor": "rgba(var(--ice-base-content) / var(--tw-bg-opacity))",
+      "borderColor": "transparent",
+      "cursor": "not-allowed",
+      "opacity": 0.2,
+    },
+    ".checkbox:focus-visible": {
+      "outlineColor": "rgba(var(--ice-base-content) / 1)",
+      "outlineOffset": "2px",
+      "outlineStyle": "solid",
+      "outlineWidth": "2px",
+    },
+    ".checkbox:indeterminate": {
+      "--tw-bg-opacity": "1",
+      "animation": "checkmark var(--ice-animation-input, 0.2s) ease-out",
+      "backgroundColor": "rgba(var(--ice-base-content) / var(--tw-bg-opacity))",
+      "backgroundImage": "linear-gradient(90deg, transparent 80%, rgba(var(--ice-chkbg)) 80%), linear-gradient(-90deg, transparent 80%, rgba(var(--ice-chkbg)) 80%), linear-gradient( 0deg, rgba(var(--ice-chkbg)) 43%, rgba(var(--ice-chkfg)) 43%, rgba(var(--ice-chkfg)) 57%, rgba(var(--ice-chkbg)) 57% )",
+      "backgroundRepeat": "no-repeat",
+    },
+    "@keyframes checkmark": {
+      "0%": {
+        "backgroundPositionY": "5px",
+      },
+      "100%": {
+        "backgroundPositionY": "0",
+      },
+      "50%": {
+        "backgroundPositionY": "-2px",
+      },
+    },
+  },
+  "utils": {
+    ".checkbox-lg": {
+      "height": "2rem",
+      "width": "2rem",
+    },
+    ".checkbox-md": {
+      "height": "1.5rem",
+      "width": "1.5rem",
+    },
+    ".checkbox-sm": {
+      "height": "1.25rem",
+      "width": "1.25rem",
+    },
+    ".checkbox-xs": {
+      "height": "1rem",
+      "width": "1rem",
+    },
+  },
 }
 `;
 
@@ -414,12 +619,15 @@ exports[`presets > presets merge case 0 1`] = `
   "cache": true,
   "components": {
     "alert": {
+      "schema": [Function],
       "selector": ".alert",
     },
     "avatar": {
+      "schema": [Function],
       "selector": ".avatar",
     },
     "badge": {
+      "schema": [Function],
       "selector": ".badge",
     },
     "button": {
@@ -435,50 +643,67 @@ exports[`presets > presets merge case 0 1`] = `
           },
         },
       },
+      "schema": [Function],
       "selector": ".btn",
     },
     "chat": {
+      "schema": [Function],
       "selector": ".chat",
     },
     "checkbox": {
+      "schema": [Function],
       "selector": ".checkbox",
     },
-    "form": {},
+    "form": {
+      "schema": [Function],
+    },
     "input": {
+      "schema": [Function],
       "selector": ".input",
     },
     "link": {
+      "schema": [Function],
       "selector": ".link",
     },
     "loading": {
+      "schema": [Function],
       "selector": ".loading",
     },
     "mask": {
+      "schema": [Function],
       "selector": ".mask",
     },
     "progress": {
+      "schema": [Function],
       "selector": ".progress",
     },
     "radio": {
+      "schema": [Function],
       "selector": ".radio",
     },
     "range": {
+      "schema": [Function],
       "selector": ".range",
     },
     "select": {
+      "schema": [Function],
       "selector": ".select",
     },
     "skeleton": {
+      "schema": [Function],
       "selector": ".skeleton",
     },
     "table": false,
     "tabs": {
+      "schema": [Function],
       "selector": ".tab",
     },
     "textarea": {
+      "schema": [Function],
       "selector": ".textarea",
     },
     "toggle": {
+      "schema": [Function],
       "selector": ".toggle",
     },
   },

@@ -2,6 +2,7 @@ import defu from 'defu'
 import { loadConfig } from 'c12'
 import { getCodegenDefaults } from './defaults'
 import type { CodegenOptions, DeepPartial } from './types'
+
 export function getCodegenOptions(options?: DeepPartial<CodegenOptions>): CodegenOptions {
   let presets: DeepPartial<CodegenOptions>[] = []
   if (options?.presets && Array.isArray(options?.presets)) {
@@ -16,6 +17,7 @@ export function getCodegenOptions(options?: DeepPartial<CodegenOptions>): Codege
         })
         .filter(Boolean) ?? []
   }
+
   return defu<CodegenOptions, DeepPartial<CodegenOptions>[]>(options, ...presets, getCodegenDefaults())
 }
 

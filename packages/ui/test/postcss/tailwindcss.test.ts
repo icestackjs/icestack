@@ -1,4 +1,4 @@
-import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
+import { resolveTailwindcss, initTailwindcssConfig as initConfig } from '@/postcss/tailwindcss'
 import { getCodegenOptions } from '@/options'
 describe('resolveTailwindcss', () => {
   it('css case 0', async () => {

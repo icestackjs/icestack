@@ -14,7 +14,7 @@ describe('build', () => {
         dryRun: true
       })
     )
-    const base = await ctx.generate('base')
+    const base = await ctx.buildBase()
     expect(base).toMatchSnapshot()
   })
 
@@ -25,7 +25,7 @@ describe('build', () => {
         presets: [miniprogramPreset]
       })
     )
-    const base = await ctx.generate('base')
+    const base = await ctx.buildBase()
     expect(base).toMatchSnapshot()
   })
 
@@ -45,7 +45,7 @@ describe('build', () => {
         }
       })
     )
-    const base = await ctx.generate('base')
+    const base = await ctx.buildBase()
     expect(base).toMatchSnapshot()
   })
 })

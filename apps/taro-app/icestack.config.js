@@ -19,10 +19,11 @@ const config = {
         @apply text-gray-500 text-xs pt-2 pb-3 break-all;
       }`),
     },
-    table: false,
-    checkbox: {
-
-    }
+    // checkbox: {
+    //   prefix: {
+    //     prefix: 'ice-'
+    //   }
+    // }
   },
   presets: [miniprogramPreset()]
 }

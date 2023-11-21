@@ -10,13 +10,13 @@ describe('utilities', () => {
   it('glass snap', async () => {
     const ctx = createContext(getCodegenOptions())
     const { css } = await ctx.compileScss('utilities.glass')
-    expect(css).toMatchSnapshot()
+    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
   })
 
   it('variables snap', async () => {
     const ctx = createContext(getCodegenOptions())
     const { css } = await ctx.compileScss('utilities.variables')
-    expect(css).toMatchSnapshot()
+    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
   })
 })
 

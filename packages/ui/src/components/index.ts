@@ -43,10 +43,13 @@ const _schemaMap = {
   tabs,
   skeleton
   // steps
-} as Record<string, { schema: GetSchemaFn }>
+} as const
+
+const componentNames = Object.keys(_schemaMap) // as unknown as keyof typeof _schemaMap
+
 const schemaMap = {} as Record<string, { schema: GetSchemaFn }>
-for (const componentName of Object.keys(_schemaMap)) {
-  const o = _schemaMap[componentName].schema
+for (const componentName of componentNames) {
+  const o = _schemaMap[componentName as keyof typeof _schemaMap].schema
   schemaMap[componentName] = {
     schema: (...args) => {
       const { defaults, selector } = o(...args)
@@ -59,4 +62,9 @@ for (const componentName of Object.keys(_schemaMap)) {
 }
 
 const names = Object.keys(schemaMap) as (keyof typeof _schemaMap)[]
-export { names, schemaMap }
+
+const removeDefaultComponents = names.reduce<Record<string, boolean>>((acc, cur) => {
+  acc[cur] = false
+  return acc
+}, {})
+export { names, schemaMap, removeDefaultComponents }

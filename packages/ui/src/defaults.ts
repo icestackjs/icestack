@@ -1,3 +1,4 @@
+import { Config } from 'tailwindcss'
 import type { CodegenOptions, DeepPartial, ComponentsOptions } from './types'
 import { defaultVarPrefix } from './constants'
 import { schemaMap } from '@/components'
@@ -230,7 +231,7 @@ export function injectSchema(map: DeepPartial<ComponentsOptions>) {
   }, {})
 }
 
-export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {}) {
+export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {}): DeepPartial<Config>['theme'] {
   const { varPrefix = defaultVarPrefix } = opts
   return {
     borderRadius: {
@@ -243,6 +244,10 @@ export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {
       8: '2rem',
       12: '3rem',
       16: '4rem'
+    },
+    lineHeight: {
+      1: '0.25rem',
+      2: '0.5rem'
     }
   }
 }

@@ -7,8 +7,8 @@ describe('base', () => {
     ctx = createContext(getCodegenOptions())
   })
   it('snap', () => {
-    const result = ctx.compileScss('base.index')
-    expect(result.css).toMatchSnapshot()
+    const { css } = ctx.compileScss('base.index')
+    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
   })
 
   it('snap case 1', async () => {
@@ -27,7 +27,7 @@ describe('base', () => {
       })
     )
     const { css } = await ctx.compileScss('base.index')
-    expect(css).toMatchSnapshot()
+    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
   })
 
   it('add new theme case 0', async () => {
@@ -60,6 +60,6 @@ describe('base', () => {
       })
     )
     const { css } = await ctx.compileScss('base.index')
-    expect(css).toMatchSnapshot()
+    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
   })
 })

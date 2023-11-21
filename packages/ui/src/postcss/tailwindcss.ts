@@ -20,8 +20,9 @@ export function resolveTailwindcss(opts: { css: string; config: Config; options:
   return result
 }
 
-export function initConfig(opt?: DeepPartial<Config>) {
-  const config = defuOverrideArray<DeepPartial<Config>, Config[]>(opt!, {
+export function initTailwindcssConfig(config?: DeepPartial<Config>, ...defaults: DeepPartial<Config>[]) {
+  const defus = defaults ?? []
+  const cfg = defuOverrideArray<DeepPartial<Config>, DeepPartial<Config>[]>(config!, ...defus, {
     content: [{ raw: 'hidden' }],
     theme: {
       extend: {}
@@ -30,5 +31,5 @@ export function initConfig(opt?: DeepPartial<Config>) {
       preflight: false
     }
   })
-  return config as Config
+  return cfg as Config
 }

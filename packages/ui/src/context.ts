@@ -2,32 +2,53 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { set, get } from 'lodash'
 import * as sass from 'sass'
-import postcssJs, { CssInJs } from 'postcss-js'
-import postcss, { Root, AcceptedPlugin } from 'postcss'
-import defu from 'defu'
-import { Value } from 'sass'
-import { CodegenOptions, DeepPartial } from './types'
-import { generateIndexCode } from './js/generate'
+import type { Value } from 'sass'
+import type { CodegenOptions, DeepPartial, ILayer, CssInJs } from './types'
+import { generateIndexCode } from './js'
 import { getColors } from './colors'
-import { transformJsToSass } from './sass/utils'
+import { transformJsToSass } from './sass'
 import { createDefaultTailwindcssExtends } from './defaults'
 import { logger } from './log'
 import { getCodegenOptions } from '@/options'
 import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, scssTemplate } from '@/dirs'
 import { stages } from '@/constants'
-import { JSONStringify, ensureDirSync } from '@/utils'
-import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
-import { getPlugin as getCssVarsPrefixerPlugin } from '@/postcss/custom-property-prefixer'
-import prefixer from '@/postcss/prefixer'
+import { JSONStringify, defu, ensureDirSync } from '@/utils'
 import { CreatePresetOptions, handleOptions } from '@/components/shared'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import * as base from '@/base'
+import { getPrefixerPlugin, getCssVarsPrefixerPlugin, resolveTailwindcss, initTailwindcssConfig, objectify, process, Root, AcceptedPlugin, resolvePrefixOption } from '@/postcss'
+
+function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
+  return `${layer}.${suffixes.join('.')}`
+}
 
 export function createContext(opts?: DeepPartial<CodegenOptions>) {
   const options = getCodegenOptions(opts)
-  const { outdir, dryRun, prefix, varPrefix, mode: globalMode, components, log } = options
+  const { outdir, dryRun, prefix: _globalPrefix, varPrefix, mode: globalMode, components, log, tailwindcssConfig } = options
+  const globalPrefix = resolvePrefixOption(_globalPrefix)
   logger.logFlag = log
   const { allTypes, presets: basePresets } = base.calcBase(options)
+
+  function writeFile(file: string, data: string) {
+    !dryRun && fs.writeFileSync(file, data, 'utf8')
+  }
+
+  function getPaths(relPath: string) {
+    const cssPath = getCssPath(relPath, outdir)
+    const jsPath = getJsPath(relPath, outdir)
+    const cssResolvedPath = getCssResolvedPath(relPath, outdir)
+
+    if (!dryRun) {
+      ensureDirSync(path.dirname(cssPath))
+      ensureDirSync(path.dirname(jsPath))
+      ensureDirSync(path.dirname(cssResolvedPath))
+    }
+    return {
+      cssPath,
+      jsPath,
+      cssResolvedPath
+    }
+  }
 
   function createPreset(opts: CreatePresetOptions): Record<string, object> {
     return Object.entries(components).reduce<Record<string, object>>((acc, [name, comOpt]) => {
@@ -52,18 +73,10 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
   })
   const colors = getColors(options)
   const allComponentsNames = Object.keys(presets)
-  const buildComponentsTwConfig = initConfig({
+  const twConfig = initTailwindcssConfig(tailwindcssConfig, {
     theme: {
       extend: {
         ...createDefaultTailwindcssExtends({ varPrefix }),
-        colors
-      }
-    }
-  })
-
-  const buildUtilitiesTwConfig = initConfig({
-    theme: {
-      extend: {
         colors
       }
     }
@@ -101,188 +114,126 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
       }
     }
 
-    const result = sass.compile(scssTemplate, sassOptions)
-    const plugins: AcceptedPlugin[] = [getCssVarsPrefixerPlugin(varPrefix)]
+    return sass.compile(scssTemplate, sassOptions)
+  }
 
-    if (typeof prefix === 'string') {
-      plugins.push(
-        prefixer({
-          prefix
-        })
-      )
-    } else if (typeof prefix === 'object') {
-      plugins.push(prefixer(prefix))
+  function preProcessCss(css: string, layer?: ILayer, name?: string) {
+    const plugins: AcceptedPlugin[] = [getCssVarsPrefixerPlugin(varPrefix)]
+    if (layer === 'components' && name) {
+      const t = components[name]
+      if (typeof t === 'object') {
+        const prefix = resolvePrefixOption(t.prefix)
+        const plugin = getPrefixerPlugin(defu(prefix, globalPrefix))
+        plugin && plugins.push(plugin)
+      }
+    } else {
+      const plugin = getPrefixerPlugin(globalPrefix)
+      plugin && plugins.push(plugin)
     }
-    // @ts-ignore
-    return postcss(plugins).process(result.css, {
-      from: undefined
+
+    return process(plugins, css)
+  }
+
+  async function internalBuild(opts: { layer: ILayer; suffixes: string[]; relPath: string }) {
+    const { layer, suffixes, relPath } = opts
+    const defaultPath = makeDefaultPath(layer, ...suffixes)
+    const { css } = compileScss(defaultPath)
+    const { css: cssOutput } = preProcessCss(css, layer, suffixes[0])
+    const { cssPath, cssResolvedPath, jsPath } = getPaths(relPath)
+
+    // scss -> css
+    writeFile(cssPath, cssOutput)
+
+    const { root, css: resolvedCss } = await resolveTailwindcss({
+      css: cssOutput,
+      config: twConfig,
+      options
     })
+
+    writeFile(cssResolvedPath, resolvedCss)
+
+    const cssJsObj = objectify(root as Root)
+
+    const data = 'module.exports = ' + JSONStringify(cssJsObj)
+    // css -> js
+    writeFile(jsPath, data)
+
+    return {
+      cssJsObj
+    }
+  }
+
+  async function buildBase() {
+    const layer: ILayer = 'base'
+    const { cssJsObj } = await internalBuild({
+      layer,
+      suffixes: ['index'],
+      relPath: `${layer}/index.scss`
+    })
+    return cssJsObj
+  }
+
+  async function buildUtilities() {
+    const layer: ILayer = 'utilities'
+    const res: Record<string, Record<string, CssInJs>> = {}
+    for (const utilityName of utilitiesNames) {
+      const { cssJsObj } = await internalBuild({
+        layer,
+        suffixes: [utilityName],
+        relPath: `${layer}/${utilityName}.scss`
+      })
+
+      set(res, `${utilityName}`, cssJsObj)
+    }
+
+    if (!dryRun) {
+      const outputPath = path.resolve(resolveJsDir(outdir), 'utilities')
+      const code = generateIndexCode(utilitiesNames, 'utilities')
+      fs.writeFileSync(path.resolve(outputPath, 'index.js'), code, 'utf8')
+    }
+
+    return res
   }
 
   async function buildComponents() {
-    const config = buildComponentsTwConfig
-
+    const layer: ILayer = 'components'
     const res: Record<string, Record<string, CssInJs>> = {}
     for (const componentName of allComponentsNames) {
       // const start = performance.now()
       for (const stage of stages) {
-        const { css: cssOutput } = compileScss(`components.${componentName}.defaults.${stage}`)
-        const relPath = `components/${componentName}/${stage}.scss`
-        const cssPath = getCssPath(relPath, outdir)
-        const jsPath = getJsPath(relPath, outdir)
-        const cssResolvedPath = getCssResolvedPath(relPath, outdir)
-
-        if (!dryRun) {
-          ensureDirSync(path.dirname(cssPath))
-          ensureDirSync(path.dirname(jsPath))
-          ensureDirSync(path.dirname(cssResolvedPath))
-        }
-
-        // scss -> css
-        !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
-        const { root, css } = await resolveTailwindcss({
-          css: cssOutput,
-          config,
-          options
+        const { cssJsObj } = await internalBuild({
+          layer,
+          suffixes: [componentName, 'defaults', stage],
+          relPath: `${layer}/${componentName}/${stage}.scss`
         })
 
-        !dryRun && fs.writeFileSync(cssResolvedPath, css, 'utf8')
-        const cssJsObj = postcssJs.objectify(root as Root)
-
-        if (!dryRun) {
-          const data = 'module.exports = ' + JSONStringify(cssJsObj)
-          // css -> js
-          fs.writeFileSync(jsPath, data, 'utf8')
-        }
         set(res, `${componentName}.${stage}`, cssJsObj)
         // res[componentName][stage] = cssJsObj
       }
       // const end = performance.now()
       // logger.success(`build component [${componentName}] finished! ` + `${end - start}ms`)
     }
-    return res
-  }
-
-  async function buildUtilities() {
-    const config = buildUtilitiesTwConfig
-
-    const res: Record<string, Record<string, CssInJs>> = {}
-    for (const utilityName of utilitiesNames) {
-      const { css: cssOutput } = compileScss(`utilities.${utilityName}`)
-      const relPath = `utilities/${utilityName}.scss`
-      const cssPath = getCssPath(relPath, outdir)
-      const jsPath = getJsPath(relPath, outdir)
-      const cssResolvedPath = getCssResolvedPath(relPath, outdir)
-
-      if (!dryRun) {
-        ensureDirSync(path.dirname(cssPath))
-        ensureDirSync(path.dirname(jsPath))
-        ensureDirSync(path.dirname(cssResolvedPath))
-      }
-
-      // scss -> css
-      !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
-      const { root, css } = await resolveTailwindcss({
-        css: cssOutput,
-        config,
-        options
-      })
-
-      !dryRun && fs.writeFileSync(cssResolvedPath, css, 'utf8')
-      const cssJsObj = postcssJs.objectify(root as Root)
-
-      if (!dryRun) {
-        const data = 'module.exports = ' + JSONStringify(cssJsObj)
-        // css -> js
-        fs.writeFileSync(jsPath, data, 'utf8')
-      }
-      set(res, `${utilityName}`, cssJsObj)
-    }
-    return res
-  }
-
-  async function buildBase() {
-    // const name = path.basename(filename, '.scss')
-    const { dryRun, tailwindcssConfig } = options
-    const { css: cssOutput } = compileScss('base.index')
-    const relPath = `base/index.scss`
-    const cssPath = getCssPath(relPath, outdir)
-    const jsPath = getJsPath(relPath, outdir)
-    const cssResolvedPath = getCssResolvedPath(relPath, outdir)
 
     if (!dryRun) {
-      ensureDirSync(path.dirname(cssPath))
-      ensureDirSync(path.dirname(jsPath))
-      ensureDirSync(path.dirname(cssResolvedPath))
+      const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
+      const code = generateIndexCode(allComponentsNames, 'components')
+      fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.js'), code, 'utf8')
     }
 
-    const config = defu(tailwindcssConfig, initConfig())
-
-    // scss -> css
-    !dryRun && fs.writeFileSync(cssPath, cssOutput, 'utf8')
-    const { root, css } = await resolveTailwindcss({
-      css: cssOutput,
-      config,
-      options
-    })
-
-    !dryRun && fs.writeFileSync(cssResolvedPath, css, 'utf8')
-    const cssJsObj = postcssJs.objectify(root as Root)
-
-    if (!dryRun) {
-      const data = 'module.exports = ' + JSONStringify(cssJsObj)
-      // css -> js
-      fs.writeFileSync(jsPath, data, 'utf8')
-    }
-
-    return cssJsObj
-  }
-
-  async function generate(outSideLayerCss: 'base' | 'utilities' | 'components') {
-    switch (outSideLayerCss) {
-      case 'base': {
-        return await buildBase()
-      }
-      case 'utilities': {
-        const res = await buildUtilities()
-
-        if (!dryRun) {
-          const outputPath = path.resolve(resolveJsDir(outdir), 'utilities')
-          const code = generateIndexCode(utilitiesNames, 'utilities')
-          fs.writeFileSync(path.resolve(outputPath, 'index.js'), code, 'utf8')
-        }
-
-        return res
-      }
-      case 'components': {
-        const res = await buildComponents()
-
-        if (!dryRun) {
-          const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
-          const code = generateIndexCode(allComponentsNames, 'components')
-          fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.js'), code, 'utf8')
-        }
-
-        return res
-      }
-      default: {
-        logger.warn("outSideLayerCss should be in 'base' | 'utilities' | 'components' !")
-        break
-      }
-    }
+    return res
   }
 
   async function build() {
     let start = performance.now()
-    const base = await generate('base')
+    const base = await buildBase()
     let end = performance.now()
     logger.success('build base finished! ' + `${end - start}ms`)
     start = performance.now()
-    const utilities = await generate('utilities')
+    const utilities = await buildUtilities()
     end = performance.now()
     logger.success('build utilities finished! ' + `${end - start}ms`)
     start = performance.now()
-    const components = await generate('components')
+    const components = await buildComponents()
     end = performance.now()
     logger.success('build components finished! ' + `${end - start}ms`)
 
@@ -294,15 +245,15 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
   }
 
   return {
+    buildBase,
+    buildUtilities,
+    buildComponents,
     presets,
     options,
-    generate,
-    buildBase,
-    buildComponents,
-    buildUtilities,
     build,
     compileScss,
-    createPreset
+    createPreset,
+    preProcessCss
   }
 }
 

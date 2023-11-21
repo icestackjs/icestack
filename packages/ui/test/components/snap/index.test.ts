@@ -4,7 +4,7 @@ import path from 'node:path'
 import fs from 'node:fs'
 import { createContext } from '@/context'
 import { getCodegenOptions } from '@/options'
-import { names as componentsNames } from '@/components'
+import { names as componentsNames, removeDefaultComponents } from '@/components'
 import { stages } from '@/constants'
 import { transformCss2Js } from '@/index'
 
@@ -21,7 +21,7 @@ describe.each(componentsNames.map((x) => ({ name: x })))('$name', ({ name: compo
   for (const stage of stages) {
     it(stage, () => {
       const { css } = ctx.compileScss(`components.${componentName}.defaults.${stage}`)
-      expect(css).toMatchSnapshot()
+      expect(ctx.preProcessCss(css).css).toMatchSnapshot()
     })
   }
 })
@@ -60,7 +60,7 @@ describe('bug fixed', () => {
       })
     )
     const { css } = ctx.compileScss(`components.button.defaults.base`)
-    expect(css).toMatchSnapshot()
+    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
   })
 
   it('button prefix styled', () => {
@@ -70,7 +70,7 @@ describe('bug fixed', () => {
       })
     )
     const { css } = ctx.compileScss(`components.button.defaults.styled`)
-    expect(css).toMatchSnapshot()
+    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
   })
 
   it('button prefix utils', () => {
@@ -80,7 +80,7 @@ describe('bug fixed', () => {
       })
     )
     const { css } = ctx.compileScss(`components.button.defaults.utils`)
-    expect(css).toMatchSnapshot()
+    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
   })
 
   it('custom component case 0', async () => {
@@ -88,10 +88,7 @@ describe('bug fixed', () => {
     const options = getCodegenOptions({
       prefix: 'ice-',
       components: {
-        ...componentsNames.reduce<Record<string, boolean>>((acc, cur) => {
-          acc[cur] = false
-          return acc
-        }, {}),
+        ...removeDefaultComponents,
         subtitle: {
           extra: transformCss2Js(`.subtitle {
             @apply text-gray-600 text-sm pt-5 pb-4;
@@ -105,9 +102,87 @@ describe('bug fixed', () => {
     // @ts-ignore
     expect('undefined' in ctx.presets.subtitle.defaults.base).toBeFalsy()
     const { css } = ctx.compileScss(`components.subtitle.defaults.utils`)
-    expect(css).toMatchSnapshot()
+    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
     await ctx.buildComponents()
     expect(fs.existsSync(path.resolve(outdir, 'js/components/subtitle/utils.js'))).toBe(true)
+  })
+
+  it('custom component case 1', async () => {
+    // const outdir = path.resolve(__dirname, './outdir')
+    const options = getCodegenOptions({
+      prefix: 'ice-',
+      components: {
+        ...removeDefaultComponents,
+        subtitle: {
+          extra: transformCss2Js(`.subtitle {
+            @apply text-gray-600 text-sm pt-5 pb-4;
+          }`)
+        },
+        tips: {
+          prefix: 'som-',
+          extra: transformCss2Js(`.tips {
+            @apply text-gray-500 text-xs pt-3 pb-2;
+          }`)
+        }
+      },
+      dryRun: true
+      // outdir
+    })
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('custom component case 2', async () => {
+    // const outdir = path.resolve(__dirname, './outdir')
+    const options = getCodegenOptions({
+      prefix: 'ice-',
+      components: {
+        ...removeDefaultComponents,
+        checkbox: {
+          prefix: {
+            ignore: ['.wx-checkbox-input']
+          },
+          schema: ({ selector, types }) => {
+            return {
+              selector,
+              defaults: {
+                base: transformCss2Js(`.checkbox .wx-checkbox-input {
+                  width: 34rpx;
+                  height: 34rpx;
+                  border-radius: 50%;
+                }
+                /*checkbox选中后样式  */
+                .checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+                  background: #0394f0;
+                  border-color: #0394f0;
+                }
+                /*checkbox选中后图标样式  */
+                .checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+                  width: 20rpx;
+                  height: 20rpx;
+                  line-height: 20rpx;
+                  text-align: center;
+                  font-size: 22rpx;
+                  color: #fff;
+                  background: transparent;
+                  transform: translate(-50%, -50%) scale(1);
+                  -webkit-transform: translate(-50%, -50%) scale(1);
+                }
+                `)
+              }
+            }
+          }
+        }
+      },
+      dryRun: true
+      // outdir
+    })
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
   })
 })
 
@@ -119,7 +194,7 @@ describe('form bug', () => {
       })
     )
     const { css } = ctx.compileScss(`components.form.defaults.base`)
-    expect(css).toMatchSnapshot()
+    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
   })
 
   it('form prefix styled', () => {
@@ -129,7 +204,7 @@ describe('form bug', () => {
       })
     )
     const { css } = ctx.compileScss(`components.form.defaults.styled`)
-    expect(css).toMatchSnapshot()
+    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
   })
 
   it('form prefix utils', () => {
@@ -139,6 +214,6 @@ describe('form bug', () => {
       })
     )
     const { css } = ctx.compileScss(`components.form.defaults.utils`)
-    expect(css).toMatchSnapshot()
+    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
   })
 })

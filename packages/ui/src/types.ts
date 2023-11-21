@@ -3,9 +3,9 @@
 import type { Config as TailwindcssConfig } from 'tailwindcss'
 // import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
 import type { CssInJs } from 'postcss-js'
-import { names as componentNames } from './components'
 import type { GetSchemaFn } from './components/shared'
-import type { Options as PrefixerOptions } from '@/postcss/prefixer'
+import type { PrefixerOptions } from '@/postcss'
+
 // export interface SharedOptions {
 //   // https://daisyui.com/docs/config/
 //   // themes: only light + dark, and custom
@@ -35,19 +35,16 @@ export type ModeMergeValue = {
 }
 
 export type ComponentsValue = {
+  prefix: PrefixerOptions
   mode: CodegenMode
   override: ModeMergeValue
   extend: ModeMergeValue
   extra: CssInJs
-  // append: CssInJs[]
   selector: string
   schema: GetSchemaFn
-  // postcss: {
-  //   plugins: AcceptedPlugin[]
-  // }
 }
 
-export type ComponentsOptions = Record<(typeof componentNames)[number], ComponentsValue | false>
+export type ComponentsOptions = Record<string, ComponentsValue | false>
 
 export type GlobalOptions = {
   atMedia: {
@@ -126,3 +123,5 @@ export type DeepRequired<T> = Required<{
 }>
 
 export { type CssInJs } from 'postcss-js'
+
+export type ILayer = 'base' | 'utilities' | 'components'

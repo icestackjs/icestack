@@ -1,4 +1,4 @@
-import { OptionFn, applyStringToArray } from './shared'
+import { GetSchemaFn, applyStringToArray } from './shared'
 import * as avatar from '@/components/avatar'
 import * as button from '@/components/button'
 import * as alert from '@/components/alert'
@@ -21,7 +21,7 @@ import * as tabs from '@/components/tabs'
 import * as skeleton from '@/components/skeleton'
 // import * as steps from '@/components/steps'
 
-const _componentsMap = {
+const _schemaMap = {
   alert,
   avatar,
   button,
@@ -43,12 +43,12 @@ const _componentsMap = {
   tabs,
   skeleton
   // steps
-} as Record<string, { options: OptionFn }>
-const componentsMap = {} as Record<string, { options: OptionFn }>
-for (const componentName of Object.keys(_componentsMap)) {
-  const o = _componentsMap[componentName].options
-  componentsMap[componentName] = {
-    options: (...args) => {
+} as Record<string, { schema: GetSchemaFn }>
+const schemaMap = {} as Record<string, { schema: GetSchemaFn }>
+for (const componentName of Object.keys(_schemaMap)) {
+  const o = _schemaMap[componentName].schema
+  schemaMap[componentName] = {
+    schema: (...args) => {
       const { defaults, selector } = o(...args)
       return {
         selector,
@@ -58,5 +58,5 @@ for (const componentName of Object.keys(_componentsMap)) {
   }
 }
 
-const componentsNames = Object.keys(componentsMap) as (keyof typeof componentsMap)[]
-export { componentsNames, componentsMap }
+const names = Object.keys(schemaMap) as (keyof typeof _schemaMap)[]
+export { names, schemaMap }

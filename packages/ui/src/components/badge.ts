@@ -1,4 +1,4 @@
-import { expandTypes, OptionFn, getSelector } from './shared'
+import { expandTypes, GetSchemaFn, getSelector } from './shared'
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
 }
@@ -7,7 +7,7 @@ function generateOutline(typeName: string) {
   return `text-${typeName}`
 }
 
-export const options: OptionFn = (opts) => {
+export const schema: GetSchemaFn = (opts) => {
   const { selector, types } = opts
 
   return {

@@ -19,7 +19,10 @@ const config = {
         @apply text-gray-500 text-xs pt-2 pb-3 break-all;
       }`),
     },
-    table: false
+    table: false,
+    checkbox: {
+
+    }
   },
   presets: [miniprogramPreset()]
 }

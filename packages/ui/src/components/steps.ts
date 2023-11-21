@@ -1,8 +1,8 @@
 import dedent from 'dedent'
 import { transformCss2Js } from '..'
-import { OptionFn } from './shared'
+import { GetSchemaFn } from './shared'
 
-export const options: OptionFn = (opts) => {
+export const schema: GetSchemaFn = (opts) => {
   const { selector, types } = opts
   return {
     selector,

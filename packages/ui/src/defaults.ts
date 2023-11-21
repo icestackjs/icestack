@@ -1,6 +1,6 @@
 import type { CodegenOptions, DeepPartial, ComponentsOptions } from './types'
 import { defaultVarPrefix } from './constants'
-
+import { componentsMap } from './components'
 export const sharedExtraVars = {
   'rounded-box': '1rem',
   'rounded-btn': '0.5rem',

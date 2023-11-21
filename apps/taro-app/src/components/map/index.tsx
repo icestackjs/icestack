@@ -3,12 +3,14 @@ import button from './button'
 import loading from './loading'
 import mask from './mask'
 import link from './link'
+import checkbox  from './checkbox'
 
 export default {
   button,
   loading,
   mask,
   link,
+  checkbox,
   alert: () => {
     return (
       <View>

@@ -20,7 +20,7 @@ import { resolveTailwindcss, initConfig } from '@/postcss/tailwindcss'
 import { getPlugin as getCssVarsPrefixerPlugin } from '@/postcss/custom-property-prefixer'
 import prefixer from '@/postcss/prefixer'
 import { CreatePresetOptions, handleOptions } from '@/components/shared'
-import { componentsMap, componentsNames } from '@/components'
+import { schemaMap, names as componentsNames } from '@/components'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import * as base from '@/base'
 
@@ -35,11 +35,11 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
       if (comOpt === false) {
         return acc
       }
-      const lib = componentsMap[name]
+      const lib = schemaMap[name]
       if (comOpt.mode === undefined) {
         comOpt.mode = globalMode
       }
-      const defaults = lib?.options({
+      const defaults = lib?.schema({
         ...opts,
         selector: comOpt.selector!
       })

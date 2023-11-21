@@ -1,6 +1,6 @@
-import { OptionFn } from './shared'
+import { GetSchemaFn } from './shared'
 
-export const options: OptionFn = (opts) => {
+export const schema: GetSchemaFn = (opts) => {
   const { selector } = opts
   return {
     selector,

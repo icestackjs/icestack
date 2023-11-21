@@ -1,6 +1,6 @@
-import { OptionFn, transformCss2Js } from './shared'
+import { GetSchemaFn, transformCss2Js } from './shared'
 
-export const options: OptionFn = (opts) => {
+export const schema: GetSchemaFn = (opts) => {
   const { selector } = opts
   return {
     selector,

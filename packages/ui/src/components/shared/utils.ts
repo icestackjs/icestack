@@ -1,7 +1,7 @@
 import { isObject, pick, set, get } from 'lodash'
 import postcss from 'postcss'
 import selectorParser from 'postcss-selector-parser'
-import { IOptionReturnType } from './types'
+import type { ISchema } from './types'
 import { defu, defuOverrideArray } from '@/utils'
 import type { CodegenMode, ComponentsValue, CssInJs, ModeMergeValue } from '@/types'
 
@@ -10,17 +10,6 @@ const defaultSelectorParser = selectorParser()
 export function compressCssSelector(selectors: string) {
   return defaultSelectorParser.processSync(selectors, { lossless: false })
 }
-
-// import { pascalCase } from '@/utils'
-
-// export function createInjectName(componentName: string) {
-//   const name = pascalCase(componentName)
-//   return {
-//     name,
-//     colors: `inject${name}Colors()`,
-//     defaults: `inject${name}Defaults()`
-//   }
-// }
 
 export function expandColorsMap<T extends object>(typeArr: string[], fn: (typeName: string) => T) {
   return typeArr.reduce<Record<string, T>>((acc, cur) => {
@@ -72,22 +61,6 @@ export function expandInject<T extends Record<string, T>>(obj: T) {
   }
   return obj
 }
-
-// export function applyListToString<T extends Record<string, T>>(obj: T) {
-//   const keys = Object.keys(obj)
-//   for (const key of keys) {
-//     if (key === 'apply') {
-//       const value = obj[key]
-//       if (Array.isArray(value)) {
-//         // @ts-ignore
-//         obj[key] = value.join(' ')
-//       }
-//     } else if (isObject(obj[key])) {
-//       applyListToString(obj[key])
-//     }
-//   }
-//   return obj
-// }
 
 export function applyStringToArray(obj: Record<string, any>, res: Record<string, any> = {}) {
   if (typeof obj !== 'object') {
@@ -150,8 +123,8 @@ function getPickedProps(mode: CodegenMode = 'styled') {
   }
 }
 
-export function handleOptions(d: IOptionReturnType, { extend, override, selector, extra = {}, mode }: Partial<ComponentsValue>) {
-  let de = applyStringToArray(d) as IOptionReturnType
+export function handleOptions(d: ISchema, { extend, override, selector, extra = {}, mode }: Partial<ComponentsValue>) {
+  let de = applyStringToArray(d) as ISchema
   de.defaults = pick(de.defaults, getPickedProps(mode))
   if (override) {
     de = defuOverrideArray(de, {

@@ -1,4 +1,4 @@
-import { OptionFn, getSelector } from './shared'
+import { GetSchemaFn, getSelector } from './shared'
 import { loading as loading64Map } from './assets/svg.json'
 
 function makeMaskImage(base64: string) {
@@ -7,7 +7,7 @@ function makeMaskImage(base64: string) {
 
 // https://github.com/SamHerbert/SVG-Loaders
 // https://github.com/loadingio/css-spinner/
-export const options: OptionFn = (opts) => {
+export const schema: GetSchemaFn = (opts) => {
   const { selector } = opts
   function getDefaultShapes() {
     return Object.entries(loading64Map).reduce<Record<string, object>>((acc, [key, value]) => {

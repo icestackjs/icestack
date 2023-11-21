@@ -4,7 +4,7 @@ import path from 'node:path'
 import fs from 'node:fs'
 import { createContext } from '@/context'
 import { getCodegenOptions } from '@/options'
-import { componentsNames } from '@/components'
+import { names as componentsNames } from '@/components'
 import { stages } from '@/constants'
 import { transformCss2Js } from '@/index'
 

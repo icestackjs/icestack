@@ -1,0 +1,22 @@
+.ice-checkbox .wx-checkbox-input {
+  width: 34rpx;
+  height: 34rpx;
+  border-radius: 50%;
+}
+/*checkbox选中后样式  */
+.ice-checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #0394f0;
+  border-color: #0394f0;
+}
+/*checkbox选中后图标样式  */
+.ice-checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 20rpx;
+  height: 20rpx;
+  line-height: 20rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}

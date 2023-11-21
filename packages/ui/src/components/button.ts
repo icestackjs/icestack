@@ -1,6 +1,6 @@
-import { OptionFn, getSelector, IValue, expandTypes } from './shared'
+import { GetSchemaFn, getSelector, IValue, expandTypes } from './shared'
 
-export const options: OptionFn = (opts) => {
+export const schema: GetSchemaFn = (opts) => {
   const { selector, types } = opts
 
   function buttonHover(obj: IValue) {

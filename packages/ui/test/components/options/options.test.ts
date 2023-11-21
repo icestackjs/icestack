@@ -1,4 +1,4 @@
-import { componentsMap } from '@/components'
+import { schemaMap as componentsMap } from '@/components'
 import { getCodegenOptions } from '@/options'
 
 describe.each(
@@ -12,8 +12,8 @@ describe.each(
   it('snap', () => {
     const opts = getCodegenOptions()
     expect(
-      value.options({
-        options: opts,
+      value.schema({
+        // options: opts,
         types: [],
         // @ts-ignore
         selector: opts.components[name]?.selector

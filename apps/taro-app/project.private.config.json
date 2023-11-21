@@ -5,6 +5,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "checkbox",
+          "pathName": "pages/index/component",
+          "query": "id=checkbox",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "mask",
           "pathName": "pages/index/component",
           "query": "id=mask",

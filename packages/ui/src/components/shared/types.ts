@@ -19,12 +19,9 @@ export type IValue =
       css: Record<string, string>
     }
 
-export type IOptionReturnType = {
+export type ISchema = {
   selector: string
   defaults: IDefaults
-  // index: object
 }
 
-export type OptionFn = (opts: CreatePresetOptions & { selector: string }) => IOptionReturnType
-
-// export type DefaultsFn = (opts: CreatePresetOptions & { selector: string }) => IDefaults
+export type GetSchemaFn = (opts: CreatePresetOptions & { selector: string }) => ISchema

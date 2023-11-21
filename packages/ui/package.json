@@ -69,7 +69,8 @@
     "get-coms": "ts-node --esm scripts/get-coms.ts",
     "get-table": "node scripts/get-table.js",
     "get-group": "node scripts/get-group.js",
-    "svg64": "node scripts/svg64.js",
+    "get-svg": "node scripts/svg64.js",
+    "static": "npm run get-coms && npm run get-table && npm run get-group && && npm run get-svg",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
     "raw": "node bin/icestack.js inspect -o ./all0.json"
   },

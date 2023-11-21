@@ -86,7 +86,7 @@
       "cwd": "${workspaceFolder}/packages/ui"
     },
     {
-      "command": "npm run svg64",
+      "command": "npm run get-svg",
       "name": "[UI] svg64",
       "request": "launch",
       "type": "node-terminal",

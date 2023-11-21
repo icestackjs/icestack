@@ -40,6 +40,7 @@ export type ComponentsValue = {
   extra: CssInJs
   // append: CssInJs[]
   selector: string
+
   // postcss: {
   //   plugins: AcceptedPlugin[]
   // }

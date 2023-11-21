@@ -69,4 +69,6 @@ const removeDefaultComponents = names.reduce<Record<string, boolean>>((acc, cur)
 }, {})
 export { names, schemaMap, removeDefaultComponents }
 
-export { GetSchemaFn, expandTypes, getSelector, compressCssSelector, preprocessCssInJs, transformCss2Js } from './shared'
+export { expandTypes, getSelector, compressCssSelector, preprocessCssInJs, transformCss2Js } from './shared'
+
+export type { GetSchemaFn } from './shared'

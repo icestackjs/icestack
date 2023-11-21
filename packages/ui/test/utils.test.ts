@@ -1,4 +1,4 @@
-import { compressCssSelector, applyStringToArray } from '@/components/shared'
+import { compressCssSelector, preprocessCssInJs } from '@/components/shared'
 
 describe('utils', () => {
   it('compressCssSelector case 0', () => {
@@ -8,9 +8,9 @@ describe('utils', () => {
     expect(compressCssSelector('span  ,div')).toBe('span,div')
   })
 
-  it('applyStringToArray case 0', () => {
+  it('preprocessCssInJs case 0', () => {
     expect(
-      applyStringToArray({
+      preprocessCssInJs({
         '.x': {
           css: {
             color: 'red'
@@ -27,9 +27,9 @@ describe('utils', () => {
     ).toMatchSnapshot()
   })
 
-  it('applyStringToArray case 1', () => {
+  it('preprocessCssInJs case 1', () => {
     expect(
-      applyStringToArray({
+      preprocessCssInJs({
         '.x .x': {
           css: {
             color: 'red'
@@ -52,8 +52,8 @@ describe('utils', () => {
     ).toMatchSnapshot()
   })
 
-  it('applyStringToArray case 2', () => {
-    const res0 = applyStringToArray({
+  it('preprocessCssInJs case 2', () => {
+    const res0 = preprocessCssInJs({
       '.x .x': {
         css: {
           color: 'red'
@@ -73,6 +73,42 @@ describe('utils', () => {
         apply: 'bg-gray-300 text-blue'
       }
     })
-    expect(res0).toEqual(applyStringToArray(res0))
+    expect(res0).toMatchSnapshot()
+  })
+
+  it('preprocessCssInJs case 3', () => {
+    const res0 = preprocessCssInJs({
+      '.x .x': {
+        css: {
+          color: 'red'
+        },
+        apply: ['bg-gray-100 text-blue', 'bg-gray-400 text-yellow !important']
+      },
+      '.x  .x': {
+        css: {
+          color: 'blue'
+        },
+        apply: 'bg-gray-200 text-red'
+      },
+      '.x    .x': {
+        css: {
+          color: 'yello'
+        },
+        apply: 'bg-gray-300 text-blue'
+      }
+    })
+    expect(res0).toMatchSnapshot()
+  })
+
+  it('preprocessCssInJs case 4', () => {
+    const res0 = preprocessCssInJs({
+      '.x .x': {
+        css: {
+          color: 'red'
+        },
+        apply: ['bg-gray-100 text-blue', 'bg-gray-400 text-yellow !important']
+      }
+    })
+    expect(res0).toMatchSnapshot()
   })
 })

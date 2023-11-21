@@ -19,6 +19,22 @@ const config = {
         @apply text-gray-500 text-xs pt-2 pb-3 break-all;
       }`),
     },
+    range: {
+      prefix: '.range',
+      schema: ({ selector, types }) => {
+        return {
+          selector
+        }
+      }
+    },
+    // slider: {
+    //   prefix: '.slider',
+    //   schema: ({ selector, types }) => {
+    //     return {
+    //       selector
+    //     }
+    //   }
+    // }
     // checkbox: {
     //   prefix: {
     //     prefix: 'ice-'

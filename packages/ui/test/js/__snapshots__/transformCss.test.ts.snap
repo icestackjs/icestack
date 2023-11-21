@@ -38,8 +38,7 @@ exports[`transformCss > case1 1`] = `
   ".alert": {
     "&-primary": {
       "apply": [
-        "text-sm",
-        "bg-red-200",
+        "text-sm bg-red-200",
       ],
       "css": {
         "color": "red",
@@ -71,12 +70,25 @@ exports[`transformCss > case2 1`] = `
   ".alert": {
     "apply": [
       "text-xs",
-      "bg-primary",
-      "text-primary-content",
-      "[@media(hover:hover)]:hover:text-primary-content",
+      "bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content",
     ],
     "css": {
       "display": "grid",
+      "width": "100%",
+    },
+  },
+}
+`;
+
+exports[`transformCss > case3 1`] = `
+{
+  ".alert": {
+    "apply": [
+      "text-xs !important",
+      "bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content",
+    ],
+    "css": {
+      "display": "grid !important",
       "width": "100%",
     },
   },

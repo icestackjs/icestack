@@ -61,4 +61,17 @@ describe('transformCss', () => {
     const result = transformCss2Js(caseCss)
     expect(result).toMatchSnapshot()
   })
+
+  it('case3', () => {
+    const caseCss = `.alert {
+      display: grid !important;
+      width: 100%;
+      @apply text-xs !important;
+      @apply bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content;
+    }
+    `
+
+    const result = transformCss2Js(caseCss)
+    expect(result).toMatchSnapshot()
+  })
 })

@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`postcss-js > should  1`] = `
+{
+  "radio .wx-radio-input.wx-radio-input-checked": {
+    "background": "#f0302f !important",
+    "borderColor": "#f0302f !important",
+  },
+}
+`;

@@ -1433,7 +1433,8 @@ exports[`'tabs' > base 1`] = `
 }
 
 .tab {
-  @apply relative inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center h-8 text-sm leading-loose;
+  @apply relative inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center;
+  @apply h-8 text-sm leading-loose;
   --ice-tab-padding: 1rem;
 }"
 `;
@@ -2089,6 +2090,70 @@ exports[`bug fixed > custom component case 2 1`] = `
         "width": "20rpx",
       },
     },
+    "styled": {},
+    "utils": {},
+  },
+}
+`;
+
+exports[`bug fixed > custom component case 3 1`] = `
+{
+  "xxx": {
+    "base": {},
+    "styled": {},
+    "utils": {
+      ".xxx": {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity))",
+        "color": "red",
+        "fontSize": "0.875rem",
+        "lineHeight": "1.25rem",
+      },
+    },
+  },
+}
+`;
+
+exports[`bug fixed > custom component case 4 !important 1`] = `
+{
+  "xxx": {
+    "base": {},
+    "styled": {},
+    "utils": {
+      ".xxx": {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity))",
+        "color": "red",
+        "fontSize": "0.875rem",
+        "lineHeight": "1rem !important",
+      },
+    },
+  },
+}
+`;
+
+exports[`bug fixed > custom component case 5 !important 1`] = `
+{
+  "xxx": {
+    "base": {},
+    "styled": {},
+    "utils": {
+      ".xxx": {
+        "--tw-bg-opacity": "1 !important",
+        "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity)) !important",
+        "color": "red",
+        "fontSize": "0.875rem !important",
+        "lineHeight": "1rem !important",
+      },
+    },
+  },
+}
+`;
+
+exports[`bug fixed > custom component case 6 1`] = `
+{
+  "xxx": {
+    "base": {},
     "styled": {},
     "utils": {},
   },

@@ -1,11 +1,18 @@
 import postcssJs from 'postcss-js'
-// import type { AcceptedPlugin } from 'postcss'
+import postcss from 'postcss'
 // import baseJsObj from '../../assets/js/base'
 // import countdownJsObj from '../../assets/js/components/styled/countdown'
 import globalPostcss from '@/postcss/global'
 import { getCodegenOptions } from '@/options'
 describe('postcss-js', () => {
-  it('should ', () => {})
+  it('should ', () => {
+    const root = postcss.parse(`radio .wx-radio-input.wx-radio-input-checked {
+      border-color: #f0302f !important;
+      background: #f0302f !important;
+    }`)
+    const res = postcssJs.objectify(root)
+    expect(res).toMatchSnapshot()
+  })
   // it('globalPostcss case 0', () => {
   //   expect(postcssJs.sync([globalPostcss])(baseJsObj)).toMatchSnapshot()
   // })

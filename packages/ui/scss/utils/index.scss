@@ -92,7 +92,13 @@ $globalAtMediaHover: globalAtMediaHover();
               @if (meta.type-of($m) == string) {
                 @apply #{$m};
               } @else if (meta.type-of($m) == list) {
-                @apply #{composeStringArray($m)};
+                @each $applyList in $m {
+                  @if (meta.type-of($applyList) == list) {
+                    @apply #{composeStringArray($applyList)};
+                  } @else if((meta.type-of($applyList) == string)) {
+                    @apply #{$applyList};
+                  }
+                }
               }
             }
           } @else if($s == "css") {

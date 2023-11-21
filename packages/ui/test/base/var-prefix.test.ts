@@ -5,7 +5,7 @@ describe('var-prefix', () => {
   it('snap case 0', () => {
     const ctx = createContext(getCodegenOptions({}))
     const { css } = ctx.compileScss('base.index')
-    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 
   it('snap case 1', () => {
@@ -16,6 +16,6 @@ describe('var-prefix', () => {
     )
     const { css } = ctx.compileScss('base.index')
 
-    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 })

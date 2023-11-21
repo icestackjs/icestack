@@ -64,6 +64,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
         selector: comOpt.selector!
       })
       acc[name] = handleOptions(defaults, comOpt)
+
       return acc
     }, {})
   }
@@ -117,7 +118,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
     return sass.compile(scssTemplate, sassOptions)
   }
 
-  function preProcessCss(css: string, layer?: ILayer, name?: string) {
+  function preprocessCss(css: string, layer?: ILayer, name?: string) {
     const plugins: AcceptedPlugin[] = [getCssVarsPrefixerPlugin(varPrefix)]
     if (layer === 'components' && name) {
       const t = components[name]
@@ -138,7 +139,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
     const { layer, suffixes, relPath } = opts
     const defaultPath = makeDefaultPath(layer, ...suffixes)
     const { css } = compileScss(defaultPath)
-    const { css: cssOutput } = preProcessCss(css, layer, suffixes[0])
+    const { css: cssOutput } = preprocessCss(css, layer, suffixes[0])
     const { cssPath, cssResolvedPath, jsPath } = getPaths(relPath)
 
     // scss -> css
@@ -253,7 +254,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
     build,
     compileScss,
     createPreset,
-    preProcessCss
+    preprocessCss
   }
 }
 

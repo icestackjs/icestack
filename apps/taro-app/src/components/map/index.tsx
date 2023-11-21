@@ -4,6 +4,9 @@ import loading from './loading'
 import mask from './mask'
 import link from './link'
 import checkbox  from './checkbox'
+import input from './input'
+import radio from './radio'
+import range from './range'
 
 export default {
   button,
@@ -11,6 +14,9 @@ export default {
   mask,
   link,
   checkbox,
+  input,
+  radio,
+  range,
   alert: () => {
     return (
       <View>

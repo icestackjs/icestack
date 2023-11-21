@@ -1,4 +1,4 @@
-import { GetSchemaFn, applyStringToArray } from './shared'
+import { GetSchemaFn, preprocessCssInJs } from './shared'
 import * as avatar from '@/components/avatar'
 import * as button from '@/components/button'
 import * as alert from '@/components/alert'
@@ -55,7 +55,7 @@ for (const componentName of componentNames) {
       const { defaults, selector } = o(...args)
       return {
         selector,
-        defaults: applyStringToArray(defaults)
+        defaults: preprocessCssInJs(defaults)
       }
     }
   }
@@ -68,3 +68,5 @@ const removeDefaultComponents = names.reduce<Record<string, boolean>>((acc, cur)
   return acc
 }, {})
 export { names, schemaMap, removeDefaultComponents }
+
+export { GetSchemaFn, expandTypes, getSelector, compressCssSelector, preprocessCssInJs, transformCss2Js } from './shared'

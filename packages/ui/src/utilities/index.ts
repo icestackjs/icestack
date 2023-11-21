@@ -1,7 +1,7 @@
 import { CssInJs } from 'postcss-js'
 import * as glass from './glass'
 import * as variables from './variables'
-import { applyStringToArray } from '@/components/shared'
+import { preprocessCssInJs } from '@/components/shared'
 
 const _utilitiesMap = {
   glass,
@@ -13,7 +13,7 @@ for (const componentName of Object.keys(_utilitiesMap)) {
   const o = _utilitiesMap[componentName].options
   utilitiesMap[componentName] = {
     options: (...args) => {
-      return applyStringToArray(o(...args))
+      return preprocessCssInJs(o(...args))
     }
   }
 }

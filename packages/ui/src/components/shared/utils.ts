@@ -19,7 +19,7 @@ export function expandTypes(types: string[], fn: (typeName: string) => { key: st
   }, {})
 }
 
-export function applyStringToArray(obj: Record<string, any>, res: Record<string, any> = {}) {
+export function preprocessCssInJs(obj: Record<string, any>, res: Record<string, any> = {}) {
   if (typeof obj !== 'object') {
     return res
   }
@@ -29,18 +29,37 @@ export function applyStringToArray(obj: Record<string, any>, res: Record<string,
     const value = obj[key]
     if (key === 'apply') {
       if (typeof value === 'string') {
-        res[key] = value.split(' ')
+        if (Array.isArray(res[key])) {
+          res[key].push(value.split(' '))
+        } else {
+          res[key] = [value.split(' ')]
+        }
       } else if (Array.isArray(value)) {
         // has been handled
-        res[key] = value
+        // preprocessCssInJs case 2
+
+        for (const applyStr of value) {
+          if (typeof applyStr === 'string') {
+            if (Array.isArray(res[key])) {
+              res[key].push(applyStr.split(' '))
+            } else {
+              res[key] = [applyStr.split(' ')]
+            }
+          }
+        }
+
+        // res[key] = value
       }
       // do nothing
     } else if (key === 'css') {
       res[key] = value
     } else if (isObject(value)) {
       const s = compressCssSelector(key)
-      res[s] = {}
-      applyStringToArray(obj[key], res[s])
+      if (res[s] === undefined) {
+        res[s] = {}
+      }
+
+      preprocessCssInJs(obj[key], res[s])
     }
   }
   return res
@@ -80,13 +99,13 @@ function getPickedProps(mode: CodegenMode = 'styled') {
   }
 }
 
-export function handleOptions(d: ISchema, { extend, override, selector, extra = {}, mode }: Partial<ComponentsValue>) {
-  let de = applyStringToArray(d) as ISchema
+export function handleOptions(d: ISchema, { extend = {}, override, selector, extra = {}, mode }: Partial<ComponentsValue>) {
+  let de = d ?? {}
   de.defaults = pick(de.defaults, getPickedProps(mode))
   if (override) {
     de = defuOverrideArray(de, {
       selector,
-      defaults: makeDefaults(override, selector)
+      defaults: makeDefaults(preprocessCssInJs(override), selector)
     })
   }
   const res = defu(
@@ -95,10 +114,10 @@ export function handleOptions(d: ISchema, { extend, override, selector, extra = 
       defaults: defu(
         {
           utils: {
-            ...extra
+            ...preprocessCssInJs(extra)
           }
         },
-        makeDefaults(extend, selector)
+        makeDefaults(preprocessCssInJs(extend), selector)
       )
     },
     de
@@ -123,10 +142,10 @@ export function recursiveNodes(nodes: postcss.ChildNode[], result: Record<string
       case 'atrule': {
         if (node.name === 'apply') {
           const v = get(result, 'apply')
-          if (typeof v === 'string' && v.length > 0) {
-            set(result, 'apply', v + ' ' + node.params)
+          if (Array.isArray(v)) {
+            v.push(node.params)
           } else {
-            set(result, 'apply', node.params)
+            set(result, 'apply', [node.params])
           }
         } else {
           const selector = `@${node.name} ${node.params}`
@@ -143,7 +162,7 @@ export function recursiveNodes(nodes: postcss.ChildNode[], result: Record<string
         break
       }
       case 'decl': {
-        set(result, `css.${node.prop}`, node.value)
+        set(result, `css.${node.prop}`, node.value + (node.important ? ' !important' : ''))
         break
       }
     }
@@ -153,6 +172,6 @@ export function recursiveNodes(nodes: postcss.ChildNode[], result: Record<string
 
 export function transformCss2Js(css: string) {
   const root = postcss.parse(css)
-  const result = applyStringToArray(recursiveNodes(root.nodes))
+  const result = recursiveNodes(root.nodes)
   return result
 }

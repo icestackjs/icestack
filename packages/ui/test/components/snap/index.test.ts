@@ -21,7 +21,7 @@ describe.each(componentsNames.map((x) => ({ name: x })))('$name', ({ name: compo
   for (const stage of stages) {
     it(stage, () => {
       const { css } = ctx.compileScss(`components.${componentName}.defaults.${stage}`)
-      expect(ctx.preProcessCss(css).css).toMatchSnapshot()
+      expect(ctx.preprocessCss(css).css).toMatchSnapshot()
     })
   }
 })
@@ -60,7 +60,7 @@ describe('bug fixed', () => {
       })
     )
     const { css } = ctx.compileScss(`components.button.defaults.base`)
-    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 
   it('button prefix styled', () => {
@@ -70,7 +70,7 @@ describe('bug fixed', () => {
       })
     )
     const { css } = ctx.compileScss(`components.button.defaults.styled`)
-    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 
   it('button prefix utils', () => {
@@ -80,7 +80,7 @@ describe('bug fixed', () => {
       })
     )
     const { css } = ctx.compileScss(`components.button.defaults.utils`)
-    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 
   it('custom component case 0', async () => {
@@ -102,7 +102,7 @@ describe('bug fixed', () => {
     // @ts-ignore
     expect('undefined' in ctx.presets.subtitle.defaults.base).toBeFalsy()
     const { css } = ctx.compileScss(`components.subtitle.defaults.utils`)
-    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
     await ctx.buildComponents()
     expect(fs.existsSync(path.resolve(outdir, 'js/components/subtitle/utils.js'))).toBe(true)
   })
@@ -119,7 +119,9 @@ describe('bug fixed', () => {
           }`)
         },
         tips: {
-          prefix: 'som-',
+          prefix: {
+            prefix: 'som-'
+          },
           extra: transformCss2Js(`.tips {
             @apply text-gray-500 text-xs pt-3 pb-2;
           }`)
@@ -184,6 +186,108 @@ describe('bug fixed', () => {
     const cssObj = await ctx.buildComponents()
     expect(cssObj).toMatchSnapshot()
   })
+
+  it('custom component case 3', async () => {
+    // const outdir = path.resolve(__dirname, './outdir')
+    const options = getCodegenOptions({
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          extra: {
+            '.xxx': {
+              apply: ['bg-red-300 text-sm'],
+              css: {
+                color: 'red'
+              }
+            }
+          }
+        }
+      },
+      dryRun: true
+      // outdir
+    })
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('custom component case 4 !important', async () => {
+    // const outdir = path.resolve(__dirname, './outdir')
+    const options = getCodegenOptions({
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          extra: {
+            '.xxx': {
+              apply: ['bg-red-300 text-sm', 'leading-4 !important'],
+              css: {
+                color: 'red'
+              }
+            }
+          }
+        }
+      },
+      dryRun: true
+      // outdir
+    })
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('custom component case 5 !important', async () => {
+    // const outdir = path.resolve(__dirname, './outdir')
+    const options = getCodegenOptions({
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          extra: {
+            '.xxx': {
+              apply: 'bg-red-300 text-sm leading-4 !important',
+              css: {
+                color: 'red'
+              }
+            }
+          }
+        }
+      },
+      dryRun: true
+      // outdir
+    })
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('custom component case 6', async () => {
+    // const outdir = path.resolve(__dirname, './outdir')
+    const options = getCodegenOptions({
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          override: {
+            base: {
+              '.xxx': {
+                apply: 'bg-red-300 text-sm leading-4 !important',
+                css: {
+                  color: 'red'
+                }
+              }
+            }
+          }
+        }
+      },
+      dryRun: true
+      // outdir
+    })
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
 })
 
 describe('form bug', () => {
@@ -194,7 +298,7 @@ describe('form bug', () => {
       })
     )
     const { css } = ctx.compileScss(`components.form.defaults.base`)
-    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 
   it('form prefix styled', () => {
@@ -204,7 +308,7 @@ describe('form bug', () => {
       })
     )
     const { css } = ctx.compileScss(`components.form.defaults.styled`)
-    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 
   it('form prefix utils', () => {
@@ -214,6 +318,6 @@ describe('form bug', () => {
       })
     )
     const { css } = ctx.compileScss(`components.form.defaults.utils`)
-    expect(ctx.preProcessCss(css).css).toMatchSnapshot()
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 })

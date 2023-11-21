@@ -11,11 +11,11 @@ export type IDefaults = {
 export type IValue =
   | string
   | {
-      apply: string
+      apply: string | string[]
     }
   | { css: Record<string, string> }
   | {
-      apply: string
+      apply: string | string[]
       css: Record<string, string>
     }
 

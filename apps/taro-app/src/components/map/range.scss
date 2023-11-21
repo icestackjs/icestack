@@ -1,0 +1,25 @@
+// wx-slider .wx-slider-handle-wrapper {
+//   height: 20rpx;
+// }
+
+.range {
+  .wx-slider-wrapper {
+    @apply h-6;
+    .wx-slider-handle-wrapper {
+      @apply h-2 rounded-full;
+      .wx-slider-track {
+        @apply h-6 rounded-tl-full rounded-bl-full;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      .wx-slider-handle {
+        @apply h-6 w-6 #{!important}; //-ml-3 -mt-3
+      }
+      .wx-slider-thumb {
+        @apply rounded-full border-4 border-solid;
+        @apply border-[#1aad19] h-6 w-6 #{!important}; //  -ml-3 -mt-3
+      }
+    }
+  }
+}

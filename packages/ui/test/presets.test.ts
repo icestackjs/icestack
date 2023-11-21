@@ -34,6 +34,22 @@ describe('presets', () => {
     expect(res.checkbox).toMatchSnapshot()
   })
 
+  it('miniprogramPreset radio css with prefix', async () => {
+    const ctx = createContext({
+      dryRun: true,
+      presets: [miniprogramPreset()],
+      components: {
+        checkbox: {
+          prefix: {
+            prefix: 'som-'
+          }
+        }
+      }
+    })
+    const res = await ctx.buildComponents()
+    expect(res.radio).toMatchSnapshot()
+  })
+
   it('presets merge case 0', () => {
     const opt = getCodegenOptions({
       presets: [miniprogramPreset()]

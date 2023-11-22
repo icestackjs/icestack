@@ -262,15 +262,15 @@ exports[`presets > miniprogramPreset 1`] = `
       "schema": [Function],
       "selector": ".range",
     },
-    "select": {
-      "schema": [Function],
-      "selector": ".select",
-    },
+    "select": false,
     "skeleton": {
       "schema": [Function],
       "selector": ".skeleton",
     },
-    "table": false,
+    "table": {
+      "schema": [Function],
+      "selector": ".table",
+    },
     "tabs": {
       "schema": [Function],
       "selector": ".tab",
@@ -370,7 +370,10 @@ exports[`presets > miniprogramPreset 1`] = `
           "schema": [Function],
           "selector": ".range",
         },
-        "table": false,
+        "select": false,
+        "table": {
+          "schema": [Function],
+        },
         "textarea": {
           "extra": {
             ".textarea": {
@@ -1007,15 +1010,15 @@ exports[`presets > presets merge case 0 1`] = `
       "schema": [Function],
       "selector": ".range",
     },
-    "select": {
-      "schema": [Function],
-      "selector": ".select",
-    },
+    "select": false,
     "skeleton": {
       "schema": [Function],
       "selector": ".skeleton",
     },
-    "table": false,
+    "table": {
+      "schema": [Function],
+      "selector": ".table",
+    },
     "tabs": {
       "schema": [Function],
       "selector": ".tab",
@@ -1115,7 +1118,10 @@ exports[`presets > presets merge case 0 1`] = `
           "schema": [Function],
           "selector": ".range",
         },
-        "table": false,
+        "select": false,
+        "table": {
+          "schema": [Function],
+        },
         "textarea": {
           "extra": {
             ".textarea": {
@@ -1384,15 +1390,15 @@ exports[`presets > presets merge case 1 1`] = `
       "schema": [Function],
       "selector": ".range",
     },
-    "select": {
-      "schema": [Function],
-      "selector": ".select",
-    },
+    "select": false,
     "skeleton": {
       "schema": [Function],
       "selector": ".skeleton",
     },
-    "table": false,
+    "table": {
+      "schema": [Function],
+      "selector": ".table",
+    },
     "tabs": {
       "schema": [Function],
       "selector": ".tab",
@@ -1492,7 +1498,10 @@ exports[`presets > presets merge case 1 1`] = `
           "schema": [Function],
           "selector": ".range",
         },
-        "table": false,
+        "select": false,
+        "table": {
+          "schema": [Function],
+        },
         "textarea": {
           "extra": {
             ".textarea": {

@@ -3,8 +3,22 @@ import Taro from '@tarojs/taro'
 import { upperFirst } from 'lodash-es'
 import { ReactNode, useState } from 'react'
 import './index.scss'
-import ThemeProvider from '../../components/ThemeProvider'
+import ThemeProvider from '@/components/ThemeProvider'
 import { group, i18n } from '../../group'
+import FloatButton from '@/components/FloatButton'
+
+const aliasMap = {
+  range: 'Slider',
+  toggle: 'Switch'
+}
+
+function getAlias(componentName: string) {
+  const x = aliasMap[componentName]
+  if (x) {
+    return '/' + x
+  }
+  return ''
+}
 
 export default function Index() {
   const [mode, setMode] = useState<'light' | 'dark'>('light')
@@ -34,7 +48,7 @@ export default function Index() {
             // space-y-3
             const res: ReactNode[] = []
             for (const componentName of componentNames) {
-              if(['select'].includes(componentName) ){
+              if (['select'].includes(componentName)) {
                 continue
               }
               res.push(
@@ -49,7 +63,8 @@ export default function Index() {
                   }}
                 >
                   <View className='text-sm text-gray-700'>
-                    {upperFirst(componentName)} {i18n[componentName]}
+                    {upperFirst(componentName)}
+                    {getAlias(componentName)} {i18n[componentName]}
                   </View>
                   <View className='i-mdi-chevron-right text-gray-500'></View>
                 </View>
@@ -61,6 +76,9 @@ export default function Index() {
           return acc
         }, [])}
       </View>
+      <FloatButton>
+        <View className='float-btn'>{true ? <View className='i-mdi-white-balance-sunny text-sky-500'></View> : <View className='i-mdi-weather-night text-sky-400'></View>}</View>
+      </FloatButton>
     </ThemeProvider>
   )
 }

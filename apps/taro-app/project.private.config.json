@@ -5,6 +5,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "table",
+          "pathName": "pages/index/component",
+          "query": "id=table",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "skeleton",
           "pathName": "pages/index/component",
           "query": "id=skeleton",

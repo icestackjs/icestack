@@ -22,7 +22,8 @@ module.exports = {
       "avatar",
       "badge",
       "chat",
-      "progress"
+      "progress",
+      "table"
     ],
     "Feedback": [
       "alert",
@@ -59,6 +60,7 @@ module.exports = {
     "Demo and Playground": "样例和演示",
     "Css Schema": "Css 结构",
     "Go to Storybook": "前往 Storybook",
-    "skeleton": "骨架屏"
+    "skeleton": "骨架屏",
+    "table": "表格"
   }
 }

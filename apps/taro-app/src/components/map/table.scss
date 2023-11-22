@@ -1,0 +1,121 @@
+.table {
+  @apply relative w-full;
+  display: table;
+  .thead {
+    display: table-header-group;
+  }
+  .tbody {
+    display: table-row-group;
+  }
+  .tfoot {
+    display: table-footer-group;
+  }
+  .tr {
+    display: table-row;
+  }
+  .td,
+  .th {
+    display: table-cell;
+  }
+
+  // .table-pin-rows .thead .tr {
+  //   @apply sticky top-0 z-[1];
+  // }
+  // .table-pin-rows .tfoot .tr {
+  //   @apply sticky bottom-0 z-[1];
+  // }
+
+  // .table-pin-cols .tr .th {
+  //   @apply sticky left-0 right-0;
+  // }
+  // &-zebra .tbody .tr:nth-child(even) .table-pin-cols .tr .th {
+  //   @apply bg-gray-200;
+  // }
+
+  @apply rounded text-left text-sm; // rtl:text-right;
+  .th,
+  .td {
+    @apply px-4 py-3 align-middle;
+  }
+
+  .thead,
+  .tfoot {
+    @apply whitespace-nowrap text-xs font-bold;
+  }
+
+  .table {
+    &.table-xs {
+      :not(.thead):not(.tfoot) .tr {
+        @apply text-xs;
+      }
+      .th,
+      .td {
+        @apply px-2 py-1;
+      }
+    }
+
+    &.table-sm {
+      :not(.thead):not(.tfoot) .tr {
+        @apply text-sm;
+      }
+      .th,
+      .td {
+        @apply px-3 py-2;
+      }
+    }
+
+    &.table-md {
+      :not(.thead):not(.tfoot) .tr {
+        @apply text-sm;
+      }
+      .th,
+      .td {
+        @apply px-4 py-3;
+      }
+    }
+
+    &.table-lg {
+      :not(.thead):not(.tfoot) .tr {
+        @apply text-base;
+      }
+      .th,
+      .td {
+        @apply px-6 py-4;
+      }
+    }
+  }
+}
+
+// .table {
+
+//   // .tr.active,
+//   // .tr.active:nth-child(even),
+//   // &-zebra .tbody .tr:nth-child(even) {
+//   //   @apply bg-gray-200;
+//   // }
+//   // .tr.hover,
+//   // .tr.hover:nth-child(even) {
+//   //   @apply [@media(hover:hover)]:hover:bg-gray-200;
+//   // }
+
+//   // &-zebra {
+//   //   .tr.active,
+//   //   .tr.active:nth-child(even),
+//   //   &-zebra .tbody .tr:nth-child(even) {
+//   //     @apply bg-gray-300;
+//   //   }
+//   // }
+//   // &-zebra .tr.hover,
+//   // &-zebra .tr.hover:nth-child(even) {
+//   //   @apply [@media(hover:hover)]:hover:bg-gray-300;
+//   // }
+
+//   // .thead,
+//   // .tbody {
+//   //   .tr:not(:last-child),
+//   //   .tr:first-child:last-child {
+//   //     @apply border-b-gray-400 border-b border-solid;
+//   //   }
+//   // }
+
+// }

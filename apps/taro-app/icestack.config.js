@@ -22,6 +22,7 @@ const config = {
     },
 
 
+
     // slider: {
     //   prefix: '.slider',
     //   schema: ({ selector, types }) => {

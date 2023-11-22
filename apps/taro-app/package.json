@@ -40,6 +40,7 @@
   "author": "",
   "dependencies": {
     "@babel/runtime": "^7.23.4",
+    "@faker-js/faker": "^8.3.1",
     "@tarojs/components": "3.6.19",
     "@tarojs/helper": "3.6.19",
     "@tarojs/plugin-framework-react": "3.6.19",

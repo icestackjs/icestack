@@ -14,6 +14,7 @@ import chat from './chat'
 import progress from './progress'
 import alert from './alert'
 import skeleton from './skeleton'
+import table from './table'
 
 export default {
   button,
@@ -31,5 +32,6 @@ export default {
   chat,
   progress,
   alert,
-  skeleton
+  skeleton,
+  table
 }

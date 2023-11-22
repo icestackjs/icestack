@@ -10,7 +10,7 @@ function main() {
       Layout: [],
       Navigation: ['link'],
       'Data Entry': ['checkbox', 'input', 'radio', 'range', 'select', 'textarea', 'toggle'],
-      'Data Display': ['avatar', 'badge', 'chat', 'progress'],
+      'Data Display': ['avatar', 'badge', 'chat', 'progress', 'table'],
       Feedback: ['alert', 'skeleton'],
       Other: []
     },
@@ -43,7 +43,8 @@ function main() {
       'Demo and Playground': '样例和演示',
       'Css Schema': 'Css 结构',
       'Go to Storybook': '前往 Storybook',
-      skeleton: '骨架屏'
+      skeleton: '骨架屏',
+      table: '表格'
     }
   }
 

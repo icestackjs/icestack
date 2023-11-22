@@ -59,11 +59,10 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
       if (comOpt.mode === undefined) {
         comOpt.mode = globalMode
       }
-      const defaults = comOpt.schema?.({
-        ...opts,
-        selector: comOpt.selector!
-      })
-      acc[name] = handleOptions(defaults, comOpt)
+
+      if (!comOpt.disabled) {
+        acc[name] = handleOptions(comOpt, opts)
+      }
 
       return acc
     }, {})
@@ -87,14 +86,14 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
     const sassOptions: sass.Options<'sync'> = {
       functions: {
         "inject($path:'')": (args: Value[]) => {
-          const ppp = (args[0].assertString().text || defaultPath) ?? ''
-          const sign = ppp.indexOf('.')
-          const t = ppp.slice(0, Math.max(0, sign))
-          const p = ppp.slice(Math.max(0, sign + 1))
+          const p = (args[0].assertString().text || defaultPath) ?? ''
+          const idx = p.indexOf('.')
+          const layer = p.slice(0, Math.max(0, idx))
+          const suffix = p.slice(Math.max(0, idx + 1))
           let res = null
-          switch (t) {
+          switch (layer) {
             case 'components': {
-              res = get(presets, p, {})
+              res = get(presets, suffix, {})
               break
             }
             case 'base': {
@@ -102,7 +101,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
               break
             }
             case 'utilities': {
-              const { options } = get(utilitiesMap, p, {
+              const { options } = get(utilitiesMap, suffix, {
                 options: () => {}
               })
               res = options?.()

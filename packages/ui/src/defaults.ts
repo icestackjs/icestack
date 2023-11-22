@@ -1,7 +1,7 @@
 import { Config } from 'tailwindcss'
 import type { CodegenOptions, DeepPartial, ComponentsOptions } from './types'
 import { defaultVarPrefix } from './constants'
-import { schemaMap } from '@/components'
+import { schemaMap, names as componentNames } from '@/components'
 export const sharedExtraVars = {
   'rounded-box': '1rem',
   'rounded-btn': '0.5rem',
@@ -223,9 +223,10 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
 
 export function injectSchema(map: DeepPartial<ComponentsOptions>) {
   return Object.entries(map).reduce<DeepPartial<ComponentsOptions>>((acc, [key, opts]) => {
-    acc[key] = {
+    const k = key as unknown as (typeof componentNames)[number]
+    acc[k] = {
       ...opts,
-      schema: schemaMap[key].schema
+      schema: schemaMap[k].schema
     }
     return acc
   }, {})

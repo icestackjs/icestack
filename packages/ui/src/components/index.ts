@@ -21,7 +21,7 @@ import * as tabs from '@/components/tabs'
 import * as skeleton from '@/components/skeleton'
 // import * as steps from '@/components/steps'
 
-const _schemaMap = {
+const schemaMap = {
   alert,
   avatar,
   button,
@@ -45,12 +45,12 @@ const _schemaMap = {
   // steps
 } as const
 
-const componentNames = Object.keys(_schemaMap) // as unknown as keyof typeof _schemaMap
+const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap
 
-const schemaMap = {} as Record<string, { schema: GetSchemaFn }>
+const resolvedSchemaMap = {} as Record<string, { schema: GetSchemaFn }>
 for (const componentName of componentNames) {
-  const o = _schemaMap[componentName as keyof typeof _schemaMap].schema
-  schemaMap[componentName] = {
+  const o = schemaMap[componentName as keyof typeof schemaMap].schema
+  resolvedSchemaMap[componentName] = {
     schema: (...args) => {
       const { defaults, selector } = o(...args)
       return {
@@ -61,13 +61,13 @@ for (const componentName of componentNames) {
   }
 }
 
-const names = Object.keys(schemaMap) as (keyof typeof _schemaMap)[]
+// const names = Object.keys(resolvedSchemaMap) as (keyof typeof schemaMap)[]
 
-const removeDefaultComponents = names.reduce<Record<string, boolean>>((acc, cur) => {
+const removeDefaultComponents = componentNames.reduce<Record<string, boolean>>((acc, cur) => {
   acc[cur] = false
   return acc
 }, {})
-export { names, schemaMap, removeDefaultComponents }
+export { componentNames as names, schemaMap, resolvedSchemaMap, removeDefaultComponents }
 
 export { expandTypes, getSelector, compressCssSelector, preprocessCssInJs, transformCss2Js } from './shared'
 

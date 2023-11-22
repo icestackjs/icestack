@@ -5,6 +5,55 @@
     "miniprogram": {
       "list": [
         {
+          "name": "skeleton",
+          "pathName": "pages/index/component",
+          "query": "id=skeleton",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "progress",
+          "pathName": "pages/index/component",
+          "query": "id=progress",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "chat",
+          "pathName": "pages/index/component",
+          "query": "id=chat",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "badge",
+          "pathName": "pages/index/component",
+          "query": "id=badge",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "avatar",
+          "pathName": "pages/index/component",
+          "query": "id=avatar",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "toggle",
+          "pathName": "pages/index/component",
+          "query": "id=toggle",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "textarea",
+          "pathName": "pages/index/component",
+          "query": "id=textarea",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "range",
           "pathName": "pages/index/component",
           "query": "id=range",

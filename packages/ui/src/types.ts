@@ -42,6 +42,7 @@ export type ComponentsValue = {
   extra: CssInJs
   selector: string
   schema: GetSchemaFn
+  disabled: boolean
 }
 
 export type ComponentsOptions = Record<string, ComponentsValue | false>
@@ -78,7 +79,7 @@ export type CodegenOptions = {
   varPrefix: string // PropertyPrefixerOptions['prefix']
   // styled: boolean
   log: boolean
-  prefix: string | PrefixerOptions
+  prefix: PrefixerOptions
   // rtl: boolean | ConfigOptions
   presets: (DeepPartial<CodegenOptions> | ((options?: any) => DeepPartial<CodegenOptions>))[]
   cache: boolean

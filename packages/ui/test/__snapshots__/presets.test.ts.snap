@@ -1,5 +1,34 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`presets > defuCodegenOptions case 0 1`] = `
+{
+  "prefix": "ice-",
+}
+`;
+
+exports[`presets > defuCodegenOptions case 1 1`] = `
+{
+  "prefix": {
+    "ignore": [
+      ".aa",
+      ".wx",
+    ],
+    "prefix": "ice-",
+  },
+}
+`;
+
+exports[`presets > defuCodegenOptions case 2 1`] = `
+{
+  "prefix": {
+    "ignore": [
+      ".aa",
+    ],
+    "prefix": "ice-",
+  },
+}
+`;
+
 exports[`presets > miniprogramPreset 1`] = `
 {
   "base": {
@@ -179,7 +208,7 @@ exports[`presets > miniprogramPreset 1`] = `
     "checkbox": {
       "prefix": {
         "ignore": [
-          ".wx-checkbox-input",
+          ".wx-checkbox",
         ],
       },
       "schema": [Function],
@@ -218,13 +247,18 @@ exports[`presets > miniprogramPreset 1`] = `
     "radio": {
       "prefix": {
         "ignore": [
-          ".wx-radio-input",
+          ".wx-radio",
         ],
       },
       "schema": [Function],
       "selector": ".radio",
     },
     "range": {
+      "prefix": {
+        "ignore": [
+          ".wx-slider",
+        ],
+      },
       "schema": [Function],
       "selector": ".range",
     },
@@ -242,10 +276,23 @@ exports[`presets > miniprogramPreset 1`] = `
       "selector": ".tab",
     },
     "textarea": {
+      "extra": {
+        ".textarea": {
+          "css": {
+            "border-style": "solid",
+          },
+        },
+      },
       "schema": [Function],
       "selector": ".textarea",
     },
     "toggle": {
+      "prefix": {
+        "ignore": [
+          ".wx-switch",
+          ".wx-checkbox",
+        ],
+      },
       "schema": [Function],
       "selector": ".toggle",
     },
@@ -292,7 +339,7 @@ exports[`presets > miniprogramPreset 1`] = `
         "checkbox": {
           "prefix": {
             "ignore": [
-              ".wx-checkbox-input",
+              ".wx-checkbox",
             ],
           },
           "schema": [Function],
@@ -309,15 +356,39 @@ exports[`presets > miniprogramPreset 1`] = `
         "radio": {
           "prefix": {
             "ignore": [
-              ".wx-radio-input",
+              ".wx-radio",
             ],
           },
           "schema": [Function],
         },
         "range": {
+          "prefix": {
+            "ignore": [
+              ".wx-slider",
+            ],
+          },
           "schema": [Function],
+          "selector": ".range",
         },
         "table": false,
+        "textarea": {
+          "extra": {
+            ".textarea": {
+              "css": {
+                "border-style": "solid",
+              },
+            },
+          },
+        },
+        "toggle": {
+          "prefix": {
+            "ignore": [
+              ".wx-switch",
+              ".wx-checkbox",
+            ],
+          },
+          "schema": [Function],
+        },
       },
       "global": {
         "atMedia": {
@@ -882,7 +953,7 @@ exports[`presets > presets merge case 0 1`] = `
     "checkbox": {
       "prefix": {
         "ignore": [
-          ".wx-checkbox-input",
+          ".wx-checkbox",
         ],
       },
       "schema": [Function],
@@ -921,13 +992,18 @@ exports[`presets > presets merge case 0 1`] = `
     "radio": {
       "prefix": {
         "ignore": [
-          ".wx-radio-input",
+          ".wx-radio",
         ],
       },
       "schema": [Function],
       "selector": ".radio",
     },
     "range": {
+      "prefix": {
+        "ignore": [
+          ".wx-slider",
+        ],
+      },
       "schema": [Function],
       "selector": ".range",
     },
@@ -945,10 +1021,23 @@ exports[`presets > presets merge case 0 1`] = `
       "selector": ".tab",
     },
     "textarea": {
+      "extra": {
+        ".textarea": {
+          "css": {
+            "border-style": "solid",
+          },
+        },
+      },
       "schema": [Function],
       "selector": ".textarea",
     },
     "toggle": {
+      "prefix": {
+        "ignore": [
+          ".wx-switch",
+          ".wx-checkbox",
+        ],
+      },
       "schema": [Function],
       "selector": ".toggle",
     },
@@ -995,7 +1084,7 @@ exports[`presets > presets merge case 0 1`] = `
         "checkbox": {
           "prefix": {
             "ignore": [
-              ".wx-checkbox-input",
+              ".wx-checkbox",
             ],
           },
           "schema": [Function],
@@ -1012,15 +1101,39 @@ exports[`presets > presets merge case 0 1`] = `
         "radio": {
           "prefix": {
             "ignore": [
-              ".wx-radio-input",
+              ".wx-radio",
             ],
           },
           "schema": [Function],
         },
         "range": {
+          "prefix": {
+            "ignore": [
+              ".wx-slider",
+            ],
+          },
           "schema": [Function],
+          "selector": ".range",
         },
         "table": false,
+        "textarea": {
+          "extra": {
+            ".textarea": {
+              "css": {
+                "border-style": "solid",
+              },
+            },
+          },
+        },
+        "toggle": {
+          "prefix": {
+            "ignore": [
+              ".wx-switch",
+              ".wx-checkbox",
+            ],
+          },
+          "schema": [Function],
+        },
       },
       "global": {
         "atMedia": {
@@ -1216,7 +1329,7 @@ exports[`presets > presets merge case 1 1`] = `
     "checkbox": {
       "prefix": {
         "ignore": [
-          ".wx-checkbox-input",
+          ".wx-checkbox",
         ],
         "prefix": "som-",
       },
@@ -1256,13 +1369,18 @@ exports[`presets > presets merge case 1 1`] = `
     "radio": {
       "prefix": {
         "ignore": [
-          ".wx-radio-input",
+          ".wx-radio",
         ],
       },
       "schema": [Function],
       "selector": ".radio",
     },
     "range": {
+      "prefix": {
+        "ignore": [
+          ".wx-slider",
+        ],
+      },
       "schema": [Function],
       "selector": ".range",
     },
@@ -1280,10 +1398,23 @@ exports[`presets > presets merge case 1 1`] = `
       "selector": ".tab",
     },
     "textarea": {
+      "extra": {
+        ".textarea": {
+          "css": {
+            "border-style": "solid",
+          },
+        },
+      },
       "schema": [Function],
       "selector": ".textarea",
     },
     "toggle": {
+      "prefix": {
+        "ignore": [
+          ".wx-switch",
+          ".wx-checkbox",
+        ],
+      },
       "schema": [Function],
       "selector": ".toggle",
     },
@@ -1330,7 +1461,7 @@ exports[`presets > presets merge case 1 1`] = `
         "checkbox": {
           "prefix": {
             "ignore": [
-              ".wx-checkbox-input",
+              ".wx-checkbox",
             ],
           },
           "schema": [Function],
@@ -1347,15 +1478,39 @@ exports[`presets > presets merge case 1 1`] = `
         "radio": {
           "prefix": {
             "ignore": [
-              ".wx-radio-input",
+              ".wx-radio",
             ],
           },
           "schema": [Function],
         },
         "range": {
+          "prefix": {
+            "ignore": [
+              ".wx-slider",
+            ],
+          },
           "schema": [Function],
+          "selector": ".range",
         },
         "table": false,
+        "textarea": {
+          "extra": {
+            ".textarea": {
+              "css": {
+                "border-style": "solid",
+              },
+            },
+          },
+        },
+        "toggle": {
+          "prefix": {
+            "ignore": [
+              ".wx-switch",
+              ".wx-checkbox",
+            ],
+          },
+          "schema": [Function],
+        },
       },
       "global": {
         "atMedia": {

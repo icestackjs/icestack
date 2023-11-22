@@ -1,12 +1,19 @@
-import { View, Text, Button, ViewProps } from '@tarojs/components'
 import button from './button'
 import loading from './loading'
 import mask from './mask'
 import link from './link'
-import checkbox  from './checkbox'
+import checkbox from './checkbox'
 import input from './input'
 import radio from './radio'
 import range from './range'
+import textarea from './textarea'
+import toggle from './toggle'
+import avatar from './avatar'
+import badge from './badge'
+import chat from './chat'
+import progress from './progress'
+import alert from './alert'
+import skeleton from './skeleton'
 
 export default {
   button,
@@ -17,26 +24,12 @@ export default {
   input,
   radio,
   range,
-  alert: () => {
-    return (
-      <View>
-        <View className='alert'>
-          <Text className='i-mdi-information-outline w-6 h-6'></Text>
-          <Text>默认alert</Text>
-        </View>
-        <View className='alert alert-primary'>
-          <Text className='i-mdi-information-outline w-6 h-6'></Text>
-          <Text>默认alert</Text>
-        </View>
-        <View className='alert alert-success'>
-          <Text className='i-mdi-information-outline w-6 h-6'></Text>
-          <Text>默认alert</Text>
-        </View>
-        <View className='alert alert-warning'>
-          <Text className='i-mdi-information-outline w-6 h-6'></Text>
-          <Text>默认alert</Text>
-        </View>
-      </View>
-    )
-  }
+  textarea,
+  toggle,
+  avatar,
+  badge,
+  chat,
+  progress,
+  alert,
+  skeleton
 }

@@ -1,0 +1,120 @@
+// .toggle {
+//   .wx-switch-wrapper {
+//     .wx-switch-input {
+//       @apply rounded-full box-content;
+//       @apply h-8 w-12;
+//       &.wx-switch-input-checked {
+//         @apply border-red-500 bg-red-500 #{!important};
+//         &::after {
+//           @apply translate-x-4;
+//         }
+//       }
+//       &::before {
+//         @apply rounded-full;
+//         @apply h-8 w-12;
+//       }
+//       &::after {
+//         @apply rounded-full;
+//         @apply h-8 w-8;
+//       }
+//     }
+//   }
+// }
+
+.toggle-disabled {
+  .wx-switch-wrapper {
+    .wx-switch-input {
+      @apply opacity-50;
+      // @apply rounded-full box-content;
+      // @apply h-8 w-12;
+      &.wx-switch-input-checked {
+        // @apply border-red-500 bg-red-500 #{!important};
+        &::after {
+          // @apply translate-x-4;
+        }
+      }
+      &::before {
+        // @apply rounded-full;
+        // @apply h-8 w-12;
+      }
+      &::after {
+        // @apply rounded-full;
+        // @apply h-8 w-8;
+      }
+    }
+  }
+}
+
+// .toggle-xs {
+//   .wx-switch-wrapper {
+//     .wx-switch-input {
+//       @apply h-4 w-6;
+//       &.wx-switch-input-checked {
+//         &::after {
+//           @apply translate-x-2;
+//         }
+//       }
+//       &::before {
+//         @apply h-4 w-6;
+//       }
+//       &::after {
+//         @apply h-4 w-4;
+//       }
+//     }
+//   }
+// }
+
+// .toggle-sm {
+//   .wx-switch-wrapper {
+//     .wx-switch-input {
+//       @apply h-6 w-9;
+//       &.wx-switch-input-checked {
+//         &::after {
+//           @apply translate-x-3;
+//         }
+//       }
+//       &::before {
+//         @apply h-6 w-9;
+//       }
+//       &::after {
+//         @apply h-6 w-6;
+//       }
+//     }
+//   }
+// }
+
+// .toggle-lg {
+//   .wx-switch-wrapper {
+//     .wx-switch-input {
+//       @apply h-10 w-16;
+//       &.wx-switch-input-checked {
+//         &::after {
+//           @apply translate-x-6;
+//         }
+//       }
+//       &::before {
+//         @apply h-10 w-16;
+//       }
+//       &::after {
+//         @apply h-10 w-10;
+//       }
+//     }
+//   }
+// }
+// .switch-item {
+//   width: 105rpx !important;
+//   height: 40rpx !important;
+// }
+// /*白色样式（switch关闭状态的样式）*/
+// .switch-item::before {
+//   width: 105rpx !important;
+//   height: 40rpx !important;
+//   background-color: #ebedf5 !important;
+// }
+// /*绿色样式（switch打开状态的样式）*/
+// .switch-item::after {
+//   width: 38rpx !important;
+//   height: 38rpx !important;
+//   box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.3);
+//   left: 0 !important;
+// }

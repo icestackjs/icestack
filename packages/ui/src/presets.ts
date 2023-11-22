@@ -1,8 +1,7 @@
-import { transformCss2Js, expandTypes, getSelector } from './components/shared'
+import { expandTypes, getSelector } from './components/shared'
 import type { CodegenOptions, DeepPartial } from './types'
 // import { expandTypes, transformCss2Js } from '@/components/shared'
 
-// @ts-ignore
 export const miniprogramPreset: () => DeepPartial<CodegenOptions> = () => {
   return {
     global: {
@@ -32,7 +31,7 @@ export const miniprogramPreset: () => DeepPartial<CodegenOptions> = () => {
       },
       checkbox: {
         prefix: {
-          ignore: ['.wx-checkbox-input']
+          ignore: ['.wx-checkbox']
         },
         schema: (opts) => {
           const { selector, types } = opts
@@ -154,7 +153,7 @@ export const miniprogramPreset: () => DeepPartial<CodegenOptions> = () => {
       },
       radio: {
         prefix: {
-          ignore: ['.wx-radio-input']
+          ignore: ['.wx-radio']
         },
         schema: (opts) => {
           const { selector, types } = opts
@@ -285,10 +284,275 @@ export const miniprogramPreset: () => DeepPartial<CodegenOptions> = () => {
         }
       },
       range: {
-        // prefix: '.slider',
+        prefix: {
+          ignore: ['.wx-slider']
+        },
+        selector: '.range',
         schema: ({ selector, types }) => {
           return {
-            selector
+            selector,
+            defaults: {
+              base: {
+                [selector]: {
+                  '.wx-slider-wrapper': {
+                    apply: 'h-6',
+                    '.wx-slider-handle-wrapper': {
+                      apply: 'h-2 rounded-full',
+                      '.wx-slider-track': {
+                        apply: 'h-6 rounded-tl-full rounded-bl-full',
+                        css: {
+                          position: 'absolute',
+                          top: '50%',
+                          transform: 'translateY(-50%)'
+                        }
+                      },
+                      '.wx-slider-handle': {
+                        apply: ['box-border', 'h-6 w-6 -ml-3 -mt-3 !important']
+                      },
+                      '.wx-slider-thumb': {
+                        apply: ['box-border rounded-full border-4 border-solid', 'border-[#1aad19] h-6 w-6 -ml-3 -mt-3 !important']
+                      }
+                    }
+                  }
+                }
+              },
+              styled: {
+                [selector]: {
+                  ...expandTypes(types, (type) => {
+                    return {
+                      key: `&${getSelector(type)}`,
+                      value: {
+                        '.wx-slider-wrapper': {
+                          '.wx-slider-handle-wrapper': {
+                            '.wx-slider-track': {
+                              apply: `bg-${type} !important`
+                            },
+                            '.wx-slider-handle': {},
+                            '.wx-slider-thumb': {
+                              apply: [`border-${type} !important`]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  })
+                }
+              },
+              utils: {
+                [selector]: {
+                  [`&${getSelector('xs')}`]: {
+                    '.wx-slider-wrapper': {
+                      apply: 'h-4',
+                      '.wx-slider-handle-wrapper': {
+                        apply: 'h-1',
+                        '.wx-slider-track': {
+                          apply: 'h-4'
+                        },
+                        '.wx-slider-handle': {
+                          apply: 'h-4 w-4 -ml-2 -mt-2 !important'
+                        },
+                        '.wx-slider-thumb': {
+                          apply: ['border-2 h-4 w-4 -ml-2 -mt-2 !important']
+                        }
+                      }
+                    }
+                  },
+                  [`&${getSelector('sm')}`]: {
+                    '.wx-slider-wrapper': {
+                      apply: 'h-5',
+                      '.wx-slider-handle-wrapper': {
+                        apply: 'h-2',
+                        '.wx-slider-track': {
+                          apply: 'h-5'
+                        },
+                        '.wx-slider-handle': {
+                          apply: 'h-5 w-5 -ml-2.5 -mt-2.5 !important'
+                        },
+                        '.wx-slider-thumb': {
+                          apply: ['border-[3px] h-5 w-5 -ml-2.5 -mt-2.5 !important']
+                        }
+                      }
+                    }
+                  },
+                  [`&${getSelector('md')}`]: {
+                    '.wx-slider-wrapper': {
+                      apply: 'h-6',
+                      '.wx-slider-handle-wrapper': {
+                        apply: 'h-2',
+                        '.wx-slider-track': {
+                          apply: 'h-6'
+                        },
+                        '.wx-slider-handle': {
+                          apply: 'h-6 w-6 -ml-3 -mt-3 !important'
+                        },
+                        '.wx-slider-thumb': {
+                          apply: ['border-4 h-6 w-6 -ml-3 -mt-3 !important']
+                        }
+                      }
+                    }
+                  },
+                  [`&${getSelector('lg')}`]: {
+                    '.wx-slider-wrapper': {
+                      apply: 'h-8',
+                      '.wx-slider-handle-wrapper': {
+                        apply: 'h-3',
+                        '.wx-slider-track': {
+                          apply: 'h-8'
+                        },
+                        '.wx-slider-handle': {
+                          apply: 'h-8 w-8 -ml-4 -mt-4 !important'
+                        },
+                        '.wx-slider-thumb': {
+                          apply: ['border-[6px] h-8 w-8 -ml-4 -mt-4 !important']
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      textarea: {
+        extra: {
+          '.textarea': {
+            css: {
+              'border-style': 'solid'
+            }
+          }
+        }
+      },
+      toggle: {
+        prefix: {
+          ignore: ['.wx-switch', '.wx-checkbox']
+        },
+        schema: ({ selector, types }) => {
+          return {
+            selector,
+            defaults: {
+              base: {
+                [selector]: {
+                  '.wx-switch-wrapper': {
+                    '.wx-switch-input': {
+                      apply: ['rounded-full box-content', 'h-8 w-12'],
+                      '&.wx-switch-input-checked': {
+                        '&::after': {
+                          apply: 'translate-x-4'
+                        }
+                      },
+                      '&::before': {
+                        apply: ['rounded-full', 'h-8 w-12']
+                      },
+                      '&::after': {
+                        apply: ['rounded-full', 'h-8 w-8']
+                      }
+                    }
+                  },
+                  [`&${getSelector('disabled')}`]: {
+                    '.wx-switch-wrapper': {
+                      '.wx-switch-input': {
+                        apply: 'opacity-50'
+                      }
+                    }
+                  }
+                }
+              },
+              styled: {
+                [selector]: {
+                  ...expandTypes(types, (type) => {
+                    return {
+                      key: `&${getSelector(type)}`,
+                      value: {
+                        '.wx-switch-wrapper': {
+                          '.wx-switch-input': {
+                            '&.wx-switch-input-checked': {
+                              apply: [`border-${type} bg-${type} !important`]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  })
+                }
+              },
+              utils: {
+                [selector]: {
+                  [`&${getSelector('xs')}`]: {
+                    '.wx-switch-wrapper': {
+                      '.wx-switch-input': {
+                        apply: ['h-4 w-6'],
+                        '&.wx-switch-input-checked': {
+                          '&::after': {
+                            apply: 'translate-x-2'
+                          }
+                        },
+                        '&::before': {
+                          apply: ['h-4 w-6']
+                        },
+                        '&::after': {
+                          apply: ['h-4 w-4']
+                        }
+                      }
+                    }
+                  },
+                  [`&${getSelector('sm')}`]: {
+                    '.wx-switch-wrapper': {
+                      '.wx-switch-input': {
+                        apply: ['h-6 w-9'],
+                        '&.wx-switch-input-checked': {
+                          '&::after': {
+                            apply: 'translate-x-3'
+                          }
+                        },
+                        '&::before': {
+                          apply: ['h-6 w-9']
+                        },
+                        '&::after': {
+                          apply: ['h-6 w-6']
+                        }
+                      }
+                    }
+                  },
+                  [`&${getSelector('md')}`]: {
+                    '.wx-switch-wrapper': {
+                      '.wx-switch-input': {
+                        apply: ['h-8 w-12'],
+                        '&.wx-switch-input-checked': {
+                          '&::after': {
+                            apply: 'translate-x-4'
+                          }
+                        },
+                        '&::before': {
+                          apply: ['h-8 w-12']
+                        },
+                        '&::after': {
+                          apply: ['h-8 w-8']
+                        }
+                      }
+                    }
+                  },
+                  [`&${getSelector('lg')}`]: {
+                    '.wx-switch-wrapper': {
+                      '.wx-switch-input': {
+                        apply: ['h-10 w-16'],
+                        '&.wx-switch-input-checked': {
+                          '&::after': {
+                            apply: 'translate-x-6'
+                          }
+                        },
+                        '&::before': {
+                          apply: ['h-10 w-16']
+                        },
+                        '&::after': {
+                          apply: ['h-10 w-10']
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }

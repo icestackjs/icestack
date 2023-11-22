@@ -1,7 +1,7 @@
 import { isObject, pick, set, get } from 'lodash'
 import postcss from 'postcss'
 import selectorParser from 'postcss-selector-parser'
-import type { ISchema } from './types'
+import type { CreatePresetOptions, ISchema } from './types'
 import { defu, defuOverrideArray } from '@/utils'
 import type { CodegenMode, ComponentsValue, CssInJs, ModeMergeValue } from '@/types'
 
@@ -99,9 +99,13 @@ function getPickedProps(mode: CodegenMode = 'styled') {
   }
 }
 
-export function handleOptions(d: ISchema, { extend = {}, override, selector, extra = {}, mode }: Partial<ComponentsValue>) {
-  let de = d ?? {}
-  de.defaults = pick(de.defaults, getPickedProps(mode))
+export function handleOptions({ extend, override, selector, extra, mode, schema }: ComponentsValue, opts: CreatePresetOptions) {
+  const d: ISchema | undefined = schema?.({
+    ...opts,
+    selector
+  })
+  let de: Partial<ISchema> = d ?? {}
+  de.defaults = preprocessCssInJs(pick(de.defaults, getPickedProps(mode)))
   if (override) {
     de = defuOverrideArray(de, {
       selector,

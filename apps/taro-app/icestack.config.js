@@ -1,5 +1,6 @@
 const { transformCss2Js } = require('@icestack/ui')
 const { miniprogramPreset } = require('@icestack/ui/presets')
+const { expandTypes, getSelector } = require('@icestack/ui/components')
 /**
  * @type {import('@icestack/ui').Config}
  */
@@ -19,14 +20,8 @@ const config = {
         @apply text-gray-500 text-xs pt-2 pb-3 break-all;
       }`),
     },
-    range: {
-      prefix: '.range',
-      schema: ({ selector, types }) => {
-        return {
-          selector
-        }
-      }
-    },
+
+
     // slider: {
     //   prefix: '.slider',
     //   schema: ({ selector, types }) => {

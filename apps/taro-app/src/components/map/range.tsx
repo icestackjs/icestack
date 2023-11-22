@@ -1,5 +1,5 @@
 import { View, Text, Slider } from '@tarojs/components'
-import './range.scss'
+// import './range.scss'
 
 export default () => {
   return (
@@ -10,19 +10,19 @@ export default () => {
       </View>
       <View className='subtitle'>颜色类型</View>
       <View className='grid grid-cols-1 gap-2'>
-        <Slider className='range'></Slider>
-        <Slider className='range range-primary'></Slider>
-        <Slider className='range range-success'></Slider>
-        <Slider className='range range-warning'></Slider>
-        <Slider className='range range-error'></Slider>
-        <Slider className='range range-neutral'></Slider>
+        <Slider className='range' value={10}></Slider>
+        <Slider className='range range-primary' value={20}></Slider>
+        <Slider className='range range-success' value={30}></Slider>
+        <Slider className='range range-warning' value={40}></Slider>
+        <Slider className='range range-error' value={50}></Slider>
+        <Slider className='range range-neutral' value={60}></Slider>
       </View>
       <View className='subtitle'>尺寸</View>
       <View className='grid grid-cols-1 gap-2'>
-        <Slider className='range range-xs'></Slider>
-        <Slider className='range range-sm'></Slider>
-        <Slider className='range range-md'></Slider>
-        <Slider className='range range-lg'></Slider>
+        <Slider className='range range-xs' value={60}></Slider>
+        <Slider className='range range-sm' value={60}></Slider>
+        <Slider className='range range-md' value={60}></Slider>
+        <Slider className='range range-lg' value={60}></Slider>
       </View>
     </View>
   )

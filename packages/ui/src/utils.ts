@@ -91,6 +91,12 @@ const defuOverrideArray = createDefu((obj, key, value) => {
   }
 })
 
+export const defuCodegenOptions = createDefu((obj, key, value) => {
+  if (key === 'prefix') {
+    // return true
+  }
+})
+
 export { defuOverrideArray }
 
 // export function walkScssSync(dir: string) {

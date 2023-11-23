@@ -3,15 +3,11 @@ import { View } from '@tarojs/components'
 import { cx } from 'class-variance-authority'
 import { useThemeStore } from '@/store/index'
 
-export default function ThemeProvider(
-  props: PropsWithChildren<{
-    mode?: 'light' | 'dark'
-  }>
-) {
+export default function ThemeProvider(props: PropsWithChildren<{}>) {
   const { mode } = useThemeStore()
   return (
-    <View className={cx(mode, props.mode)}>
-      <View className='dark:bg-base-100'>{props.children}</View>
+    <View className={cx(mode,'')}>
+      <View className='antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900 transition-colors duration-300 min-h-screen pb-4'>{props.children}</View>
     </View>
   )
 }

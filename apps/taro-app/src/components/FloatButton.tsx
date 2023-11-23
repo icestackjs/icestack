@@ -1,10 +1,10 @@
 import { BaseEventOrig, MovableArea, MovableView, MovableViewProps, View } from '@tarojs/components'
-import { FC, PropsWithChildren, useCallback, useEffect, useState } from 'react'
+import { FC, PropsWithChildren, useCallback, useEffect, useMemo, useState } from 'react'
 import debounce from 'lodash.debounce'
 import Taro from '@tarojs/taro'
+import { systemInfo } from '@/store/index'
 
-const systemInfo = Taro.getSystemInfoSync()
-
+// console.log(systemInfo)
 function rpx2px(size: number) {
   return (systemInfo.windowWidth / 750) * size
 }
@@ -17,7 +17,7 @@ const FloatBtn: FC<
     storeKey?: string
     padding?: string[]
   }>
-> = ({ padding = ['64rpx', '32rpx', '64rpx', '32rpx'], storeKey = 'global-float-btn-key', children }) => {
+> = ({ padding = ['256rpx', '32rpx', '64rpx', '32rpx'], storeKey = 'global-float-btn-key', children }) => {
   const { windowHeight, windowWidth } = systemInfo
   let initX = windowWidth
   let initY = windowHeight / 1.25
@@ -40,18 +40,19 @@ const FloatBtn: FC<
     x: initX,
     y: initY
   })
-  // useEffect(() => {
 
-  // }, [storeKey, windowHeight, windowWidth])
-  const resetToYaxis = debounce((x: number, y: number, source) => {
-    if (source) {
-      setPosition({
-        x,
-        y
-      })
-    }
-    // console.log('[Final]', x, y, source)
-  }, 50)
+  const resetToYaxis = useCallback(
+    debounce((x: number, y: number, source) => {
+      if (source) {
+        setPosition({
+          x,
+          y
+        })
+      }
+      // console.log('[Final]', x, y, source)
+    }, 100),
+    [setPosition]
+  )
   const half = (windowWidth - btnWidth - edgeWidth * 2) / 2
 
   const onChange = useCallback(
@@ -67,22 +68,20 @@ const FloatBtn: FC<
   const onTouchEnd = useCallback(() => {
     // console.log('touchend')
     setTimeout(() => {
-      // console.log(position.x)
-      if (position.x > half) {
-        setPosition(({ y }) => {
+      setPosition(({ x, y }) => {
+        if (x > half) {
           return {
             x: windowWidth,
             y
           }
-        })
-      } else {
-        setPosition(({ y }) => {
+        } else {
           return {
             x: 0,
             y
           }
-        })
-      }
+        }
+      })
+      // console.log(position.x)
 
       if (storeKey) {
         setTimeout(() => {
@@ -93,7 +92,7 @@ const FloatBtn: FC<
   }, [half, position, storeKey, windowWidth])
   return (
     <View
-      className='pointer-events-auto fixed z-50'
+      className='pointer-events-none fixed z-50'
       style={{
         top: padding[0],
         right: padding[1],

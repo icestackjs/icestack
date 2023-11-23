@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import Taro from '@tarojs/taro'
 
+export const systemInfo = Taro.getSystemInfoSync()
 export interface IThemeState {
   mode: 'light' | 'dark'
   setMode: (mode: IThemeState['mode']) => void
@@ -36,3 +37,4 @@ export const useThemeStore = create<IThemeState>((set) => {
     }
   }
 })
+

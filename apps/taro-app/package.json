@@ -66,6 +66,7 @@
     "@babel/core": "^7.23.3",
     "@egoist/tailwindcss-icons": "^1.4.0",
     "@icestack/ui": "link:../../packages/ui",
+    "@iconify-json/grommet-icons": "^1.1.7",
     "@iconify-json/mdi": "^1.1.55",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@tarojs/cli": "3.6.19",

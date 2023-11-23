@@ -12,7 +12,7 @@ module.exports = {
   // plugins: [require('@icestack/ui')({})],
   plugins: [
     iconsPlugin({
-      collections: getIconCollections(['mdi'])
+      collections: getIconCollections(['mdi', 'grommet-icons'])
     }),
     icestackPlugin({
       loaddir: path.resolve(__dirname, './my-ui'),

@@ -5,6 +5,34 @@
     "miniprogram": {
       "list": [
         {
+          "name": "toast",
+          "pathName": "pages/index/component",
+          "query": "id=toast",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "tooltip",
+          "pathName": "pages/index/component",
+          "query": "id=tooltip",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "kbd",
+          "pathName": "pages/index/component",
+          "query": "id=kbd",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "diff",
+          "pathName": "pages/index/component",
+          "query": "id=diff",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "countdown",
           "pathName": "pages/index/component",
           "query": "id=countdown",

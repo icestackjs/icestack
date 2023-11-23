@@ -22,14 +22,18 @@ module.exports = {
       "avatar",
       "badge",
       "chat",
-      "progress",
-      "radial-progress",
       "countdown",
+      "diff",
+      "kbd",
       "table"
     ],
     "Feedback": [
       "alert",
-      "skeleton"
+      "progress",
+      "radial-progress",
+      "skeleton",
+      "toast",
+      "tooltip"
     ],
     "Other": []
   },
@@ -65,6 +69,10 @@ module.exports = {
     "skeleton": "骨架屏",
     "table": "表格",
     "radial-progress": "圆形进度条",
-    "countdown": "计数"
+    "countdown": "计数",
+    "diff": "差异",
+    "kbd": "键盘按键",
+    "tooltip": "文字提示",
+    "toast": "轻提示"
   }
 }

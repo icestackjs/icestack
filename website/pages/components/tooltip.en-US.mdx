@@ -1,0 +1,221 @@
+import CssTable from '../../components/CssTable'
+
+## Class Table
+
+<CssTable name="tooltip" />
+
+## Demo and Playground
+
+[Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/feedback-tooltip--docs)
+
+## Css Schema
+
+```json
+{
+"selector": ".tooltip",
+"defaults": {
+  "base": {
+    ".tooltip": {
+      "apply": [
+        "relative inline-block"
+      ],
+      "css": {
+        "--tooltip-offset": "calc(100% + 1px + var(--tooltip-tail, 0px))"
+      }
+    },
+    ".tooltip:before": {
+      "apply": [
+        "absolute"
+      ],
+      "css": {
+        "pointer-events": "none",
+        "z-index": "1",
+        "content": "var(--tw-content)",
+        "--tw-content": "attr(data-tip)"
+      }
+    },
+    ".tooltip,.tooltip-top": {
+      "&:before": {
+        "css": {
+          "transform": "translateX(-50%)",
+          "top": "auto",
+          "left": "50%",
+          "right": "auto",
+          "bottom": "var(--tooltip-offset)"
+        }
+      }
+    },
+    ".tooltip-bottom": {
+      "&:before": {
+        "css": {
+          "transform": "translateX(-50%)",
+          "top": "var(--tooltip-offset)",
+          "left": "50%",
+          "right": "auto",
+          "bottom": "auto"
+        }
+      }
+    },
+    ".tooltip-left": {
+      "&:before": {
+        "css": {
+          "transform": "translateY(-50%)",
+          "top": "50%",
+          "left": "auto",
+          "right": "var(--tooltip-offset)",
+          "bottom": "auto"
+        }
+      }
+    },
+    ".tooltip-right": {
+      "&:before": {
+        "css": {
+          "transform": "translateY(-50%)",
+          "top": "50%",
+          "left": "var(--tooltip-offset)",
+          "right": "auto",
+          "bottom": "auto"
+        }
+      }
+    }
+  },
+  "styled": {
+    ".tooltip": {
+      "apply": [
+        "relative inline-block text-center"
+      ],
+      "css": {
+        "--tooltip-tail": "0.1875rem",
+        "--tooltip-color": "theme(colors.neutral)",
+        "--tooltip-text-color": "theme(colors.neutral-content)",
+        "--tooltip-tail-offset": "calc(100% + 0.0625rem - var(--tooltip-tail))"
+      },
+      "&-primary": {
+        "css": {
+          "--tooltip-color": "theme(colors.primary)",
+          "--tooltip-text-color": "theme(colors.primary-content)"
+        }
+      },
+      "&-success": {
+        "css": {
+          "--tooltip-color": "theme(colors.success)",
+          "--tooltip-text-color": "theme(colors.success-content)"
+        }
+      },
+      "&-warning": {
+        "css": {
+          "--tooltip-color": "theme(colors.warning)",
+          "--tooltip-text-color": "theme(colors.warning-content)"
+        }
+      },
+      "&-error": {
+        "css": {
+          "--tooltip-color": "theme(colors.error)",
+          "--tooltip-text-color": "theme(colors.error-content)"
+        }
+      },
+      "&-neutral": {
+        "css": {
+          "--tooltip-color": "theme(colors.neutral)",
+          "--tooltip-text-color": "theme(colors.neutral-content)"
+        }
+      }
+    },
+    ".tooltip:before,.tooltip:after": {
+      "apply": [
+        "opacity-0 transition delay-100 duration-200 ease-in-out"
+      ]
+    },
+    ".tooltip:after": {
+      "apply": [
+        "absolute"
+      ],
+      "css": {
+        "content": "\"\"",
+        "border-style": "solid",
+        "border-width": "var(--tooltip-tail, 0)",
+        "width": "0",
+        "height": "0",
+        "display": "block",
+        "position": "absolute"
+      }
+    },
+    ".tooltip:before": {
+      "apply": [
+        "max-w-xs rounded px-2 py-1 text-sm"
+      ],
+      "css": {
+        "background-color": "var(--tooltip-color)",
+        "color": "var(--tooltip-text-color)",
+        "width": "max-content"
+      }
+    },
+    ".tooltip.tooltip-open:before,.tooltip.tooltip-open:after,.tooltip:hover:before,.tooltip:hover:after": {
+      "apply": [
+        "opacity-100 delay-75"
+      ]
+    },
+    ".tooltip:has(:focus-visible):after,.tooltip:has(:focus-visible):before": {
+      "apply": [
+        "opacity-100 delay-75"
+      ]
+    },
+    ".tooltip:not([data-tip]):hover:before,.tooltip:not([data-tip]):hover:after": {
+      "css": {
+        "visibility": "hidden",
+        "opacity": "0"
+      }
+    },
+    ".tooltip,.tooltip-top": {
+      "&:after": {
+        "css": {
+          "transform": "translateX(-50%)",
+          "border-color": "var(--tooltip-color) transparent transparent transparent",
+          "top": "auto",
+          "left": "50%",
+          "right": "auto",
+          "bottom": "var(--tooltip-tail-offset)"
+        }
+      }
+    },
+    ".tooltip-bottom": {
+      "&:after": {
+        "css": {
+          "transform": "translateX(-50%)",
+          "border-color": "transparent transparent var(--tooltip-color) transparent",
+          "top": "var(--tooltip-tail-offset)",
+          "left": "50%",
+          "right": "auto",
+          "bottom": "auto"
+        }
+      }
+    },
+    ".tooltip-left": {
+      "&:after": {
+        "css": {
+          "transform": "translateY(-50%)",
+          "border-color": "transparent transparent transparent var(--tooltip-color)",
+          "top": "50%",
+          "left": "auto",
+          "right": "calc(var(--tooltip-tail-offset) + 0.0625rem)",
+          "bottom": "auto"
+        }
+      }
+    },
+    ".tooltip-right": {
+      "&:after": {
+        "css": {
+          "transform": "translateY(-50%)",
+          "border-color": "transparent var(--tooltip-color) transparent transparent",
+          "top": "50%",
+          "left": "calc(var(--tooltip-tail-offset) + 0.0625rem)",
+          "right": "auto",
+          "bottom": "auto"
+        }
+      }
+    }
+  },
+  "utils": {}
+}
+}
+```

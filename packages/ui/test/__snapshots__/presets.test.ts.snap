@@ -235,6 +235,7 @@ exports[`presets > miniprogramPreset 1`] = `
         ],
       },
     },
+    "diff": false,
     "form": {
       "schema": [Function],
     },
@@ -248,6 +249,10 @@ exports[`presets > miniprogramPreset 1`] = `
       },
       "schema": [Function],
       "selector": ".input",
+    },
+    "kbd": {
+      "schema": [Function],
+      "selector": ".kbd",
     },
     "link": {
       "schema": [Function],
@@ -265,7 +270,7 @@ exports[`presets > miniprogramPreset 1`] = `
       "schema": [Function],
       "selector": ".progress",
     },
-    "radialProgress": {
+    "radial-progress": {
       "schema": [Function],
       "selector": ".radial-progress",
       "varPrefix": {
@@ -323,6 +328,10 @@ exports[`presets > miniprogramPreset 1`] = `
       "schema": [Function],
       "selector": ".textarea",
     },
+    "toast": {
+      "schema": [Function],
+      "selector": ".toast",
+    },
     "toggle": {
       "prefix": {
         "ignore": [
@@ -333,6 +342,7 @@ exports[`presets > miniprogramPreset 1`] = `
       "schema": [Function],
       "selector": ".toggle",
     },
+    "tooltip": false,
   },
   "dryRun": false,
   "global": {
@@ -393,6 +403,7 @@ exports[`presets > miniprogramPreset 1`] = `
             },
           },
         },
+        "diff": false,
         "input": {
           "extra": {
             ".input": {
@@ -441,6 +452,7 @@ exports[`presets > miniprogramPreset 1`] = `
           },
           "schema": [Function],
         },
+        "tooltip": false,
       },
       "global": {
         "atMedia": {
@@ -1814,6 +1826,64 @@ exports[`presets > miniprogramPreset buildComponents 1`] = `
       },
     },
   },
+  "kbd": {
+    "base": {
+      ".kbd": {
+        "alignItems": "center",
+        "display": "inline-flex",
+        "justifyContent": "center",
+      },
+    },
+    "styled": {
+      ".kbd": {
+        "--tw-bg-opacity": "1",
+        "--tw-border-opacity": "0.2",
+        "backgroundColor": "rgba(var(--ice-base-200) / var(--tw-bg-opacity))",
+        "borderBottomWidth": "2px",
+        "borderColor": "rgba(var(--ice-base-content) / var(--tw-border-opacity))",
+        "borderRadius": "var(--ice-rounded-btn, 0.5rem)",
+        "borderWidth": "1px",
+        "minHeight": "2.2em",
+        "minWidth": "2.2em",
+        "paddingLeft": "0.5rem",
+        "paddingRight": "0.5rem",
+      },
+    },
+    "utils": {
+      ".kbd-lg": {
+        "fontSize": "1.125rem",
+        "lineHeight": "1.75rem",
+        "minHeight": "2.5em",
+        "minWidth": "2.5em",
+        "paddingLeft": "1rem",
+        "paddingRight": "1rem",
+      },
+      ".kbd-md": {
+        "fontSize": "1rem",
+        "lineHeight": "1.5rem",
+        "minHeight": "2.2em",
+        "minWidth": "2.2em",
+        "paddingLeft": "0.5rem",
+        "paddingRight": "0.5rem",
+      },
+      ".kbd-sm": {
+        "fontSize": "0.875rem",
+        "lineHeight": "1.25rem",
+        "minHeight": "1.6em",
+        "minWidth": "1.6em",
+        "paddingLeft": "0.25rem",
+        "paddingRight": "0.25rem",
+      },
+      ".kbd-xs": {
+        "fontSize": "0.75rem",
+        "lineHeight": "1rem",
+        "minHeight": "1.2em",
+        "minWidth": "1.2em",
+        "paddingLeft": "0.25rem",
+        "paddingRight": "0.25rem",
+      },
+    },
+  },
   "link": {
     "base": {
       ".link": {
@@ -2117,7 +2187,7 @@ exports[`presets > miniprogramPreset buildComponents 1`] = `
     },
     "utils": {},
   },
-  "radialProgress": {
+  "radial-progress": {
     "base": {
       ".radial-progress": {
         "--size": "5rem",
@@ -2879,6 +2949,87 @@ exports[`presets > miniprogramPreset buildComponents 1`] = `
       },
     },
   },
+  "toast": {
+    "base": {
+      ".toast": {
+        "display": "flex",
+        "flexDirection": "column",
+        "minWidth": "fit-content",
+        "position": "fixed",
+        "whiteSpace": "nowrap",
+      },
+    },
+    "styled": {
+      ".toast": {
+        "gap": "0.5rem",
+        "padding": "1rem",
+      },
+      ".toast>view": {
+        "animation": "toast-pop 0.25s ease-out",
+      },
+      "@keyframes toast-pop": {
+        "0%": {
+          "opacity": 0,
+          "transform": "scale(0.9)",
+        },
+        "100%": {
+          "opacity": 1,
+          "transform": "scale(1)",
+        },
+      },
+    },
+    "utils": {
+      ".toast:where(.toast-bottom)": {
+        "--tw-translate-y": "0px",
+        "bottom": "0px",
+        "top": "auto",
+        "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+      },
+      ".toast:where(.toast-center)": {
+        "--tw-translate-x": "-50%",
+        "insetInlineEnd": "50%",
+        "insetInlineStart": "50%",
+        "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+      },
+      ".toast:where(.toast-end)": {
+        "--tw-translate-x": "0px",
+        "insetInlineEnd": "0px",
+        "insetInlineStart": "auto",
+        "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+      },
+      ".toast:where(.toast-middle)": {
+        "--tw-translate-y": "-50%",
+        "bottom": "auto",
+        "top": "50%",
+        "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+      },
+      ".toast:where(.toast-start)": {
+        "--tw-translate-x": "0px",
+        "insetInlineEnd": "auto",
+        "insetInlineStart": "0px",
+        "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+      },
+      ".toast:where(.toast-top)": {
+        "--tw-translate-y": "0px",
+        "bottom": "auto",
+        "top": "0px",
+        "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+      },
+      ":is([dir=\\"rtl\\"] .toast:where(.toast-center))": {
+        "--tw-translate-x": "50%",
+        "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+      },
+      ":where(.toast)": {
+        "--tw-translate-x": "0px",
+        "--tw-translate-y": "0px",
+        "bottom": "0px",
+        "insetInlineEnd": "0px",
+        "insetInlineStart": "auto",
+        "top": "auto",
+        "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+      },
+    },
+  },
   "toggle": {
     "base": {
       ".toggle .wx-switch-wrapper .wx-switch-input": {
@@ -3582,6 +3733,7 @@ exports[`presets > presets merge case 0 1`] = `
         ],
       },
     },
+    "diff": false,
     "form": {
       "schema": [Function],
     },
@@ -3595,6 +3747,10 @@ exports[`presets > presets merge case 0 1`] = `
       },
       "schema": [Function],
       "selector": ".input",
+    },
+    "kbd": {
+      "schema": [Function],
+      "selector": ".kbd",
     },
     "link": {
       "schema": [Function],
@@ -3612,7 +3768,7 @@ exports[`presets > presets merge case 0 1`] = `
       "schema": [Function],
       "selector": ".progress",
     },
-    "radialProgress": {
+    "radial-progress": {
       "schema": [Function],
       "selector": ".radial-progress",
       "varPrefix": {
@@ -3670,6 +3826,10 @@ exports[`presets > presets merge case 0 1`] = `
       "schema": [Function],
       "selector": ".textarea",
     },
+    "toast": {
+      "schema": [Function],
+      "selector": ".toast",
+    },
     "toggle": {
       "prefix": {
         "ignore": [
@@ -3680,6 +3840,7 @@ exports[`presets > presets merge case 0 1`] = `
       "schema": [Function],
       "selector": ".toggle",
     },
+    "tooltip": false,
   },
   "dryRun": false,
   "global": {
@@ -3740,6 +3901,7 @@ exports[`presets > presets merge case 0 1`] = `
             },
           },
         },
+        "diff": false,
         "input": {
           "extra": {
             ".input": {
@@ -3788,6 +3950,7 @@ exports[`presets > presets merge case 0 1`] = `
           },
           "schema": [Function],
         },
+        "tooltip": false,
       },
       "global": {
         "atMedia": {
@@ -4014,6 +4177,7 @@ exports[`presets > presets merge case 1 1`] = `
         ],
       },
     },
+    "diff": false,
     "form": {
       "schema": [Function],
     },
@@ -4027,6 +4191,10 @@ exports[`presets > presets merge case 1 1`] = `
       },
       "schema": [Function],
       "selector": ".input",
+    },
+    "kbd": {
+      "schema": [Function],
+      "selector": ".kbd",
     },
     "link": {
       "schema": [Function],
@@ -4044,7 +4212,7 @@ exports[`presets > presets merge case 1 1`] = `
       "schema": [Function],
       "selector": ".progress",
     },
-    "radialProgress": {
+    "radial-progress": {
       "schema": [Function],
       "selector": ".radial-progress",
       "varPrefix": {
@@ -4102,6 +4270,10 @@ exports[`presets > presets merge case 1 1`] = `
       "schema": [Function],
       "selector": ".textarea",
     },
+    "toast": {
+      "schema": [Function],
+      "selector": ".toast",
+    },
     "toggle": {
       "prefix": {
         "ignore": [
@@ -4112,6 +4284,7 @@ exports[`presets > presets merge case 1 1`] = `
       "schema": [Function],
       "selector": ".toggle",
     },
+    "tooltip": false,
   },
   "dryRun": false,
   "global": {
@@ -4172,6 +4345,7 @@ exports[`presets > presets merge case 1 1`] = `
             },
           },
         },
+        "diff": false,
         "input": {
           "extra": {
             ".input": {
@@ -4220,6 +4394,7 @@ exports[`presets > presets merge case 1 1`] = `
           },
           "schema": [Function],
         },
+        "tooltip": false,
       },
       "global": {
         "atMedia": {

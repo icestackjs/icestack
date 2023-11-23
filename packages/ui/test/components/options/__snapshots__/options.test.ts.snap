@@ -1586,6 +1586,200 @@ exports[`'countdown' options > snap 1`] = `
 }
 `;
 
+exports[`'diff' options > raw snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".diff": {
+        "apply": [
+          "relative grid w-full overflow-hidden",
+        ],
+        "css": {
+          "container-type": "inline-size",
+          "grid-template-columns": "auto 1fr",
+        },
+      },
+      ".diff-item-1:after": {
+        "apply": [
+          "pointer-events-none absolute bottom-0 right-px top-1/2 z-[1] h-8 w-8 content-['']",
+        ],
+        "css": {
+          "translate": "50% -50%",
+        },
+      },
+      ".diff-item-1>*,.diff-item-2>*": {
+        "apply": [
+          "pointer-events-none absolute bottom-0 left-0 top-0 h-full w-[100cqi] max-w-none object-cover object-center",
+        ],
+      },
+      ".diff-item-2": {
+        "apply": [
+          "overflow-hidden",
+        ],
+      },
+      ".diff-resizer": {
+        "apply": [
+          "relative top-1/2 z-[1] h-12 w-[25rem] min-w-[1rem] max-w-[calc(100cqi-1rem)] resize-x overflow-hidden opacity-0",
+        ],
+        "css": {
+          "clip-path": "inset(calc(100% - 0.75rem) 0 0 calc(100% - 0.75rem))",
+          "scale": "4",
+          "transform-origin": "100% 100%",
+          "translate": "1.5rem -1.5rem",
+        },
+      },
+      ".diff-resizer,.diff-item-1,.diff-item-2": {
+        "apply": [
+          "relative col-start-1 row-start-1",
+        ],
+      },
+    },
+    "styled": {
+      ".diff-item-1:after": {
+        "apply": [
+          "bg-base-100/50 border-base-100 outline-base-content/5 rounded-full border-2 shadow-sm outline outline-offset-[-3px] backdrop-blur",
+        ],
+        "css": {
+          "translate": "50% -50%",
+        },
+      },
+      ".diff-item-2": {
+        "apply": [
+          "border-base-100 border-r-2",
+        ],
+      },
+    },
+    "utils": {},
+  },
+  "selector": ".diff",
+}
+`;
+
+exports[`'diff' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".diff": {
+        "apply": [
+          [
+            "relative",
+            "grid",
+            "w-full",
+            "overflow-hidden",
+          ],
+        ],
+        "css": {
+          "container-type": "inline-size",
+          "grid-template-columns": "auto 1fr",
+        },
+      },
+      ".diff-item-1:after": {
+        "apply": [
+          [
+            "pointer-events-none",
+            "absolute",
+            "bottom-0",
+            "right-px",
+            "top-1/2",
+            "z-[1]",
+            "h-8",
+            "w-8",
+            "content-['']",
+          ],
+        ],
+        "css": {
+          "translate": "50% -50%",
+        },
+      },
+      ".diff-item-1>*,.diff-item-2>*": {
+        "apply": [
+          [
+            "pointer-events-none",
+            "absolute",
+            "bottom-0",
+            "left-0",
+            "top-0",
+            "h-full",
+            "w-[100cqi]",
+            "max-w-none",
+            "object-cover",
+            "object-center",
+          ],
+        ],
+      },
+      ".diff-item-2": {
+        "apply": [
+          [
+            "overflow-hidden",
+          ],
+        ],
+      },
+      ".diff-resizer": {
+        "apply": [
+          [
+            "relative",
+            "top-1/2",
+            "z-[1]",
+            "h-12",
+            "w-[25rem]",
+            "min-w-[1rem]",
+            "max-w-[calc(100cqi-1rem)]",
+            "resize-x",
+            "overflow-hidden",
+            "opacity-0",
+          ],
+        ],
+        "css": {
+          "clip-path": "inset(calc(100% - 0.75rem) 0 0 calc(100% - 0.75rem))",
+          "scale": "4",
+          "transform-origin": "100% 100%",
+          "translate": "1.5rem -1.5rem",
+        },
+      },
+      ".diff-resizer,.diff-item-1,.diff-item-2": {
+        "apply": [
+          [
+            "relative",
+            "col-start-1",
+            "row-start-1",
+          ],
+        ],
+      },
+    },
+    "styled": {
+      ".diff-item-1:after": {
+        "apply": [
+          [
+            "bg-base-100/50",
+            "border-base-100",
+            "outline-base-content/5",
+            "rounded-full",
+            "border-2",
+            "shadow-sm",
+            "outline",
+            "outline-offset-[-3px]",
+            "backdrop-blur",
+          ],
+        ],
+        "css": {
+          "translate": "50% -50%",
+        },
+      },
+      ".diff-item-2": {
+        "apply": [
+          [
+            "border-base-100",
+            "border-r-2",
+          ],
+        ],
+      },
+    },
+    "utils": {},
+  },
+  "selector": ".diff",
+}
+`;
+
 exports[`'form' options > raw snap 1`] = `
 {
   "defaults": {
@@ -1877,6 +2071,163 @@ exports[`'input' options > snap 1`] = `
     },
   },
   "selector": ".input",
+}
+`;
+
+exports[`'kbd' options > raw snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".kbd": {
+        "apply": [
+          "inline-flex items-center justify-center",
+        ],
+      },
+    },
+    "styled": {
+      ".kbd": {
+        "apply": [
+          "border-base-content bg-base-200 rounded-btn border border-opacity-20 px-2",
+        ],
+        "css": {
+          "border-bottom-width": "2px",
+          "min-height": "2.2em",
+          "min-width": "2.2em",
+        },
+      },
+    },
+    "utils": {
+      ".kbd": {
+        "&-lg": {
+          "apply": [
+            "px-4 text-lg",
+          ],
+          "css": {
+            "min-height": "2.5em",
+            "min-width": "2.5em",
+          },
+        },
+        "&-md": {
+          "apply": [
+            "px-2 text-base",
+          ],
+          "css": {
+            "min-height": "2.2em",
+            "min-width": "2.2em",
+          },
+        },
+        "&-sm": {
+          "apply": [
+            "px-1 text-sm",
+          ],
+          "css": {
+            "min-height": "1.6em",
+            "min-width": "1.6em",
+          },
+        },
+        "&-xs": {
+          "apply": [
+            "px-1 text-xs",
+          ],
+          "css": {
+            "min-height": "1.2em",
+            "min-width": "1.2em",
+          },
+        },
+      },
+    },
+  },
+  "selector": ".kbd",
+}
+`;
+
+exports[`'kbd' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".kbd": {
+        "apply": [
+          [
+            "inline-flex",
+            "items-center",
+            "justify-center",
+          ],
+        ],
+      },
+    },
+    "styled": {
+      ".kbd": {
+        "apply": [
+          [
+            "border-base-content",
+            "bg-base-200",
+            "rounded-btn",
+            "border",
+            "border-opacity-20",
+            "px-2",
+          ],
+        ],
+        "css": {
+          "border-bottom-width": "2px",
+          "min-height": "2.2em",
+          "min-width": "2.2em",
+        },
+      },
+    },
+    "utils": {
+      ".kbd": {
+        "&-lg": {
+          "apply": [
+            [
+              "px-4",
+              "text-lg",
+            ],
+          ],
+          "css": {
+            "min-height": "2.5em",
+            "min-width": "2.5em",
+          },
+        },
+        "&-md": {
+          "apply": [
+            [
+              "px-2",
+              "text-base",
+            ],
+          ],
+          "css": {
+            "min-height": "2.2em",
+            "min-width": "2.2em",
+          },
+        },
+        "&-sm": {
+          "apply": [
+            [
+              "px-1",
+              "text-sm",
+            ],
+          ],
+          "css": {
+            "min-height": "1.6em",
+            "min-width": "1.6em",
+          },
+        },
+        "&-xs": {
+          "apply": [
+            [
+              "px-1",
+              "text-xs",
+            ],
+          ],
+          "css": {
+            "min-height": "1.2em",
+            "min-width": "1.2em",
+          },
+        },
+      },
+    },
+  },
+  "selector": ".kbd",
 }
 `;
 
@@ -2583,7 +2934,7 @@ exports[`'progress' options > snap 1`] = `
 }
 `;
 
-exports[`'radialProgress' options > raw snap 1`] = `
+exports[`'radial-progress' options > raw snap 1`] = `
 {
   "defaults": {
     "base": {
@@ -2659,7 +3010,7 @@ exports[`'radialProgress' options > raw snap 1`] = `
 }
 `;
 
-exports[`'radialProgress' options > snap 1`] = `
+exports[`'radial-progress' options > snap 1`] = `
 {
   "defaults": {
     "base": {
@@ -4748,6 +5099,203 @@ exports[`'textarea' options > snap 1`] = `
 }
 `;
 
+exports[`'toast' options > raw snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".toast": {
+        "apply": [
+          "fixed flex min-w-fit flex-col whitespace-nowrap",
+        ],
+      },
+    },
+    "styled": {
+      ".toast": {
+        "&>*": {
+          "css": {
+            "animation": "toast-pop 0.25s ease-out",
+          },
+        },
+        "apply": [
+          "gap-2 p-4",
+        ],
+      },
+      "@keyframes toast-pop": {
+        "0%": {
+          "css": {
+            "opacity": "0",
+            "transform": "scale(0.9)",
+          },
+        },
+        "100%": {
+          "css": {
+            "opacity": "1",
+            "transform": "scale(1)",
+          },
+        },
+      },
+    },
+    "utils": {
+      ".toast:where(.toast-bottom)": {
+        "apply": [
+          "bottom-0 top-auto translate-y-0",
+        ],
+      },
+      ".toast:where(.toast-center)": {
+        "apply": [
+          "end-1/2 start-1/2 -translate-x-1/2 rtl:translate-x-1/2",
+        ],
+      },
+      ".toast:where(.toast-end)": {
+        "apply": [
+          "end-0 start-auto translate-x-0",
+        ],
+      },
+      ".toast:where(.toast-middle)": {
+        "apply": [
+          "bottom-auto top-1/2 -translate-y-1/2",
+        ],
+      },
+      ".toast:where(.toast-start)": {
+        "apply": [
+          "end-auto start-0 translate-x-0",
+        ],
+      },
+      ".toast:where(.toast-top)": {
+        "apply": [
+          "bottom-auto top-0 translate-y-0",
+        ],
+      },
+      ":where(.toast)": {
+        "apply": [
+          "bottom-0 end-0 start-auto top-auto translate-x-0 translate-y-0",
+        ],
+      },
+    },
+  },
+  "selector": ".toast",
+}
+`;
+
+exports[`'toast' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".toast": {
+        "apply": [
+          [
+            "fixed",
+            "flex",
+            "min-w-fit",
+            "flex-col",
+            "whitespace-nowrap",
+          ],
+        ],
+      },
+    },
+    "styled": {
+      ".toast": {
+        "&>*": {
+          "css": {
+            "animation": "toast-pop 0.25s ease-out",
+          },
+        },
+        "apply": [
+          [
+            "gap-2",
+            "p-4",
+          ],
+        ],
+      },
+      "@keyframes toast-pop": {
+        "0%": {
+          "css": {
+            "opacity": "0",
+            "transform": "scale(0.9)",
+          },
+        },
+        "100%": {
+          "css": {
+            "opacity": "1",
+            "transform": "scale(1)",
+          },
+        },
+      },
+    },
+    "utils": {
+      ".toast:where(.toast-bottom)": {
+        "apply": [
+          [
+            "bottom-0",
+            "top-auto",
+            "translate-y-0",
+          ],
+        ],
+      },
+      ".toast:where(.toast-center)": {
+        "apply": [
+          [
+            "end-1/2",
+            "start-1/2",
+            "-translate-x-1/2",
+            "rtl:translate-x-1/2",
+          ],
+        ],
+      },
+      ".toast:where(.toast-end)": {
+        "apply": [
+          [
+            "end-0",
+            "start-auto",
+            "translate-x-0",
+          ],
+        ],
+      },
+      ".toast:where(.toast-middle)": {
+        "apply": [
+          [
+            "bottom-auto",
+            "top-1/2",
+            "-translate-y-1/2",
+          ],
+        ],
+      },
+      ".toast:where(.toast-start)": {
+        "apply": [
+          [
+            "end-auto",
+            "start-0",
+            "translate-x-0",
+          ],
+        ],
+      },
+      ".toast:where(.toast-top)": {
+        "apply": [
+          [
+            "bottom-auto",
+            "top-0",
+            "translate-y-0",
+          ],
+        ],
+      },
+      ":where(.toast)": {
+        "apply": [
+          [
+            "bottom-0",
+            "end-0",
+            "start-auto",
+            "top-auto",
+            "translate-x-0",
+            "translate-y-0",
+          ],
+        ],
+      },
+    },
+  },
+  "selector": ".toast",
+}
+`;
+
 exports[`'toggle' options > raw snap 1`] = `
 {
   "defaults": {
@@ -5002,5 +5550,394 @@ exports[`'toggle' options > snap 1`] = `
     },
   },
   "selector": ".toggle",
+}
+`;
+
+exports[`'tooltip' options > raw snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".tooltip": {
+        "apply": [
+          "relative inline-block",
+        ],
+        "css": {
+          "--tooltip-offset": "calc(100% + 1px + var(--tooltip-tail, 0px))",
+        },
+      },
+      ".tooltip,.tooltip-top": {
+        "&:before": {
+          "css": {
+            "bottom": "var(--tooltip-offset)",
+            "left": "50%",
+            "right": "auto",
+            "top": "auto",
+            "transform": "translateX(-50%)",
+          },
+        },
+      },
+      ".tooltip-bottom": {
+        "&:before": {
+          "css": {
+            "bottom": "auto",
+            "left": "50%",
+            "right": "auto",
+            "top": "var(--tooltip-offset)",
+            "transform": "translateX(-50%)",
+          },
+        },
+      },
+      ".tooltip-left": {
+        "&:before": {
+          "css": {
+            "bottom": "auto",
+            "left": "auto",
+            "right": "var(--tooltip-offset)",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+          },
+        },
+      },
+      ".tooltip-right": {
+        "&:before": {
+          "css": {
+            "bottom": "auto",
+            "left": "var(--tooltip-offset)",
+            "right": "auto",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+          },
+        },
+      },
+      ".tooltip:before": {
+        "apply": [
+          "absolute",
+        ],
+        "css": {
+          "--tw-content": "attr(data-tip)",
+          "content": "var(--tw-content)",
+          "pointer-events": "none",
+          "z-index": "1",
+        },
+      },
+    },
+    "styled": {
+      ".tooltip": {
+        "apply": [
+          "relative inline-block text-center",
+        ],
+        "css": {
+          "--tooltip-color": "theme(colors.neutral)",
+          "--tooltip-tail": "0.1875rem",
+          "--tooltip-tail-offset": "calc(100% + 0.0625rem - var(--tooltip-tail))",
+          "--tooltip-text-color": "theme(colors.neutral-content)",
+        },
+      },
+      ".tooltip,.tooltip-top": {
+        "&:after": {
+          "css": {
+            "border-color": "var(--tooltip-color) transparent transparent transparent",
+            "bottom": "var(--tooltip-tail-offset)",
+            "left": "50%",
+            "right": "auto",
+            "top": "auto",
+            "transform": "translateX(-50%)",
+          },
+        },
+      },
+      ".tooltip-bottom": {
+        "&:after": {
+          "css": {
+            "border-color": "transparent transparent var(--tooltip-color) transparent",
+            "bottom": "auto",
+            "left": "50%",
+            "right": "auto",
+            "top": "var(--tooltip-tail-offset)",
+            "transform": "translateX(-50%)",
+          },
+        },
+      },
+      ".tooltip-left": {
+        "&:after": {
+          "css": {
+            "border-color": "transparent transparent transparent var(--tooltip-color)",
+            "bottom": "auto",
+            "left": "auto",
+            "right": "calc(var(--tooltip-tail-offset) + 0.0625rem)",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+          },
+        },
+      },
+      ".tooltip-right": {
+        "&:after": {
+          "css": {
+            "border-color": "transparent var(--tooltip-color) transparent transparent",
+            "bottom": "auto",
+            "left": "calc(var(--tooltip-tail-offset) + 0.0625rem)",
+            "right": "auto",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+          },
+        },
+      },
+      ".tooltip.tooltip-open:before,.tooltip.tooltip-open:after,.tooltip:hover:before,.tooltip:hover:after": {
+        "apply": [
+          "opacity-100 delay-75",
+        ],
+      },
+      ".tooltip:after": {
+        "apply": [
+          "absolute",
+        ],
+        "css": {
+          "border-style": "solid",
+          "border-width": "var(--tooltip-tail, 0)",
+          "content": "\\"\\"",
+          "display": "block",
+          "height": "0",
+          "position": "absolute",
+          "width": "0",
+        },
+      },
+      ".tooltip:before": {
+        "apply": [
+          "max-w-xs rounded px-2 py-1 text-sm",
+        ],
+        "css": {
+          "background-color": "var(--tooltip-color)",
+          "color": "var(--tooltip-text-color)",
+          "width": "max-content",
+        },
+      },
+      ".tooltip:before,.tooltip:after": {
+        "apply": [
+          "opacity-0 transition delay-100 duration-200 ease-in-out",
+        ],
+      },
+      ".tooltip:has(:focus-visible):after,.tooltip:has(:focus-visible):before": {
+        "apply": [
+          "opacity-100 delay-75",
+        ],
+      },
+      ".tooltip:not([data-tip]):hover:before,.tooltip:not([data-tip]):hover:after": {
+        "css": {
+          "opacity": "0",
+          "visibility": "hidden",
+        },
+      },
+    },
+    "utils": {},
+  },
+  "selector": ".tooltip",
+}
+`;
+
+exports[`'tooltip' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".tooltip": {
+        "apply": [
+          [
+            "relative",
+            "inline-block",
+          ],
+        ],
+        "css": {
+          "--tooltip-offset": "calc(100% + 1px + var(--tooltip-tail, 0px))",
+        },
+      },
+      ".tooltip,.tooltip-top": {
+        "&:before": {
+          "css": {
+            "bottom": "var(--tooltip-offset)",
+            "left": "50%",
+            "right": "auto",
+            "top": "auto",
+            "transform": "translateX(-50%)",
+          },
+        },
+      },
+      ".tooltip-bottom": {
+        "&:before": {
+          "css": {
+            "bottom": "auto",
+            "left": "50%",
+            "right": "auto",
+            "top": "var(--tooltip-offset)",
+            "transform": "translateX(-50%)",
+          },
+        },
+      },
+      ".tooltip-left": {
+        "&:before": {
+          "css": {
+            "bottom": "auto",
+            "left": "auto",
+            "right": "var(--tooltip-offset)",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+          },
+        },
+      },
+      ".tooltip-right": {
+        "&:before": {
+          "css": {
+            "bottom": "auto",
+            "left": "var(--tooltip-offset)",
+            "right": "auto",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+          },
+        },
+      },
+      ".tooltip:before": {
+        "apply": [
+          [
+            "absolute",
+          ],
+        ],
+        "css": {
+          "--tw-content": "attr(data-tip)",
+          "content": "var(--tw-content)",
+          "pointer-events": "none",
+          "z-index": "1",
+        },
+      },
+    },
+    "styled": {
+      ".tooltip": {
+        "apply": [
+          [
+            "relative",
+            "inline-block",
+            "text-center",
+          ],
+        ],
+        "css": {
+          "--tooltip-color": "theme(colors.neutral)",
+          "--tooltip-tail": "0.1875rem",
+          "--tooltip-tail-offset": "calc(100% + 0.0625rem - var(--tooltip-tail))",
+          "--tooltip-text-color": "theme(colors.neutral-content)",
+        },
+      },
+      ".tooltip,.tooltip-top": {
+        "&:after": {
+          "css": {
+            "border-color": "var(--tooltip-color) transparent transparent transparent",
+            "bottom": "var(--tooltip-tail-offset)",
+            "left": "50%",
+            "right": "auto",
+            "top": "auto",
+            "transform": "translateX(-50%)",
+          },
+        },
+      },
+      ".tooltip-bottom": {
+        "&:after": {
+          "css": {
+            "border-color": "transparent transparent var(--tooltip-color) transparent",
+            "bottom": "auto",
+            "left": "50%",
+            "right": "auto",
+            "top": "var(--tooltip-tail-offset)",
+            "transform": "translateX(-50%)",
+          },
+        },
+      },
+      ".tooltip-left": {
+        "&:after": {
+          "css": {
+            "border-color": "transparent transparent transparent var(--tooltip-color)",
+            "bottom": "auto",
+            "left": "auto",
+            "right": "calc(var(--tooltip-tail-offset) + 0.0625rem)",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+          },
+        },
+      },
+      ".tooltip-right": {
+        "&:after": {
+          "css": {
+            "border-color": "transparent var(--tooltip-color) transparent transparent",
+            "bottom": "auto",
+            "left": "calc(var(--tooltip-tail-offset) + 0.0625rem)",
+            "right": "auto",
+            "top": "50%",
+            "transform": "translateY(-50%)",
+          },
+        },
+      },
+      ".tooltip.tooltip-open:before,.tooltip.tooltip-open:after,.tooltip:hover:before,.tooltip:hover:after": {
+        "apply": [
+          [
+            "opacity-100",
+            "delay-75",
+          ],
+        ],
+      },
+      ".tooltip:after": {
+        "apply": [
+          [
+            "absolute",
+          ],
+        ],
+        "css": {
+          "border-style": "solid",
+          "border-width": "var(--tooltip-tail, 0)",
+          "content": "\\"\\"",
+          "display": "block",
+          "height": "0",
+          "position": "absolute",
+          "width": "0",
+        },
+      },
+      ".tooltip:before": {
+        "apply": [
+          [
+            "max-w-xs",
+            "rounded",
+            "px-2",
+            "py-1",
+            "text-sm",
+          ],
+        ],
+        "css": {
+          "background-color": "var(--tooltip-color)",
+          "color": "var(--tooltip-text-color)",
+          "width": "max-content",
+        },
+      },
+      ".tooltip:before,.tooltip:after": {
+        "apply": [
+          [
+            "opacity-0",
+            "transition",
+            "delay-100",
+            "duration-200",
+            "ease-in-out",
+          ],
+        ],
+      },
+      ".tooltip:has(:focus-visible):after,.tooltip:has(:focus-visible):before": {
+        "apply": [
+          [
+            "opacity-100",
+            "delay-75",
+          ],
+        ],
+      },
+      ".tooltip:not([data-tip]):hover:before,.tooltip:not([data-tip]):hover:after": {
+        "css": {
+          "opacity": "0",
+          "visibility": "hidden",
+        },
+      },
+    },
+    "utils": {},
+  },
+  "selector": ".tooltip",
 }
 `;

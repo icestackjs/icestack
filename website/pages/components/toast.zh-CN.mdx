@@ -1,0 +1,89 @@
+import CssTable from '../../components/CssTable'
+
+## 类名表格
+
+<CssTable name="toast" />
+
+## 样例和演示
+
+[前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/feedback-toast--docs)
+
+## Css 结构
+
+```json
+{
+"selector": ".toast",
+"defaults": {
+  "base": {
+    ".toast": {
+      "apply": [
+        "fixed flex min-w-fit flex-col whitespace-nowrap"
+      ]
+    }
+  },
+  "styled": {
+    ".toast": {
+      "apply": [
+        "gap-2 p-4"
+      ],
+      "&>*": {
+        "css": {
+          "animation": "toast-pop 0.25s ease-out"
+        }
+      }
+    },
+    "@keyframes toast-pop": {
+      "0%": {
+        "css": {
+          "transform": "scale(0.9)",
+          "opacity": "0"
+        }
+      },
+      "100%": {
+        "css": {
+          "transform": "scale(1)",
+          "opacity": "1"
+        }
+      }
+    }
+  },
+  "utils": {
+    ":where(.toast)": {
+      "apply": [
+        "bottom-0 end-0 start-auto top-auto translate-x-0 translate-y-0"
+      ]
+    },
+    ".toast:where(.toast-start)": {
+      "apply": [
+        "end-auto start-0 translate-x-0"
+      ]
+    },
+    ".toast:where(.toast-center)": {
+      "apply": [
+        "end-1/2 start-1/2 -translate-x-1/2 rtl:translate-x-1/2"
+      ]
+    },
+    ".toast:where(.toast-end)": {
+      "apply": [
+        "end-0 start-auto translate-x-0"
+      ]
+    },
+    ".toast:where(.toast-bottom)": {
+      "apply": [
+        "bottom-0 top-auto translate-y-0"
+      ]
+    },
+    ".toast:where(.toast-middle)": {
+      "apply": [
+        "bottom-auto top-1/2 -translate-y-1/2"
+      ]
+    },
+    ".toast:where(.toast-top)": {
+      "apply": [
+        "bottom-auto top-0 translate-y-0"
+      ]
+    }
+  }
+}
+}
+```

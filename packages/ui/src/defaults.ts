@@ -216,7 +216,7 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
     selector: '.skeleton'
   },
   form: {},
-  radialProgress: {
+  'radial-progress': {
     selector: '.radial-progress',
     varPrefix: {
       ignoreProp: ['--size', '--thickness', '--value'],
@@ -229,6 +229,22 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
       ignoreProp: ['--value'],
       ignoreValueCustomProperty: ['--value']
     }
+  },
+  diff: {
+    selector: '.diff'
+  },
+  kbd: {
+    selector: '.kbd'
+  },
+  tooltip: {
+    selector: '.tooltip',
+    varPrefix: {
+      ignoreProp: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset'],
+      ignoreValueCustomProperty: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset']
+    }
+  },
+  toast: {
+    selector: '.toast'
   }
   // steps: {
   //   selector: '.step'

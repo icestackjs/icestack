@@ -67,6 +67,10 @@ async function main() {
     for (const [groupName, componentNames] of groupedComponents) {
       // overview.push('\n' + groupName)
       for (const componentName of componentNames) {
+        if (schemaMap[componentName] === undefined) {
+          console.error(`componentName: ${componentName} has no schema!`)
+          continue
+        }
         // overview.push(`- [${componentName}](./${componentName})`)
         const p = schemaMap[componentName].schema({
           selector: defaultSelectorMap[componentName]?.selector,

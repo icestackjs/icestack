@@ -369,7 +369,7 @@ module.exports = {
     ],
     "utils": []
   },
-  "radialProgress": {
+  "radial-progress": {
     "base": [
       "radial-progress"
     ],
@@ -382,5 +382,60 @@ module.exports = {
     ],
     "styled": [],
     "utils": []
+  },
+  "diff": {
+    "base": [
+      "diff",
+      "diff-resizer",
+      "diff-item-1",
+      "diff-item-2"
+    ],
+    "styled": [],
+    "utils": []
+  },
+  "kbd": {
+    "base": [
+      "kbd"
+    ],
+    "styled": [],
+    "utils": [
+      "kbd-xs",
+      "kbd-sm",
+      "kbd-md",
+      "kbd-lg"
+    ]
+  },
+  "tooltip": {
+    "base": [
+      "tooltip",
+      "tooltip-top",
+      "tooltip-bottom",
+      "tooltip-left",
+      "tooltip-right"
+    ],
+    "styled": [
+      "tooltip-primary",
+      "tooltip-success",
+      "tooltip-warning",
+      "tooltip-error",
+      "tooltip-neutral",
+      "tooltip-open"
+    ],
+    "utils": []
+  },
+  "toast": {
+    "base": [
+      "toast"
+    ],
+    "styled": [],
+    "utils": [
+      "toast",
+      "toast-start",
+      "toast-center",
+      "toast-end",
+      "toast-bottom",
+      "toast-middle",
+      "toast-top"
+    ]
   }
 }

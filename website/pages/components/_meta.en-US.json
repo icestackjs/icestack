@@ -30,12 +30,18 @@
   "avatar": "Avatar",
   "badge": "Badge",
   "chat": "Chat",
-  "progress": "Progress",
+  "countdown": "Countdown",
+  "diff": "Diff",
+  "kbd": "Kbd",
   "table": "Table",
   "-- Feedback": {
     "type": "separator",
     "title": "Feedback"
   },
   "alert": "Alert",
-  "skeleton": "Skeleton"
+  "progress": "Progress",
+  "radial-progress": "Radial-progress",
+  "skeleton": "Skeleton",
+  "toast": "Toast",
+  "tooltip": "Tooltip"
 }

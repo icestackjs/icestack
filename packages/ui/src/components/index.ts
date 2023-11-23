@@ -21,6 +21,10 @@ import * as tabs from '@/components/tabs'
 import * as skeleton from '@/components/skeleton'
 import * as radialProgress from '@/components/radialProgress'
 import * as countdown from '@/components/countdown'
+import * as diff from '@/components/diff'
+import * as kbd from '@/components/kbd'
+import * as tooltip from '@/components/tooltip'
+import * as toast from '@/components/toast'
 // import * as steps from '@/components/steps'
 
 const schemaMap = {
@@ -44,8 +48,12 @@ const schemaMap = {
   table,
   tabs,
   skeleton,
-  radialProgress,
-  countdown
+  'radial-progress': radialProgress,
+  countdown,
+  diff,
+  kbd,
+  tooltip,
+  toast
   // steps
 } as const
 

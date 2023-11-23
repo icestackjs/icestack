@@ -17,6 +17,10 @@ import skeleton from './skeleton'
 import table from './table'
 import radialProgress from './radial-progress'
 import countdown from './countdown'
+import diff from './diff'
+import kbd from './kbd'
+import tooltip from './tooltip'
+import toast from './toast'
 
 export default {
   button,
@@ -37,5 +41,9 @@ export default {
   skeleton,
   table,
   'radial-progress': radialProgress,
-  countdown
+  countdown,
+  diff,
+  kbd,
+  tooltip,
+  toast
 }

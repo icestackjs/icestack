@@ -66,7 +66,7 @@ export default function Index() {
             // space-y-3
             const res: ReactNode[] = []
             for (const componentName of componentNames) {
-              if (['select'].includes(componentName)) {
+              if (['select', 'diff','tooltip'].includes(componentName)) {
                 continue
               }
               res.push(

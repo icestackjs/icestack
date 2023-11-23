@@ -180,12 +180,20 @@ exports[`options > getCodegenOptions snap 1`] = `
         ],
       },
     },
+    "diff": {
+      "schema": [Function],
+      "selector": ".diff",
+    },
     "form": {
       "schema": [Function],
     },
     "input": {
       "schema": [Function],
       "selector": ".input",
+    },
+    "kbd": {
+      "schema": [Function],
+      "selector": ".kbd",
     },
     "link": {
       "schema": [Function],
@@ -203,7 +211,7 @@ exports[`options > getCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".progress",
     },
-    "radialProgress": {
+    "radial-progress": {
       "schema": [Function],
       "selector": ".radial-progress",
       "varPrefix": {
@@ -247,9 +255,31 @@ exports[`options > getCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".textarea",
     },
+    "toast": {
+      "schema": [Function],
+      "selector": ".toast",
+    },
     "toggle": {
       "schema": [Function],
       "selector": ".toggle",
+    },
+    "tooltip": {
+      "schema": [Function],
+      "selector": ".tooltip",
+      "varPrefix": {
+        "ignoreProp": [
+          "--tooltip-tail",
+          "--tooltip-color",
+          "--tooltip-text-color",
+          "--tooltip-tail-offset",
+        ],
+        "ignoreValueCustomProperty": [
+          "--tooltip-tail",
+          "--tooltip-color",
+          "--tooltip-text-color",
+          "--tooltip-tail-offset",
+        ],
+      },
     },
   },
   "dryRun": false,
@@ -449,12 +479,20 @@ exports[`options > getRawCodegenOptions snap 1`] = `
         ],
       },
     },
+    "diff": {
+      "schema": [Function],
+      "selector": ".diff",
+    },
     "form": {
       "schema": [Function],
     },
     "input": {
       "schema": [Function],
       "selector": ".input",
+    },
+    "kbd": {
+      "schema": [Function],
+      "selector": ".kbd",
     },
     "link": {
       "schema": [Function],
@@ -472,7 +510,7 @@ exports[`options > getRawCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".progress",
     },
-    "radialProgress": {
+    "radial-progress": {
       "schema": [Function],
       "selector": ".radial-progress",
       "varPrefix": {
@@ -516,9 +554,31 @@ exports[`options > getRawCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".textarea",
     },
+    "toast": {
+      "schema": [Function],
+      "selector": ".toast",
+    },
     "toggle": {
       "schema": [Function],
       "selector": ".toggle",
+    },
+    "tooltip": {
+      "schema": [Function],
+      "selector": ".tooltip",
+      "varPrefix": {
+        "ignoreProp": [
+          "--tooltip-tail",
+          "--tooltip-color",
+          "--tooltip-text-color",
+          "--tooltip-tail-offset",
+        ],
+        "ignoreValueCustomProperty": [
+          "--tooltip-tail",
+          "--tooltip-color",
+          "--tooltip-text-color",
+          "--tooltip-tail-offset",
+        ],
+      },
     },
   },
   "dryRun": false,

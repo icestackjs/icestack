@@ -11,6 +11,8 @@ import type { ComponentsOptions, DeepPartial } from '@/types'
 
 export const components: DeepPartial<ComponentsOptions> = {
   select: false,
+  diff: false,
+  tooltip: false,
   button,
   checkbox,
   radio,

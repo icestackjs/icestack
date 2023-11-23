@@ -1,0 +1,78 @@
+import CssTable from '../../components/CssTable'
+
+## Class Table
+
+<CssTable name="kbd" />
+
+## Demo and Playground
+
+[Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/data-display-kbd--docs)
+
+## Css Schema
+
+```json
+{
+"selector": ".kbd",
+"defaults": {
+  "base": {
+    ".kbd": {
+      "apply": [
+        "inline-flex items-center justify-center"
+      ]
+    }
+  },
+  "styled": {
+    ".kbd": {
+      "apply": [
+        "border-base-content bg-base-200 rounded-btn border border-opacity-20 px-2"
+      ],
+      "css": {
+        "border-bottom-width": "2px",
+        "min-height": "2.2em",
+        "min-width": "2.2em"
+      }
+    }
+  },
+  "utils": {
+    ".kbd": {
+      "&-xs": {
+        "apply": [
+          "px-1 text-xs"
+        ],
+        "css": {
+          "min-height": "1.2em",
+          "min-width": "1.2em"
+        }
+      },
+      "&-sm": {
+        "apply": [
+          "px-1 text-sm"
+        ],
+        "css": {
+          "min-height": "1.6em",
+          "min-width": "1.6em"
+        }
+      },
+      "&-md": {
+        "apply": [
+          "px-2 text-base"
+        ],
+        "css": {
+          "min-height": "2.2em",
+          "min-width": "2.2em"
+        }
+      },
+      "&-lg": {
+        "apply": [
+          "px-4 text-lg"
+        ],
+        "css": {
+          "min-height": "2.5em",
+          "min-width": "2.5em"
+        }
+      }
+    }
+  }
+}
+}
+```

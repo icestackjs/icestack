@@ -663,6 +663,52 @@ exports[`'countdown' > styled 1`] = `
 
 exports[`'countdown' > utils 1`] = `""`;
 
+exports[`'diff' > base 1`] = `
+".diff {
+  @apply relative grid w-full overflow-hidden;
+  container-type: inline-size;
+  grid-template-columns: auto 1fr;
+}
+
+.diff-resizer {
+  @apply relative top-1/2 z-[1] h-12 w-[25rem] min-w-[1rem] max-w-[calc(100cqi-1rem)] resize-x overflow-hidden opacity-0;
+  transform-origin: 100% 100%;
+  scale: 4;
+  translate: 1.5rem -1.5rem;
+  clip-path: inset(calc(100% - 0.75rem) 0 0 calc(100% - 0.75rem));
+}
+
+.diff-resizer, .diff-item-1, .diff-item-2 {
+  @apply relative col-start-1 row-start-1;
+}
+
+.diff-item-1:after {
+  @apply pointer-events-none absolute bottom-0 right-px top-1/2 z-[1] h-8 w-8 content-[''];
+  translate: 50% -50%;
+}
+
+.diff-item-2 {
+  @apply overflow-hidden;
+}
+
+.diff-item-1 > *, .diff-item-2 > * {
+  @apply pointer-events-none absolute bottom-0 left-0 top-0 h-full w-[100cqi] max-w-none object-cover object-center;
+}"
+`;
+
+exports[`'diff' > styled 1`] = `
+".diff-item-1:after {
+  @apply bg-base-100/50 border-base-100 outline-base-content/5 rounded-full border-2 shadow-sm outline outline-offset-[-3px] backdrop-blur;
+  translate: 50% -50%;
+}
+
+.diff-item-2 {
+  @apply border-base-100 border-r-2;
+}"
+`;
+
+exports[`'diff' > utils 1`] = `""`;
+
 exports[`'form' > base 1`] = `
 ".form-control {
   @apply flex flex-col;
@@ -766,6 +812,44 @@ exports[`'input' > utils 1`] = `
 }
 .input-lg {
   @apply h-16 px-6 text-lg leading-loose;
+}"
+`;
+
+exports[`'kbd' > base 1`] = `
+".kbd {
+  @apply inline-flex items-center justify-center;
+}"
+`;
+
+exports[`'kbd' > styled 1`] = `
+".kbd {
+  @apply border-base-content bg-base-200 rounded-btn border border-opacity-20 px-2;
+  border-bottom-width: 2px;
+  min-height: 2.2em;
+  min-width: 2.2em;
+}"
+`;
+
+exports[`'kbd' > utils 1`] = `
+".kbd-xs {
+  @apply px-1 text-xs;
+  min-height: 1.2em;
+  min-width: 1.2em;
+}
+.kbd-sm {
+  @apply px-1 text-sm;
+  min-height: 1.6em;
+  min-width: 1.6em;
+}
+.kbd-md {
+  @apply px-2 text-base;
+  min-height: 2.2em;
+  min-width: 2.2em;
+}
+.kbd-lg {
+  @apply px-4 text-lg;
+  min-height: 2.5em;
+  min-width: 2.5em;
 }"
 `;
 
@@ -1019,7 +1103,7 @@ exports[`'progress' > styled 1`] = `
 
 exports[`'progress' > utils 1`] = `""`;
 
-exports[`'radialProgress' > base 1`] = `
+exports[`'radial-progress' > base 1`] = `
 ".radial-progress {
   --ice-value: 0;
   --ice-size: 5rem;
@@ -1060,9 +1144,9 @@ exports[`'radialProgress' > base 1`] = `
 }"
 `;
 
-exports[`'radialProgress' > styled 1`] = `""`;
+exports[`'radial-progress' > styled 1`] = `""`;
 
-exports[`'radialProgress' > utils 1`] = `""`;
+exports[`'radial-progress' > utils 1`] = `""`;
 
 exports[`'radio' > base 1`] = `
 ".radio {
@@ -1721,6 +1805,62 @@ exports[`'textarea' > utils 1`] = `
 }"
 `;
 
+exports[`'toast' > base 1`] = `
+".toast {
+  @apply fixed flex min-w-fit flex-col whitespace-nowrap;
+}"
+`;
+
+exports[`'toast' > styled 1`] = `
+".toast {
+  @apply gap-2 p-4;
+}
+.toast > * {
+  animation: toast-pop 0.25s ease-out;
+}
+
+@keyframes toast-pop {
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}"
+`;
+
+exports[`'toast' > utils 1`] = `
+":where(.toast) {
+  @apply bottom-0 end-0 start-auto top-auto translate-x-0 translate-y-0;
+}
+
+.toast:where(.toast-start) {
+  @apply end-auto start-0 translate-x-0;
+}
+
+.toast:where(.toast-center) {
+  @apply end-1/2 start-1/2 -translate-x-1/2 rtl:translate-x-1/2;
+}
+
+.toast:where(.toast-end) {
+  @apply end-0 start-auto translate-x-0;
+}
+
+.toast:where(.toast-bottom) {
+  @apply bottom-0 top-auto translate-y-0;
+}
+
+.toast:where(.toast-middle) {
+  @apply bottom-auto top-1/2 -translate-y-1/2;
+}
+
+.toast:where(.toast-top) {
+  @apply bottom-auto top-0 translate-y-0;
+}"
+`;
+
 exports[`'toggle' > base 1`] = `
 ".toggle {
   @apply shrink-0;
@@ -1811,6 +1951,156 @@ exports[`'toggle' > utils 1`] = `
   --ice-handleoffset: 2rem;
 }"
 `;
+
+exports[`'tooltip' > base 1`] = `
+".tooltip {
+  @apply relative inline-block;
+  --ice-tooltip-offset: calc(100% + 1px + var(--ice-tooltip-tail, 0px));
+}
+
+.tooltip:before {
+  @apply absolute;
+  pointer-events: none;
+  z-index: 1;
+  content: var(--tw-content);
+  --tw-content: attr(data-tip);
+}
+
+.tooltip:before, .tooltip-top:before {
+  transform: translateX(-50%);
+  top: auto;
+  left: 50%;
+  right: auto;
+  bottom: var(--ice-tooltip-offset);
+}
+
+.tooltip-bottom:before {
+  transform: translateX(-50%);
+  top: var(--ice-tooltip-offset);
+  left: 50%;
+  right: auto;
+  bottom: auto;
+}
+
+.tooltip-left:before {
+  transform: translateY(-50%);
+  top: 50%;
+  left: auto;
+  right: var(--ice-tooltip-offset);
+  bottom: auto;
+}
+
+.tooltip-right:before {
+  transform: translateY(-50%);
+  top: 50%;
+  left: var(--ice-tooltip-offset);
+  right: auto;
+  bottom: auto;
+}"
+`;
+
+exports[`'tooltip' > styled 1`] = `
+".tooltip {
+  @apply relative inline-block text-center;
+  --ice-tooltip-tail: 0.1875rem;
+  --ice-tooltip-color: theme(colors.neutral);
+  --ice-tooltip-text-color: theme(colors.neutral-content);
+  --ice-tooltip-tail-offset: calc(100% + 0.0625rem - var(--ice-tooltip-tail));
+}
+.tooltip-primary {
+  --ice-tooltip-color: theme(colors.primary);
+  --ice-tooltip-text-color: theme(colors.primary-content);
+}
+.tooltip-success {
+  --ice-tooltip-color: theme(colors.success);
+  --ice-tooltip-text-color: theme(colors.success-content);
+}
+.tooltip-warning {
+  --ice-tooltip-color: theme(colors.warning);
+  --ice-tooltip-text-color: theme(colors.warning-content);
+}
+.tooltip-error {
+  --ice-tooltip-color: theme(colors.error);
+  --ice-tooltip-text-color: theme(colors.error-content);
+}
+.tooltip-neutral {
+  --ice-tooltip-color: theme(colors.neutral);
+  --ice-tooltip-text-color: theme(colors.neutral-content);
+}
+
+.tooltip:before, .tooltip:after {
+  @apply opacity-0 transition delay-100 duration-200 ease-in-out;
+}
+
+.tooltip:after {
+  @apply absolute;
+  content: \\"\\";
+  border-style: solid;
+  border-width: var(--ice-tooltip-tail, 0);
+  width: 0;
+  height: 0;
+  display: block;
+  position: absolute;
+}
+
+.tooltip:before {
+  @apply max-w-xs rounded px-2 py-1 text-sm;
+  background-color: var(--ice-tooltip-color);
+  color: var(--ice-tooltip-text-color);
+  width: max-content;
+}
+
+.tooltip.tooltip-open:before, .tooltip.tooltip-open:after, .tooltip:hover:before, .tooltip:hover:after {
+  @apply opacity-100 delay-75;
+}
+
+.tooltip:has(:focus-visible):after, .tooltip:has(:focus-visible):before {
+  @apply opacity-100 delay-75;
+}
+
+.tooltip:not([data-tip]):hover:before, .tooltip:not([data-tip]):hover:after {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.tooltip:after, .tooltip-top:after {
+  transform: translateX(-50%);
+  border-color: var(--ice-tooltip-color) transparent transparent transparent;
+  top: auto;
+  left: 50%;
+  right: auto;
+  bottom: var(--ice-tooltip-tail-offset);
+}
+
+.tooltip-bottom:after {
+  transform: translateX(-50%);
+  border-color: transparent transparent var(--ice-tooltip-color) transparent;
+  top: var(--ice-tooltip-tail-offset);
+  left: 50%;
+  right: auto;
+  bottom: auto;
+}
+
+.tooltip-left:after {
+  transform: translateY(-50%);
+  border-color: transparent transparent transparent var(--ice-tooltip-color);
+  top: 50%;
+  left: auto;
+  right: calc(var(--ice-tooltip-tail-offset) + 0.0625rem);
+  bottom: auto;
+}
+
+.tooltip-right:after {
+  transform: translateY(-50%);
+  border-color: transparent var(--ice-tooltip-color) transparent transparent;
+  top: 50%;
+  left: calc(var(--ice-tooltip-tail-offset) + 0.0625rem);
+  right: auto;
+  bottom: auto;
+}"
+`;
+
+exports[`'tooltip' > utils 1`] = `""`;
 
 exports[`bug fixed > button prefix base 1`] = `
 ".ice-btn {

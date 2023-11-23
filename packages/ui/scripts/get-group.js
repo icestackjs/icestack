@@ -1,17 +1,18 @@
 const fs = require('node:fs')
 const path = require('node:path')
+const { orderBy } = require('lodash')
 const serialize = require('serialize-javascript')
 
 const root = path.resolve(__dirname, '../../../')
 function main() {
   const result = {
     group: {
-      General: ['button', 'loading', 'mask'],
+      General: orderBy(['button', 'loading', 'mask']),
       Layout: [],
-      Navigation: ['link'],
-      'Data Entry': ['checkbox', 'input', 'radio', 'range', 'select', 'textarea', 'toggle'],
-      'Data Display': ['avatar', 'badge', 'chat', 'progress', 'radial-progress', 'countdown', 'table'],
-      Feedback: ['alert', 'skeleton'],
+      Navigation: orderBy(['link']),
+      'Data Entry': orderBy(['checkbox', 'input', 'radio', 'range', 'select', 'textarea', 'toggle']),
+      'Data Display': orderBy(['avatar', 'badge', 'chat', 'countdown', 'diff', 'table', 'kbd']),
+      Feedback: orderBy(['alert', 'skeleton', 'tooltip', 'progress', 'radial-progress', 'toast']),
       Other: []
     },
     i18n: {
@@ -46,7 +47,11 @@ function main() {
       skeleton: '骨架屏',
       table: '表格',
       'radial-progress': '圆形进度条',
-      countdown: '计数'
+      countdown: '计数',
+      diff: '差异',
+      kbd: '键盘按键',
+      tooltip: '文字提示',
+      toast: '轻提示'
     }
   }
 

@@ -22,7 +22,11 @@ exports[`allComponents exports > snap 1`] = `
   "table",
   "tabs",
   "skeleton",
-  "radialProgress",
+  "radial-progress",
   "countdown",
+  "diff",
+  "kbd",
+  "tooltip",
+  "toast",
 ]
 `;

@@ -94,3 +94,90 @@ exports[`transformCss > case3 1`] = `
   },
 }
 `;
+
+exports[`transformCss > merge case 0 1`] = `
+{
+  ".xxx": {
+    "apply": [
+      "relative inline-grid h-[var(--size)] w-[var(--size)] place-content-center rounded-full bg-transparent",
+    ],
+    "css": {
+      "--size": "5rem",
+      "--thickness": "calc(var(--size) / 10)",
+      "--value": "0",
+      "box-sizing": "content-box",
+      "vertical-align": "middle",
+    },
+  },
+  ".xxx::-moz-progress-bar": {
+    "apply": [
+      "appearance-none bg-transparent",
+    ],
+  },
+  ".xxx::-webkit-progress-bar": {
+    "apply": [
+      "appearance-none bg-transparent",
+    ],
+  },
+  ".xxx::-webkit-progress-value": {
+    "apply": [
+      "appearance-none bg-transparent",
+    ],
+  },
+  ".xxx:after": {
+    "apply": [
+      "bg-current",
+    ],
+    "css": {
+      "inset": "calc(50% - var(--thickness) / 2)",
+      "transform": "rotate(calc(var(--value) * 3.6deg - 90deg)) translate(calc(var(--size) / 2 - 50%))",
+    },
+  },
+  ".xxx:before": {
+    "apply": [
+      "inset-0",
+    ],
+    "css": {
+      "-webkit-mask": "radial-gradient(
+        farthest-side,
+        #0000 calc(99% - var(--thickness)),
+        #000 calc(100% - var(--thickness))
+      )",
+      "background": "radial-gradient(farthest-side, currentColor 98%, #0000) top/var(--thickness) var(--thickness)
+          no-repeat,
+        conic-gradient(currentColor calc(var(--value) * 1%), #0000 0)",
+      "mask": "radial-gradient(
+        farthest-side,
+        #0000 calc(99% - var(--thickness)),
+        #000 calc(100% - var(--thickness))
+      )",
+    },
+  },
+  ".xxx:before,.xxx:after": {
+    "apply": [
+      "absolute rounded-full",
+    ],
+    "css": {
+      "content": "\\"\\"",
+    },
+  },
+}
+`;
+
+exports[`transformCss > merge case 1 1`] = `
+{
+  ".xxx": {
+    "apply": [
+      "bg-red-100",
+      "relative inline-grid h-[var(--size)] w-[var(--size)] place-content-center rounded-full bg-transparent",
+    ],
+    "css": {
+      "--size": "5rem",
+      "--thickness": "calc(var(--size) / 10)",
+      "--value": "0",
+      "box-sizing": "content-box",
+      "vertical-align": "middle",
+    },
+  },
+}
+`;

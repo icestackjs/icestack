@@ -28,7 +28,7 @@ const options: Partial<ComponentsValue> = {
                   apply: ['box-border', 'h-6 w-6 -ml-3 -mt-3 !important']
                 },
                 '.wx-slider-thumb': {
-                  apply: ['box-border rounded-full border-4 border-solid', 'border-[#1aad19] h-6 w-6 -ml-3 -mt-3 !important']
+                  apply: ['box-border rounded-full border-solid', 'border-[#1aad19] border-[length:4PX] h-6 w-6 -ml-3 -mt-3 !important']
                 }
               }
             }
@@ -70,7 +70,7 @@ const options: Partial<ComponentsValue> = {
                     apply: 'h-4 w-4 -ml-2 -mt-2 !important'
                   },
                   '.wx-slider-thumb': {
-                    apply: ['border-2 h-4 w-4 -ml-2 -mt-2 !important']
+                    apply: ['border-[length:2PX] h-4 w-4 -ml-2 -mt-2 !important']
                   }
                 }
               }
@@ -87,7 +87,7 @@ const options: Partial<ComponentsValue> = {
                     apply: 'h-5 w-5 -ml-2.5 -mt-2.5 !important'
                   },
                   '.wx-slider-thumb': {
-                    apply: ['border-[3px] h-5 w-5 -ml-2.5 -mt-2.5 !important']
+                    apply: ['border-[length:3PX] h-5 w-5 -ml-2.5 -mt-2.5 !important']
                   }
                 }
               }
@@ -104,7 +104,7 @@ const options: Partial<ComponentsValue> = {
                     apply: 'h-6 w-6 -ml-3 -mt-3 !important'
                   },
                   '.wx-slider-thumb': {
-                    apply: ['border-4 h-6 w-6 -ml-3 -mt-3 !important']
+                    apply: ['border-[length:4PX] h-6 w-6 -ml-3 -mt-3 !important']
                   }
                 }
               }
@@ -121,7 +121,7 @@ const options: Partial<ComponentsValue> = {
                     apply: 'h-8 w-8 -ml-4 -mt-4 !important'
                   },
                   '.wx-slider-thumb': {
-                    apply: ['border-[6px] h-8 w-8 -ml-4 -mt-4 !important']
+                    apply: ['border-[length:6PX] h-8 w-8 -ml-4 -mt-4 !important']
                   }
                 }
               }

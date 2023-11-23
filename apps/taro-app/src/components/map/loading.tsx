@@ -24,7 +24,7 @@ export default () => {
           <View className='loading loading-sm loading-grid'></View>
         </Button>
         <Button className='btn'>
-          <View className='loading loading-sm loading-hearts'></View>
+          <View className='loading loading-lg loading-hearts text-pink-400'></View>
         </Button>
         <Button className='btn'>
           <View className='loading loading-sm loading-oval'></View>
@@ -46,10 +46,10 @@ export default () => {
       <View className='subtitle'>尺寸</View>
       <View className='space-y-2'>
         <View className='grid grid-cols-2 gap-2'>
-          <View className='loading loading-xs'></View>
-          <View className='loading loading-sm'></View>
-          <View className='loading loading-md'></View>
-          <View className='loading loading-lg'></View>
+          <View className='loading loading-xs text-green-400'></View>
+          <View className='loading loading-sm text-orange-400'></View>
+          <View className='loading loading-md text-red-400'></View>
+          <View className='loading loading-lg text-blue-400'></View>
         </View>
       </View>
     </View>

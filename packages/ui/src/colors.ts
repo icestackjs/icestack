@@ -5,8 +5,8 @@ export function makeRgbaValue(key: string) {
 }
 
 export function getColors(options: CodegenOptions) {
-  const { base, varPrefix } = options
-
+  const { base, varPrefix: varPrefixOptions } = options
+  const { varPrefix } = varPrefixOptions
   return {
     transparent: 'transparent',
     current: 'currentColor',

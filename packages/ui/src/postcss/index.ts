@@ -1,8 +1,10 @@
 import postcssJs from 'postcss-js'
 import postcss, { Root, AcceptedPlugin } from 'postcss'
 import prefixer from './prefixer'
+import type { VarPrefixerOptions } from './custom-property-prefixer'
 import type { CodegenOptions } from '@/types'
 import type { Options as PrefixerOptions } from '@/postcss/prefixer'
+export type { VarPrefixerOptions } from './custom-property-prefixer'
 export type { Options as PrefixerOptions } from '@/postcss/prefixer'
 export { getPlugin as getCssVarsPrefixerPlugin } from './custom-property-prefixer'
 export * from './tailwindcss'
@@ -11,6 +13,14 @@ export function resolvePrefixOption(options: string | PrefixerOptions): Prefixer
   return typeof options === 'string'
     ? {
         prefix: options
+      }
+    : options
+}
+
+export function resolveVarPrefixOption(options: string | VarPrefixerOptions): VarPrefixerOptions {
+  return typeof options === 'string'
+    ? {
+        varPrefix: options
       }
     : options
 }

@@ -4,7 +4,7 @@ import type { Config as TailwindcssConfig } from 'tailwindcss'
 // import type { UserDefinedOptions as PropertyPrefixerOptions } from 'postcss-custom-property-prefixer'
 import type { CssInJs } from 'postcss-js'
 import type { GetSchemaFn } from './components/shared'
-import type { PrefixerOptions } from '@/postcss'
+import type { PrefixerOptions, VarPrefixerOptions } from '@/postcss'
 
 // export interface SharedOptions {
 //   // https://daisyui.com/docs/config/
@@ -36,6 +36,7 @@ export type ModeMergeValue = {
 
 export type ComponentsValue = {
   prefix: PrefixerOptions
+  varPrefix: VarPrefixerOptions
   mode: CodegenMode
   override: ModeMergeValue
   extend: ModeMergeValue
@@ -76,7 +77,7 @@ export type CodegenOptions = {
   components: ComponentsOptions
   global: GlobalOptions
   base: BaseOptions
-  varPrefix: string // PropertyPrefixerOptions['prefix']
+  varPrefix: VarPrefixerOptions // PropertyPrefixerOptions['prefix']
   // styled: boolean
   log: boolean
   prefix: PrefixerOptions

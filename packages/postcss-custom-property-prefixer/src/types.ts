@@ -1,4 +1,4 @@
-import { Declaration } from 'postcss'
+import type { Declaration } from 'postcss'
 
 export type PrefixFunction = (decl: Declaration, target: 'prop' | 'value') => string
 

@@ -117,3 +117,14 @@ export function JSONStringify(value: any) {
 }
 
 export { default as defu } from 'defu'
+
+export function arrMatch(matchArr?: (string | RegExp)[], str?: string) {
+  if (!Array.isArray(matchArr)) return
+  if (typeof str !== 'string') return
+  return matchArr.some((regex) => {
+    if (typeof regex === 'string') {
+      return str.includes(regex)
+    }
+    return str.match(regex)
+  })
+}

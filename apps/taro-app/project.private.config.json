@@ -5,6 +5,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "radial-progress",
+          "pathName": "pages/index/component",
+          "query": "id=radial-progress",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "table",
           "pathName": "pages/index/component",
           "query": "id=table",

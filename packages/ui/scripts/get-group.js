@@ -10,7 +10,7 @@ function main() {
       Layout: [],
       Navigation: ['link'],
       'Data Entry': ['checkbox', 'input', 'radio', 'range', 'select', 'textarea', 'toggle'],
-      'Data Display': ['avatar', 'badge', 'chat', 'progress', 'table'],
+      'Data Display': ['avatar', 'badge', 'chat', 'progress', 'radial-progress', 'table'],
       Feedback: ['alert', 'skeleton'],
       Other: []
     },
@@ -44,7 +44,8 @@ function main() {
       'Css Schema': 'Css 结构',
       'Go to Storybook': '前往 Storybook',
       skeleton: '骨架屏',
-      table: '表格'
+      table: '表格',
+      'radial-progress': '圆形进度条'
     }
   }
 

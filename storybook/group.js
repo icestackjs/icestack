@@ -23,6 +23,7 @@ module.exports = {
       "badge",
       "chat",
       "progress",
+      "radial-progress",
       "table"
     ],
     "Feedback": [
@@ -61,6 +62,7 @@ module.exports = {
     "Css Schema": "Css 结构",
     "Go to Storybook": "前往 Storybook",
     "skeleton": "骨架屏",
-    "table": "表格"
+    "table": "表格",
+    "radial-progress": "圆形进度条"
   }
 }

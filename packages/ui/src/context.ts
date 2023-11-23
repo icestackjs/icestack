@@ -16,7 +16,18 @@ import { JSONStringify, defu, ensureDirSync } from '@/utils'
 import { CreatePresetOptions, handleOptions } from '@/components/shared'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import * as base from '@/base'
-import { getPrefixerPlugin, getCssVarsPrefixerPlugin, resolveTailwindcss, initTailwindcssConfig, objectify, process, Root, AcceptedPlugin, resolvePrefixOption } from '@/postcss'
+import {
+  getPrefixerPlugin,
+  getCssVarsPrefixerPlugin,
+  resolveTailwindcss,
+  initTailwindcssConfig,
+  objectify,
+  process,
+  Root,
+  AcceptedPlugin,
+  resolvePrefixOption,
+  resolveVarPrefixOption
+} from '@/postcss'
 
 function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
   return `${layer}.${suffixes.join('.')}`
@@ -24,8 +35,9 @@ function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
 
 export function createContext(opts?: DeepPartial<CodegenOptions>) {
   const options = getCodegenOptions(opts)
-  const { outdir, dryRun, prefix: _globalPrefix, varPrefix, mode: globalMode, components, log, tailwindcssConfig } = options
+  const { outdir, dryRun, prefix: _globalPrefix, varPrefix: _globalVarPrefix, mode: globalMode, components, log, tailwindcssConfig } = options
   const globalPrefix = resolvePrefixOption(_globalPrefix)
+  const globalVarPrefix = resolveVarPrefixOption(_globalVarPrefix)
   logger.logFlag = log
   const { allTypes, presets: basePresets } = base.calcBase(options)
 
@@ -76,7 +88,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
   const twConfig = initTailwindcssConfig(tailwindcssConfig, {
     theme: {
       extend: {
-        ...createDefaultTailwindcssExtends({ varPrefix }),
+        ...createDefaultTailwindcssExtends({ varPrefix: globalVarPrefix.varPrefix }),
         colors
       }
     }
@@ -118,17 +130,24 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
   }
 
   function preprocessCss(css: string, layer?: ILayer, name?: string) {
-    const plugins: AcceptedPlugin[] = [getCssVarsPrefixerPlugin(varPrefix)]
+    const plugins: AcceptedPlugin[] = []
+
     if (layer === 'components' && name) {
       const t = components[name]
+
       if (typeof t === 'object') {
-        const prefix = resolvePrefixOption(t.prefix)
-        const plugin = getPrefixerPlugin(defu(prefix, globalPrefix))
-        plugin && plugins.push(plugin)
+        const varPrefixOptions = resolveVarPrefixOption(t.varPrefix)
+        const varPrefixerPlugin = getCssVarsPrefixerPlugin(defu(varPrefixOptions, globalVarPrefix))
+        varPrefixerPlugin && plugins.push(varPrefixerPlugin)
+        const prefixOptions = resolvePrefixOption(t.prefix)
+        const prefixerPlugin = getPrefixerPlugin(defu(prefixOptions, globalPrefix))
+        prefixerPlugin && plugins.push(prefixerPlugin)
       }
     } else {
-      const plugin = getPrefixerPlugin(globalPrefix)
-      plugin && plugins.push(plugin)
+      const varPrefixerPlugin = getCssVarsPrefixerPlugin(globalVarPrefix)
+      varPrefixerPlugin && plugins.push(varPrefixerPlugin)
+      const prefixerPlugin = getPrefixerPlugin(globalPrefix)
+      prefixerPlugin && plugins.push(prefixerPlugin)
     }
 
     return process(plugins, css)

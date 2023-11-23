@@ -21,10 +21,10 @@ export default () => {
       </View>
       <View className='subtitle'>尺寸</View>
       <View className='grid grid-cols-1 gap-2'>
-        <View className='badge badge-xs'>badge-xs</View>
-        <View className='badge badge-sm'>badge-sm</View>
-        <View className='badge badge-md'>badge-md</View>
-        <View className='badge badge-lg'>badge-lg</View>
+        <View className='badge badge-xs badge-success'>badge-xs</View>
+        <View className='badge badge-sm badge-success'>badge-sm</View>
+        <View className='badge badge-md badge-success'>badge-md</View>
+        <View className='badge badge-lg badge-success'>badge-lg</View>
       </View>
     </View>
   )

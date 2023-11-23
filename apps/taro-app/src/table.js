@@ -368,5 +368,12 @@ module.exports = {
       "label-text-alt"
     ],
     "utils": []
+  },
+  "radialProgress": {
+    "base": [
+      "radial-progress"
+    ],
+    "styled": [],
+    "utils": []
   }
 }

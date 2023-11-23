@@ -14,7 +14,9 @@ describe('colors', () => {
     expect(
       getColors(
         getCodegenOptions({
-          varPrefix: '--som-'
+          varPrefix: {
+            varPrefix: '--som-'
+          }
         })
       )
     ).toMatchSnapshot()

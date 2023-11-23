@@ -215,7 +215,14 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   skeleton: {
     selector: '.skeleton'
   },
-  form: {}
+  form: {},
+  radialProgress: {
+    selector: '.radial-progress',
+    varPrefix: {
+      ignoreProp: ['--size', '--thickness', '--value'],
+      ignoreValueCustomProperty: ['--size', '--thickness', '--value']
+    }
+  }
   // steps: {
   //   selector: '.step'
   // }
@@ -226,7 +233,7 @@ export function injectSchema(map: DeepPartial<ComponentsOptions>) {
     const k = key as unknown as (typeof componentNames)[number]
     acc[k] = {
       ...opts,
-      schema: schemaMap[k].schema
+      schema: schemaMap[k]?.schema
     }
     return acc
   }, {})
@@ -257,7 +264,9 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
   const base = getDefaultBase(raw)
   return {
     mode: 'styled',
-    varPrefix: defaultVarPrefix,
+    varPrefix: {
+      varPrefix: defaultVarPrefix
+    },
     log: true,
     dryRun: false,
     cache: true,

@@ -59,4 +59,4 @@ postcssCustomPropertyPrefixer.postcss = true
 
 export default postcssCustomPropertyPrefixer
 
-export { type UserDefinedOptions } from './types'
+export * from './types'

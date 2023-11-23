@@ -11,7 +11,9 @@ describe('var-prefix', () => {
   it('snap case 1', () => {
     const ctx = createContext(
       getCodegenOptions({
-        varPrefix: '--som-'
+        varPrefix: {
+          varPrefix: '--som-'
+        }
       })
     )
     const { css } = ctx.compileScss('base.index')

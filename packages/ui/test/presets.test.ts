@@ -10,6 +10,15 @@ describe('presets', () => {
     expect(opt).toMatchSnapshot()
   })
 
+  it('miniprogramPreset buildComponents', async () => {
+    const ctx = createContext({
+      dryRun: true,
+      presets: [miniprogramPreset()]
+    })
+    const res = await ctx.buildComponents()
+    expect(res).toMatchSnapshot()
+  })
+
   it('miniprogramPreset checkbox css', async () => {
     const ctx = createContext({
       dryRun: true,

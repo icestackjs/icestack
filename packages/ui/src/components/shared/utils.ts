@@ -161,7 +161,10 @@ export function recursiveNodes(nodes: postcss.ChildNode[], result: Record<string
       }
       case 'rule': {
         const s = compressCssSelector(node.selector)
-        result[s] = {}
+        if (result[s] === undefined) {
+          result[s] = {}
+        }
+
         recursiveNodes(node.nodes, result[s])
         break
       }

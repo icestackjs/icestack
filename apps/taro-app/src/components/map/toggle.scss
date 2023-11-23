@@ -24,7 +24,8 @@
 .toggle-disabled {
   .wx-switch-wrapper {
     .wx-switch-input {
-      @apply opacity-50;
+      border: 2px;
+      // @apply opacity-50;
       // @apply rounded-full box-content;
       // @apply h-8 w-12;
       &.wx-switch-input-checked {

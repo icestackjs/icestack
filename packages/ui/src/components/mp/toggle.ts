@@ -16,7 +16,7 @@ const options: Partial<ComponentsValue> = {
                 apply: ['rounded-full box-content', 'h-8 w-12'],
                 '&.wx-switch-input-checked': {
                   '&::after': {
-                    apply: 'translate-x-4'
+                    apply: 'translate-x-[calc(1rem+1PX)]'
                   }
                 },
                 '&::before': {
@@ -62,7 +62,7 @@ const options: Partial<ComponentsValue> = {
                   apply: ['h-4 w-6'],
                   '&.wx-switch-input-checked': {
                     '&::after': {
-                      apply: 'translate-x-2'
+                      apply: 'translate-x-[calc(0.5rem+1PX)]'
                     }
                   },
                   '&::before': {
@@ -80,7 +80,7 @@ const options: Partial<ComponentsValue> = {
                   apply: ['h-6 w-9'],
                   '&.wx-switch-input-checked': {
                     '&::after': {
-                      apply: 'translate-x-3'
+                      apply: 'translate-x-[calc(0.75rem+1PX)]'
                     }
                   },
                   '&::before': {
@@ -98,7 +98,7 @@ const options: Partial<ComponentsValue> = {
                   apply: ['h-8 w-12'],
                   '&.wx-switch-input-checked': {
                     '&::after': {
-                      apply: 'translate-x-4'
+                      apply: 'translate-x-[calc(1rem+1PX)]'
                     }
                   },
                   '&::before': {
@@ -116,7 +116,7 @@ const options: Partial<ComponentsValue> = {
                   apply: ['h-10 w-16'],
                   '&.wx-switch-input-checked': {
                     '&::after': {
-                      apply: 'translate-x-6'
+                      apply: 'translate-x-[calc(1.5rem+1PX)]'
                     }
                   },
                   '&::before': {

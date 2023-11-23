@@ -191,6 +191,22 @@ exports[`options > getCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".progress",
     },
+    "radialProgress": {
+      "schema": [Function],
+      "selector": ".radial-progress",
+      "varPrefix": {
+        "ignoreProp": [
+          "--size",
+          "--thickness",
+          "--value",
+        ],
+        "ignoreValueCustomProperty": [
+          "--size",
+          "--thickness",
+          "--value",
+        ],
+      },
+    },
     "radio": {
       "schema": [Function],
       "selector": ".radio",
@@ -235,7 +251,9 @@ exports[`options > getCodegenOptions snap 1`] = `
   },
   "log": true,
   "mode": "styled",
-  "varPrefix": "--ice-",
+  "varPrefix": {
+    "varPrefix": "--ice-",
+  },
 }
 `;
 
@@ -430,6 +448,22 @@ exports[`options > getRawCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".progress",
     },
+    "radialProgress": {
+      "schema": [Function],
+      "selector": ".radial-progress",
+      "varPrefix": {
+        "ignoreProp": [
+          "--size",
+          "--thickness",
+          "--value",
+        ],
+        "ignoreValueCustomProperty": [
+          "--size",
+          "--thickness",
+          "--value",
+        ],
+      },
+    },
     "radio": {
       "schema": [Function],
       "selector": ".radio",
@@ -474,6 +508,8 @@ exports[`options > getRawCodegenOptions snap 1`] = `
   },
   "log": true,
   "mode": "styled",
-  "varPrefix": "--ice-",
+  "varPrefix": {
+    "varPrefix": "--ice-",
+  },
 }
 `;

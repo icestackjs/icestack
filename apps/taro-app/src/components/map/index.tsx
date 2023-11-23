@@ -15,6 +15,7 @@ import progress from './progress'
 import alert from './alert'
 import skeleton from './skeleton'
 import table from './table'
+import radialProgress from './radial-progress'
 
 export default {
   button,
@@ -33,5 +34,6 @@ export default {
   progress,
   alert,
   skeleton,
-  table
+  table,
+  'radial-progress': radialProgress
 }

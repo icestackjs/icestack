@@ -990,6 +990,51 @@ exports[`'progress' > styled 1`] = `
 
 exports[`'progress' > utils 1`] = `""`;
 
+exports[`'radialProgress' > base 1`] = `
+".radial-progress {
+  --ice-value: 0;
+  --ice-size: 5rem;
+  --ice-thickness: calc(var(--ice-size) / 10);
+  vertical-align: middle;
+  box-sizing: content-box;
+  @apply relative inline-grid h-[var(--size)] w-[var(--size)] place-content-center rounded-full bg-transparent;
+}
+
+.radial-progress:after {
+  @apply bg-current;
+  inset: calc(50% - var(--ice-thickness) / 2);
+  transform: rotate(calc(var(--ice-value) * 3.6deg - 90deg)) translate(calc(var(--ice-size) / 2 - 50%));
+}
+
+.radial-progress::-moz-progress-bar {
+  @apply appearance-none bg-transparent;
+}
+
+.radial-progress::-webkit-progress-value {
+  @apply appearance-none bg-transparent;
+}
+
+.radial-progress::-webkit-progress-bar {
+  @apply appearance-none bg-transparent;
+}
+
+.radial-progress:before, .radial-progress:after {
+  @apply absolute rounded-full;
+  content: \\"\\";
+}
+
+.radial-progress:before {
+  @apply inset-0;
+  background: radial-gradient(farthest-side, currentColor 98%, #0000) top/var(--ice-thickness) var(--ice-thickness) no-repeat, conic-gradient(currentColor calc(var(--ice-value) * 1%), #0000 0);
+  -webkit-mask: radial-gradient( farthest-side, #0000 calc(99% - var(--ice-thickness)), #000 calc(100% - var(--ice-thickness)) );
+  mask: radial-gradient( farthest-side, #0000 calc(99% - var(--ice-thickness)), #000 calc(100% - var(--ice-thickness)) );
+}"
+`;
+
+exports[`'radialProgress' > styled 1`] = `""`;
+
+exports[`'radialProgress' > utils 1`] = `""`;
+
 exports[`'radio' > base 1`] = `
 ".radio {
   @apply shrink-0;

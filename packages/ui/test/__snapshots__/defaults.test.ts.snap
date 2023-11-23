@@ -49,6 +49,22 @@ exports[`defaults > injectSchema 1`] = `
     "schema": [Function],
     "selector": ".progress",
   },
+  "radialProgress": {
+    "schema": [Function],
+    "selector": ".radial-progress",
+    "varPrefix": {
+      "ignoreProp": [
+        "--size",
+        "--thickness",
+        "--value",
+      ],
+      "ignoreValueCustomProperty": [
+        "--size",
+        "--thickness",
+        "--value",
+      ],
+    },
+  },
   "radio": {
     "schema": [Function],
     "selector": ".radio",

@@ -6,7 +6,7 @@ describe('options', () => {
   })
 
   it('getRawCodegenOptions snap', () => {
-    expect(getCodegenOptions({}, true)).toMatchSnapshot()
+    expect(getCodegenOptions({})).toMatchSnapshot()
   })
 
   // it('getTailwindcssOptions snap', () => {

@@ -19,6 +19,7 @@ import * as form from '@/components/form'
 import * as table from '@/components/table'
 import * as tabs from '@/components/tabs'
 import * as skeleton from '@/components/skeleton'
+import * as radialProgress from '@/components/radialProgress'
 // import * as steps from '@/components/steps'
 
 const schemaMap = {
@@ -41,7 +42,8 @@ const schemaMap = {
   form,
   table,
   tabs,
-  skeleton
+  skeleton,
+  radialProgress
   // steps
 } as const
 

@@ -26,6 +26,18 @@ exports[`defaults > injectSchema 1`] = `
     "schema": [Function],
     "selector": ".checkbox",
   },
+  "countdown": {
+    "schema": [Function],
+    "selector": ".countdown",
+    "varPrefix": {
+      "ignoreProp": [
+        "--value",
+      ],
+      "ignoreValueCustomProperty": [
+        "--value",
+      ],
+    },
+  },
   "form": {
     "schema": [Function],
   },

@@ -16,6 +16,7 @@ import alert from './alert'
 import skeleton from './skeleton'
 import table from './table'
 import radialProgress from './radial-progress'
+import countdown from './countdown'
 
 export default {
   button,
@@ -35,5 +36,6 @@ export default {
   alert,
   skeleton,
   table,
-  'radial-progress': radialProgress
+  'radial-progress': radialProgress,
+  countdown
 }

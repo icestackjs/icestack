@@ -24,11 +24,19 @@ export interface PrefixerOptions {
   // 忽略数组
   ignore?: ReadonlyArray<RegExp | string>
 }
+// postcss 插件配置
+export type VarPrefixerOptions = {
+  varPrefix?: string // | PrefixFunction
+  ignoreProp?: (RegExp | string)[]
+  ignoreValueCustomProperty?: (RegExp | string)[]
+}
 
 // 组件配置项
 export type ComponentsValue = {
   // 用于单独配置组件的类名前缀
   prefix: PrefixerOptions
+  // 用于单独配置组件的Css变量名前缀
+  varPrefix: VarPrefixerOptions
   // 加载模式，默认使用全局的 mode
   mode: CodegenMode
   // 覆盖默认行为

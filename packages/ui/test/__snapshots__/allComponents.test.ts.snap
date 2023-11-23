@@ -23,5 +23,6 @@ exports[`allComponents exports > snap 1`] = `
   "tabs",
   "skeleton",
   "radialProgress",
+  "countdown",
 ]
 `;

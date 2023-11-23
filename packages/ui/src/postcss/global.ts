@@ -7,17 +7,20 @@ function isAtMediaHover(atRule: AtRule) {
   return /media\(\s*hover\s*:\s*hover\s*\)/.test(atRule.name) || (atRule.name === 'media' && /\(\s*hover\s*:\s*hover\s*\)/.test(atRule.params))
 }
 const creator: PluginCreator<CodegenOptions> = (options) => {
-  const universal = options?.global?.selector?.universal
-  const removeAtMediaHover = !options?.global?.atMedia?.hover
-  const universalFn = typeof universal === 'string' ? () => universal : universal
+  const globalOptions = options?.global
+  const selectorOptions = globalOptions?.selector
+  const universal = selectorOptions?.universal
+  const root = selectorOptions?.root
+  const removeAtMediaHover = !globalOptions?.atMedia?.hover
+
   const ruleTransformer = parser((selectors) => {
     selectors.walk((selector) => {
       // universal
-      if (selector.type === 'universal' && selector.value === '*') {
-        const s = universalFn?.()
-        if (s) {
-          selector.value = s
-        }
+      if (selector.type === 'universal' && selector.value === '*' && universal) {
+        selector.value = universal
+      }
+      if (selector.type === 'pseudo' && selector.value === ':root' && root) {
+        selector.value = root
       }
     })
   })

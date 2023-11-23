@@ -15,14 +15,27 @@ describe('global', () => {
       gloablPostcss({
         global: {
           selector: {
-            universal: () => {
-              return 'view'
-            }
+            universal: 'view'
           }
         }
       })
     ]).process(`.btm-nav > * {
       border-color: currentColor
+    }`)
+    expect(css).toMatchSnapshot()
+  })
+
+  it('pseudo root case 0', () => {
+    const { css } = postcss([
+      gloablPostcss({
+        global: {
+          selector: {
+            root: 'page'
+          }
+        }
+      })
+    ]).process(`:root .countdown {
+      line-height: 1em;
     }`)
     expect(css).toMatchSnapshot()
   })

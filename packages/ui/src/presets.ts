@@ -8,7 +8,8 @@ export const miniprogramPreset: () => DeepPartial<CodegenOptions> = () => {
         hover: false
       },
       selector: {
-        universal: 'view' // ['view', 'text']
+        universal: 'view', // ['view', 'text']
+        root: 'page'
       },
       pseudo: {}
     },

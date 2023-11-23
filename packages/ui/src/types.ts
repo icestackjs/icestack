@@ -44,6 +44,7 @@ export type ComponentsValue = {
   selector: string
   schema: GetSchemaFn
   disabled: boolean
+  params: Record<string, any>
 }
 
 export type ComponentsOptions = Record<string, ComponentsValue | false>
@@ -60,6 +61,7 @@ export type GlobalOptions = {
   selector: {
     // default *
     universal: string // | string[] // | (() => string)
+    root: string
     // default global
     // globalKeyword: string
   }

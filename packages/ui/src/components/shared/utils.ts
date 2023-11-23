@@ -99,10 +99,11 @@ function getPickedProps(mode: CodegenMode = 'styled') {
   }
 }
 
-export function handleOptions({ extend, override, selector, extra, mode, schema }: ComponentsValue, opts: CreatePresetOptions) {
+export function handleOptions({ extend, override, selector, extra, mode, schema, params }: ComponentsValue, opts: CreatePresetOptions) {
   const d: ISchema | undefined = schema?.({
     ...opts,
-    selector
+    selector,
+    params
   })
   let de: Partial<ISchema> = d ?? {}
   de.defaults = preprocessCssInJs(pick(de.defaults, getPickedProps(mode)))

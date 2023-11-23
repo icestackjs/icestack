@@ -7,6 +7,12 @@ exports[`global > at media hover 1`] = `
       }"
 `;
 
+exports[`global > pseudo root case 0 1`] = `
+"page .countdown {
+      line-height: 1em;
+    }"
+`;
+
 exports[`global > universal selector case 0 1`] = `
 ".btm-nav>view {
       border-color: currentColor

@@ -222,6 +222,13 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
       ignoreProp: ['--size', '--thickness', '--value'],
       ignoreValueCustomProperty: ['--size', '--thickness', '--value']
     }
+  },
+  countdown: {
+    selector: '.countdown',
+    varPrefix: {
+      ignoreProp: ['--value'],
+      ignoreValueCustomProperty: ['--value']
+    }
   }
   // steps: {
   //   selector: '.step'

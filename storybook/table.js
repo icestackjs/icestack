@@ -375,5 +375,12 @@ module.exports = {
     ],
     "styled": [],
     "utils": []
+  },
+  "countdown": {
+    "base": [
+      "countdown"
+    ],
+    "styled": [],
+    "utils": []
   }
 }

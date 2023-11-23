@@ -24,6 +24,7 @@ module.exports = {
       "chat",
       "progress",
       "radial-progress",
+      "countdown",
       "table"
     ],
     "Feedback": [
@@ -63,6 +64,7 @@ module.exports = {
     "Go to Storybook": "前往 Storybook",
     "skeleton": "骨架屏",
     "table": "表格",
-    "radial-progress": "圆形进度条"
+    "radial-progress": "圆形进度条",
+    "countdown": "计数"
   }
 }

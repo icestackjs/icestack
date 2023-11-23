@@ -168,6 +168,18 @@ exports[`options > getCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".checkbox",
     },
+    "countdown": {
+      "schema": [Function],
+      "selector": ".countdown",
+      "varPrefix": {
+        "ignoreProp": [
+          "--value",
+        ],
+        "ignoreValueCustomProperty": [
+          "--value",
+        ],
+      },
+    },
     "form": {
       "schema": [Function],
     },
@@ -424,6 +436,18 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     "checkbox": {
       "schema": [Function],
       "selector": ".checkbox",
+    },
+    "countdown": {
+      "schema": [Function],
+      "selector": ".countdown",
+      "varPrefix": {
+        "ignoreProp": [
+          "--value",
+        ],
+        "ignoreValueCustomProperty": [
+          "--value",
+        ],
+      },
     },
     "form": {
       "schema": [Function],

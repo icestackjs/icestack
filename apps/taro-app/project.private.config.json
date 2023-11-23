@@ -5,6 +5,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "countdown",
+          "pathName": "pages/index/component",
+          "query": "id=countdown",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "radial-progress",
           "pathName": "pages/index/component",
           "query": "id=radial-progress",

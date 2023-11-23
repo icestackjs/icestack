@@ -4,9 +4,8 @@ import path from 'node:path'
 import fs from 'node:fs'
 import { createContext } from '@/context'
 import { getCodegenOptions } from '@/options'
-import { names as componentsNames, removeDefaultComponents } from '@/components'
+import { names as componentsNames, removeDefaultComponents, transformCss2Js } from '@/components'
 import { stages } from '@/constants'
-import { transformCss2Js } from '@/index'
 
 // const baseDir = path.resolve(scssDir, 'components')
 
@@ -247,7 +246,7 @@ describe('bug fixed', () => {
             '.xxx': {
               apply: 'bg-red-300 text-sm leading-4 !important',
               css: {
-                color: 'red'
+                color: 'red !important'
               }
             }
           }

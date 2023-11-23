@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### Interfaces
-
-- [IBuildScssOptions](interfaces/IBuildScssOptions.md)
-
 ### Type Aliases
 
 - [BaseOptions](README.md#baseoptions)
@@ -16,9 +12,11 @@
 - [ComponentsOptions](README.md#componentsoptions)
 - [ComponentsValue](README.md#componentsvalue)
 - [Config](README.md#config)
+- [CssInJs](README.md#cssinjs)
 - [DeepPartial](README.md#deeppartial)
 - [DeepRequired](README.md#deeprequired)
 - [GlobalOptions](README.md#globaloptions)
+- [ILayer](README.md#ilayer)
 - [LoadCodeOptions](README.md#loadcodeoptions)
 - [ModeMergeValue](README.md#modemergevalue)
 - [TailwindcssPluginOptions](README.md#tailwindcsspluginoptions)
@@ -39,14 +37,14 @@
 
 | Name | Type |
 | :------ | :------ |
-| `extraColors` | `Record`\<keyof [`BaseOptions`](README.md#baseoptions)[``"themes"``], `Record`\<`string`, `string`\>\> |
-| `extraVars` | `Record`\<keyof [`BaseOptions`](README.md#baseoptions)[``"themes"``], `Record`\<`string`, `string`\>\> |
+| `extraColors` | `Record`\<keyof [`BaseOptions`][README.md#baseoptions](``"themes"``), `Record`\<`string`, `string`\>\> |
+| `extraVars` | `Record`\<keyof [`BaseOptions`][README.md#baseoptions](``"themes"``), `Record`\<`string`, `string`\>\> |
 | `themes` | `Record`\<`T`, \{ `selector`: `string`  }\> |
-| `types` | `Record`\<`string`, `Record`\<keyof [`BaseOptions`](README.md#baseoptions)[``"themes"``], `Record`\<`string`, `string`\>\>\> |
+| `types` | `Record`\<`string`, `Record`\<keyof [`BaseOptions`][README.md#baseoptions](``"themes"``), `Record`\<`string`, `string`\>\>\> |
 
 #### Defined in
 
-[types.ts:17](https://github.com/sonofmagic/icestack/blob/4232246/packages/ui/src/types.ts#L17)
+[packages/ui/src/types.ts:18](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L18)
 
 ___
 
@@ -56,7 +54,7 @@ ___
 
 #### Defined in
 
-[types.ts:67](https://github.com/sonofmagic/icestack/blob/4232246/packages/ui/src/types.ts#L67)
+[packages/ui/src/types.ts:67](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L67)
 
 ___
 
@@ -76,24 +74,24 @@ ___
 | `log` | `boolean` |
 | `mode` | [`CodegenMode`](README.md#codegenmode) |
 | `outdir` | `string` |
-| `prefix` | `string` \| `PrefixerOptions` |
-| `presets` | [`DeepPartial`](README.md#deeppartial)\<[`CodegenOptions`](README.md#codegenoptions)\>[] |
+| `prefix` | `PrefixerOptions` |
+| `presets` | ([`DeepPartial`](README.md#deeppartial)\<[`CodegenOptions`](README.md#codegenoptions)\> \| (`options?`: `any`) => [`DeepPartial`](README.md#deeppartial)\<[`CodegenOptions`](README.md#codegenoptions)\>)[] |
 | `tailwindcssConfig` | `TailwindcssConfig` |
 | `varPrefix` | `string` |
 
 #### Defined in
 
-[types.ts:73](https://github.com/sonofmagic/icestack/blob/4232246/packages/ui/src/types.ts#L73)
+[packages/ui/src/types.ts:73](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L73)
 
 ___
 
 ### ComponentsOptions
 
-Ƭ **ComponentsOptions**: `Record`\<typeof `componentsNames`[`number`], [`ComponentsValue`](README.md#componentsvalue)\>
+Ƭ **ComponentsOptions**: `Record`\<`string`, [`ComponentsValue`](README.md#componentsvalue) \| ``false``\>
 
 #### Defined in
 
-[types.ts:48](https://github.com/sonofmagic/icestack/blob/4232246/packages/ui/src/types.ts#L48)
+[packages/ui/src/types.ts:48](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L48)
 
 ___
 
@@ -105,15 +103,18 @@ ___
 
 | Name | Type |
 | :------ | :------ |
+| `disabled` | `boolean` |
 | `extend` | [`ModeMergeValue`](README.md#modemergevalue) |
-| `extra` | `CssInJs` |
+| `extra` | [`CssInJs`](README.md#cssinjs) |
 | `mode` | [`CodegenMode`](README.md#codegenmode) |
 | `override` | [`ModeMergeValue`](README.md#modemergevalue) |
+| `prefix` | `PrefixerOptions` |
+| `schema` | `GetSchemaFn` |
 | `selector` | `string` |
 
 #### Defined in
 
-[types.ts:36](https://github.com/sonofmagic/icestack/blob/4232246/packages/ui/src/types.ts#L36)
+[packages/ui/src/types.ts:37](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L37)
 
 ___
 
@@ -123,7 +124,19 @@ ___
 
 #### Defined in
 
-[types.ts:102](https://github.com/sonofmagic/icestack/blob/4232246/packages/ui/src/types.ts#L102)
+[packages/ui/src/types.ts:102](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L102)
+
+___
+
+### CssInJs
+
+Ƭ **CssInJs**: `Record`\<`string`, `any`\>
+
+CSS-in-JS object
+
+#### Defined in
+
+node_modules/.pnpm/@types+postcss-js@4.0.4/node_modules/@types/postcss-js/index.d.ts:5
 
 ___
 
@@ -139,7 +152,7 @@ ___
 
 #### Defined in
 
-[types.ts:122](https://github.com/sonofmagic/icestack/blob/4232246/packages/ui/src/types.ts#L122)
+[packages/ui/src/types.ts:118](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L118)
 
 ___
 
@@ -155,7 +168,7 @@ ___
 
 #### Defined in
 
-[types.ts:126](https://github.com/sonofmagic/icestack/blob/4232246/packages/ui/src/types.ts#L126)
+[packages/ui/src/types.ts:122](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L122)
 
 ___
 
@@ -176,7 +189,17 @@ ___
 
 #### Defined in
 
-[types.ts:50](https://github.com/sonofmagic/icestack/blob/4232246/packages/ui/src/types.ts#L50)
+[packages/ui/src/types.ts:50](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L50)
+
+___
+
+### ILayer
+
+Ƭ **ILayer**: ``"base"`` \| ``"utilities"`` \| ``"components"``
+
+#### Defined in
+
+[packages/ui/src/types.ts:128](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L128)
 
 ___
 
@@ -192,7 +215,7 @@ ___
 
 #### Defined in
 
-[types.ts:69](https://github.com/sonofmagic/icestack/blob/4232246/packages/ui/src/types.ts#L69)
+[packages/ui/src/types.ts:69](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L69)
 
 ___
 
@@ -204,13 +227,13 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `base?` | `CssInJs` |
-| `styled?` | `CssInJs` |
-| `utils?` | `CssInJs` |
+| `base?` | [`CssInJs`](README.md#cssinjs) |
+| `styled?` | [`CssInJs`](README.md#cssinjs) |
+| `utils?` | [`CssInJs`](README.md#cssinjs) |
 
 #### Defined in
 
-[types.ts:30](https://github.com/sonofmagic/icestack/blob/4232246/packages/ui/src/types.ts#L30)
+[packages/ui/src/types.ts:31](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L31)
 
 ___
 
@@ -226,4 +249,4 @@ ___
 
 #### Defined in
 
-[types.ts:104](https://github.com/sonofmagic/icestack/blob/4232246/packages/ui/src/types.ts#L104)
+[packages/ui/src/types.ts:104](https://github.com/sonofmagic/icestack/blob/e6652f6/packages/ui/src/types.ts#L104)

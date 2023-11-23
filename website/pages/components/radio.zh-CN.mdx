@@ -10,34 +10,19 @@ import CssTable from '../../components/CssTable'
 
 ## Css 结构
 
-```js
+```json
 {
 "selector": ".radio",
 "defaults": {
   "styled": {
     ".radio": {
-      "apply": [
-        "border-base-content",
-        "h-6",
-        "w-6",
-        "cursor-pointer",
-        "appearance-none",
-        "rounded-full",
-        "border",
-        "border-opacity-20"
-      ],
+      "apply": "border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20",
       "&:focus-visible": {
-        "apply": [
-          "outline-base-content",
-          "outline",
-          "outline-2",
-          "outline-offset-2"
-        ]
+        "apply": "outline-base-content outline outline-2 outline-offset-2"
       },
-      "&:checked,&[aria-checked=\"true\"]": {
-        "apply": [
-          "bg-base-content"
-        ],
+      "&:checked,
+          &[aria-checked=\"true\"]": {
+        "apply": "bg-base-content",
         "css": {
           "animation": "radiomark var(--animation-input, 0.2s) ease-out",
           "box-shadow": "0 0 0 4px rgba(var(--base-400)) inset,
@@ -45,100 +30,57 @@ import CssTable from '../../components/CssTable'
         }
       },
       "&-primary": {
-        "apply": [
-          "border-primary",
-          "hover:border-primary"
-        ],
+        "apply": "border-primary hover:border-primary",
         "&:focus-visible": {
-          "apply": [
-            "outline-primary"
-          ]
+          "apply": "outline-primary"
         },
-        "&:checked,&[aria-checked=\"true\"]": {
-          "apply": [
-            "border-primary",
-            "bg-primary",
-            "text-primary-content"
-          ]
+        "&:checked,
+                &[aria-checked=\"true\"]": {
+          "apply": "border-primary bg-primary text-primary-content"
         }
       },
       "&-success": {
-        "apply": [
-          "border-success",
-          "hover:border-success"
-        ],
+        "apply": "border-success hover:border-success",
         "&:focus-visible": {
-          "apply": [
-            "outline-success"
-          ]
+          "apply": "outline-success"
         },
-        "&:checked,&[aria-checked=\"true\"]": {
-          "apply": [
-            "border-success",
-            "bg-success",
-            "text-success-content"
-          ]
+        "&:checked,
+                &[aria-checked=\"true\"]": {
+          "apply": "border-success bg-success text-success-content"
         }
       },
       "&-warning": {
-        "apply": [
-          "border-warning",
-          "hover:border-warning"
-        ],
+        "apply": "border-warning hover:border-warning",
         "&:focus-visible": {
-          "apply": [
-            "outline-warning"
-          ]
+          "apply": "outline-warning"
         },
-        "&:checked,&[aria-checked=\"true\"]": {
-          "apply": [
-            "border-warning",
-            "bg-warning",
-            "text-warning-content"
-          ]
+        "&:checked,
+                &[aria-checked=\"true\"]": {
+          "apply": "border-warning bg-warning text-warning-content"
         }
       },
       "&-error": {
-        "apply": [
-          "border-error",
-          "hover:border-error"
-        ],
+        "apply": "border-error hover:border-error",
         "&:focus-visible": {
-          "apply": [
-            "outline-error"
-          ]
+          "apply": "outline-error"
         },
-        "&:checked,&[aria-checked=\"true\"]": {
-          "apply": [
-            "border-error",
-            "bg-error",
-            "text-error-content"
-          ]
+        "&:checked,
+                &[aria-checked=\"true\"]": {
+          "apply": "border-error bg-error text-error-content"
         }
       },
       "&-neutral": {
-        "apply": [
-          "border-neutral",
-          "hover:border-neutral"
-        ],
+        "apply": "border-neutral hover:border-neutral",
         "&:focus-visible": {
-          "apply": [
-            "outline-neutral"
-          ]
+          "apply": "outline-neutral"
         },
-        "&:checked,&[aria-checked=\"true\"]": {
-          "apply": [
-            "border-neutral",
-            "bg-neutral",
-            "text-neutral-content"
-          ]
+        "&:checked,
+                &[aria-checked=\"true\"]": {
+          "apply": "border-neutral bg-neutral text-neutral-content"
         }
       },
       "&:disabled": {
-        "apply": [
-          "cursor-not-allowed",
-          "opacity-20"
-        ]
+        "apply": "cursor-not-allowed opacity-20"
       }
     },
     "@keyframes radiomark": {
@@ -164,36 +106,22 @@ import CssTable from '../../components/CssTable'
   },
   "base": {
     ".radio": {
-      "apply": [
-        "shrink-0"
-      ]
+      "apply": "shrink-0"
     }
   },
   "utils": {
     ".radio": {
       "&-xs": {
-        "apply": [
-          "h-4",
-          "w-4"
-        ]
+        "apply": "h-4 w-4"
       },
       "&-sm": {
-        "apply": [
-          "h-5",
-          "w-5"
-        ]
+        "apply": "h-5 w-5"
       },
       "&-md": {
-        "apply": [
-          "h-6",
-          "w-6"
-        ]
+        "apply": "h-6 w-6"
       },
       "&-lg": {
-        "apply": [
-          "h-8",
-          "w-8"
-        ]
+        "apply": "h-8 w-8"
       }
     }
   }

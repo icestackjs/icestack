@@ -10,46 +10,29 @@ import CssTable from '../../components/CssTable'
 
 ## Css 结构
 
-```js
+```json
 {
 "selector": ".link",
 "defaults": {
   "styled": {
     ".link": {
       "&-primary": {
-        "apply": [
-          "text-primary",
-          "[@media(hover:hover)]:hover:text-primary-active"
-        ]
+        "apply": "text-primary [@media(hover:hover)]:hover:text-primary-active"
       },
       "&-success": {
-        "apply": [
-          "text-success",
-          "[@media(hover:hover)]:hover:text-success-active"
-        ]
+        "apply": "text-success [@media(hover:hover)]:hover:text-success-active"
       },
       "&-warning": {
-        "apply": [
-          "text-warning",
-          "[@media(hover:hover)]:hover:text-warning-active"
-        ]
+        "apply": "text-warning [@media(hover:hover)]:hover:text-warning-active"
       },
       "&-error": {
-        "apply": [
-          "text-error",
-          "[@media(hover:hover)]:hover:text-error-active"
-        ]
+        "apply": "text-error [@media(hover:hover)]:hover:text-error-active"
       },
       "&-neutral": {
-        "apply": [
-          "text-neutral",
-          "[@media(hover:hover)]:hover:text-neutral-active"
-        ]
+        "apply": "text-neutral [@media(hover:hover)]:hover:text-neutral-active"
       },
       "&:focus": {
-        "apply": [
-          "outline-none"
-        ]
+        "apply": "outline-none"
       },
       "&:focus-visible": {
         "css": {
@@ -61,15 +44,9 @@ import CssTable from '../../components/CssTable'
   },
   "base": {
     ".link": {
-      "apply": [
-        "cursor-pointer",
-        "underline"
-      ],
+      "apply": "cursor-pointer underline",
       "&-hover": {
-        "apply": [
-          "no-underline",
-          "hover:underline"
-        ]
+        "apply": "no-underline hover:underline"
       }
     }
   }

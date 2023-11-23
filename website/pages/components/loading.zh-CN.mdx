@@ -10,19 +10,14 @@ import CssTable from '../../components/CssTable'
 
 ## Css 结构
 
-```js
+```json
 {
 "selector": ".loading",
 "defaults": {
   "styled": {},
   "base": {
     ".loading": {
-      "apply": [
-        "pointer-events-none",
-        "inline-block",
-        "aspect-square",
-        "w-6"
-      ],
+      "apply": "pointer-events-none inline-block aspect-square w-6",
       "css": {
         "background-color": "currentColor",
         "mask-size": "100%",
@@ -35,24 +30,16 @@ import CssTable from '../../components/CssTable'
   "utils": {
     ".loading": {
       "&-xs": {
-        "apply": [
-          "w-4"
-        ]
+        "apply": "w-4"
       },
       "&-sm": {
-        "apply": [
-          "w-5"
-        ]
+        "apply": "w-5"
       },
       "&-md": {
-        "apply": [
-          "w-6"
-        ]
+        "apply": "w-6"
       },
       "&-lg": {
-        "apply": [
-          "w-10"
-        ]
+        "apply": "w-10"
       },
       "&-audio": {
         "css": {

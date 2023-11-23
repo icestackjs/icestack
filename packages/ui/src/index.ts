@@ -8,5 +8,3 @@ export function defineConfig(options?: Config) {
 }
 
 export * from './context'
-
-export { transformCss2Js } from './components/shared'

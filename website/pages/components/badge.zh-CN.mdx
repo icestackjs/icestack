@@ -10,155 +10,81 @@ import CssTable from '../../components/CssTable'
 
 ## Css 结构
 
-```js
+```json
 {
 "selector": ".badge",
 "defaults": {
   "styled": {
     ".badge": {
-      "apply": [
-        "rounded-badge",
-        "border",
-        "border-base-400",
-        "bg-base-100",
-        "text-base-content"
-      ],
+      "apply": "rounded-badge border border-base-400 bg-base-100 text-base-content",
       "&-primary": {
-        "apply": [
-          "border-primary",
-          "bg-primary",
-          "text-primary-content"
-        ]
+        "apply": "border-primary bg-primary text-primary-content"
       },
       "&-success": {
-        "apply": [
-          "border-success",
-          "bg-success",
-          "text-success-content"
-        ]
+        "apply": "border-success bg-success text-success-content"
       },
       "&-warning": {
-        "apply": [
-          "border-warning",
-          "bg-warning",
-          "text-warning-content"
-        ]
+        "apply": "border-warning bg-warning text-warning-content"
       },
       "&-error": {
-        "apply": [
-          "border-error",
-          "bg-error",
-          "text-error-content"
-        ]
+        "apply": "border-error bg-error text-error-content"
       },
       "&-neutral": {
-        "apply": [
-          "border-neutral",
-          "bg-neutral",
-          "text-neutral-content"
-        ]
+        "apply": "border-neutral bg-neutral text-neutral-content"
       },
       "&-ghost": {
-        "apply": [
-          "border-base-400",
-          "bg-base-400",
-          "text-base-content"
-        ]
+        "apply": "border-base-400 bg-base-400 text-base-content"
       },
       "&-outline": {
-        "apply": [
-          "border-current",
-          "border-opacity-50",
-          "bg-transparent",
-          "text-current"
-        ],
+        "apply": "border-current border-opacity-50 bg-transparent text-current",
         "&.badge-primary": {
-          "apply": [
-            "text-primary"
-          ]
+          "apply": "text-primary"
         },
         "&.badge-success": {
-          "apply": [
-            "text-success"
-          ]
+          "apply": "text-success"
         },
         "&.badge-warning": {
-          "apply": [
-            "text-warning"
-          ]
+          "apply": "text-warning"
         },
         "&.badge-error": {
-          "apply": [
-            "text-error"
-          ]
+          "apply": "text-error"
         },
         "&.badge-neutral": {
-          "apply": [
-            "text-neutral"
-          ]
+          "apply": "text-neutral"
         }
       }
     }
   },
   "base": {
     ".badge": {
-      "apply": [
-        "inline-flex",
-        "items-center",
-        "justify-center",
-        "transition",
-        "duration-200",
-        "ease-out",
-        "h-5",
-        "text-sm",
-        "leading-5",
-        "w-[fit-content]",
-        "pl-[0.563rem]",
-        "pr-[0.563rem]"
-      ]
+      "apply": "inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem]"
     }
   },
   "utils": {
     ".badge": {
       "&-xs": {
-        "apply": [
-          "h-3",
-          "text-xs",
-          "leading-3"
-        ],
+        "apply": "h-3 text-xs leading-3",
         "css": {
           "padding-left": "0.313rem",
           "padding-right": "0.313rem"
         }
       },
       "&-sm": {
-        "apply": [
-          "h-4",
-          "text-xs",
-          "leading-4"
-        ],
+        "apply": "h-4 text-xs leading-4",
         "css": {
           "padding-left": "0.438rem",
           "padding-right": "0.438rem"
         }
       },
       "&-md": {
-        "apply": [
-          "h-5",
-          "text-sm",
-          "leading-5"
-        ],
+        "apply": "h-5 text-sm leading-5",
         "css": {
           "padding-left": "0.563rem",
           "padding-right": "0.563rem"
         }
       },
       "&-lg": {
-        "apply": [
-          "h-6",
-          "text-base",
-          "leading-6"
-        ],
+        "apply": "h-6 text-base leading-6",
         "css": {
           "padding-left": "0.688rem",
           "padding-right": "0.688rem"

@@ -10,153 +10,83 @@ import CssTable from '../../components/CssTable'
 
 ## Css 结构
 
-```js
+```json
 {
 "selector": ".textarea",
 "defaults": {
   "styled": {
     ".textarea": {
-      "apply": [
-        "border-base-content",
-        "bg-base-100",
-        "rounded-btn",
-        "border",
-        "border-opacity-0"
-      ],
+      "apply": "border-base-content bg-base-100 rounded-btn border border-opacity-0",
       "&-bordered": {
-        "apply": [
-          "border-opacity-20"
-        ]
+        "apply": "border-opacity-20"
       },
       "&:focus": {
-        "apply": [
-          "outline-base-content/20",
-          "outline",
-          "outline-2",
-          "outline-offset-2"
-        ]
+        "apply": "outline-base-content/20 outline outline-2 outline-offset-2"
       },
       "&-ghost": {
-        "apply": [
-          "bg-opacity-5"
-        ],
+        "apply": "bg-opacity-5",
         "&:focus": {
-          "apply": [
-            "text-base-content",
-            "bg-opacity-100"
-          ],
+          "apply": "text-base-content bg-opacity-100",
           "css": {
             "box-shadow": "none"
           }
         }
       },
       "&-primary": {
-        "apply": [
-          "border-primary"
-        ],
+        "apply": "border-primary",
         "&:focus": {
-          "apply": [
-            "outline-primary"
-          ]
+          "apply": "outline-primary"
         }
       },
       "&-success": {
-        "apply": [
-          "border-success"
-        ],
+        "apply": "border-success",
         "&:focus": {
-          "apply": [
-            "outline-success"
-          ]
+          "apply": "outline-success"
         }
       },
       "&-warning": {
-        "apply": [
-          "border-warning"
-        ],
+        "apply": "border-warning",
         "&:focus": {
-          "apply": [
-            "outline-warning"
-          ]
+          "apply": "outline-warning"
         }
       },
       "&-error": {
-        "apply": [
-          "border-error"
-        ],
+        "apply": "border-error",
         "&:focus": {
-          "apply": [
-            "outline-error"
-          ]
+          "apply": "outline-error"
         }
       },
       "&-neutral": {
-        "apply": [
-          "border-neutral"
-        ],
+        "apply": "border-neutral",
         "&:focus": {
-          "apply": [
-            "outline-neutral"
-          ]
+          "apply": "outline-neutral"
         }
       },
-      "&-disabled,&:disabled,&[disabled]": {
-        "apply": [
-          "border-base-200",
-          "bg-base-200",
-          "placeholder-base-content",
-          "cursor-not-allowed",
-          "text-opacity-20",
-          "placeholder-opacity-20"
-        ]
+      "&-disabled,
+          &:disabled,
+          &[disabled]": {
+        "apply": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20"
       }
     }
   },
   "base": {
     ".textarea": {
-      "apply": [
-        "min-h-12",
-        "flex-shrink",
-        "px-4",
-        "py-2",
-        "text-sm",
-        "leading-loose"
-      ]
+      "apply": "min-h-12 flex-shrink px-4 py-2 text-sm leading-loose"
     }
   },
   "utils": {
     ".textarea": {
       "&-xs": {
-        "apply": [
-          "px-2",
-          "py-1",
-          "text-xs",
-          "leading-relaxed"
-        ]
+        "apply": "px-2 py-1 text-xs leading-relaxed"
       },
       "&-sm": {
-        "apply": [
-          "px-3",
-          "py-1",
-          "text-sm",
-          "leading-8"
-        ]
+        "apply": "px-3 py-1 text-sm leading-8"
       },
       "&-md": {
-        "apply": [
-          "px-4",
-          "py-3",
-          "text-sm",
-          "leading-loose"
-        ]
+        "apply": "px-4 py-3 text-sm leading-loose"
       },
       "&-lg": {
-        "apply": [
-          "px-6",
-          "py-4",
-          "text-lg",
-          "leading-loose"
-        ]
+        "apply": "px-6 py-4 text-lg leading-loose"
       }
     }
   }

@@ -1,5 +1,6 @@
 {
   "cli": "CLI",
   "tailwindcss": "Tailwindcss Plugin",
-  "nodejs": "Nodejs API"
+  "nodejs": "Nodejs API",
+  "mp": "在微信小程序里使用"
 }

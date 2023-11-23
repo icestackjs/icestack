@@ -37,10 +37,10 @@
 
 | Name | Type |
 | :------ | :------ |
-| `extraColors` | `Record`\<keyof [`BaseOptions`][README.md#baseoptions](``"themes"``), `Record`\<`string`, `string`\>\> |
-| `extraVars` | `Record`\<keyof [`BaseOptions`][README.md#baseoptions](``"themes"``), `Record`\<`string`, `string`\>\> |
+| `extraColors` | `Record`\<keyof [`BaseOptions`](README.md#baseoptions)[``"themes"``], `Record`\<`string`, `string`\>\> |
+| `extraVars` | `Record`\<keyof [`BaseOptions`](README.md#baseoptions)[``"themes"``], `Record`\<`string`, `string`\>\> |
 | `themes` | `Record`\<`T`, \{ `selector`: `string`  }\> |
-| `types` | `Record`\<`string`, `Record`\<keyof [`BaseOptions`][README.md#baseoptions](``"themes"``), `Record`\<`string`, `string`\>\>\> |
+| `types` | `Record`\<`string`, `Record`\<keyof [`BaseOptions`](README.md#baseoptions)[``"themes"``], `Record`\<`string`, `string`\>\>\> |
 
 #### Defined in
 

@@ -4,7 +4,7 @@ const path = require('node:path')
 const { upperFirst, kebabCase } = require('lodash')
 const dedent = require('dedent')
 const { getDefaultBase, defaultSelectorMap } = require('@icestack/ui/defaults')
-const { componentsMap } = require('@icestack/ui/components')
+const { schemaMap } = require('@icestack/ui/components')
 const i18n = require('../i18n')
 const { createT, groupedComponents } = require('./i18n')
 const componentsDir = path.resolve(__dirname, '../pages/components')
@@ -68,7 +68,7 @@ async function main() {
       // overview.push('\n' + groupName)
       for (const componentName of componentNames) {
         // overview.push(`- [${componentName}](./${componentName})`)
-        const p = componentsMap[componentName].options({
+        const p = schemaMap[componentName].schema({
           selector: defaultSelectorMap[componentName]?.selector,
           types
         })
@@ -88,7 +88,7 @@ async function main() {
   
   ## ${t('Css Schema')}
   
-  \`\`\`js
+  \`\`\`json
   ${codeString}
   \`\`\`
         `

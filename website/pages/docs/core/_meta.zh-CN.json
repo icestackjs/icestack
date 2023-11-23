@@ -2,7 +2,7 @@
   "variant": "修改和扩展颜色种类",
   "theme": "修改扩展主题",
   "override": "扩展组件尺寸形状样式",
-  "extraComponent": "添加组件",
   "preset": "预设的提炼与使用",
-  "composeClass": "原子类样式的组合使用"
+  "composeClass": "原子类样式的组合使用",
+  "extraComponent": "添加组件"
 }

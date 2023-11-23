@@ -2141,7 +2141,7 @@ exports[`bug fixed > custom component case 5 !important 1`] = `
       ".xxx": {
         "--tw-bg-opacity": "1 !important",
         "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity)) !important",
-        "color": "red",
+        "color": "red !important",
         "fontSize": "0.875rem !important",
         "lineHeight": "1rem !important",
       },

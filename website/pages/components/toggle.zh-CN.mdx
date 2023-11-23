@@ -10,24 +10,13 @@ import CssTable from '../../components/CssTable'
 
 ## Css 结构
 
-```js
+```json
 {
 "selector": ".toggle",
 "defaults": {
   "styled": {
     ".toggle": {
-      "apply": [
-        "border-base-content",
-        "bg-base-content",
-        "rounded-badge",
-        "h-6",
-        "w-12",
-        "cursor-pointer",
-        "appearance-none",
-        "border",
-        "border-opacity-20",
-        "bg-opacity-50"
-      ],
+      "apply": "border-base-content bg-base-content rounded-badge h-6 w-12 cursor-pointer appearance-none border border-opacity-20 bg-opacity-50",
       "css": {
         "--tglbg": "rgba(var(--base-100))",
         "--handleoffset": "1.5rem",
@@ -45,18 +34,12 @@ import CssTable from '../../components/CssTable'
         }
       },
       "&:focus-visible": {
-        "apply": [
-          "outline-base-content/20",
-          "outline",
-          "outline-2",
-          "outline-offset-2"
-        ]
+        "apply": "outline-base-content/20 outline outline-2 outline-offset-2"
       },
-      "&:checked,&[checked=\"true\"],&[aria-checked=\"true\"]": {
-        "apply": [
-          "border-opacity-100",
-          "bg-opacity-100"
-        ],
+      "&:checked,
+          &[checked=\"true\"],
+          &[aria-checked=\"true\"]": {
+        "apply": "border-opacity-100 bg-opacity-100",
         "css": {
           "--handleoffsetcalculator": "var(--handleoffset)"
         },
@@ -67,10 +50,7 @@ import CssTable from '../../components/CssTable'
         }
       },
       "&:indeterminate": {
-        "apply": [
-          "border-opacity-100",
-          "bg-opacity-100"
-        ],
+        "apply": "border-opacity-100 bg-opacity-100",
         "css": {
           "box-shadow": "calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
             calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
@@ -86,86 +66,56 @@ import CssTable from '../../components/CssTable'
       },
       "&-primary": {
         "&:focus-visible": {
-          "apply": [
-            "outline-primary"
-          ]
+          "apply": "outline-primary"
         },
-        "&:checked,&[checked=\"true\"],&[aria-checked=\"true\"]": {
-          "apply": [
-            "border-primary",
-            "bg-primary",
-            "text-primary-content",
-            "border-opacity-10"
-          ]
+        "&:checked,
+                &[checked=\"true\"],
+                &[aria-checked=\"true\"]": {
+          "apply": "border-primary bg-primary text-primary-content border-opacity-10"
         }
       },
       "&-success": {
         "&:focus-visible": {
-          "apply": [
-            "outline-success"
-          ]
+          "apply": "outline-success"
         },
-        "&:checked,&[checked=\"true\"],&[aria-checked=\"true\"]": {
-          "apply": [
-            "border-success",
-            "bg-success",
-            "text-success-content",
-            "border-opacity-10"
-          ]
+        "&:checked,
+                &[checked=\"true\"],
+                &[aria-checked=\"true\"]": {
+          "apply": "border-success bg-success text-success-content border-opacity-10"
         }
       },
       "&-warning": {
         "&:focus-visible": {
-          "apply": [
-            "outline-warning"
-          ]
+          "apply": "outline-warning"
         },
-        "&:checked,&[checked=\"true\"],&[aria-checked=\"true\"]": {
-          "apply": [
-            "border-warning",
-            "bg-warning",
-            "text-warning-content",
-            "border-opacity-10"
-          ]
+        "&:checked,
+                &[checked=\"true\"],
+                &[aria-checked=\"true\"]": {
+          "apply": "border-warning bg-warning text-warning-content border-opacity-10"
         }
       },
       "&-error": {
         "&:focus-visible": {
-          "apply": [
-            "outline-error"
-          ]
+          "apply": "outline-error"
         },
-        "&:checked,&[checked=\"true\"],&[aria-checked=\"true\"]": {
-          "apply": [
-            "border-error",
-            "bg-error",
-            "text-error-content",
-            "border-opacity-10"
-          ]
+        "&:checked,
+                &[checked=\"true\"],
+                &[aria-checked=\"true\"]": {
+          "apply": "border-error bg-error text-error-content border-opacity-10"
         }
       },
       "&-neutral": {
         "&:focus-visible": {
-          "apply": [
-            "outline-neutral"
-          ]
+          "apply": "outline-neutral"
         },
-        "&:checked,&[checked=\"true\"],&[aria-checked=\"true\"]": {
-          "apply": [
-            "border-neutral",
-            "bg-neutral",
-            "text-neutral-content",
-            "border-opacity-10"
-          ]
+        "&:checked,
+                &[checked=\"true\"],
+                &[aria-checked=\"true\"]": {
+          "apply": "border-neutral bg-neutral text-neutral-content border-opacity-10"
         }
       },
       "&:disabled": {
-        "apply": [
-          "border-base-content",
-          "cursor-not-allowed",
-          "bg-transparent",
-          "opacity-30"
-        ],
+        "apply": "border-base-content cursor-not-allowed bg-transparent opacity-30",
         "css": {
           "--togglehandleborder": "0 0 0 3px rgba(var(--base-content)) inset, var(--handleoffsetcalculator) 0 0 3px rgba(var(--base-content)) inset"
         }
@@ -174,45 +124,31 @@ import CssTable from '../../components/CssTable'
   },
   "base": {
     ".toggle": {
-      "apply": [
-        "shrink-0"
-      ]
+      "apply": "shrink-0"
     }
   },
   "utils": {
     ".toggle": {
       "&-xs": {
-        "apply": [
-          "h-4",
-          "w-6"
-        ],
+        "apply": "h-4 w-6",
         "css": {
           "--handleoffset": "0.5rem"
         }
       },
       "&-sm": {
-        "apply": [
-          "h-5",
-          "w-8"
-        ],
+        "apply": "h-5 w-8",
         "css": {
           "--handleoffset": "0.75rem"
         }
       },
       "&-md": {
-        "apply": [
-          "h-6",
-          "w-12"
-        ],
+        "apply": "h-6 w-12",
         "css": {
           "--handleoffset": "1.5rem"
         }
       },
       "&-lg": {
-        "apply": [
-          "h-8",
-          "w-16"
-        ],
+        "apply": "h-8 w-16",
         "css": {
           "--handleoffset": "2rem"
         }

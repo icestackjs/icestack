@@ -2,7 +2,7 @@
   "variant": "Customize color",
   "theme": "Customize themes",
   "override": "Customize component styles",
-  "extraComponent": "Add extra components",
   "preset": "Presets",
-  "composeClass": "Class Compose"
+  "composeClass": "Class Compose",
+  "extraComponent": "Add extra components"
 }

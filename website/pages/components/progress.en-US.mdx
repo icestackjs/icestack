@@ -10,34 +10,21 @@ import CssTable from '../../components/CssTable'
 
 ## Css Schema
 
-```js
+```json
 {
 "selector": ".progress",
 "defaults": {
   "styled": {
     ".progress": {
-      "apply": [
-        "rounded-box",
-        "bg-base-content/20",
-        "h-2"
-      ],
+      "apply": "rounded-box bg-base-content/20 h-2",
       "&::-moz-progress-bar": {
-        "apply": [
-          "bg-base-content",
-          "rounded-box"
-        ]
+        "apply": "bg-base-content rounded-box"
       },
       "&::-webkit-progress-bar": {
-        "apply": [
-          "rounded-box",
-          "bg-transparent"
-        ]
+        "apply": "rounded-box bg-transparent"
       },
       "&::-webkit-progress-value": {
-        "apply": [
-          "bg-base-content",
-          "rounded-box"
-        ]
+        "apply": "bg-base-content rounded-box"
       },
       "&:indeterminate": {
         "css": {
@@ -53,9 +40,7 @@ import CssTable from '../../components/CssTable'
           "animation": "progress-loading 5s ease-in-out infinite"
         },
         "&::-moz-progress-bar": {
-          "apply": [
-            "bg-transparent"
-          ],
+          "apply": "bg-transparent",
           "css": {
             "background-image": "repeating-linear-gradient(
                   90deg,
@@ -71,59 +56,34 @@ import CssTable from '../../components/CssTable'
         }
       },
       "&-primary::-moz-progress-bar": {
-        "apply": [
-          "bg-primary",
-          "rounded-box"
-        ]
+        "apply": "bg-primary rounded-box"
       },
       "&-success::-moz-progress-bar": {
-        "apply": [
-          "bg-success",
-          "rounded-box"
-        ]
+        "apply": "bg-success rounded-box"
       },
       "&-warning::-moz-progress-bar": {
-        "apply": [
-          "bg-warning",
-          "rounded-box"
-        ]
+        "apply": "bg-warning rounded-box"
       },
       "&-error::-moz-progress-bar": {
-        "apply": [
-          "bg-error",
-          "rounded-box"
-        ]
+        "apply": "bg-error rounded-box"
       },
       "&-neutral::-moz-progress-bar": {
-        "apply": [
-          "bg-neutral",
-          "rounded-box"
-        ]
+        "apply": "bg-neutral rounded-box"
       },
       "&-primary::-webkit-progress-value": {
-        "apply": [
-          "bg-primary"
-        ]
+        "apply": "bg-primary"
       },
       "&-success::-webkit-progress-value": {
-        "apply": [
-          "bg-success"
-        ]
+        "apply": "bg-success"
       },
       "&-warning::-webkit-progress-value": {
-        "apply": [
-          "bg-warning"
-        ]
+        "apply": "bg-warning"
       },
       "&-error::-webkit-progress-value": {
-        "apply": [
-          "bg-error"
-        ]
+        "apply": "bg-error"
       },
       "&-neutral::-webkit-progress-value": {
-        "apply": [
-          "bg-neutral"
-        ]
+        "apply": "bg-neutral"
       }
     },
     "@keyframes progress-loading": {
@@ -136,12 +96,7 @@ import CssTable from '../../components/CssTable'
   },
   "base": {
     ".progress": {
-      "apply": [
-        "relative",
-        "w-full",
-        "appearance-none",
-        "overflow-hidden"
-      ]
+      "apply": "relative w-full appearance-none overflow-hidden"
     }
   }
 }

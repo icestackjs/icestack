@@ -2,6 +2,88 @@
 
 当然，默认提供的组件可能满足不了你的需求，你也可以添加自己的组件
 
+## 组件配置项
+
+首先要介绍一下各个组件的配置项
+
+```ts
+// 用于覆盖和扩展组件行为的配置项
+// ComponentsValue 中的 override extend 都是此类
+export type CodegenMode = 'styled' | 'base' | 'raw'
+
+export type ModeMergeValue = {
+  base?: CssInJs
+  styled?: CssInJs
+  utils?: CssInJs
+}
+
+// postcss 插件配置
+export interface PrefixerOptions {
+  // prefix 前缀
+  prefix?: string
+  // 忽略数组
+  ignore?: ReadonlyArray<RegExp | string>
+}
+
+// 组件配置项
+export type ComponentsValue = {
+  // 用于单独配置组件的类名前缀
+  prefix: PrefixerOptions
+  // 加载模式，默认使用全局的 mode
+  mode: CodegenMode
+  // 覆盖默认行为
+  override: ModeMergeValue
+  // 扩展默认行为
+  extend: ModeMergeValue
+  // 添加额外的样式
+  extra: CssInJs
+  // 选择器
+  selector: string
+  // 底层的 css schema，用于控制css模板渲染
+  schema: GetSchemaFn
+  // 是否启用这个组件,等效于直接把这个组件设为 false
+  disabled: boolean
+}
+
+export type ComponentsOptions = Record<string, ComponentsValue | false>
+```
+
+## Schema
+
+在添加组件中最重要的就是它了，我们来看一下它的结构
+
+```ts
+export interface CreatePresetOptions {
+  types: string[]
+}
+
+export type IDefaults = {
+  styled?: object
+  base?: object
+  utils?: object
+}
+
+export type IValue =
+  | string
+  | {
+      apply: string | string[]
+    }
+  | { css: Record<string, string> }
+  | {
+      apply: string | string[]
+      css: Record<string, string>
+    }
+
+export type ISchema = {
+  selector: string
+  defaults: IDefaults
+}
+
+export type GetSchemaFn = (opts: CreatePresetOptions & { selector: string }) => ISchema
+```
+
+## 添加 my-table 组件
+
 ```js
 /**
  * @type {import('@icestack/ui').Config}
@@ -10,25 +92,131 @@ const config = {
   outdir: './my-ui',
   components: {
     // 要添加的组件名称
-    xxxxx: {
-      // 覆盖, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
-      override: {
-        base: {},
-        styled: {},
-        utils: {}
-      },
-      // 扩展, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
-      extend: {
-        base: {},
-        styled: {},
-        utils: {}
-      },
-      // 额外的,传入一个 CssInJs 对象，在 `selector` 包裹之外， 优先级最高
-      extra: {}
+    myTable: {
       // 选择器
-      selector: '.xxxxxx'
+      selector: '.my-table',
+      schema: (opts) => {
+        // selector 为选择器
+        // types 为各种 primary success 这样的颜色变量
+        const { selector, types } = opts
+        return {
+          selector,
+          defaults: {
+            base: {
+              [selector]: {
+                // 交给 tailwindcss 处理
+                apply: ['relative w-full', 'rounded text-left text-sm'],
+                css: {
+                  display: 'table'
+                },
+                '.thead': {
+                  css: {
+                    display: 'table-header-group'
+                  },
+                  apply: ['whitespace-nowrap text-xs font-bold']
+                },
+                '.tbody': {
+                  css: {
+                    display: 'table-row-group'
+                  }
+                },
+                '.tfoot': {
+                  css: {
+                    display: 'table-footer-group'
+                  },
+                  apply: ['whitespace-nowrap text-xs font-bold']
+                },
+                '.tr': {
+                  css: {
+                    display: 'table-row'
+                  }
+                },
+                '.td,.th': {
+                  apply: ['px-4 py-3 align-middle'],
+                  css: {
+                    display: 'table-cell'
+                  }
+                }
+              }
+            },
+            utils: {
+              [selector]: {
+                [`&${getSelector('xs')}`]: {
+                  ':not(.thead):not(.tfoot) .tr': {
+                    apply: 'text-xs'
+                  },
+                  '.th,.td': {
+                    apply: 'px-2 py-1'
+                  }
+                },
+                [`&${getSelector('sm')}`]: {
+                  ':not(.thead):not(.tfoot) .tr': {
+                    apply: 'text-sm'
+                  },
+                  '.th,.td': {
+                    apply: 'px-3 py-2'
+                  }
+                },
+                [`&${getSelector('md')}`]: {
+                  ':not(.thead):not(.tfoot) .tr': {
+                    apply: 'text-sm'
+                  },
+                  '.th,.td': {
+                    apply: 'px-4 py-3'
+                  }
+                },
+                [`&${getSelector('lg')}`]: {
+                  ':not(.thead):not(.tfoot) .tr': {
+                    apply: 'text-base'
+                  },
+                  '.th,.td': {
+                    apply: 'px-6 py-4'
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
 module.exports = config
 ```
+
+## transformCss2Js
+
+`transformCss2Js` 作为一个方法，可以快速的把带有 `@apply` 解析成:
+
+```ts
+{
+  [selector]:{
+    css:{},
+    apply:[],
+    [childSelector]:{
+      //..
+    }
+  }
+}
+```
+
+所以使用这个方式可以辅助你编写 `schema`
+
+## !important
+
+假如你要使用 `!important`
+
+```ts
+// 渲染单行 @apply
+apply: 'bg-gray-400 text-yellow !important'
+// 渲染2行 @apply
+apply: ['bg-gray-100 text-blue', 'bg-gray-400 text-yellow !important']
+// css 节点
+css: {
+  color: 'red !important'
+}
+```
+
+## 贡献组件
+
+你也可以把你的 `Css schema` 贡献到源代码中，详情见[贡献](/docs/contribute)

@@ -1,6 +1,5 @@
-const { transformCss2Js } = require('@icestack/ui')
 const { miniprogramPreset } = require('@icestack/ui/presets')
-const { expandTypes, getSelector } = require('@icestack/ui/components')
+const { expandTypes, getSelector, transformCss2Js } = require('@icestack/ui/components')
 /**
  * @type {import('@icestack/ui').Config}
  */
@@ -11,13 +10,13 @@ const config = {
     subtitle: {
       selector: '.subtitle',
       extra: transformCss2Js(`.subtitle {
-        @apply text-gray-600 text-sm pt-5 pb-4;
+        @apply text-slate-600 dark:text-slate-400 text-sm pt-5 pb-4 break-all;
       }`),
     },
     tips: {
       selector: '.tips',
       extra: transformCss2Js(`.tips {
-        @apply text-gray-500 text-xs pt-2 pb-3 break-all;
+        @apply text-slate-500 dark:text-slate-300 text-xs pt-2 pb-3 break-all;
       }`),
     },
 

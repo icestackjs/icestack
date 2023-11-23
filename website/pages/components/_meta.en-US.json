@@ -31,6 +31,7 @@
   "badge": "Badge",
   "chat": "Chat",
   "progress": "Progress",
+  "table": "Table",
   "-- Feedback": {
     "type": "separator",
     "title": "Feedback"

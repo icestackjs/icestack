@@ -31,6 +31,7 @@
   "badge": "Badge 徽章",
   "chat": "Chat 聊天气泡",
   "progress": "Progress 进度条",
+  "table": "Table 表格",
   "-- Feedback": {
     "type": "separator",
     "title": "反馈"

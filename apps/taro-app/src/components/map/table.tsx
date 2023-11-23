@@ -52,7 +52,7 @@ export default () => {
             </View>
           </View>
           <View className='tbody'>
-            <View className='tr bg-slate-400' hoverClass='bg-red-500'>
+            <View className='tr bg-slate-200 dark:bg-slate-700' hoverClass='bg-red-300 dark:bg-red-700'>
               <View className='td'>1</View>
               <View className='td'>王二妮</View>
               <View className='td'>22</View>

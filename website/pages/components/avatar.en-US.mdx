@@ -10,53 +10,30 @@ import CssTable from '../../components/CssTable'
 
 ## Css Schema
 
-```js
+```json
 {
 "selector": ".avatar",
 "defaults": {
   "styled": {
     ".avatar-group": {
-      "apply": [
-        "flex",
-        "overflow-hidden"
-      ],
+      "apply": "flex overflow-hidden",
       ":where(.avatar)": {
-        "apply": [
-          "border-base-100",
-          "overflow-hidden",
-          "rounded-full",
-          "border-4"
-        ]
+        "apply": "border-base-100 overflow-hidden rounded-full border-4"
       }
     }
   },
   "base": {
     ".avatar": {
-      "apply": [
-        "relative",
-        "inline-flex"
-      ],
-      ">div": {
-        "apply": [
-          "block",
-          "aspect-square",
-          "overflow-hidden"
-        ]
+      "apply": "relative inline-flex",
+      "> div": {
+        "apply": "block aspect-square overflow-hidden"
       },
       "img": {
-        "apply": [
-          "h-full",
-          "w-full",
-          "object-cover"
-        ]
+        "apply": "h-full w-full object-cover"
       },
       "&.placeholder": {
-        ">div": {
-          "apply": [
-            "flex",
-            "items-center",
-            "justify-center"
-          ]
+        "> div": {
+          "apply": "flex items-center justify-center"
         }
       }
     }

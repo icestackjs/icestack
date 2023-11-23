@@ -8,8 +8,8 @@ import { systemInfo } from '@/store/index'
 function rpx2px(size: number) {
   return (systemInfo.windowWidth / 750) * size
 }
-
-const btnWidth = rpx2px(80)
+const btnW = 96
+const btnWidth = rpx2px(btnW)
 const edgeWidth = rpx2px(32)
 
 const FloatBtn: FC<
@@ -101,7 +101,18 @@ const FloatBtn: FC<
       }}
     >
       <MovableArea className='h-full w-full'>
-        <MovableView animation direction='all' onChange={onChange} onTouchEnd={onTouchEnd} x={position.x} y={position.y} className='w-10 h-10'>
+        <MovableView
+          animation
+          direction='all'
+          onChange={onChange}
+          onTouchEnd={onTouchEnd}
+          x={position.x}
+          y={position.y}
+          style={{
+            height: `${btnW}rpx`,
+            width: `${btnW}rpx`
+          }}
+        >
           {children}
         </MovableView>
       </MovableArea>

@@ -8,6 +8,7 @@ import { group, i18n } from '../../group'
 import ThemeButton from '@/components/ThemeButton'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import HomeTitle from '@/components/HomeTitle'
 
 const aliasMap = {
   range: 'Slider',
@@ -43,7 +44,7 @@ export default function Index() {
       </Navbar>
       <View className='min-h-screen px-5 pt-2 pb-3'>
         <View className='px-4'>
-          <View className='text-3xl text-slate-900 dark:text-white mb-3'>@icestack/ui</View>
+          <HomeTitle />
           <View className='text-slate-600 dark:text-slate-400 text-sm mb-1'>灵活自由的CSS组件生成器</View>
           <View className='text-slate-500 dark:text-slate-300 text-xs mb-1'>tips: 本小程序由于大量使用了 grid 布局和 css 新特性，可能会出现部分机型不兼容的情况</View>
           <View

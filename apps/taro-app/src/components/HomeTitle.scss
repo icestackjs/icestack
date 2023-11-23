@@ -1,0 +1,55 @@
+$pink: #d61c5b;
+$red: #f1573f;
+$orange: #feb213;
+$green: #6abc4e;
+$blue: #2599d8;
+
+.home-title {
+  @apply font-extrabold;// text-slate-900 dark:text-white;
+
+  font-family: Oswald, sans-serif;
+  line-height: 1;
+  font-size: 10vw;
+
+  // top: 50%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  position: absolute;
+  color: $blue;
+
+  &:before,
+  &:after,
+  .inner-text:before,
+  .inner-text:after {
+    content: "@icestack/ui"; // attr(data-heading);
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+  }
+
+  &:before {
+    color: $pink;
+    height: 34%;
+    z-index: 5;
+  }
+
+  &:after {
+    color: $red;
+    height: 50%;
+    z-index: 4;
+  }
+
+  .inner-text {
+    &:before {
+      color: $orange;
+      height: 66%;
+      z-index: 3;
+    }
+
+    &:after {
+      color: $green;
+      height: 80%;
+      z-index: 2;
+    }
+  }
+}

@@ -13,7 +13,7 @@ export default () => {
   return (
     <View>
       <View className='subtitle'>默认使用</View>
-      <MarkdownRender className='flex gap-1 items-center text-sm'>
+      <MarkdownRender className='flex gap-1 items-center text-sm' open>
         <View
           className={cx('toast', {
             'opacity-10': visible
@@ -41,7 +41,7 @@ export default () => {
           onClick={onClick}
         >
           <View className='alert alert-success'>
-            <View>点击任意一个提示可隐藏</View>
+            <View>点击任意一个提示可隐藏(帮助查看代码)</View>
           </View>
         </View>
         {/* <View className='toast toast-top toast-center'>

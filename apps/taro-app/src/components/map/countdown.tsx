@@ -1,5 +1,6 @@
 import { View, Text, Button, ViewProps } from '@tarojs/components'
 import { useEffect, useState } from 'react'
+import MarkdownRender from '@/components/MarkdownRender'
 
 export default () => {
   const [value, setValue] = useState(60)
@@ -29,6 +30,15 @@ export default () => {
             }}
           ></View>
         </View>
+        <MarkdownRender content={`<View className='countdown'>
+          <View
+            className='text-4xl'
+            style={{
+              '--value': value
+            }}
+          ></View>
+        </View>`}
+        ></MarkdownRender>
         <View className='countdown text-xs flex items-baseline gap-1'>
           <View
             className='text-xl '
@@ -52,6 +62,30 @@ export default () => {
           ></View>
           秒
         </View>
+        <MarkdownRender content={`<View className='countdown text-xs flex items-baseline gap-1'>
+          <View
+            className='text-xl '
+            style={{
+              '--value': value
+            }}
+          ></View>
+          时
+          <View
+            className='text-xl '
+            style={{
+              '--value': value
+            }}
+          ></View>
+          分
+          <View
+            className='text-xl '
+            style={{
+              '--value': value
+            }}
+          ></View>
+          秒
+        </View>`}
+        ></MarkdownRender>
       </View>
     </View>
   )

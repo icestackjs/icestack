@@ -12,72 +12,9 @@
           "scene": null
         },
         {
-          "name": "toast",
+          "name": "avatar",
           "pathName": "pages/index/component",
-          "query": "id=toast",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "tooltip",
-          "pathName": "pages/index/component",
-          "query": "id=tooltip",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "kbd",
-          "pathName": "pages/index/component",
-          "query": "id=kbd",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "diff",
-          "pathName": "pages/index/component",
-          "query": "id=diff",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "countdown",
-          "pathName": "pages/index/component",
-          "query": "id=countdown",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "radial-progress",
-          "pathName": "pages/index/component",
-          "query": "id=radial-progress",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "table",
-          "pathName": "pages/index/component",
-          "query": "id=table",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "skeleton",
-          "pathName": "pages/index/component",
-          "query": "id=skeleton",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "progress",
-          "pathName": "pages/index/component",
-          "query": "id=progress",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "chat",
-          "pathName": "pages/index/component",
-          "query": "id=chat",
+          "query": "id=avatar",
           "launchMode": "default",
           "scene": null
         },
@@ -89,37 +26,16 @@
           "scene": null
         },
         {
-          "name": "avatar",
+          "name": "button",
           "pathName": "pages/index/component",
-          "query": "id=avatar",
+          "query": "id=button",
           "launchMode": "default",
           "scene": null
         },
         {
-          "name": "toggle",
+          "name": "chat",
           "pathName": "pages/index/component",
-          "query": "id=toggle",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "textarea",
-          "pathName": "pages/index/component",
-          "query": "id=textarea",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "range",
-          "pathName": "pages/index/component",
-          "query": "id=range",
-          "launchMode": "default",
-          "scene": null
-        },
-        {
-          "name": "input",
-          "pathName": "pages/index/component",
-          "query": "id=input",
+          "query": "id=chat",
           "launchMode": "default",
           "scene": null
         },
@@ -131,16 +47,37 @@
           "scene": null
         },
         {
-          "name": "mask",
+          "name": "countdown",
           "pathName": "pages/index/component",
-          "query": "id=mask",
+          "query": "id=countdown",
           "launchMode": "default",
           "scene": null
         },
         {
-          "name": "button",
+          "name": "diff",
           "pathName": "pages/index/component",
-          "query": "id=button",
+          "query": "id=diff",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "form",
+          "pathName": "pages/index/component",
+          "query": "id=form",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "input",
+          "pathName": "pages/index/component",
+          "query": "id=input",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "kbd",
+          "pathName": "pages/index/component",
+          "query": "id=kbd",
           "launchMode": "default",
           "scene": null
         },
@@ -148,6 +85,104 @@
           "name": "link",
           "pathName": "pages/index/component",
           "query": "id=link",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "loading",
+          "pathName": "pages/index/component",
+          "query": "id=loading",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "mask",
+          "pathName": "pages/index/component",
+          "query": "id=mask",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "progress",
+          "pathName": "pages/index/component",
+          "query": "id=progress",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "radial-progress",
+          "pathName": "pages/index/component",
+          "query": "id=radial-progress",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "radio",
+          "pathName": "pages/index/component",
+          "query": "id=radio",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "range",
+          "pathName": "pages/index/component",
+          "query": "id=range",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "select",
+          "pathName": "pages/index/component",
+          "query": "id=select",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "skeleton",
+          "pathName": "pages/index/component",
+          "query": "id=skeleton",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "table",
+          "pathName": "pages/index/component",
+          "query": "id=table",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "tabs",
+          "pathName": "pages/index/component",
+          "query": "id=tabs",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "textarea",
+          "pathName": "pages/index/component",
+          "query": "id=textarea",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "toast",
+          "pathName": "pages/index/component",
+          "query": "id=toast",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "toggle",
+          "pathName": "pages/index/component",
+          "query": "id=toggle",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "tooltip",
+          "pathName": "pages/index/component",
+          "query": "id=tooltip",
           "launchMode": "default",
           "scene": null
         }

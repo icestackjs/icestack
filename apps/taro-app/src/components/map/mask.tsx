@@ -1,6 +1,7 @@
 import { View, Text, Button, ViewProps, Image } from '@tarojs/components'
 import panda from '../../assets/panda.jpg'
 import { cx } from 'class-variance-authority'
+import MarkdownRender from '@/components/MarkdownRender'
 
 const list = [
   'mask-squircle',
@@ -32,6 +33,29 @@ export default () => {
           return <Image key={x} className={cx('w-full mask', x)} mode='widthFix' src={panda}></Image>
         })}
       </View>
+      <MarkdownRender
+        content={`const list = [
+      'mask-squircle',
+      'mask-decagon',
+      'mask-diamond',
+      'mask-heart',
+      'mask-hexagon',
+      'mask-hexagon-2',
+      'mask-circle',
+      'mask-parallelogram',
+      'mask-parallelogram-2',
+      'mask-parallelogram-3',
+      'mask-parallelogram-4',
+      'mask-pentagon',
+      'mask-square',
+      'mask-star',
+      'mask-star-2',
+      'mask-triangle',
+      'mask-triangle-2',
+      'mask-triangle-3',
+      'mask-triangle-4'
+    ]`}
+      ></MarkdownRender>
     </View>
   )
 }

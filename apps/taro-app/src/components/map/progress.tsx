@@ -1,4 +1,5 @@
 import { View, Text, Button, ViewProps, Progress ,Icon} from '@tarojs/components'
+import MarkdownRender from '@/components/MarkdownRender'
 
 export default () => {
   return (

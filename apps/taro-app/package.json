@@ -31,7 +31,8 @@
     "dev:quickapp": "npm run build:quickapp -- --watch",
     "open": "weapp open -p .",
     "postinstall": "weapp-tw patch",
-    "ui": "icestack build"
+    "ui": "icestack build",
+    "list": "node ./condition.js"
   },
   "browserslist": [
     "last 3 versions",

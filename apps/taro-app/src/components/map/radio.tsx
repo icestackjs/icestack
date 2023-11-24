@@ -1,5 +1,6 @@
 import { View, Text, Button, ViewProps, Radio } from '@tarojs/components'
 // import './radio.scss'
+import MarkdownRender from '@/components/MarkdownRender'
 
 export default () => {
   return (
@@ -44,6 +45,25 @@ export default () => {
             neutral
           </Radio>
         </View>
+        <MarkdownRender content={`<Radio className='radio' checked value=''>
+            default
+          </Radio>
+          <Radio className='radio radio-primary' checked value=''>
+            primary
+          </Radio>
+          <Radio className='radio radio-success' checked value=''>
+            success
+          </Radio>
+          <Radio className='radio radio-warning' checked value=''>
+            warning
+          </Radio>
+          <Radio className='radio radio-error' checked value=''>
+            error
+          </Radio>
+          <Radio className='radio radio-neutral' checked value=''>
+            neutral
+          </Radio>`}
+        ></MarkdownRender>
       </View>
       <View>
         <View className='subtitle'>尺寸</View>
@@ -53,6 +73,11 @@ export default () => {
           <Radio className='radio radio-primary radio-md' checked value=''></Radio>
           <Radio className='radio radio-primary radio-lg' checked value=''></Radio>
         </View>
+        <MarkdownRender content={`<Radio className='radio radio-primary radio-xs' checked value=''></Radio>
+          <Radio className='radio radio-primary radio-sm' checked value=''></Radio>
+          <Radio className='radio radio-primary radio-md' checked value=''></Radio>
+          <Radio className='radio radio-primary radio-lg' checked value=''></Radio>`}
+        ></MarkdownRender>
       </View>
       <View>
         <View className='subtitle'>形状</View>
@@ -60,6 +85,9 @@ export default () => {
           <Radio className='radio radio-primary radio-circle' checked value=''></Radio>
           <Radio className='radio radio-primary radio-square' checked value=''></Radio>
         </View>
+        <MarkdownRender content={`<Radio className='radio radio-primary radio-circle' checked value=''></Radio>
+          <Radio className='radio radio-primary radio-square' checked value=''></Radio>`}
+        ></MarkdownRender>
       </View>
     </View>
   )

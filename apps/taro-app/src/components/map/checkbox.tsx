@@ -1,5 +1,6 @@
 import { View, Text, Button, ViewProps, Checkbox, Label } from '@tarojs/components'
 // import './checkbox.scss'
+import MarkdownRender from '@/components/MarkdownRender'
 
 export default () => {
   return (
@@ -43,6 +44,25 @@ export default () => {
             neutral
           </Checkbox>
         </View>
+        <MarkdownRender content={`<Checkbox className='checkbox' checked value=''>
+            default
+          </Checkbox>
+          <Checkbox className='checkbox checkbox-primary' checked value=''>
+            primary
+          </Checkbox>
+          <Checkbox className='checkbox checkbox-success' checked value=''>
+            success
+          </Checkbox>
+          <Checkbox className='checkbox checkbox-warning' checked value=''>
+            warning
+          </Checkbox>
+          <Checkbox className='checkbox checkbox-error' checked value=''>
+            error
+          </Checkbox>
+          <Checkbox className='checkbox checkbox-neutral' checked value=''>
+            neutral
+          </Checkbox>`}
+        ></MarkdownRender>
       </View>
       <View>
         <View className='subtitle'>尺寸</View>
@@ -52,6 +72,11 @@ export default () => {
           <Checkbox className='checkbox checkbox-primary checkbox-md' checked value=''></Checkbox>
           <Checkbox className='checkbox checkbox-primary checkbox-lg' checked value=''></Checkbox>
         </View>
+        <MarkdownRender content={`<Checkbox className='checkbox checkbox-primary checkbox-xs' checked value=''></Checkbox>
+          <Checkbox className='checkbox checkbox-primary checkbox-sm' checked value=''></Checkbox>
+          <Checkbox className='checkbox checkbox-primary checkbox-md' checked value=''></Checkbox>
+          <Checkbox className='checkbox checkbox-primary checkbox-lg' checked value=''></Checkbox>`}
+        ></MarkdownRender>
       </View>
       <View>
         <View className='subtitle'>形状</View>
@@ -59,6 +84,9 @@ export default () => {
           <Checkbox className='checkbox checkbox-primary checkbox-circle' checked value=''></Checkbox>
           <Checkbox className='checkbox checkbox-primary checkbox-square' checked value=''></Checkbox>
         </View>
+        <MarkdownRender content={`<Checkbox className='checkbox checkbox-primary checkbox-circle' checked value=''></Checkbox>
+          <Checkbox className='checkbox checkbox-primary checkbox-square' checked value=''></Checkbox>`}
+        ></MarkdownRender>
       </View>
     </View>
   )

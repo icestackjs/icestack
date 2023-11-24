@@ -1,5 +1,6 @@
 import { View, Switch } from '@tarojs/components'
 // import './toggle.scss'
+import MarkdownRender from '@/components/MarkdownRender'
 
 export default () => {
   return (
@@ -9,25 +10,25 @@ export default () => {
         <Switch checked></Switch>
       </View>
       <View className='subtitle'>颜色类型</View>
-      <View className='grid grid-cols-3 gap-2'>
+      <MarkdownRender className='grid grid-cols-3 gap-2'>
         <Switch className='toggle ' checked></Switch>
         <Switch className='toggle toggle-primary' checked></Switch>
         <Switch className='toggle toggle-success' checked></Switch>
         <Switch className='toggle toggle-warning' checked></Switch>
         <Switch className='toggle toggle-error' checked></Switch>
         <Switch className='toggle toggle-neutral' checked></Switch>
-      </View>
+      </MarkdownRender>
       <View className='subtitle'>禁用</View>
-      <View className='grid grid-cols-3 gap-2'>
+      <MarkdownRender className='grid grid-cols-3 gap-2'>
         <Switch className='toggle toggle-disabled' disabled checked></Switch>
-      </View>
+      </MarkdownRender>
       <View className='subtitle'>尺寸</View>
-      <View className='grid grid-cols-2 gap-2'>
+      <MarkdownRender className='grid grid-cols-2 gap-2'>
         <Switch className='toggle toggle-xs'></Switch>
         <Switch className='toggle toggle-sm'></Switch>
         <Switch className='toggle toggle-md'></Switch>
         <Switch className='toggle toggle-lg'></Switch>
-      </View>
+      </MarkdownRender>
     </View>
   )
 }

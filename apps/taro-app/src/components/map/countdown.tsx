@@ -21,72 +21,40 @@ export default () => {
   return (
     <View>
       <View className='subtitle'>基础展示</View>
-      <View className='grid grid-cols-1 gap-2'>
-        <View className='countdown'>
+      <MarkdownRender className='grid grid-cols-1 gap-2'>
+        <View className='countdown text-4xl'>
+          💣💥⌚️:
           <View
-            className='text-4xl'
             style={{
               '--value': value
+            }}
+          ></View>
+          s
+        </View>
+
+        <View className='countdown text-xs flex items-center gap-1'>
+          <View
+            className='text-xl'
+            style={{
+              '--value': 100 - value
+            }}
+          ></View>
+          -
+          <View
+            className='text-xl'
+            style={{
+              '--value': value
+            }}
+          ></View>
+          -
+          <View
+            className='text-xl'
+            style={{
+              '--value': 100 - value
             }}
           ></View>
         </View>
-        <MarkdownRender content={`<View className='countdown'>
-          <View
-            className='text-4xl'
-            style={{
-              '--value': value
-            }}
-          ></View>
-        </View>`}
-        ></MarkdownRender>
-        <View className='countdown text-xs flex items-baseline gap-1'>
-          <View
-            className='text-xl '
-            style={{
-              '--value': value
-            }}
-          ></View>
-          时
-          <View
-            className='text-xl '
-            style={{
-              '--value': value
-            }}
-          ></View>
-          分
-          <View
-            className='text-xl '
-            style={{
-              '--value': value
-            }}
-          ></View>
-          秒
-        </View>
-        <MarkdownRender content={`<View className='countdown text-xs flex items-baseline gap-1'>
-          <View
-            className='text-xl '
-            style={{
-              '--value': value
-            }}
-          ></View>
-          时
-          <View
-            className='text-xl '
-            style={{
-              '--value': value
-            }}
-          ></View>
-          分
-          <View
-            className='text-xl '
-            style={{
-              '--value': value
-            }}
-          ></View>
-          秒
-        </View>`}
-        ></MarkdownRender>
-      </View>
+      </MarkdownRender>
     </View>
   )
 }

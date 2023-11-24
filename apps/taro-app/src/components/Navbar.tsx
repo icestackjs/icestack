@@ -33,7 +33,7 @@ const Navbar: FC<PropsWithChildren> = ({ children }) => {
         >
           {hasNavigateBack && (
             <View
-              className='flex items-center pl-4'
+              className='flex items-center pl-4 h-full'
               onClick={() => {
                 Taro.navigateBack()
               }}

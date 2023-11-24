@@ -45,9 +45,9 @@ export default function Index() {
       <View className='min-h-screen px-5 pt-2 pb-3'>
         <View className='px-4'>
           <HomeTitle />
-          <View className='text-slate-600 dark:text-slate-400 text-sm mb-1'>灵活自由的CSS组件生成器</View>
-          <View className='text-slate-500 dark:text-slate-300 text-xs mb-1'>tips: 本小程序由于大量使用了 grid 布局和 css 新特性，可能会出现部分机型不兼容的情况</View>
-          <View
+          <View className='text-slate-600 dark:text-slate-400 text-sm mb-1 text-center'>灵活自由的开源CSS Component生成器</View>
+          {/* <View className='text-slate-500 dark:text-slate-300 text-xs mb-1'>tips: 本小程序由于大量使用了 grid 布局和 css 新特性，可能会出现部分机型不兼容的情况</View> */}
+          {/* <View
             className='mb-4 text-xs text-slate-500 dark:text-slate-300'
             onClick={() => {
               Taro.setClipboardData({
@@ -57,7 +57,7 @@ export default function Index() {
           >
             源代码地址:
             <View className='link link-primary'>sonofmagic/icestack/apps/taro-app</View>
-          </View>
+          </View> */}
         </View>
 
         {Object.entries(group).reduce<ReactNode[]>((acc, [groupName, componentNames]) => {

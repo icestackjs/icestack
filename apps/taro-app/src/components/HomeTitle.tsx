@@ -3,7 +3,7 @@ import './HomeTitle.scss'
 
 const HomeTitle = () => {
   return (
-    <View className='relative mb-3'>
+    <View className='relative mb-3 flex justify-center'>
       <View className='home-title'>
         <Text className='inner-text'>@icestack/ui</Text>
       </View>

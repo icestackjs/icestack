@@ -1,6 +1,7 @@
 import { View, Image } from '@tarojs/components'
 import panda from '../../assets/pig.jpg'
-import { cx } from 'class-variance-authority'
+// import { cx } from 'class-variance-authority'
+import MarkdownRender from '@/components/MarkdownRender'
 
 export default () => {
   return (
@@ -14,6 +15,13 @@ export default () => {
           <Image className='w-24 rounded-full' mode='widthFix' src={panda}></Image>
         </View>
       </View>
+      <MarkdownRender content={`<View className='avatar'>
+          <Image className='w-24 rounded' mode='widthFix' src={panda}></Image>
+        </View>
+        <View className='avatar'>
+          <Image className='w-24 rounded-full' mode='widthFix' src={panda}></Image>
+        </View>`}
+      ></MarkdownRender>
       <View className='subtitle'>尺寸</View>
       <View className='grid grid-cols-2 gap-2'>
         <View className='avatar'>
@@ -29,6 +37,19 @@ export default () => {
           <Image className='w-12 rounded' mode='widthFix' src={panda}></Image>
         </View>
       </View>
+      <MarkdownRender content={`<View className='avatar'>
+          <Image className='w-24 rounded' mode='widthFix' src={panda}></Image>
+        </View>
+        <View className='avatar'>
+          <Image className='w-20 rounded' mode='widthFix' src={panda}></Image>
+        </View>
+        <View className='avatar'>
+          <Image className='w-16 rounded' mode='widthFix' src={panda}></Image>
+        </View>
+        <View className='avatar'>
+          <Image className='w-12 rounded' mode='widthFix' src={panda}></Image>
+        </View>`}
+      ></MarkdownRender>
     </View>
   )
 }

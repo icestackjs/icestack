@@ -5,6 +5,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "alert",
+          "pathName": "pages/index/component",
+          "query": "id=alert",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "toast",
           "pathName": "pages/index/component",
           "query": "id=toast",

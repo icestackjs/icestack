@@ -46,6 +46,8 @@ export default function Index() {
         <View className='px-4'>
           <HomeTitle />
           <View className='text-slate-600 dark:text-slate-400 text-sm mb-1 text-center'>灵活自由的开源CSS Component生成器</View>
+
+          {/* <md markdown content={'```js\nconst y = \'1111\'\n```\n'}></md> */}
           {/* <View className='text-slate-500 dark:text-slate-300 text-xs mb-1'>tips: 本小程序由于大量使用了 grid 布局和 css 新特性，可能会出现部分机型不兼容的情况</View> */}
           {/* <View
             className='mb-4 text-xs text-slate-500 dark:text-slate-300'

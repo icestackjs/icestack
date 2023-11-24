@@ -61,6 +61,9 @@ importers:
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
+      dedent:
+        specifier: ^1.5.1
+        version: 1.5.1
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -143,6 +146,9 @@ importers:
       eslint-plugin-react-hooks:
         specifier: ^4.6.0
         version: 4.6.0(eslint@8.54.0)
+      indent-string:
+        specifier: ^5.0.0
+        version: 5.0.0
       postcss:
         specifier: ^8.4.31
         version: 8.4.31
@@ -152,6 +158,9 @@ importers:
       react-refresh:
         specifier: ^0.14.0
         version: 0.14.0
+      strip-indent:
+        specifier: ^4.0.0
+        version: 4.0.0
       stylelint:
         specifier: ^15.10.3
         version: 15.11.0(typescript@5.3.2)
@@ -8169,7 +8178,6 @@ packages:
     peerDependenciesMeta:
       babel-plugin-macros:
         optional: true
-    dev: true
 
   /deep-extend@0.6.0:
     resolution: {integrity: sha512-LOHxIOaPYdHlJRtCQfDIVZtfw/ufM8+rVj649RIHzcm/vGwQRXFt6OPqIFWsm2XEMrNIEtWR64sY1LEKD2vAOA==}

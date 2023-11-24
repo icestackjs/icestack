@@ -7,49 +7,34 @@ export default () => {
   return (
     <View>
       <View className='subtitle'>形状</View>
-      <View className='grid grid-cols-2 gap-2'>
-        <View className='avatar'>
-          <Image className='w-24 rounded' mode='widthFix' src={panda}></Image>
+
+      <MarkdownRender>
+        <View className='grid grid-cols-2 gap-2'>
+          <View className='avatar'>
+            <Image className='w-24 rounded' mode='widthFix' src={panda}></Image>
+          </View>
+          <View className='avatar'>
+            <Image className='w-24 rounded-full' mode='widthFix' src={panda}></Image>
+          </View>
         </View>
-        <View className='avatar'>
-          <Image className='w-24 rounded-full' mode='widthFix' src={panda}></Image>
-        </View>
-      </View>
-      <MarkdownRender content={`<View className='avatar'>
-          <Image className='w-24 rounded' mode='widthFix' src={panda}></Image>
-        </View>
-        <View className='avatar'>
-          <Image className='w-24 rounded-full' mode='widthFix' src={panda}></Image>
-        </View>`}
-      ></MarkdownRender>
+      </MarkdownRender>
       <View className='subtitle'>尺寸</View>
-      <View className='grid grid-cols-2 gap-2'>
-        <View className='avatar'>
-          <Image className='w-24 rounded' mode='widthFix' src={panda}></Image>
+      <MarkdownRender>
+        <View className='grid grid-cols-2 gap-2'>
+          <View className='avatar'>
+            <Image className='w-24 rounded' mode='widthFix' src={panda}></Image>
+          </View>
+          <View className='avatar'>
+            <Image className='w-20 rounded' mode='widthFix' src={panda}></Image>
+          </View>
+          <View className='avatar'>
+            <Image className='w-16 rounded' mode='widthFix' src={panda}></Image>
+          </View>
+          <View className='avatar'>
+            <Image className='w-12 rounded' mode='widthFix' src={panda}></Image>
+          </View>
         </View>
-        <View className='avatar'>
-          <Image className='w-20 rounded' mode='widthFix' src={panda}></Image>
-        </View>
-        <View className='avatar'>
-          <Image className='w-16 rounded' mode='widthFix' src={panda}></Image>
-        </View>
-        <View className='avatar'>
-          <Image className='w-12 rounded' mode='widthFix' src={panda}></Image>
-        </View>
-      </View>
-      <MarkdownRender content={`<View className='avatar'>
-          <Image className='w-24 rounded' mode='widthFix' src={panda}></Image>
-        </View>
-        <View className='avatar'>
-          <Image className='w-20 rounded' mode='widthFix' src={panda}></Image>
-        </View>
-        <View className='avatar'>
-          <Image className='w-16 rounded' mode='widthFix' src={panda}></Image>
-        </View>
-        <View className='avatar'>
-          <Image className='w-12 rounded' mode='widthFix' src={panda}></Image>
-        </View>`}
-      ></MarkdownRender>
+      </MarkdownRender>
     </View>
   )
 }

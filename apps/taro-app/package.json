@@ -9,7 +9,7 @@
     "css": "sass"
   },
   "scripts": {
-    "dev": "npm run ui && npm run dev:weapp",
+    "dev": "npm run list && npm run ui && npm run dev:weapp",
     "build": "npm run ui && npm run build:weapp",
     "build:weapp": "taro build --type weapp",
     "build:swan": "taro build --type swan",

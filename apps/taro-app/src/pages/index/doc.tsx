@@ -12,6 +12,8 @@ import core from '#docs/core.zh-CN.mdx'
 import options from '#docs/options.zh-CN.mdx'
 import usage from '#docs/usage.zh-CN.mdx'
 import levelI18n from '#docs/_meta.zh-CN.json'
+import level2Usage18n from '#docs/usage/_meta.zh-CN.json'
+import level2Core18n from '#docs/core/_meta.zh-CN.json'
 import cli from '#docs/usage/cli.zh-CN.mdx'
 import mp from '#docs/usage/mp.zh-CN.mdx'
 import nodejs from '#docs/usage/nodejs.zh-CN.mdx'
@@ -26,10 +28,10 @@ import variant from '#docs/core/variant.zh-CN.mdx'
 
 const map = {
   introduction,
-  usage,
-  core,
-  contribute,
-  options
+  usage
+}
+const langMap = {
+  ...levelI18n
 }
 
 for (const [k, v] of Object.entries({
@@ -39,8 +41,9 @@ for (const [k, v] of Object.entries({
   mp
 })) {
   map[['usage', k].join('.')] = v
+  langMap[['usage', k].join('.')] = level2Usage18n[k]
 }
-
+map['core'] = core
 for (const [k, v] of Object.entries({
   variant,
   theme,
@@ -50,12 +53,17 @@ for (const [k, v] of Object.entries({
   extraComponent
 })) {
   map[['core', k].join('.')] = v
+  langMap[['core', k].join('.')] = level2Core18n[k]
 }
+map['contribute'] = contribute
+map['options'] = options
+
+const kkkkkkks = Object.keys(map) // orderBy()
 
 export default function Index() {
   const [id, setId] = useState('')
   const title = useMemo(() => {
-    const t = levelI18n[id] ?? ''
+    const t = langMap[id] ?? ''
     t &&
       Taro.setNavigationBarTitle({
         title: t
@@ -73,13 +81,64 @@ export default function Index() {
   const content = useMemo(() => {
     return map[id] ?? ''
   }, [id])
+
+  const { next, prev } = useMemo(() => {
+    // console.log(kkkkkkks, id)
+    const idx = kkkkkkks.indexOf(id)
+    let prev
+    let next
+    if (idx > -1) {
+      prev = kkkkkkks[idx - 1]
+      next = kkkkkkks[idx + 1]
+    }
+
+    return {
+      current: id,
+      prev,
+      next
+    }
+  }, [id])
+  // console.log(current)
+
+  function goPrev() {
+    setId(prev)
+    Taro.pageScrollTo({
+      scrollTop: 0,
+      duration: 300
+    })
+  }
+
+  function goNext() {
+    setId(next)
+    Taro.pageScrollTo({
+      scrollTop: 0,
+      duration: 300
+    })
+  }
   return (
     <ThemeProvider>
       <Navbar>
-        <View className="flex justify-center items-center h-full">{title}</View>
+        <View className="flex h-full items-center justify-center">{title}</View>
       </Navbar>
       <View className="px-4">
         <md markdown content={content}></md>
+      </View>
+      <View className="flex justify-between px-4 py-2">
+        <View>
+          {prev && (
+            <Button onClick={goPrev} className="btn text-sm">
+              <View className="i-mdi-arrow-left-bold"></View>
+              {langMap[prev]}
+            </Button>
+          )}
+        </View>
+        <View>
+          {next && (
+            <Button onClick={goNext} className="btn btn-primary text-sm">
+              {langMap[next]} <View className="i-mdi-arrow-right-bold"></View>
+            </Button>
+          )}
+        </View>
       </View>
       <ThemeButton></ThemeButton>
     </ThemeProvider>

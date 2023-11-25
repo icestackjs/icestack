@@ -7,7 +7,7 @@ const { set, orderBy } = require('lodash')
 async function main() {
   const jp = path.resolve(__dirname, './project.private.config.json')
   const j = JSON.parse(fs.readFileSync(jp, 'utf8'))
-  set(j, 'condition.miniprogram.list', orderBy(names).map(x => {
+  const items = orderBy(names).map(x => {
     return {
       "name": x,
       "pathName": "pages/index/component",
@@ -15,7 +15,15 @@ async function main() {
       "launchMode": "default",
       "scene": null
     }
-  }))
+  })
+  items.unshift({
+    "name": "Docs",
+    "pathName": "pages/index/doc",
+    "query": "id=" + 'introduction',
+    "launchMode": "default",
+    "scene": null
+  })
+  set(j, 'condition.miniprogram.list', items)
 
   fs.writeFileSync(jp, JSON.stringify(j), 'utf8')
 }

@@ -28,7 +28,7 @@ function getAlias(componentName: string) {
   return ''
 }
 
-function mapChildItem(children: [string, string][]) {
+function mapChildItem(children: [string, string][], x: string) {
   return (
     <View>
       {children.map(([y, text2], idx) => {
@@ -42,7 +42,9 @@ function mapChildItem(children: [string, string][]) {
             }}
             className={cx(
               ' flex items-center justify-between border-b border-solid py-1 pl-5 pr-3.5 text-sm',
-              idx !== children.length - 1 ? 'border-slate-200/50 dark:border-sky-200/[0.15]' : 'border-transparent'
+              idx !== children.length - 1
+                ? 'border-slate-200/50 dark:border-sky-200/[0.15]'
+                : 'border-transparent'
             )}
             hoverClass="bg-slate-300/50 dark:bg-sky-500/50"
           >
@@ -62,12 +64,17 @@ function DocsIndex() {
     <>
       <View className="mb-6 px-4">
         <HomeTitle />
-        <View className="mb-1 text-center text-sm text-slate-600 dark:text-slate-400">灵活自由的开源CSS Component生成器</View>
+        <View className="mb-1 text-center text-sm text-slate-600 dark:text-slate-400">
+          灵活自由的开源CSS Component生成器
+        </View>
       </View>
       <View className="space-y-3">
         {Object.entries(levelI18n).map(([x, text1]) => {
           return (
-            <View key={x} className="rounded bg-slate-100 dark:bg-sky-300/[0.15]">
+            <View
+              key={x}
+              className="rounded bg-slate-100 dark:bg-sky-300/[0.15]"
+            >
               <View
                 onClick={() => {
                   Taro.navigateTo({
@@ -80,8 +87,8 @@ function DocsIndex() {
                 {text1}
                 <View className="i-mdi-chevron-right text-slate-700 dark:text-slate-400"></View>
               </View>
-              {x === 'usage' && mapChildItem(usageChildren)}
-              {x === 'core' && mapChildItem(coreChildren)}
+              {x === 'usage' && mapChildItem(usageChildren, x)}
+              {x === 'core' && mapChildItem(coreChildren, x)}
             </View>
           )
         })}
@@ -93,39 +100,51 @@ function DocsIndex() {
 function CodeIndex() {
   return (
     <>
-      {Object.entries(group).reduce<ReactNode[]>((acc, [groupName, componentNames], idx) => {
-        if (componentNames.length) {
-          acc.push(<View className={cx(idx === 0 ? '' : 'mt-6 ', 'mb-2 ml-4 text-sm text-slate-600 dark:text-slate-400')}>{i18n[groupName]}</View>)
-          // space-y-3
-          const res: ReactNode[] = []
-          for (const componentName of componentNames) {
-            if (['select', 'diff', 'tooltip'].includes(componentName)) {
-              continue
-            }
-            res.push(
+      {Object.entries(group).reduce<ReactNode[]>(
+        (acc, [groupName, componentNames], idx) => {
+          if (componentNames.length) {
+            acc.push(
               <View
-                className="flex items-center justify-between  bg-gray-100 py-2.5 pl-5 pr-3.5 dark:bg-sky-300/[0.15] rounded-full"
-                hoverClass="bg-gray-300/50 dark:bg-sky-500/50"
-                key={componentName}
-                onClick={() => {
-                  Taro.navigateTo({
-                    url: 'component?id=' + componentName
-                  })
-                }}
+                className={cx(
+                  idx === 0 ? '' : 'mt-6 ',
+                  'mb-2 ml-4 text-sm text-slate-600 dark:text-slate-400'
+                )}
               >
-                <View className="text-sm text-slate-700 dark:text-slate-400">
-                  {upperFirst(componentName)}
-                  {getAlias(componentName)} {i18n[componentName]}
-                </View>
-                <View className="i-mdi-chevron-right text-slate-700 dark:text-slate-400"></View>
+                {i18n[groupName]}
               </View>
             )
+            // space-y-3
+            const res: ReactNode[] = []
+            for (const componentName of componentNames) {
+              if (['select', 'diff', 'tooltip'].includes(componentName)) {
+                continue
+              }
+              res.push(
+                <View
+                  className="flex items-center justify-between  rounded-full bg-gray-100 py-2.5 pl-5 pr-3.5 dark:bg-sky-300/[0.15]"
+                  hoverClass="bg-gray-300/50 dark:bg-sky-500/50"
+                  key={componentName}
+                  onClick={() => {
+                    Taro.navigateTo({
+                      url: 'component?id=' + componentName
+                    })
+                  }}
+                >
+                  <View className="text-sm text-slate-700 dark:text-slate-400">
+                    {upperFirst(componentName)}
+                    {getAlias(componentName)} {i18n[componentName]}
+                  </View>
+                  <View className="i-mdi-chevron-right text-slate-700 dark:text-slate-400"></View>
+                </View>
+              )
+            }
+            acc.push(<View className="space-y-3">{res}</View>)
           }
-          acc.push(<View className="space-y-3">{res}</View>)
-        }
 
-        return acc
-      }, [])}
+          return acc
+        },
+        []
+      )}
     </>
   )
 }

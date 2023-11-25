@@ -1,13 +1,13 @@
 import { View, Text, Button, ViewProps } from '@tarojs/components'
 // import './table.scss'
-import MarkdownRender from '@/components/MarkdownRender'
+import CodeRender from '@/components/CodeRender'
 
 export default () => {
   return (
     <View>
       <View className='tips'>这个组件只是用来展示table结构的数据的，要想更复杂的交互，请使用现成带js的组件</View>
       <View className='subtitle'>默认展示</View>
-      <MarkdownRender className='overflow-x-auto'>
+      <CodeRender className='overflow-x-auto'>
         <View className='table'>
           <View className='thead'>
             <View className='tr'>
@@ -40,9 +40,9 @@ export default () => {
             </View>
           </View>
         </View>
-      </MarkdownRender>
+      </CodeRender>
       <View className='subtitle'>Active and Hover</View>
-      <MarkdownRender className='overflow-x-auto'>
+      <CodeRender className='overflow-x-auto'>
         <View className='table'>
           <View className='thead'>
             <View className='tr'>
@@ -75,7 +75,7 @@ export default () => {
             </View>
           </View>
         </View>
-      </MarkdownRender>
+      </CodeRender>
 
       {/* <View className='subtitle'>Zebra</View>
       <View className='overflow-x-auto'>
@@ -115,7 +115,7 @@ export default () => {
 
       <View className='subtitle'>尺寸</View>
       <View className='tips'>table-xs</View>
-      <MarkdownRender className='overflow-x-auto'>
+      <CodeRender className='overflow-x-auto'>
         <View className='table table-xs'>
           <View className='thead'>
             <View className='tr'>
@@ -148,9 +148,9 @@ export default () => {
             </View>
           </View>
         </View>
-      </MarkdownRender>
+      </CodeRender>
       <View className='tips'>table-sm</View>
-      <MarkdownRender className='overflow-x-auto'>
+      <CodeRender className='overflow-x-auto'>
         <View className='table table-sm'>
           <View className='thead'>
             <View className='tr'>
@@ -183,9 +183,9 @@ export default () => {
             </View>
           </View>
         </View>
-      </MarkdownRender>
+      </CodeRender>
       <View className='tips'>table-md</View>
-      <MarkdownRender className='overflow-x-auto'>
+      <CodeRender className='overflow-x-auto'>
         <View className='table table-md'>
           <View className='thead'>
             <View className='tr'>
@@ -218,9 +218,9 @@ export default () => {
             </View>
           </View>
         </View>
-      </MarkdownRender>
+      </CodeRender>
       <View className='tips'>table-lg</View>
-      <MarkdownRender className='overflow-x-auto'>
+      <CodeRender className='overflow-x-auto'>
         <View className='table table-lg'>
           <View className='thead'>
             <View className='tr'>
@@ -253,7 +253,7 @@ export default () => {
             </View>
           </View>
         </View>
-      </MarkdownRender>
+      </CodeRender>
     </View>
   )
 }

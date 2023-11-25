@@ -1,6 +1,6 @@
 import { View, Text, Button, ViewProps, Checkbox, Label } from '@tarojs/components'
 // import './checkbox.scss'
-import MarkdownRender from '@/components/MarkdownRender'
+import CodeRender from '@/components/CodeRender'
 
 export default () => {
   return (
@@ -25,7 +25,7 @@ export default () => {
       </View>
       <View>
         <View className='subtitle'>颜色类型</View>
-        <MarkdownRender className='grid grid-cols-3 gap-y-2'>
+        <CodeRender className='grid grid-cols-3 gap-y-2'>
           <Checkbox className='checkbox' checked value=''>
             default
           </Checkbox>
@@ -44,23 +44,23 @@ export default () => {
           <Checkbox className='checkbox checkbox-neutral' checked value=''>
             neutral
           </Checkbox>
-        </MarkdownRender>
+        </CodeRender>
       </View>
       <View>
         <View className='subtitle'>尺寸</View>
-        <MarkdownRender className='grid grid-cols-4 gap-y-2'>
+        <CodeRender className='grid grid-cols-4 gap-y-2'>
           <Checkbox className='checkbox checkbox-primary checkbox-xs' checked value=''></Checkbox>
           <Checkbox className='checkbox checkbox-primary checkbox-sm' checked value=''></Checkbox>
           <Checkbox className='checkbox checkbox-primary checkbox-md' checked value=''></Checkbox>
           <Checkbox className='checkbox checkbox-primary checkbox-lg' checked value=''></Checkbox>
-        </MarkdownRender>
+        </CodeRender>
       </View>
       <View>
         <View className='subtitle'>形状</View>
-        <MarkdownRender className='grid grid-cols-4 gap-y-2'>
+        <CodeRender className='grid grid-cols-4 gap-y-2'>
           <Checkbox className='checkbox checkbox-primary checkbox-circle' checked value=''></Checkbox>
           <Checkbox className='checkbox checkbox-primary checkbox-square' checked value=''></Checkbox>
-        </MarkdownRender>
+        </CodeRender>
       </View>
     </View>
   )

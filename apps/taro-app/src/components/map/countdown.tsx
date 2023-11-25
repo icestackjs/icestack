@@ -1,6 +1,6 @@
 import { View, Text, Button, ViewProps } from '@tarojs/components'
 import { useEffect, useState } from 'react'
-import MarkdownRender from '@/components/MarkdownRender'
+import CodeRender from '@/components/CodeRender'
 
 export default () => {
   const [value, setValue] = useState(60)
@@ -21,7 +21,7 @@ export default () => {
   return (
     <View>
       <View className='subtitle'>基础展示</View>
-      <MarkdownRender className='grid grid-cols-1 gap-2'>
+      <CodeRender className='grid grid-cols-1 gap-2'>
         <View className='countdown text-4xl'>
           💣💥⌚️:
           <View
@@ -54,7 +54,7 @@ export default () => {
             }}
           ></View>
         </View>
-      </MarkdownRender>
+      </CodeRender>
     </View>
   )
 }

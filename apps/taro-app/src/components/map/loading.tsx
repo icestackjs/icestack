@@ -1,11 +1,11 @@
 import { View, Text, Button, ViewProps } from '@tarojs/components'
-import MarkdownRender from '@/components/MarkdownRender'
+import CodeRender from '@/components/CodeRender'
 
 export default () => {
   return (
     <View>
       <View className='subtitle'>动画类型</View>
-      <MarkdownRender className='grid grid-cols-4 gap-2 place-items-center'>
+      <CodeRender className='grid grid-cols-4 gap-2 place-items-center'>
         <View className='loading loading-sm'></View>
 
         <View className='loading loading-sm loading-audio'></View>
@@ -29,16 +29,16 @@ export default () => {
         <View className='loading loading-sm loading-spinning-circles'></View>
 
         <View className='loading loading-sm loading-three-dots'></View>
-      </MarkdownRender>
+      </CodeRender>
 
       <View className='subtitle'>尺寸</View>
       <View className='space-y-2'>
-        <MarkdownRender className='grid grid-cols-2 gap-2 place-items-center'>
+        <CodeRender className='grid grid-cols-2 gap-2 place-items-center'>
           <View className='loading loading-xs text-green-400'></View>
           <View className='loading loading-sm text-orange-400'></View>
           <View className='loading loading-md text-red-400'></View>
           <View className='loading loading-lg text-blue-400'></View>
-        </MarkdownRender>
+        </CodeRender>
       </View>
     </View>
   )

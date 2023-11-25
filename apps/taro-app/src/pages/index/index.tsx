@@ -25,6 +25,17 @@ function getAlias(componentName: string) {
   return ''
 }
 
+function DocsIndex() {
+  return (
+    <>
+      <View className='px-4'>
+        <HomeTitle />
+        <View className='text-slate-600 dark:text-slate-400 text-sm mb-1 text-center'>灵活自由的开源CSS Component生成器</View>
+      </View>
+    </>
+  )
+}
+
 function CodeIndex() {
   return (
     <>
@@ -86,15 +97,7 @@ export default function Index() {
         </View>
       </Navbar>
       <View className='min-h-screen px-5 pt-2 pb-3'>
-        {index === 0 && (
-          <>
-            <View className='px-4'>
-              <HomeTitle />
-              <View className='text-slate-600 dark:text-slate-400 text-sm mb-1 text-center'>灵活自由的开源CSS Component生成器</View>
-            </View>
-          </>
-        )}
-
+        {index === 0 && <DocsIndex></DocsIndex>}
         {index === 1 && <CodeIndex></CodeIndex>}
       </View>
 

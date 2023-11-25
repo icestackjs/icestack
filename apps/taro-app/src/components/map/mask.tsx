@@ -1,7 +1,7 @@
 import { View, Text, Button, ViewProps, Image } from '@tarojs/components'
 import panda from '../../assets/panda.jpg'
 import { cx } from 'class-variance-authority'
-import MarkdownRender from '@/components/MarkdownRender'
+import CodeRender from '@/components/CodeRender'
 
 const list = [
   'mask-squircle',
@@ -28,11 +28,11 @@ export default () => {
   return (
     <View>
       <View className='subtitle'>遮罩类型</View>
-      <MarkdownRender className='grid grid-cols-3 gap-2'>
+      <CodeRender className='grid grid-cols-3 gap-2'>
         {list.map((x) => {
           return <Image key={x} className={cx('w-full mask', x)} mode='widthFix' src={panda}></Image>
         })}
-      </MarkdownRender>
+      </CodeRender>
     </View>
   )
 }

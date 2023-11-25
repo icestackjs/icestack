@@ -8,7 +8,7 @@ function makeCodeBlock(res: string, lang: string) {
   return '```' + (lang || '') + '\n' + res + '\n```'
 }
 
-const MarkdownRender: FC<
+const CodeRender: FC<
   PropsWithChildren<{
     content?: string
     codeBlock?: boolean
@@ -69,4 +69,4 @@ const MarkdownRender: FC<
   )
 }
 
-export default MarkdownRender
+export default CodeRender

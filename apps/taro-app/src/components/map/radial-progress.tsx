@@ -1,5 +1,5 @@
 import { View, Text, Button, ViewProps } from '@tarojs/components'
-import MarkdownRender from '@/components/MarkdownRender'
+import CodeRender from '@/components/CodeRender'
 import { useEffect, useState } from 'react'
 
 export default () => {
@@ -21,7 +21,7 @@ export default () => {
   return (
     <View>
       <View className='subtitle'>默认使用</View>
-      <MarkdownRender className='grid grid-cols-3 gap-2'>
+      <CodeRender className='grid grid-cols-3 gap-2'>
         <View
           className='radial-progress'
           style={{
@@ -62,27 +62,27 @@ export default () => {
         >
           {value}%
         </View>
-      </MarkdownRender>
+      </CodeRender>
 
       <View className='subtitle'>更改颜色</View>
-      <MarkdownRender className='grid grid-cols-2 gap-2'>
+      <CodeRender className='grid grid-cols-2 gap-2'>
         <View className='radial-progress text-pink-400' style='--value:20;'>
           20%
         </View>
         <View className='radial-progress bg-pink-400 text-sky-400 border-pink-400 border-8' style='--value:60;'>
           60%
         </View>
-      </MarkdownRender>
+      </CodeRender>
 
       <View className='subtitle'>更改大小</View>
-      <MarkdownRender className='grid grid-cols-2 gap-2'>
+      <CodeRender className='grid grid-cols-2 gap-2'>
         <View className='radial-progress' style='--value:80;--size:10rem;--thickness:2rem'>
           80%
         </View>
         <View className='radial-progress' style='--value:100;--thickness: 1px;'>
           100%
         </View>
-      </MarkdownRender>
+      </CodeRender>
     </View>
   )
 }

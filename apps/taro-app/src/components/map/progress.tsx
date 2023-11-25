@@ -1,11 +1,11 @@
 import { View, Text, Button, ViewProps, Progress, Icon } from '@tarojs/components'
-import MarkdownRender from '@/components/MarkdownRender'
+import CodeRender from '@/components/CodeRender'
 
 export default () => {
   return (
     <View>
       <View className='subtitle'>颜色类型</View>
-      <MarkdownRender className='grid grid-cols-1 gap-2'>
+      <CodeRender className='grid grid-cols-1 gap-2'>
         <View>
           <Progress percent={20} show-info stroke-width='10' />
         </View>
@@ -19,7 +19,7 @@ export default () => {
         <View>
           <Progress border-radius='10' percent={80} color='#10AEFF' stroke-width='10' />
         </View>
-      </MarkdownRender>
+      </CodeRender>
     </View>
   )
 }

@@ -1,5 +1,5 @@
 import { View, Text, Button, ViewProps } from '@tarojs/components'
-import MarkdownRender from '@/components/MarkdownRender'
+import CodeRender from '@/components/CodeRender'
 import { cx } from 'class-variance-authority'
 import { useState } from 'react'
 
@@ -13,7 +13,7 @@ export default () => {
   return (
     <View>
       <View className='subtitle'>默认使用</View>
-      <MarkdownRender className='flex gap-1 items-center text-sm' open>
+      <CodeRender className='flex gap-1 items-center text-sm' open>
         <View
           className={cx('toast', {
             'opacity-10': visible
@@ -54,7 +54,7 @@ export default () => {
             <View>你有一封新的邮件</View>
           </View>
         </View> */}
-      </MarkdownRender>
+      </CodeRender>
     </View>
   )
 }

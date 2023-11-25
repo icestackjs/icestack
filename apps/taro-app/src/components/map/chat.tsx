@@ -1,13 +1,13 @@
 import { View, Image, Button, ViewProps } from '@tarojs/components'
 import pig from '../../assets/pig.jpg'
 import panda from '../../assets/panda.jpg'
-import MarkdownRender from '@/components/MarkdownRender'
+import CodeRender from '@/components/CodeRender'
 
 export default () => {
   return (
     <View>
       <View className='subtitle'>颜色类型</View>
-      <MarkdownRender className=''>
+      <CodeRender className=''>
         <View className='chat chat-end'>
           <View className='chat-header'>pig</View>
           <View className='chat-image avatar'>
@@ -40,7 +40,7 @@ export default () => {
           <View className='chat-bubble chat-bubble-primary'>...</View>
           <View className='chat-footer opacity-50'></View>
         </View>
-      </MarkdownRender>
+      </CodeRender>
     </View>
   )
 }

@@ -1,23 +1,23 @@
 import { View, Image } from '@tarojs/components'
 import panda from '../../assets/pig.jpg'
 // import { cx } from 'class-variance-authority'
-import MarkdownRender from '@/components/MarkdownRender'
+import CodeRender from '@/components/CodeRender'
 
 export default () => {
   return (
     <View>
       <View className='subtitle'>形状</View>
 
-      <MarkdownRender className='grid grid-cols-2 gap-2'>
+      <CodeRender className='grid grid-cols-2 gap-2'>
         <View className='avatar'>
           <Image className='w-24 rounded' mode='widthFix' src={panda}></Image>
         </View>
         <View className='avatar'>
           <Image className='w-24 rounded-full' mode='widthFix' src={panda}></Image>
         </View>
-      </MarkdownRender>
+      </CodeRender>
       <View className='subtitle'>尺寸</View>
-      <MarkdownRender className='grid grid-cols-2 gap-2'>
+      <CodeRender className='grid grid-cols-2 gap-2'>
         <View className='avatar'>
           <Image className='w-24 rounded' mode='widthFix' src={panda}></Image>
         </View>
@@ -30,7 +30,7 @@ export default () => {
         <View className='avatar'>
           <Image className='w-12 rounded' mode='widthFix' src={panda}></Image>
         </View>
-      </MarkdownRender>
+      </CodeRender>
     </View>
   )
 }

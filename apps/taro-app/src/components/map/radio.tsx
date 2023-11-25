@@ -1,6 +1,6 @@
 import { View, Text, Button, ViewProps, Radio } from '@tarojs/components'
 // import './radio.scss'
-import MarkdownRender from '@/components/MarkdownRender'
+import CodeRender from '@/components/CodeRender'
 
 export default () => {
   return (
@@ -25,7 +25,7 @@ export default () => {
       </View>
       <View>
         <View className='subtitle'>颜色类型</View>
-        <MarkdownRender className='grid grid-cols-3 gap-y-2'>
+        <CodeRender className='grid grid-cols-3 gap-y-2'>
           <Radio className='radio' checked value=''>
             default
           </Radio>
@@ -44,23 +44,23 @@ export default () => {
           <Radio className='radio radio-neutral' checked value=''>
             neutral
           </Radio>
-        </MarkdownRender>
+        </CodeRender>
       </View>
       <View>
         <View className='subtitle'>尺寸</View>
-        <MarkdownRender className='grid grid-cols-4 gap-y-2'>
+        <CodeRender className='grid grid-cols-4 gap-y-2'>
           <Radio className='radio radio-xs radio-primary' checked value=''></Radio>
           <Radio className='radio radio-sm radio-primary' checked value=''></Radio>
           <Radio className='radio radio-md radio-primary' checked value=''></Radio>
           <Radio className='radio radio-lg radio-primary' checked value=''></Radio>
-        </MarkdownRender>
+        </CodeRender>
       </View>
       <View>
         <View className='subtitle'>形状</View>
-        <MarkdownRender className='grid grid-cols-4 gap-y-2'>
+        <CodeRender className='grid grid-cols-4 gap-y-2'>
           <Radio className='radio radio-circle radio-primary' checked value=''></Radio>
           <Radio className='radio radio-square radio-primary' checked value=''></Radio>
-        </MarkdownRender>
+        </CodeRender>
       </View>
     </View>
   )

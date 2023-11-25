@@ -38,3 +38,20 @@ export const useThemeStore = create<IThemeState>((set) => {
   }
 })
 
+export const useIndexTabbar = create<{
+  index: number
+  setIndex: (index: number) => void
+}>((set) => {
+
+  function setIndex(index: number) {
+    set({
+      index
+    })
+  }
+
+  return {
+    index: 0,
+    setIndex,
+
+  }
+})

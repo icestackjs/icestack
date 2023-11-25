@@ -1,7 +1,6 @@
 import { View, Text, Button, ViewProps } from '@tarojs/components'
 // import { useLoad } from '@tarojs/taro'
 import React, { useState, useMemo } from 'react'
-import './index.scss'
 import Taro, { useLoad } from '@tarojs/taro'
 import { upperFirst } from 'lodash-es'
 import ThemeProvider from '@/components/ThemeProvider'

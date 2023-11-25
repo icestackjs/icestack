@@ -3,7 +3,7 @@ import Taro from '@tarojs/taro'
 
 const Footer = () => {
   return (
-    <View className='text-xs text-center h-full flex justify-center items-center mt-4'>
+    <View className='text-xs text-center h-full flex justify-center items-center mt-4 pb-4'>
       <Text>Powered by</Text>
       <Text
         className='link link-primary mx-1'

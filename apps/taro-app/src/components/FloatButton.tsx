@@ -17,7 +17,7 @@ const FloatBtn: FC<
     storeKey?: string
     padding?: string[]
   }>
-> = ({ padding = ['256rpx', '32rpx', '64rpx', '32rpx'], storeKey = 'global-float-btn-key', children }) => {
+> = ({ padding = ['256rpx', '32rpx', '96rpx', '32rpx'], storeKey = 'global-float-btn-key', children }) => {
   const { windowHeight, windowWidth } = systemInfo
   let initX = windowWidth
   let initY = windowHeight / 1.25

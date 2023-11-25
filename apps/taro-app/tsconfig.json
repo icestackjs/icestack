@@ -28,14 +28,15 @@
       "@/store/*": [
         "./src/store/*"
       ],
-      "@styled-system/*": [
-        "styled-system/*"
+      "#docs/*": [
+        "../../website/pages/docs/*"
       ]
     }
   },
   "include": [
     "./src",
-    "./types"
+    "./types",
+    "./env.d.ts"
   ],
   "compileOnSave": false
 }

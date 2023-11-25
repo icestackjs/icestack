@@ -1,6 +1,10 @@
-const path = require('path')
-const { UnifiedWebpackPluginV5 } = require('weapp-tailwindcss/webpack')
-const config = {
+import { defineConfig } from '@tarojs/cli'
+import path from 'path'
+import { UnifiedWebpackPluginV5 } from 'weapp-tailwindcss/webpack'
+
+
+
+const config = defineConfig({
   projectName: 'taro-app',
   date: '2023-7-13',
   designWidth: 750,
@@ -34,6 +38,7 @@ const config = {
     '@styled-system': path.resolve(__dirname, '..', 'src/styled-system'),
     '@/components': path.resolve(__dirname, '..', 'src/components'),
     '@/store': path.resolve(__dirname, '..', 'src/store'),
+    '#docs': path.resolve(__dirname, '../../../website/pages/docs'),
   },
   terser: {
     enable: false
@@ -69,7 +74,20 @@ const config = {
       //   .options({
       //     sourceMap: process.env.NODE_ENV !== 'production',
       //   })
+      // @ts-ignore
+      chain.module.rule('mdx').test(/.mdx/).type('asset/source')
+      chain.resolve.extensions.add('zh-CN.mdx')
+      chain.resolve.extensions.add('.mdx')
       chain.merge({
+
+        // module: {
+        //   rules: [
+        //     {
+        //       test: /.mdx?/,
+        //       type: 'asset/source'
+        //     }
+        //   ]
+        // },
         plugin: {
           install: {
             plugin: UnifiedWebpackPluginV5,
@@ -116,9 +134,9 @@ const config = {
       }
     }
   }
-}
+})
 
-module.exports = function (merge) {
+export default function (merge) {
   if (process.env.NODE_ENV === 'development') {
     return merge({}, config, require('./dev'))
   }

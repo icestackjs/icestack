@@ -11,6 +11,9 @@ import HomeTitle from '@/components/HomeTitle'
 import Tabbar from '@/components/Tabbar'
 import { useIndexTabbar } from '@/store/index'
 import { cx } from 'class-variance-authority'
+import levelI18n from '#docs/_meta.zh-CN.json'
+import level2Usage18n from '#docs/usage/_meta.zh-CN.json'
+import level2Core18n from '#docs/core/_meta.zh-CN.json'
 
 const aliasMap = {
   range: 'Slider',
@@ -28,9 +31,68 @@ function getAlias(componentName: string) {
 function DocsIndex() {
   return (
     <>
-      <View className='px-4'>
+      <View className='px-4 mb-6'>
         <HomeTitle />
         <View className='text-slate-600 dark:text-slate-400 text-sm mb-1 text-center'>灵活自由的开源CSS Component生成器</View>
+      </View>
+      <View className='space-y-3'>
+        {Object.entries(levelI18n).map(([x, text1]) => {
+          return (
+            <View key={x}>
+              <View
+                onClick={() => {
+                  Taro.navigateTo({
+                    url: 'doc?id=' + x
+                  })
+                }}
+                className='bg-gray-100 dark:bg-sky-300/[0.15] py-2.5 rounded-full pl-5 pr-3.5 flex justify-between items-center'
+                hoverClass='bg-gray-300/50 dark:bg-sky-500/50'
+              >
+                {text1}
+              </View>
+              {x === 'usage' && (
+                <View className='space-y-1.5 mt-1.5'>
+                  {Object.entries(level2Usage18n).map(([y, text2]) => {
+                    return (
+                      <View
+                        key={y}
+                        onClick={() => {
+                          Taro.navigateTo({
+                            url: 'doc?id=' + [x, y].join('.')
+                          })
+                        }}
+                        className='bg-gray-100 dark:bg-sky-300/[0.15] py-1 text-sm rounded-full pl-5 pr-3.5 flex justify-between items-center'
+                        hoverClass='bg-gray-300/50 dark:bg-sky-500/50'
+                      >
+                        {text2}
+                      </View>
+                    )
+                  })}
+                </View>
+              )}
+              {x === 'core' && (
+                <View className='space-y-1.5 mt-1.5'>
+                  {Object.entries(level2Core18n).map(([y, text2]) => {
+                    return (
+                      <View
+                        key={y}
+                        onClick={() => {
+                          Taro.navigateTo({
+                            url: 'doc?id=' + [x, y].join('.')
+                          })
+                        }}
+                        className='bg-gray-100 dark:bg-sky-300/[0.15] py-1 text-sm rounded-full pl-5 pr-3.5 flex justify-between items-center'
+                        hoverClass='bg-gray-300/50 dark:bg-sky-500/50'
+                      >
+                        {text2}
+                      </View>
+                    )
+                  })}
+                </View>
+              )}
+            </View>
+          )
+        })}
       </View>
     </>
   )

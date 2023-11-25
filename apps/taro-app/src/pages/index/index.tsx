@@ -28,68 +28,60 @@ function getAlias(componentName: string) {
   return ''
 }
 
+function mapChildItem(children: [string, string][]) {
+  return (
+    <View>
+      {children.map(([y, text2], idx) => {
+        return (
+          <View
+            key={y}
+            onClick={() => {
+              Taro.navigateTo({
+                url: 'doc?id=' + [x, y].join('.')
+              })
+            }}
+            className={cx(
+              ' flex items-center justify-between border-b border-solid py-1 pl-5 pr-3.5 text-sm',
+              idx !== children.length - 1 ? 'border-slate-200/50 dark:border-sky-200/[0.15]' : 'border-transparent'
+            )}
+            hoverClass="bg-slate-300/50 dark:bg-sky-500/50"
+          >
+            {text2}
+            <View className="i-mdi-chevron-right text-slate-700 dark:text-slate-400"></View>
+          </View>
+        )
+      })}
+    </View>
+  )
+}
+
 function DocsIndex() {
+  const coreChildren = Object.entries(level2Core18n)
+  const usageChildren = Object.entries(level2Usage18n)
   return (
     <>
-      <View className='px-4 mb-6'>
+      <View className="mb-6 px-4">
         <HomeTitle />
-        <View className='text-slate-600 dark:text-slate-400 text-sm mb-1 text-center'>灵活自由的开源CSS Component生成器</View>
+        <View className="mb-1 text-center text-sm text-slate-600 dark:text-slate-400">灵活自由的开源CSS Component生成器</View>
       </View>
-      <View className='space-y-3'>
+      <View className="space-y-3">
         {Object.entries(levelI18n).map(([x, text1]) => {
           return (
-            <View key={x}>
+            <View key={x} className="rounded bg-slate-100 dark:bg-sky-300/[0.15]">
               <View
                 onClick={() => {
                   Taro.navigateTo({
                     url: 'doc?id=' + x
                   })
                 }}
-                className='bg-gray-100 dark:bg-sky-300/[0.15] py-2.5 rounded-full pl-5 pr-3.5 flex justify-between items-center'
-                hoverClass='bg-gray-300/50 dark:bg-sky-500/50'
+                className=" flex  items-center justify-between py-2.5 pl-5 pr-3.5"
+                hoverClass="bg-slate-300/50 dark:bg-sky-500/50"
               >
                 {text1}
+                <View className="i-mdi-chevron-right text-slate-700 dark:text-slate-400"></View>
               </View>
-              {x === 'usage' && (
-                <View className='space-y-1.5 mt-1.5'>
-                  {Object.entries(level2Usage18n).map(([y, text2]) => {
-                    return (
-                      <View
-                        key={y}
-                        onClick={() => {
-                          Taro.navigateTo({
-                            url: 'doc?id=' + [x, y].join('.')
-                          })
-                        }}
-                        className='bg-gray-100 dark:bg-sky-300/[0.15] py-1 text-sm rounded-full pl-5 pr-3.5 flex justify-between items-center'
-                        hoverClass='bg-gray-300/50 dark:bg-sky-500/50'
-                      >
-                        {text2}
-                      </View>
-                    )
-                  })}
-                </View>
-              )}
-              {x === 'core' && (
-                <View className='space-y-1.5 mt-1.5'>
-                  {Object.entries(level2Core18n).map(([y, text2]) => {
-                    return (
-                      <View
-                        key={y}
-                        onClick={() => {
-                          Taro.navigateTo({
-                            url: 'doc?id=' + [x, y].join('.')
-                          })
-                        }}
-                        className='bg-gray-100 dark:bg-sky-300/[0.15] py-1 text-sm rounded-full pl-5 pr-3.5 flex justify-between items-center'
-                        hoverClass='bg-gray-300/50 dark:bg-sky-500/50'
-                      >
-                        {text2}
-                      </View>
-                    )
-                  })}
-                </View>
-              )}
+              {x === 'usage' && mapChildItem(usageChildren)}
+              {x === 'core' && mapChildItem(coreChildren)}
             </View>
           )
         })}
@@ -103,7 +95,7 @@ function CodeIndex() {
     <>
       {Object.entries(group).reduce<ReactNode[]>((acc, [groupName, componentNames], idx) => {
         if (componentNames.length) {
-          acc.push(<View className={cx(idx === 0 ? '' : 'mt-6 ', 'text-slate-600 dark:text-slate-400 text-sm ml-4 mb-2')}>{i18n[groupName]}</View>)
+          acc.push(<View className={cx(idx === 0 ? '' : 'mt-6 ', 'mb-2 ml-4 text-sm text-slate-600 dark:text-slate-400')}>{i18n[groupName]}</View>)
           // space-y-3
           const res: ReactNode[] = []
           for (const componentName of componentNames) {
@@ -112,8 +104,8 @@ function CodeIndex() {
             }
             res.push(
               <View
-                className='bg-gray-100 dark:bg-sky-300/[0.15] py-2.5 rounded-full pl-5 pr-3.5 flex justify-between items-center'
-                hoverClass='bg-gray-300/50 dark:bg-sky-500/50'
+                className="flex items-center justify-between  bg-gray-100 py-2.5 pl-5 pr-3.5 dark:bg-sky-300/[0.15] rounded-full"
+                hoverClass="bg-gray-300/50 dark:bg-sky-500/50"
                 key={componentName}
                 onClick={() => {
                   Taro.navigateTo({
@@ -121,15 +113,15 @@ function CodeIndex() {
                   })
                 }}
               >
-                <View className='text-sm text-slate-700 dark:text-slate-400'>
+                <View className="text-sm text-slate-700 dark:text-slate-400">
                   {upperFirst(componentName)}
                   {getAlias(componentName)} {i18n[componentName]}
                 </View>
-                <View className='i-mdi-chevron-right text-slate-700 dark:text-slate-400'></View>
+                <View className="i-mdi-chevron-right text-slate-700 dark:text-slate-400"></View>
               </View>
             )
           }
-          acc.push(<View className='space-y-3'>{res}</View>)
+          acc.push(<View className="space-y-3">{res}</View>)
         }
 
         return acc
@@ -144,21 +136,21 @@ export default function Index() {
     <ThemeProvider>
       <Navbar>
         <View
-          className='text-center h-full flex pl-4 items-center text-lg'
+          className="flex h-full items-center pl-4 text-center text-lg"
           onClick={() => {
             Taro.setClipboardData({
               data: 'https://github.com/sonofmagic/icestack'
             })
           }}
         >
-          <View className='rounded-md border border-solid border-[rgba(31,35,40,0.15)] bg-[rgb(246,248,250)] dark:border-[rgba(205,217,229,0.1)] dark:bg-[rgb(55,62,71)] flex items-center px-2 py-1'>
-            <View className='i-mdi-github'></View>
-            <View className='text-slate-900 dark:text-white mx-0.5 i-mdi-add'></View>
-            <View className='i-mdi-star text-[#daaa3f]'></View>
+          <View className="flex items-center rounded-md border border-solid border-[rgba(31,35,40,0.15)] bg-[rgb(246,248,250)] px-2 py-1 dark:border-[rgba(205,217,229,0.1)] dark:bg-[rgb(55,62,71)]">
+            <View className="i-mdi-github"></View>
+            <View className="i-mdi-add mx-0.5 text-slate-900 dark:text-white"></View>
+            <View className="i-mdi-star text-[#daaa3f]"></View>
           </View>
         </View>
       </Navbar>
-      <View className='min-h-screen px-5 pt-2 pb-3'>
+      <View className="px-5 pb-3 pt-2">
         {index === 0 && <DocsIndex></DocsIndex>}
         {index === 1 && <CodeIndex></CodeIndex>}
       </View>

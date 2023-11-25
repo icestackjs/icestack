@@ -2,8 +2,6 @@ import { defineConfig } from '@tarojs/cli'
 import path from 'path'
 import { UnifiedWebpackPluginV5 } from 'weapp-tailwindcss/webpack'
 
-
-
 const config = defineConfig({
   projectName: 'taro-app',
   date: '2023-7-13',
@@ -16,13 +14,10 @@ const config = defineConfig({
   sourceRoot: 'src',
   outputRoot: 'dist',
   plugins: ['@tarojs/plugin-http'],
-  defineConstants: {
-  },
+  defineConstants: {},
   copy: {
-    patterns: [
-    ],
-    options: {
-    }
+    patterns: [],
+    options: {}
   },
   framework: 'react',
   compiler: {
@@ -38,7 +33,7 @@ const config = defineConfig({
     '@styled-system': path.resolve(__dirname, '..', 'src/styled-system'),
     '@/components': path.resolve(__dirname, '..', 'src/components'),
     '@/store': path.resolve(__dirname, '..', 'src/store'),
-    '#docs': path.resolve(__dirname, '../../../website/pages/docs'),
+    '#docs': path.resolve(__dirname, '../../../website/pages/docs')
   },
   terser: {
     enable: false
@@ -47,9 +42,7 @@ const config = defineConfig({
     postcss: {
       pxtransform: {
         enable: true,
-        config: {
-
-        }
+        config: {}
       },
       url: {
         enable: true,
@@ -76,10 +69,9 @@ const config = defineConfig({
       //   })
       // @ts-ignore
       chain.module.rule('mdx').test(/.mdx/).type('asset/source')
-      chain.resolve.extensions.add('zh-CN.mdx')
-      chain.resolve.extensions.add('.mdx')
+      // chain.resolve.extensions.add('zh-CN.mdx')
+      // chain.resolve.extensions.add('.mdx')
       chain.merge({
-
         // module: {
         //   rules: [
         //     {
@@ -91,13 +83,15 @@ const config = defineConfig({
         plugin: {
           install: {
             plugin: UnifiedWebpackPluginV5,
-            args: [{
-              appType: 'taro'
-            }]
+            args: [
+              {
+                appType: 'taro'
+              }
+            ]
           }
         }
       })
-    },
+    }
   },
   h5: {
     publicPath: '/',
@@ -105,8 +99,7 @@ const config = defineConfig({
     postcss: {
       autoprefixer: {
         enable: true,
-        config: {
-        }
+        config: {}
       },
       cssModules: {
         enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
@@ -124,13 +117,13 @@ const config = defineConfig({
       //   .options({
       //     sourceMap: process.env.NODE_ENV !== 'production',
       //   })
-    },
+    }
   },
   rn: {
     appName: 'taroDemo',
     postcss: {
       cssModules: {
-        enable: false, // 默认为 false，如需使用 css modules 功能，则设为 true
+        enable: false // 默认为 false，如需使用 css modules 功能，则设为 true
       }
     }
   }

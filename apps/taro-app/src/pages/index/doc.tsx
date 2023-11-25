@@ -76,9 +76,9 @@ export default function Index() {
   return (
     <ThemeProvider>
       <Navbar>
-        <View className='flex justify-center items-center h-full'>{title}</View>
+        <View className="flex justify-center items-center h-full">{title}</View>
       </Navbar>
-      <View className='px-4'>
+      <View className="px-4">
         <md markdown content={content}></md>
       </View>
       <ThemeButton></ThemeButton>

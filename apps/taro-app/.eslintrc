@@ -1,7 +1,8 @@
 {
   "root": true,
   "extends": [
-    "taro/react"
+    "taro/react",
+    "plugin:prettier/recommended"
   ],
   "rules": {
     "react/jsx-uses-react": "off",

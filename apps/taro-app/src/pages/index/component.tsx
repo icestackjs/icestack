@@ -27,9 +27,9 @@ export default function Index() {
   return (
     <ThemeProvider>
       <Navbar>
-        <View className='flex justify-center items-center h-full'>{title}</View>
+        <View className="flex h-full items-center justify-center">{title}</View>
       </Navbar>
-      <View className='px-4'>{TargetCom && <TargetCom></TargetCom>}</View>
+      <View className="px-4">{TargetCom && <TargetCom></TargetCom>}</View>
       <ThemeButton></ThemeButton>
     </ThemeProvider>
   )

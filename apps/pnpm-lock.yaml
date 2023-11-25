@@ -115,7 +115,7 @@ importers:
         version: 3.6.19(@types/react@18.2.38)(postcss@8.4.31)
       '@tarojs/webpack5-runner':
         specifier: 3.6.19
-        version: 3.6.19(@babel/core@7.23.3)(@swc/core@1.3.23)(@types/react@18.2.38)(postcss@8.4.31)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.2)(webpack@5.89.0)
+        version: 3.6.19(@babel/core@7.23.3)(@swc/core@1.3.23)(@types/react@18.2.38)(postcss@8.4.31)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.2)(webpack@5.89.0)
       '@types/node':
         specifier: ^20.9.3
         version: 20.9.3
@@ -140,12 +140,18 @@ importers:
       eslint:
         specifier: ^8.54.0
         version: 8.54.0
+      eslint-config-prettier:
+        specifier: ^9.0.0
+        version: 9.0.0(eslint@8.54.0)
       eslint-config-taro:
         specifier: 3.6.19
         version: 3.6.19(@babel/core@7.23.3)(eslint@8.54.0)(typescript@5.3.2)
       eslint-plugin-import:
         specifier: ^2.29.0
         version: 2.29.0(@typescript-eslint/parser@6.12.0)(eslint@8.54.0)
+      eslint-plugin-prettier:
+        specifier: ^5.0.1
+        version: 5.0.1(eslint-config-prettier@9.0.0)(eslint@8.54.0)(prettier@3.0.3)
       eslint-plugin-react:
         specifier: ^7.33.2
         version: 7.33.2(eslint@8.54.0)
@@ -161,6 +167,12 @@ importers:
       postcss-rem-to-responsive-pixel:
         specifier: ^6.0.0
         version: 6.0.0
+      prettier:
+        specifier: ^3.0.3
+        version: 3.0.3
+      prettier-plugin-tailwindcss:
+        specifier: ^0.5.7
+        version: 0.5.7(prettier@3.0.3)
       react-refresh:
         specifier: ^0.14.0
         version: 0.14.0
@@ -2164,7 +2176,7 @@ packages:
       '@dcloudio/uni-i18n': 3.0.0-3090520231028001
       '@dcloudio/uni-shared': 3.0.0-3090520231028001
       '@vue/shared': 3.2.47
-      fast-glob: 3.3.1
+      fast-glob: 3.3.2
     transitivePeerDependencies:
       - postcss
       - supports-color
@@ -3910,7 +3922,7 @@ packages:
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
     dependencies:
       cross-spawn: 7.0.3
-      fast-glob: 3.3.1
+      fast-glob: 3.3.2
       is-glob: 4.0.3
       open: 9.1.0
       picocolors: 1.0.0
@@ -4782,7 +4794,7 @@ packages:
       - vue
     dev: true
 
-  /@tarojs/webpack5-runner@3.6.19(@babel/core@7.23.3)(@swc/core@1.3.23)(@types/react@18.2.38)(postcss@8.4.31)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.2)(webpack@5.89.0):
+  /@tarojs/webpack5-runner@3.6.19(@babel/core@7.23.3)(@swc/core@1.3.23)(@types/react@18.2.38)(postcss@8.4.31)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0)(typescript@5.3.2)(webpack@5.89.0):
     resolution: {integrity: sha512-xaj6i1MRDMMTi8bAeshQV24eNQH+bLt9sJbVNjpEUrUXFaLdzk0vFo+Ju1lYQqmQuZkbCNmxeD8Rzg0tJzMtZw==}
     peerDependencies:
       postcss: ^8.4.18
@@ -4845,7 +4857,7 @@ packages:
       terser-webpack-plugin: 5.3.9(@swc/core@1.3.23)(esbuild@0.14.54)(webpack@5.89.0)
       url-loader: 4.1.0(file-loader@6.0.0)(webpack@5.89.0)
       vm2: 3.9.19
-      vue-loader: 15.11.1(css-loader@6.8.1)(lodash@4.17.21)(react-dom@18.2.0)(react@18.2.0)(webpack@5.89.0)
+      vue-loader: 15.11.1(css-loader@6.8.1)(lodash@4.17.21)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0)(webpack@5.89.0)
       webpack: 5.89.0(@swc/core@1.3.23)
       webpack-chain: 6.5.1
       webpack-dev-server: 4.11.1(webpack@5.89.0)
@@ -9080,6 +9092,15 @@ packages:
       eslint: 8.52.0
     dev: true
 
+  /eslint-config-prettier@9.0.0(eslint@8.54.0):
+    resolution: {integrity: sha512-IcJsTkJae2S35pRsRAwoCE+925rJJStOdkKnLVgtE+tEpqU0EVVM7OqrwxqgptKdX29NUwC82I5pXsGFIgSevw==}
+    hasBin: true
+    peerDependencies:
+      eslint: '>=7.0.0'
+    dependencies:
+      eslint: 8.54.0
+    dev: true
+
   /eslint-config-standard@17.1.0(eslint-plugin-import@2.29.0)(eslint-plugin-n@16.2.0)(eslint-plugin-promise@6.1.1)(eslint@8.52.0):
     resolution: {integrity: sha512-IwHwmaBNtDK4zDHQukFDW5u/aTb8+meQWZvNFWkiGmbWjD6bqyuSSBxxXKkCftCUzc1zwCH2m/baCNDLGmuO5Q==}
     engines: {node: '>=12.0.0'}
@@ -9314,6 +9335,27 @@ packages:
     dependencies:
       eslint: 8.52.0
       eslint-config-prettier: 9.0.0(eslint@8.52.0)
+      prettier: 3.0.3
+      prettier-linter-helpers: 1.0.0
+      synckit: 0.8.5
+    dev: true
+
+  /eslint-plugin-prettier@5.0.1(eslint-config-prettier@9.0.0)(eslint@8.54.0)(prettier@3.0.3):
+    resolution: {integrity: sha512-m3u5RnR56asrwV/lDC4GHorlW75DsFfmUcjfCYylTUs85dBRnB7VM6xG8eCMJdeDRnppzmxZVf1GEPJvl1JmNg==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      '@types/eslint': '>=8.0.0'
+      eslint: '>=8.0.0'
+      eslint-config-prettier: '*'
+      prettier: '>=3.0.0'
+    peerDependenciesMeta:
+      '@types/eslint':
+        optional: true
+      eslint-config-prettier:
+        optional: true
+    dependencies:
+      eslint: 8.54.0
+      eslint-config-prettier: 9.0.0(eslint@8.54.0)
       prettier: 3.0.3
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.5
@@ -9761,7 +9803,6 @@ packages:
       glob-parent: 5.1.2
       merge2: 1.4.1
       micromatch: 4.0.5
-    dev: true
 
   /fast-json-stable-stringify@2.1.0:
     resolution: {integrity: sha512-lhd/wF+Lk98HZoTCtlVraHtfh5XYijIjalXck7saUtuanSDyLMxnHhSXEDJqHxD7msR8D0uCmqlkwjCV8xvwHw==}
@@ -10374,7 +10415,7 @@ packages:
     dependencies:
       array-union: 2.1.0
       dir-glob: 3.0.1
-      fast-glob: 3.3.1
+      fast-glob: 3.3.2
       ignore: 5.2.4
       merge2: 1.4.1
       slash: 3.0.0
@@ -14350,6 +14391,61 @@ packages:
       fast-diff: 1.3.0
     dev: true
 
+  /prettier-plugin-tailwindcss@0.5.7(prettier@3.0.3):
+    resolution: {integrity: sha512-4v6uESAgwCni6YF6DwJlRaDjg9Z+al5zM4JfngcazMy4WEf/XkPS5TEQjbD+DZ5iNuG6RrKQLa/HuX2SYzC3kQ==}
+    engines: {node: '>=14.21.3'}
+    peerDependencies:
+      '@ianvs/prettier-plugin-sort-imports': '*'
+      '@prettier/plugin-pug': '*'
+      '@shopify/prettier-plugin-liquid': '*'
+      '@shufo/prettier-plugin-blade': '*'
+      '@trivago/prettier-plugin-sort-imports': '*'
+      prettier: ^3.0
+      prettier-plugin-astro: '*'
+      prettier-plugin-css-order: '*'
+      prettier-plugin-import-sort: '*'
+      prettier-plugin-jsdoc: '*'
+      prettier-plugin-marko: '*'
+      prettier-plugin-organize-attributes: '*'
+      prettier-plugin-organize-imports: '*'
+      prettier-plugin-style-order: '*'
+      prettier-plugin-svelte: '*'
+      prettier-plugin-twig-melody: '*'
+    peerDependenciesMeta:
+      '@ianvs/prettier-plugin-sort-imports':
+        optional: true
+      '@prettier/plugin-pug':
+        optional: true
+      '@shopify/prettier-plugin-liquid':
+        optional: true
+      '@shufo/prettier-plugin-blade':
+        optional: true
+      '@trivago/prettier-plugin-sort-imports':
+        optional: true
+      prettier-plugin-astro:
+        optional: true
+      prettier-plugin-css-order:
+        optional: true
+      prettier-plugin-import-sort:
+        optional: true
+      prettier-plugin-jsdoc:
+        optional: true
+      prettier-plugin-marko:
+        optional: true
+      prettier-plugin-organize-attributes:
+        optional: true
+      prettier-plugin-organize-imports:
+        optional: true
+      prettier-plugin-style-order:
+        optional: true
+      prettier-plugin-svelte:
+        optional: true
+      prettier-plugin-twig-melody:
+        optional: true
+    dependencies:
+      prettier: 3.0.3
+    dev: true
+
   /prettier@2.8.8:
     resolution: {integrity: sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q==}
     engines: {node: '>=10.13.0'}
@@ -16579,7 +16675,7 @@ packages:
     dependencies:
       '@rollup/pluginutils': 5.0.5
       escape-string-regexp: 5.0.0
-      fast-glob: 3.3.1
+      fast-glob: 3.3.2
       local-pkg: 0.4.3
       magic-string: 0.30.5
       mlly: 1.4.2
@@ -16975,7 +17071,7 @@ packages:
       vue: 3.3.7(typescript@5.2.2)
     dev: false
 
-  /vue-loader@15.11.1(css-loader@6.8.1)(lodash@4.17.21)(react-dom@18.2.0)(react@18.2.0)(webpack@5.89.0):
+  /vue-loader@15.11.1(css-loader@6.8.1)(lodash@4.17.21)(prettier@3.0.3)(react-dom@18.2.0)(react@18.2.0)(webpack@5.89.0):
     resolution: {integrity: sha512-0iw4VchYLePqJfJu9s62ACWUXeSqM30SQqlIftbYWM3C+jpPcEHKSPUZBLjSF9au4HTHQ/naF6OGnO3Q/qGR3Q==}
     peerDependencies:
       '@vue/compiler-sfc': ^3.0.8
@@ -16998,6 +17094,7 @@ packages:
       css-loader: 6.8.1(webpack@5.89.0)
       hash-sum: 1.0.2
       loader-utils: 1.4.2
+      prettier: 3.0.3
       vue-hot-reload-api: 2.3.4
       vue-style-loader: 4.1.3
       webpack: 5.89.0(@swc/core@1.3.23)

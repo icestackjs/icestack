@@ -1,6 +1,6 @@
 import { GetSchemaFn, getSelector, IValue, expandTypes } from './shared'
 
-export const schema: GetSchemaFn = (opts) => {
+const schema: GetSchemaFn = (opts) => {
   const { selector, types } = opts
 
   function buttonHover(obj: IValue) {
@@ -187,4 +187,8 @@ export const schema: GetSchemaFn = (opts) => {
       }
     }
   }
+}
+
+export default {
+  schema
 }

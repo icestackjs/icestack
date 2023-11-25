@@ -1,6 +1,6 @@
 import { GetSchemaFn, getSelector, expandTypes } from './shared'
 
-export const schema: GetSchemaFn = (opts) => {
+const schema: GetSchemaFn = (opts) => {
   const { types, selector } = opts
   return {
     selector,
@@ -96,4 +96,8 @@ export const schema: GetSchemaFn = (opts) => {
       }
     }
   }
+}
+
+export default {
+  schema
 }

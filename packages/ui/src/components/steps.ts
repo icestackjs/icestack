@@ -1,8 +1,8 @@
 import dedent from 'dedent'
-import { transformCss2Js } from '..'
-import { GetSchemaFn } from './shared'
 
-export const schema: GetSchemaFn = (opts) => {
+import { GetSchemaFn, transformCss2Js } from './shared'
+
+const schema: GetSchemaFn = (opts) => {
   const { selector, types } = opts
   return {
     selector,
@@ -15,7 +15,7 @@ export const schema: GetSchemaFn = (opts) => {
           &:before {
             @apply bg-base-300 text-base-content top-0 col-start-1 row-start-1 h-2 w-full transform;
             content: "";
-            margin-left: -100%;
+            margin-inline-start: -100%;
           }
         }
         ${selector} {
@@ -58,40 +58,74 @@ export const schema: GetSchemaFn = (opts) => {
       `),
       utils: transformCss2Js(`${selector}s {
         &-horizontal {
-          grid-auto-columns: 1fr;
-          @apply inline-grid grid-flow-col overflow-hidden overflow-x-auto;
           ${selector} {
-            @apply grid grid-cols-1 grid-rows-2 place-items-center text-center;
             grid-template-rows: 40px 1fr;
             grid-template-columns: auto;
             min-width: 4rem;
             &:before {
-              @apply h-2 w-full translate-x-0 translate-y-0;
+              @apply h-2 w-full translate-x-0 translate-y-0 rtl:translate-x-0;
               content: "";
-              margin-left: -100%;
+              margin-inline-start: -100%;
             }
           }
         }
         &-vertical {
-          grid-auto-rows: 1fr;
-          @apply grid-flow-row;
           ${selector} {
-            @apply grid grid-cols-2 grid-rows-1;
             gap: 0.5rem;
             grid-template-columns: 40px 1fr;
             grid-template-rows: auto;
             min-height: 4rem;
             justify-items: start;
             &:before {
-              @apply h-full w-2 -translate-x-1/2 -translate-y-1/2;
-              margin-left: 50%;
-              [dir="rtl"] & {
-                margin-right: auto;
-              }
+              @apply h-full w-2 -translate-x-1/2 -translate-y-1/2 rtl:translate-x-1/2;
+              margin-inline-start: 50%;
             }
           }
         }
-      }`)
+      }
+
+${selector}s {
+  &-horizontal {
+    grid-auto-columns: 1fr;
+    @apply inline-grid grid-flow-col overflow-hidden overflow-x-auto;
+    ${selector} {
+      @apply grid grid-cols-1 grid-rows-2 place-items-center text-center;
+      grid-template-rows: 40px 1fr;
+      grid-template-columns: auto;
+      min-width: 4rem;
+      &:before {
+        @apply h-2 w-full translate-x-0 translate-y-0;
+        content: "";
+        margin-left: -100%;
+      }
     }
   }
+  &-vertical {
+    grid-auto-rows: 1fr;
+    @apply grid-flow-row;
+    ${selector} {
+      @apply grid grid-cols-2 grid-rows-1;
+      gap: 0.5rem;
+      grid-template-columns: 40px 1fr;
+      grid-template-rows: auto;
+      min-height: 4rem;
+      justify-items: start;
+      &:before {
+        @apply h-full w-2 -translate-x-1/2 -translate-y-1/2;
+        margin-left: 50%;
+        [dir="rtl"] & {
+          margin-right: auto;
+        }
+      }
+    }
+  }
+}
+
+      `)
+    }
+  }
+}
+
+export default {
+  schema
 }

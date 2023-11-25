@@ -1,6 +1,6 @@
 import { GetSchemaFn } from './shared'
 
-export const schema: GetSchemaFn = (opts) => {
+const schema: GetSchemaFn = (opts) => {
   const { selector } = opts
 
   return {
@@ -32,4 +32,8 @@ export const schema: GetSchemaFn = (opts) => {
       }
     }
   }
+}
+
+export default {
+  schema
 }

@@ -1,31 +1,31 @@
 import { GetSchemaFn, preprocessCssInJs } from './shared'
-import * as avatar from '@/components/avatar'
-import * as button from '@/components/button'
-import * as alert from '@/components/alert'
-import * as badge from '@/components/badge'
-import * as chat from '@/components/chat'
-import * as checkbox from '@/components/checkbox'
-import * as input from '@/components/input'
-import * as link from '@/components/link'
-import * as progress from '@/components/progress'
-import * as textarea from '@/components/textarea'
-import * as toggle from '@/components/toggle'
-import * as select from '@/components/select'
-import * as radio from '@/components/radio'
-import * as range from '@/components/range'
-import * as loading from '@/components/loading'
-import * as mask from '@/components/mask'
-import * as form from '@/components/form'
-import * as table from '@/components/table'
-import * as tabs from '@/components/tabs'
-import * as skeleton from '@/components/skeleton'
-import * as radialProgress from '@/components/radialProgress'
-import * as countdown from '@/components/countdown'
-import * as diff from '@/components/diff'
-import * as kbd from '@/components/kbd'
-import * as tooltip from '@/components/tooltip'
-import * as toast from '@/components/toast'
-// import * as steps from '@/components/steps'
+import avatar from '@/components/avatar'
+import button from '@/components/button'
+import alert from '@/components/alert'
+import badge from '@/components/badge'
+import chat from '@/components/chat'
+import checkbox from '@/components/checkbox'
+import input from '@/components/input'
+import link from '@/components/link'
+import progress from '@/components/progress'
+import textarea from '@/components/textarea'
+import toggle from '@/components/toggle'
+import select from '@/components/select'
+import radio from '@/components/radio'
+import range from '@/components/range'
+import loading from '@/components/loading'
+import mask from '@/components/mask'
+import form from '@/components/form'
+import table from '@/components/table'
+import tabs from '@/components/tabs'
+import skeleton from '@/components/skeleton'
+import radialProgress from '@/components/radialProgress'
+import countdown from '@/components/countdown'
+import diff from '@/components/diff'
+import kbd from '@/components/kbd'
+import tooltip from '@/components/tooltip'
+import toast from '@/components/toast'
+import steps from '@/components/steps'
 
 const schemaMap = {
   alert,
@@ -53,8 +53,8 @@ const schemaMap = {
   diff,
   kbd,
   tooltip,
-  toast
-  // steps
+  toast,
+  steps
 } as const
 
 const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap

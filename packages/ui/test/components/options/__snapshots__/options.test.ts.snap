@@ -4134,6 +4134,341 @@ exports[`'skeleton' options > snap 1`] = `
 }
 `;
 
+exports[`'steps' options > raw snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".steps": {
+        ".step": {
+          "apply": [
+            "grid grid-cols-1 grid-rows-2 place-items-center text-center",
+          ],
+        },
+        "apply": [
+          "inline-grid grid-flow-col overflow-hidden overflow-x-auto",
+        ],
+        "css": {
+          "counter-reset": "step",
+          "grid-auto-columns": "1fr",
+        },
+      },
+    },
+    "styled": {
+      ".steps": {
+        ".step": {
+          "&:after": {
+            "apply": [
+              "bg-base-300 text-base-content relative col-start-1 row-start-1 grid h-8 w-8 place-items-center place-self-center rounded-full",
+            ],
+            "css": {
+              "content": "counter(step)",
+              "counter-increment": "step",
+              "z-index": "1",
+            },
+          },
+          "&:before": {
+            "apply": [
+              "bg-base-300 text-base-content top-0 col-start-1 row-start-1 h-2 w-full transform",
+            ],
+            "css": {
+              "content": "\\"\\"",
+              "margin-inline-start": "-100%",
+            },
+          },
+          "&:first-child:before": {
+            "css": {
+              "content": "none",
+            },
+          },
+          "&[data-content]:after": {
+            "css": {
+              "content": "attr(data-content)",
+            },
+          },
+          "css": {
+            "grid-template-columns": "auto",
+            "grid-template-rows": "40px 1fr",
+            "min-width": "4rem",
+          },
+        },
+      },
+    },
+    "utils": {
+      ".steps": {
+        "&-horizontal": {
+          ".step": {
+            "&:before": {
+              "apply": [
+                "h-2 w-full translate-x-0 translate-y-0 rtl:translate-x-0",
+                "h-2 w-full translate-x-0 translate-y-0",
+              ],
+              "css": {
+                "content": "\\"\\"",
+                "margin-inline-start": "-100%",
+                "margin-left": "-100%",
+              },
+            },
+            "apply": [
+              "grid grid-cols-1 grid-rows-2 place-items-center text-center",
+            ],
+            "css": {
+              "grid-template-columns": "auto",
+              "grid-template-rows": "40px 1fr",
+              "min-width": "4rem",
+            },
+          },
+          "apply": [
+            "inline-grid grid-flow-col overflow-hidden overflow-x-auto",
+          ],
+          "css": {
+            "grid-auto-columns": "1fr",
+          },
+        },
+        "&-vertical": {
+          ".step": {
+            "&:before": {
+              "[dir=\\"rtl\\"] &": {
+                "css": {
+                  "margin-right": "auto",
+                },
+              },
+              "apply": [
+                "h-full w-2 -translate-x-1/2 -translate-y-1/2 rtl:translate-x-1/2",
+                "h-full w-2 -translate-x-1/2 -translate-y-1/2",
+              ],
+              "css": {
+                "margin-inline-start": "50%",
+                "margin-left": "50%",
+              },
+            },
+            "apply": [
+              "grid grid-cols-2 grid-rows-1",
+            ],
+            "css": {
+              "gap": "0.5rem",
+              "grid-template-columns": "40px 1fr",
+              "grid-template-rows": "auto",
+              "justify-items": "start",
+              "min-height": "4rem",
+            },
+          },
+          "apply": [
+            "grid-flow-row",
+          ],
+          "css": {
+            "grid-auto-rows": "1fr",
+          },
+        },
+      },
+    },
+  },
+  "selector": ".step",
+}
+`;
+
+exports[`'steps' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".steps": {
+        ".step": {
+          "apply": [
+            [
+              "grid",
+              "grid-cols-1",
+              "grid-rows-2",
+              "place-items-center",
+              "text-center",
+            ],
+          ],
+        },
+        "apply": [
+          [
+            "inline-grid",
+            "grid-flow-col",
+            "overflow-hidden",
+            "overflow-x-auto",
+          ],
+        ],
+        "css": {
+          "counter-reset": "step",
+          "grid-auto-columns": "1fr",
+        },
+      },
+    },
+    "styled": {
+      ".steps": {
+        ".step": {
+          "&:after": {
+            "apply": [
+              [
+                "bg-base-300",
+                "text-base-content",
+                "relative",
+                "col-start-1",
+                "row-start-1",
+                "grid",
+                "h-8",
+                "w-8",
+                "place-items-center",
+                "place-self-center",
+                "rounded-full",
+              ],
+            ],
+            "css": {
+              "content": "counter(step)",
+              "counter-increment": "step",
+              "z-index": "1",
+            },
+          },
+          "&:before": {
+            "apply": [
+              [
+                "bg-base-300",
+                "text-base-content",
+                "top-0",
+                "col-start-1",
+                "row-start-1",
+                "h-2",
+                "w-full",
+                "transform",
+              ],
+            ],
+            "css": {
+              "content": "\\"\\"",
+              "margin-inline-start": "-100%",
+            },
+          },
+          "&:first-child:before": {
+            "css": {
+              "content": "none",
+            },
+          },
+          "&[data-content]:after": {
+            "css": {
+              "content": "attr(data-content)",
+            },
+          },
+          "css": {
+            "grid-template-columns": "auto",
+            "grid-template-rows": "40px 1fr",
+            "min-width": "4rem",
+          },
+        },
+      },
+    },
+    "utils": {
+      ".steps": {
+        "&-horizontal": {
+          ".step": {
+            "&:before": {
+              "apply": [
+                [
+                  "h-2",
+                  "w-full",
+                  "translate-x-0",
+                  "translate-y-0",
+                  "rtl:translate-x-0",
+                ],
+                [
+                  "h-2",
+                  "w-full",
+                  "translate-x-0",
+                  "translate-y-0",
+                ],
+              ],
+              "css": {
+                "content": "\\"\\"",
+                "margin-inline-start": "-100%",
+                "margin-left": "-100%",
+              },
+            },
+            "apply": [
+              [
+                "grid",
+                "grid-cols-1",
+                "grid-rows-2",
+                "place-items-center",
+                "text-center",
+              ],
+            ],
+            "css": {
+              "grid-template-columns": "auto",
+              "grid-template-rows": "40px 1fr",
+              "min-width": "4rem",
+            },
+          },
+          "apply": [
+            [
+              "inline-grid",
+              "grid-flow-col",
+              "overflow-hidden",
+              "overflow-x-auto",
+            ],
+          ],
+          "css": {
+            "grid-auto-columns": "1fr",
+          },
+        },
+        "&-vertical": {
+          ".step": {
+            "&:before": {
+              "[dir=\\"rtl\\"] &": {
+                "css": {
+                  "margin-right": "auto",
+                },
+              },
+              "apply": [
+                [
+                  "h-full",
+                  "w-2",
+                  "-translate-x-1/2",
+                  "-translate-y-1/2",
+                  "rtl:translate-x-1/2",
+                ],
+                [
+                  "h-full",
+                  "w-2",
+                  "-translate-x-1/2",
+                  "-translate-y-1/2",
+                ],
+              ],
+              "css": {
+                "margin-inline-start": "50%",
+                "margin-left": "50%",
+              },
+            },
+            "apply": [
+              [
+                "grid",
+                "grid-cols-2",
+                "grid-rows-1",
+              ],
+            ],
+            "css": {
+              "gap": "0.5rem",
+              "grid-template-columns": "40px 1fr",
+              "grid-template-rows": "auto",
+              "justify-items": "start",
+              "min-height": "4rem",
+            },
+          },
+          "apply": [
+            [
+              "grid-flow-row",
+            ],
+          ],
+          "css": {
+            "grid-auto-rows": "1fr",
+          },
+        },
+      },
+    },
+  },
+  "selector": ".step",
+}
+`;
+
 exports[`'table' options > raw snap 1`] = `
 {
   "defaults": {

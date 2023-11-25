@@ -245,10 +245,10 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   toast: {
     selector: '.toast'
+  },
+  steps: {
+    selector: '.step'
   }
-  // steps: {
-  //   selector: '.step'
-  // }
 }
 
 export function injectSchema(map: DeepPartial<ComponentsOptions>) {

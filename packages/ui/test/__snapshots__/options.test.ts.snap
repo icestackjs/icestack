@@ -243,6 +243,10 @@ exports[`options > getCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".skeleton",
     },
+    "steps": {
+      "schema": [Function],
+      "selector": ".step",
+    },
     "table": {
       "schema": [Function],
       "selector": ".table",
@@ -541,6 +545,10 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     "skeleton": {
       "schema": [Function],
       "selector": ".skeleton",
+    },
+    "steps": {
+      "schema": [Function],
+      "selector": ".step",
     },
     "table": {
       "schema": [Function],

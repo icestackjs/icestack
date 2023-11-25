@@ -101,6 +101,10 @@ exports[`defaults > injectSchema 1`] = `
     "schema": [Function],
     "selector": ".skeleton",
   },
+  "steps": {
+    "schema": [Function],
+    "selector": ".step",
+  },
   "table": {
     "schema": [Function],
     "selector": ".table",

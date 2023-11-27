@@ -19,33 +19,36 @@ const Tabbar: FC = () => {
   ]
   return (
     <>
-      <View className="tabbar tabbar-border tabbar-fixed tabbar-safe h-12 bg-slate-50 before:border-slate-200 dark:bg-slate-800 dark:before:border-slate-900">
-        {list.map(({ text, icon }, idx) => {
-          const isActive = index === idx
-          return (
-            <View
-              key={text}
-              className="relative flex h-full w-1/2 items-center justify-center"
-              onClick={() => {
-                setIndex(idx)
-              }}
-            >
+      <View className="tabbar tabbar-border tabbar-fixed tabbar-safe bg-slate-50 before:border-slate-200 dark:bg-slate-800 dark:before:border-slate-900">
+        <View className="flex w-full items-center py-2">
+          {list.map(({ text, icon }, idx) => {
+            const isActive = index === idx
+            return (
               <View
-                className={cx({
-                  "text-sky-500 rounded-md bg-sky-300/[0.15] dark:text-sky-400 py-2 px-12":
-                    isActive
-                })}
+                key={text}
+                className="relative flex h-full w-1/2 items-center justify-center"
+                onClick={() => {
+                  setIndex(idx)
+                }}
               >
-                <View className={cx('flex items-center')}>
-                  <View className={cx(icon)}></View>
-                  <View className="ml-1 text-sm">{text}</View>
+                <View
+                  className={cx({
+                    'rounded-md bg-sky-300/[0.15] px-12 py-2 text-sky-500 dark:text-sky-400':
+                      isActive
+                  })}
+                >
+                  <View className={cx('flex items-center')}>
+                    <View className={cx(icon)}></View>
+                    <View className="ml-1 text-sm">{text}</View>
+                  </View>
                 </View>
               </View>
-            </View>
-          )
-        })}
+            )
+          })}
+        </View>
       </View>
-      <SafeBottom className="h-12"></SafeBottom>
+
+      <SafeBottom className="py-12 w-full"></SafeBottom>
     </>
   )
 }

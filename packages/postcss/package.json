@@ -5,7 +5,8 @@
     "build": "unbuild",
     "test": "vitest run",
     "test:dev": "vitest",
-    "release": "pnpm publish"
+    "release": "pnpm publish",
+    "sync": "cnpm sync @icestack/postcss"
   },
   "keywords": [],
   "author": "",

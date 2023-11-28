@@ -38,7 +38,8 @@
     "prepack": "pnpm run build",
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "vitest run --coverage.enabled",
-    "test:dev": "vitest --coverage.enabled"
+    "test:dev": "vitest --coverage.enabled",
+    "sync": "cnpm sync postcss-custom-property-prefixer"
   },
   "dependencies": {},
   "devDependencies": {

@@ -35,6 +35,6 @@ export default defineBuildConfig({
     '@': path.resolve(__dirname, './src')
   },
   // dts
-  declaration: true,
-  externals: [/^tailwindcss/, /^\.\.\/assets\//, /^unocss/]
+  declaration: true
+  // externals: [/^tailwindcss/, /^\.\.\/assets\//, /^unocss/]
 })

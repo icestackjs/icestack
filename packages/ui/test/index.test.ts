@@ -1,5 +1,5 @@
 import merge from 'merge'
-import { getCss } from '@/utils'
+import { getCss } from './utils'
 
 describe('main', () => {
   it('default', async () => {

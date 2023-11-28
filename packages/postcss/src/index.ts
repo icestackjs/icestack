@@ -3,6 +3,7 @@ import postcss, { Root, AcceptedPlugin } from 'postcss'
 import type { CodegenOptions, VarPrefixerOptions, PrefixerOptions } from '@icestack/types'
 import prefixer from './prefixer'
 
+export type { CssInJs } from 'postcss-js'
 export type { VarPrefixerOptions, PrefixerOptions } from '@icestack/types'
 
 export { getPlugin as getCssVarsPrefixerPlugin } from './custom-property-prefixer'
@@ -13,16 +14,16 @@ export { getJsProcess } from './js'
 export function resolvePrefixOption(options: string | PrefixerOptions): PrefixerOptions {
   return typeof options === 'string'
     ? {
-        prefix: options
-      }
+      prefix: options
+    }
     : options
 }
 
 export function resolveVarPrefixOption(options: string | VarPrefixerOptions): VarPrefixerOptions {
   return typeof options === 'string'
     ? {
-        varPrefix: options
-      }
+      varPrefix: options
+    }
     : options
 }
 

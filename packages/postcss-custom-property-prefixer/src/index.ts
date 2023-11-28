@@ -1,7 +1,7 @@
-import { PluginCreator } from 'postcss'
+import { Declaration, PluginCreator } from 'postcss'
 import { defu } from 'defu'
 import { InternalOptions, UserDefinedOptions } from './types'
-import { PropResolvedMarkSymbol, ValueResolvedMarkSymbol, addMark, getMark } from './symbol'
+import { PropResolvedMarkSymbol, ValueResolvedMarkSymbol } from './symbols'
 import { makeCustomProperty, makePrefixFunction, matchCustomPropertyFromValue, postcssPlugin } from './utils'
 
 const postcssCustomPropertyPrefixer: PluginCreator<UserDefinedOptions> = (options) => {
@@ -24,7 +24,24 @@ const postcssCustomPropertyPrefixer: PluginCreator<UserDefinedOptions> = (option
   })
   const prefix = makePrefixFunction(_prefix)
   const propPrefix = _propPrefix === undefined ? prefix : makePrefixFunction(_propPrefix)
+  const PropResolvedWeakmap = new WeakMap()
+  const ValueResolvedWeakmap = new WeakMap()
 
+  function getPropResolvedMark(decl: Declaration) {
+    return PropResolvedWeakmap.get(decl) === PropResolvedMarkSymbol
+  }
+
+  function addPropResolvedMark(decl: Declaration) {
+    PropResolvedWeakmap.set(decl, PropResolvedMarkSymbol)
+  }
+
+  function getValueResolvedMark(decl: Declaration) {
+    return ValueResolvedWeakmap.get(decl) === ValueResolvedMarkSymbol
+  }
+
+  function addValueResolvedMark(decl: Declaration) {
+    ValueResolvedWeakmap.set(decl, ValueResolvedMarkSymbol)
+  }
   return {
     postcssPlugin,
     prepare() {
@@ -33,11 +50,11 @@ const postcssCustomPropertyPrefixer: PluginCreator<UserDefinedOptions> = (option
           if (ignoreDecl(decl)) {
             return
           }
-          if (transformProp && decl.prop.startsWith('--') && !ignoreProp(decl) && !getMark(decl, PropResolvedMarkSymbol)) {
+          if (transformProp && decl.prop.startsWith('--') && !ignoreProp(decl) && !getPropResolvedMark(decl)) {
             decl.prop = makeCustomProperty(decl.prop, propPrefix(decl, 'prop'))
-            addMark(decl, PropResolvedMarkSymbol)
+            addPropResolvedMark(decl)
           }
-          if (transformValue && !ignoreValue(decl) && !getMark(decl, ValueResolvedMarkSymbol)) {
+          if (transformValue && !ignoreValue(decl) && !getValueResolvedMark(decl)) {
             let value = decl.value
             matchCustomPropertyFromValue(decl.value, (arr) => {
               const customProperty = arr[1]
@@ -47,7 +64,7 @@ const postcssCustomPropertyPrefixer: PluginCreator<UserDefinedOptions> = (option
               value = value.replaceAll(customProperty, makeCustomProperty(customProperty, prefix(decl, 'value')))
             })
             decl.value = value
-            addMark(decl, ValueResolvedMarkSymbol)
+            addValueResolvedMark(decl)
           }
         }
       }

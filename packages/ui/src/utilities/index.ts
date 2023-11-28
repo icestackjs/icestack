@@ -1,4 +1,4 @@
-import { CssInJs } from 'postcss-js'
+import type { CssInJs } from '@icestack/postcss'
 import * as glass from './glass'
 import * as variables from './variables'
 import { preprocessCssInJs } from '@/components/shared'

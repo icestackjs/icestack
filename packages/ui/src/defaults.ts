@@ -1,4 +1,4 @@
-import { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss'
 import type { CodegenOptions, DeepPartial, ComponentsOptions } from './types'
 import { defaultVarPrefix } from './constants'
 import { schemaMap, names as componentNames } from '@/components'

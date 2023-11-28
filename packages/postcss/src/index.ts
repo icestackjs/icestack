@@ -1,14 +1,14 @@
 import postcssJs from 'postcss-js'
 import postcss, { Root, AcceptedPlugin } from 'postcss'
-import type { CodegenOptions, VarPrefixerOptions } from '@icestack/types'
+import type { CodegenOptions, VarPrefixerOptions, PrefixerOptions } from '@icestack/types'
 import prefixer from './prefixer'
-import type { Options as PrefixerOptions } from './prefixer'
-export { VarPrefixerOptions } from '@icestack/types'
-export type { Options as PrefixerOptions } from './prefixer'
+
+export type { VarPrefixerOptions, PrefixerOptions } from '@icestack/types'
+
 export { getPlugin as getCssVarsPrefixerPlugin } from './custom-property-prefixer'
 
-export * from './tailwindcss'
-export * from './js'
+export { initTailwindcssConfig, resolveTailwindcss } from './tailwindcss'
+export { getJsProcess } from './js'
 
 export function resolvePrefixOption(options: string | PrefixerOptions): PrefixerOptions {
   return typeof options === 'string'

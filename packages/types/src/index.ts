@@ -3,8 +3,8 @@ import type { CssInJs } from 'postcss-js'
 import type { GetSchemaFn } from './shared'
 import type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 
-export * from './shared'
-export * from './postcss'
+export { CreatePresetOptions, GetSchemaFn, IDefaults, ISchema, IValue } from './shared'
+export { PrefixerOptions, VarPrefixerOptions } from './postcss'
 
 export type BaseOptions<T extends string = string> = {
   themes: Record<

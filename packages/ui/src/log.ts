@@ -14,7 +14,3 @@ export const logger = {
     return this.logFlag && consola.error(`[${pkgName}]: ${message}`, ...args)
   }
 }
-// const originSuccess = logger.success
-// logger.success = function (...args: any[]) {
-//   return originSuccess.apply(logger, ...args)
-// }

@@ -338,6 +338,9 @@ importers:
       '@icestack/shared':
         specifier: workspace:^
         version: link:../shared
+      '@icestack/types':
+        specifier: workspace:^
+        version: link:../types
       c12:
         specifier: ^1.5.1
         version: 1.5.1

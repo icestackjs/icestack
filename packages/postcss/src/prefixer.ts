@@ -2,12 +2,7 @@
 import Tokenizer from 'css-selector-tokenizer'
 import type { PluginCreator } from 'postcss'
 import { defuOverrideArray } from '@icestack/shared'
-
-export interface Options {
-  prefix?: string
-
-  ignore?: ReadonlyArray<RegExp | string>
-}
+import type { PrefixerOptions } from '@icestack/types'
 
 function itMatchesOne(arr, term) {
   return arr.some((i) => term.search(i) >= 0)
@@ -78,8 +73,8 @@ function iterateSelectorNodes(selector: Tokenizer.SelectorsNode | Tokenizer.Sele
 
 const postcssPlugin = 'addprefix'
 
-const creator: PluginCreator<Options> = (opts = {}) => {
-  const { prefix, ignore } = defuOverrideArray<Options, Options[]>(opts, {
+const creator: PluginCreator<PrefixerOptions> = (opts = {}) => {
+  const { prefix, ignore } = defuOverrideArray<PrefixerOptions, PrefixerOptions[]>(opts, {
     prefix: '',
     ignore: []
   })

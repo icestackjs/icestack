@@ -1,6 +1,6 @@
 {
   "name": "icestack",
-  "version": "0.0.0",
+  "version": "0.1.7",
   "private": true,
   "scripts": {
     "build": "turbo run build --filter=./packages/*",
@@ -13,7 +13,8 @@
     "release": "turbo run release",
     "publish-packages": "pnpm build:plugins && pnpm build && pnpm test && changeset version && changeset publish",
     "preinstall": "npx only-allow pnpm",
-    "sync": "cnpm sync css-to-tailwindcss-plugin compose-tailwindcss-plugins postcss-custom-property-prefixer @icestack/ui"
+    "sync": "cnpm sync css-to-tailwindcss-plugin compose-tailwindcss-plugins postcss-custom-property-prefixer @icestack/ui",
+    "bump": "bumpp -r"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
@@ -26,6 +27,7 @@
     "@typescript-eslint/eslint-plugin": "^6.13.1",
     "@typescript-eslint/parser": "^6.13.1",
     "@vitest/coverage-v8": "^0.34.6",
+    "bumpp": "^9.2.0",
     "ci-info": "^4.0.0",
     "clsx": "^2.0.0",
     "cross-env": "^7.0.3",

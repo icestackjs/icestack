@@ -1,6 +1,6 @@
 {
   "name": "@icestack/types",
-  "version": "0.0.2",
+  "version": "0.1.7",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

@@ -1,4 +1,4 @@
-import { getSelector } from '../shared'
+import { getSelector } from '@icestack/shared'
 import { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {

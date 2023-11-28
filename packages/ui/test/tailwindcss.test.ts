@@ -1,5 +1,5 @@
 import { icestackPlugin } from '@/tailwindcss'
-import { miniprogramPreset } from '@/presets'
+// import { miniprogramPreset } from '@/presets'
 import { getCss } from '@/utils'
 describe.skip('tailwindcss', () => {
   it('not throw', () => {
@@ -46,21 +46,21 @@ describe.skip('tailwindcss', () => {
     expect(css).toMatchSnapshot()
   })
 
-  it('use plugin case 2', async () => {
-    const { css } = await getCss({
-      content: [
-        {
-          raw: 'btn'
-        }
-      ],
-      plugins: [
-        icestackPlugin({
-          presets: [miniprogramPreset()]
-        })
-      ]
-    })
-    expect(css).toMatchSnapshot()
-  })
+  // it('use plugin case 2', async () => {
+  //   const { css } = await getCss({
+  //     content: [
+  //       {
+  //         raw: 'btn'
+  //       }
+  //     ],
+  //     plugins: [
+  //       icestackPlugin({
+  //         presets: [miniprogramPreset()]
+  //       })
+  //     ]
+  //   })
+  //   expect(css).toMatchSnapshot()
+  // })
 
   // const { default: base } = await import('../assets/js/base/index.js')
   // const { default: components } = await import('../assets/js/components/index.js')

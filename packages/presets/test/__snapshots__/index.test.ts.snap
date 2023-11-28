@@ -1,0 +1,111 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`mp > miniprogramPreset snap 1`] = `
+{
+  "base": {
+    "themes": {
+      "dark": {
+        "selector": ".dark",
+      },
+      "light": {
+        "selector": "page",
+      },
+    },
+  },
+  "components": {
+    "button": {
+      "extra": {
+        ".btn": {
+          "css": {
+            "border-style": "solid",
+          },
+        },
+        ".btn::after": {
+          "css": {
+            "border": "none",
+          },
+        },
+      },
+    },
+    "checkbox": {
+      "prefix": {
+        "ignore": [
+          ".wx-checkbox",
+        ],
+      },
+      "schema": [Function],
+    },
+    "countdown": {
+      "extra": {
+        ".countdown": {
+          "& > *": {
+            "css": {
+              "line-height": "1em",
+            },
+          },
+        },
+      },
+    },
+    "diff": false,
+    "input": {
+      "extra": {
+        ".input": {
+          "css": {
+            "border-style": "solid",
+          },
+        },
+      },
+    },
+    "radio": {
+      "prefix": {
+        "ignore": [
+          ".wx-radio",
+        ],
+      },
+      "schema": [Function],
+    },
+    "range": {
+      "prefix": {
+        "ignore": [
+          ".wx-slider",
+        ],
+      },
+      "schema": [Function],
+      "selector": ".range",
+    },
+    "select": false,
+    "table": {
+      "schema": [Function],
+    },
+    "textarea": {
+      "extra": {
+        ".textarea": {
+          "css": {
+            "border-style": "solid",
+          },
+        },
+      },
+    },
+    "toggle": {
+      "prefix": {
+        "ignore": [
+          ".wx-switch",
+          ".wx-checkbox",
+        ],
+      },
+      "schema": [Function],
+    },
+    "tooltip": false,
+  },
+  "global": {
+    "atMedia": {
+      "hover": false,
+    },
+    "pseudo": {},
+    "selector": {
+      "root": "page",
+      "universal": "view",
+    },
+  },
+}
+`;

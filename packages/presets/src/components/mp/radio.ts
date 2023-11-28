@@ -1,20 +1,21 @@
-import { expandTypes, getSelector } from '../shared'
+import { expandTypes, getSelector } from '@icestack/shared'
 import { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
   prefix: {
-    ignore: ['.wx-checkbox']
+    ignore: ['.wx-radio']
   },
   schema: (opts) => {
     const { selector, types } = opts
     return {
       selector,
+
       defaults: {
         base: {
           [selector]: {
-            '.wx-checkbox-input': {
-              apply: 'h-5 w-5 rounded-sm', // rounded-full',
-              '&.wx-checkbox-input-checked': {
+            '.wx-radio-input': {
+              apply: 'h-5 w-5 rounded-full',
+              '&.wx-radio-input-checked': {
                 '&::before': {
                   apply: 'h-4 w-4 leading-4',
                   css: {
@@ -37,9 +38,9 @@ const options: Partial<ComponentsValue> = {
               return {
                 key: `&${getSelector(type)}`,
                 value: {
-                  '.wx-checkbox-input': {
-                    '&.wx-checkbox-input-checked': {
-                      apply: `border-${type} bg-${type}`,
+                  '.wx-radio-input': {
+                    '&.wx-radio-input-checked': {
+                      apply: `border-${type} bg-${type} !important`,
                       '&::before': {
                         css: {
                           color: '#ffffff',
@@ -56,9 +57,9 @@ const options: Partial<ComponentsValue> = {
         utils: {
           [selector]: {
             [`&${getSelector('xs')}`]: {
-              '.wx-checkbox-input': {
+              '.wx-radio-input': {
                 apply: 'h-3 w-3',
-                '&.wx-checkbox-input-checked': {
+                '&.wx-radio-input-checked': {
                   '&::before': {
                     apply: 'h-2 w-2 leading-2',
                     css: {
@@ -69,9 +70,9 @@ const options: Partial<ComponentsValue> = {
               }
             },
             [`&${getSelector('sm')}`]: {
-              '.wx-checkbox-input': {
+              '.wx-radio-input': {
                 apply: 'h-4 w-4',
-                '&.wx-checkbox-input-checked': {
+                '&.wx-radio-input-checked': {
                   '&::before': {
                     apply: 'h-3 w-3 leading-3',
                     css: {
@@ -82,9 +83,9 @@ const options: Partial<ComponentsValue> = {
               }
             },
             [`&${getSelector('md')}`]: {
-              '.wx-checkbox-input': {
+              '.wx-radio-input': {
                 apply: 'h-5 w-5',
-                '&.wx-checkbox-input-checked': {
+                '&.wx-radio-input-checked': {
                   '&::before': {
                     apply: 'h-4 w-4 leading-4',
                     css: {
@@ -95,9 +96,9 @@ const options: Partial<ComponentsValue> = {
               }
             },
             [`&${getSelector('lg')}`]: {
-              '.wx-checkbox-input': {
+              '.wx-radio-input': {
                 apply: 'h-6 w-6',
-                '&.wx-checkbox-input-checked': {
+                '&.wx-radio-input-checked': {
                   '&::before': {
                     apply: 'h-5 w-5 leading-5',
                     css: {
@@ -108,12 +109,12 @@ const options: Partial<ComponentsValue> = {
               }
             },
             [`&${getSelector('circle')}`]: {
-              '.wx-checkbox-input': {
+              '.wx-radio-input': {
                 apply: 'rounded-full'
               }
             },
             [`&${getSelector('square')}`]: {
-              '.wx-checkbox-input': {
+              '.wx-radio-input': {
                 apply: 'rounded-sm'
               }
             }

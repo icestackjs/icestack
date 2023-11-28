@@ -257,6 +257,12 @@ importers:
 
   packages/presets:
     dependencies:
+      '@icestack/shared':
+        specifier: workspace:^
+        version: link:../shared
+      '@icestack/types':
+        specifier: workspace:^
+        version: link:../types
       defu:
         specifier: ^6.1.3
         version: 6.1.3
@@ -369,6 +375,9 @@ importers:
         specifier: 3.3.5
         version: 3.3.5(ts-node@10.9.1)
     devDependencies:
+      '@icestack/presets':
+        specifier: workspace:^
+        version: link:../presets
       '@types/css-selector-tokenizer':
         specifier: ^0.7.4
         version: 0.7.4

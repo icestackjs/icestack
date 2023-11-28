@@ -3,7 +3,7 @@ import fs from 'node:fs'
 import { deleteAsync } from 'del'
 import { getCodegenOptions } from '@/options'
 import { createContext } from '@/context'
-import { miniprogramPreset } from '@/presets'
+import { miniprogramPreset } from '@icestack/presets'
 function resolve(...p: string[]) {
   return path.resolve(__dirname, './fixtures/generate', ...p)
 }

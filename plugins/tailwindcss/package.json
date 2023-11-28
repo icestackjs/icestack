@@ -28,5 +28,8 @@
     "@icestack/logger": "workspace:^",
     "@icestack/postcss": "workspace:^",
     "@icestack/types": "workspace:^"
+  },
+  "devDependencies": {
+    "@icestack/ui": "workspace:^"
   }
 }

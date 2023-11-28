@@ -41,7 +41,7 @@
     "icestack": "bin/icestack.js"
   },
   "scripts": {
-    "build": "npm run clean && npm run build:all && npm run static && npm run build:plugin",
+    "build": "npm run build:all && npm run static && npm run build:plugin",
     "build:all": "ts-node --esm scripts/build-scss.ts",
     "dev": "npm run clean && npm run build:all && unbuild --sourcemap",
     "build:plugin": "unbuild",
@@ -85,7 +85,6 @@
   },
   "devDependencies": {
     "@icestack/presets": "workspace:^",
-    "@icestack/tailwindcss": "workspace:^",
     "@types/css-selector-tokenizer": "^0.7.4",
     "@types/deasync": "^0.1.5",
     "@types/fibers": "^3.1.4",

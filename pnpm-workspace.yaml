@@ -1,5 +1,6 @@
 packages:
   #  - "apps/*"
+  - "plugins/*"
   - "packages/*"
   - "!playground/*"
   - "website"

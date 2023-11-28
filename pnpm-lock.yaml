@@ -301,18 +301,6 @@ importers:
         specifier: ^6.0.13
         version: 6.0.13
 
-  packages/tailwindcss:
-    dependencies:
-      '@icestack/logger':
-        specifier: workspace:^
-        version: link:../logger
-      '@icestack/postcss':
-        specifier: workspace:^
-        version: link:../postcss
-      '@icestack/types':
-        specifier: workspace:^
-        version: link:../types
-
   packages/theme-algorithm:
     dependencies:
       '@ctrl/tinycolor':
@@ -404,9 +392,6 @@ importers:
       '@icestack/presets':
         specifier: workspace:^
         version: link:../presets
-      '@icestack/tailwindcss':
-        specifier: workspace:^
-        version: link:../tailwindcss
       '@types/css-selector-tokenizer':
         specifier: ^0.7.4
         version: 0.7.4
@@ -479,6 +464,22 @@ importers:
       svg64:
         specifier: ^2.0.0
         version: 2.0.0
+
+  plugins/tailwindcss:
+    dependencies:
+      '@icestack/logger':
+        specifier: workspace:^
+        version: link:../../packages/logger
+      '@icestack/postcss':
+        specifier: workspace:^
+        version: link:../../packages/postcss
+      '@icestack/types':
+        specifier: workspace:^
+        version: link:../../packages/types
+    devDependencies:
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
 
   storybook:
     dependencies:

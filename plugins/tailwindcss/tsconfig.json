@@ -7,7 +7,7 @@
         "src/*"
       ],
       "#/*": [
-        "../ui/*"
+        "../../packages/ui"
       ]
     },
     "allowJs": true

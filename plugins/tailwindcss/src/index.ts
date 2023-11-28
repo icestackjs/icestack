@@ -3,14 +3,14 @@ import fs from 'node:fs'
 import plugin from 'tailwindcss/plugin'
 import merge from 'merge'
 import type { CssInJs } from 'postcss-js'
-import type { PluginCreator } from 'tailwindcss/types/config'
+import type { CSSRuleObject, PluginCreator } from 'tailwindcss/types/config'
 // import objHash from 'object-hash'
 import type { DeepPartial, TailwindcssPluginOptions } from '@icestack/types'
 import { getJsProcess } from '@icestack/postcss'
 import { logger } from '@icestack/logger'
-import type * as _base from '#/assets/js/base/index.js'
-import type * as _components from '#/assets/js/components/index.js'
-import type * as _utilities from '#/assets/js/utilities/index.js'
+// import type * as _base from '#/assets/js/base/index.js'
+// import type * as _components from '#/assets/js/components/index.js'
+// import type * as _utilities from '#/assets/js/utilities/index.js'
 
 function requireLib(id: string, basedir?: string) {
   return require(basedir ? path.resolve(basedir, id) : path.join('../assets', id))
@@ -33,15 +33,30 @@ export const icestackPlugin = plugin.withOptions(
           logger.warn(`Can not find loadDirPath:${loadDirPath}, make sure this dir is existed`)
           return noop
         }
-        const base = requireLib('js/base/index.js', loadDirPath) as typeof _base
-        const components = requireLib('js/components/index.js', loadDirPath) as typeof _components
-        const utilities = requireLib('js/utilities/index.js', loadDirPath) as typeof _utilities
+        const base = requireLib('js/base/index.js', loadDirPath) as {
+          base: CSSRuleObject | CSSRuleObject[]
+          styled: CSSRuleObject | CSSRuleObject[]
+          utils: CSSRuleObject | CSSRuleObject[]
+        }
+        const components = requireLib('js/components/index.js', loadDirPath) as Record<
+          string,
+          {
+            base: CSSRuleObject | CSSRuleObject[]
+            styled: CSSRuleObject | CSSRuleObject[]
+            utils: CSSRuleObject | CSSRuleObject[]
+          }
+        >
+        const utilities = requireLib('js/utilities/index.js', loadDirPath) as {
+          base: CSSRuleObject | CSSRuleObject[]
+          styled: CSSRuleObject | CSSRuleObject[]
+          utils: CSSRuleObject | CSSRuleObject[]
+        }
         if (base && components && utilities) {
           const componentsEntries = Object.entries(components)
           const utilitiesEntries = Object.entries(utilities)
           const { baseProcess, componentsProcess, utilitiesProcess } = getJsProcess()
 
-          const baseObj = baseProcess(base)
+          const baseObj = baseProcess(base) as CSSRuleObject | CSSRuleObject[]
 
           return function ({ addBase, addComponents, addUtilities }) {
             addBase(baseObj)

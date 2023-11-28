@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build": "turbo run build --filter='./packages/*' --filter=!@icestack/tailwindcss",
-    "build:plugins": "turbo run build --filter=@icestack/tailwindcss",
+    "build": "turbo run build --filter=./packages/*",
+    "build:plugins": "turbo run build --filter=./plugins/*",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

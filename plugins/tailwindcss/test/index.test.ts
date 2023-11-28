@@ -1,8 +1,16 @@
 import path from 'node:path'
-import { icestackPlugin } from '@icestack/tailwindcss'
+import { createContext } from '@icestack/ui'
+import { getCss } from './utils'
+import { icestackPlugin } from '@/index'
 // import { miniprogramPreset } from '@icestack/presets'
-import { getCss } from '@/utils'
 describe('tailwindcss', () => {
+  const outdir = path.resolve(__dirname, 'assets')
+  beforeAll(async () => {
+    const ctx = createContext({
+      outdir
+    })
+    await ctx.build()
+  })
   it('not throw', () => {
     expect(() => {
       icestackPlugin({})
@@ -18,7 +26,7 @@ describe('tailwindcss', () => {
       ],
       plugins: [
         icestackPlugin({
-          loaddir: path.resolve(__dirname, '../assets')
+          loaddir: outdir
         })
       ]
     })

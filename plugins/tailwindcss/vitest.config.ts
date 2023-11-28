@@ -10,7 +10,7 @@ export default defineProject({
       },
       {
         find: '#',
-        replacement: path.resolve(__dirname, '../ui')
+        replacement: path.resolve(__dirname, '../../packages/ui')
       }
     ],
     globals: true,

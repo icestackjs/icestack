@@ -1,4 +1,4 @@
-const { icestackPlugin, miniprogramPreset } = require('@icestack/ui/tailwindcss')
+const { icestackPlugin } = require('@icestack/tailwindcss')
 const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
 const path = require('path')
 /** @type {import('tailwindcss').Config} */

@@ -25,7 +25,7 @@ async function main() {
   })
   set(j, 'condition.miniprogram.list', items)
 
-  fs.writeFileSync(jp, JSON.stringify(j), 'utf8')
+  fs.writeFileSync(jp, JSON.stringify(j, null, 2), 'utf8')
 }
 
 main()

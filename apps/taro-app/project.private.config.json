@@ -152,6 +152,13 @@
           "scene": null
         },
         {
+          "name": "steps",
+          "pathName": "pages/index/component",
+          "query": "id=steps",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "table",
           "pathName": "pages/index/component",
           "query": "id=table",

@@ -1,4 +1,4 @@
-const { miniprogramPreset } = require('@icestack/ui/presets')
+const { miniprogramPreset } = require('@icestack/presets')
 const { expandTypes, getSelector, transformCss2Js } = require('@icestack/ui/components')
 /**
  * @type {import('@icestack/ui').Config}
@@ -19,6 +19,7 @@ const config = {
         @apply text-slate-500 dark:text-slate-300 text-xs pt-2 pb-3 break-all;
       }`),
     },
+    steps: false
 
 
 

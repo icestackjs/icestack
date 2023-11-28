@@ -14,16 +14,16 @@ export { getJsProcess } from './js'
 export function resolvePrefixOption(options: string | PrefixerOptions): PrefixerOptions {
   return typeof options === 'string'
     ? {
-      prefix: options
-    }
+        prefix: options
+      }
     : options
 }
 
 export function resolveVarPrefixOption(options: string | VarPrefixerOptions): VarPrefixerOptions {
   return typeof options === 'string'
     ? {
-      varPrefix: options
-    }
+        varPrefix: options
+      }
     : options
 }
 

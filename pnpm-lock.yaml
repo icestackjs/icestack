@@ -26,6 +26,9 @@ importers:
       '@types/lodash':
         specifier: ^4.14.202
         version: 4.14.202
+      '@types/postcss-js':
+        specifier: ^4.0.4
+        version: 4.0.4
       '@typescript-eslint/eslint-plugin':
         specifier: ^6.13.1
         version: 6.13.1(@typescript-eslint/parser@6.13.1)(eslint@8.54.0)(typescript@5.3.2)
@@ -5487,6 +5490,12 @@ packages:
 
   /@types/postcss-import@14.0.3:
     resolution: {integrity: sha512-raZhRVTf6Vw5+QbmQ7LOHSDML71A5rj4+EqDzAbrZPfxfoGzFxMHRCq16VlddGIZpHELw0BG4G0YE2ANkdZiIQ==}
+    dependencies:
+      postcss: 8.4.31
+    dev: true
+
+  /@types/postcss-js@4.0.4:
+    resolution: {integrity: sha512-j5+GMZVIPCJpRTwI/mO64mCzv7X+zAEq3JP0EV2lo/BrLWHAohEubUJimIAY23rH27+wKce0fXUYjAdBoqlaYw==}
     dependencies:
       postcss: 8.4.31
     dev: true

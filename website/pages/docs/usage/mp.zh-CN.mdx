@@ -1,11 +1,20 @@
 # 在微信小程序里使用
 
-`@icestack/ui` 内部实现了一套预设来兼容微信小程序
+`@icestack/presets` 内部实现了一套预设来兼容微信小程序
 
-你可以使用 `@icestack/ui/presets` 中导出的 `miniprogramPreset` 来构建出小程序版本的默认 `ui` 库
+你可以使用 `@icestack/presets` 中导出的 `miniprogramPreset` 来构建出小程序版本的默认 `ui` 库
 
-```js
-const { miniprogramPreset } = require('@icestack/ui/presets')
+首先我们安装 `@icestack/presets`
+
+```sh
+# yarn / pnpm
+npm i -D @icestack/presets
+```
+
+然后在 `icestack.config.js` 中注册
+
+```js filename="icestack.config.js"
+const { miniprogramPreset } = require('@icestack/presets')
 /**
  * @type {import('@icestack/ui').Config}
  */
@@ -18,10 +27,10 @@ const config = {
 module.exports = config
 ```
 
-这样你执行:
+这样你执行命令:
 
 ```bash
 npx icestack build
 ```
 
-的时候，构建出的就是适配小程序的库了。
+构建出的就是适配小程序的库了。

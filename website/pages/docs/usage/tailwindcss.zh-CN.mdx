@@ -6,9 +6,16 @@
 
 比如我们要把生成文件放在当前目录的 `my-ui` 文件夹内，我们可以传递这样一个 `outdir` 参数
 
+然后我们安装 `@icestack/tailwindcss`
+
+```sh
+# yarn / pnpm
+npm i -D @icestack/tailwindcss
+```
+
 ```js filename="tailwind.config.js"
 const path = require('node:path')
-const { icestackPlugin } = require('@icestack/ui/tailwindcss')
+const { icestackPlugin } = require('@icestack/tailwindcss')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

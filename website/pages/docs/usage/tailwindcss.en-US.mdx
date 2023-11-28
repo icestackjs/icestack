@@ -6,9 +6,14 @@ By default `@icestack/ui` will generate all resource files locally, you need to 
 
 For example, if we want to place the generated files in the `my-ui` folder in the current directory, we can pass an `outdir` parameter like this
 
+```sh
+# yarn / pnpm
+npm i -D @icestack/tailwindcss
+```
+
 ```js filename="tailwind.config.js"
 const path = require('node:path')
-const { icestackPlugin } = require('@icestack/ui/tailwindcss')
+const { icestackPlugin } = require('@icestack/tailwindcss')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

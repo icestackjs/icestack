@@ -1,34 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`presets > defuCodegenOptions case 0 1`] = `
-{
-  "prefix": "ice-",
-}
-`;
-
-exports[`presets > defuCodegenOptions case 1 1`] = `
-{
-  "prefix": {
-    "ignore": [
-      ".aa",
-      ".wx",
-    ],
-    "prefix": "ice-",
-  },
-}
-`;
-
-exports[`presets > defuCodegenOptions case 2 1`] = `
-{
-  "prefix": {
-    "ignore": [
-      ".aa",
-    ],
-    "prefix": "ice-",
-  },
-}
-`;
-
 exports[`presets > miniprogramPreset 1`] = `
 {
   "base": {

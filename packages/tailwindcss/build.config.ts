@@ -17,8 +17,7 @@ export default defineBuildConfig({
   },
   alias: {
     // 别名
-    '@': path.resolve(__dirname, './src'),
-    '#': path.resolve(__dirname, '../../packages/ui')
+    '@': path.resolve(__dirname, './src')
   },
   // dts
   declaration: true

@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.4.0",
+    "@icestack/tailwindcss": "workspace:^",
     "@icestack/ui": "workspace:^",
     "@iconify-json/mdi": "^1.1.57",
     "@types/klaw": "^3.0.6",

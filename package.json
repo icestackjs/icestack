@@ -11,7 +11,7 @@
     "test": "turbo run test --filter='./packages/*'",
     "test2": "vitest run",
     "release": "turbo run release",
-    "publish-packages": "pnpm build && pnpm build:plugins && pnpm test && changeset version && changeset publish",
+    "publish-packages": "pnpm build:plugins && pnpm build && pnpm test && changeset version && changeset publish",
     "preinstall": "npx only-allow pnpm",
     "sync": "cnpm sync css-to-tailwindcss-plugin compose-tailwindcss-plugins postcss-custom-property-prefixer @icestack/ui"
   },

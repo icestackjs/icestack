@@ -108,88 +108,6 @@ importers:
         specifier: ^0.34.6
         version: 0.34.6(sass@1.69.5)
 
-  packages/compose-tailwindcss-plugins:
-    devDependencies:
-      '@tailwindcss/aspect-ratio':
-        specifier: ^0.4.2
-        version: 0.4.2(tailwindcss@3.3.5)
-      '@tailwindcss/container-queries':
-        specifier: ^0.1.1
-        version: 0.1.1(tailwindcss@3.3.5)
-      '@tailwindcss/forms':
-        specifier: ^0.5.7
-        version: 0.5.7(tailwindcss@3.3.5)
-      '@tailwindcss/typography':
-        specifier: ^0.5.10
-        version: 0.5.10(tailwindcss@3.3.5)
-      merge:
-        specifier: ^2.1.1
-        version: 2.1.1
-      postcss:
-        specifier: ^8.4.31
-        version: 8.4.31
-      tailwindcss:
-        specifier: ^3.3.5
-        version: 3.3.5(ts-node@10.9.1)
-
-  packages/css-to-tailwindcss-plugin:
-    dependencies:
-      '@babel/generator':
-        specifier: ^7.23.4
-        version: 7.23.4
-      '@babel/types':
-        specifier: ^7.23.4
-        version: 7.23.4
-      cac:
-        specifier: ^6.7.14
-        version: 6.7.14
-      compose-tailwindcss-plugins:
-        specifier: workspace:^
-        version: link:../compose-tailwindcss-plugins
-      md5:
-        specifier: ^2.3.0
-        version: 2.3.0
-      postcss:
-        specifier: ^8.4.31
-        version: 8.4.31
-      postcss-import:
-        specifier: ^15.1.0
-        version: 15.1.0(postcss@8.4.31)
-    devDependencies:
-      '@babel/standalone':
-        specifier: ^7.23.4
-        version: 7.23.4
-      '@types/babel__generator':
-        specifier: ^7.6.7
-        version: 7.6.7
-      '@types/babel__standalone':
-        specifier: ^7.1.7
-        version: 7.1.7
-      '@types/md5':
-        specifier: ^2.3.5
-        version: 2.3.5
-      '@types/object-hash':
-        specifier: ^3.0.6
-        version: 3.0.6
-      '@types/postcss-import':
-        specifier: ^14.0.3
-        version: 14.0.3
-      c12:
-        specifier: ^1.5.1
-        version: 1.5.1
-      del:
-        specifier: ^7.1.0
-        version: 7.1.0
-      object-hash:
-        specifier: ^3.0.0
-        version: 3.0.0
-      sass:
-        specifier: ^1.69.5
-        version: 1.69.5
-      tailwindcss:
-        specifier: ^3.3.5
-        version: 3.3.5(ts-node@10.9.1)
-
   packages/logger:
     dependencies:
       consola:
@@ -225,7 +143,7 @@ importers:
         version: 8.4.31
       postcss-custom-property-prefixer:
         specifier: workspace:^
-        version: link:../postcss-custom-property-prefixer
+        version: link:../../plugins/postcss-custom-property-prefixer
       postcss-js:
         specifier: ^4.0.1
         version: 4.0.1(postcss@8.4.31)
@@ -236,12 +154,6 @@ importers:
       tailwindcss:
         specifier: ^3.3.5
         version: 3.3.5(ts-node@10.9.1)
-
-  packages/postcss-custom-property-prefixer:
-    devDependencies:
-      postcss:
-        specifier: ^8.4.31
-        version: 8.4.31
 
   packages/presets:
     dependencies:
@@ -266,6 +178,22 @@ importers:
       postcss-selector-parser:
         specifier: ^6.0.13
         version: 6.0.13
+
+  packages/tailwindcss:
+    dependencies:
+      '@icestack/logger':
+        specifier: workspace:^
+        version: link:../logger
+      '@icestack/postcss':
+        specifier: workspace:^
+        version: link:../postcss
+      '@icestack/types':
+        specifier: workspace:^
+        version: link:../types
+    devDependencies:
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../ui
 
   packages/theme-algorithm:
     dependencies:
@@ -356,10 +284,10 @@ importers:
         version: 5.0.4
       compose-tailwindcss-plugins:
         specifier: workspace:^
-        version: link:../compose-tailwindcss-plugins
+        version: link:../../plugins/compose-tailwindcss-plugins
       css-to-tailwindcss-plugin:
         specifier: workspace:^
-        version: link:../css-to-tailwindcss-plugin
+        version: link:../../plugins/css-to-tailwindcss-plugin
       del:
         specifier: ^7.1.0
         version: 7.1.0
@@ -403,21 +331,93 @@ importers:
         specifier: 3.3.5
         version: 3.3.5(ts-node@10.9.1)
 
-  plugins/tailwindcss:
-    dependencies:
-      '@icestack/logger':
-        specifier: workspace:^
-        version: link:../../packages/logger
-      '@icestack/postcss':
-        specifier: workspace:^
-        version: link:../../packages/postcss
-      '@icestack/types':
-        specifier: workspace:^
-        version: link:../../packages/types
+  plugins/compose-tailwindcss-plugins:
     devDependencies:
-      '@icestack/ui':
+      '@tailwindcss/aspect-ratio':
+        specifier: ^0.4.2
+        version: 0.4.2(tailwindcss@3.3.5)
+      '@tailwindcss/container-queries':
+        specifier: ^0.1.1
+        version: 0.1.1(tailwindcss@3.3.5)
+      '@tailwindcss/forms':
+        specifier: ^0.5.7
+        version: 0.5.7(tailwindcss@3.3.5)
+      '@tailwindcss/typography':
+        specifier: ^0.5.10
+        version: 0.5.10(tailwindcss@3.3.5)
+      merge:
+        specifier: ^2.1.1
+        version: 2.1.1
+      postcss:
+        specifier: ^8.4.31
+        version: 8.4.31
+      tailwindcss:
+        specifier: ^3.3.5
+        version: 3.3.5(ts-node@10.9.1)
+
+  plugins/css-to-tailwindcss-plugin:
+    dependencies:
+      '@babel/generator':
+        specifier: ^7.23.4
+        version: 7.23.4
+      '@babel/types':
+        specifier: ^7.23.4
+        version: 7.23.4
+      cac:
+        specifier: ^6.7.14
+        version: 6.7.14
+      compose-tailwindcss-plugins:
         specifier: workspace:^
-        version: link:../../packages/ui
+        version: link:../compose-tailwindcss-plugins
+      md5:
+        specifier: ^2.3.0
+        version: 2.3.0
+      postcss:
+        specifier: ^8.4.31
+        version: 8.4.31
+      postcss-import:
+        specifier: ^15.1.0
+        version: 15.1.0(postcss@8.4.31)
+    devDependencies:
+      '@babel/standalone':
+        specifier: ^7.23.4
+        version: 7.23.4
+      '@types/babel__generator':
+        specifier: ^7.6.7
+        version: 7.6.7
+      '@types/babel__standalone':
+        specifier: ^7.1.7
+        version: 7.1.7
+      '@types/md5':
+        specifier: ^2.3.5
+        version: 2.3.5
+      '@types/object-hash':
+        specifier: ^3.0.6
+        version: 3.0.6
+      '@types/postcss-import':
+        specifier: ^14.0.3
+        version: 14.0.3
+      c12:
+        specifier: ^1.5.1
+        version: 1.5.1
+      del:
+        specifier: ^7.1.0
+        version: 7.1.0
+      object-hash:
+        specifier: ^3.0.0
+        version: 3.0.0
+      sass:
+        specifier: ^1.69.5
+        version: 1.69.5
+      tailwindcss:
+        specifier: ^3.3.5
+        version: 3.3.5(ts-node@10.9.1)
+
+  plugins/postcss-custom-property-prefixer:
+    devDependencies:
+      postcss:
+        specifier: ^8.4.31
+        version: 8.4.31
 
   storybook:
     dependencies:
@@ -461,6 +461,9 @@ importers:
       '@egoist/tailwindcss-icons':
         specifier: ^1.4.0
         version: 1.4.0(tailwindcss@3.3.5)
+      '@icestack/tailwindcss':
+        specifier: workspace:^
+        version: link:../packages/tailwindcss
       '@iconify-json/mdi':
         specifier: ^1.1.57
         version: 1.1.57
@@ -583,7 +586,7 @@ importers:
         version: 2.0.0
       css-to-tailwindcss-plugin:
         specifier: workspace:^
-        version: link:../packages/css-to-tailwindcss-plugin
+        version: link:../plugins/css-to-tailwindcss-plugin
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -609,6 +612,9 @@ importers:
       '@egoist/tailwindcss-icons':
         specifier: ^1.4.0
         version: 1.4.0(tailwindcss@3.3.5)
+      '@icestack/tailwindcss':
+        specifier: workspace:^
+        version: link:../packages/tailwindcss
       '@icestack/ui':
         specifier: workspace:^
         version: link:../packages/ui
@@ -754,7 +760,7 @@ packages:
       '@babel/helper-compilation-targets': 7.22.15
       '@babel/helper-module-transforms': 7.23.0(@babel/core@7.23.2)
       '@babel/helpers': 7.23.2
-      '@babel/parser': 7.23.3
+      '@babel/parser': 7.23.4
       '@babel/template': 7.22.15
       '@babel/traverse': 7.23.3
       '@babel/types': 7.23.4
@@ -1045,6 +1051,7 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.23.4
+    dev: true
 
   /@babel/parser@7.23.4:
     resolution: {integrity: sha512-vf3Xna6UEprW+7t6EtOmFpHNAuxw3xqPZghy+brsnusscJRW5BMUzzHZc5ICjULee81WeUV2jjakG09MDglJXQ==}
@@ -1052,7 +1059,6 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.23.4
-    dev: true
 
   /@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@7.23.3(@babel/core@7.23.3):
     resolution: {integrity: sha512-iRkKcCqb7iGnq9+3G6rZ+Ciz5VywC4XNRHe57lKM+jOeYAoR0lVqdeeDRfh0tQcTfw/+vBhHn926FmQhLtlFLQ==}
@@ -2039,7 +2045,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/code-frame': 7.22.13
-      '@babel/parser': 7.23.3
+      '@babel/parser': 7.23.4
       '@babel/types': 7.23.4
 
   /@babel/traverse@7.23.3:
@@ -2052,7 +2058,7 @@ packages:
       '@babel/helper-function-name': 7.23.0
       '@babel/helper-hoist-variables': 7.22.5
       '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/parser': 7.23.3
+      '@babel/parser': 7.23.4
       '@babel/types': 7.23.4
       debug: 4.3.4
       globals: 11.12.0
@@ -4896,7 +4902,7 @@ packages:
     resolution: {integrity: sha512-fiOUnHKFi/UZSfvc53F0WEQCiquqcSqslL3f5EffwQRiXfeXlGavJb0kU03BO+CvOXcliRn6qKSF2dL0Rgb7Xw==}
     dependencies:
       '@storybook/channels': 7.5.0
-      '@types/babel__core': 7.20.4
+      '@types/babel__core': 7.20.5
       '@types/express': 4.17.20
       file-system-cache: 2.3.0
     dev: true
@@ -5027,16 +5033,6 @@ packages:
     resolution: {integrity: sha512-PHKZuMN+K5qgKIWhBodXzQslTo5P+K/6LqeKXS6O/4liIDdZqaX5RXrCK++LAw+y/nptN48YmUMFiQHRSWYwtQ==}
     dev: true
 
-  /@types/babel__core@7.20.4:
-    resolution: {integrity: sha512-mLnSC22IC4vcWiuObSRjrLd9XcBTGf59vUSoq2jkQDJ/QQ8PMI9rSuzE+aEV8karUMbskw07bKYoUJCKTUaygg==}
-    dependencies:
-      '@babel/parser': 7.23.3
-      '@babel/types': 7.23.4
-      '@types/babel__generator': 7.6.7
-      '@types/babel__template': 7.4.4
-      '@types/babel__traverse': 7.20.4
-    dev: true
-
   /@types/babel__core@7.20.5:
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
     dependencies:
@@ -5056,13 +5052,13 @@ packages:
   /@types/babel__standalone@7.1.7:
     resolution: {integrity: sha512-4RUJX9nWrP/emaZDzxo/+RYW8zzLJTXWJyp2k78HufG459HCz754hhmSymt3VFOU6/Wy+IZqfPvToHfLuGOr7w==}
     dependencies:
-      '@types/babel__core': 7.20.4
+      '@types/babel__core': 7.20.5
     dev: true
 
   /@types/babel__template@7.4.4:
     resolution: {integrity: sha512-h/NUaSyG5EyxBIp8YRxo4RMe2/qQgvyowRwVMzhYhBCONbW8PUsg4lkFMrhgZhUe5z3L3MiLDuvyJ/CaPa2A8A==}
     dependencies:
-      '@babel/parser': 7.23.3
+      '@babel/parser': 7.23.4
       '@babel/types': 7.23.4
     dev: true
 
@@ -12683,8 +12679,8 @@ packages:
       esbuild: 0.18.20
       fs-extra: 11.1.1
       globby: 13.2.2
-      jiti: 1.20.0
-      mlly: 1.4.1
+      jiti: 1.21.0
+      mlly: 1.4.2
       mri: 1.2.0
       pathe: 1.1.1
       sass: 1.69.5
@@ -16172,7 +16168,7 @@ packages:
       '@babel/standalone': 7.23.4
       '@babel/types': 7.23.4
       defu: 6.1.3
-      jiti: 1.20.0
+      jiti: 1.21.0
       mri: 1.2.0
       scule: 1.0.0
     transitivePeerDependencies:

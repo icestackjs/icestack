@@ -1,5 +1,5 @@
 const path = require('node:path')
-const { icestackPlugin } = require('@icestack/ui/tailwindcss')
+const { icestackPlugin } = require('@icestack/tailwindcss')
 const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
 // const plugin = require('tailwindcss/plugin')
 // const plugin = require('tailwindcss/plugin')

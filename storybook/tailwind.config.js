@@ -1,6 +1,6 @@
 const path = require('node:path')
 const fs = require('node:fs')
-const { icestackPlugin } = require('@icestack/ui/tailwindcss')
+const { icestackPlugin } = require('@icestack/tailwindcss')
 const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
 // const klawSync = require('klaw-sync')
 // const icestackPath = require.resolve('@icestack/ui/package.json')

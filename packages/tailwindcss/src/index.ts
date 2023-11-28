@@ -26,7 +26,7 @@ export type IcestackCSSRule = {
   utils: CSSRuleObject | CSSRuleObject[]
 }
 
-const noop: PluginCreator = () => { }
+const noop: PluginCreator = () => {}
 
 export const icestackPlugin = plugin.withOptions(
   function (opts: DeepPartial<TailwindcssPluginOptions>) {
@@ -40,10 +40,7 @@ export const icestackPlugin = plugin.withOptions(
           return noop
         }
         const base = requireLib('js/base/index.js', loadDirPath) as IcestackCSSRule
-        const components = requireLib('js/components/index.js', loadDirPath) as Record<
-          string,
-          IcestackCSSRule
-        >
+        const components = requireLib('js/components/index.js', loadDirPath) as Record<string, IcestackCSSRule>
         const utilities = requireLib('js/utilities/index.js', loadDirPath) as IcestackCSSRule
         if (base && components && utilities) {
           const componentsEntries = Object.entries(components)

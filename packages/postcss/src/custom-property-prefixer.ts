@@ -1,13 +1,15 @@
-// import postcss from 'postcss'
 import creator from 'postcss-custom-property-prefixer'
-// , { type PrefixFunction }
-// import { defaultVarPrefix } from '@/constants'
-import { arrMatch } from '@/utils'
+import { VarPrefixerOptions } from '@icestack/types'
 
-export type VarPrefixerOptions = {
-  varPrefix?: string // | PrefixFunction
-  ignoreProp?: (RegExp | string)[]
-  ignoreValueCustomProperty?: (RegExp | string)[]
+export function arrMatch(matchArr?: (string | RegExp)[], str?: string) {
+  if (!Array.isArray(matchArr)) return
+  if (typeof str !== 'string') return
+  return matchArr.some((regex) => {
+    if (typeof regex === 'string') {
+      return str.includes(regex)
+    }
+    return str.match(regex)
+  })
 }
 
 export function getPlugin(options: VarPrefixerOptions) {

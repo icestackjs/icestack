@@ -9,7 +9,7 @@ import type * as _base from '../assets/js/base/index.js'
 import type * as _components from '../assets/js/components/index.js'
 import type * as _utilities from '../assets/js/utilities/index.js'
 import type { DeepPartial, TailwindcssPluginOptions } from './types'
-import { getJsProcess } from '@/postcss/js'
+import { getJsProcess } from '@/postcss'
 import { logger } from '@/log'
 
 function requireLib(id: string, basedir?: string) {

@@ -76,6 +76,7 @@
     "@babel/generator": "^7.23.4",
     "@babel/types": "^7.23.4",
     "@ctrl/tinycolor": "^4.0.2",
+    "@icestack/postcss": "workspace:^",
     "@icestack/shared": "workspace:^",
     "c12": "^1.5.1",
     "commander": "^11.1.0",

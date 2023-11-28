@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import postcss from 'postcss'
-import postcssPrefixer from '@/postcss/prefixer'
+import postcssPrefixer from '@/prefixer'
 
 const DEFAULT_SOURCE_PATH = path.resolve(__dirname, '../fixtures/prefixer/source.css')
 const DEFAULT_EXPECTED_PATH = path.resolve(__dirname, '../fixtures/prefixer/source.expected.css')

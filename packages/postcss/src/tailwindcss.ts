@@ -1,8 +1,8 @@
 import postcss from 'postcss'
 import tailwindcss, { type Config } from 'tailwindcss'
+import type { CodegenOptions, DeepPartial } from '@icestack/types'
+import { defuOverrideArray } from '@icestack/shared'
 import gloablPostcss from './global'
-import type { CodegenOptions, DeepPartial } from '@/types'
-import { defuOverrideArray } from '@/utils'
 export function resolveTailwindcss(opts: { css: string; config: Config; options: CodegenOptions }) {
   const { config, css, options } = opts
 

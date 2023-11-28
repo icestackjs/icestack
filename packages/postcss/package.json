@@ -1,0 +1,34 @@
+{
+  "name": "@icestack/postcss",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@icestack/presets": "workspace:^",
+    "@icestack/shared": "workspace:^",
+    "@icestack/types": "workspace:^",
+    "css-selector-tokenizer": "^0.8.0",
+    "defu": "^6.1.3",
+    "lodash": "^4.17.21",
+    "postcss": "^8.4.31",
+    "postcss-custom-property-prefixer": "workspace:^",
+    "postcss-js": "^4.0.1",
+    "postcss-selector-parser": "^6.0.13"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.5"
+  }
+}

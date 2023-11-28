@@ -1,7 +1,7 @@
 // @ts-nocheck
 import Tokenizer from 'css-selector-tokenizer'
 import type { PluginCreator } from 'postcss'
-import { defuOverrideArray } from '@/utils'
+import { defuOverrideArray } from '@icestack/shared'
 
 export interface Options {
   prefix?: string

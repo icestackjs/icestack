@@ -20,7 +20,13 @@ function requireLib(id: string, basedir?: string) {
 //   return process.env.VSCODE_PID !== undefined
 // }
 
-const noop: PluginCreator = () => {}
+export type IcestackCSSRule = {
+  base: CSSRuleObject | CSSRuleObject[]
+  styled: CSSRuleObject | CSSRuleObject[]
+  utils: CSSRuleObject | CSSRuleObject[]
+}
+
+const noop: PluginCreator = () => { }
 
 export const icestackPlugin = plugin.withOptions(
   function (opts: DeepPartial<TailwindcssPluginOptions>) {
@@ -33,24 +39,12 @@ export const icestackPlugin = plugin.withOptions(
           logger.warn(`Can not find loadDirPath:${loadDirPath}, make sure this dir is existed`)
           return noop
         }
-        const base = requireLib('js/base/index.js', loadDirPath) as {
-          base: CSSRuleObject | CSSRuleObject[]
-          styled: CSSRuleObject | CSSRuleObject[]
-          utils: CSSRuleObject | CSSRuleObject[]
-        }
+        const base = requireLib('js/base/index.js', loadDirPath) as IcestackCSSRule
         const components = requireLib('js/components/index.js', loadDirPath) as Record<
           string,
-          {
-            base: CSSRuleObject | CSSRuleObject[]
-            styled: CSSRuleObject | CSSRuleObject[]
-            utils: CSSRuleObject | CSSRuleObject[]
-          }
+          IcestackCSSRule
         >
-        const utilities = requireLib('js/utilities/index.js', loadDirPath) as {
-          base: CSSRuleObject | CSSRuleObject[]
-          styled: CSSRuleObject | CSSRuleObject[]
-          utils: CSSRuleObject | CSSRuleObject[]
-        }
+        const utilities = requireLib('js/utilities/index.js', loadDirPath) as IcestackCSSRule
         if (base && components && utilities) {
           const componentsEntries = Object.entries(components)
           const utilitiesEntries = Object.entries(utilities)

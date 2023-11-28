@@ -437,5 +437,23 @@ module.exports = {
       "toast-middle",
       "toast-top"
     ]
+  },
+  "steps": {
+    "base": [
+      "steps",
+      "step"
+    ],
+    "styled": [
+      "step-primary",
+      "step-success",
+      "step-warning",
+      "step-error",
+      "step-neutral"
+    ],
+    "utils": [
+      "steps-horizontal",
+      "step",
+      "steps-vertical"
+    ]
   }
 }

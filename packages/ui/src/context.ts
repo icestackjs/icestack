@@ -3,6 +3,7 @@ import path from 'node:path'
 import { set, get } from 'lodash'
 import * as sass from 'sass'
 import type { Value } from 'sass'
+import { Root, AcceptedPlugin } from 'postcss'
 import type { CodegenOptions, DeepPartial, ILayer, CssInJs } from './types'
 import { generateIndexCode } from './js'
 import { getColors } from './colors'
@@ -16,24 +17,13 @@ import { JSONStringify, defu, ensureDirSync } from '@/utils'
 import { CreatePresetOptions, handleOptions } from '@/components/shared'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import * as base from '@/base'
-import {
-  getPrefixerPlugin,
-  getCssVarsPrefixerPlugin,
-  resolveTailwindcss,
-  initTailwindcssConfig,
-  objectify,
-  process,
-  Root,
-  AcceptedPlugin,
-  resolvePrefixOption,
-  resolveVarPrefixOption
-} from '@/postcss'
+import { getPrefixerPlugin, getCssVarsPrefixerPlugin, resolveTailwindcss, initTailwindcssConfig, objectify, process, resolvePrefixOption, resolveVarPrefixOption } from '@/postcss'
 
 function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
   return `${layer}.${suffixes.join('.')}`
 }
 
-export function createContext(opts?: DeepPartial<CodegenOptions>) {
+export function createContext(opts?: DeepPartial<CodegenOptions>): any {
   const options = getCodegenOptions(opts)
   const { outdir, dryRun, prefix: _globalPrefix, varPrefix: _globalVarPrefix, mode: globalMode, components, log, tailwindcssConfig } = options
   const globalPrefix = resolvePrefixOption(_globalPrefix)

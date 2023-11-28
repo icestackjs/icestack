@@ -24,11 +24,6 @@
       "import": "./dist/components.mjs",
       "require": "./dist/components.cjs"
     },
-    "./presets": {
-      "types": "./dist/presets.d.ts",
-      "import": "./dist/presets.mjs",
-      "require": "./dist/presets.cjs"
-    },
     "./*": "./*"
   },
   "typesVersions": {

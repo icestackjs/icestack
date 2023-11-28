@@ -1,6 +1,6 @@
 {
   "name": "@icestack/ui",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "❤️ IceStack, Web UI for Mobile, PC and Mini Program, open-source Headless component library generator",
   "sideEffects": false,
   "exports": {
@@ -8,11 +8,6 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    },
-    "./tailwindcss": {
-      "types": "./dist/tailwindcss.d.ts",
-      "import": "./dist/tailwindcss.mjs",
-      "require": "./dist/tailwindcss.cjs"
     },
     "./defaults": {
       "types": "./dist/defaults.d.ts",
@@ -71,6 +66,7 @@
     "@babel/generator": "^7.23.4",
     "@babel/types": "^7.23.4",
     "@ctrl/tinycolor": "^4.0.2",
+    "@icestack/logger": "workspace:^",
     "@icestack/postcss": "workspace:^",
     "@icestack/shared": "workspace:^",
     "@icestack/types": "workspace:^",
@@ -89,6 +85,7 @@
   },
   "devDependencies": {
     "@icestack/presets": "workspace:^",
+    "@icestack/tailwindcss": "workspace:^",
     "@types/css-selector-tokenizer": "^0.7.4",
     "@types/deasync": "^0.1.5",
     "@types/fibers": "^3.1.4",

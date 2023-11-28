@@ -5,12 +5,12 @@ import merge from 'merge'
 import type { CssInJs } from 'postcss-js'
 import type { PluginCreator } from 'tailwindcss/types/config'
 // import objHash from 'object-hash'
-import type * as _base from '../assets/js/base/index.js'
-import type * as _components from '../assets/js/components/index.js'
-import type * as _utilities from '../assets/js/utilities/index.js'
-import type { DeepPartial, TailwindcssPluginOptions } from './types'
-import { getJsProcess } from '@/postcss'
-import { logger } from '@/log'
+import type { DeepPartial, TailwindcssPluginOptions } from '@icestack/types'
+import { getJsProcess } from '@icestack/postcss'
+import { logger } from '@icestack/logger'
+import type * as _base from '#/assets/js/base/index.js'
+import type * as _components from '#/assets/js/components/index.js'
+import type * as _utilities from '#/assets/js/utilities/index.js'
 
 function requireLib(id: string, basedir?: string) {
   return require(basedir ? path.resolve(basedir, id) : path.join('../assets', id))

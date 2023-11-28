@@ -1,6 +1,6 @@
 {
-  "name": "@icestack/shared",
-  "version": "0.0.1",
+  "name": "@icestack/logger",
+  "version": "0.0.0",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",
@@ -16,13 +16,7 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    },
-    "./constants": {
-      "types": "./dist/constants.d.ts",
-      "import": "./dist/constants.mjs",
-      "require": "./dist/constants.cjs"
-    },
-    "./*": "./*"
+    }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -30,18 +24,10 @@
   "files": [
     "dist"
   ],
-  "typesVersions": {
-    "*": {
-      "*": [
-        "./dist/*",
-        "./dist/index.d.ts"
-      ]
-    }
-  },
   "dependencies": {
-    "defu": "^6.1.3",
-    "lodash": "^4.17.21",
-    "postcss": "^8.4.31",
-    "postcss-selector-parser": "^6.0.13"
+    "consola": "^3.2.3"
+  },
+  "devDependencies": {
+    "@icestack/shared": "workspace:^"
   }
 }

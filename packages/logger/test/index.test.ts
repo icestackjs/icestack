@@ -1,4 +1,4 @@
-import { consola } from '@/log'
+import { consola } from 'consola'
 
 describe('log', () => {
   beforeAll(() => {

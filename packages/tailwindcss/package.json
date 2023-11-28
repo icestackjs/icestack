@@ -1,13 +1,32 @@
 {
   "name": "@icestack/tailwindcss",
-  "private": true,
   "version": "0.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"@icestack/tailwindcss\""
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@icestack/logger": "workspace:^",
+    "@icestack/postcss": "workspace:^",
+    "@icestack/types": "workspace:^"
+  }
 }

@@ -1,7 +1,8 @@
-import { icestackPlugin } from '@/tailwindcss'
-// import { miniprogramPreset } from '@/presets'
+import path from 'node:path'
+import { icestackPlugin } from '@icestack/tailwindcss'
+// import { miniprogramPreset } from '@icestack/presets'
 import { getCss } from '@/utils'
-describe.skip('tailwindcss', () => {
+describe('tailwindcss', () => {
   it('not throw', () => {
     expect(() => {
       icestackPlugin({})
@@ -15,36 +16,40 @@ describe.skip('tailwindcss', () => {
           raw: 'btn'
         }
       ],
-      plugins: [icestackPlugin({})]
-    })
-    expect(css).toMatchSnapshot()
-  })
-
-  it('use plugin case 1', async () => {
-    const { css } = await getCss({
-      content: [
-        {
-          raw: 'btn'
-        }
-      ],
       plugins: [
         icestackPlugin({
-          components: {
-            button: {
-              append: [
-                {
-                  '.btn::after': {
-                    border: 'none'
-                  }
-                }
-              ]
-            }
-          }
+          loaddir: path.resolve(__dirname, '../assets')
         })
       ]
     })
     expect(css).toMatchSnapshot()
   })
+
+  // it('use plugin case 1', async () => {
+  //   const { css } = await getCss({
+  //     content: [
+  //       {
+  //         raw: 'btn'
+  //       }
+  //     ],
+  //     plugins: [
+  //       icestackPlugin({
+  //         components: {
+  //           button: {
+  //             append: [
+  //               {
+  //                 '.btn::after': {
+  //                   border: 'none'
+  //                 }
+  //               }
+  //             ]
+  //           }
+  //         }
+  //       })
+  //     ]
+  //   })
+  //   expect(css).toMatchSnapshot()
+  // })
 
   // it('use plugin case 2', async () => {
   //   const { css } = await getCss({

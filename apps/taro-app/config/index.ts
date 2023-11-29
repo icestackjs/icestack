@@ -43,7 +43,9 @@ const config = defineConfig({
     '@styled-system': path.resolve(__dirname, '..', 'src/styled-system'),
     '@/components': path.resolve(__dirname, '..', 'src/components'),
     '@/store': path.resolve(__dirname, '..', 'src/store'),
-    '#docs': path.resolve(__dirname, '../../../website/pages/docs')
+    '#docs': path.resolve(__dirname, '../../../website/pages/docs'),
+    '#': path.resolve(__dirname, '../../../website'),
+    '~': path.resolve(__dirname, '../../../packages/ui'),
   },
   terser: {
     enable: false

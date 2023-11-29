@@ -1,5 +1,7 @@
 # 在微信小程序里使用
 
+## 安装
+
 `@icestack/presets` 内部实现了一套预设来兼容微信小程序
 
 你可以使用 `@icestack/presets` 中导出的 `miniprogramPreset` 来构建出小程序版本的默认 `ui` 库
@@ -10,6 +12,8 @@
 # yarn / pnpm
 npm i -D @icestack/presets
 ```
+
+## 注册
 
 然后在 `icestack.config.js` 中注册
 
@@ -27,10 +31,16 @@ const config = {
 module.exports = config
 ```
 
-这样你执行命令:
+## 构建
+
+然后你执行命令:
 
 ```bash
 npx icestack build
 ```
 
 构建出的就是适配小程序的库了。
+
+## 演示小程序
+
+![icestack](/mp.jpg)

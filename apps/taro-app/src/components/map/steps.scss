@@ -1,0 +1,8 @@
+.xxx::after {
+  // content: "yyy"; // attr();
+  content: attr(class);
+}
+
+.xxx::before{
+  content: attr(data-sid);
+}

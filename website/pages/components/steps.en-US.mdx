@@ -1,0 +1,173 @@
+import CssTable from '../../components/CssTable'
+
+## Class Table
+
+<CssTable name="steps" />
+
+## Demo and Playground
+
+[Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/navigation-steps--docs)
+
+## Css Schema
+
+```json
+{
+"selector": ".step",
+"defaults": {
+  "styled": {
+    ".steps": {
+      ".step": {
+        "css": {
+          "grid-template-rows": "2.5rem 1fr",
+          "grid-template-columns": "auto",
+          "min-width": "4rem"
+        },
+        "&:before": {
+          "apply": [
+            "bg-base-300 text-base-content top-0 col-start-1 row-start-1 h-2 w-full transform"
+          ],
+          "css": {
+            "content": "\"\"",
+            "margin-inline-start": "-100%"
+          }
+        },
+        "&:after": {
+          "css": {
+            "content": "counter(step)",
+            "counter-increment": "step",
+            "z-index": "1"
+          },
+          "apply": [
+            "bg-base-300 text-base-content relative col-start-1 row-start-1 grid h-8 w-8 place-items-center place-self-center rounded-full"
+          ]
+        },
+        "&:first-child:before": {
+          "css": {
+            "content": "none"
+          }
+        },
+        "&[data-content]:after": {
+          "css": {
+            "content": "attr(data-content)"
+          }
+        }
+      },
+      ".step-primary+.step-primary:before,.step-primary:after": {
+        "apply": [
+          "bg-primary text-primary-content",
+          "bg-primary text-primary-content"
+        ]
+      },
+      ".step-success+.step-success:before,.step-success:after": {
+        "apply": [
+          "bg-success text-success-content",
+          "bg-success text-success-content"
+        ]
+      },
+      ".step-warning+.step-warning:before,.step-warning:after": {
+        "apply": [
+          "bg-warning text-warning-content",
+          "bg-warning text-warning-content"
+        ]
+      },
+      ".step-error+.step-error:before,.step-error:after": {
+        "apply": [
+          "bg-error text-error-content",
+          "bg-error text-error-content"
+        ]
+      },
+      ".step-neutral+.step-neutral:before,.step-neutral:after": {
+        "apply": [
+          "bg-neutral text-neutral-content",
+          "bg-neutral text-neutral-content"
+        ]
+      }
+    }
+  },
+  "base": {
+    ".steps": {
+      "apply": [
+        "inline-grid grid-flow-col overflow-hidden overflow-x-auto"
+      ],
+      "css": {
+        "counter-reset": "step",
+        "grid-auto-columns": "1fr"
+      },
+      ".step": {
+        "apply": [
+          "grid grid-cols-1 grid-rows-2 place-items-center text-center"
+        ]
+      }
+    }
+  },
+  "utils": {
+    ".steps": {
+      "&-horizontal": {
+        ".step": {
+          "css": {
+            "grid-template-rows": "2.5rem 1fr",
+            "grid-template-columns": "auto",
+            "min-width": "4rem"
+          },
+          "&:before": {
+            "apply": [
+              "h-2 w-full translate-x-0 translate-y-0 rtl:translate-x-0",
+              "h-2 w-full translate-x-0 translate-y-0"
+            ],
+            "css": {
+              "content": "\"\"",
+              "margin-inline-start": "-100%",
+              "margin-left": "-100%"
+            }
+          },
+          "apply": [
+            "grid grid-cols-1 grid-rows-2 place-items-center text-center"
+          ]
+        },
+        "css": {
+          "grid-auto-columns": "1fr"
+        },
+        "apply": [
+          "inline-grid grid-flow-col overflow-hidden overflow-x-auto"
+        ]
+      },
+      "&-vertical": {
+        ".step": {
+          "css": {
+            "gap": "0.5rem",
+            "grid-template-columns": "2.5rem 1fr",
+            "grid-template-rows": "auto",
+            "min-height": "4rem",
+            "justify-items": "start"
+          },
+          "&:before": {
+            "apply": [
+              "h-full w-2 -translate-x-1/2 -translate-y-1/2 rtl:translate-x-1/2",
+              "h-full w-2 -translate-x-1/2 -translate-y-1/2"
+            ],
+            "css": {
+              "margin-inline-start": "50%",
+              "margin-left": "50%"
+            },
+            "[dir=\"rtl\"] &": {
+              "css": {
+                "margin-right": "auto"
+              }
+            }
+          },
+          "apply": [
+            "grid grid-cols-2 grid-rows-1"
+          ]
+        },
+        "css": {
+          "grid-auto-rows": "1fr"
+        },
+        "apply": [
+          "grid-flow-row"
+        ]
+      }
+    }
+  }
+}
+}
+```

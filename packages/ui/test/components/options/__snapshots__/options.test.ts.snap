@@ -4187,7 +4187,7 @@ exports[`'steps' options > raw snap 1`] = `
           },
           "css": {
             "grid-template-columns": "auto",
-            "grid-template-rows": "40px 1fr",
+            "grid-template-rows": "2.5rem 1fr",
             "min-width": "4rem",
           },
         },
@@ -4213,7 +4213,7 @@ exports[`'steps' options > raw snap 1`] = `
             ],
             "css": {
               "grid-template-columns": "auto",
-              "grid-template-rows": "40px 1fr",
+              "grid-template-rows": "2.5rem 1fr",
               "min-width": "4rem",
             },
           },
@@ -4246,7 +4246,7 @@ exports[`'steps' options > raw snap 1`] = `
             ],
             "css": {
               "gap": "0.5rem",
-              "grid-template-columns": "40px 1fr",
+              "grid-template-columns": "2.5rem 1fr",
               "grid-template-rows": "auto",
               "justify-items": "start",
               "min-height": "4rem",
@@ -4351,7 +4351,7 @@ exports[`'steps' options > snap 1`] = `
           },
           "css": {
             "grid-template-columns": "auto",
-            "grid-template-rows": "40px 1fr",
+            "grid-template-rows": "2.5rem 1fr",
             "min-width": "4rem",
           },
         },
@@ -4394,7 +4394,7 @@ exports[`'steps' options > snap 1`] = `
             ],
             "css": {
               "grid-template-columns": "auto",
-              "grid-template-rows": "40px 1fr",
+              "grid-template-rows": "2.5rem 1fr",
               "min-width": "4rem",
             },
           },
@@ -4447,7 +4447,7 @@ exports[`'steps' options > snap 1`] = `
             ],
             "css": {
               "gap": "0.5rem",
-              "grid-template-columns": "40px 1fr",
+              "grid-template-columns": "2.5rem 1fr",
               "grid-template-rows": "auto",
               "justify-items": "start",
               "min-height": "4rem",

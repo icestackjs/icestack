@@ -13,7 +13,17 @@ const config = defineConfig({
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: ['@tarojs/plugin-http'],
+  plugins: ['@tarojs/plugin-http',
+    ['@tarojs/plugin-inject', {
+      components: {
+        View: {
+          'data-content': "'dataContent'"
+        },
+        // ScrollView: {
+        //   'data-observe': "'dataObserve'",
+        // }
+      }
+    }]],
   defineConstants: {},
   copy: {
     patterns: [],

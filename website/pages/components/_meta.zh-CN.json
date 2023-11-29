@@ -12,6 +12,7 @@
     "title": "导航"
   },
   "link": "Link 链接",
+  "steps": "Steps 步骤条",
   "-- Data Entry": {
     "type": "separator",
     "title": "数据录入"

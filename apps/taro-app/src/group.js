@@ -7,7 +7,8 @@ module.exports = {
     ],
     "Layout": [],
     "Navigation": [
-      "link"
+      "link",
+      "steps"
     ],
     "Data Entry": [
       "checkbox",
@@ -73,6 +74,7 @@ module.exports = {
     "diff": "差异",
     "kbd": "键盘按键",
     "tooltip": "文字提示",
-    "toast": "轻提示"
+    "toast": "轻提示",
+    "steps": "步骤条"
   }
 }

@@ -12,6 +12,7 @@
     "title": "Navigation"
   },
   "link": "Link",
+  "steps": "Steps",
   "-- Data Entry": {
     "type": "separator",
     "title": "Data Entry"

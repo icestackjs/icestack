@@ -2554,7 +2554,7 @@ exports[`presets > miniprogramPreset buildComponents 1`] = `
     "styled": {
       ".steps .step": {
         "gridTemplateColumns": "auto",
-        "gridTemplateRows": "40px 1fr",
+        "gridTemplateRows": "2.5rem 1fr",
         "minWidth": "4rem",
       },
       ".steps .step-error+.step-error:before,.steps .step-error:after": {
@@ -2641,7 +2641,7 @@ exports[`presets > miniprogramPreset buildComponents 1`] = `
           "repeat(1, minmax(0, 1fr))",
         ],
         "gridTemplateRows": [
-          "40px 1fr",
+          "2.5rem 1fr",
           "repeat(2, minmax(0, 1fr))",
         ],
         "minWidth": "4rem",
@@ -2666,7 +2666,7 @@ exports[`presets > miniprogramPreset buildComponents 1`] = `
         "display": "grid",
         "gap": "0.5rem",
         "gridTemplateColumns": [
-          "40px 1fr",
+          "2.5rem 1fr",
           "repeat(2, minmax(0, 1fr))",
         ],
         "gridTemplateRows": [

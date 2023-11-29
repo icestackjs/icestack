@@ -9,7 +9,7 @@ function main() {
     group: {
       General: orderBy(['button', 'loading', 'mask']),
       Layout: [],
-      Navigation: orderBy(['link']),
+      Navigation: orderBy(['link', 'steps']),
       'Data Entry': orderBy(['checkbox', 'input', 'radio', 'range', 'select', 'textarea', 'toggle']),
       'Data Display': orderBy(['avatar', 'badge', 'chat', 'countdown', 'diff', 'table', 'kbd']),
       Feedback: orderBy(['alert', 'skeleton', 'tooltip', 'progress', 'radial-progress', 'toast']),
@@ -51,7 +51,8 @@ function main() {
       diff: '差异',
       kbd: '键盘按键',
       tooltip: '文字提示',
-      toast: '轻提示'
+      toast: '轻提示',
+      steps: '步骤条'
     }
   }
 

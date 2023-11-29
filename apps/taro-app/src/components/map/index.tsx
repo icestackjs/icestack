@@ -21,6 +21,7 @@ import diff from './diff'
 import kbd from './kbd'
 import tooltip from './tooltip'
 import toast from './toast'
+import steps from './steps'
 
 export default {
   button,
@@ -45,5 +46,6 @@ export default {
   diff,
   kbd,
   tooltip,
-  toast
+  toast,
+  steps
 }

@@ -1,12 +1,5 @@
-# Nodejs API 调用
-
-## API
-
-```ts
 import { createContext, defineConfig } from '@icestack/ui'
-const ctx = createContext(config)
 
-await ctx.build()
 import {
   compressCssSelector,
   expandTypes,
@@ -20,4 +13,3 @@ import {
 } from '@icestack/ui/components'
 
 import { createDefaultTailwindcssExtends, defaultSelectorMap, getCodegenDefaults, getDefaultBase, injectSchema, sharedExtraColors, sharedExtraVars } from '@icestack/ui/defaults'
-```

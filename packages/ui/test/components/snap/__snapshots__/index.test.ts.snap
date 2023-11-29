@@ -1519,7 +1519,7 @@ exports[`'steps' > base 1`] = `
 
 exports[`'steps' > styled 1`] = `
 ".steps .step {
-  grid-template-rows: 40px 1fr;
+  grid-template-rows: 2.5rem 1fr;
   grid-template-columns: auto;
   min-width: 4rem;
 }
@@ -1568,7 +1568,7 @@ exports[`'steps' > utils 1`] = `
   @apply inline-grid grid-flow-col overflow-hidden overflow-x-auto;
 }
 .steps-horizontal .step {
-  grid-template-rows: 40px 1fr;
+  grid-template-rows: 2.5rem 1fr;
   grid-template-columns: auto;
   min-width: 4rem;
   @apply grid grid-cols-1 grid-rows-2 place-items-center text-center;
@@ -1586,7 +1586,7 @@ exports[`'steps' > utils 1`] = `
 }
 .steps-vertical .step {
   gap: 0.5rem;
-  grid-template-columns: 40px 1fr;
+  grid-template-columns: 2.5rem 1fr;
   grid-template-rows: auto;
   min-height: 4rem;
   justify-items: start;

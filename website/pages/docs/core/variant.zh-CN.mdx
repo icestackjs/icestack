@@ -11,7 +11,10 @@
 于是 `css` 产物中就生成出了
 
 ```js
+// btn
 'btn-primary', 'btn-success', 'btn-warning', 'btn-error', 'btn-neutral'
+
+// badge
 'badge-primary', 'badge-success', 'badge-warning', 'badge-error', 'badge-neutral'
 ```
 
@@ -22,7 +25,11 @@
 同样的原理，默认尺寸有 `xs`,`sm`,`md`,`lg` 所以会生成出:
 
 ```js
-'btn-xs', 'btn-sm', 'btn-md', 'btn-lg', 'badge-xs', 'badge-sm', 'badge-md', 'badge-lg'
+// btn
+'btn-xs', 'btn-sm', 'btn-md', 'btn-lg',
+
+// badge
+'badge-xs', 'badge-sm', 'badge-md', 'badge-lg'
 ```
 
 ## 主题
@@ -46,9 +53,10 @@ const config = {
       primary: {
         // 覆盖 light mode 下的颜色
         light: {
+          // 一共四种颜色，key 的名称就是 css 变量名
           primary: '#1677ff',
           'primary-content': '#ffffff',
-          // hover 和 active 色是给部分组件使用的，比如 `button`
+          // 主要是上面2种颜色， hover 和 active 色是给部分组件使用的，比如 `button`
           'primary-hover': '#4096ff',
           'primary-active': '#0958d9'
         }

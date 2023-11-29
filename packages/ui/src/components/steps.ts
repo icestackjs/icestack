@@ -9,7 +9,7 @@ const schema: GetSchemaFn = (opts) => {
     defaults: {
       styled: transformCss2Js(`${selector}s {
         ${selector} {
-          grid-template-rows: 40px 1fr;
+          grid-template-rows: 2.5rem 1fr;
           grid-template-columns: auto;
           min-width: 4rem;
           &:before {
@@ -59,7 +59,7 @@ const schema: GetSchemaFn = (opts) => {
       utils: transformCss2Js(`${selector}s {
         &-horizontal {
           ${selector} {
-            grid-template-rows: 40px 1fr;
+            grid-template-rows: 2.5rem 1fr;
             grid-template-columns: auto;
             min-width: 4rem;
             &:before {
@@ -72,7 +72,7 @@ const schema: GetSchemaFn = (opts) => {
         &-vertical {
           ${selector} {
             gap: 0.5rem;
-            grid-template-columns: 40px 1fr;
+            grid-template-columns: 2.5rem 1fr;
             grid-template-rows: auto;
             min-height: 4rem;
             justify-items: start;
@@ -90,7 +90,7 @@ ${selector}s {
     @apply inline-grid grid-flow-col overflow-hidden overflow-x-auto;
     ${selector} {
       @apply grid grid-cols-1 grid-rows-2 place-items-center text-center;
-      grid-template-rows: 40px 1fr;
+      grid-template-rows: 2.5rem 1fr;
       grid-template-columns: auto;
       min-width: 4rem;
       &:before {
@@ -106,7 +106,7 @@ ${selector}s {
     ${selector} {
       @apply grid grid-cols-2 grid-rows-1;
       gap: 0.5rem;
-      grid-template-columns: 40px 1fr;
+      grid-template-columns: 2.5rem 1fr;
       grid-template-rows: auto;
       min-height: 4rem;
       justify-items: start;

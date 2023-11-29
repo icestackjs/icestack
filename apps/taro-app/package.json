@@ -78,6 +78,7 @@
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@tarojs/cli": "3.6.20",
     "@tarojs/plugin-http": "^3.6.20",
+    "@tarojs/plugin-inject": "^3.6.20",
     "@tarojs/taro-loader": "3.6.20",
     "@tarojs/webpack5-runner": "3.6.20",
     "@types/node": "^20.10.0",
@@ -106,7 +107,7 @@
     "ts-node": "^10.9.1",
     "typescript": "^5.3.2",
     "weapp-ide-cli": "^1.0.1",
-    "weapp-tailwindcss": "^3.0.2",
+    "weapp-tailwindcss": "^3.0.3",
     "webpack": "5.89.0"
   }
 }

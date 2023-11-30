@@ -1,0 +1,71 @@
+import CssTable from '../../components/CssTable'
+
+## 类名表格
+
+<CssTable name="stack" />
+
+## 样例和演示
+
+[前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-stack--docs)
+
+## Css 结构
+
+```json
+{
+"selector": ".stack",
+"defaults": {
+  "base": {
+    ".stack": {
+      "apply": [
+        "inline-grid"
+      ],
+      "&>*": {
+        "apply": [
+          "col-start-1 row-start-1"
+        ],
+        "css": {
+          "transform": "translateY(10%) scale(0.9)",
+          "z-index": "1"
+        }
+      },
+      "&>*:nth-child(2)": {
+        "css": {
+          "transform": "translateY(5%) scale(0.95)",
+          "z-index": "2"
+        }
+      },
+      "&>*:nth-child(1)": {
+        "css": {
+          "transform": "translateY(0) scale(1)",
+          "z-index": "3"
+        }
+      }
+    }
+  },
+  "styled": {
+    ".stack": {
+      "apply": [
+        "place-items-center items-end"
+      ],
+      "&>*": {
+        "apply": [
+          "w-full",
+          "opacity-60"
+        ]
+      },
+      "&>*:nth-child(2)": {
+        "apply": [
+          "opacity-80"
+        ]
+      },
+      "&>*:nth-child(1)": {
+        "apply": [
+          "opacity-100"
+        ]
+      }
+    }
+  },
+  "utils": {}
+}
+}
+```

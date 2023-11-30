@@ -7,6 +7,14 @@
   "button": "Button",
   "loading": "Loading",
   "mask": "Mask",
+  "-- Layout": {
+    "type": "separator",
+    "title": "Layout"
+  },
+  "join": "Join",
+  "indicator": "Indicator",
+  "divider": "Divider",
+  "stack": "Stack",
   "-- Navigation": {
     "type": "separator",
     "title": "Navigation"
@@ -31,6 +39,7 @@
   "avatar": "Avatar",
   "badge": "Badge",
   "chat": "Chat",
+  "collapse": "Collapse",
   "countdown": "Countdown",
   "diff": "Diff",
   "kbd": "Kbd",

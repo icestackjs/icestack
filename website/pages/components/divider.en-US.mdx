@@ -1,0 +1,117 @@
+import CssTable from '../../components/CssTable'
+
+## Class Table
+
+<CssTable name="divider" />
+
+## Demo and Playground
+
+[Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-divider--docs)
+
+## Css Schema
+
+```json
+{
+"selector": ".divider",
+"defaults": {
+  "base": {
+    ".divider": {
+      "apply": [
+        "flex flex-row items-center self-stretch"
+      ],
+      "&:before,&:after": {
+        "apply": [
+          "h-0.5 w-full flex-grow content-['']"
+        ]
+      },
+      "&-start:before": {
+        "apply": [
+          "hidden"
+        ]
+      },
+      "&-end:after": {
+        "apply": [
+          "hidden"
+        ]
+      }
+    }
+  },
+  "styled": {
+    ".divider": {
+      "apply": [
+        "my-4 h-4 whitespace-nowrap"
+      ],
+      "&:before,&:after": {
+        "apply": [
+          "bg-base-content/10"
+        ]
+      },
+      "&:not(:empty)": {
+        "apply": [
+          "gap-4"
+        ]
+      },
+      "&-primary:before,&-primary:after": {
+        "apply": [
+          "bg-primary"
+        ]
+      },
+      "&-success:before,&-success:after": {
+        "apply": [
+          "bg-success"
+        ]
+      },
+      "&-warning:before,&-warning:after": {
+        "apply": [
+          "bg-warning"
+        ]
+      },
+      "&-error:before,&-error:after": {
+        "apply": [
+          "bg-error"
+        ]
+      },
+      "&-neutral:before,&-neutral:after": {
+        "apply": [
+          "bg-neutral"
+        ]
+      }
+    }
+  },
+  "utils": {
+    ".divider-horizontal": {
+      "apply": [
+        "flex-col",
+        "mx-4 my-0 h-auto w-4"
+      ],
+      "&:before": {
+        "apply": [
+          "h-full w-0.5"
+        ]
+      },
+      "&:after": {
+        "apply": [
+          "h-full w-0.5"
+        ]
+      }
+    },
+    ".divider-vertical": {
+      "apply": [
+        "flex-row",
+        "mx-0 my-4 h-4 w-auto"
+      ],
+      "&:before": {
+        "apply": [
+          "h-0.5 w-full"
+        ]
+      },
+      "&:after": {
+        "apply": [
+          "h-0.5 w-full"
+        ]
+      }
+    }
+  }
+}
+}
+```

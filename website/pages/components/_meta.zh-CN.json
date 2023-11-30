@@ -7,6 +7,14 @@
   "button": "Button 按钮",
   "loading": "Loading 加载动画",
   "mask": "Mask 遮罩",
+  "-- Layout": {
+    "type": "separator",
+    "title": "布局"
+  },
+  "join": "Join 分组容器",
+  "indicator": "Indicator 标识",
+  "divider": "Divider 分隔线",
+  "stack": "Stack 堆叠",
   "-- Navigation": {
     "type": "separator",
     "title": "导航"
@@ -31,6 +39,7 @@
   "avatar": "Avatar 头像",
   "badge": "Badge 徽章",
   "chat": "Chat 聊天气泡",
+  "collapse": "Collapse 折叠面板",
   "countdown": "Countdown 计数",
   "diff": "Diff 差异",
   "kbd": "Kbd 键盘按键",

@@ -1,0 +1,189 @@
+import CssTable from '../../components/CssTable'
+
+## Class Table
+
+<CssTable name="collapse" />
+
+## Demo and Playground
+
+[Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/data-display-collapse--docs)
+
+## Css Schema
+
+```json
+{
+"selector": ".collapse",
+"defaults": {
+  "base": {
+    ".collapse:not(td):not(tr):not(colgroup)": {
+      "apply": [
+        "visible"
+      ]
+    },
+    ".collapse": {
+      "apply": [
+        "relative grid overflow-hidden"
+      ],
+      "css": {
+        "grid-template-rows": "auto 0fr",
+        "transition": "grid-template-rows 0.2s"
+      }
+    },
+    ".collapse-title,.collapse>input[type=\"checkbox\"],.collapse>input[type=\"radio\"],.collapse-content": {
+      "apply": [
+        "col-start-1 row-start-1"
+      ]
+    },
+    ".collapse>input[type=\"checkbox\"],.collapse>input[type=\"radio\"]": {
+      "apply": [
+        "appearance-none opacity-0"
+      ]
+    },
+    ".collapse-content": {
+      "apply": [
+        "invisible col-start-1 row-start-2 min-h-0"
+      ],
+      "css": {
+        "transition": "visibility 0.2s"
+      }
+    },
+    ".collapse[open],.collapse-open,.collapse:focus:not(.collapse-close)": {
+      "css": {
+        "grid-template-rows": "auto 1fr"
+      }
+    },
+    ".collapse:not(.collapse-close):has(>input[type=\"checkbox\"]:checked),.collapse:not(.collapse-close):has(>input[type=\"radio\"]:checked)": {
+      "css": {
+        "grid-template-rows": "auto 1fr"
+      }
+    },
+    ".collapse[open]>.collapse-content,.collapse-open>.collapse-content,.collapse:focus:not(.collapse-close)>.collapse-content,.collapse:not(.collapse-close)>input[type=\"checkbox\"]:checked~.collapse-content,.collapse:not(.collapse-close)>input[type=\"radio\"]:checked~.collapse-content": {
+      "apply": [
+        "visible min-h-fit"
+      ]
+    }
+  },
+  "styled": {
+    ".collapse": {
+      "apply": [
+        "rounded-box w-full"
+      ]
+    },
+    "details.collapse": {
+      "apply": [
+        "w-full"
+      ],
+      "& summary": {
+        "apply": [
+          "relative block"
+        ],
+        "&::-webkit-details-marker": {
+          "apply": [
+            "hidden"
+          ]
+        }
+      }
+    },
+    ".collapse:focus-visible": {
+      "apply": [
+        "outline-base-content outline outline-2 outline-offset-2"
+      ]
+    },
+    "details.collapse summary": {
+      "apply": [
+        "outline-none"
+      ]
+    },
+    ".collapse:has(.collapse-title:focus-visible),.collapse:has(>input[type=\"checkbox\"]:focus-visible),.collapse:has(>input[type=\"radio\"]:focus-visible)": {
+      "apply": [
+        "outline-base-content outline outline-2 outline-offset-2"
+      ]
+    },
+    ".collapse-arrow>.collapse-title:after": {
+      "apply": [
+        "absolute block h-2 w-2 translate-y-[-100%] rotate-[45deg] transition-all ease-out"
+      ],
+      "css": {
+        "transition-duration": "0.2s",
+        "top": "50%",
+        "inset-inline-end": "1.4rem",
+        "content": "\"\"",
+        "transform-origin": "75% 75%",
+        "box-shadow": "2px 2px",
+        "pointer-events": "none"
+      }
+    },
+    ".collapse-plus>.collapse-title:after": {
+      "apply": [
+        "absolute block h-2 w-2 transition-all duration-300 ease-out"
+      ],
+      "css": {
+        "top": "0.9rem",
+        "inset-inline-end": "1.4rem",
+        "content": "\"+\"",
+        "pointer-events": "none"
+      }
+    },
+    ".collapse:not(.collapse-open):not(.collapse-close)>input[type=\"checkbox\"],.collapse:not(.collapse-open):not(.collapse-close)>input[type=\"radio\"]:not(:checked),.collapse:not(.collapse-open):not(.collapse-close)>.collapse-title": {
+      "apply": [
+        "cursor-pointer"
+      ]
+    },
+    ".collapse:focus:not(.collapse-open):not(.collapse-close):not(.collapse[open])>.collapse-title": {
+      "css": {
+        "cursor": "unset"
+      }
+    },
+    ".collapse-title": {
+      "apply": [
+        "relative"
+      ]
+    },
+    ":where(.collapse>input[type=\"checkbox\"]),:where(.collapse>input[type=\"radio\"])": {
+      "css": {
+        "z-index": "1"
+      }
+    },
+    ".collapse-title,:where(.collapse>input[type=\"checkbox\"]),:where(.collapse>input[type=\"radio\"])": {
+      "apply": [
+        "w-full p-4 pe-12"
+      ],
+      "css": {
+        "min-height": "3.75rem",
+        "transition": "background-color 0.2s ease-out"
+      }
+    },
+    ".collapse-content": {
+      "apply": [
+        "px-4"
+      ],
+      "css": {
+        "cursor": "unset",
+        "transition": "padding 0.2s ease-out,
+          background-color 0.2s ease-out"
+      }
+    },
+    ".collapse[open]>:where(.collapse-content),.collapse-open>:where(.collapse-content),.collapse:focus:not(.collapse-close)>:where(.collapse-content),.collapse:not(.collapse-close)>:where(input[type=\"checkbox\"]:checked~.collapse-content),.collapse:not(.collapse-close)>:where(input[type=\"radio\"]:checked~.collapse-content)": {
+      "apply": [
+        "pb-4"
+      ],
+      "css": {
+        "transition": "padding 0.2s ease-out,
+          background-color 0.2s ease-out"
+      }
+    },
+    ".collapse[open].collapse-arrow>.collapse-title:after,.collapse-open.collapse-arrow>.collapse-title:after,.collapse-arrow:focus:not(.collapse-close)>.collapse-title:after,.collapse-arrow:not(.collapse-close)>input[type=\"checkbox\"]:checked~.collapse-title:after,.collapse-arrow:not(.collapse-close)>input[type=\"radio\"]:checked~.collapse-title:after": {
+      "apply": [
+        "translate-y-[-50%] rotate-[225deg]"
+      ]
+    },
+    ".collapse[open].collapse-plus>.collapse-title:after,.collapse-open.collapse-plus>.collapse-title:after,.collapse-plus:focus:not(.collapse-close)>.collapse-title:after,.collapse-plus:not(.collapse-close)>input[type=\"checkbox\"]:checked~.collapse-title:after,.collapse-plus:not(.collapse-close)>input[type=\"radio\"]:checked~.collapse-title:after": {
+      "css": {
+        "content": "\"−\""
+      }
+    }
+  },
+  "utils": {}
+}
+}
+```

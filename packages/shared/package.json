@@ -1,5 +1,6 @@
 {
   "name": "@icestack/shared",
+  "description": "The shared utils, constants of @icestack/ui",
   "version": "0.1.9",
   "scripts": {
     "build": "unbuild",
@@ -8,9 +9,13 @@
     "release": "pnpm publish",
     "sync": "cnpm sync @icestack/shared"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "shared",
+    "utils",
+    "constants",
+    "icestack",
+    "ui"
+  ],
   "sideEffects": false,
   "exports": {
     ".": {
@@ -44,5 +49,15 @@
     "lodash": "^4.17.21",
     "postcss": "^8.4.31",
     "postcss-selector-parser": "^6.0.13"
+  },
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "homepage": "https://ui.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
   }
 }

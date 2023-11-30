@@ -15,7 +15,8 @@
     "publish-packages": "pnpm build:all && pnpm test && changeset version && changeset publish",
     "preinstall": "npx only-allow pnpm",
     "sync": "turbo run sync",
-    "bump": "bumpp -r"
+    "bump": "bumpp -r",
+    "cpmd": "node scripts/cp-md.js"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",

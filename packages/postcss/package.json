@@ -1,5 +1,6 @@
 {
   "name": "@icestack/postcss",
+  "description": "The postcss processor of @icestack/ui",
   "version": "0.1.9",
   "scripts": {
     "build": "unbuild",
@@ -8,9 +9,12 @@
     "release": "pnpm publish",
     "sync": "cnpm sync @icestack/postcss"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "postcss",
+    "processor",
+    "icestack",
+    "ui"
+  ],
   "sideEffects": false,
   "main": "./dist/index.cjs",
   "types": "./dist/index.d.ts",
@@ -29,5 +33,15 @@
     "postcss-js": "^4.0.1",
     "postcss-selector-parser": "^6.0.13",
     "tailwindcss": "^3.3.5"
+  },
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "homepage": "https://ui.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
   }
 }

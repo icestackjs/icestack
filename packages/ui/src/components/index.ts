@@ -3,6 +3,7 @@ import collapse from './collapse'
 import join from './join'
 import indicator from './indicator'
 import divider from './divider'
+import stack from './stack'
 import avatar from '@/components/avatar'
 import button from '@/components/button'
 import alert from '@/components/alert'
@@ -62,7 +63,8 @@ const schemaMap = {
   collapse,
   join,
   indicator,
-  divider
+  divider,
+  stack
 } as const
 
 const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap

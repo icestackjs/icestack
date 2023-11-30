@@ -258,6 +258,10 @@ exports[`options > getCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".skeleton",
     },
+    "stack": {
+      "schema": [Function],
+      "selector": ".stack",
+    },
     "steps": {
       "schema": [Function],
       "selector": ".step",
@@ -575,6 +579,10 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     "skeleton": {
       "schema": [Function],
       "selector": ".skeleton",
+    },
+    "stack": {
+      "schema": [Function],
+      "selector": ".stack",
     },
     "steps": {
       "schema": [Function],

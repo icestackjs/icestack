@@ -516,5 +516,12 @@ module.exports = {
       "divider-horizontal",
       "divider-vertical"
     ]
+  },
+  "stack": {
+    "base": [
+      "stack"
+    ],
+    "styled": [],
+    "utils": []
   }
 }

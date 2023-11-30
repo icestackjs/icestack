@@ -33,5 +33,6 @@ exports[`allComponents exports > snap 1`] = `
   "join",
   "indicator",
   "divider",
+  "stack",
 ]
 `;

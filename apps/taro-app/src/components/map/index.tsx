@@ -26,6 +26,7 @@ import collapse from './collapse'
 import join from './join'
 import indicator from './indicator'
 import divider from './divider'
+import stack from './stack'
 
 export default {
   button,
@@ -55,5 +56,6 @@ export default {
   collapse,
   join,
   indicator,
-  divider
+  divider,
+  stack
 }

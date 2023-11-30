@@ -4,21 +4,15 @@ import plugin from 'tailwindcss/plugin'
 import merge from 'merge'
 import type { CssInJs } from 'postcss-js'
 import type { CSSRuleObject, PluginCreator } from 'tailwindcss/types/config'
-// import objHash from 'object-hash'
+
 import type { DeepPartial, TailwindcssPluginOptions } from '@icestack/types'
 import { getJsProcess } from '@icestack/postcss'
 import { logger } from '@icestack/logger'
-// import type * as _base from '#/assets/js/base/index.js'
-// import type * as _components from '#/assets/js/components/index.js'
-// import type * as _utilities from '#/assets/js/utilities/index.js'
+import { Config } from 'tailwindcss'
 
-function requireLib(id: string, basedir?: string) {
-  return require(basedir ? path.resolve(basedir, id) : path.join('../assets', id))
+function requireLib(id: string, basedir: string) {
+  return require(path.resolve(basedir, id))
 }
-
-// function isRunByVscodePlugin() {
-//   return process.env.VSCODE_PID !== undefined
-// }
 
 export type IcestackCSSRule = {
   base: CSSRuleObject | CSSRuleObject[]
@@ -31,17 +25,16 @@ const noop: PluginCreator = () => {}
 export const icestackPlugin = plugin.withOptions(
   function (opts: DeepPartial<TailwindcssPluginOptions>) {
     try {
-      if (opts && opts.loaddir) {
-        const { loaddir } = opts
-        const loadDirPath = loaddir
+      if (opts && opts.loadDirectory) {
+        const { loadDirectory } = opts
 
-        if (!fs.existsSync(loadDirPath)) {
-          logger.warn(`Can not find loadDirPath:${loadDirPath}, make sure this dir is existed`)
+        if (!fs.existsSync(loadDirectory)) {
+          logger.warn(`Can not find loadDirectory:${loadDirectory}, make sure this dir is existed`)
           return noop
         }
-        const base = requireLib('js/base/index.js', loadDirPath) as IcestackCSSRule
-        const components = requireLib('js/components/index.js', loadDirPath) as Record<string, IcestackCSSRule>
-        const utilities = requireLib('js/utilities/index.js', loadDirPath) as IcestackCSSRule
+        const base = requireLib('js/base/index.js', loadDirectory) as IcestackCSSRule
+        const components = requireLib('js/components/index.js', loadDirectory) as Record<string, IcestackCSSRule>
+        const utilities = requireLib('js/utilities/index.js', loadDirectory) as IcestackCSSRule
         if (base && components && utilities) {
           const componentsEntries = Object.entries(components)
           const utilitiesEntries = Object.entries(utilities)
@@ -78,11 +71,28 @@ export const icestackPlugin = plugin.withOptions(
 
       return noop
     } catch (error) {
-      console.error(error)
+      logger.warn(error)
+
       return noop
     }
   },
-  function () {
-    return {}
+  function (opts: DeepPartial<TailwindcssPluginOptions>) {
+    try {
+      if (opts && opts.loadDirectory) {
+        const { loadConfig, loadDirectory } = opts
+        if (loadConfig) {
+          if (loadConfig === true) {
+            const config = requireLib('js/tailwindcss/config.js', loadDirectory) as Config
+            return config
+          } else if (typeof loadConfig === 'string') {
+            return require(loadConfig)
+          }
+        }
+      }
+      return {}
+    } catch (error) {
+      logger.warn(error)
+      return {}
+    }
   }
 )

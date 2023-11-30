@@ -13,7 +13,7 @@ npm i -D @icestack/tailwindcss
 
 ## 配置
 
-然后传递一个 `loaddir` 配置项告诉插件刚刚生成的位置:
+然后传递一个 `loadDirectory` 配置项告诉插件刚刚生成的位置:
 
 ```js filename="tailwind.config.js"
 const path = require('node:path')
@@ -24,7 +24,7 @@ module.exports = {
   // ...
   plugins: [
     icestackPlugin({
-      loaddir: path.resolve(__dirname, 'my-ui')
+      loadDirectory: path.resolve(__dirname, 'my-ui')
       // other options
     })
   ]

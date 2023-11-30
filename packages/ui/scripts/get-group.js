@@ -8,7 +8,7 @@ function main() {
   const result = {
     group: {
       General: orderBy(['button', 'loading', 'mask']),
-      Layout: ['join', 'indicator', 'divider'],
+      Layout: ['join', 'indicator', 'divider', 'stack'],
       Navigation: orderBy(['link', 'steps']),
       'Data Entry': orderBy(['checkbox', 'input', 'radio', 'range', 'select', 'textarea', 'toggle']),
       'Data Display': orderBy(['avatar', 'badge', 'chat', 'countdown', 'diff', 'table', 'kbd', 'collapse']),
@@ -56,7 +56,8 @@ function main() {
       collapse: '折叠面板',
       join: '分组容器',
       indicator: '标识',
-      divider: '分隔线'
+      divider: '分隔线',
+      stack: '堆叠'
     }
   }
 

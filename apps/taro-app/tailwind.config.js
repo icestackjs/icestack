@@ -15,7 +15,7 @@ module.exports = {
       collections: getIconCollections(['mdi', 'grommet-icons'])
     }),
     icestackPlugin({
-      loaddir: path.resolve(__dirname, './my-ui'),
+      loadDirectory: path.resolve(__dirname, './my-ui'),
     })
 
   ],

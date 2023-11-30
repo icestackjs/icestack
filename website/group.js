@@ -8,7 +8,8 @@ module.exports = {
     "Layout": [
       "join",
       "indicator",
-      "divider"
+      "divider",
+      "stack"
     ],
     "Navigation": [
       "link",
@@ -84,6 +85,7 @@ module.exports = {
     "collapse": "折叠面板",
     "join": "分组容器",
     "indicator": "标识",
-    "divider": "分隔线"
+    "divider": "分隔线",
+    "stack": "堆叠"
   }
 }

@@ -26,7 +26,7 @@ describe('tailwindcss', () => {
       ],
       plugins: [
         icestackPlugin({
-          loaddir: outdir
+          loadDirectory: outdir
         })
       ]
     })

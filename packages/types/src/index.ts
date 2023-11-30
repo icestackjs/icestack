@@ -60,10 +60,6 @@ export type GlobalOptions = {
 
 export type CodegenMode = 'styled' | 'base' | 'raw'
 
-export type LoadCodeOptions = {
-  loaddir: string
-}
-
 export type CodegenOptions = {
   // default styled
   mode: CodegenMode
@@ -82,7 +78,8 @@ export type CodegenOptions = {
 export type Config = Partial<CodegenOptions>
 
 export type TailwindcssPluginOptions = {
-  loaddir: string
+  loadDirectoryectory: string
+  loadConfig?: boolean | string
 }
 
 export type DeepPartial<T> = {

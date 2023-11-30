@@ -270,6 +270,10 @@ exports[`presets > miniprogramPreset 1`] = `
       "schema": [Function],
       "selector": ".skeleton",
     },
+    "stack": {
+      "schema": [Function],
+      "selector": ".stack",
+    },
     "steps": {
       "schema": [Function],
       "selector": ".step",
@@ -2801,6 +2805,44 @@ exports[`presets > miniprogramPreset buildComponents 1`] = `
       },
     },
   },
+  "stack": {
+    "base": {
+      ".stack": {
+        "display": "inline-grid",
+      },
+      ".stack>view": {
+        "gridColumnStart": "1",
+        "gridRowStart": "1",
+        "transform": "translateY(10%) scale(0.9)",
+        "zIndex": 1,
+      },
+      ".stack>view:nth-child(1)": {
+        "transform": "translateY(0) scale(1)",
+        "zIndex": 3,
+      },
+      ".stack>view:nth-child(2)": {
+        "transform": "translateY(5%) scale(0.95)",
+        "zIndex": 2,
+      },
+    },
+    "styled": {
+      ".stack": {
+        "alignItems": "flex-end",
+        "placeItems": "center",
+      },
+      ".stack>view": {
+        "opacity": 0.6,
+        "width": "100%",
+      },
+      ".stack>view:nth-child(1)": {
+        "opacity": 1,
+      },
+      ".stack>view:nth-child(2)": {
+        "opacity": 0.8,
+      },
+    },
+    "utils": {},
+  },
   "steps": {
     "base": {
       ".steps": {
@@ -4205,6 +4247,10 @@ exports[`presets > presets merge case 0 1`] = `
       "schema": [Function],
       "selector": ".skeleton",
     },
+    "stack": {
+      "schema": [Function],
+      "selector": ".stack",
+    },
     "steps": {
       "schema": [Function],
       "selector": ".step",
@@ -4610,6 +4656,10 @@ exports[`presets > presets merge case 1 1`] = `
     "skeleton": {
       "schema": [Function],
       "selector": ".skeleton",
+    },
+    "stack": {
+      "schema": [Function],
+      "selector": ".stack",
     },
     "steps": {
       "schema": [Function],

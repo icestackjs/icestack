@@ -211,7 +211,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `loaddir` | `string` |
+| `loadDirectory` | `string` |
 
 #### Defined in
 
@@ -245,7 +245,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `loaddir` | `string` |
+| `loadDirectory` | `string` |
 
 #### Defined in
 

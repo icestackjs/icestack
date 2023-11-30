@@ -232,6 +232,18 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
     return res
   }
 
+  function buildTailwindcssConfig() {
+    if (!dryRun) {
+      const code = 'module.exports = ' + JSONStringify(twConfig)
+      const outputDir = path.resolve(resolveJsDir(outdir), 'tailwindcss')
+      ensureDirSync(outputDir)
+      const outputPath = path.resolve(outputDir, 'config.js')
+      fs.writeFileSync(outputPath, code, 'utf8')
+    }
+
+    return twConfig
+  }
+
   async function build() {
     let start = performance.now()
     const base = await buildBase()
@@ -245,18 +257,24 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
     const components = await buildComponents()
     end = performance.now()
     logger.success('build components finished! ' + `${end - start}ms`)
-
+    start = performance.now()
+    const tailwindcssConfig = await buildTailwindcssConfig()
+    end = performance.now()
+    logger.success('build tailwindcss config finished! ' + `${end - start}ms`)
     return {
       base,
       components,
-      utilities
+      utilities,
+      tailwindcssConfig
     }
   }
 
   return {
+    tailwindcssConfig: twConfig,
     buildBase,
     buildUtilities,
     buildComponents,
+    buildTailwindcssConfig,
     presets,
     options,
     build,

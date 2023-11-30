@@ -1840,6 +1840,43 @@ exports[`'skeleton' > utils 1`] = `
 }"
 `;
 
+exports[`'stack' > base 1`] = `
+".stack {
+  @apply inline-grid;
+}
+.stack > * {
+  @apply col-start-1 row-start-1;
+  transform: translateY(10%) scale(0.9);
+  z-index: 1;
+}
+.stack > *:nth-child(2) {
+  transform: translateY(5%) scale(0.95);
+  z-index: 2;
+}
+.stack > *:nth-child(1) {
+  transform: translateY(0) scale(1);
+  z-index: 3;
+}"
+`;
+
+exports[`'stack' > styled 1`] = `
+".stack {
+  @apply place-items-center items-end;
+}
+.stack > * {
+  @apply w-full;
+  @apply opacity-60;
+}
+.stack > *:nth-child(2) {
+  @apply opacity-80;
+}
+.stack > *:nth-child(1) {
+  @apply opacity-100;
+}"
+`;
+
+exports[`'stack' > utils 1`] = `""`;
+
 exports[`'steps' > base 1`] = `
 ".steps {
   @apply inline-grid grid-flow-col overflow-hidden overflow-x-auto;

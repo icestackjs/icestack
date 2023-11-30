@@ -180,6 +180,13 @@
           "scene": null
         },
         {
+          "name": "stack",
+          "pathName": "pages/index/component",
+          "query": "id=stack",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "steps",
           "pathName": "pages/index/component",
           "query": "id=steps",

@@ -260,6 +260,9 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   divider: {
     selector: '.divider'
+  },
+  stack: {
+    selector: '.stack'
   }
 }
 

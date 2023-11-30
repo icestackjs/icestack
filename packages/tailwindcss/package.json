@@ -32,6 +32,7 @@
   "dependencies": {
     "@icestack/logger": "workspace:^",
     "@icestack/postcss": "workspace:^",
+    "@icestack/shared": "workspace:^",
     "@icestack/types": "workspace:^"
   },
   "devDependencies": {

@@ -1,8 +1,12 @@
-# icestack
+<br>
+
+<p align="center">
+<img src="./assets/logo.svg" style="width:100px;" />
+</p>
+
+<h1 align="center">icestack</h1>
 
 [![codecov](https://codecov.io/github/sonofmagic/icestack/graph/badge.svg?token=iDn2ElhNax)](https://codecov.io/github/sonofmagic/icestack)
-
-![logo](./assets/logo.svg)
 
 ## Repos
 

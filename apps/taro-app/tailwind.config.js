@@ -16,6 +16,7 @@ module.exports = {
     }),
     icestackPlugin({
       loadDirectory: path.resolve(__dirname, './my-ui'),
+      loadConfig: true
     })
 
   ],

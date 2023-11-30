@@ -7,8 +7,11 @@ import type { CSSRuleObject, PluginCreator } from 'tailwindcss/types/config'
 
 import type { DeepPartial, TailwindcssPluginOptions } from '@icestack/types'
 import { getJsProcess } from '@icestack/postcss'
-import { logger } from '@icestack/logger'
+import { createLogger } from '@icestack/logger'
 import { Config } from 'tailwindcss'
+import { name as pkgName } from '../package.json'
+
+const logger = createLogger(pkgName)
 
 function requireLib(id: string, basedir: string) {
   return require(path.resolve(basedir, id))

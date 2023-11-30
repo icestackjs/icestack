@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { set, get } from 'lodash'
+import { set, get, pick } from 'lodash'
 import * as sass from 'sass'
 import type { Value } from 'sass'
 import type { Root, AcceptedPlugin } from 'postcss'
@@ -234,7 +234,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
 
   function buildTailwindcssConfig() {
     if (!dryRun) {
-      const code = 'module.exports = ' + JSONStringify(twConfig)
+      const code = 'module.exports = ' + JSONStringify(pick(twConfig, ['theme']))
       const outputDir = path.resolve(resolveJsDir(outdir), 'tailwindcss')
       ensureDirSync(outputDir)
       const outputPath = path.resolve(outputDir, 'config.js')

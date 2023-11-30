@@ -78,7 +78,7 @@ export type CodegenOptions = {
 export type Config = Partial<CodegenOptions>
 
 export type TailwindcssPluginOptions = {
-  loadDirectoryectory: string
+  loadDirectory: string
   loadConfig?: boolean | string
 }
 

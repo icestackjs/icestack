@@ -1,14 +1,12 @@
 <br>
 
 <p align="center">
-<img src="../../assets/logo.svg" style="width:100px;" />
+<img src="https://github.com/sonofmagic/icestack/raw/main/assets/logo.svg" style="width:100px;" />
 </p>
 
 <h1 align="center">@icestack/ui</h1>
 
 ❤️ IceStack, Web UI for Mobile and PC , open-source Headless component library generator
-
-![logo](https://github.com/sonofmagic/icestack/blob/main/assets/logo.svg)
 
 ## How to use?
 
@@ -22,4 +20,4 @@
 
 ## 微信小程序组件演示(Chinese only)
 
-![icestack](../../assets/mp.jpg)
+![icestack](https://github.com/sonofmagic/icestack/raw/main/assets/mp.jpg)

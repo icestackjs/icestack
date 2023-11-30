@@ -11,7 +11,7 @@ function main() {
       Layout: [],
       Navigation: orderBy(['link', 'steps']),
       'Data Entry': orderBy(['checkbox', 'input', 'radio', 'range', 'select', 'textarea', 'toggle']),
-      'Data Display': orderBy(['avatar', 'badge', 'chat', 'countdown', 'diff', 'table', 'kbd']),
+      'Data Display': orderBy(['avatar', 'badge', 'chat', 'countdown', 'diff', 'table', 'kbd', 'collapse']),
       Feedback: orderBy(['alert', 'skeleton', 'tooltip', 'progress', 'radial-progress', 'toast']),
       Other: []
     },
@@ -52,7 +52,8 @@ function main() {
       kbd: '键盘按键',
       tooltip: '文字提示',
       toast: '轻提示',
-      steps: '步骤条'
+      steps: '步骤条',
+      collapse: '折叠面板'
     }
   }
 

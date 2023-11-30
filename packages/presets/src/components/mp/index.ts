@@ -7,6 +7,7 @@ import textarea from './textarea'
 import toggle from './toggle'
 import table from './table'
 import countdown from './countdown'
+import collapse from './collapse'
 import type { ComponentsOptions, DeepPartial } from '@/types'
 
 export const components: DeepPartial<ComponentsOptions> = {
@@ -21,5 +22,6 @@ export const components: DeepPartial<ComponentsOptions> = {
   textarea,
   toggle,
   table,
-  countdown
+  countdown,
+  collapse
 }

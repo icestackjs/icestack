@@ -22,6 +22,7 @@ import kbd from './kbd'
 import tooltip from './tooltip'
 import toast from './toast'
 import steps from './steps'
+import collapse from './collapse'
 
 export default {
   button,
@@ -47,5 +48,6 @@ export default {
   kbd,
   tooltip,
   toast,
-  steps
+  steps,
+  collapse
 }

@@ -455,5 +455,19 @@ module.exports = {
       "step",
       "steps-vertical"
     ]
+  },
+  "collapse": {
+    "base": [
+      "collapse",
+      "collapse-title",
+      "collapse-content",
+      "collapse-open",
+      "collapse-close"
+    ],
+    "styled": [
+      "collapse-arrow",
+      "collapse-plus"
+    ],
+    "utils": []
   }
 }

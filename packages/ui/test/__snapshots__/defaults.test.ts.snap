@@ -26,6 +26,10 @@ exports[`defaults > injectSchema 1`] = `
     "schema": [Function],
     "selector": ".checkbox",
   },
+  "collapse": {
+    "schema": [Function],
+    "selector": ".collapse",
+  },
   "countdown": {
     "schema": [Function],
     "selector": ".countdown",

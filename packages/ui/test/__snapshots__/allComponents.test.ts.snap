@@ -29,5 +29,6 @@ exports[`allComponents exports > snap 1`] = `
   "tooltip",
   "toast",
   "steps",
+  "collapse",
 ]
 `;

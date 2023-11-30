@@ -64,8 +64,8 @@
     "sync": "cnpm sync @icestack/ui"
   },
   "dependencies": {
-    "@babel/generator": "^7.23.4",
-    "@babel/types": "^7.23.4",
+    "@babel/generator": "^7.23.5",
+    "@babel/types": "^7.23.5",
     "@ctrl/tinycolor": "^4.0.2",
     "@icestack/logger": "workspace:^",
     "@icestack/postcss": "workspace:^",
@@ -78,8 +78,6 @@
     "sass": "^1.69.5"
   },
   "devDependencies": {
-    "postcss": "^8.4.31",
-    "tailwindcss": "3.3.5",
     "@icestack/presets": "workspace:^",
     "@types/css-selector-tokenizer": "^0.7.4",
     "@types/deasync": "^0.1.5",
@@ -101,10 +99,12 @@
     "lru-cache": "^10.1.0",
     "merge": "^2.1.1",
     "object-hash": "^3.0.0",
+    "postcss": "^8.4.31",
     "rtlcss": "^4.1.1",
     "sass-true": "^7.0.0",
     "serialize-javascript": "^6.0.1",
-    "svg64": "^2.0.0"
+    "svg64": "^2.0.0",
+    "tailwindcss": "3.3.5"
   },
   "publishConfig": {
     "access": "public",

@@ -248,6 +248,9 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   steps: {
     selector: '.step'
+  },
+  collapse: {
+    selector: '.collapse'
   }
 }
 

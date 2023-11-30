@@ -1485,6 +1485,436 @@ exports[`'checkbox' options > snap 1`] = `
 }
 `;
 
+exports[`'collapse' options > raw snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".collapse": {
+        "apply": [
+          "relative grid overflow-hidden",
+        ],
+        "css": {
+          "grid-template-rows": "auto 0fr",
+          "transition": "grid-template-rows 0.2s",
+        },
+      },
+      ".collapse-content": {
+        "apply": [
+          "invisible col-start-1 row-start-2 min-h-0",
+        ],
+        "css": {
+          "transition": "visibility 0.2s",
+        },
+      },
+      ".collapse-title,.collapse>input[type=\\"checkbox\\"],.collapse>input[type=\\"radio\\"],.collapse-content": {
+        "apply": [
+          "col-start-1 row-start-1",
+        ],
+      },
+      ".collapse:not(.collapse-close):has(>input[type=\\"checkbox\\"]:checked),.collapse:not(.collapse-close):has(>input[type=\\"radio\\"]:checked)": {
+        "css": {
+          "grid-template-rows": "auto 1fr",
+        },
+      },
+      ".collapse:not(td):not(tr):not(colgroup)": {
+        "apply": [
+          "visible",
+        ],
+      },
+      ".collapse>input[type=\\"checkbox\\"],.collapse>input[type=\\"radio\\"]": {
+        "apply": [
+          "appearance-none opacity-0",
+        ],
+      },
+      ".collapse[open],.collapse-open,.collapse:focus:not(.collapse-close)": {
+        "css": {
+          "grid-template-rows": "auto 1fr",
+        },
+      },
+      ".collapse[open]>.collapse-content,.collapse-open>.collapse-content,.collapse:focus:not(.collapse-close)>.collapse-content,.collapse:not(.collapse-close)>input[type=\\"checkbox\\"]:checked~.collapse-content,.collapse:not(.collapse-close)>input[type=\\"radio\\"]:checked~.collapse-content": {
+        "apply": [
+          "visible min-h-fit",
+        ],
+      },
+    },
+    "styled": {
+      ".collapse": {
+        "apply": [
+          "rounded-box w-full",
+        ],
+      },
+      ".collapse-arrow>.collapse-title:after": {
+        "apply": [
+          "absolute block h-2 w-2 translate-y-[-100%] rotate-[45deg] transition-all ease-out",
+        ],
+        "css": {
+          "box-shadow": "2px 2px",
+          "content": "\\"\\"",
+          "inset-inline-end": "1.4rem",
+          "pointer-events": "none",
+          "top": "50%",
+          "transform-origin": "75% 75%",
+          "transition-duration": "0.2s",
+        },
+      },
+      ".collapse-content": {
+        "apply": [
+          "px-4",
+        ],
+        "css": {
+          "cursor": "unset",
+          "transition": "padding 0.2s ease-out,
+          background-color 0.2s ease-out",
+        },
+      },
+      ".collapse-plus>.collapse-title:after": {
+        "apply": [
+          "absolute block h-2 w-2 transition-all duration-300 ease-out",
+        ],
+        "css": {
+          "content": "\\"+\\"",
+          "inset-inline-end": "1.4rem",
+          "pointer-events": "none",
+          "top": "0.9rem",
+        },
+      },
+      ".collapse-title": {
+        "apply": [
+          "relative",
+        ],
+      },
+      ".collapse-title,:where(.collapse>input[type=\\"checkbox\\"]),:where(.collapse>input[type=\\"radio\\"])": {
+        "apply": [
+          "w-full p-4 pe-12",
+        ],
+        "css": {
+          "min-height": "3.75rem",
+          "transition": "background-color 0.2s ease-out",
+        },
+      },
+      ".collapse:focus-visible": {
+        "apply": [
+          "outline-base-content outline outline-2 outline-offset-2",
+        ],
+      },
+      ".collapse:focus:not(.collapse-open):not(.collapse-close):not(.collapse[open])>.collapse-title": {
+        "css": {
+          "cursor": "unset",
+        },
+      },
+      ".collapse:has(.collapse-title:focus-visible),.collapse:has(>input[type=\\"checkbox\\"]:focus-visible),.collapse:has(>input[type=\\"radio\\"]:focus-visible)": {
+        "apply": [
+          "outline-base-content outline outline-2 outline-offset-2",
+        ],
+      },
+      ".collapse:not(.collapse-open):not(.collapse-close)>input[type=\\"checkbox\\"],.collapse:not(.collapse-open):not(.collapse-close)>input[type=\\"radio\\"]:not(:checked),.collapse:not(.collapse-open):not(.collapse-close)>.collapse-title": {
+        "apply": [
+          "cursor-pointer",
+        ],
+      },
+      ".collapse[open].collapse-arrow>.collapse-title:after,.collapse-open.collapse-arrow>.collapse-title:after,.collapse-arrow:focus:not(.collapse-close)>.collapse-title:after,.collapse-arrow:not(.collapse-close)>input[type=\\"checkbox\\"]:checked~.collapse-title:after,.collapse-arrow:not(.collapse-close)>input[type=\\"radio\\"]:checked~.collapse-title:after": {
+        "apply": [
+          "translate-y-[-50%] rotate-[225deg]",
+        ],
+      },
+      ".collapse[open].collapse-plus>.collapse-title:after,.collapse-open.collapse-plus>.collapse-title:after,.collapse-plus:focus:not(.collapse-close)>.collapse-title:after,.collapse-plus:not(.collapse-close)>input[type=\\"checkbox\\"]:checked~.collapse-title:after,.collapse-plus:not(.collapse-close)>input[type=\\"radio\\"]:checked~.collapse-title:after": {
+        "css": {
+          "content": "\\"−\\"",
+        },
+      },
+      ".collapse[open]>:where(.collapse-content),.collapse-open>:where(.collapse-content),.collapse:focus:not(.collapse-close)>:where(.collapse-content),.collapse:not(.collapse-close)>:where(input[type=\\"checkbox\\"]:checked~.collapse-content),.collapse:not(.collapse-close)>:where(input[type=\\"radio\\"]:checked~.collapse-content)": {
+        "apply": [
+          "pb-4",
+        ],
+        "css": {
+          "transition": "padding 0.2s ease-out,
+          background-color 0.2s ease-out",
+        },
+      },
+      ":where(.collapse>input[type=\\"checkbox\\"]),:where(.collapse>input[type=\\"radio\\"])": {
+        "css": {
+          "z-index": "1",
+        },
+      },
+      "details.collapse": {
+        "& summary": {
+          "&::-webkit-details-marker": {
+            "apply": [
+              "hidden",
+            ],
+          },
+          "apply": [
+            "relative block",
+          ],
+        },
+        "apply": [
+          "w-full",
+        ],
+      },
+      "details.collapse summary": {
+        "apply": [
+          "outline-none",
+        ],
+      },
+    },
+    "utils": {},
+  },
+  "selector": ".collapse",
+}
+`;
+
+exports[`'collapse' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".collapse": {
+        "apply": [
+          [
+            "relative",
+            "grid",
+            "overflow-hidden",
+          ],
+        ],
+        "css": {
+          "grid-template-rows": "auto 0fr",
+          "transition": "grid-template-rows 0.2s",
+        },
+      },
+      ".collapse-content": {
+        "apply": [
+          [
+            "invisible",
+            "col-start-1",
+            "row-start-2",
+            "min-h-0",
+          ],
+        ],
+        "css": {
+          "transition": "visibility 0.2s",
+        },
+      },
+      ".collapse-title,.collapse>input[type=\\"checkbox\\"],.collapse>input[type=\\"radio\\"],.collapse-content": {
+        "apply": [
+          [
+            "col-start-1",
+            "row-start-1",
+          ],
+        ],
+      },
+      ".collapse:not(.collapse-close):has(>input[type=\\"checkbox\\"]:checked),.collapse:not(.collapse-close):has(>input[type=\\"radio\\"]:checked)": {
+        "css": {
+          "grid-template-rows": "auto 1fr",
+        },
+      },
+      ".collapse:not(td):not(tr):not(colgroup)": {
+        "apply": [
+          [
+            "visible",
+          ],
+        ],
+      },
+      ".collapse>input[type=\\"checkbox\\"],.collapse>input[type=\\"radio\\"]": {
+        "apply": [
+          [
+            "appearance-none",
+            "opacity-0",
+          ],
+        ],
+      },
+      ".collapse[open],.collapse-open,.collapse:focus:not(.collapse-close)": {
+        "css": {
+          "grid-template-rows": "auto 1fr",
+        },
+      },
+      ".collapse[open]>.collapse-content,.collapse-open>.collapse-content,.collapse:focus:not(.collapse-close)>.collapse-content,.collapse:not(.collapse-close)>input[type=\\"checkbox\\"]:checked~.collapse-content,.collapse:not(.collapse-close)>input[type=\\"radio\\"]:checked~.collapse-content": {
+        "apply": [
+          [
+            "visible",
+            "min-h-fit",
+          ],
+        ],
+      },
+    },
+    "styled": {
+      ".collapse": {
+        "apply": [
+          [
+            "rounded-box",
+            "w-full",
+          ],
+        ],
+      },
+      ".collapse-arrow>.collapse-title:after": {
+        "apply": [
+          [
+            "absolute",
+            "block",
+            "h-2",
+            "w-2",
+            "translate-y-[-100%]",
+            "rotate-[45deg]",
+            "transition-all",
+            "ease-out",
+          ],
+        ],
+        "css": {
+          "box-shadow": "2px 2px",
+          "content": "\\"\\"",
+          "inset-inline-end": "1.4rem",
+          "pointer-events": "none",
+          "top": "50%",
+          "transform-origin": "75% 75%",
+          "transition-duration": "0.2s",
+        },
+      },
+      ".collapse-content": {
+        "apply": [
+          [
+            "px-4",
+          ],
+        ],
+        "css": {
+          "cursor": "unset",
+          "transition": "padding 0.2s ease-out,
+          background-color 0.2s ease-out",
+        },
+      },
+      ".collapse-plus>.collapse-title:after": {
+        "apply": [
+          [
+            "absolute",
+            "block",
+            "h-2",
+            "w-2",
+            "transition-all",
+            "duration-300",
+            "ease-out",
+          ],
+        ],
+        "css": {
+          "content": "\\"+\\"",
+          "inset-inline-end": "1.4rem",
+          "pointer-events": "none",
+          "top": "0.9rem",
+        },
+      },
+      ".collapse-title": {
+        "apply": [
+          [
+            "relative",
+          ],
+        ],
+      },
+      ".collapse-title,:where(.collapse>input[type=\\"checkbox\\"]),:where(.collapse>input[type=\\"radio\\"])": {
+        "apply": [
+          [
+            "w-full",
+            "p-4",
+            "pe-12",
+          ],
+        ],
+        "css": {
+          "min-height": "3.75rem",
+          "transition": "background-color 0.2s ease-out",
+        },
+      },
+      ".collapse:focus-visible": {
+        "apply": [
+          [
+            "outline-base-content",
+            "outline",
+            "outline-2",
+            "outline-offset-2",
+          ],
+        ],
+      },
+      ".collapse:focus:not(.collapse-open):not(.collapse-close):not(.collapse[open])>.collapse-title": {
+        "css": {
+          "cursor": "unset",
+        },
+      },
+      ".collapse:has(.collapse-title:focus-visible),.collapse:has(>input[type=\\"checkbox\\"]:focus-visible),.collapse:has(>input[type=\\"radio\\"]:focus-visible)": {
+        "apply": [
+          [
+            "outline-base-content",
+            "outline",
+            "outline-2",
+            "outline-offset-2",
+          ],
+        ],
+      },
+      ".collapse:not(.collapse-open):not(.collapse-close)>input[type=\\"checkbox\\"],.collapse:not(.collapse-open):not(.collapse-close)>input[type=\\"radio\\"]:not(:checked),.collapse:not(.collapse-open):not(.collapse-close)>.collapse-title": {
+        "apply": [
+          [
+            "cursor-pointer",
+          ],
+        ],
+      },
+      ".collapse[open].collapse-arrow>.collapse-title:after,.collapse-open.collapse-arrow>.collapse-title:after,.collapse-arrow:focus:not(.collapse-close)>.collapse-title:after,.collapse-arrow:not(.collapse-close)>input[type=\\"checkbox\\"]:checked~.collapse-title:after,.collapse-arrow:not(.collapse-close)>input[type=\\"radio\\"]:checked~.collapse-title:after": {
+        "apply": [
+          [
+            "translate-y-[-50%]",
+            "rotate-[225deg]",
+          ],
+        ],
+      },
+      ".collapse[open].collapse-plus>.collapse-title:after,.collapse-open.collapse-plus>.collapse-title:after,.collapse-plus:focus:not(.collapse-close)>.collapse-title:after,.collapse-plus:not(.collapse-close)>input[type=\\"checkbox\\"]:checked~.collapse-title:after,.collapse-plus:not(.collapse-close)>input[type=\\"radio\\"]:checked~.collapse-title:after": {
+        "css": {
+          "content": "\\"−\\"",
+        },
+      },
+      ".collapse[open]>:where(.collapse-content),.collapse-open>:where(.collapse-content),.collapse:focus:not(.collapse-close)>:where(.collapse-content),.collapse:not(.collapse-close)>:where(input[type=\\"checkbox\\"]:checked~.collapse-content),.collapse:not(.collapse-close)>:where(input[type=\\"radio\\"]:checked~.collapse-content)": {
+        "apply": [
+          [
+            "pb-4",
+          ],
+        ],
+        "css": {
+          "transition": "padding 0.2s ease-out,
+          background-color 0.2s ease-out",
+        },
+      },
+      ":where(.collapse>input[type=\\"checkbox\\"]),:where(.collapse>input[type=\\"radio\\"])": {
+        "css": {
+          "z-index": "1",
+        },
+      },
+      "details.collapse": {
+        "& summary": {
+          "&::-webkit-details-marker": {
+            "apply": [
+              [
+                "hidden",
+              ],
+            ],
+          },
+          "apply": [
+            [
+              "relative",
+              "block",
+            ],
+          ],
+        },
+        "apply": [
+          [
+            "w-full",
+          ],
+        ],
+      },
+      "details.collapse summary": {
+        "apply": [
+          [
+            "outline-none",
+          ],
+        ],
+      },
+    },
+    "utils": {},
+  },
+  "selector": ".collapse",
+}
+`;
+
 exports[`'countdown' options > raw snap 1`] = `
 {
   "defaults": {

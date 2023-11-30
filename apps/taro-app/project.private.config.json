@@ -54,6 +54,13 @@
           "scene": null
         },
         {
+          "name": "collapse",
+          "pathName": "pages/index/component",
+          "query": "id=collapse",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "countdown",
           "pathName": "pages/index/component",
           "query": "id=countdown",

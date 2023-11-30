@@ -168,6 +168,10 @@ exports[`options > getCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".checkbox",
     },
+    "collapse": {
+      "schema": [Function],
+      "selector": ".collapse",
+    },
     "countdown": {
       "schema": [Function],
       "selector": ".countdown",
@@ -470,6 +474,10 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     "checkbox": {
       "schema": [Function],
       "selector": ".checkbox",
+    },
+    "collapse": {
+      "schema": [Function],
+      "selector": ".collapse",
     },
     "countdown": {
       "schema": [Function],

@@ -35,6 +35,9 @@ exports[`mp > miniprogramPreset snap 1`] = `
       },
       "schema": [Function],
     },
+    "collapse": {
+      "schema": [Function],
+    },
     "countdown": {
       "extra": {
         ".countdown": {

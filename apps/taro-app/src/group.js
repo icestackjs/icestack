@@ -23,6 +23,7 @@ module.exports = {
       "avatar",
       "badge",
       "chat",
+      "collapse",
       "countdown",
       "diff",
       "kbd",
@@ -75,6 +76,7 @@ module.exports = {
     "kbd": "键盘按键",
     "tooltip": "文字提示",
     "toast": "轻提示",
-    "steps": "步骤条"
+    "steps": "步骤条",
+    "collapse": "折叠面板"
   }
 }

@@ -1,15 +1,17 @@
 import { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
-  extra: {
-    '.btn::after': {
-      css: {
-        border: 'none'
-      }
-    },
-    '.btn': {
-      css: {
-        'border-style': 'solid'
+  extra: ({ selector }) => {
+    return {
+      [`${selector}::after`]: {
+        css: {
+          border: 'none'
+        }
+      },
+      [selector]: {
+        css: {
+          'border-style': 'solid'
+        }
       }
     }
   }

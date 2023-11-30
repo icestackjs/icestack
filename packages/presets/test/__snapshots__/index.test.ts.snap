@@ -14,18 +14,7 @@ exports[`mp > miniprogramPreset snap 1`] = `
   },
   "components": {
     "button": {
-      "extra": {
-        ".btn": {
-          "css": {
-            "border-style": "solid",
-          },
-        },
-        ".btn::after": {
-          "css": {
-            "border": "none",
-          },
-        },
-      },
+      "extra": [Function],
     },
     "checkbox": {
       "prefix": {
@@ -39,25 +28,11 @@ exports[`mp > miniprogramPreset snap 1`] = `
       "schema": [Function],
     },
     "countdown": {
-      "extra": {
-        ".countdown": {
-          "& > *": {
-            "css": {
-              "line-height": "1em",
-            },
-          },
-        },
-      },
+      "extra": [Function],
     },
     "diff": false,
     "input": {
-      "extra": {
-        ".input": {
-          "css": {
-            "border-style": "solid",
-          },
-        },
-      },
+      "extra": [Function],
     },
     "join": {
       "schema": [Function],
@@ -77,20 +52,13 @@ exports[`mp > miniprogramPreset snap 1`] = `
         ],
       },
       "schema": [Function],
-      "selector": ".range",
     },
     "select": false,
     "table": {
       "schema": [Function],
     },
     "textarea": {
-      "extra": {
-        ".textarea": {
-          "css": {
-            "border-style": "solid",
-          },
-        },
-      },
+      "extra": [Function],
     },
     "toggle": {
       "prefix": {

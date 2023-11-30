@@ -1,11 +1,13 @@
 import { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
-  extra: {
-    '.countdown': {
-      '& > *': {
-        css: {
-          'line-height': '1em'
+  extra: ({ selector }) => {
+    return {
+      [selector]: {
+        '& > *': {
+          css: {
+            'line-height': '1em'
+          }
         }
       }
     }

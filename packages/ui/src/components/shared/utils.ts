@@ -2,7 +2,7 @@ import { pick } from 'lodash'
 import { preprocessCssInJs } from '@icestack/shared'
 import type { CreatePresetOptions, ISchema } from '@icestack/shared'
 import { defu, defuOverrideArray } from '@/utils'
-import type { CodegenMode, ComponentsValue, CssInJs, ModeMergeValue } from '@/types'
+import type { CodegenMode, ComponentsValue, CssInJs, ModeMergeValue, SchemaFnOptions } from '@/types'
 export { expandTypes, compressCssSelector, preprocessCssInJs, getSelector, recursiveNodes, transformCss2Js } from '@icestack/shared'
 
 export function makeDefaults(obj?: ModeMergeValue, selector?: string) {
@@ -39,18 +39,26 @@ function getPickedProps(mode: CodegenMode = 'styled') {
   }
 }
 
-export function handleOptions({ extend, override, selector, extra, mode, schema, params }: ComponentsValue, opts: CreatePresetOptions) {
-  const d: ISchema | undefined = schema?.({
-    ...opts,
+export function handleFn<T extends Record<string, any> | ((...args: any[]) => Record<string, any>)>(input: T, opts: SchemaFnOptions): Record<string, any> {
+  if (typeof input === 'function') {
+    return input(opts)
+  }
+  return input
+}
+
+export function handleOptions({ extend, override, selector, extra, mode, schema, params }: ComponentsValue, { types }: CreatePresetOptions) {
+  const opts: SchemaFnOptions = {
+    types,
     selector,
     params
-  })
+  }
+  const d: ISchema | undefined = schema?.(opts)
   let de: Partial<ISchema> = d ?? {}
   de.defaults = preprocessCssInJs(pick(de.defaults, getPickedProps(mode)))
   if (override) {
     de = defuOverrideArray(de, {
       selector,
-      defaults: makeDefaults(preprocessCssInJs(override), selector)
+      defaults: makeDefaults(preprocessCssInJs(handleFn(override, opts)), selector)
     })
   }
   const res = defu(
@@ -59,10 +67,10 @@ export function handleOptions({ extend, override, selector, extra, mode, schema,
       defaults: defu(
         {
           utils: {
-            ...preprocessCssInJs(extra)
+            ...preprocessCssInJs(handleFn(extra, opts))
           }
         },
-        makeDefaults(preprocessCssInJs(extend), selector)
+        makeDefaults(preprocessCssInJs(handleFn(extend, opts)), selector)
       )
     },
     de

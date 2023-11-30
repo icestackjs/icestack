@@ -156,18 +156,7 @@ exports[`presets > miniprogramPreset 1`] = `
       "selector": ".badge",
     },
     "button": {
-      "extra": {
-        ".btn": {
-          "css": {
-            "border-style": "solid",
-          },
-        },
-        ".btn::after": {
-          "css": {
-            "border": "none",
-          },
-        },
-      },
+      "extra": [Function],
       "schema": [Function],
       "selector": ".btn",
     },
@@ -189,15 +178,7 @@ exports[`presets > miniprogramPreset 1`] = `
       "selector": ".collapse",
     },
     "countdown": {
-      "extra": {
-        ".countdown": {
-          "& > *": {
-            "css": {
-              "line-height": "1em",
-            },
-          },
-        },
-      },
+      "extra": [Function],
       "schema": [Function],
       "selector": ".countdown",
       "varPrefix": {
@@ -222,13 +203,7 @@ exports[`presets > miniprogramPreset 1`] = `
       "selector": ".indicator",
     },
     "input": {
-      "extra": {
-        ".input": {
-          "css": {
-            "border-style": "solid",
-          },
-        },
-      },
+      "extra": [Function],
       "schema": [Function],
       "selector": ".input",
     },
@@ -308,13 +283,7 @@ exports[`presets > miniprogramPreset 1`] = `
       "selector": ".tab",
     },
     "textarea": {
-      "extra": {
-        ".textarea": {
-          "css": {
-            "border-style": "solid",
-          },
-        },
-      },
+      "extra": [Function],
       "schema": [Function],
       "selector": ".textarea",
     },
@@ -361,18 +330,7 @@ exports[`presets > miniprogramPreset 1`] = `
       },
       "components": {
         "button": {
-          "extra": {
-            ".btn": {
-              "css": {
-                "border-style": "solid",
-              },
-            },
-            ".btn::after": {
-              "css": {
-                "border": "none",
-              },
-            },
-          },
+          "extra": [Function],
         },
         "checkbox": {
           "prefix": {
@@ -386,25 +344,11 @@ exports[`presets > miniprogramPreset 1`] = `
           "schema": [Function],
         },
         "countdown": {
-          "extra": {
-            ".countdown": {
-              "& > *": {
-                "css": {
-                  "line-height": "1em",
-                },
-              },
-            },
-          },
+          "extra": [Function],
         },
         "diff": false,
         "input": {
-          "extra": {
-            ".input": {
-              "css": {
-                "border-style": "solid",
-              },
-            },
-          },
+          "extra": [Function],
         },
         "join": {
           "schema": [Function],
@@ -424,20 +368,13 @@ exports[`presets > miniprogramPreset 1`] = `
             ],
           },
           "schema": [Function],
-          "selector": ".range",
         },
         "select": false,
         "table": {
           "schema": [Function],
         },
         "textarea": {
-          "extra": {
-            ".textarea": {
-              "css": {
-                "border-style": "solid",
-              },
-            },
-          },
+          "extra": [Function],
         },
         "toggle": {
           "prefix": {
@@ -4154,18 +4091,7 @@ exports[`presets > presets merge case 0 1`] = `
       "selector": ".badge",
     },
     "button": {
-      "extra": {
-        ".btn": {
-          "css": {
-            "border-style": "solid",
-          },
-        },
-        ".btn::after": {
-          "css": {
-            "border": "none",
-          },
-        },
-      },
+      "extra": [Function],
       "schema": [Function],
       "selector": ".btn",
     },
@@ -4187,15 +4113,7 @@ exports[`presets > presets merge case 0 1`] = `
       "selector": ".collapse",
     },
     "countdown": {
-      "extra": {
-        ".countdown": {
-          "& > *": {
-            "css": {
-              "line-height": "1em",
-            },
-          },
-        },
-      },
+      "extra": [Function],
       "schema": [Function],
       "selector": ".countdown",
       "varPrefix": {
@@ -4220,13 +4138,7 @@ exports[`presets > presets merge case 0 1`] = `
       "selector": ".indicator",
     },
     "input": {
-      "extra": {
-        ".input": {
-          "css": {
-            "border-style": "solid",
-          },
-        },
-      },
+      "extra": [Function],
       "schema": [Function],
       "selector": ".input",
     },
@@ -4306,13 +4218,7 @@ exports[`presets > presets merge case 0 1`] = `
       "selector": ".tab",
     },
     "textarea": {
-      "extra": {
-        ".textarea": {
-          "css": {
-            "border-style": "solid",
-          },
-        },
-      },
+      "extra": [Function],
       "schema": [Function],
       "selector": ".textarea",
     },
@@ -4359,18 +4265,7 @@ exports[`presets > presets merge case 0 1`] = `
       },
       "components": {
         "button": {
-          "extra": {
-            ".btn": {
-              "css": {
-                "border-style": "solid",
-              },
-            },
-            ".btn::after": {
-              "css": {
-                "border": "none",
-              },
-            },
-          },
+          "extra": [Function],
         },
         "checkbox": {
           "prefix": {
@@ -4384,25 +4279,11 @@ exports[`presets > presets merge case 0 1`] = `
           "schema": [Function],
         },
         "countdown": {
-          "extra": {
-            ".countdown": {
-              "& > *": {
-                "css": {
-                  "line-height": "1em",
-                },
-              },
-            },
-          },
+          "extra": [Function],
         },
         "diff": false,
         "input": {
-          "extra": {
-            ".input": {
-              "css": {
-                "border-style": "solid",
-              },
-            },
-          },
+          "extra": [Function],
         },
         "join": {
           "schema": [Function],
@@ -4422,20 +4303,13 @@ exports[`presets > presets merge case 0 1`] = `
             ],
           },
           "schema": [Function],
-          "selector": ".range",
         },
         "select": false,
         "table": {
           "schema": [Function],
         },
         "textarea": {
-          "extra": {
-            ".textarea": {
-              "css": {
-                "border-style": "solid",
-              },
-            },
-          },
+          "extra": [Function],
         },
         "toggle": {
           "prefix": {
@@ -4622,18 +4496,7 @@ exports[`presets > presets merge case 1 1`] = `
       "selector": ".badge",
     },
     "button": {
-      "extra": {
-        ".btn": {
-          "css": {
-            "border-style": "solid",
-          },
-        },
-        ".btn::after": {
-          "css": {
-            "border": "none",
-          },
-        },
-      },
+      "extra": [Function],
       "schema": [Function],
       "selector": ".btn",
     },
@@ -4656,15 +4519,7 @@ exports[`presets > presets merge case 1 1`] = `
       "selector": ".collapse",
     },
     "countdown": {
-      "extra": {
-        ".countdown": {
-          "& > *": {
-            "css": {
-              "line-height": "1em",
-            },
-          },
-        },
-      },
+      "extra": [Function],
       "schema": [Function],
       "selector": ".countdown",
       "varPrefix": {
@@ -4689,13 +4544,7 @@ exports[`presets > presets merge case 1 1`] = `
       "selector": ".indicator",
     },
     "input": {
-      "extra": {
-        ".input": {
-          "css": {
-            "border-style": "solid",
-          },
-        },
-      },
+      "extra": [Function],
       "schema": [Function],
       "selector": ".input",
     },
@@ -4775,13 +4624,7 @@ exports[`presets > presets merge case 1 1`] = `
       "selector": ".tab",
     },
     "textarea": {
-      "extra": {
-        ".textarea": {
-          "css": {
-            "border-style": "solid",
-          },
-        },
-      },
+      "extra": [Function],
       "schema": [Function],
       "selector": ".textarea",
     },
@@ -4828,18 +4671,7 @@ exports[`presets > presets merge case 1 1`] = `
       },
       "components": {
         "button": {
-          "extra": {
-            ".btn": {
-              "css": {
-                "border-style": "solid",
-              },
-            },
-            ".btn::after": {
-              "css": {
-                "border": "none",
-              },
-            },
-          },
+          "extra": [Function],
         },
         "checkbox": {
           "prefix": {
@@ -4853,25 +4685,11 @@ exports[`presets > presets merge case 1 1`] = `
           "schema": [Function],
         },
         "countdown": {
-          "extra": {
-            ".countdown": {
-              "& > *": {
-                "css": {
-                  "line-height": "1em",
-                },
-              },
-            },
-          },
+          "extra": [Function],
         },
         "diff": false,
         "input": {
-          "extra": {
-            ".input": {
-              "css": {
-                "border-style": "solid",
-              },
-            },
-          },
+          "extra": [Function],
         },
         "join": {
           "schema": [Function],
@@ -4891,20 +4709,13 @@ exports[`presets > presets merge case 1 1`] = `
             ],
           },
           "schema": [Function],
-          "selector": ".range",
         },
         "select": false,
         "table": {
           "schema": [Function],
         },
         "textarea": {
-          "extra": {
-            ".textarea": {
-              "css": {
-                "border-style": "solid",
-              },
-            },
-          },
+          "extra": [Function],
         },
         "toggle": {
           "prefix": {

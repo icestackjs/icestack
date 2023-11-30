@@ -1,9 +1,9 @@
 import type { Config as TailwindcssConfig } from 'tailwindcss'
 import type { CssInJs } from 'postcss-js'
-import type { GetSchemaFn } from './shared'
+import type { GetSchemaFn, SchemaFnOptions } from './shared'
 import type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 
-export type { CreatePresetOptions, GetSchemaFn, IDefaults, ISchema, IValue } from './shared'
+export type { CreatePresetOptions, GetSchemaFn, IDefaults, ISchema, IValue, SchemaFnOptions } from './shared'
 export type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 
 export type BaseOptions<T extends string = string> = {
@@ -29,9 +29,9 @@ export type ComponentsValue = {
   prefix: PrefixerOptions
   varPrefix: VarPrefixerOptions
   mode: CodegenMode
-  override: ModeMergeValue
-  extend: ModeMergeValue
-  extra: CssInJs
+  override: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
+  extend: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
+  extra: CssInJs | ((opts: SchemaFnOptions) => CssInJs)
   selector: string
   schema: GetSchemaFn
   disabled: boolean

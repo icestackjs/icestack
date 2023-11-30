@@ -5,7 +5,6 @@ const options: Partial<ComponentsValue> = {
   prefix: {
     ignore: ['.wx-slider']
   },
-  selector: '.range',
   schema: ({ selector, types }) => {
     return {
       selector,

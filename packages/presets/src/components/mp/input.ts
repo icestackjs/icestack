@@ -2,10 +2,12 @@
 import { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
-  extra: {
-    '.input': {
-      css: {
-        'border-style': 'solid'
+  extra: ({ selector }) => {
+    return {
+      [selector]: {
+        css: {
+          'border-style': 'solid'
+        }
       }
     }
   }

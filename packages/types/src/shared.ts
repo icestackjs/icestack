@@ -24,4 +24,6 @@ export type ISchema = {
   defaults: IDefaults
 }
 
-export type GetSchemaFn = (opts: CreatePresetOptions & { selector: string; params: Record<string, any> }) => ISchema
+export type SchemaFnOptions = CreatePresetOptions & { selector: string; params: Record<string, any> }
+
+export type GetSchemaFn = (opts: SchemaFnOptions) => ISchema

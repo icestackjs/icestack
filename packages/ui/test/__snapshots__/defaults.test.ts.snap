@@ -53,6 +53,10 @@ exports[`defaults > injectSchema 1`] = `
     "schema": [Function],
     "selector": ".input",
   },
+  "join": {
+    "schema": [Function],
+    "selector": ".join",
+  },
   "kbd": {
     "schema": [Function],
     "selector": ".kbd",

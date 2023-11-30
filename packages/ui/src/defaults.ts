@@ -251,6 +251,9 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   collapse: {
     selector: '.collapse'
+  },
+  join: {
+    selector: '.join'
   }
 }
 

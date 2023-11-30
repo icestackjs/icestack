@@ -89,6 +89,13 @@
           "scene": null
         },
         {
+          "name": "join",
+          "pathName": "pages/index/component",
+          "query": "id=join",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "kbd",
           "pathName": "pages/index/component",
           "query": "id=kbd",

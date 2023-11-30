@@ -59,6 +59,9 @@ exports[`mp > miniprogramPreset snap 1`] = `
         },
       },
     },
+    "join": {
+      "schema": [Function],
+    },
     "radio": {
       "prefix": {
         "ignore": [

@@ -195,6 +195,10 @@ exports[`options > getCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".input",
     },
+    "join": {
+      "schema": [Function],
+      "selector": ".join",
+    },
     "kbd": {
       "schema": [Function],
       "selector": ".kbd",
@@ -501,6 +505,10 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     "input": {
       "schema": [Function],
       "selector": ".input",
+    },
+    "join": {
+      "schema": [Function],
+      "selector": ".join",
     },
     "kbd": {
       "schema": [Function],

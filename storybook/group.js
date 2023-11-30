@@ -5,7 +5,9 @@ module.exports = {
       "loading",
       "mask"
     ],
-    "Layout": [],
+    "Layout": [
+      "join"
+    ],
     "Navigation": [
       "link",
       "steps"
@@ -77,6 +79,7 @@ module.exports = {
     "tooltip": "文字提示",
     "toast": "轻提示",
     "steps": "步骤条",
-    "collapse": "折叠面板"
+    "collapse": "折叠面板",
+    "join": "分组容器"
   }
 }

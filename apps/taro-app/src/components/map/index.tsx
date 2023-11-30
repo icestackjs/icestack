@@ -23,6 +23,7 @@ import tooltip from './tooltip'
 import toast from './toast'
 import steps from './steps'
 import collapse from './collapse'
+import join from './join'
 
 export default {
   button,
@@ -49,5 +50,6 @@ export default {
   tooltip,
   toast,
   steps,
-  collapse
+  collapse,
+  join
 }

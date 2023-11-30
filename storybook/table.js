@@ -469,5 +469,19 @@ module.exports = {
       "collapse-plus"
     ],
     "utils": []
+  },
+  "join": {
+    "base": [
+      "join",
+      "join-item",
+      "dropdown"
+    ],
+    "styled": [],
+    "utils": [
+      "join",
+      "join-vertical",
+      "join-item",
+      "join-horizontal"
+    ]
   }
 }

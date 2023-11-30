@@ -225,6 +225,10 @@ exports[`presets > miniprogramPreset 1`] = `
       "schema": [Function],
       "selector": ".input",
     },
+    "join": {
+      "schema": [Function],
+      "selector": ".join",
+    },
     "kbd": {
       "schema": [Function],
       "selector": ".kbd",
@@ -1950,6 +1954,111 @@ exports[`presets > miniprogramPreset buildComponents 1`] = `
         ],
         "paddingLeft": "0.5rem",
         "paddingRight": "0.5rem",
+      },
+    },
+  },
+  "join": {
+    "base": {
+      ".join": {
+        "alignItems": "stretch",
+        "display": "inline-flex",
+      },
+      ".join .dropdown .join-item:first-child:not(:last-child),.join view:first-child:not(:last-child) .dropdown .join-item": {
+        "borderEndEndRadius": "inherit",
+        "borderStartEndRadius": "inherit",
+      },
+      ".join .join-item:first-child:not(:last-child),.join view:first-child:not(:last-child) .join-item": {
+        "borderEndEndRadius": "0",
+        "borderStartEndRadius": "0",
+      },
+      ".join .join-item:last-child:not(:first-child),.join view:last-child:not(:first-child) .join-item": {
+        "borderEndStartRadius": "0",
+        "borderStartStartRadius": "0",
+      },
+      ".join .join-item:not(:first-child):not(:last-child),.join view:not(:first-child):not(:last-child) .join-item": {
+        "borderEndEndRadius": "0",
+        "borderEndStartRadius": "0",
+        "borderStartEndRadius": "0",
+        "borderStartStartRadius": "0",
+      },
+      ".join :where(.join-item)": {
+        "borderEndEndRadius": "0",
+        "borderEndStartRadius": "0",
+        "borderStartEndRadius": "0",
+        "borderStartStartRadius": "0",
+      },
+      ".join :where(.join-item:first-child:not(:last-child)),.join :where(view:first-child:not(:last-child) .join-item)": {
+        "borderEndStartRadius": "inherit",
+        "borderStartStartRadius": "inherit",
+      },
+      ".join :where(.join-item:last-child:not(:first-child)),.join :where(view:last-child:not(:first-child) .join-item)": {
+        "borderEndEndRadius": "inherit",
+        "borderStartEndRadius": "inherit",
+      },
+      "@supports not selector(:has(*))": {
+        ":where(.join view)": {
+          "borderRadius": "inherit",
+        },
+      },
+      "@supports selector(:has(*))": {
+        ":where(.join view:has(.join-item))": {
+          "borderRadius": "inherit",
+        },
+      },
+    },
+    "styled": {
+      ".join": {
+        "borderRadius": "var(--ice-rounded-btn, 0.5rem)",
+      },
+      ".join-item:focus": {
+        "isolation": "isolate",
+      },
+      ".join>:where(view:not(:first-child))": {
+        "marginBottom": "0px",
+        "marginInlineStart": "-1px",
+        "marginTop": "0px",
+      },
+    },
+    "utils": {
+      ".join.join-horizontal": {
+        "flexDirection": "row",
+      },
+      ".join.join-horizontal .join-item:first-child:not(:last-child),.join.join-horizontal view:first-child:not(:last-child) .join-item": {
+        "borderEndEndRadius": "0",
+        "borderEndStartRadius": "inherit",
+        "borderStartEndRadius": "0",
+        "borderStartStartRadius": "inherit",
+      },
+      ".join.join-horizontal .join-item:last-child:not(:first-child),.join.join-horizontal view:last-child:not(:first-child) .join-item": {
+        "borderEndEndRadius": "inherit",
+        "borderEndStartRadius": "0",
+        "borderStartEndRadius": "inherit",
+        "borderStartStartRadius": "0",
+      },
+      ".join.join-horizontal>:where(view:not(:first-child))": {
+        "marginBottom": "0px",
+        "marginInlineStart": "-1px",
+        "marginTop": "0px",
+      },
+      ".join.join-vertical": {
+        "flexDirection": "column",
+      },
+      ".join.join-vertical .join-item:first-child:not(:last-child),.join.join-vertical view:first-child:not(:last-child) .join-item": {
+        "borderEndEndRadius": "0",
+        "borderEndStartRadius": "0",
+        "borderStartEndRadius": "inherit",
+        "borderStartStartRadius": "inherit",
+      },
+      ".join.join-vertical .join-item:last-child:not(:first-child),.join.join-vertical view:last-child:not(:first-child) .join-item": {
+        "borderEndEndRadius": "inherit",
+        "borderEndStartRadius": "inherit",
+        "borderStartEndRadius": "0",
+        "borderStartStartRadius": "0",
+      },
+      ".join.join-vertical>:where(view:not(:first-child))": {
+        "marginLeft": "0px",
+        "marginRight": "0px",
+        "marginTop": "-1px",
       },
     },
   },
@@ -4044,6 +4153,10 @@ exports[`presets > presets merge case 0 1`] = `
       "schema": [Function],
       "selector": ".input",
     },
+    "join": {
+      "schema": [Function],
+      "selector": ".join",
+    },
     "kbd": {
       "schema": [Function],
       "selector": ".kbd",
@@ -4495,6 +4608,10 @@ exports[`presets > presets merge case 1 1`] = `
       },
       "schema": [Function],
       "selector": ".input",
+    },
+    "join": {
+      "schema": [Function],
+      "selector": ".join",
     },
     "kbd": {
       "schema": [Function],

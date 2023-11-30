@@ -1,5 +1,6 @@
 import { GetSchemaFn, preprocessCssInJs } from './shared'
 import collapse from './collapse'
+import join from './join'
 import avatar from '@/components/avatar'
 import button from '@/components/button'
 import alert from '@/components/alert'
@@ -56,7 +57,8 @@ const schemaMap = {
   tooltip,
   toast,
   steps,
-  collapse
+  collapse,
+  join
 } as const
 
 const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap

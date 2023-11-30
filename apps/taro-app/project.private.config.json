@@ -82,6 +82,13 @@
           "scene": null
         },
         {
+          "name": "indicator",
+          "pathName": "pages/index/component",
+          "query": "id=indicator",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "input",
           "pathName": "pages/index/component",
           "query": "id=input",

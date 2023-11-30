@@ -6,7 +6,8 @@ module.exports = {
       "mask"
     ],
     "Layout": [
-      "join"
+      "join",
+      "indicator"
     ],
     "Navigation": [
       "link",
@@ -80,6 +81,7 @@ module.exports = {
     "toast": "轻提示",
     "steps": "步骤条",
     "collapse": "折叠面板",
-    "join": "分组容器"
+    "join": "分组容器",
+    "indicator": "标识"
   }
 }

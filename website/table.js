@@ -483,5 +483,20 @@ module.exports = {
       "join-item",
       "join-horizontal"
     ]
+  },
+  "indicator": {
+    "base": [
+      "indicator",
+      "indicator-item"
+    ],
+    "styled": [
+      "indicator-start",
+      "indicator-center",
+      "indicator-end",
+      "indicator-bottom",
+      "indicator-middle",
+      "indicator-top"
+    ],
+    "utils": []
   }
 }

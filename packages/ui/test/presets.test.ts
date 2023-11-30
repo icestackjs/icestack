@@ -1,5 +1,5 @@
-import { getCodegenOptions } from '@/options'
 import { miniprogramPreset } from '@icestack/presets'
+import { getCodegenOptions } from '@/options'
 import { createContext } from '@/context'
 // import { defuCodegenOptions } from '@/utils'
 describe('presets', () => {

@@ -49,6 +49,10 @@ exports[`defaults > injectSchema 1`] = `
   "form": {
     "schema": [Function],
   },
+  "indicator": {
+    "schema": [Function],
+    "selector": ".indicator",
+  },
   "input": {
     "schema": [Function],
     "selector": ".input",

@@ -864,6 +864,43 @@ exports[`'form' > styled 1`] = `
 
 exports[`'form' > utils 1`] = `""`;
 
+exports[`'indicator' > base 1`] = `
+".indicator {
+  @apply relative inline-flex;
+  width: max-content;
+}
+.indicator :where(.indicator-item) {
+  z-index: 1;
+  @apply absolute transform whitespace-nowrap;
+}"
+`;
+
+exports[`'indicator' > styled 1`] = `
+".indicator :where(.indicator-item) {
+  @apply bottom-auto end-0 start-auto top-0 -translate-y-1/2 translate-x-1/2 rtl:-translate-x-1/2;
+}
+.indicator :where(.indicator-item.indicator-start) {
+  @apply end-auto start-0 -translate-x-1/2 rtl:translate-x-1/2;
+}
+.indicator :where(.indicator-item.indicator-center) {
+  @apply end-1/2 start-1/2 -translate-x-1/2 rtl:translate-x-1/2;
+}
+.indicator :where(.indicator-item.indicator-end) {
+  @apply end-0 start-auto translate-x-1/2 rtl:-translate-x-1/2;
+}
+.indicator :where(.indicator-item.indicator-bottom) {
+  @apply bottom-0 top-auto translate-y-1/2;
+}
+.indicator :where(.indicator-item.indicator-middle) {
+  @apply bottom-1/2 top-1/2 -translate-y-1/2;
+}
+.indicator :where(.indicator-item.indicator-top) {
+  @apply bottom-auto top-0 -translate-y-1/2;
+}"
+`;
+
+exports[`'indicator' > utils 1`] = `""`;
+
 exports[`'input' > base 1`] = `
 ".input {
   @apply flex-shrink h-8 px-3 text-sm leading-loose;

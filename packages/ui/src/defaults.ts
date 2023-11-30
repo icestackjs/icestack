@@ -254,6 +254,9 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   join: {
     selector: '.join'
+  },
+  indicator: {
+    selector: '.indicator'
   }
 }
 

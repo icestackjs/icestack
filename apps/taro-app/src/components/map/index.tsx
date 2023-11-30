@@ -24,6 +24,7 @@ import toast from './toast'
 import steps from './steps'
 import collapse from './collapse'
 import join from './join'
+import indicator from './indicator'
 
 export default {
   button,
@@ -51,5 +52,6 @@ export default {
   toast,
   steps,
   collapse,
-  join
+  join,
+  indicator
 }

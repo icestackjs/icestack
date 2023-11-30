@@ -6,42 +6,42 @@ const options: Partial<ComponentsValue> = {
     return {
       selector,
       defaults: {
-        base: transformCss2Js(`.join {
+        base: transformCss2Js(`${selector} {
           @apply inline-flex items-stretch;
-          & :where(.join-item) {
+          & :where(${selector}-item) {
             border-start-end-radius: 0;
             border-end-end-radius: 0;
             border-end-start-radius: 0;
             border-start-start-radius: 0;
           }
-          & .join-item:not(:first-child):not(:last-child),
-          & *:not(:first-child):not(:last-child) .join-item {
+          & ${selector}-item:not(:first-child):not(:last-child),
+          & *:not(:first-child):not(:last-child) ${selector}-item {
             border-start-end-radius: 0;
             border-end-end-radius: 0;
             border-end-start-radius: 0;
             border-start-start-radius: 0;
           }
 
-          & .join-item:first-child:not(:last-child),
-          & *:first-child:not(:last-child) .join-item {
+          & ${selector}-item:first-child:not(:last-child),
+          & *:first-child:not(:last-child) ${selector}-item {
             border-start-end-radius: 0;
             border-end-end-radius: 0;
           }
 
-          & .join-item:first-child:not(:last-child),
-          & *:first-child:not(:last-child) .join-item {
+          & ${selector}-item:first-child:not(:last-child),
+          & *:first-child:not(:last-child) ${selector}-item {
             border-end-start-radius: inherit;
             border-start-start-radius: inherit;
           }
 
-          & .join-item:last-child:not(:first-child),
-          & *:last-child:not(:first-child) .join-item {
+          & ${selector}-item:last-child:not(:first-child),
+          & *:last-child:not(:first-child) ${selector}-item {
             border-end-start-radius: 0;
             border-start-start-radius: 0;
           }
 
-          & .join-item:last-child:not(:first-child),
-          & *:last-child:not(:first-child) .join-item {
+          & ${selector}-item:last-child:not(:first-child),
+          & *:last-child:not(:first-child) ${selector}-item {
             border-start-end-radius: inherit;
             border-end-end-radius: inherit;
           }
@@ -57,49 +57,49 @@ const options: Partial<ComponentsValue> = {
           }
         }
         `),
-        utils: transformCss2Js(`.join.join-vertical {
+        utils: transformCss2Js(`${selector}${selector}-vertical {
           @apply flex-col;
-          & .join-item:first-child:not(:last-child),
-          & *:first-child:not(:last-child) .join-item {
+          & ${selector}-item:first-child:not(:last-child),
+          & *:first-child:not(:last-child) ${selector}-item {
             border-end-start-radius: 0;
             border-end-end-radius: 0;
           }
-          & .join-item:first-child:not(:last-child),
-          & *:first-child:not(:last-child) .join-item {
+          & ${selector}-item:first-child:not(:last-child),
+          & *:first-child:not(:last-child) ${selector}-item {
             border-start-start-radius: inherit;
             border-start-end-radius: inherit;
           }
-          & .join-item:last-child:not(:first-child),
-          & *:last-child:not(:first-child) .join-item {
+          & ${selector}-item:last-child:not(:first-child),
+          & *:last-child:not(:first-child) ${selector}-item {
             border-start-start-radius: 0;
             border-start-end-radius: 0;
           }
-          & .join-item:last-child:not(:first-child),
-          & *:last-child:not(:first-child) .join-item {
+          & ${selector}-item:last-child:not(:first-child),
+          & *:last-child:not(:first-child) ${selector}-item {
             border-end-start-radius: inherit;
             border-end-end-radius: inherit;
           }
         }
 
-        .join.join-horizontal {
+        ${selector}${selector}-horizontal {
           @apply flex-row;
-          & .join-item:first-child:not(:last-child),
-          & *:first-child:not(:last-child) .join-item {
+          & ${selector}-item:first-child:not(:last-child),
+          & *:first-child:not(:last-child) ${selector}-item {
             border-end-end-radius: 0;
             border-start-end-radius: 0;
           }
-          & .join-item:first-child:not(:last-child),
-          & *:first-child:not(:last-child) .join-item {
+          & ${selector}-item:first-child:not(:last-child),
+          & *:first-child:not(:last-child) ${selector}-item {
             border-end-start-radius: inherit;
             border-start-start-radius: inherit;
           }
-          & .join-item:last-child:not(:first-child),
-          & *:last-child:not(:first-child) .join-item {
+          & ${selector}-item:last-child:not(:first-child),
+          & *:last-child:not(:first-child) ${selector}-item {
             border-end-start-radius: 0;
             border-start-start-radius: 0;
           }
-          & .join-item:last-child:not(:first-child),
-          & *:last-child:not(:first-child) .join-item {
+          & ${selector}-item:last-child:not(:first-child),
+          & *:last-child:not(:first-child) ${selector}-item {
             border-end-end-radius: inherit;
             border-start-end-radius: inherit;
           }

@@ -191,6 +191,10 @@ exports[`options > getCodegenOptions snap 1`] = `
     "form": {
       "schema": [Function],
     },
+    "indicator": {
+      "schema": [Function],
+      "selector": ".indicator",
+    },
     "input": {
       "schema": [Function],
       "selector": ".input",
@@ -501,6 +505,10 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     },
     "form": {
       "schema": [Function],
+    },
+    "indicator": {
+      "schema": [Function],
+      "selector": ".indicator",
     },
     "input": {
       "schema": [Function],

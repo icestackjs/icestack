@@ -1,5 +1,5 @@
 import postcssJs from 'postcss-js'
-import postcss, { Root, AcceptedPlugin } from 'postcss'
+import postcss, { Root, AcceptedPlugin, LazyResult, Document } from 'postcss'
 import type { CodegenOptions, VarPrefixerOptions, PrefixerOptions } from '@icestack/types'
 import prefixer from './prefixer'
 
@@ -41,7 +41,7 @@ export function objectify(root: Root) {
   return postcssJs.objectify(root as Root)
 }
 
-export function process(plugins: AcceptedPlugin[], css: string) {
+export function process(plugins: AcceptedPlugin[], css: string): LazyResult<Document | Root> {
   // @ts-ignore
   return postcss(plugins).process(css, {
     from: undefined

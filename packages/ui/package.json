@@ -44,6 +44,7 @@
     "build": "npm run build:all && npm run static && npm run build:plugin",
     "build:all": "ts-node --esm scripts/build-scss.ts",
     "dev": "npm run clean && npm run build:all && unbuild --sourcemap",
+    "bp": "unbuild",
     "build:plugin": "unbuild",
     "clean": "node scripts/clean.js",
     "lint": "eslint --cache --ext .ts,.js,.mjs,.cjs . && prettier -c src test",

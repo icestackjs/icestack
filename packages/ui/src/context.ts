@@ -23,7 +23,7 @@ function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
   return `${layer}.${suffixes.join('.')}`
 }
 
-export function createContext(opts?: DeepPartial<CodegenOptions>): any {
+export function createContext(opts?: DeepPartial<CodegenOptions>) {
   const options = getCodegenOptions(opts)
   const { outdir, dryRun, prefix: _globalPrefix, varPrefix: _globalVarPrefix, mode: globalMode, components, log, tailwindcssConfig } = options
   const globalPrefix = resolvePrefixOption(_globalPrefix)

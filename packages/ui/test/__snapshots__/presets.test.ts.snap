@@ -278,13 +278,13 @@ exports[`presets > miniprogramPreset 1`] = `
       "schema": [Function],
       "selector": ".step",
     },
+    "tab": {
+      "schema": [Function],
+      "selector": ".tab",
+    },
     "table": {
       "schema": [Function],
       "selector": ".table",
-    },
-    "tabs": {
-      "schema": [Function],
-      "selector": ".tab",
     },
     "textarea": {
       "extra": [Function],
@@ -374,6 +374,9 @@ exports[`presets > miniprogramPreset 1`] = `
           "schema": [Function],
         },
         "select": false,
+        "tab": {
+          "schema": [Function],
+        },
         "table": {
           "schema": [Function],
         },
@@ -3008,6 +3011,219 @@ exports[`presets > miniprogramPreset buildComponents 1`] = `
       },
     },
   },
+  "tab": {
+    "base": {
+      ".tab": {
+        "--ice-tab-padding": "1rem",
+        "alignItems": "center",
+        "appearance": "none",
+        "cursor": "pointer",
+        "display": "inline-flex",
+        "flexWrap": "wrap",
+        "fontSize": "0.875rem",
+        "gridRowStart": "1",
+        "height": "2rem",
+        "justifyContent": "center",
+        "lineHeight": [
+          "1.25rem",
+          2,
+        ],
+        "position": "relative",
+        "textAlign": "center",
+        "userSelect": "none",
+      },
+      ".tab-content": {
+        "borderColor": "transparent",
+        "borderWidth": "var(--ice-tab-border, 0)",
+        "display": "none",
+        "gridColumnEnd": "span 9999",
+        "gridColumnStart": "1",
+        "gridRowStart": "2",
+        "marginTop": "calc(var(--tab-border) * -1)",
+      },
+      ".tab:is(input[type=radio])": {
+        "borderBottomLeftRadius": "0px",
+        "borderBottomRightRadius": "0px",
+        "width": "auto",
+      },
+      ".tab:is(input[type=radio]):after": {
+        "--tw-content": "attr(aria-label)",
+        "content": "var(--tw-content)",
+      },
+      ".tab:not(input):empty": {
+        "cursor": "default",
+        "gridColumnStart": "span 9999",
+      },
+      ".tabs": {
+        "alignItems": "flex-end",
+        "display": "grid",
+      },
+      ".tabs-lifted:has(.tab-content) .tab:first-child:not(.tab-active),.tabs-lifted:has(.tab-content) .tab:first-child:not(.tab-active)": {
+        "borderBottomColor": "transparent",
+      },
+      ":checked+.tab-content:nth-child(2),.tab-active+.tab-content:nth-child(2)": {
+        "borderStartStartRadius": "0px",
+      },
+      "input.tab:checked+.tab-content,.tab-active+.tab-content": {
+        "display": "block",
+      },
+    },
+    "styled": {
+      ".tab": {
+        "--ice-tab-bg": "rgba(var(--ice-base-100) / 1)",
+        "--ice-tab-border-color": "rgba(var(--ice-base-300) / 1)",
+        "--ice-tab-color": "rgba(var(--ice-base-content) / 1)",
+        "--tw-text-opacity": "0.5",
+        "color": "var(--ice-tab-color)",
+        "paddingInlineEnd": "var(--ice-tab-padding, 1rem)",
+        "paddingInlineStart": "var(--ice-tab-padding, 1rem)",
+      },
+      ".tab-disabled,.tab[disabled]": {
+        "--tw-text-opacity": "0.2",
+        "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
+        "cursor": "not-allowed",
+      },
+      ".tab.tab-active:not(.tab-disabled):not([disabled]),.tab:is(input:checked)": {
+        "--tw-border-opacity": "1",
+        "--tw-text-opacity": "1",
+        "borderColor": "rgba(var(--ice-base-content) / var(--tw-border-opacity))",
+      },
+      ".tab:focus": {
+        "outline": "2px solid transparent",
+        "outlineOffset": "2px",
+      },
+      ".tab:focus-visible": {
+        "outline": "2px solid currentColor",
+        "outlineOffset": "-5px",
+      },
+      ".tab:hover": {
+        "--tw-text-opacity": "1",
+      },
+      ".tab[disabled],.tab[disabled]:hover": {
+        "--tw-text-opacity": "0.2",
+        "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
+        "cursor": "not-allowed",
+      },
+      ".tabs-bordered>.tab": {
+        "--tw-border-opacity": "0.2",
+        "borderBottomWidth": "calc(var(--ice-tab-border, 1px) + 1px)",
+        "borderColor": "rgba(var(--ice-base-content) / var(--tw-border-opacity))",
+        "borderStyle": "solid",
+      },
+      ".tabs-boxed": {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(var(--ice-base-200) / var(--tw-bg-opacity))",
+        "borderRadius": "var(--ice-rounded-btn, 0.5rem)",
+        "padding": "0.25rem",
+      },
+      ".tabs-boxed .tab": {
+        "borderRadius": "var(--ice-rounded-btn, 0.5rem)",
+      },
+      ".tabs-boxed .tab-active:not(.tab-disabled):not([disabled]),.tabs-boxed :is(input:checked)": {
+        "--tw-bg-opacity": "1",
+        "--tw-text-opacity": "1",
+        "backgroundColor": "rgba(var(--ice-primary) / var(--tw-bg-opacity))",
+        "color": "rgba(var(--ice-primary-content) / var(--tw-text-opacity))",
+      },
+      ".tabs-boxed .tab-active:not(.tab-disabled):not([disabled]):hover,.tabs-boxed :is(input:checked):hover": {
+        "--tw-text-opacity": "1",
+        "color": "rgba(var(--ice-primary-content) / var(--tw-text-opacity))",
+      },
+      ".tabs-lifted>.tab": {
+        "border": "var(--ice-tab-border, 1px) solid transparent",
+        "borderBottomColor": "var(--ice-tab-border-color)",
+        "borderStartEndRadius": "var(--ice-tab-radius, 0.5rem)",
+        "borderStartStartRadius": "var(--ice-tab-radius, 0.5rem)",
+        "borderWidth": "0 0 var(--ice-tab-border, 1px) 0",
+        "paddingInlineEnd": "var(--ice-tab-padding, 1rem)",
+        "paddingInlineStart": "var(--ice-tab-padding, 1rem)",
+        "paddingTop": "var(--ice-tab-border, 1px)",
+      },
+      ".tabs-lifted>.tab-active:not(.tab-disabled):not([disabled])+.tabs-lifted .tab-active:not(.tab-disabled):not([disabled]):before,.tabs-lifted>.tab:is(input:checked)+.tabs-lifted .tab:is(input:checked):before": {
+        "backgroundImage": "var(--ice-radius-end)",
+        "backgroundPosition": "top right",
+      },
+      ".tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]),.tabs-lifted>.tab:is(input:checked)": {
+        "backgroundColor": "var(--ice-tab-bg)",
+        "borderInlineEndColor": "var(--ice-tab-border-color)",
+        "borderInlineStartColor": "var(--ice-tab-border-color)",
+        "borderTopColor": "var(--ice-tab-border-color)",
+        "borderWidth": "var(--ice-tab-border, 1px) var(--ice-tab-border, 1px) 0 var(--ice-tab-border, 1px)",
+        "paddingBottom": "var(--ice-tab-border, 1px)",
+        "paddingInlineEnd": "calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px))",
+        "paddingInlineStart": "calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px))",
+        "paddingTop": "0",
+      },
+      ".tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]):before,.tabs-lifted>.tab:is(input:checked):before": {
+        "--ice-radius-end": "radial-gradient( circle at top right, transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px) )",
+        "--ice-radius-start": "radial-gradient( circle at top left, transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px) )",
+        "--ice-tab-grad": "calc(69% - var(--ice-tab-border, 1px))",
+        "backgroundImage": "var(--ice-radius-start), var(--ice-radius-end)",
+        "backgroundPosition": "top left, top right",
+        "backgroundRepeat": "no-repeat",
+        "backgroundSize": "var(--ice-tab-radius, 0.5rem)",
+        "bottom": "0",
+        "content": "\\"\\"",
+        "display": "block",
+        "height": "var(--ice-tab-radius, 0.5rem)",
+        "position": "absolute",
+        "width": "calc(100% + var(--ice-tab-radius, 0.5rem) * 2)",
+        "zIndex": 1,
+      },
+      ".tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before,.tabs-lifted>.tab:is(input:checked):first-child:before": {
+        "backgroundImage": "var(--ice-radius-end)",
+        "backgroundPosition": "top right",
+      },
+      ".tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]):last-child:before,.tabs-lifted>.tab:is(input:checked):last-child:before": {
+        "backgroundImage": "var(--ice-radius-start)",
+        "backgroundPosition": "top left",
+      },
+      ".tabs-lifted>.tab:focus-visible": {
+        "borderEndEndRadius": "0",
+        "borderEndStartRadius": "0",
+      },
+      "[dir=rtl] .tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before,[dir=rtl] .tabs-lifted>.tab:is(input:checked):first-child:before": {
+        "backgroundImage": "var(--ice-radius-start)",
+        "backgroundPosition": "top left",
+      },
+      "[dir=rtl] .tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]):last-child:before,[dir=rtl] .tabs-lifted>.tab:is(input:checked):last-child:before": {
+        "backgroundImage": "var(--ice-radius-end)",
+        "backgroundPosition": "top right",
+      },
+    },
+    "utils": {
+      ".tabs-lg :where(.tab)": {
+        "--ice-tab-padding": "1.25rem",
+        "fontSize": "1.125rem",
+        "height": "3rem",
+        "lineHeight": [
+          "1.75rem",
+          2,
+        ],
+      },
+      ".tabs-md :where(.tab)": {
+        "--ice-tab-padding": "1rem",
+        "fontSize": "0.875rem",
+        "height": "2rem",
+        "lineHeight": [
+          "1.25rem",
+          2,
+        ],
+      },
+      ".tabs-sm :where(.tab)": {
+        "--ice-tab-padding": "0.75rem",
+        "fontSize": "0.875rem",
+        "height": "1.5rem",
+        "lineHeight": ".75rem",
+      },
+      ".tabs-xs :where(.tab)": {
+        "--ice-tab-padding": "0.5rem",
+        "fontSize": "0.75rem",
+        "height": "1.25rem",
+        "lineHeight": ".75rem",
+      },
+    },
+  },
   "table": {
     "base": {
       ".table": {
@@ -3089,175 +3305,6 @@ exports[`presets > miniprogramPreset buildComponents 1`] = `
       ".table-xs :not(.thead):not(.tfoot) .tr": {
         "fontSize": "0.75rem",
         "lineHeight": "1rem",
-      },
-    },
-  },
-  "tabs": {
-    "base": {
-      ".tab": {
-        "--ice-tab-padding": "1rem",
-        "alignItems": "center",
-        "cursor": "pointer",
-        "display": "inline-flex",
-        "flexWrap": "wrap",
-        "fontSize": "0.875rem",
-        "height": "2rem",
-        "justifyContent": "center",
-        "lineHeight": [
-          "1.25rem",
-          2,
-        ],
-        "position": "relative",
-        "textAlign": "center",
-        "userSelect": "none",
-      },
-      ".tabs": {
-        "alignItems": "flex-end",
-        "display": "flex",
-        "flexWrap": "wrap",
-      },
-    },
-    "styled": {
-      ".tab": {
-        "--ice-tab-bg": "rgba(var(--ice-base-400) / var(--tw-bg-opacity, 1))",
-        "--ice-tab-border-color": "rgba(var(--ice-base-500) / var(--tw-bg-opacity, 1))",
-        "--ice-tab-color": "rgba(var(--ice-base-content) / var(--tw-text-opacity, 1))",
-        "--tw-text-opacity": "0.5",
-        "color": "var(--ice-tab-color)",
-        "paddingLeft": "var(--ice-tab-padding, 1rem)",
-        "paddingRight": "var(--ice-tab-padding, 1rem)",
-      },
-      ".tab-bordered": {
-        "--tw-border-opacity": "0.2",
-        "borderBottomWidth": "calc(var(--ice-tab-border, 1px) + 1px)",
-        "borderColor": "rgba(var(--ice-base-content) / var(--tw-border-opacity))",
-        "borderStyle": "solid",
-      },
-      ".tab-disabled,.tab[disabled]": {
-        "--tw-text-opacity": "0.2",
-        "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
-        "cursor": "not-allowed",
-      },
-      ".tab-lifted": {
-        "border": "var(--ice-tab-border, 1px) solid transparent",
-        "borderBottomColor": "var(--ice-tab-border-color)",
-        "borderTopLeftRadius": "var(--ice-tab-radius, 0.5rem)",
-        "borderTopRightRadius": "var(--ice-tab-radius, 0.5rem)",
-        "borderWidth": "0 0 var(--ice-tab-border, 1px) 0",
-        "paddingLeft": "var(--ice-tab-padding, 1rem)",
-        "paddingRight": "var(--ice-tab-padding, 1rem)",
-        "paddingTop": "var(--ice-tab-border, 1px)",
-      },
-      ".tab-lifted.tab-active:not(.tab-disabled):not([disabled])": {
-        "backgroundColor": "var(--ice-tab-bg)",
-        "borderLeftColor": "var(--ice-tab-border-color)",
-        "borderRightColor": "var(--ice-tab-border-color)",
-        "borderTopColor": "var(--ice-tab-border-color)",
-        "borderWidth": "var(--ice-tab-border, 1px) var(--ice-tab-border, 1px) 0 var(--ice-tab-border, 1px)",
-        "paddingBottom": "var(--ice-tab-border, 1px)",
-        "paddingLeft": "calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px))",
-        "paddingRight": "calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px))",
-        "paddingTop": "0",
-      },
-      ".tab-lifted.tab-active:not(.tab-disabled):not([disabled])+.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before": {
-        "background": "none",
-      },
-      ".tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after": {
-        "--ice-circle-pos": "top right",
-        "backgroundImage": "var(--ice-tab-corner-bg)",
-        "right": "calc(var(--ice-tab-radius, 0.5rem) * -1)",
-      },
-      ".tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before": {
-        "--ice-circle-pos": "top left",
-        "backgroundImage": "var(--ice-tab-corner-bg)",
-        "left": "calc(var(--ice-tab-radius, 0.5rem) * -1)",
-      },
-      ".tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before,.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after": {
-        "--ice-tab-corner-bg": "radial-gradient( circle at var(--ice-circle-pos), transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.3px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.3px) )",
-        "--ice-tab-grad": "calc(68% - var(--ice-tab-border, 1px))",
-        "bottom": "0",
-        "content": "\\"\\"",
-        "display": "block",
-        "height": "var(--ice-tab-radius, 0.5rem)",
-        "position": "absolute",
-        "width": "var(--ice-tab-radius, 0.5rem)",
-        "zIndex": 1,
-      },
-      ".tab-lifted.tab-active:not(.tab-disabled):not([disabled]):first-child:before": {
-        "background": "none",
-      },
-      ".tab-lifted.tab-active:not(.tab-disabled):not([disabled]):last-child:after": {
-        "background": "none",
-      },
-      ".tab.tab-active:not(.tab-disabled):not([disabled])": {
-        "--tw-border-opacity": "1",
-        "--tw-text-opacity": "1",
-        "borderColor": "rgba(var(--ice-base-content) / var(--tw-border-opacity))",
-      },
-      ".tab:focus": {
-        "outline": "2px solid transparent",
-        "outlineOffset": "2px",
-      },
-      ".tab:focus-visible": {
-        "outline": "2px solid currentColor",
-        "outlineOffset": "-3px",
-      },
-      ".tab:focus-visible.tab-lifted": {
-        "borderBottomLeftRadius": "var(--ice-tab-radius, 0.5rem)",
-        "borderBottomRightRadius": "var(--ice-tab-radius, 0.5rem)",
-      },
-      ".tab:hover": {
-        "--tw-text-opacity": "1",
-      },
-      ".tab[disabled],.tab[disabled]:hover": {
-        "--tw-text-opacity": "0.2",
-        "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
-        "cursor": "not-allowed",
-      },
-      ".tabs-boxed": {
-        "--tw-bg-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-base-200) / var(--tw-bg-opacity))",
-        "borderRadius": "var(--ice-rounded-btn, 0.5rem)",
-        "padding": "0.25rem",
-      },
-      ".tabs-boxed .tab": {
-        "borderRadius": "var(--ice-rounded-btn, 0.5rem)",
-      },
-      ".tabs-boxed .tab-active:not(.tab-disabled):not([disabled])": {
-        "--tw-bg-opacity": "1",
-        "--tw-text-opacity": "1",
-        "backgroundColor": "rgba(var(--ice-primary) / var(--tw-bg-opacity))",
-        "color": "rgba(var(--ice-primary-content) / var(--tw-text-opacity))",
-      },
-      ".tabs-boxed .tab-active:not(.tab-disabled):not([disabled]):hover": {
-        "--tw-text-opacity": "1",
-        "color": "rgba(var(--ice-primary-content) / var(--tw-text-opacity))",
-      },
-      "[dir=rtl] .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after": {
-        "--ice-circle-pos": "top left",
-      },
-      "[dir=rtl] .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before": {
-        "--ice-circle-pos": "top right",
-      },
-    },
-    "utils": {
-      ".tab-border": {
-        "--ice-tab-border": "1px",
-      },
-      ".tab-border-2": {
-        "--ice-tab-border": "2px",
-      },
-      ".tab-border-3": {
-        "--ice-tab-border": "3px",
-      },
-      ".tab-border-none": {
-        "--ice-tab-border": "0px",
-      },
-      ".tab-rounded-lg": {
-        "--ice-tab-radius": "0.5rem",
-      },
-      ".tab-rounded-none": {
-        "--ice-tab-radius": "0",
       },
     },
   },
@@ -4255,13 +4302,13 @@ exports[`presets > presets merge case 0 1`] = `
       "schema": [Function],
       "selector": ".step",
     },
+    "tab": {
+      "schema": [Function],
+      "selector": ".tab",
+    },
     "table": {
       "schema": [Function],
       "selector": ".table",
-    },
-    "tabs": {
-      "schema": [Function],
-      "selector": ".tab",
     },
     "textarea": {
       "extra": [Function],
@@ -4351,6 +4398,9 @@ exports[`presets > presets merge case 0 1`] = `
           "schema": [Function],
         },
         "select": false,
+        "tab": {
+          "schema": [Function],
+        },
         "table": {
           "schema": [Function],
         },
@@ -4665,13 +4715,13 @@ exports[`presets > presets merge case 1 1`] = `
       "schema": [Function],
       "selector": ".step",
     },
+    "tab": {
+      "schema": [Function],
+      "selector": ".tab",
+    },
     "table": {
       "schema": [Function],
       "selector": ".table",
-    },
-    "tabs": {
-      "schema": [Function],
-      "selector": ".tab",
     },
     "textarea": {
       "extra": [Function],
@@ -4761,6 +4811,9 @@ exports[`presets > presets merge case 1 1`] = `
           "schema": [Function],
         },
         "select": false,
+        "tab": {
+          "schema": [Function],
+        },
         "table": {
           "schema": [Function],
         },

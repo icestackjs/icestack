@@ -54,6 +54,9 @@ exports[`mp > miniprogramPreset snap 1`] = `
       "schema": [Function],
     },
     "select": false,
+    "tab": {
+      "schema": [Function],
+    },
     "table": {
       "schema": [Function],
     },

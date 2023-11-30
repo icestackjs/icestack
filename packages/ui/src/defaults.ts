@@ -209,9 +209,9 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   table: {
     selector: '.table'
   },
-  tabs: {
-    selector: '.tab'
-  },
+  // tabs: {
+  //   selector: '.tab'
+  // },
   skeleton: {
     selector: '.skeleton'
   },
@@ -263,6 +263,9 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   stack: {
     selector: '.stack'
+  },
+  tab: {
+    selector: '.tab'
   }
 }
 

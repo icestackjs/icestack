@@ -194,16 +194,16 @@
           "scene": null
         },
         {
-          "name": "table",
+          "name": "tab",
           "pathName": "pages/index/component",
-          "query": "id=table",
+          "query": "id=tab",
           "launchMode": "default",
           "scene": null
         },
         {
-          "name": "tabs",
+          "name": "table",
           "pathName": "pages/index/component",
-          "query": "id=tabs",
+          "query": "id=table",
           "launchMode": "default",
           "scene": null
         },

@@ -27,6 +27,7 @@ import join from './join'
 import indicator from './indicator'
 import divider from './divider'
 import stack from './stack'
+import tab from './tab'
 
 export default {
   button,
@@ -57,5 +58,6 @@ export default {
   join,
   indicator,
   divider,
-  stack
+  stack,
+  tab
 }

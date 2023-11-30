@@ -13,7 +13,8 @@ module.exports = {
     ],
     "Navigation": [
       "link",
-      "steps"
+      "steps",
+      "tab"
     ],
     "Data Entry": [
       "checkbox",
@@ -86,6 +87,7 @@ module.exports = {
     "join": "分组容器",
     "indicator": "标识",
     "divider": "分隔线",
-    "stack": "堆叠"
+    "stack": "堆叠",
+    "tab": "选项卡"
   }
 }

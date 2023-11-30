@@ -21,6 +21,7 @@
   },
   "link": "Link",
   "steps": "Steps",
+  "tab": "Tab",
   "-- Data Entry": {
     "type": "separator",
     "title": "Data Entry"

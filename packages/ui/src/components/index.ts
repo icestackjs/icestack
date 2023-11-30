@@ -4,6 +4,7 @@ import join from './join'
 import indicator from './indicator'
 import divider from './divider'
 import stack from './stack'
+import tab from './tab'
 import avatar from '@/components/avatar'
 import button from '@/components/button'
 import alert from '@/components/alert'
@@ -22,7 +23,7 @@ import loading from '@/components/loading'
 import mask from '@/components/mask'
 import form from '@/components/form'
 import table from '@/components/table'
-import tabs from '@/components/tabs'
+// import tabs from '@/components/tabs'
 import skeleton from '@/components/skeleton'
 import radialProgress from '@/components/radialProgress'
 import countdown from '@/components/countdown'
@@ -51,7 +52,7 @@ const schemaMap = {
   mask,
   form,
   table,
-  tabs,
+  // tabs,
   skeleton,
   'radial-progress': radialProgress,
   countdown,
@@ -64,7 +65,8 @@ const schemaMap = {
   join,
   indicator,
   divider,
-  stack
+  stack,
+  tab
 } as const
 
 const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap

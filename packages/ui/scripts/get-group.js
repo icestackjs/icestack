@@ -9,7 +9,7 @@ function main() {
     group: {
       General: orderBy(['button', 'loading', 'mask']),
       Layout: ['join', 'indicator', 'divider', 'stack'],
-      Navigation: orderBy(['link', 'steps']),
+      Navigation: orderBy(['link', 'steps', 'tab']),
       'Data Entry': orderBy(['checkbox', 'input', 'radio', 'range', 'select', 'textarea', 'toggle']),
       'Data Display': orderBy(['avatar', 'badge', 'chat', 'countdown', 'diff', 'table', 'kbd', 'collapse']),
       Feedback: orderBy(['alert', 'skeleton', 'tooltip', 'progress', 'radial-progress', 'toast']),
@@ -57,7 +57,8 @@ function main() {
       join: '分组容器',
       indicator: '标识',
       divider: '分隔线',
-      stack: '堆叠'
+      stack: '堆叠',
+      tab: '选项卡'
     }
   }
 

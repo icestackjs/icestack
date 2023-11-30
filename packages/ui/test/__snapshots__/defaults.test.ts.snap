@@ -125,13 +125,13 @@ exports[`defaults > injectSchema 1`] = `
     "schema": [Function],
     "selector": ".step",
   },
+  "tab": {
+    "schema": [Function],
+    "selector": ".tab",
+  },
   "table": {
     "schema": [Function],
     "selector": ".table",
-  },
-  "tabs": {
-    "schema": [Function],
-    "selector": ".tab",
   },
   "textarea": {
     "schema": [Function],

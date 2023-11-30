@@ -1974,6 +1974,176 @@ exports[`'steps' > utils 1`] = `
 }"
 `;
 
+exports[`'tab' > base 1`] = `
+".tabs {
+  @apply grid items-end;
+}
+
+.tabs-lifted:has(.tab-content[class^=rounded-]) .tab:first-child:not(.tab-active), .tabs-lifted:has(.tab-content[class*=\\" rounded-\\"]) .tab:first-child:not(.tab-active) {
+  @apply border-b-transparent;
+}
+
+.tab {
+  @apply relative row-start-1 inline-flex h-8 cursor-pointer select-none appearance-none flex-wrap items-center justify-center text-center text-sm leading-loose;
+  --ice-tab-padding: 1rem;
+}
+.tab:is(input[type=radio]) {
+  @apply w-auto rounded-b-none;
+}
+.tab:is(input[type=radio]):after {
+  --tw-content: attr(aria-label);
+  content: var(--tw-content);
+}
+.tab:not(input):empty {
+  @apply cursor-default;
+  grid-column-start: span 9999;
+}
+
+.tab-content {
+  @apply col-start-1 col-end-[span_9999] row-start-2 -mt-[--tab-border] hidden border-transparent;
+  border-width: var(--ice-tab-border, 0);
+}
+:checked + .tab-content:nth-child(2), .tab-active + .tab-content:nth-child(2) {
+  @apply rounded-ss-none;
+}
+
+input.tab:checked + .tab-content, .tab-active + .tab-content {
+  @apply block;
+}"
+`;
+
+exports[`'tab' > styled 1`] = `
+".tabs-lifted > .tab:focus-visible {
+  border-end-end-radius: 0;
+  border-end-start-radius: 0;
+}
+
+.tab {
+  @apply text-opacity-50 [@media(hover:hover)]:hover:text-opacity-100;
+  --ice-tab-color: theme(colors.base-content);
+  --ice-tab-bg: theme(colors.base-100);
+  --ice-tab-border-color: theme(colors.base-300);
+  color: var(--ice-tab-color);
+  padding-inline-start: var(--ice-tab-padding, 1rem);
+  padding-inline-end: var(--ice-tab-padding, 1rem);
+}
+.tab.tab-active:not(.tab-disabled):not([disabled]), .tab:is(input:checked) {
+  @apply border-base-content border-opacity-100 text-opacity-100;
+}
+.tab:focus {
+  @apply outline-none;
+}
+.tab:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: -5px;
+}
+.tab-disabled, .tab[disabled] {
+  @apply text-base-content cursor-not-allowed text-opacity-20;
+}
+@media (hover: hover) {
+  .tab[disabled], .tab[disabled]:hover {
+    @apply text-base-content cursor-not-allowed text-opacity-20;
+  }
+}
+
+.tabs-bordered > .tab {
+  @apply border-base-content border-opacity-20;
+  border-style: solid;
+  border-bottom-width: calc(var(--ice-tab-border, 1px) + 1px);
+}
+
+.tabs-lifted > .tab {
+  border: var(--ice-tab-border, 1px) solid transparent;
+  border-width: 0 0 var(--ice-tab-border, 1px) 0;
+  border-start-start-radius: var(--ice-tab-radius, 0.5rem);
+  border-start-end-radius: var(--ice-tab-radius, 0.5rem);
+  border-bottom-color: var(--ice-tab-border-color);
+  padding-inline-start: var(--ice-tab-padding, 1rem);
+  padding-inline-end: var(--ice-tab-padding, 1rem);
+  padding-top: var(--ice-tab-border, 1px);
+}
+.tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]), .tabs-lifted > .tab:is(input:checked) {
+  background-color: var(--ice-tab-bg);
+  border-width: var(--ice-tab-border, 1px) var(--ice-tab-border, 1px) 0 var(--ice-tab-border, 1px);
+  border-inline-start-color: var(--ice-tab-border-color);
+  border-inline-end-color: var(--ice-tab-border-color);
+  border-top-color: var(--ice-tab-border-color);
+  padding-inline-start: calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px));
+  padding-inline-end: calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px));
+  padding-bottom: var(--ice-tab-border, 1px);
+  padding-top: 0;
+}
+.tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):before, .tabs-lifted > .tab:is(input:checked):before {
+  z-index: 1;
+  content: \\"\\";
+  display: block;
+  position: absolute;
+  width: calc(100% + var(--ice-tab-radius, 0.5rem) * 2);
+  height: var(--ice-tab-radius, 0.5rem);
+  bottom: 0;
+  background-size: var(--ice-tab-radius, 0.5rem);
+  background-position: top left, top right;
+  background-repeat: no-repeat;
+  --ice-tab-grad: calc(69% - var(--ice-tab-border, 1px));
+  --ice-radius-start: radial-gradient( circle at top left, transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px) );
+  --ice-radius-end: radial-gradient( circle at top right, transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px) );
+  background-image: var(--ice-radius-start), var(--ice-radius-end);
+}
+.tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before, .tabs-lifted > .tab:is(input:checked):first-child:before {
+  background-image: var(--ice-radius-end);
+  background-position: top right;
+}
+[dir=rtl] .tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before, [dir=rtl] .tabs-lifted > .tab:is(input:checked):first-child:before {
+  background-image: var(--ice-radius-start);
+  background-position: top left;
+}
+.tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):last-child:before, .tabs-lifted > .tab:is(input:checked):last-child:before {
+  background-image: var(--ice-radius-start);
+  background-position: top left;
+}
+[dir=rtl] .tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):last-child:before, [dir=rtl] .tabs-lifted > .tab:is(input:checked):last-child:before {
+  background-image: var(--ice-radius-end);
+  background-position: top right;
+}
+
+.tabs-lifted > .tab-active:not(.tab-disabled):not([disabled]) + .tabs-lifted .tab-active:not(.tab-disabled):not([disabled]):before, .tabs-lifted > .tab:is(input:checked) + .tabs-lifted .tab:is(input:checked):before {
+  background-image: var(--ice-radius-end);
+  background-position: top right;
+}
+
+.tabs-boxed {
+  @apply bg-base-200 rounded-btn p-1;
+}
+.tabs-boxed .tab {
+  @apply rounded-btn;
+}
+.tabs-boxed .tab-active:not(.tab-disabled):not([disabled]), .tabs-boxed :is(input:checked) {
+  @apply bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content;
+}"
+`;
+
+exports[`'tab' > utils 1`] = `
+".tabs-md :where(.tab) {
+  @apply h-8 text-sm leading-loose;
+  --ice-tab-padding: 1rem;
+}
+
+.tabs-lg :where(.tab) {
+  @apply h-12 text-lg leading-loose;
+  --ice-tab-padding: 1.25rem;
+}
+
+.tabs-sm :where(.tab) {
+  @apply h-6 text-sm leading-3;
+  --ice-tab-padding: 0.75rem;
+}
+
+.tabs-xs :where(.tab) {
+  @apply h-5 text-xs leading-3;
+  --ice-tab-padding: 0.5rem;
+}"
+`;
+
 exports[`'table' > base 1`] = `
 ".table {
   @apply relative w-full;
@@ -2050,153 +2220,6 @@ exports[`'table' > utils 1`] = `
 
 .table-lg :where(th, td) {
   @apply px-6 py-4;
-}"
-`;
-
-exports[`'tabs' > base 1`] = `
-".tabs {
-  @apply flex flex-wrap items-end;
-}
-
-.tab {
-  @apply relative inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center;
-  @apply h-8 text-sm leading-loose;
-  --ice-tab-padding: 1rem;
-}"
-`;
-
-exports[`'tabs' > styled 1`] = `
-".tab {
-  @apply text-opacity-50 [@media(hover:hover)]:hover:text-opacity-100;
-  --ice-tab-color: rgba(var(--ice-base-content) / var(--tw-text-opacity, 1));
-  --ice-tab-bg: rgba(var(--ice-base-400) / var(--tw-bg-opacity, 1));
-  --ice-tab-border-color: rgba(var(--ice-base-500) / var(--tw-bg-opacity, 1));
-  color: var(--ice-tab-color);
-  padding-left: var(--ice-tab-padding, 1rem);
-  padding-right: var(--ice-tab-padding, 1rem);
-}
-.tab.tab-active:not(.tab-disabled):not([disabled]) {
-  @apply border-base-content border-opacity-100 text-opacity-100;
-}
-.tab:focus {
-  @apply outline-none;
-}
-.tab:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: -3px;
-}
-.tab:focus-visible.tab-lifted {
-  border-bottom-right-radius: var(--ice-tab-radius, 0.5rem);
-  border-bottom-left-radius: var(--ice-tab-radius, 0.5rem);
-}
-.tab-disabled, .tab[disabled] {
-  @apply text-base-content cursor-not-allowed text-opacity-20;
-}
-@media (hover: hover) {
-  .tab[disabled], .tab[disabled]:hover {
-    @apply text-base-content cursor-not-allowed text-opacity-20;
-  }
-}
-
-.tab-bordered {
-  @apply border-base-content border-opacity-20;
-  border-style: solid;
-  border-bottom-width: calc(var(--ice-tab-border, 1px) + 1px);
-}
-
-.tab-lifted {
-  border: var(--ice-tab-border, 1px) solid transparent;
-  border-width: 0 0 var(--ice-tab-border, 1px) 0;
-  border-top-left-radius: var(--ice-tab-radius, 0.5rem);
-  border-top-right-radius: var(--ice-tab-radius, 0.5rem);
-  border-bottom-color: var(--ice-tab-border-color);
-  padding-left: var(--ice-tab-padding, 1rem);
-  padding-right: var(--ice-tab-padding, 1rem);
-  padding-top: var(--ice-tab-border, 1px);
-}
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]) {
-  background-color: var(--ice-tab-bg);
-  border-width: var(--ice-tab-border, 1px) var(--ice-tab-border, 1px) 0 var(--ice-tab-border, 1px);
-  border-left-color: var(--ice-tab-border-color);
-  border-right-color: var(--ice-tab-border-color);
-  border-top-color: var(--ice-tab-border-color);
-  padding-left: calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px));
-  padding-right: calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px));
-  padding-bottom: var(--ice-tab-border, 1px);
-  padding-top: 0;
-}
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before, .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after {
-  z-index: 1;
-  content: \\"\\";
-  display: block;
-  position: absolute;
-  width: var(--ice-tab-radius, 0.5rem);
-  height: var(--ice-tab-radius, 0.5rem);
-  bottom: 0;
-  --ice-tab-grad: calc(68% - var(--ice-tab-border, 1px));
-  --ice-tab-corner-bg: radial-gradient( circle at var(--ice-circle-pos), transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.3px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.3px) );
-}
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before {
-  left: calc(var(--ice-tab-radius, 0.5rem) * -1);
-  --ice-circle-pos: top left;
-  background-image: var(--ice-tab-corner-bg);
-}
-[dir=rtl] .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before {
-  --ice-circle-pos: top right;
-}
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after {
-  right: calc(var(--ice-tab-radius, 0.5rem) * -1);
-  --ice-circle-pos: top right;
-  background-image: var(--ice-tab-corner-bg);
-}
-[dir=rtl] .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):after {
-  --ice-circle-pos: top left;
-}
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):first-child:before {
-  background: none;
-}
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]):last-child:after {
-  background: none;
-}
-
-.tab-lifted.tab-active:not(.tab-disabled):not([disabled]) + .tab-lifted.tab-active:not(.tab-disabled):not([disabled]):before {
-  background: none;
-}
-
-.tabs-boxed {
-  @apply bg-base-200 rounded-btn p-1;
-}
-.tabs-boxed .tab {
-  @apply rounded-btn;
-}
-.tabs-boxed .tab-active:not(.tab-disabled):not([disabled]) {
-  @apply bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content;
-}"
-`;
-
-exports[`'tabs' > utils 1`] = `
-".tab-border-none {
-  --ice-tab-border: 0px;
-}
-
-.tab-border {
-  --ice-tab-border: 1px;
-}
-
-.tab-border-2 {
-  --ice-tab-border: 2px;
-}
-
-.tab-border-3 {
-  --ice-tab-border: 3px;
-}
-
-.tab-rounded-none {
-  --ice-tab-radius: 0;
-}
-
-.tab-rounded-lg {
-  --ice-tab-radius: 0.5rem;
 }"
 `;
 

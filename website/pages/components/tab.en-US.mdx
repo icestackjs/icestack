@@ -1,0 +1,273 @@
+import CssTable from '../../components/CssTable'
+
+## Class Table
+
+<CssTable name="tab" />
+
+## Demo and Playground
+
+[Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/navigation-tab--docs)
+
+## Css Schema
+
+```json
+{
+"selector": ".tab",
+"defaults": {
+  "base": {
+    ".tabs": {
+      "apply": [
+        "grid items-end"
+      ]
+    },
+    ".tabs-lifted": {
+      "&:has(.tab-content[class^=\"rounded-\"]) .tab:first-child:not(.tab-active),&:has(.tab-content[class*=\" rounded-\"]) .tab:first-child:not(.tab-active)": {
+        "apply": [
+          "border-b-transparent"
+        ]
+      }
+    },
+    ".tab": {
+      "apply": [
+        "relative row-start-1 inline-flex h-8 cursor-pointer select-none appearance-none flex-wrap items-center justify-center text-center text-sm leading-loose"
+      ],
+      "css": {
+        "--tab-padding": "1rem"
+      },
+      "&:is(input[type=\"radio\"])": {
+        "apply": [
+          "w-auto rounded-b-none"
+        ],
+        "&:after": {
+          "css": {
+            "--tw-content": "attr(aria-label)",
+            "content": "var(--tw-content)"
+          }
+        }
+      },
+      "&:not(input):empty": {
+        "apply": [
+          "cursor-default"
+        ],
+        "css": {
+          "grid-column-start": "span 9999"
+        }
+      }
+    },
+    ".tab-content": {
+      "apply": [
+        "col-start-1 col-end-[span_9999] row-start-2 -mt-[--tab-border] hidden border-transparent"
+      ],
+      "css": {
+        "border-width": "var(--tab-border, 0)"
+      },
+      ":checked+&:nth-child(2),.tab-active+&:nth-child(2)": {
+        "apply": [
+          "rounded-ss-none"
+        ]
+      }
+    },
+    "input.tab:checked+.tab-content,.tab-active+.tab-content": {
+      "apply": [
+        "block"
+      ]
+    }
+  },
+  "styled": {
+    ".tabs-lifted>.tab:focus-visible": {
+      "css": {
+        "border-end-end-radius": "0",
+        "border-end-start-radius": "0"
+      }
+    },
+    ".tab": {
+      "apply": [
+        "text-opacity-50 [@media(hover:hover)]:hover:text-opacity-100"
+      ],
+      "css": {
+        "--tab-color": "theme(colors.base-content)",
+        "--tab-bg": "theme(colors.base-100)",
+        "--tab-border-color": "theme(colors.base-300)",
+        "color": "var(--tab-color)",
+        "padding-inline-start": "var(--tab-padding, 1rem)",
+        "padding-inline-end": "var(--tab-padding, 1rem)"
+      },
+      "&.tab-active:not(.tab-disabled):not([disabled]),&:is(input:checked)": {
+        "apply": [
+          "border-base-content border-opacity-100 text-opacity-100"
+        ]
+      },
+      "&:focus": {
+        "apply": [
+          "outline-none"
+        ]
+      },
+      "&:focus-visible": {
+        "css": {
+          "outline": "2px solid currentColor",
+          "outline-offset": "-5px"
+        }
+      },
+      "&-disabled,&[disabled]": {
+        "apply": [
+          "text-base-content cursor-not-allowed text-opacity-20"
+        ]
+      },
+      "@media (hover: hover)": {
+        "&[disabled],&[disabled]:hover": {
+          "apply": [
+            "text-base-content cursor-not-allowed text-opacity-20"
+          ]
+        }
+      }
+    },
+    ".tabs-bordered>.tab": {
+      "apply": [
+        "border-base-content border-opacity-20"
+      ],
+      "css": {
+        "border-style": "solid",
+        "border-bottom-width": "calc(var(--tab-border, 1px) + 1px)"
+      }
+    },
+    ".tabs-lifted>.tab": {
+      "css": {
+        "border": "var(--tab-border, 1px) solid transparent",
+        "border-width": "0 0 var(--tab-border, 1px) 0",
+        "border-start-start-radius": "var(--tab-radius, 0.5rem)",
+        "border-start-end-radius": "var(--tab-radius, 0.5rem)",
+        "border-bottom-color": "var(--tab-border-color)",
+        "padding-inline-start": "var(--tab-padding, 1rem)",
+        "padding-inline-end": "var(--tab-padding, 1rem)",
+        "padding-top": "var(--tab-border, 1px)"
+      },
+      "&.tab-active:not(.tab-disabled):not([disabled]),&:is(input:checked)": {
+        "css": {
+          "background-color": "var(--tab-bg)",
+          "border-width": "var(--tab-border, 1px) var(--tab-border, 1px) 0 var(--tab-border, 1px)",
+          "border-inline-start-color": "var(--tab-border-color)",
+          "border-inline-end-color": "var(--tab-border-color)",
+          "border-top-color": "var(--tab-border-color)",
+          "padding-inline-start": "calc(var(--tab-padding, 1rem) - var(--tab-border, 1px))",
+          "padding-inline-end": "calc(var(--tab-padding, 1rem) - var(--tab-border, 1px))",
+          "padding-bottom": "var(--tab-border, 1px)",
+          "padding-top": "0"
+        },
+        "&:before": {
+          "css": {
+            "z-index": "1",
+            "content": "\"\"",
+            "display": "block",
+            "position": "absolute",
+            "width": "calc(100% + var(--tab-radius, 0.5rem) * 2)",
+            "height": "var(--tab-radius, 0.5rem)",
+            "bottom": "0",
+            "background-size": "var(--tab-radius, 0.5rem)",
+            "background-position": "top left,
+              top right",
+            "background-repeat": "no-repeat",
+            "--tab-grad": "calc(69% - var(--tab-border, 1px))",
+            "--radius-start": "radial-gradient(
+              circle at top left,
+              transparent var(--tab-grad),
+              var(--tab-border-color) calc(var(--tab-grad) + 0.25px),
+              var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)),
+              var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.25px)
+            )",
+            "--radius-end": "radial-gradient(
+              circle at top right,
+              transparent var(--tab-grad),
+              var(--tab-border-color) calc(var(--tab-grad) + 0.25px),
+              var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)),
+              var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.25px)
+            )",
+            "background-image": "var(--radius-start), var(--radius-end)"
+          }
+        },
+        "&:first-child:before": {
+          "css": {
+            "background-image": "var(--radius-end)",
+            "background-position": "top right"
+          },
+          "[dir=\"rtl\"] &": {
+            "css": {
+              "background-image": "var(--radius-start)",
+              "background-position": "top left"
+            }
+          }
+        },
+        "&:last-child:before": {
+          "css": {
+            "background-image": "var(--radius-start)",
+            "background-position": "top left"
+          },
+          "[dir=\"rtl\"] &": {
+            "css": {
+              "background-image": "var(--radius-end)",
+              "background-position": "top right"
+            }
+          }
+        }
+      }
+    },
+    ".tabs-lifted>.tab-active:not(.tab-disabled):not([disabled])+.tabs-lifted .tab-active:not(.tab-disabled):not([disabled]),.tabs-lifted>.tab:is(input:checked)+.tabs-lifted .tab:is(input:checked)": {
+      "&:before": {
+        "css": {
+          "background-image": "var(--radius-end)",
+          "background-position": "top right"
+        }
+      }
+    },
+    ".tabs-boxed": {
+      "apply": [
+        "bg-base-200 rounded-btn p-1"
+      ],
+      ".tab": {
+        "apply": [
+          "rounded-btn"
+        ]
+      },
+      ".tab-active:not(.tab-disabled):not([disabled]),:is(input:checked)": {
+        "apply": [
+          "bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content"
+        ]
+      }
+    }
+  },
+  "utils": {
+    ".tabs-md :where(.tab)": {
+      "apply": [
+        "h-8 text-sm leading-loose"
+      ],
+      "css": {
+        "--tab-padding": "1rem"
+      }
+    },
+    ".tabs-lg :where(.tab)": {
+      "apply": [
+        "h-12 text-lg leading-loose"
+      ],
+      "css": {
+        "--tab-padding": "1.25rem"
+      }
+    },
+    ".tabs-sm :where(.tab)": {
+      "apply": [
+        "h-6 text-sm leading-3"
+      ],
+      "css": {
+        "--tab-padding": "0.75rem"
+      }
+    },
+    ".tabs-xs :where(.tab)": {
+      "apply": [
+        "h-5 text-xs leading-3"
+      ],
+      "css": {
+        "--tab-padding": "0.5rem"
+      }
+    }
+  }
+}
+}
+```

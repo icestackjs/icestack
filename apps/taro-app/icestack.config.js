@@ -19,6 +19,7 @@ const config = {
         @apply text-slate-500 dark:text-slate-300 text-xs pt-2 pb-3 break-all;
       }`),
     },
+
     // join: false
     // steps: false
 

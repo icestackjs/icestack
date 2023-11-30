@@ -1,5 +1,10 @@
 import { GetSchemaFn, transformCss2Js } from './shared'
 
+/**
+ * @deprecated
+ * @param opts
+ * @returns
+ */
 const schema: GetSchemaFn = (opts) => {
   const { selector } = opts
   return {

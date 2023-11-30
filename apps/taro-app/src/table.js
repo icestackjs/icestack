@@ -326,27 +326,6 @@ module.exports = {
       "table-lg"
     ]
   },
-  "tabs": {
-    "base": [
-      "tabs",
-      "tab"
-    ],
-    "styled": [
-      "tab-active",
-      "tab-disabled",
-      "tab-lifted",
-      "tab-bordered",
-      "tabs-boxed"
-    ],
-    "utils": [
-      "tab-border-none",
-      "tab-border",
-      "tab-border-2",
-      "tab-border-3",
-      "tab-rounded-none",
-      "tab-rounded-lg"
-    ]
-  },
   "skeleton": {
     "base": [
       "skeleton"
@@ -523,5 +502,26 @@ module.exports = {
     ],
     "styled": [],
     "utils": []
+  },
+  "tab": {
+    "base": [
+      "tabs",
+      "tabs-lifted",
+      "tab-content",
+      "tab",
+      "tab-active"
+    ],
+    "styled": [
+      "tab-disabled",
+      "tabs-bordered",
+      "tabs-boxed"
+    ],
+    "utils": [
+      "tabs-md",
+      "tab",
+      "tabs-lg",
+      "tabs-sm",
+      "tabs-xs"
+    ]
   }
 }

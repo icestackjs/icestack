@@ -498,5 +498,23 @@ module.exports = {
       "indicator-top"
     ],
     "utils": []
+  },
+  "divider": {
+    "base": [
+      "divider",
+      "divider-start",
+      "divider-end"
+    ],
+    "styled": [
+      "divider-primary",
+      "divider-success",
+      "divider-warning",
+      "divider-error",
+      "divider-neutral"
+    ],
+    "utils": [
+      "divider-horizontal",
+      "divider-vertical"
+    ]
   }
 }

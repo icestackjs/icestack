@@ -257,6 +257,9 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   indicator: {
     selector: '.indicator'
+  },
+  divider: {
+    selector: '.divider'
   }
 }
 
@@ -301,9 +304,6 @@ export function getCodegenDefaults(raw?: boolean): DeepPartial<CodegenOptions> {
     },
     log: true,
     dryRun: false,
-    cache: true,
-    // rtl: false,
-    // styled: true,
     global: {
       atMedia: {
         hover: false

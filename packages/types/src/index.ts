@@ -70,27 +70,13 @@ export type CodegenOptions = {
   components: ComponentsOptions
   global: GlobalOptions
   base: BaseOptions
-  varPrefix: VarPrefixerOptions // PropertyPrefixerOptions['prefix']
-  // styled: boolean
+  varPrefix: VarPrefixerOptions
   log: boolean
   prefix: PrefixerOptions
-  // rtl: boolean | ConfigOptions
   presets: (DeepPartial<CodegenOptions> | ((options?: any) => DeepPartial<CodegenOptions>))[]
-  cache: boolean
   outdir: string
   dryRun: boolean
   tailwindcssConfig: TailwindcssConfig
-  // tailwindcss plugin
-  // runtime: {
-  //   prefix: string | PrefixerOptions
-  //   atMedia: {
-  //     hover: boolean
-  //   }
-  //   selector: {
-  //     // default *
-  //     universal: string // | (() => string)
-  //   }
-  // }
 }
 
 export type Config = Partial<CodegenOptions>
@@ -98,16 +84,6 @@ export type Config = Partial<CodegenOptions>
 export type TailwindcssPluginOptions = {
   loaddir: string
 }
-
-// export type DeepRequired<T> = {
-//   [P in keyof T]-?: T[P] extends Array<infer U>
-//     ? Array<DeepRequired<U>>
-//     : T[P] extends ReadonlyArray<infer X>
-//     ? ReadonlyArray<DeepRequired<X>>
-//     : T[P] extends object
-//     ? DeepRequired<T[P]>
-//     : T[P]
-// }
 
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : Partial<T[P]>

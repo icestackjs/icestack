@@ -25,6 +25,7 @@ import steps from './steps'
 import collapse from './collapse'
 import join from './join'
 import indicator from './indicator'
+import divider from './divider'
 
 export default {
   button,
@@ -53,5 +54,6 @@ export default {
   steps,
   collapse,
   join,
-  indicator
+  indicator,
+  divider
 }

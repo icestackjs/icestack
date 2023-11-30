@@ -75,6 +75,13 @@
           "scene": null
         },
         {
+          "name": "divider",
+          "pathName": "pages/index/component",
+          "query": "id=divider",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "form",
           "pathName": "pages/index/component",
           "query": "id=form",

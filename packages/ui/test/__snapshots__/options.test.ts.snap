@@ -142,7 +142,6 @@ exports[`options > getCodegenOptions snap 1`] = `
       },
     },
   },
-  "cache": true,
   "components": {
     "alert": {
       "schema": [Function],
@@ -187,6 +186,10 @@ exports[`options > getCodegenOptions snap 1`] = `
     "diff": {
       "schema": [Function],
       "selector": ".diff",
+    },
+    "divider": {
+      "schema": [Function],
+      "selector": ".divider",
     },
     "form": {
       "schema": [Function],
@@ -457,7 +460,6 @@ exports[`options > getRawCodegenOptions snap 1`] = `
       },
     },
   },
-  "cache": true,
   "components": {
     "alert": {
       "schema": [Function],
@@ -502,6 +504,10 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     "diff": {
       "schema": [Function],
       "selector": ".diff",
+    },
+    "divider": {
+      "schema": [Function],
+      "selector": ".divider",
     },
     "form": {
       "schema": [Function],

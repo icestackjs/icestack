@@ -46,6 +46,10 @@ exports[`defaults > injectSchema 1`] = `
     "schema": [Function],
     "selector": ".diff",
   },
+  "divider": {
+    "schema": [Function],
+    "selector": ".divider",
+  },
   "form": {
     "schema": [Function],
   },

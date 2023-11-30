@@ -142,7 +142,6 @@ exports[`presets > miniprogramPreset 1`] = `
       },
     },
   },
-  "cache": true,
   "components": {
     "alert": {
       "schema": [Function],
@@ -211,6 +210,10 @@ exports[`presets > miniprogramPreset 1`] = `
       },
     },
     "diff": false,
+    "divider": {
+      "schema": [Function],
+      "selector": ".divider",
+    },
     "form": {
       "schema": [Function],
     },
@@ -1678,6 +1681,99 @@ exports[`presets > miniprogramPreset buildComponents 1`] = `
     "utils": {
       ".countdown>view": {
         "lineHeight": "1em",
+      },
+    },
+  },
+  "divider": {
+    "base": {
+      ".divider": {
+        "alignItems": "center",
+        "alignSelf": "stretch",
+        "display": "flex",
+        "flexDirection": "row",
+      },
+      ".divider-end:after": {
+        "display": "none",
+      },
+      ".divider-start:before": {
+        "display": "none",
+      },
+      ".divider:before,.divider:after": {
+        "--tw-content": "''",
+        "content": "var(--tw-content)",
+        "flexGrow": 1,
+        "height": "0.125rem",
+        "width": "100%",
+      },
+    },
+    "styled": {
+      ".divider": {
+        "height": "1rem",
+        "marginBottom": "1rem",
+        "marginTop": "1rem",
+        "whiteSpace": "nowrap",
+      },
+      ".divider-error:before,.divider-error:after": {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(var(--ice-error) / var(--tw-bg-opacity))",
+      },
+      ".divider-neutral:before,.divider-neutral:after": {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(var(--ice-neutral) / var(--tw-bg-opacity))",
+      },
+      ".divider-primary:before,.divider-primary:after": {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(var(--ice-primary) / var(--tw-bg-opacity))",
+      },
+      ".divider-success:before,.divider-success:after": {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(var(--ice-success) / var(--tw-bg-opacity))",
+      },
+      ".divider-warning:before,.divider-warning:after": {
+        "--tw-bg-opacity": "1",
+        "backgroundColor": "rgba(var(--ice-warning) / var(--tw-bg-opacity))",
+      },
+      ".divider:before,.divider:after": {
+        "backgroundColor": "rgba(var(--ice-base-content) / 0.1)",
+      },
+      ".divider:not(:empty)": {
+        "gap": "1rem",
+      },
+    },
+    "utils": {
+      ".divider-horizontal": {
+        "flexDirection": "column",
+        "height": "auto",
+        "marginBottom": "0px",
+        "marginLeft": "1rem",
+        "marginRight": "1rem",
+        "marginTop": "0px",
+        "width": "1rem",
+      },
+      ".divider-horizontal:after": {
+        "height": "100%",
+        "width": "0.125rem",
+      },
+      ".divider-horizontal:before": {
+        "height": "100%",
+        "width": "0.125rem",
+      },
+      ".divider-vertical": {
+        "flexDirection": "row",
+        "height": "1rem",
+        "marginBottom": "1rem",
+        "marginLeft": "0px",
+        "marginRight": "0px",
+        "marginTop": "1rem",
+        "width": "auto",
+      },
+      ".divider-vertical:after": {
+        "height": "0.125rem",
+        "width": "100%",
+      },
+      ".divider-vertical:before": {
+        "height": "0.125rem",
+        "width": "100%",
       },
     },
   },
@@ -4044,7 +4140,6 @@ exports[`presets > presets merge case 0 1`] = `
       },
     },
   },
-  "cache": true,
   "components": {
     "alert": {
       "schema": [Function],
@@ -4113,6 +4208,10 @@ exports[`presets > presets merge case 0 1`] = `
       },
     },
     "diff": false,
+    "divider": {
+      "schema": [Function],
+      "selector": ".divider",
+    },
     "form": {
       "schema": [Function],
     },
@@ -4509,7 +4608,6 @@ exports[`presets > presets merge case 1 1`] = `
       },
     },
   },
-  "cache": true,
   "components": {
     "alert": {
       "schema": [Function],
@@ -4579,6 +4677,10 @@ exports[`presets > presets merge case 1 1`] = `
       },
     },
     "diff": false,
+    "divider": {
+      "schema": [Function],
+      "selector": ".divider",
+    },
     "form": {
       "schema": [Function],
     },

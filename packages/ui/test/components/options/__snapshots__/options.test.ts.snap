@@ -2210,6 +2210,216 @@ exports[`'diff' options > snap 1`] = `
 }
 `;
 
+exports[`'divider' options > raw snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".divider": {
+        "&-end:after": {
+          "apply": [
+            "hidden",
+          ],
+        },
+        "&-start:before": {
+          "apply": [
+            "hidden",
+          ],
+        },
+        "&:before,&:after": {
+          "apply": [
+            "h-0.5 w-full flex-grow content-['']",
+          ],
+        },
+        "apply": [
+          "flex flex-row items-center self-stretch",
+        ],
+      },
+    },
+    "styled": {
+      ".divider": {
+        "&:before,&:after": {
+          "apply": [
+            "bg-base-content/10",
+          ],
+        },
+        "&:not(:empty)": {
+          "apply": [
+            "gap-4",
+          ],
+        },
+        "apply": [
+          "my-4 h-4 whitespace-nowrap",
+        ],
+      },
+    },
+    "utils": {
+      ".divider-horizontal": {
+        "&:after": {
+          "apply": [
+            "h-full w-0.5",
+          ],
+        },
+        "&:before": {
+          "apply": [
+            "h-full w-0.5",
+          ],
+        },
+        "apply": [
+          "flex-col",
+          "mx-4 my-0 h-auto w-4",
+        ],
+      },
+      ".divider-vertical": {
+        "&:after": {
+          "apply": [
+            "h-0.5 w-full",
+          ],
+        },
+        "&:before": {
+          "apply": [
+            "h-0.5 w-full",
+          ],
+        },
+        "apply": [
+          "flex-row",
+          "mx-0 my-4 h-4 w-auto",
+        ],
+      },
+    },
+  },
+  "selector": ".divider",
+}
+`;
+
+exports[`'divider' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".divider": {
+        "&-end:after": {
+          "apply": [
+            [
+              "hidden",
+            ],
+          ],
+        },
+        "&-start:before": {
+          "apply": [
+            [
+              "hidden",
+            ],
+          ],
+        },
+        "&:before,&:after": {
+          "apply": [
+            [
+              "h-0.5",
+              "w-full",
+              "flex-grow",
+              "content-['']",
+            ],
+          ],
+        },
+        "apply": [
+          [
+            "flex",
+            "flex-row",
+            "items-center",
+            "self-stretch",
+          ],
+        ],
+      },
+    },
+    "styled": {
+      ".divider": {
+        "&:before,&:after": {
+          "apply": [
+            [
+              "bg-base-content/10",
+            ],
+          ],
+        },
+        "&:not(:empty)": {
+          "apply": [
+            [
+              "gap-4",
+            ],
+          ],
+        },
+        "apply": [
+          [
+            "my-4",
+            "h-4",
+            "whitespace-nowrap",
+          ],
+        ],
+      },
+    },
+    "utils": {
+      ".divider-horizontal": {
+        "&:after": {
+          "apply": [
+            [
+              "h-full",
+              "w-0.5",
+            ],
+          ],
+        },
+        "&:before": {
+          "apply": [
+            [
+              "h-full",
+              "w-0.5",
+            ],
+          ],
+        },
+        "apply": [
+          [
+            "flex-col",
+          ],
+          [
+            "mx-4",
+            "my-0",
+            "h-auto",
+            "w-4",
+          ],
+        ],
+      },
+      ".divider-vertical": {
+        "&:after": {
+          "apply": [
+            [
+              "h-0.5",
+              "w-full",
+            ],
+          ],
+        },
+        "&:before": {
+          "apply": [
+            [
+              "h-0.5",
+              "w-full",
+            ],
+          ],
+        },
+        "apply": [
+          [
+            "flex-row",
+          ],
+          [
+            "mx-0",
+            "my-4",
+            "h-4",
+            "w-auto",
+          ],
+        ],
+      },
+    },
+  },
+  "selector": ".divider",
+}
+`;
+
 exports[`'form' options > raw snap 1`] = `
 {
   "defaults": {

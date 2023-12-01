@@ -8,7 +8,7 @@
     "test": "vitest run",
     "test:dev": "vitest",
     "release": "pnpm publish",
-    "sync": "cnpm sync @icestack/unocss"
+    "sync": "cnpm sync @icestack/cva"
   },
   "keywords": [
     "cva",
@@ -39,7 +39,9 @@
       ]
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "class-variance-authority": "^0.7.0"
+  },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
   "bugs": {

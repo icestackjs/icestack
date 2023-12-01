@@ -156,7 +156,11 @@ importers:
         specifier: workspace:^
         version: link:../../packages/ui
 
-  packages/cva: {}
+  packages/cva:
+    dependencies:
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
 
   packages/logger:
     dependencies:

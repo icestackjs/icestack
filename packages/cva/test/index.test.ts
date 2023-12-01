@@ -1,5 +1,8 @@
+import { createTailwindcssContent } from '@/content/index'
+
 describe('index', () => {
-  it('should ', () => {
-    expect(true).toBe(true)
+  it('createTailwindcssContent', () => {
+    const raw = createTailwindcssContent().raw
+    expect(raw).toMatchSnapshot()
   })
 })

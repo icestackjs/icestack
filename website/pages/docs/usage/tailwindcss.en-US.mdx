@@ -20,8 +20,10 @@ module.exports = {
   // ...
   plugins: [
     icestackPlugin({
-      loadDirectory: path.resolve(__dirname, 'my-ui')
+      loadDirectory: path.resolve(__dirname, 'my-ui'),
       // other options
+      // if load theme, default: false,  when true ,config will be merge into tailwindcss.theme.extend, you can use bg-primary text-primary ....
+      loadConfig: true
     })
   ]
 }

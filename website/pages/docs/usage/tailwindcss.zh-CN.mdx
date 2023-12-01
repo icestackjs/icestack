@@ -24,8 +24,10 @@ module.exports = {
   // ...
   plugins: [
     icestackPlugin({
-      loadDirectory: path.resolve(__dirname, 'my-ui')
+      loadDirectory: path.resolve(__dirname, 'my-ui'),
       // other options
+      // 是否注入 theme, default: false, 为 true 时 生成器的 primary success warning 这些颜色会进入 tailwindcss theme extend 配置
+      loadConfig: true
     })
   ]
 }

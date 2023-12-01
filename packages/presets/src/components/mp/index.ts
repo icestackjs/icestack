@@ -10,7 +10,7 @@ import countdown from './countdown'
 import collapse from './collapse'
 import join from './join'
 import tab from './tab'
-import type { ComponentsOptions, DeepPartial } from '@/types'
+import type { ComponentsOptions, DeepPartial, CodegenOptions } from '@/types'
 
 export const components: DeepPartial<ComponentsOptions> = {
   select: false,
@@ -28,4 +28,30 @@ export const components: DeepPartial<ComponentsOptions> = {
   collapse,
   join,
   tab
+}
+
+export const miniprogramPreset: () => DeepPartial<CodegenOptions> = () => {
+  return {
+    global: {
+      atMedia: {
+        hover: false
+      },
+      selector: {
+        universal: 'view', // ['view', 'text']
+        root: 'page'
+      },
+      pseudo: {}
+    },
+    components,
+    base: {
+      themes: {
+        light: {
+          selector: 'page'
+        },
+        dark: {
+          selector: '.dark'
+        }
+      }
+    }
+  }
 }

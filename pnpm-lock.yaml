@@ -111,11 +111,7 @@ importers:
         specifier: ^0.34.6
         version: 0.34.6(sass@1.69.5)
 
-  packages/cva:
-    dependencies:
-      class-variance-authority:
-        specifier: ^0.7.0
-        version: 0.7.0
+  packages/cva: {}
 
   packages/logger:
     dependencies:
@@ -129,9 +125,6 @@ importers:
 
   packages/postcss:
     dependencies:
-      '@icestack/presets':
-        specifier: workspace:^
-        version: link:../presets
       '@icestack/shared':
         specifier: workspace:^
         version: link:../shared
@@ -171,6 +164,10 @@ importers:
       '@icestack/types':
         specifier: workspace:^
         version: link:../types
+    devDependencies:
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../ui
 
   packages/shared:
     dependencies:
@@ -260,9 +257,6 @@ importers:
         specifier: ^1.69.5
         version: 1.69.5
     devDependencies:
-      '@icestack/presets':
-        specifier: workspace:^
-        version: link:../presets
       '@types/css-selector-tokenizer':
         specifier: ^0.7.4
         version: 0.7.4

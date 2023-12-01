@@ -2,7 +2,7 @@ import path from 'node:path'
 import { createContext } from '@icestack/ui'
 import { getCss } from './utils'
 import { icestackPlugin } from '@/index'
-// import { miniprogramPreset } from '@icestack/presets'
+
 describe('tailwindcss', () => {
   const outdir = path.resolve(__dirname, 'assets')
   beforeAll(async () => {

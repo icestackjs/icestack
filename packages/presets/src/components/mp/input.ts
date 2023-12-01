@@ -1,4 +1,3 @@
-// import { expandTypes, getSelector } from '../shared'
 import { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {

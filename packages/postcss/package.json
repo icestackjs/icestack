@@ -22,7 +22,6 @@
     "dist"
   ],
   "dependencies": {
-    "@icestack/presets": "workspace:^",
     "@icestack/shared": "workspace:^",
     "@icestack/types": "workspace:^",
     "css-selector-tokenizer": "^0.8.0",

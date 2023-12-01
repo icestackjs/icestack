@@ -4,6 +4,7 @@ import { set, get, pick } from 'lodash'
 import * as sass from 'sass'
 import type { Value } from 'sass'
 import type { Root, AcceptedPlugin } from 'postcss'
+import cliProgress from 'cli-progress'
 import type { CodegenOptions, DeepPartial, ILayer, CssInJs } from './types'
 import { generateIndexCode } from './js'
 import { getColors } from './colors'
@@ -18,7 +19,6 @@ import { CreatePresetOptions, handleOptions } from '@/components/shared'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import * as base from '@/base'
 import { getPrefixerPlugin, getCssVarsPrefixerPlugin, resolveTailwindcss, initTailwindcssConfig, objectify, process, resolvePrefixOption, resolveVarPrefixOption } from '@/postcss'
-
 function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
   return `${layer}.${suffixes.join('.')}`
 }
@@ -205,8 +205,19 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
   }
 
   async function buildComponents() {
+    const b1 = new cliProgress.SingleBar(
+      {
+        format: 'building components: [{bar}] | {componentName} | {value}/{total}'
+        // barCompleteChar: '\u2588',
+        // barIncompleteChar: '\u2591'
+        // hideCursor: true
+      },
+      cliProgress.Presets.shades_classic
+    )
+    b1.start(allComponentsNames.length, 0)
     const layer: ILayer = 'components'
     const res: Record<string, Record<string, CssInJs>> = {}
+    let idx = 0
     for (const componentName of allComponentsNames) {
       // const start = performance.now()
       for (const stage of stages) {
@@ -219,6 +230,9 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
         set(res, `${componentName}.${stage}`, cssJsObj)
         // res[componentName][stage] = cssJsObj
       }
+      b1.update(++idx, {
+        componentName
+      })
       // const end = performance.now()
       // logger.success(`build component [${componentName}] finished! ` + `${end - start}ms`)
     }
@@ -228,6 +242,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
       const code = generateIndexCode(allComponentsNames, 'components')
       fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.js'), code, 'utf8')
     }
+    b1.stop()
 
     return res
   }

@@ -73,12 +73,14 @@
     "@icestack/shared": "workspace:^",
     "@icestack/types": "workspace:^",
     "c12": "^1.5.1",
+    "cli-progress": "^3.12.0",
     "commander": "^11.1.0",
     "immutable": "^4.0.0",
     "lodash": "^4.17.21",
     "sass": "^1.69.5"
   },
   "devDependencies": {
+    "@types/cli-progress": "^3.11.5",
     "@types/css-selector-tokenizer": "^0.7.4",
     "@types/deasync": "^0.1.5",
     "@types/fibers": "^3.1.4",

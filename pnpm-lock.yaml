@@ -111,6 +111,12 @@ importers:
         specifier: ^0.34.6
         version: 0.34.6(sass@1.69.5)
 
+  packages/cva:
+    dependencies:
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
+
   packages/logger:
     dependencies:
       consola:

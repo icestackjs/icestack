@@ -59,5 +59,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/sonofmagic/icestack"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.202"
   }
 }

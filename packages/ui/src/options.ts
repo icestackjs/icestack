@@ -1,7 +1,7 @@
 import { loadConfig } from 'c12'
+import { defu } from '@icestack/shared'
 import { getCodegenDefaults } from './defaults'
 import type { CodegenOptions, DeepPartial } from './types'
-import { defu } from '@/utils'
 
 export function getCodegenOptions(options?: DeepPartial<CodegenOptions>): CodegenOptions {
   let presets: DeepPartial<CodegenOptions>[] = []

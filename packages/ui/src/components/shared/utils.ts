@@ -1,7 +1,7 @@
 import { pick } from 'lodash'
-import { preprocessCssInJs } from '@icestack/shared'
+import { preprocessCssInJs, defu, defuOverrideApplyCss } from '@icestack/shared'
 import type { CreatePresetOptions, ISchema } from '@icestack/shared'
-import { defu, defuOverrideArray } from '@/utils'
+
 import type { CodegenMode, ComponentsValue, CssInJs, ModeMergeValue, SchemaFnOptions } from '@/types'
 export { expandTypes, compressCssSelector, preprocessCssInJs, getSelector, recursiveNodes, transformCss2Js } from '@icestack/shared'
 
@@ -56,10 +56,13 @@ export function handleOptions({ extend, override, selector, extra, mode, schema,
   let de: Partial<ISchema> = d ?? {}
   de.defaults = preprocessCssInJs(pick(de.defaults, getPickedProps(mode)))
   if (override) {
-    de = defuOverrideArray(de, {
-      selector,
-      defaults: makeDefaults(preprocessCssInJs(handleFn(override, opts)), selector)
-    })
+    de = defuOverrideApplyCss(
+      {
+        selector,
+        defaults: makeDefaults(preprocessCssInJs(handleFn(override, opts)), selector)
+      },
+      de
+    )
   }
   const res = defu(
     {

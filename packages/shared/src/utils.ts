@@ -11,7 +11,14 @@ const defuOverrideArray = createDefu((obj, key, value) => {
   }
 })
 
-export { defuOverrideArray }
+const defuOverrideApplyCss = createDefu((obj, key, value) => {
+  if ((key === 'css' || key === 'apply') && typeof obj[key] === 'object' && typeof value === 'object') {
+    obj[key] = value
+    return true
+  }
+})
+
+export { defuOverrideArray, defuOverrideApplyCss }
 
 const defaultSelectorParser = selectorParser()
 

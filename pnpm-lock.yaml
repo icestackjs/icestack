@@ -111,6 +111,33 @@ importers:
         specifier: ^0.34.6
         version: 0.34.6(sass@1.69.5)
 
+  examples/add-new-theme:
+    devDependencies:
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
+      tailwindcss:
+        specifier: ^3.3.5
+        version: 3.3.5
+
+  examples/add-new-type:
+    devDependencies:
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
+      tailwindcss:
+        specifier: ^3.3.5
+        version: 3.3.5
+
+  examples/override-extend-extra:
+    devDependencies:
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
+      tailwindcss:
+        specifier: ^3.3.5
+        version: 3.3.5
+
   examples/raw-html:
     devDependencies:
       '@icestack/ui':
@@ -201,6 +228,10 @@ importers:
       postcss-selector-parser:
         specifier: ^6.0.13
         version: 6.0.13
+    devDependencies:
+      '@types/lodash':
+        specifier: ^4.14.202
+        version: 4.14.202
 
   packages/tailwindcss:
     dependencies:

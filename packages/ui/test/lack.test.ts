@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { without } from 'lodash'
+
 import fg from 'fast-glob'
 import { scssDir } from '@/dirs'
 describe('components', () => {

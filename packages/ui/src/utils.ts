@@ -89,5 +89,3 @@ export function arrMatch(matchArr?: (string | RegExp)[], str?: string) {
     return str.match(regex)
   })
 }
-
-export { defuOverrideArray, defu } from '@icestack/shared'

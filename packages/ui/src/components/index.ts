@@ -87,7 +87,7 @@ for (const componentName of componentNames) {
 
 // const names = Object.keys(resolvedSchemaMap) as (keyof typeof schemaMap)[]
 
-const removeDefaultComponents = componentNames.reduce<Record<string, boolean>>((acc, cur) => {
+const removeDefaultComponents = componentNames.reduce<Record<string, false>>((acc, cur) => {
   acc[cur] = false
   return acc
 }, {})

@@ -111,6 +111,15 @@ importers:
         specifier: ^0.34.6
         version: 0.34.6(sass@1.69.5)
 
+  examples/weapp:
+    devDependencies:
+      '@icestack/presets':
+        specifier: workspace:^
+        version: link:../../packages/presets
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
+
   packages/cva: {}
 
   packages/logger:

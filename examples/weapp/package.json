@@ -1,0 +1,16 @@
+{
+  "name": "weapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build:ui": "icestack build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@icestack/presets": "workspace:^",
+    "@icestack/ui": "workspace:^"
+  }
+}

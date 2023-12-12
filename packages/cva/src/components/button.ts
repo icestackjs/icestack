@@ -1,31 +1,33 @@
 import { cva } from 'class-variance-authority'
 
-import { typePrefix, expands } from '@/shared'
+import { typePrefix, expands, addPrefix } from '@/shared'
+import { InternalOptions } from '@/types'
 
-export default function () {
-  const allTypes = typePrefix('btn')
+export default function (opts: InternalOptions) {
+  const { prefix } = opts
+  const baseClass = prefix + 'btn'
+  const basePrefix = baseClass + '-'
+  const allTypes = typePrefix(basePrefix)
 
-  const allSizes = ['btn-xs', 'btn-sm', 'btn-md', 'btn-lg', 'btn-wide', 'btn-block']
+  const allSizes = addPrefix(basePrefix, ['xs', 'sm', 'md', 'lg', 'wide', 'block'])
 
-  const allShapes = ['btn-square', 'btn-circle']
+  const allShapes = addPrefix(basePrefix, ['square', 'circle'])
 
-  const button = cva(['btn'], {
+  return cva([baseClass], {
     variants: {
       type: expands(allTypes),
       outline: {
-        true: 'btn-outline'
+        true: basePrefix + 'outline'
       },
       size: expands(allSizes),
       glass: {
         true: 'glass'
       },
       disabled: {
-        true: 'btn-disabled'
+        true: basePrefix + 'disabled'
       },
       shape: expands(allShapes)
     },
     defaultVariants: {}
   })
-
-  return button
 }

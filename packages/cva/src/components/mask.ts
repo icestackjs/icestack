@@ -1,9 +1,13 @@
 import { cva } from 'class-variance-authority'
 
 import { expands, addPrefix } from '@/shared'
+import { InternalOptions } from '@/types'
 
-export default function () {
-  const shapes = addPrefix('mask', [
+export default function (opts: InternalOptions) {
+  const { prefix } = opts
+  const baseClass = prefix + 'mask'
+  const basePrefix = baseClass + '-'
+  const shapes = addPrefix(basePrefix, [
     'squircle',
     'heart',
     'hexagon',
@@ -25,7 +29,7 @@ export default function () {
     'triangle-4'
   ])
 
-  return cva(['mask'], {
+  return cva([baseClass], {
     variants: {
       shape: expands(shapes)
     },

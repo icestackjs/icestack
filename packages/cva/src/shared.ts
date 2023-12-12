@@ -1,9 +1,11 @@
 export const TypesEnum = ['primary', 'neutral', 'success', 'warning', 'error']
 
 export const SizesEnum = ['xs', 'sm', 'md', 'lg']
-export function addPrefix(prefix: string, arr: string[]) {
+
+export function addPrefix(prefix: string | undefined, arr: string[]) {
+  const p = prefix ?? ''
   return arr.map((x) => {
-    return prefix + '-' + x
+    return p + x
   })
 }
 

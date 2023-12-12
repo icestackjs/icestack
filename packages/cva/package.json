@@ -1,7 +1,6 @@
 {
   "name": "@icestack/cva",
   "description": "The class-variance-authority function collection of @icestack/ui",
-  "private": true,
   "version": "0.2.3",
   "scripts": {
     "build": "unbuild",

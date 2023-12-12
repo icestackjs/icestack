@@ -1,7 +1,6 @@
 const fs = require('node:fs')
 const path = require('node:path')
 const parser = require('postcss-selector-parser')
-const postcss = require('postcss')
 const serialize = require('serialize-javascript')
 const components = require('../assets/js/components')
 // parser().processSync()

@@ -41,8 +41,8 @@
     "icestack": "bin/icestack.js"
   },
   "scripts": {
-    "build": "npm run build:all && npm run static && npm run build:plugin",
-    "build:all": "ts-node --esm scripts/build-scss.ts",
+    "build": "npm run build:plugin && npm run build:all && npm run static",
+    "build:all": "node scripts/build-scss.js",
     "dev": "npm run clean && npm run build:all && unbuild --sourcemap",
     "bp": "unbuild",
     "build:plugin": "unbuild",
@@ -53,9 +53,6 @@
     "release": "pnpm test && changelogen --release && npm publish && git push --follow-tags",
     "test": "vitest run",
     "test:dev": "vitest",
-    "build:base": "ts-node --esm scripts/build-scss.ts base",
-    "build:utilities": "ts-node --esm scripts/build-scss.ts utilities",
-    "build:components": "ts-node --esm scripts/build-scss.ts components",
     "get-table": "node scripts/get-table.js",
     "get-group": "node scripts/get-group.js",
     "get-svg": "node scripts/svg64.js",

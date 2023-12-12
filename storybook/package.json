@@ -60,6 +60,7 @@
   },
   "dependencies": {
     "@faker-js/faker": "^8.3.1",
+    "@icestack/cva": "workspace:^",
     "@icestack/ui": "workspace:^",
     "@prettier/sync": "^0.3.0",
     "class-variance-authority": "^0.7.0",

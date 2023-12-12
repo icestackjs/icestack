@@ -158,7 +158,7 @@ exports[`transformCss > merge case 0 1`] = `
       "absolute rounded-full",
     ],
     "css": {
-      "content": "\\"\\"",
+      "content": """",
     },
   },
 }

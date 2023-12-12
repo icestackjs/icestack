@@ -133,6 +133,13 @@
       "request": "launch",
       "type": "node-terminal",
       "cwd": "${workspaceFolder}/storybook"
+    },
+    {
+      "command": "npm run diff",
+      "name": "[storybook] diff components",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/storybook"
     }
   ]
 }

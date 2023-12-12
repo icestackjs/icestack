@@ -10,7 +10,8 @@
     "tailwind-config-viewer": "tailwind-config-viewer -o",
     "deploy:cos": "npm run build && ice-deploy -c --dir=storybook-static",
     "build:ui": "icestack build",
-    "inspect": "icestack inspect"
+    "inspect": "icestack inspect",
+    "diff": "node ./diff.js"
   },
   "keywords": [],
   "author": "",

@@ -13,7 +13,25 @@ export const Home: FC = (props) => {
         </div>
         {/* <div></div> */}
         <div className="font-extrabold text-[max(48px,min(5vw,76px))]">@icestack/ui</div>
-        <div className="font-extrabold text-2xl mb-10">{t('home.motto')}</div>
+        <div className="font-extrabold text-2xl mb-5">{t('home.motto')}</div>
+        <ul className="[&_li]:flex [&_li]:items-center [&_i]:mr-1 mb-5">
+          <li>
+            <i className="i-mdi-check-circle text-green-400"></i>
+            {t('home.adv0')}
+          </li>
+          <li>
+            <i className="i-mdi-check-circle text-green-400"></i>
+            {t('home.adv1')}
+          </li>
+          <li>
+            <i className="i-mdi-check-circle text-green-400"></i>
+            {t('home.adv2')}
+          </li>
+          <li>
+            <i className="i-mdi-check-circle text-green-400"></i>
+            {t('home.adv3')}
+          </li>
+        </ul>
         <div className="space-x-6">
           <Link className="btn btn-primary outline-none" href="docs/introduction">
             {t('home.startBtnText')}

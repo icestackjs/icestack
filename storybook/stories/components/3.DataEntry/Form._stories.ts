@@ -1,18 +1,5 @@
 import type { StoryObj, Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
-import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, typePrefix } from '../share'
-
-// type AlertProps = VariantProps<typeof alert> & { textContent?: string }
-
-// const allTypes = typePrefix('alert')
-
-// const alert = cva(['alert'], {
-//   variants: {
-//     type: expands(allTypes)
-//   },
-//   defaultVariants: {}
-// })
+import { formatHtml } from '../share'
 
 const create = () => {
   return formatHtml(`<div class="form-control w-64">

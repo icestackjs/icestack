@@ -1,21 +1,13 @@
 import type { StoryObj, Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, typePrefix } from '../share'
+import { formatHtml } from '../share'
+import Cva from '../style'
 
 type Props = VariantProps<typeof link> & { textContent?: string }
 
-const types = typePrefix('link')
+const types = Cva.link.types
 
-const link = cva(['link'], {
-  variants: {
-    type: expands(types),
-    hover: {
-      true: 'link-hover'
-    }
-  },
-  defaultVariants: {}
-})
+const link = Cva.link.cva
 
 const create = (props: Props) => {
   return formatHtml(`<a class="${link(props)}">${props.textContent}</a>`)

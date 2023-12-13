@@ -1,23 +1,14 @@
 import type { StoryObj, Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, typePrefix, sizePrefix } from '../share'
-
+import { formatHtml } from '../share'
+import Cva from '../style'
 type Props = VariantProps<typeof com> & { disabled?: boolean; checked?: boolean }
 
-const className = 'checkbox'
+const types = Cva.checkbox.types
 
-const types = typePrefix(className)
+const sizes = Cva.checkbox.sizes
 
-const sizes = sizePrefix(className)
-
-const com = cva([className], {
-  variants: {
-    type: expands(types),
-    size: expands(sizes)
-  },
-  defaultVariants: {}
-})
+const com = Cva.checkbox.cva
 
 const create = (props: Props) => {
   return formatHtml(`<input type="checkbox" class="${com(props)}" ${props.disabled ? 'disabled' : ''} ${props.checked ? 'checked' : ''}  />`)

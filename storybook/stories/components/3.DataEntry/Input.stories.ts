@@ -1,33 +1,17 @@
 import type { StoryObj, Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, sizePrefix, typePrefix } from '../share'
-
+import { formatHtml } from '../share'
+import Cva from '../style'
 type Props = VariantProps<typeof com> & { placeholder?: string }
 
 // const allTypes = typePrefix('alert')
-const className = 'input'
 
-const types = typePrefix(className)
+const types = Cva.input.types
 
-const sizes = sizePrefix(className)
-
-const com = cva([className, 'w-full', 'max-w-xs'], {
-  variants: {
-    type: expands(types),
-    size: expands(sizes),
-    bordered: {
-      true: 'input-bordered'
-    },
-    ghost: {
-      true: 'input-ghost'
-    }
-  },
-  defaultVariants: {}
-})
+const com = Cva.input.cva
 
 const create = (props: Props) => {
-  return formatHtml(`<input type="text" placeholder="${props.placeholder ?? ''}" class="${com(props)}" />`)
+  return formatHtml(`<input type="text" placeholder="${props.placeholder ?? ''}" class="${com(props)} w-full max-w-xs" />`)
 }
 
 const meta: Meta<Props> = {
@@ -39,7 +23,17 @@ const meta: Meta<Props> = {
   args: {
     placeholder: 'Type here'
   },
-  argTypes: {}
+  argTypes: {
+    placeholder: {
+      control: { type: 'text' }
+    },
+    bordered: { control: 'boolean' },
+    ghost: { control: 'boolean' },
+    // checked: { control: 'boolean' },
+    // disabled: { control: 'boolean' },
+    // size: { control: 'inline-radio', options: sizes },
+    type: { control: 'inline-radio', options: types }
+  }
 }
 
 type Story = StoryObj<Props>

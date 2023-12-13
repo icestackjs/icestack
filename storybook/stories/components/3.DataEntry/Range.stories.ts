@@ -1,23 +1,14 @@
 import type { StoryObj, Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, sizePrefix, typePrefix } from '../share'
-
+import { formatHtml } from '../share'
+import Cva from '../style'
 type Props = VariantProps<typeof com>
 
-const prefix = 'range'
+const types = Cva.range.types
 
-const types = typePrefix(prefix)
+const sizes = Cva.range.sizes
 
-const sizes = sizePrefix(prefix)
-
-const com = cva([prefix], {
-  variants: {
-    type: expands(types),
-    size: expands(sizes)
-  },
-  defaultVariants: {}
-})
+const com = Cva.range.cva
 
 const create = (props: Props) => {
   return formatHtml(`<input type="range" min="0" max="100" value="40" class="${com(props)}" />`)

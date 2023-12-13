@@ -6661,7 +6661,7 @@ exports[`'textarea' options > raw snap 1`] = `
     "styled": {
       ".textarea": {
         "&-bordered": {
-          "apply": "border-opacity-20",
+          "apply": "border-base-content/20",
         },
         "&-disabled,
           &:disabled,
@@ -6678,9 +6678,12 @@ exports[`'textarea' options > raw snap 1`] = `
           "apply": "bg-opacity-5",
         },
         "&:focus": {
-          "apply": "outline-base-content/20 outline outline-2 outline-offset-2",
+          "apply": "border-base-content/20 outline-base-content/20 outline outline-2 outline-offset-2",
+          "css": {
+            "box-shadow": "none",
+          },
         },
-        "apply": "border-base-content bg-base-100 rounded-btn border border-opacity-0",
+        "apply": "bg-base-100 rounded-btn border border-transparent",
       },
     },
     "utils": {
@@ -6726,7 +6729,7 @@ exports[`'textarea' options > snap 1`] = `
         "&-bordered": {
           "apply": [
             [
-              "border-opacity-20",
+              "border-base-content/20",
             ],
           ],
         },
@@ -6763,20 +6766,23 @@ exports[`'textarea' options > snap 1`] = `
         "&:focus": {
           "apply": [
             [
+              "border-base-content/20",
               "outline-base-content/20",
               "outline",
               "outline-2",
               "outline-offset-2",
             ],
           ],
+          "css": {
+            "box-shadow": "none",
+          },
         },
         "apply": [
           [
-            "border-base-content",
             "bg-base-100",
             "rounded-btn",
             "border",
-            "border-opacity-0",
+            "border-transparent",
           ],
         ],
       },

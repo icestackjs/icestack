@@ -7,12 +7,15 @@ const schema: GetSchemaFn = (opts) => {
     defaults: {
       styled: {
         [selector]: {
-          apply: 'border-base-content bg-base-100 rounded-btn border border-opacity-0',
+          apply: 'bg-base-100 rounded-btn border border-transparent',
           '&-bordered': {
-            apply: 'border-opacity-20'
+            apply: 'border-base-content/20'
           },
           '&:focus': {
-            apply: 'outline-base-content/20 outline outline-2 outline-offset-2'
+            apply: 'border-base-content/20 outline-base-content/20 outline outline-2 outline-offset-2',
+            css: {
+              'box-shadow': 'none'
+            }
           },
           '&-ghost': {
             apply: 'bg-opacity-5',
@@ -29,7 +32,7 @@ const schema: GetSchemaFn = (opts) => {
               value: {
                 apply: `border-${type}`,
                 '&:focus': {
-                  apply: `outline-${type}`
+                  apply: `outline-${type} border-${type}`
                 }
               }
             }

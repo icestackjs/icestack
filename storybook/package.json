@@ -5,7 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "npm run diff && storybook dev -p 6006",
+    "dev": "npm run diff && npm run build:ui && storybook dev -p 6006",
     "build": "npm run build:ui && storybook build",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
     "deploy:cos": "npm run build && ice-deploy -c --dir=storybook-static",

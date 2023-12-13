@@ -1,23 +1,14 @@
 import type { StoryObj, Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, typePrefix, sizePrefix } from '../share'
-
+import { formatHtml } from '../share'
+import Cva from '../style'
 type Props = VariantProps<typeof com> & { checked?: boolean; disabled?: boolean }
 
-const prefix = 'radio'
+const types = Cva.radio.types
 
-const types = typePrefix(prefix)
+const sizes = Cva.radio.sizes
 
-const sizes = sizePrefix(prefix)
-
-const com = cva([prefix], {
-  variants: {
-    type: expands(types),
-    size: expands(sizes)
-  },
-  defaultVariants: {}
-})
+const com = Cva.radio.cva
 
 const create = (props: Props) => {
   return formatHtml(`<input type="radio" name="radio-0" class="${com(props)}" ${props.checked ? 'checked' : ''} ${props.disabled ? 'disabled' : ''} />`)

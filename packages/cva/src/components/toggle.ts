@@ -13,7 +13,7 @@ export default function (opts: InternalOptions) {
   const sizes = sizePrefix(basePrefix)
 
   return {
-    cva: cva([basePrefix], {
+    cva: cva([baseClass], {
       variants: {
         type: expands(types),
         size: expands(sizes),

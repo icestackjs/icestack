@@ -12,7 +12,7 @@ export default function (opts: InternalOptions) {
   const sizes = sizePrefix(basePrefix)
 
   return {
-    cva: cva([basePrefix], {
+    cva: cva([baseClass], {
       variants: {
         zebra: {
           true: basePrefix + 'zebra'

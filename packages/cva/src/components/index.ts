@@ -15,6 +15,7 @@ import table from './table'
 import alert from './alert'
 import skeleton from './skeleton'
 import progress from './progress'
+import textarea from './textarea'
 import { UserDefinedOptions } from '@/types'
 import { getOptions } from '@/options'
 
@@ -37,7 +38,8 @@ export function createCvaWithAddition(opts: UserDefinedOptions = {}) {
     progress: progress(options),
     table: table(options),
     alert: alert(options),
-    skeleton: skeleton(options)
+    skeleton: skeleton(options),
+    textarea: textarea(options)
   }
 }
 

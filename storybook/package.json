@@ -18,7 +18,7 @@
   "license": "ISC",
   "devDependencies": {
     "@a110/storybook-expand-all": "^1.1.1",
-    "@egoist/tailwindcss-icons": "^1.4.0",
+    "@egoist/tailwindcss-icons": "^1.6.0",
     "@icestack/tailwindcss": "workspace:^",
     "@iconify-json/mdi": "^1.1.61",
     "@storybook/addon-a11y": "^7.6.4",
@@ -65,7 +65,7 @@
     "@prettier/sync": "^0.3.0",
     "class-variance-authority": "^0.7.0",
     "highlight.js": "^11.9.0",
-    "i18next": "^23.7.8",
+    "i18next": "^23.7.9",
     "i18next-browser-languagedetector": "^7.2.0",
     "i18next-http-backend": "^2.4.2",
     "js-beautify": "^1.14.11",

@@ -1,2 +1,3 @@
 export { createTailwindcssContent, removeAllComponents } from './content'
-export { createCva } from './components'
+export { createCva, createCvaWithAddition } from './components'
+export type { VariantProps } from './components'

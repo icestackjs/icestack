@@ -1,41 +1,17 @@
 import type { StoryObj, Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
-import type { VariantProps } from 'class-variance-authority'
-import { expands, typePrefix, addPrefix } from '../share'
+import type { VariantProps } from '@icestack/cva'
+import Cva from '../style'
 type ButtonProps = VariantProps<typeof button> & { textContent?: string }
 
 // ['primary', 'neutral', 'success', 'warning', 'error']
 
-const allTypes = typePrefix('btn')
+const allTypes = Cva.button.types
 
-const allSizes = ['btn-xs', 'btn-sm', 'btn-md', 'btn-lg', 'btn-wide', 'btn-block']
+const allSizes = Cva.button.sizes
 
-const allShapes = ['btn-square', 'btn-circle']
+const allShapes = Cva.button.shapes
 
-const button = cva(['btn'], {
-  variants: {
-    type: expands(allTypes),
-    outline: {
-      true: 'btn-outline'
-    },
-    size: expands(allSizes),
-    glass: {
-      true: 'glass'
-    },
-    disabled: {
-      true: 'btn-disabled',
-      false: ''
-    },
-    shape: expands(allShapes)
-    // block: {
-    //   true: 'btn-block',
-    //   false: ''
-    // }
-  },
-  defaultVariants: {
-    // size: 'btn-md'
-  }
-})
+const button = Cva.button.cva
 
 const createButton = (props: ButtonProps) => {
   const btn = document.createElement('button')

@@ -29,10 +29,14 @@ export default function (opts: InternalOptions) {
     'triangle-4'
   ])
 
-  return cva([baseClass], {
-    variants: {
-      shape: expands(shapes)
-    },
-    defaultVariants: {}
-  })
+  return {
+    cva: cva([baseClass], {
+      variants: {
+        shape: expands(shapes)
+      },
+      defaultVariants: {}
+    }),
+    baseClass,
+    shapes
+  }
 }

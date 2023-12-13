@@ -1,21 +1,12 @@
 import type { StoryObj, Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
-import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, addPrefix, sizePrefix, typePrefix } from '../share'
-
+import type { VariantProps } from '@icestack/cva'
+import { formatHtml } from '../share'
+import Cva from '../style'
 type Props = VariantProps<typeof c> & { color?: string }
 
-// const types = typePrefix('text')
-const sizes = sizePrefix('loading')
-const shapes = addPrefix('loading', ['audio', 'ball-triangle', 'bars', 'circles', 'grid', 'hearts', 'oval', 'puff', 'rings', 'spinning-circles', 'tail-spin', 'three-dots'])
-const c = cva(['loading'], {
-  variants: {
-    // type: expands(types),
-    size: expands(sizes),
-    shape: expands(shapes)
-  },
-  defaultVariants: {}
-})
+const sizes = Cva.loading.sizes
+const shapes = Cva.loading.shapes
+const c = Cva.loading.cva
 
 const create = (props: Props) => {
   let co = ''

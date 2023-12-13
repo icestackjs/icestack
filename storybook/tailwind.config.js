@@ -1,7 +1,8 @@
 const path = require('node:path')
-const fs = require('node:fs')
+// const fs = require('node:fs')
 const { icestackPlugin } = require('@icestack/tailwindcss')
 const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
+const { createTailwindcssContent } = require('@icestack/cva')
 // const klawSync = require('klaw-sync')
 // const icestackPath = require.resolve('@icestack/ui/package.json')
 // const dir = path.resolve(path.dirname(icestackPath), 'assets/js')
@@ -11,9 +12,10 @@ const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
 module.exports = {
   content: [
     path.resolve(__dirname, './stories/**/*.{ts,tsx}'),
-    {
-      raw: fs.readFileSync(path.resolve(__dirname, 'table.js'), 'utf8')
-    }
+    createTailwindcssContent()
+    // {
+    //   raw: fs.readFileSync(path.resolve(__dirname, 'table.js'), 'utf8')
+    // }
     // ...klawSync(dir, {
     //   nodir: true,
     //   filter: (item) => {

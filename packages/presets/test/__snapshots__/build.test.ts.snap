@@ -3010,14 +3010,13 @@ exports[`build > miniprogramPreset buildComponents 1`] = `
     "styled": {
       ".textarea": {
         "--tw-bg-opacity": "1",
-        "--tw-border-opacity": "0",
         "backgroundColor": "rgba(var(--ice-base-100) / var(--tw-bg-opacity))",
-        "borderColor": "rgba(var(--ice-base-content) / var(--tw-border-opacity))",
+        "borderColor": "transparent",
         "borderRadius": "var(--ice-rounded-btn, 0.5rem)",
         "borderWidth": "1px",
       },
       ".textarea-bordered": {
-        "--tw-border-opacity": "0.2",
+        "borderColor": "rgba(var(--ice-base-content) / 0.2)",
       },
       ".textarea-disabled,.textarea:disabled,.textarea[disabled]": {
         "--tw-bg-opacity": "1",
@@ -3036,6 +3035,8 @@ exports[`build > miniprogramPreset buildComponents 1`] = `
         "borderColor": "rgba(var(--ice-error) / var(--tw-border-opacity))",
       },
       ".textarea-error:focus": {
+        "--tw-border-opacity": "1",
+        "borderColor": "rgba(var(--ice-error) / var(--tw-border-opacity))",
         "outlineColor": "rgba(var(--ice-error) / 1)",
       },
       ".textarea-ghost": {
@@ -3052,6 +3053,8 @@ exports[`build > miniprogramPreset buildComponents 1`] = `
         "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
       },
       ".textarea-neutral:focus": {
+        "--tw-border-opacity": "1",
+        "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
         "outlineColor": "rgba(var(--ice-neutral) / 1)",
       },
       ".textarea-primary": {
@@ -3059,6 +3062,8 @@ exports[`build > miniprogramPreset buildComponents 1`] = `
         "borderColor": "rgba(var(--ice-primary) / var(--tw-border-opacity))",
       },
       ".textarea-primary:focus": {
+        "--tw-border-opacity": "1",
+        "borderColor": "rgba(var(--ice-primary) / var(--tw-border-opacity))",
         "outlineColor": "rgba(var(--ice-primary) / 1)",
       },
       ".textarea-success": {
@@ -3066,6 +3071,8 @@ exports[`build > miniprogramPreset buildComponents 1`] = `
         "borderColor": "rgba(var(--ice-success) / var(--tw-border-opacity))",
       },
       ".textarea-success:focus": {
+        "--tw-border-opacity": "1",
+        "borderColor": "rgba(var(--ice-success) / var(--tw-border-opacity))",
         "outlineColor": "rgba(var(--ice-success) / 1)",
       },
       ".textarea-warning": {
@@ -3073,9 +3080,13 @@ exports[`build > miniprogramPreset buildComponents 1`] = `
         "borderColor": "rgba(var(--ice-warning) / var(--tw-border-opacity))",
       },
       ".textarea-warning:focus": {
+        "--tw-border-opacity": "1",
+        "borderColor": "rgba(var(--ice-warning) / var(--tw-border-opacity))",
         "outlineColor": "rgba(var(--ice-warning) / 1)",
       },
       ".textarea:focus": {
+        "borderColor": "rgba(var(--ice-base-content) / 0.2)",
+        "boxShadow": "none",
         "outlineColor": "rgba(var(--ice-base-content) / 0.2)",
         "outlineOffset": "2px",
         "outlineStyle": "solid",

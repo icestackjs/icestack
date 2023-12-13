@@ -1,29 +1,14 @@
 import type { StoryObj, Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, sizePrefix, typePrefix } from '../share'
-
+import { formatHtml } from '../share'
+import Cva from '../style'
 type Props = VariantProps<typeof com> & { disabled?: boolean; placeholder?: string; checked?: boolean }
 
-const prefix = 'toggle'
+const types = Cva.toggle.types
 
-const types = typePrefix(prefix)
+const sizes = Cva.toggle.sizes
 
-const sizes = sizePrefix(prefix)
-
-const com = cva([prefix], {
-  variants: {
-    type: expands(types),
-    size: expands(sizes),
-    bordered: {
-      true: prefix + '-bordered'
-    },
-    ghost: {
-      true: prefix + '-ghost'
-    }
-  },
-  defaultVariants: {}
-})
+const com = Cva.toggle.cva
 
 const create = (props: Props) => {
   return formatHtml(`<input type="checkbox" class="${com(props)}" ${props.disabled ? 'disabled' : ''} ${props.checked ? 'checked' : ''} />`)
@@ -34,6 +19,9 @@ const meta: Meta<Props> = {
   tags: ['autodocs'],
   render: (args) => {
     return create(args)
+  },
+  args: {
+    checked: true
   },
   argTypes: {
     size: { control: 'inline-radio', options: sizes },

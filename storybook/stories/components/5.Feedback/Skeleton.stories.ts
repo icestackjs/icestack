@@ -1,17 +1,12 @@
 import type { StoryObj, Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, addPrefix, formatHtml } from '../share'
-
+import { formatHtml } from '../share'
+import Cva from '../style'
 type SkeletonProps = VariantProps<typeof skeleton>
 
-const shapes = addPrefix('skeleton', ['title', 'paragraph', 'avatar'])
+const shapes = Cva.skeleton.shapes
 
-const skeleton = cva(['skeleton'], {
-  variants: {
-    shape: expands(shapes)
-  }
-})
+const skeleton = Cva.skeleton.cva
 
 const createSkeleton = (props: SkeletonProps) => {
   return `<div class="${skeleton(props)}"></div>`

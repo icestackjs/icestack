@@ -1,20 +1,12 @@
 import { Meta, StoryObj } from '@storybook/html'
-import { VariantProps, cva } from 'class-variance-authority'
+import { VariantProps } from 'class-variance-authority'
 import { faker } from '@faker-js/faker'
-import { expands, formatHtml, sizePrefix } from '../share'
+import { formatHtml } from '../share'
+import Cva from '../style'
 type TableProps = VariantProps<typeof table> & { rowsCount: number }
+const allSizes = Cva.table.sizes
 
-const allSizes = sizePrefix('table')
-
-const table = cva(['table'], {
-  variants: {
-    zebra: {
-      true: 'table-zebra'
-    },
-    size: expands(allSizes)
-  },
-  defaultVariants: {}
-})
+const table = Cva.table.cva
 
 const fakerData: [string, string, Date][] = []
 for (let i = 0; i < 40; i++) {

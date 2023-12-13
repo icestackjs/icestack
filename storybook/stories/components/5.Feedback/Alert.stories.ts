@@ -1,18 +1,11 @@
 import type { StoryObj, Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
-import { expands, typePrefix } from '../share'
-
+import Cva from '../style'
 type AlertProps = VariantProps<typeof alert> & { textContent?: string }
 
-const allTypes = typePrefix('alert')
+const allTypes = Cva.alert.types
 
-const alert = cva(['alert'], {
-  variants: {
-    type: expands(allTypes)
-  },
-  defaultVariants: {}
-})
+const alert = Cva.alert.cva
 
 const createAlert = (props: AlertProps) => {
   const div = document.createElement('div')

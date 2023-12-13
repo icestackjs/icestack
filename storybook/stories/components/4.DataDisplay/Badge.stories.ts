@@ -1,22 +1,13 @@
 import { Meta, StoryObj } from '@storybook/html'
-import { VariantProps, cva } from 'class-variance-authority'
-import { expands, formatHtml, typePrefix, sizePrefix } from '../share'
-
+import { VariantProps } from 'class-variance-authority'
+import { formatHtml } from '../share'
+import Cva from '../style'
 type BadgeProps = VariantProps<typeof badge> & { textContent?: string }
 
-const allTypes = typePrefix('badge')
-const allSizes = sizePrefix('badge')
+const allTypes = Cva.badge.types
+const allSizes = Cva.badge.sizes
 
-const badge = cva(['badge'], {
-  variants: {
-    type: expands(allTypes),
-    outline: {
-      true: 'badge-outline'
-    },
-    size: expands(allSizes)
-  },
-  defaultVariants: {}
-})
+const badge = Cva.badge.cva
 
 const create = (props: BadgeProps) => {
   return formatHtml(`<div class="${badge(props)}">

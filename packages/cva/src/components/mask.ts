@@ -5,7 +5,8 @@ import { InternalOptions } from '@/types'
 
 export default function (opts: InternalOptions) {
   const { prefix } = opts
-  const baseClass = prefix + 'mask'
+  const className = 'mask'
+  const baseClass = prefix + className
   const basePrefix = baseClass + '-'
   const shapes = addPrefix(basePrefix, [
     'squircle',
@@ -36,6 +37,8 @@ export default function (opts: InternalOptions) {
       },
       defaultVariants: {}
     }),
+    prefix,
+    className,
     baseClass,
     shapes
   }

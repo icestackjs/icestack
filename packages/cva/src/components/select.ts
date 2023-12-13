@@ -1,27 +1,35 @@
 import { cva } from 'class-variance-authority'
 
-import { expands, addPrefix, sizePrefix } from '@/shared'
+import { typePrefix, expands, sizePrefix } from '@/shared'
 import { InternalOptions } from '@/types'
 
 export default function (opts: InternalOptions) {
   const { prefix } = opts
-  const className = 'loading'
+  const className = 'select'
   const baseClass = prefix + className
   const basePrefix = baseClass + '-'
+  const types = typePrefix(basePrefix)
+
   const sizes = sizePrefix(basePrefix)
-  const shapes = addPrefix(basePrefix, ['audio', 'ball-triangle', 'bars', 'circles', 'grid', 'hearts', 'oval', 'puff', 'rings', 'spinning-circles', 'tail-spin', 'three-dots'])
+
   return {
-    cva: cva([baseClass], {
+    cva: cva([basePrefix], {
       variants: {
+        type: expands(types),
         size: expands(sizes),
-        shape: expands(shapes)
+        bordered: {
+          true: basePrefix + 'bordered'
+        },
+        ghost: {
+          true: basePrefix + 'ghost'
+        }
       },
       defaultVariants: {}
     }),
     prefix,
     className,
     baseClass,
-    sizes,
-    shapes
+    types,
+    sizes
   }
 }

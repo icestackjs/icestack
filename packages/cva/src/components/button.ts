@@ -5,7 +5,8 @@ import { InternalOptions } from '@/types'
 
 export default function (opts: InternalOptions) {
   const { prefix } = opts
-  const baseClass = prefix + 'btn'
+  const className = 'btn'
+  const baseClass = prefix + className
   const basePrefix = baseClass + '-'
 
   const allTypes = typePrefix(basePrefix)
@@ -32,6 +33,8 @@ export default function (opts: InternalOptions) {
       },
       defaultVariants: {}
     }),
+    prefix,
+    className,
     baseClass,
     types: allTypes,
     sizes: allSizes,

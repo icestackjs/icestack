@@ -1,5 +1,5 @@
 // import type { VariantProps } from 'class-variance-authority'
-import type { cva } from 'class-variance-authority'
+// import type { cva } from 'class-variance-authority'
 import button from './button'
 import loading from './loading'
 import mask from './mask'
@@ -16,6 +16,13 @@ import alert from './alert'
 import skeleton from './skeleton'
 import progress from './progress'
 import textarea from './textarea'
+import indicator from './indicator'
+import divider from './divider'
+import steps from './steps'
+import tab from './tab'
+import kbd from './kbd'
+import toast from './toast'
+import tooltip from './tooltip'
 import { UserDefinedOptions } from '@/types'
 import { getOptions } from '@/options'
 
@@ -39,12 +46,22 @@ export function createCvaWithAddition(opts: UserDefinedOptions = {}) {
     table: table(options),
     alert: alert(options),
     skeleton: skeleton(options),
-    textarea: textarea(options)
+    textarea: textarea(options),
+    indicator: indicator(options),
+    divider: divider(options),
+    steps: steps(options),
+    tab: tab(options),
+    kbd: kbd(options),
+    toast: toast(options),
+    tooltip: tooltip(options)
   }
 }
 
+// type Fn = ReturnType<typeof cva>
+
 export function createCva(opts: UserDefinedOptions = {}) {
-  return Object.entries(createCvaWithAddition(opts)).reduce<Record<string, ReturnType<typeof cva>>>((acc, [name, lib]) => {
+  return Object.entries(createCvaWithAddition(opts)).reduce((acc, [name, lib]) => {
+    // @ts-ignore
     acc[name] = lib.cva
     return acc
   }, {})

@@ -59,7 +59,8 @@
     "static": "npm run get-table && npm run get-group && npm run get-svg",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
     "raw": "node bin/icestack.js inspect -o ./all0.json",
-    "sync": "cnpm sync @icestack/ui"
+    "sync": "cnpm sync @icestack/ui",
+    "watch": "node scripts/watch.js"
   },
   "dependencies": {
     "@babel/generator": "^7.23.6",
@@ -70,6 +71,7 @@
     "@icestack/shared": "workspace:^",
     "@icestack/types": "workspace:^",
     "c12": "^1.5.1",
+    "chokidar": "^3.5.3",
     "cli-progress": "^3.12.0",
     "commander": "^11.1.0",
     "immutable": "^4.0.0",

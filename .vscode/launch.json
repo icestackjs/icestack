@@ -93,6 +93,13 @@
       "cwd": "${workspaceFolder}/packages/ui"
     },
     {
+      "command": "npm run watch",
+      "name": "[UI] watch",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/packages/ui"
+    },
+    {
       "command": "npm run raw",
       "name": "[UI] raw",
       "request": "launch",

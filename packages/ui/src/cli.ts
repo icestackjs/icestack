@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import { Command } from 'commander'
+import chokidar from 'chokidar'
 import pkg from '../package.json'
 import { load } from './options'
 import { logger } from '@/log'
@@ -26,20 +27,40 @@ cli
     logger.success(`init ${f} successfully!`)
   })
 
+async function letUsBuild() {
+  const config = await load()
+  if (config) {
+    if (!config.outdir) {
+      logger.error('outdir option must be passed!')
+      return
+    }
+    const ctx = createContext(config)
+    await ctx.build()
+    logger.success('build successfully!')
+  }
+}
+
 cli
   .command('build')
   .description('code generate')
   .action(async () => {
-    const config = await load()
-    if (config) {
-      if (!config.outdir) {
-        logger.error('outdir option must be passed!')
-        return
-      }
-      const ctx = createContext(config)
-      await ctx.build()
-      logger.success('build successfully!')
-    }
+    await letUsBuild()
+  })
+
+cli
+  .command('watch')
+  .description('watch config file change and build lib')
+  .action(() => {
+    const cwd = process.cwd()
+
+    chokidar
+      .watch(path.resolve(cwd, 'icestack.config.{js,ts,cjs}'))
+      .on('change', async () => {
+        await letUsBuild()
+      })
+      .on('ready', async () => {
+        await letUsBuild()
+      })
   })
 
 cli

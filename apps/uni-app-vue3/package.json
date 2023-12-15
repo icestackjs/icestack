@@ -58,7 +58,7 @@
     "@vue/shared": "^3.3.4",
     "pinia": "~2.0.36",
     "vue": "^3.3.11",
-    "vue-i18n": "^9.5.0",
+    "vue-i18n": "^9.8.0",
     "vuex": "^4.1.0",
     "weapp-websocket": "^2.0.0",
     "weapp-xmlhttprequest": "^2.0.0"
@@ -69,7 +69,7 @@
     "@dcloudio/uni-cli-shared": "3.0.0-3090520231028001",
     "@dcloudio/uni-stacktracey": "3.0.0-3090520231028001",
     "@dcloudio/vite-plugin-uni": "3.0.0-3090520231028001",
-    "@icestack/ui": "0.0.0-alpha.1",
+    "@icestack/ui": "link:../../packages/ui",
     "@rollup/plugin-commonjs": "^25.0.4",
     "@rollup/plugin-replace": "^5.0.2",
     "@types/node": "^20.10.4",
@@ -81,7 +81,7 @@
     "eslint": "^8.55.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "2.29.0",
+    "eslint-plugin-import": "2.29.1",
     "eslint-plugin-jest": "^27.6.0",
     "eslint-plugin-n": "^16.4.0",
     "eslint-plugin-prettier": "^5.0.1",
@@ -99,6 +99,6 @@
     "vite": "5.0.8",
     "vue-eslint-parser": "^9.3.2",
     "weapp-ide-cli": "^1.0.1",
-    "weapp-tailwindcss": "^3.0.3"
+    "weapp-tailwindcss": "^3.0.4"
   }
 }

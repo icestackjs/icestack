@@ -1,7 +1,9 @@
 import fs from 'node:fs/promises'
+import fss from 'node:fs'
 import path from 'node:path'
 import { Command } from 'commander'
 import chokidar from 'chokidar'
+import dedent from 'dedent'
 import pkg from '../package.json'
 import { load } from './options'
 import { logger } from '@/log'
@@ -13,19 +15,6 @@ const cli = new Command()
 //   outdir: './my-ui'
 // })\n`
 // ts ? 'icestack.config.ts' :
-
-const jsT = `/**\n * @type {import('@icestack/ui').Config}\n */\nconst config = {
-  outdir: './my-ui'
-}\n\nmodule.exports = config\n`
-cli
-  .command('init')
-  .description('init config')
-  .action(async () => {
-    const f = 'icestack.config.js'
-    const p = path.resolve(process.cwd(), f)
-    await fs.writeFile(p, jsT) // ts ? tsT : jsT)
-    logger.success(`init ${f} successfully!`)
-  })
 
 async function letUsBuild() {
   const config = await load()
@@ -39,6 +28,35 @@ async function letUsBuild() {
     logger.success('build successfully!')
   }
 }
+const defaultOutdir = 'my-ui'
+
+function createJsConfig(outdir: string) {
+  const p = './' + outdir
+  return dedent`/**\n * @type {import('@icestack/ui').Config}\n */\nconst config = {
+    outdir: '${p}'
+  }\n\nmodule.exports = config\n`
+}
+
+cli
+  .command('init')
+  .description('init config')
+  .option('--only-config', 'output onlt config')
+  .option('--outdir <outdir>')
+  .action(async (options) => {
+    const cwd = process.cwd()
+    const { onlyConfig, outdir = defaultOutdir } = options
+    const f = 'icestack.config.js'
+    const p = path.resolve(cwd, f)
+    await fs.writeFile(p, createJsConfig(outdir)) // ts ? tsT : jsT)
+    logger.success(`init ${f} successfully!`)
+    if (onlyConfig) {
+      return
+    }
+    const gitignoreFilePath = path.resolve(cwd, '.gitignore')
+    await (fss.existsSync(gitignoreFilePath) ? fs.appendFile(gitignoreFilePath, `\n${outdir}\n`, 'utf8') : fs.writeFile(gitignoreFilePath, `${outdir}\n`, 'utf8'))
+
+    await letUsBuild()
+  })
 
 cli
   .command('build')
@@ -56,10 +74,12 @@ cli
     chokidar
       .watch(path.resolve(cwd, 'icestack.config.{js,ts,cjs}'))
       .on('change', async () => {
+        logger.success('some changes happened')
         await letUsBuild()
       })
       .on('ready', async () => {
         await letUsBuild()
+        logger.success('start watching config......')
       })
   })
 

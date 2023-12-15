@@ -61,17 +61,54 @@ export type GlobalOptions = {
 export type CodegenMode = 'styled' | 'base' | 'raw'
 
 export type CodegenOptions = {
-  // default styled
+  /**
+   * @description load css mode
+   */
   mode: CodegenMode
+  /**
+   * @description custom all your components
+   */
   components: ComponentsOptions
+  /**
+   * @description global postcss options
+   */
   global: GlobalOptions
+  /**
+   * @description set themes and all types
+   */
   base: BaseOptions
+  /**
+   * @description css var prefix
+   * @example '--primary' -> '--ice-primary'
+   * @default '--ice-'
+   */
   varPrefix: VarPrefixerOptions
+  /**
+   * @description if console.log some debug information
+   * @default true
+   */
   log: boolean
+  /**
+   * @type PrefixerOptions
+   * @description PrefixerOptions, set prefix to your class and ignore class
+   */
   prefix: PrefixerOptions
+  /**
+   * @description load presets
+   */
   presets: (DeepPartial<CodegenOptions> | ((options?: any) => DeepPartial<CodegenOptions>))[]
+  /**
+   * @description required! set output dir path.
+   */
   outdir: string
+  /**
+   * @description if run build without any output
+   * @default false
+   */
   dryRun: boolean
+  /**
+   * @description your custom tailwindcss config to resolve `@apply`
+   */
   tailwindcssConfig: TailwindcssConfig
 }
 

@@ -12,7 +12,7 @@ export function generateIndexCode(basenames: string[], type: 'components' | 'uti
     const props = Object.entries(
       basenames.reduce<Record<string, t.ObjectProperty[]>>((acc, name) => {
         for (const stage of stages) {
-          const node = t.objectProperty(t.stringLiteral(stage), t.callExpression(t.identifier('require'), [t.stringLiteral(`./${name}/${stage}.js`)]))
+          const node = t.objectProperty(t.stringLiteral(stage), t.callExpression(t.identifier('require'), [t.stringLiteral(`./${name}/${stage}.cjs`)]))
           if (acc[name]) {
             acc[name].push(node)
           } else {
@@ -32,7 +32,7 @@ export function generateIndexCode(basenames: string[], type: 'components' | 'uti
     return babelGenerate(ast).code
   } else {
     const props = basenames.map((basename) => {
-      return t.objectProperty(t.stringLiteral(basename), t.callExpression(t.identifier('require'), [t.stringLiteral(`./${basename}.js`)]))
+      return t.objectProperty(t.stringLiteral(basename), t.callExpression(t.identifier('require'), [t.stringLiteral(`./${basename}.cjs`)]))
     })
 
     const ast = t.file(

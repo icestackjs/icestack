@@ -35,9 +35,9 @@ export const icestackPlugin = plugin.withOptions(
           logger.warn(`Can not find loadDirectory:${loadDirectory}, make sure this dir is existed`)
           return noop
         }
-        const base = requireLib('js/base/index.js', loadDirectory) as IcestackCSSRule
-        const components = requireLib('js/components/index.js', loadDirectory) as Record<string, IcestackCSSRule>
-        const utilities = requireLib('js/utilities/index.js', loadDirectory) as IcestackCSSRule
+        const base = requireLib('js/base/index.cjs', loadDirectory) as IcestackCSSRule
+        const components = requireLib('js/components/index.cjs', loadDirectory) as Record<string, IcestackCSSRule>
+        const utilities = requireLib('js/utilities/index.cjs', loadDirectory) as IcestackCSSRule
         if (base && components && utilities) {
           const componentsEntries = Object.entries(components)
           const utilitiesEntries = Object.entries(utilities)
@@ -85,7 +85,7 @@ export const icestackPlugin = plugin.withOptions(
         const { loadConfig, loadDirectory } = opts
         if (loadConfig) {
           if (loadConfig === true) {
-            const config = requireLib('js/tailwindcss/config.js', loadDirectory) as Config
+            const config = requireLib('js/tailwindcss/config.cjs', loadDirectory) as Config
             return config
           } else if (typeof loadConfig === 'string') {
             return require(loadConfig)

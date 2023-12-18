@@ -199,7 +199,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
     if (!dryRun) {
       const outputPath = path.resolve(resolveJsDir(outdir), 'utilities')
       const code = generateIndexCode(utilitiesNames, 'utilities')
-      fs.writeFileSync(path.resolve(outputPath, 'index.js'), code, 'utf8')
+      fs.writeFileSync(path.resolve(outputPath, 'index.cjs'), code, 'utf8')
     }
 
     return res
@@ -241,7 +241,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
     if (!dryRun) {
       const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
       const code = generateIndexCode(allComponentsNames, 'components')
-      fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.js'), code, 'utf8')
+      fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.cjs'), code, 'utf8')
     }
     b1.stop()
 
@@ -253,7 +253,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
       const code = 'module.exports = ' + JSONStringify(pick(twConfig, ['theme']))
       const outputDir = path.resolve(resolveJsDir(outdir), 'tailwindcss')
       ensureDirSync(outputDir)
-      const outputPath = path.resolve(outputDir, 'config.js')
+      const outputPath = path.resolve(outputDir, 'config.cjs')
       fs.writeFileSync(outputPath, code, 'utf8')
     }
 

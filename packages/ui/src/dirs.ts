@@ -38,13 +38,13 @@ function getCssResolvedPath(relPath: string, dir?: string) {
 function getJsPath(relPath: string, dir?: string) {
   const targetJsDir = resolveJsDir(dir)
   const jsPath = path.resolve(targetJsDir, relPath)
-  return jsPath.replace(/scss$/, 'js')
+  return jsPath.replace(/scss$/, 'cjs')
 }
 
 function getPluginsPath(relPath: string, dir?: string) {
   const targetJsDir = dir ? path.resolve(dir, 'js') : pluginsDir
   const jsPath = path.resolve(targetJsDir, relPath)
-  return jsPath.replace(/scss$/, 'js')
+  return jsPath.replace(/scss$/, 'cjs')
 }
 
 export {

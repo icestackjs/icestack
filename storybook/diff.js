@@ -6,12 +6,15 @@ const { group } = require('./group.js')
 
 function getMap(base) {
   switch (base) {
-    case 'DataEntry':
+    case 'DataEntry': {
       return 'Data Entry'
-    case 'DataDisplay':
+    }
+    case 'DataDisplay': {
       return 'Data Display'
-    default:
+    }
+    default: {
       return base
+    }
   }
 }
 

@@ -1,3 +1,4 @@
+import type { ComponentsOptions, DeepPartial, CodegenOptions } from '@icestack/types'
 import button from './button'
 import checkbox from './checkbox'
 import radio from './radio'
@@ -10,7 +11,6 @@ import countdown from './countdown'
 import collapse from './collapse'
 import join from './join'
 import tab from './tab'
-import type { ComponentsOptions, DeepPartial, CodegenOptions } from '@/types'
 
 export const components: DeepPartial<ComponentsOptions> = {
   select: false,

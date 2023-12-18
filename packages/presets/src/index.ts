@@ -1,2 +1,2 @@
-export { miniprogramPreset } from './components/mp'
-export { mockupPreset } from './components/mockup'
+export { default as miniprogramPreset } from '@icestack/preset-weapp'
+export { default as mockupPreset } from '@icestack/preset-mockup'

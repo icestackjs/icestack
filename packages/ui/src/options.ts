@@ -1,5 +1,6 @@
 import { loadConfig } from 'c12'
 import { defu } from '@icestack/shared'
+import { flattenDeep } from 'lodash'
 import { getCodegenDefaults } from './defaults'
 import type { CodegenOptions, DeepPartial } from './types'
 
@@ -7,15 +8,16 @@ export function getCodegenOptions(options?: DeepPartial<CodegenOptions>): Codege
   let presets: DeepPartial<CodegenOptions>[] = []
   if (options?.presets && Array.isArray(options?.presets)) {
     presets =
-      options.presets
-        .map((x) => {
+      flattenDeep(
+        options.presets.map((x) => {
           if (typeof x === 'function') {
             // @ts-ignore
-            return x()
+            const res = x()
+            return res
           }
           return x
         })
-        .filter(Boolean) ?? []
+      ).filter(Boolean) ?? []
   }
 
   return defu<CodegenOptions, DeepPartial<CodegenOptions>[]>(options, ...presets, getCodegenDefaults())

@@ -1,18 +1,17 @@
 {
-  "name": "@icestack/presets",
-  "description": "The presets of @icestack/ui",
+  "name": "@icestack/preset-mockup",
+  "description": "The mockup preset of @icestack/ui",
   "version": "0.2.5",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",
     "test:dev": "vitest",
     "release": "pnpm publish",
-    "sync": "cnpm sync @icestack/presets"
+    "sync": "cnpm sync @icestack/preset-mockup"
   },
   "keywords": [
-    "presets",
-    "mini program",
-    "weapp",
+    "mockup",
+    "preset",
     "icestack",
     "ui"
   ],
@@ -22,7 +21,8 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./*": "./*"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -30,9 +30,13 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
-    "@icestack/preset-mockup": "workspace:^",
-    "@icestack/preset-weapp": "workspace:^"
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
@@ -46,5 +50,9 @@
   },
   "devDependencies": {
     "@icestack/ui": "workspace:^"
+  },
+  "dependencies": {
+    "@icestack/shared": "workspace:^",
+    "@icestack/types": "workspace:^"
   }
 }

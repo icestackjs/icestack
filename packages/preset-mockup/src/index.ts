@@ -1,7 +1,7 @@
 import { transformCss2Js } from '@icestack/shared'
-import type { ComponentsOptions, DeepPartial, CodegenOptions } from '@/types'
+import type { ComponentsOptions, DeepPartial, CodegenOptions } from '@icestack/types'
 
-export const components: DeepPartial<ComponentsOptions> = {
+const components: DeepPartial<ComponentsOptions> = {
   mockup: {
     selector: '.mockup',
     schema: ({ selector }) => {
@@ -159,8 +159,10 @@ export const components: DeepPartial<ComponentsOptions> = {
   }
 }
 
-export const mockupPreset: () => DeepPartial<CodegenOptions> = () => {
+const mockupPreset: () => DeepPartial<CodegenOptions> = () => {
   return {
     components
   }
 }
+
+export default mockupPreset

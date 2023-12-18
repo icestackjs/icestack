@@ -1,0 +1,38 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`components > all components default 1`] = `
+{
+  "alert": "alert",
+  "badge": "badge",
+  "button": "btn",
+  "checkbox": "checkbox",
+  "divider": "divider",
+  "indicator": {
+    "child": "indicator-item",
+    "parent": "indicator",
+  },
+  "input": "input",
+  "kbd": "kbd",
+  "link": "link",
+  "loading": "loading",
+  "mask": "mask",
+  "progress": "progress",
+  "radio": "radio",
+  "range": "range",
+  "select": "select-",
+  "skeleton": "skeleton",
+  "steps": {
+    "child": "step",
+    "parent": "steps",
+  },
+  "tab": {
+    "child": "tab",
+    "parent": "tabs",
+  },
+  "table": "table",
+  "textarea": "textarea",
+  "toast": "toast",
+  "toggle": "toggle",
+  "tooltip": "tooltip",
+}
+`;

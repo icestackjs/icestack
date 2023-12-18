@@ -1,10 +1,11 @@
-import type { Config as TailwindcssConfig } from 'tailwindcss'
+import type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 import type { CssInJs } from 'postcss-js'
 import type { GetSchemaFn, SchemaFnOptions } from './shared'
 import type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 
 export type { CreatePresetOptions, GetSchemaFn, IDefaults, ISchema, IValue, SchemaFnOptions } from './shared'
 export type { PrefixerOptions, VarPrefixerOptions } from './postcss'
+export type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 
 export type BaseOptions<T extends string = string> = {
   themes: Record<

@@ -26,8 +26,6 @@ import tooltip from './tooltip'
 import { UserDefinedOptions } from '@/types'
 import { getOptions } from '@/options'
 
-export type { VariantProps } from 'class-variance-authority'
-
 export function createCvaWithAddition(opts: UserDefinedOptions = {}) {
   const options = getOptions(opts)
   return {

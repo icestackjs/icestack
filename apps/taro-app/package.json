@@ -71,7 +71,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.23.6",
-    "@egoist/tailwindcss-icons": "^1.6.0",
+    "@egoist/tailwindcss-icons": "^1.7.1",
     "@icestack/presets": "link:../../packages/presets",
     "@icestack/tailwindcss": "link:../../packages/tailwindcss",
     "@icestack/ui": "link:../../packages/ui",
@@ -90,7 +90,7 @@
     "@typescript-eslint/parser": "^6.14.0",
     "babel-preset-taro": "3.6.20",
     "css-to-tailwindcss-plugin": "link:../../packages/css-to-tailwindcss-plugin",
-    "eslint": "^8.55.0",
+    "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-taro": "3.6.20",
     "eslint-plugin-import": "^2.29.1",

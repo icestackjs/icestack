@@ -2,7 +2,7 @@ const fs = require('node:fs')
 const path = require('node:path')
 const parser = require('postcss-selector-parser')
 const serialize = require('serialize-javascript')
-const components = require('../assets/js/components')
+const components = require('../assets/js/components/index.cjs')
 // parser().processSync()
 
 function getSelectors(obj) {

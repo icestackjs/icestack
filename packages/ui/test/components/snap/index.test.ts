@@ -101,7 +101,7 @@ describe('bug fixed', () => {
     const { css } = ctx.compileScss(`components.subtitle.defaults.utils`)
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
     await ctx.buildComponents()
-    expect(fs.existsSync(path.resolve(outdir, 'js/components/subtitle/utils.js'))).toBe(true)
+    expect(fs.existsSync(path.resolve(outdir, 'js/components/subtitle/utils.cjs'))).toBe(true)
   })
 
   it('custom component case 1', async () => {

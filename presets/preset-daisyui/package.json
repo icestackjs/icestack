@@ -1,6 +1,7 @@
 {
   "name": "@icestack/preset-daisyui",
   "description": "The daisyui preset of @icestack/ui",
+  "private": true,
   "version": "0.2.6",
   "scripts": {
     "build": "unbuild",

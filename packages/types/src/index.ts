@@ -18,6 +18,7 @@ export type BaseOptions<T extends string = string> = {
   types: Record<string, Record<keyof BaseOptions['themes'], Record<string, string>>>
   extraColors: Record<keyof BaseOptions['themes'], Record<string, string>>
   extraVars: Record<keyof BaseOptions['themes'], Record<string, string>>
+  extraCss: CssInJs | CssInJs[]
 }
 
 export type ModeMergeValue = {

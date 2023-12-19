@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import fss from 'node:fs'
+import { transformCss2Js } from '@icestack/shared'
 
 export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]> {
   if (!Array.isArray(arr)) {
@@ -88,4 +89,11 @@ export function arrMatch(matchArr?: (string | RegExp)[], str?: string) {
     }
     return str.match(regex)
   })
+}
+
+export function preHandleString<T>(val: T) {
+  if (typeof val === 'string') {
+    return transformCss2Js(val)
+  }
+  return val
 }

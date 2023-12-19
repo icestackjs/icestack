@@ -1,6 +1,7 @@
 import { TinyColor } from '@ctrl/tinycolor'
 import { CodegenOptions } from '@/types'
-
+import merge from 'merge'
+import { preHandleString } from '@/utils'
 export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, shareVars1: Record<string, string>) => {
   return Object.entries({
     ...colorsMap,
@@ -44,6 +45,7 @@ export const calcBase = (options: CodegenOptions) => {
     }
     return acc
   }, {})
+  merge.recursive(presets, options?.base?.extraCss)
   return {
     presets,
     allTypes

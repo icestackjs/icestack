@@ -160,58 +160,6 @@ importers:
         specifier: ^3.3.6
         version: 3.3.6(ts-node@10.9.2)
 
-  packages/preset-daisyui:
-    dependencies:
-      '@icestack/shared':
-        specifier: workspace:^
-        version: link:../shared
-      '@icestack/types':
-        specifier: workspace:^
-        version: link:../types
-    devDependencies:
-      '@icestack/ui':
-        specifier: workspace:^
-        version: link:../ui
-
-  packages/preset-mockup:
-    dependencies:
-      '@icestack/shared':
-        specifier: workspace:^
-        version: link:../shared
-      '@icestack/types':
-        specifier: workspace:^
-        version: link:../types
-    devDependencies:
-      '@icestack/ui':
-        specifier: workspace:^
-        version: link:../ui
-
-  packages/preset-weapp:
-    dependencies:
-      '@icestack/shared':
-        specifier: workspace:^
-        version: link:../shared
-      '@icestack/types':
-        specifier: workspace:^
-        version: link:../types
-    devDependencies:
-      '@icestack/ui':
-        specifier: workspace:^
-        version: link:../ui
-
-  packages/presets:
-    dependencies:
-      '@icestack/preset-mockup':
-        specifier: workspace:^
-        version: link:../preset-mockup
-      '@icestack/preset-weapp':
-        specifier: workspace:^
-        version: link:../preset-weapp
-    devDependencies:
-      '@icestack/ui':
-        specifier: workspace:^
-        version: link:../ui
-
   packages/shared:
     dependencies:
       defu:
@@ -487,6 +435,58 @@ importers:
       postcss:
         specifier: ^8.4.31
         version: 8.4.32
+
+  presets/preset-daisyui:
+    dependencies:
+      '@icestack/shared':
+        specifier: workspace:^
+        version: link:../../packages/shared
+      '@icestack/types':
+        specifier: workspace:^
+        version: link:../../packages/types
+    devDependencies:
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
+
+  presets/preset-mockup:
+    dependencies:
+      '@icestack/shared':
+        specifier: workspace:^
+        version: link:../../packages/shared
+      '@icestack/types':
+        specifier: workspace:^
+        version: link:../../packages/types
+    devDependencies:
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
+
+  presets/preset-weapp:
+    dependencies:
+      '@icestack/shared':
+        specifier: workspace:^
+        version: link:../../packages/shared
+      '@icestack/types':
+        specifier: workspace:^
+        version: link:../../packages/types
+    devDependencies:
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
+
+  presets/presets:
+    dependencies:
+      '@icestack/preset-mockup':
+        specifier: workspace:^
+        version: link:../preset-mockup
+      '@icestack/preset-weapp':
+        specifier: workspace:^
+        version: link:../preset-weapp
+    devDependencies:
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
 
   storybook:
     dependencies:

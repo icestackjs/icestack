@@ -2,6 +2,7 @@ packages:
   #  - "apps/*"
   - "plugins/*"
   - "packages/*"
+  - "presets/*"
   - "!playground/*"
   - "website"
   - "storybook"

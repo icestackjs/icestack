@@ -96,7 +96,7 @@
     "del": "^7.1.0",
     "fast-glob": "^3.3.2",
     "findup-sync": "^5.0.0",
-    "flat-cache": "^3.2.0",
+    "flat-cache": "^4.0.0",
     "klaw-sync": "^6.0.0",
     "lru-cache": "^10.1.0",
     "merge": "^2.1.1",
@@ -106,7 +106,7 @@
     "sass-true": "^7.0.0",
     "serialize-javascript": "^6.0.1",
     "svg64": "^2.0.0",
-    "tailwindcss": "3.3.6"
+    "tailwindcss": "3.3.7"
   },
   "publishConfig": {
     "access": "public",

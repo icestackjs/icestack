@@ -30,7 +30,7 @@
   ],
   "devDependencies": {
     "postcss-js": "^4.0.1",
-    "tailwindcss": "^3.3.6",
+    "tailwindcss": "^3.3.7",
     "tsd": "^0.30.0"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",

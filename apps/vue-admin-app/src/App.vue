@@ -3,12 +3,7 @@
 </script>
 
 <template>
-  <div>
-    <h2>Button</h2>
-    <div>
-      <button class="btn">Button</button>
-    </div>
-  </div>
+  <RouterView />
 </template>
 
-<style scoped></style>
+<style lang="scss"></style>

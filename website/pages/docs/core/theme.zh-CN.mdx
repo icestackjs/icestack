@@ -57,24 +57,19 @@ const config = {
     themes: {
       // your new theme can be write here
       dimmed: {
-        selector: '[data-mode="dimmed"]'
+        selector: '[data-mode="dimmed"]',
+        // you can set light or dark or custom
+        // 新的主题声明
+        extraColors: sharedExtraColors.dark,
+        extraVars: sharedExtraVars
       }
     },
     types: {
       primary: {
         // 新的主题声明
         dimmed: '#1677ff'
-      },
+      }
       // ...
-    },
-    extraColors: {
-      // you can set light or dark or custom
-      // 新的主题声明
-      dimmed: sharedExtraColors.dark
-    },
-    extraVars: {
-      // 新的主题声明
-      dimmed: sharedExtraVars
     }
   }
 }

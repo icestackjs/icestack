@@ -28,7 +28,7 @@ export const calcBase = (options: CodegenOptions) => {
 
   const themesMap = themes === undefined ? {} : themes
 
-  const presets = Object.entries(themesMap).reduce<Record<string, any>>((acc, [theme, { selector }]) => {
+  const presets = Object.entries(themesMap).reduce<Record<string, any>>((acc, [theme, { selector, extraColors, extraVars }]) => {
     if (selector) {
       acc[selector] = {
         css: composeVarsObject(
@@ -44,8 +44,8 @@ export const calcBase = (options: CodegenOptions) => {
                   ...hit
                 }
           }, {}),
-          options?.base?.extraColors?.[theme] ?? {},
-          options?.base?.extraVars?.[theme] ?? {}
+          extraColors,
+          extraVars
         )
       }
     }

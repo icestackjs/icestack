@@ -1,6 +1,6 @@
+import { transformCss2Js } from '@icestack/shared'
 import { createContext, IContext } from '@/context'
 import { getCodegenOptions } from '@/options'
-import { transformCss2Js } from '@icestack/shared'
 
 describe('base', () => {
   let ctx: IContext
@@ -43,18 +43,16 @@ describe('base', () => {
               selector: '.dark'
             },
             fuck: {
-              selector: '.fuck'
+              selector: '.fuck',
+              extraVars: {
+                a: '#123456'
+              }
             },
             shit: {
-              selector: '.shit'
-            }
-          },
-          extraVars: {
-            fuck: {
-              a: '#123456'
-            },
-            shit: {
-              b: '#654321'
+              selector: '.shit',
+              extraVars: {
+                b: '#654321'
+              }
             }
           }
         }
@@ -65,11 +63,10 @@ describe('base', () => {
   })
 
   it('add extra css options', async () => {
-    const ctx = createContext(
-      {
-        mode: 'raw',
-        base: {
-          extraCss: transformCss2Js(`:root,
+    const ctx = createContext({
+      mode: 'raw',
+      base: {
+        extraCss: transformCss2Js(`:root,
           [data-theme] {
             background-color: theme(colors.base-100);
             color: theme(colors.base-content);
@@ -126,9 +123,8 @@ describe('base', () => {
             }
           }
           `)
-        }
       }
-    )
+    })
     const { css } = await ctx.compileScss('base.index')
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })

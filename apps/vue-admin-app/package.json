@@ -15,6 +15,7 @@
     "@icestack/ui": "link:../../packages/ui",
     "@intlify/shared": "^9.8.0",
     "@nuxt/devtools": "latest",
+    "@nuxtjs/color-mode": "^3.3.2",
     "autoprefixer": "^10.4.16",
     "install": "^0.13.0",
     "npm": "^10.2.5",

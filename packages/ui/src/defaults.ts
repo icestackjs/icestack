@@ -60,20 +60,19 @@ export function getDefaultBase(mode?: CodegenMode) {
   const base = {
     themes: {
       light: {
-        selector: ':root'
+        selector: ':root',
+        extraColors: sharedExtraColors.light,
+        extraVars: sharedExtraVars
       },
       dark: {}
     },
-    types: {},
-    extraColors: sharedExtraColors,
-    extraVars: {
-      light: sharedExtraVars,
-      dark: sharedExtraVars
-    }
+    types: {}
   }
   if (mode === undefined || mode === 'styled') {
     base.themes.dark = {
-      selector: '[data-mode="dark"]'
+      selector: '[data-mode="dark"]',
+      extraColors: sharedExtraColors.dark,
+      extraVars: sharedExtraVars
     }
     base.types = defaultTypes
   }

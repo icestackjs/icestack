@@ -12,12 +12,12 @@ export type BaseOptions<T extends string = string> = {
     T,
     {
       selector: string
+      extraColors: Record<string, string>
+      extraVars: Record<string, string>
     }
   >
   //           typeName        themeName       cssVars
   types: Record<string, Record<keyof BaseOptions['themes'], string | Record<string, string>>>
-  extraColors: Record<keyof BaseOptions['themes'], Record<string, string>>
-  extraVars: Record<keyof BaseOptions['themes'], Record<string, string>>
   extraCss: CssInJs | CssInJs[]
 }
 

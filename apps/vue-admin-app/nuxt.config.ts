@@ -8,6 +8,10 @@ export default defineNuxtConfig({
       autoprefixer: {}
     }
   },
-  modules: ['@nuxt/content'], //, '@nuxtjs/i18n'], //
-  content: {}
+  modules: ['@nuxt/content', '@nuxtjs/color-mode'], //, '@nuxtjs/i18n'], //
+  content: {},
+  colorMode: {
+    // classSuffix: '',
+    dataValue: 'mode'
+  }
 })

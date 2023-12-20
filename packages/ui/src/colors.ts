@@ -60,11 +60,14 @@ export function getColors(options: CodegenOptions) {
       }
       return acc
     }, {}),
-    ...Object.values(base.extraColors).reduce<Record<string, string>>((acc, cur) => {
-      for (const x of Object.keys(cur)) {
-        const key = varPrefix + x
-        acc[x] = makeRgbaValue(key)
+    ...Object.values(base.themes).reduce<Record<string, string>>((acc, { extraColors }) => {
+      if (extraColors) {
+        for (const x of Object.keys(extraColors)) {
+          const key = varPrefix + x
+          acc[x] = makeRgbaValue(key)
+        }
       }
+
       return acc
     }, {})
   }

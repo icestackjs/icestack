@@ -1,6 +1,6 @@
+import { blue, gray, presetDarkPalettes, presetPalettes } from '@ant-design/colors'
 import { getColors } from '@/colors'
 import { getCodegenOptions } from '@/options'
-
 describe('colors', () => {
   // it('snap', () => {
   //   expect(colors).toMatchSnapshot()
@@ -20,5 +20,12 @@ describe('colors', () => {
         })
       )
     ).toMatchSnapshot()
+  })
+
+  it('@ant-design/colors', () => {
+    expect(blue).toMatchSnapshot('blue')
+    expect(gray).toMatchSnapshot('gray')
+    expect(presetPalettes).toMatchSnapshot('presetPalettes')
+    expect(presetDarkPalettes).toMatchSnapshot('presetDarkPalettes')
   })
 })

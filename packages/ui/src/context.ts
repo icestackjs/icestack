@@ -30,7 +30,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
   const globalPrefix = resolvePrefixOption(_globalPrefix)
   const globalVarPrefix = resolveVarPrefixOption(_globalVarPrefix)
   logger.logFlag = log
-  const { allTypes, presets: basePresets } = base.calcBase(options)
+  const { types, presets: basePresets } = base.calcBase(options)
 
   function writeFile(file: string, data: string) {
     !dryRun && fs.writeFileSync(file, data, 'utf8')
@@ -72,7 +72,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
   }
 
   const presets = createPreset({
-    types: allTypes
+    types
   })
   const colors = getColors(options)
   const allComponentsNames = Object.keys(presets)

@@ -86,16 +86,16 @@ exports[`presets > default preset 1`] = `
       },
       "neutral": {
         "dark": {
-          "neutral": "#262626",
-          "neutral-active": "#1f1f1f",
+          "neutral": "#5a5a5a",
+          "neutral-active": "#6a6a6a",
           "neutral-content": "#ffffff",
-          "neutral-hover": "#434343",
+          "neutral-hover": "#494949",
         },
         "light": {
-          "neutral": "#262626",
-          "neutral-active": "#1f1f1f",
+          "neutral": "#666666",
+          "neutral-active": "#404040",
           "neutral-content": "#ffffff",
-          "neutral-hover": "#434343",
+          "neutral-hover": "#737373",
         },
       },
       "primary": {
@@ -1820,19 +1820,19 @@ exports[`presets > default preset all css 1`] = `
         "top": "0px",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
-      ":is([dir="rtl"] .indicator :where(.indicator-item))": {
+      ":is(:where([dir="rtl"]) .indicator :where(.indicator-item))": {
         "--tw-translate-x": "-50%",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
-      ":is([dir="rtl"] .indicator :where(.indicator-item.indicator-center))": {
+      ":is(:where([dir="rtl"]) .indicator :where(.indicator-item.indicator-center))": {
         "--tw-translate-x": "50%",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
-      ":is([dir="rtl"] .indicator :where(.indicator-item.indicator-end))": {
+      ":is(:where([dir="rtl"]) .indicator :where(.indicator-item.indicator-end))": {
         "--tw-translate-x": "-50%",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
-      ":is([dir="rtl"] .indicator :where(.indicator-item.indicator-start))": {
+      ":is(:where([dir="rtl"]) .indicator :where(.indicator-item.indicator-start))": {
         "--tw-translate-x": "50%",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
@@ -2998,11 +2998,11 @@ exports[`presets > default preset all css 1`] = `
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
         "width": "0.5rem",
       },
-      ":is([dir="rtl"] .steps-horizontal .step):before": {
+      ":is(:where([dir="rtl"]) .steps-horizontal .step):before": {
         "--tw-translate-x": "0px",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
-      ":is([dir="rtl"] .steps-vertical .step):before": {
+      ":is(:where([dir="rtl"]) .steps-vertical .step):before": {
         "--tw-translate-x": "50%",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
@@ -3523,7 +3523,7 @@ exports[`presets > default preset all css 1`] = `
         "top": "0px",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
-      ":is([dir="rtl"] .toast:where(.toast-center))": {
+      ":is(:where([dir="rtl"]) .toast:where(.toast-center))": {
         "--tw-translate-x": "50%",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },

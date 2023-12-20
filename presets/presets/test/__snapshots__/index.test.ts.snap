@@ -86,16 +86,16 @@ exports[`presets > miniprogramPreset 1`] = `
       },
       "neutral": {
         "dark": {
-          "neutral": "#262626",
-          "neutral-active": "#1f1f1f",
+          "neutral": "#5a5a5a",
+          "neutral-active": "#6a6a6a",
           "neutral-content": "#ffffff",
-          "neutral-hover": "#434343",
+          "neutral-hover": "#494949",
         },
         "light": {
-          "neutral": "#262626",
-          "neutral-active": "#1f1f1f",
+          "neutral": "#666666",
+          "neutral-active": "#404040",
           "neutral-content": "#ffffff",
-          "neutral-hover": "#434343",
+          "neutral-hover": "#737373",
         },
       },
       "primary": {
@@ -867,16 +867,16 @@ exports[`presets > presets merge case 0 1`] = `
       },
       "neutral": {
         "dark": {
-          "neutral": "#262626",
-          "neutral-active": "#1f1f1f",
+          "neutral": "#5a5a5a",
+          "neutral-active": "#6a6a6a",
           "neutral-content": "#ffffff",
-          "neutral-hover": "#434343",
+          "neutral-hover": "#494949",
         },
         "light": {
-          "neutral": "#262626",
-          "neutral-active": "#1f1f1f",
+          "neutral": "#666666",
+          "neutral-active": "#404040",
           "neutral-content": "#ffffff",
-          "neutral-hover": "#434343",
+          "neutral-hover": "#737373",
         },
       },
       "primary": {
@@ -1279,16 +1279,16 @@ exports[`presets > presets merge case 1 1`] = `
       },
       "neutral": {
         "dark": {
-          "neutral": "#262626",
-          "neutral-active": "#1f1f1f",
+          "neutral": "#5a5a5a",
+          "neutral-active": "#6a6a6a",
           "neutral-content": "#ffffff",
-          "neutral-hover": "#434343",
+          "neutral-hover": "#494949",
         },
         "light": {
-          "neutral": "#262626",
-          "neutral-active": "#1f1f1f",
+          "neutral": "#666666",
+          "neutral-active": "#404040",
           "neutral-content": "#ffffff",
-          "neutral-hover": "#434343",
+          "neutral-hover": "#737373",
         },
       },
       "primary": {

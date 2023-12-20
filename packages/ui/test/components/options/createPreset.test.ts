@@ -5,9 +5,9 @@ describe('createPreset options', () => {
   it.skip('case 0', () => {
     const options = getCodegenOptions()
     const ctx = createContext(options)
-    const { allTypes } = calcBase(options)
+    const { types } = calcBase(options)
     const res = ctx.createPreset({
-      types: allTypes
+      types
     })
     expect(res).toMatchSnapshot()
   })
@@ -15,9 +15,9 @@ describe('createPreset options', () => {
   it('alert case 0', () => {
     const options = getCodegenOptions()
     const ctx = createContext(options)
-    const { allTypes } = calcBase(options)
+    const { types } = calcBase(options)
     const res = ctx.createPreset({
-      types: allTypes
+      types
     })
     expect(res.alert).toMatchSnapshot()
   })

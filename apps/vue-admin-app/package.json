@@ -10,9 +10,21 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@icestack/cva": "link:../../packages/cva",
+    "@icestack/tailwindcss": "link:../../packages/tailwindcss",
+    "@icestack/ui": "link:../../packages/ui",
     "@nuxt/devtools": "latest",
+    "autoprefixer": "^10.4.16",
+    "install": "^0.13.0",
+    "npm": "^10.2.5",
     "nuxt": "^3.8.2",
+    "postcss": "^8.4.32",
+    "sass": "^1.69.5",
+    "tailwindcss": "^3.3.6",
     "vue": "^3.3.12",
     "vue-router": "^4.2.5"
+  },
+  "dependencies": {
+    "@nuxt/content": "^2.9.0"
   }
 }

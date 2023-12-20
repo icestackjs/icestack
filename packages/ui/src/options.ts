@@ -20,7 +20,7 @@ export function getCodegenOptions(options?: DeepPartial<CodegenOptions>): Codege
       ).filter(Boolean) ?? []
   }
 
-  return defu<CodegenOptions, DeepPartial<CodegenOptions>[]>(options, ...presets, getCodegenDefaults())
+  return defu<CodegenOptions, DeepPartial<CodegenOptions>[]>(options, ...presets, getCodegenDefaults(options?.mode))
 }
 
 export async function load(cwd?: string) {

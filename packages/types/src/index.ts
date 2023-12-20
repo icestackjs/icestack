@@ -15,7 +15,7 @@ export type BaseOptions<T extends string = string> = {
     }
   >
   //           typeName        themeName       cssVars
-  types: Record<string, Record<keyof BaseOptions['themes'], Record<string, string>>>
+  types: Record<string, Record<keyof BaseOptions['themes'], string | Record<string, string>>>
   extraColors: Record<keyof BaseOptions['themes'], Record<string, string>>
   extraVars: Record<keyof BaseOptions['themes'], Record<string, string>>
   extraCss: CssInJs | CssInJs[]
@@ -60,7 +60,7 @@ export type GlobalOptions = {
   }
 }
 
-export type CodegenMode = 'styled' | 'base' | 'raw'
+export type CodegenMode = 'styled' | 'base' | 'raw' | 'none'
 
 export type CodegenOptions = {
   /**

@@ -1,7 +1,9 @@
 import { TinyColor } from '@ctrl/tinycolor'
-import { CodegenOptions } from '@/types'
 import merge from 'merge'
-import { preHandleString } from '@/utils'
+import { CodegenOptions } from '@/types'
+import { generateColorVars } from '@/colors'
+// import { preHandleString } from '@/utils'
+
 export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, shareVars1: Record<string, string>) => {
   return Object.entries({
     ...colorsMap,
@@ -22,22 +24,26 @@ export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: 
 export const calcBase = (options: CodegenOptions) => {
   const types = options?.base?.types
   const themes = options?.base?.themes
-  const allTypes = types === undefined ? [] : Object.keys(types)
-  const values = types === undefined ? [] : Object.values(types)
+  const entries = types === undefined ? [] : Object.entries(types)
+
   const themesMap = themes === undefined ? {} : themes
 
   const presets = Object.entries(themesMap).reduce<Record<string, any>>((acc, [theme, { selector }]) => {
     if (selector) {
       acc[selector] = {
         css: composeVarsObject(
-          values
-            .map((x) => x[theme])
-            .reduce<Record<string, string>>((acc, cur) => {
-              return {
-                ...acc,
-                ...cur
-              }
-            }, {}),
+          entries.reduce<Record<string, string>>((acc, [key, cur]) => {
+            const hit = cur[theme]
+            return typeof hit === 'string'
+              ? {
+                  ...acc,
+                  ...generateColorVars(key, hit, theme === 'dark')
+                }
+              : {
+                  ...acc,
+                  ...hit
+                }
+          }, {}),
           options?.base?.extraColors?.[theme] ?? {},
           options?.base?.extraVars?.[theme] ?? {}
         )
@@ -48,6 +54,7 @@ export const calcBase = (options: CodegenOptions) => {
   merge.recursive(presets, options?.base?.extraCss)
   return {
     presets,
-    allTypes
+    entries,
+    types: entries.map((x) => x[0])
   }
 }

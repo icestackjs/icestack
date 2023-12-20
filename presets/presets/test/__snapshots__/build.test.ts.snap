@@ -24,10 +24,10 @@ exports[`build > build base with miniprogramPreset case  1`] = `
     "--ice-error-active": "232 71 73",
     "--ice-error-content": "255 255 255",
     "--ice-error-hover": "166 29 36",
-    "--ice-neutral": "38 38 38",
-    "--ice-neutral-active": "31 31 31",
+    "--ice-neutral": "90 90 90",
+    "--ice-neutral-active": "106 106 106",
     "--ice-neutral-content": "255 255 255",
-    "--ice-neutral-hover": "67 67 67",
+    "--ice-neutral-hover": "73 73 73",
     "--ice-primary": "22 104 220",
     "--ice-primary-active": "60 137 232",
     "--ice-primary-content": "255 255 255",
@@ -69,10 +69,10 @@ exports[`build > build base with miniprogramPreset case  1`] = `
     "--ice-error-active": "207 19 34",
     "--ice-error-content": "255 255 255",
     "--ice-error-hover": "255 77 79",
-    "--ice-neutral": "38 38 38",
-    "--ice-neutral-active": "31 31 31",
+    "--ice-neutral": "102 102 102",
+    "--ice-neutral-active": "64 64 64",
     "--ice-neutral-content": "255 255 255",
-    "--ice-neutral-hover": "67 67 67",
+    "--ice-neutral-hover": "115 115 115",
     "--ice-primary": "22 119 255",
     "--ice-primary-active": "9 88 217",
     "--ice-primary-content": "255 255 255",
@@ -1503,19 +1503,19 @@ exports[`build > miniprogramPreset buildComponents 1`] = `
         "top": "0px",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
-      ":is([dir="rtl"] .indicator :where(.indicator-item))": {
+      ":is(:where([dir="rtl"]) .indicator :where(.indicator-item))": {
         "--tw-translate-x": "-50%",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
-      ":is([dir="rtl"] .indicator :where(.indicator-item.indicator-center))": {
+      ":is(:where([dir="rtl"]) .indicator :where(.indicator-item.indicator-center))": {
         "--tw-translate-x": "50%",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
-      ":is([dir="rtl"] .indicator :where(.indicator-item.indicator-end))": {
+      ":is(:where([dir="rtl"]) .indicator :where(.indicator-item.indicator-end))": {
         "--tw-translate-x": "-50%",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
-      ":is([dir="rtl"] .indicator :where(.indicator-item.indicator-start))": {
+      ":is(:where([dir="rtl"]) .indicator :where(.indicator-item.indicator-start))": {
         "--tw-translate-x": "50%",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
@@ -2681,11 +2681,11 @@ exports[`build > miniprogramPreset buildComponents 1`] = `
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
         "width": "0.5rem",
       },
-      ":is([dir="rtl"] .steps-horizontal .step):before": {
+      ":is(:where([dir="rtl"]) .steps-horizontal .step):before": {
         "--tw-translate-x": "0px",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
-      ":is([dir="rtl"] .steps-vertical .step):before": {
+      ":is(:where([dir="rtl"]) .steps-vertical .step):before": {
         "--tw-translate-x": "50%",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
@@ -3206,7 +3206,7 @@ exports[`build > miniprogramPreset buildComponents 1`] = `
         "top": "0px",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },
-      ":is([dir="rtl"] .toast:where(.toast-center))": {
+      ":is(:where([dir="rtl"]) .toast:where(.toast-center))": {
         "--tw-translate-x": "50%",
         "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
       },

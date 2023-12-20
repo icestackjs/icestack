@@ -465,6 +465,19 @@ importers:
         specifier: workspace:^
         version: link:../../packages/ui
 
+  presets/preset-unicorn:
+    dependencies:
+      '@icestack/shared':
+        specifier: workspace:^
+        version: link:../../packages/shared
+      '@icestack/types':
+        specifier: workspace:^
+        version: link:../../packages/types
+    devDependencies:
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../../packages/ui
+
   presets/preset-weapp:
     dependencies:
       '@icestack/shared':

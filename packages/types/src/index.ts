@@ -63,6 +63,8 @@ export type GlobalOptions = {
 
 export type CodegenMode = 'styled' | 'base' | 'raw' | 'none'
 
+export type Preset = Pick<CodegenOptions, 'base' | 'components' | 'global' | 'tailwindcssConfig'>
+
 export type CodegenOptions = {
   /**
    * @description load css mode
@@ -99,7 +101,7 @@ export type CodegenOptions = {
   /**
    * @description load presets
    */
-  presets: (DeepPartial<CodegenOptions> | ((options?: any) => DeepPartial<CodegenOptions>))[]
+  presets: (DeepPartial<Preset> | ((options?: any) => DeepPartial<Preset>))[]
   /**
    * @description required! set output dir path.
    */

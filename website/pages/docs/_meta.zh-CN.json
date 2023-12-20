@@ -1,7 +1,8 @@
 {
+  "usage": "快速开始",
   "introduction": "简介",
-  "usage": "安装及使用",
-  "core": "核心概念",
+  "core": "扩展",
   "options": "通用配置项",
-  "contribute": "贡献"
+  "contribute": "贡献",
+  "motivation": "制作动机"
 }

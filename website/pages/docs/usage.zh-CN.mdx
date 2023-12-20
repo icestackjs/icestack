@@ -1,28 +1,134 @@
-# 安装及使用
+import { Tabs, Tab, Cards, Card } from 'nextra/components'
 
-## 安装
+# 快速开始
+
+## 特性
+
+- 纯 CSS 组件，通用且轻量
+- **0** 运行时，所有工作在编译时完成
+- 可结合 `tailwindcss` 使用，自动 `tree-shake`，所写即所得
+- 可扩展包括但不限于，主题，颜色，类型，尺寸... 所有一切都可以自定义
+
+## 安装 `@icestack/ui`
 
 首先你必须安装好 `nodejs` 环境:
 
 然后使用 `npm init` 创建 `package.json`，再在 `package.json` 目录下，执行命令:
+{/* prettier-ignore-start */}
+<Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
+  <Tab>
+```bash 
+pnpm install -D @icestack/ui 
+```
+</Tab>
+  <Tab>
+```bash
+npm install -D @icestack/ui 
+```
+</Tab>
+  <Tab>
+```bash 
+yarn add -D @icestack/ui 
+```
+</Tab>
+  <Tab>
+```bash 
+bun add -D @icestack/ui 
+```
+</Tab>
+</Tabs>
 
-```sh
-# npm
-npm i -D @icestack/ui
-# yarn
-yarn add -D @icestack/ui
-# pnpm
-pnpm i -D @icestack/ui
+{/* prettier-ignore-end */}
+`@icestack/ui` 将会被下载并安装在你的本地，同时一个命令 `icestack` 将会被注册
+
+## 初始化配置文件
+
+安装好 `@icestack/ui` 之后你可以执行:
+
+```bash
+npx icestack init
 ```
 
-`@icestack/ui` 将会被下载并安装在你的本地，同时一个二进制命令 `icestack` 将会被注册
+这个命令会在当前执行目录下生成一个 `icestack.config.js` 文件，默认内容如下:
 
-## 使用方式
+```js filename="icestack.config.js"
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui'
+}
 
-主要有以下几种:
+module.exports = config
+```
 
-- [以 Cli 命令行使用](./usage/cli)
-- [作为 tailwindcss plugin 来使用](./usage/tailwindcss)
-- [Nodejs API 调用](./usage/nodejs)
+### 构建样式
 
-你可以点击链接跳转到对应的方式。
+你可以在 `config` 中，配置你自己的样式和选项，完成之后执行:
+
+```bash
+npx icestack build
+```
+
+这个命令会在当前配置文件下的 `'./my-ui'` 目录构建出产物，接下来你就可以直接使用这些 `css`,`js`，或者也可以交给 `tailwindcss` 进行使用
+
+## 作为 tailwindcss plugin 来使用
+
+### 安装 `@icestack/tailwindcss`
+
+<Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
+  <Tab>
+```bash 
+pnpm install -D @icestack/tailwindcss
+```
+</Tab>
+  <Tab>
+```bash
+npm install -D @icestack/tailwindcss
+```
+</Tab>
+  <Tab>
+```bash 
+yarn add -D @icestack/tailwindcss
+```
+</Tab>
+  <Tab>
+```bash 
+bun add -D @icestack/tailwindcss
+```
+</Tab>
+</Tabs>
+
+
+### 配置
+
+然后传递一个 `loadDirectory` 配置项告诉插件刚刚生成的位置:
+
+```js filename="tailwind.config.js"
+const path = require('node:path')
+const { icestackPlugin } = require('@icestack/tailwindcss')
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // ...
+  plugins: [
+    icestackPlugin({
+      loadDirectory: path.resolve(__dirname, 'my-ui'),
+      // 是否注入 theme, 默认值: false
+      // 为 true 时 生成器的 primary success warning 这些颜色会进入 tailwindcss theme extend 配置
+      loadConfig: true
+      // ...
+    })
+  ]
+}
+```
+
+接着只要我们正常运行项目，当前目录下的 `my-ui` 里就生成了对应的 `css`和 `js` 相关的代码
+
+### 智能提示
+
+通常我们每次保存 `tailwind.config.js` 文件，`tailwindcss` 插件就会去重新读取插件并生成智能提示
+
+所以我们每一次执行 `icestack build` 后，都可以去 `tailwind.config.js` 进行文件的保存操作
+
+这样智能提示就有了。

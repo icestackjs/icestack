@@ -1,8 +1,9 @@
 {
+  "defaults": "Default preset",
   "variant": "Customize color",
   "theme": "Customize themes",
   "override": "Customize component styles",
   "preset": "Presets",
-  "composeClass": "Class Compose",
-  "extraComponent": "Add extra components"
+  "composeClass": "Class compose",
+  "extraComponent": "Add components"
 }

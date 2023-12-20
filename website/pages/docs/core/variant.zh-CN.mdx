@@ -1,42 +1,34 @@
 # 修改和扩展颜色种类
 
-作为一名开发者，在设计我们自己应用的时候，很少有对第三方控件库默认的组件样式感到满意的
+## 修改原有主题色
 
-在 `@icestack/ui` 的默认预设下:
-
-## 颜色
-
-颜色类型主要有五种分别为 `primary`,`success`,`warning`,`error`,`neutral`
-
-于是 `css` 产物中就生成出了
-
-```js
-// btn
-'btn-primary', 'btn-success', 'btn-warning', 'btn-error', 'btn-neutral'
-
-// badge
-'badge-primary', 'badge-success', 'badge-warning', 'badge-error', 'badge-neutral'
+```js filename="icestack.config.js"
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  // 修改 base
+  base: {
+    // 颜色 type
+    types: {
+      // override primary type
+      // 覆盖 primary 色
+      primary: {
+        // 覆盖 light mode 下的颜色
+        light: '#eb2f96'
+        // 同样也可以覆盖 dark mode 下的表现
+        dark: '#cb2b83'
+      }
+    }
+  }
+}
+module.exports = config
 ```
 
-这类的css产物
+默认情况下，你传入一个颜色字符串，它会被交给 [`ant-design-colors`](https://github.com/ant-design/ant-design-colors) 进行颜色的自动生成，从而计算出 `hover`,`active` 等状态的颜色
 
-## 尺寸形状
-
-同样的原理，默认尺寸有 `xs`,`sm`,`md`,`lg` 所以会生成出:
-
-```js
-// btn
-'btn-xs', 'btn-sm', 'btn-md', 'btn-lg',
-
-// badge
-'badge-xs', 'badge-sm', 'badge-md', 'badge-lg'
-```
-
-## 主题
-
-默认有 `light` 和 `dark`，它们会生成出各自的 `CSS` 变量块，当然你也可以对它们进行覆盖和扩展。
-
-## 修改和扩展配置
+当然你也可以传入一个 `object` 来精准的控制所有状态下的颜色：
 
 ```js filename="icestack.config.js"
 /**
@@ -62,23 +54,33 @@ const config = {
         }
         // 同样也可以覆盖 dark mode 下的表现
         // dark: {}
-      },
+      }
+    }
+  }
+}
+module.exports = config
+```
+
+修改完成之后执行 `icestack build` 构建命令即可。
+
+## 扩展更多主题色
+
+```js filename="icestack.config.js"
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  // 修改 base
+  base: {
+    // 颜色 type
+    types: {
       // 或者你添加一种新的颜色主题: pure
       pure: {
         // light mode colors
-        light: {
-          pure: '#1677ff',
-          'pure-hover': '#4096ff',
-          'pure-active': '#0958d9',
-          'pure-content': '#ffffff'
-        },
+        light: '#1677ff',
         // dark mode colors
-        dark: {
-          pure: '#1677ff',
-          'pure-hover': '#4096ff',
-          'pure-active': '#0958d9',
-          'pure-content': '#ffffff'
-        }
+        dark: '#642ab5'
         // custom mode colors
       }
     }

@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app'
 import Script from 'next/script'
 import { I18nProvider } from '../locales'
+import '@icebreakers/nextra-theme-docs/style.css'
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import '../globals.scss'
 

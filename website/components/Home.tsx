@@ -33,7 +33,7 @@ export const Home: FC = (props) => {
           </li>
         </ul>
         <div className="space-x-6">
-          <Link className="btn btn-primary outline-none" href="docs/introduction">
+          <Link className="btn btn-primary outline-none" href="docs/usage">
             {t('home.startBtnText')}
           </Link>
           <Link className="btn btn-success outline-none" href="components/overview">

@@ -1,6 +1,11 @@
 {
-  "cli": "CLI",
-  "tailwindcss": "Tailwindcss Plugin",
+  "cli": {
+    "display": "hidden"
+  },
+  "tailwindcss": {
+    "title": "Tailwindcss Plugin",
+    "display": "hidden"
+  },
   "nodejs": "Nodejs API",
   "mp": "在微信小程序里使用"
 }

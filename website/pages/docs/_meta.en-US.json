@@ -1,7 +1,8 @@
 {
+  "usage": "Get Started",
   "introduction": "Introduction",
-  "usage": "Usage",
-  "core": "Core Concepts",
+  "core": "Extends",
   "options": "Configuration",
-  "contribute": "Contribute"
+  "contribute": "Contribute",
+  "motivation": "Motivation"
 }

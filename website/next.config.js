@@ -1,7 +1,7 @@
 // const autoImport = require('unplugin-auto-import/webpack')
 
 const withNextra = require('nextra')({
-  theme: 'nextra-theme-docs',
+  theme: '@icebreakers/nextra-theme-docs',
   themeConfig: './theme.config.jsx',
   defaultShowCopyCode: true
 })

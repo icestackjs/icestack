@@ -5,7 +5,7 @@
   "private": true,
   "main": "index.js",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run build:ui && next dev",
     "build": "npm run build:ui && next build",
     "start": "next start",
     "lint": "next lint",
@@ -21,6 +21,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@icebreakers/nextra-theme-docs": "^0.0.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "css-to-tailwindcss-plugin": "workspace:^",

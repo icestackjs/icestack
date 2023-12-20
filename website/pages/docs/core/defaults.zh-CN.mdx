@@ -1,0 +1,65 @@
+# 默认预设
+
+在 `@icestack/ui` 的默认预设下:
+
+## 全局颜色种类
+
+全局默认的颜色类型，主要有五种分别为 `primary`,`success`,`warning`,`error`,`neutral`
+
+于是各个组件的 `css` 产物中就生成出了这样的类:
+
+```js
+// btn
+'btn-primary', 'btn-success', 'btn-warning', 'btn-error', 'btn-neutral'
+// badge
+'badge-primary', 'badge-success', 'badge-warning', 'badge-error', 'badge-neutral'
+```
+
+这类的css产物，颜色是全局的，可通过配置自由修改扩展
+
+## 组件尺寸形状
+
+同样的原理，默认尺寸有 `xs`,`sm`,`md`,`lg` 四种所以会生成出:
+
+```js
+// btn
+'btn-xs',
+  'btn-sm',
+  'btn-md',
+  'btn-lg',
+  // badge
+  'badge-xs',
+  'badge-sm',
+  'badge-md',
+  'badge-lg'
+```
+
+这类的css产物，组件大小是每个组件特有的，可以使用 `CSS Schema` 的方式自由修改扩展
+
+另外组件的形状也是跟着组件走的，每个组件都不同，也可以自由修改扩展。
+
+## 主题
+
+默认预设了 `light` 和 `dark` **2** 种模式，它们会生成出各自的 `CSS` 变量块，当然你也可以对它们进行覆盖和扩展。
+
+默认生成结果如下:
+
+```css
+:root {
+  --ice-primary: 22 119 255;
+  --ice-primary-hover: 64 150 255;
+  --ice-primary-active: 9 88 217;
+  --ice-primary-content: 255 255 255;
+  /* ... */
+}
+
+[data-mode='dark'] {
+  --ice-primary: 22 104 220;
+  --ice-primary-hover: 21 84 173;
+  --ice-primary-active: 60 137 232;
+  --ice-primary-content: 255 255 255;
+  /* ... */
+}
+```
+
+当然你新添加的主题，也会变成这样一个 `CSS` 变量块，用来做动态的切换。

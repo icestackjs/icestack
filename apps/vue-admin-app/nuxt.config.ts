@@ -8,7 +8,6 @@ export default defineNuxtConfig({
       autoprefixer: {}
     }
   },
-  modules: ['@nuxt/content', '@nuxtjs/i18n'],
-  content: {},
-  i18n: {}
+  modules: ['@nuxt/content'], //, '@nuxtjs/i18n'], //
+  content: {}
 })

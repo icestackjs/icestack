@@ -13,6 +13,7 @@
     "@icestack/cva": "link:../../packages/cva",
     "@icestack/tailwindcss": "link:../../packages/tailwindcss",
     "@icestack/ui": "link:../../packages/ui",
+    "@intlify/shared": "^9.8.0",
     "@nuxt/devtools": "latest",
     "autoprefixer": "^10.4.16",
     "install": "^0.13.0",

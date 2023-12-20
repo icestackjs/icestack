@@ -1,6 +1,6 @@
 # 修改和扩展颜色种类
 
-## 修改原有主题色
+## 修改原有颜色
 
 ```js filename="icestack.config.js"
 /**
@@ -26,7 +26,7 @@ const config = {
 module.exports = config
 ```
 
-默认情况下，你传入一个颜色字符串，它会被交给 [`ant-design-colors`](https://github.com/ant-design/ant-design-colors) 进行颜色的自动生成，从而计算出 `hover`,`active` 等状态的颜色
+你传入一个颜色字符串，它会被交给 [`ant-design-colors`](https://github.com/ant-design/ant-design-colors) 进行颜色的自动生成，从而计算出 `hover`,`active` 等状态的颜色
 
 当然你也可以传入一个 `object` 来精准的控制所有状态下的颜色：
 
@@ -61,9 +61,9 @@ const config = {
 module.exports = config
 ```
 
-修改完成之后执行 `icestack build` 构建命令即可。
+修改完成之后执行 `icestack build` 进行构建即可。
 
-## 扩展更多主题色
+## 扩展更多颜色
 
 ```js filename="icestack.config.js"
 /**

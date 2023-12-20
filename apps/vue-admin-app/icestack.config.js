@@ -7,7 +7,8 @@ const config = {
   outdir: './my-ui',
   base: {
     themes: {
-      light: {}
+      light: {},
+      dark: {}
     }
   }
 }

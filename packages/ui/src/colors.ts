@@ -1,4 +1,5 @@
 import { generate } from '@ant-design/colors'
+
 import type { CodegenOptions } from './types'
 export { generate, presetPrimaryColors } from '@ant-design/colors'
 
@@ -21,17 +22,19 @@ export const gray: { [key: number]: string } = {
   12: '#141414',
   13: '#000000'
 }
+type GenerateOptions = Parameters<typeof generate>[1]
+export function generateColorVars(key: string, color: string, dark?: boolean): Record<string, string>
+export function generateColorVars(key: string, color: string, opts: GenerateOptions): Record<string, string>
+export function generateColorVars(key: string, color: string, opt?: any) {
+  let opts = opt
+  if (opts === true) {
+    opts = {
+      theme: 'dark',
+      backgroundColor: '#141414'
+    }
+  }
 
-export function generateColorVars(key: string, color: string, dark?: boolean) {
-  const colors = generate(
-    color,
-    dark
-      ? {
-          theme: 'dark',
-          backgroundColor: '#141414'
-        }
-      : undefined
-  )
+  const colors = generate(color, opts)
   return {
     [key]: colors[5],
     [`${key}-hover`]: colors[4],

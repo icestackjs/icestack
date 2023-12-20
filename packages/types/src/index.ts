@@ -14,6 +14,7 @@ export type BaseOptions<T extends string = string> = {
       selector: string
       extraColors: Record<string, string>
       extraVars: Record<string, string>
+      extraCss: CssInJs | CssInJs[]
     }
   >
   //           typeName        themeName       cssVars
@@ -124,6 +125,9 @@ export type TailwindcssPluginOptions = {
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : Partial<T[P]>
 }
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+// export type DeepPartial<T> = T extends Function ? T : T extends Record<string, any> ? { [P in keyof T]?: DeepPartial<T[P]> } : T
 
 export type DeepRequired<T> = Required<{
   [K in keyof T]: T[K] extends Required<T[K]> ? T[K] : DeepRequired<T[K]>

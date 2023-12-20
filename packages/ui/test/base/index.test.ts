@@ -62,6 +62,47 @@ describe('base', () => {
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 
+  it('add new theme case 1', async () => {
+    const ctx = createContext(
+      getCodegenOptions({
+        base: {
+          themes: {
+            light: {
+              selector: '.light'
+            },
+            dark: {
+              selector: '.dark'
+            },
+            fuck: {
+              selector: '.fuck',
+              extraVars: {
+                a: '#123456'
+              },
+              extraCss: [
+                {
+                  // @ts-ignore
+                  'backgroud-color': 'red'
+                }
+              ]
+            },
+            shit: {
+              selector: '.shit',
+              extraVars: {
+                b: '#654321'
+              },
+              // @ts-ignore
+              extraCss: {
+                'backgroud-color': 'yellow'
+              }
+            }
+          }
+        }
+      })
+    )
+    const { css } = await ctx.compileScss('base.index')
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+  })
+
   it('add extra css options', async () => {
     const ctx = createContext({
       mode: 'raw',

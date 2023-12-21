@@ -1,7 +1,7 @@
 import { TinyColor } from '@ctrl/tinycolor'
 import merge from 'merge'
+import { generateColorVars } from './colors'
 import { CodegenOptions } from '@/types'
-import { generateColorVars } from '@/colors'
 // import { preHandleString } from '@/utils'
 
 export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, shareVars1: Record<string, string>) => {
@@ -26,20 +26,18 @@ function makeArray(value: any | any[]) {
 }
 
 export const calcBase = (options: CodegenOptions) => {
-  const types = options?.base?.types
   const themes = options?.base?.themes
   const globalExtraCss = options?.base?.extraCss
-  const entries = types === undefined ? [] : Object.entries(types)
+  const typesSet = new Set<string>()
   const themesMap = themes === undefined ? {} : themes
 
-  const presets = Object.entries(themesMap).reduce<Record<string, any>>((acc, [theme, { selector, extraColors, extraVars, extraCss }]) => {
+  const presets = Object.entries(themesMap).reduce<Record<string, any>>((acc, [theme, { selector, extraColors, extraVars, extraCss, types }]) => {
     if (selector) {
       acc[selector] = {
         css: merge.recursive(
           true,
           composeVarsObject(
-            entries.reduce<Record<string, string>>((acc, [key, cur]) => {
-              const hit = cur[theme]
+            Object.entries(types ?? {}).reduce<Record<string, string>>((acc, [key, hit]) => {
               switch (true) {
                 case typeof hit === 'string': {
                   return {
@@ -68,12 +66,17 @@ export const calcBase = (options: CodegenOptions) => {
         )
       }
     }
+    if (types) {
+      for (const type of Object.keys(types)) {
+        typesSet.add(type)
+      }
+    }
+
     return acc
   }, {})
   merge.recursive(presets, globalExtraCss)
   return {
     presets,
-    entries,
-    types: entries.map((x) => x[0])
+    types: [...typesSet]
   }
 }

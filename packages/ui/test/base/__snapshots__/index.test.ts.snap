@@ -2,6 +2,26 @@
 
 exports[`base > add extra css options 1`] = `
 ":root {
+  --ice-primary: 22 119 255;
+  --ice-primary-hover: 64 150 255;
+  --ice-primary-active: 9 88 217;
+  --ice-primary-content: 255 255 255;
+  --ice-success: 82 196 26;
+  --ice-success-hover: 115 209 61;
+  --ice-success-active: 56 158 13;
+  --ice-success-content: 255 255 255;
+  --ice-warning: 250 173 20;
+  --ice-warning-hover: 255 197 61;
+  --ice-warning-active: 212 136 6;
+  --ice-warning-content: 255 255 255;
+  --ice-error: 245 34 45;
+  --ice-error-hover: 255 77 79;
+  --ice-error-active: 207 19 34;
+  --ice-error-content: 255 255 255;
+  --ice-neutral: 102 102 102;
+  --ice-neutral-hover: 115 115 115;
+  --ice-neutral-active: 64 64 64;
+  --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
   --ice-base-200: 250 250 250;
   --ice-base-300: 245 245 245;

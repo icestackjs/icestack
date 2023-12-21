@@ -15,10 +15,16 @@ describe('build', () => {
       mode: 'styled',
       dryRun: true,
       base: {
-        types: {
-          primary: {
-            light: '#13c2c2',
-            dark: '#13a8a8'
+        themes: {
+          light: {
+            types: {
+              primary: '#13c2c2'
+            }
+          },
+          dark: {
+            types: {
+              primary: '#13a8a8'
+            }
           }
         }
       }

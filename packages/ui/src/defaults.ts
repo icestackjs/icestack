@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import { gray, presetPrimaryColors, generateColorVars } from './colors'
+import { gray, presetPrimaryColors, generateColorVars } from './base/colors'
 import type { CodegenOptions, DeepPartial, ComponentsOptions, CodegenMode } from './types'
 import { defaultVarPrefix } from './constants'
 import { schemaMap, names as componentNames } from '@/components'
@@ -33,48 +33,37 @@ export const sharedExtraColors = {
   }
 }
 
-const defaultTypes = {
-  primary: {
-    light: generateColorVars('primary', presetPrimaryColors.blue),
-    dark: generateColorVars('primary', presetPrimaryColors.blue, true)
-  },
-  success: {
-    light: generateColorVars('success', presetPrimaryColors.green),
-    dark: generateColorVars('success', presetPrimaryColors.green, true)
-  },
-  warning: {
-    light: generateColorVars('warning', presetPrimaryColors.gold),
-    dark: generateColorVars('warning', presetPrimaryColors.gold, true)
-  },
-  error: {
-    light: generateColorVars('error', presetPrimaryColors.red),
-    dark: generateColorVars('error', presetPrimaryColors.red, true)
-  },
-  neutral: {
-    light: generateColorVars('neutral', presetPrimaryColors.grey),
-    dark: generateColorVars('neutral', presetPrimaryColors.grey, true)
-  }
-}
-
 export function getDefaultBase(mode?: CodegenMode) {
   const base = {
     themes: {
       light: {
         selector: ':root',
         extraColors: sharedExtraColors.light,
-        extraVars: sharedExtraVars
+        extraVars: sharedExtraVars,
+        types: {
+          primary: generateColorVars('primary', presetPrimaryColors.blue),
+          success: generateColorVars('success', presetPrimaryColors.green),
+          warning: generateColorVars('warning', presetPrimaryColors.gold),
+          error: generateColorVars('error', presetPrimaryColors.red),
+          neutral: generateColorVars('neutral', presetPrimaryColors.grey)
+        }
       },
       dark: {}
-    },
-    types: {}
+    }
   }
   if (mode === undefined || mode === 'styled') {
     base.themes.dark = {
       selector: '[data-mode="dark"]',
       extraColors: sharedExtraColors.dark,
-      extraVars: sharedExtraVars
+      extraVars: sharedExtraVars,
+      types: {
+        primary: generateColorVars('primary', presetPrimaryColors.blue, true),
+        success: generateColorVars('success', presetPrimaryColors.green, true),
+        warning: generateColorVars('warning', presetPrimaryColors.gold, true),
+        error: generateColorVars('error', presetPrimaryColors.red, true),
+        neutral: generateColorVars('neutral', presetPrimaryColors.grey, true)
+      }
     }
-    base.types = defaultTypes
   }
   return base
 }

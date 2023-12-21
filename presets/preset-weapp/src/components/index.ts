@@ -1,4 +1,4 @@
-import type { ComponentsOptions, DeepPartial, CodegenOptions } from '@icestack/types'
+import type { ComponentsOptions, DeepPartial, Preset } from '@icestack/types'
 import button from './button'
 import checkbox from './checkbox'
 import radio from './radio'
@@ -30,7 +30,7 @@ export const components: DeepPartial<ComponentsOptions> = {
   tab
 }
 
-export const miniprogramPreset: () => DeepPartial<CodegenOptions> = () => {
+export const miniprogramPreset: () => Preset = () => {
   return {
     global: {
       atMedia: {

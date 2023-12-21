@@ -1,5 +1,5 @@
 import { transformCss2Js } from '@icestack/shared'
-import type { ComponentsOptions, DeepPartial, CodegenOptions } from '@icestack/types'
+import type { ComponentsOptions, DeepPartial, Preset } from '@icestack/types'
 
 const components: DeepPartial<ComponentsOptions> = {
   mockup: {
@@ -159,7 +159,7 @@ const components: DeepPartial<ComponentsOptions> = {
   }
 }
 
-const mockupPreset: () => DeepPartial<CodegenOptions> = () => {
+const mockupPreset: () => Preset = () => {
   return {
     components
   }

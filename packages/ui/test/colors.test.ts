@@ -1,5 +1,5 @@
 import { blue, gray, presetDarkPalettes, presetPalettes } from '@ant-design/colors'
-import { getColors } from '@/colors'
+import { getColors } from '@/base/colors'
 import { getCodegenOptions } from '@/options'
 describe('colors', () => {
   // it('snap', () => {

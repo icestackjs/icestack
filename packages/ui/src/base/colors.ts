@@ -49,21 +49,19 @@ export function getColors(options: CodegenOptions) {
   return {
     transparent: 'transparent',
     current: 'currentColor',
-    ...Object.values(base.types).reduce<Record<string, string>>((acc, cur) => {
-      const set = Object.values(cur).reduce<Set<string>>((acc, cur) => {
-        for (const x of Object.keys(cur)) {
-          acc.add(x)
-        }
-        return acc
-      }, new Set())
+    ...Object.values(base.themes).reduce<Record<string, string>>((acc, { extraColors, types }) => {
+      if (types) {
+        const values = Object.values(types)
 
-      for (const x of set) {
-        const key = varPrefix + x
-        acc[x] = makeRgbaValue(key)
+        for (const x of values) {
+          if (typeof x === 'object') {
+            for (const y of Object.keys(x)) {
+              const key = varPrefix + y
+              acc[y] = makeRgbaValue(key)
+            }
+          }
+        }
       }
-      return acc
-    }, {}),
-    ...Object.values(base.themes).reduce<Record<string, string>>((acc, { extraColors }) => {
       if (extraColors) {
         for (const x of Object.keys(extraColors)) {
           const key = varPrefix + x

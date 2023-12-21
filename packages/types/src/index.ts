@@ -15,10 +15,11 @@ export type BaseOptions<T extends string = string> = {
       extraColors: Record<string, string>
       extraVars: Record<string, string>
       extraCss: CssInJs | CssInJs[]
+      //           typeName           cssVars
+      types: Record<string, string | Record<string, string>>
     }
   >
-  //           typeName        themeName       cssVars
-  types: Record<string, Record<keyof BaseOptions['themes'], string | Record<string, string>>>
+
   extraCss: CssInJs | CssInJs[]
 }
 
@@ -63,7 +64,7 @@ export type GlobalOptions = {
 
 export type CodegenMode = 'styled' | 'base' | 'raw' | 'none'
 
-export type Preset = Pick<CodegenOptions, 'base' | 'components' | 'global' | 'tailwindcssConfig'>
+export type Preset = DeepPartial<Pick<CodegenOptions, 'base' | 'components' | 'global' | 'tailwindcssConfig'>>
 
 export type CodegenOptions = {
   /**

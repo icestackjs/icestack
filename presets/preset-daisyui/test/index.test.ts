@@ -1,24 +1,11 @@
-// import { createContext, getCodegenOptions } from '@icestack/ui'
+import { createContext } from '@icestack/ui'
 
-// import preset from '@/index'
+import preset from '@/index'
 
 describe('presets', () => {
   it('should ', () => {
     expect(true).toBe(true)
-  });
-  // it('daisyui', () => {
-  //   const opt = getCodegenOptions({
-  //     presets: [preset()]
-  //   })
-  //   expect(opt).toMatchSnapshot()
-  // })
-
-  // it('daisyui all css', async () => {
-  //   const ctx = createContext({
-  //     dryRun: true,
-  //     presets: [preset()]
-  //   })
-  //   const res = await ctx.buildComponents()
-  //   expect(res).toMatchSnapshot()
-  // })
+  })
+  // const { css } = ctx.compileScss('base.index')
+  // expect(ctx.preprocessCss(css).css).toMatchSnapshot()
 })

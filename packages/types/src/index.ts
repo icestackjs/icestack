@@ -7,20 +7,20 @@ export type { CreatePresetOptions, GetSchemaFn, IDefaults, ISchema, IValue, Sche
 export type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 export type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 
-export type BaseOptions<T extends string = string> = {
+export type BaseOptions = {
   themes: Record<
-    T,
+    string,
     {
       selector: string
       extraColors: Record<string, string>
       extraVars: Record<string, string>
-      extraCss: CssInJs | CssInJs[]
-      //           typeName           cssVars
+      extraCss: (CssInJs | string)[]
+      //    typeName | colors string/colors cssVars obj
       types: Record<string, string | Record<string, string>>
     }
   >
 
-  extraCss: CssInJs | CssInJs[]
+  extraCss: (CssInJs | string)[]
 }
 
 export type ModeMergeValue = {

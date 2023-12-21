@@ -1,4 +1,4 @@
-import type plugin from "tailwindcss/plugin"
+import type plugin from 'tailwindcss/plugin'
 
 declare const daisyui: ReturnType<typeof plugin>
 
@@ -14,38 +14,38 @@ type CustomTheme = Record<string, Record<string, string>>
  * https://daisyui.com/docs/themes/#
  */
 type Theme =
-  | "light"
-  | "dark"
-  | "cupcake"
-  | "bumblebee"
-  | "emerald"
-  | "corporate"
-  | "synthwave"
-  | "retro"
-  | "cyberpunk"
-  | "valentine"
-  | "halloween"
-  | "garden"
-  | "forest"
-  | "aqua"
-  | "lofi"
-  | "pastel"
-  | "fantasy"
-  | "wireframe"
-  | "black"
-  | "luxury"
-  | "dracula"
-  | "cmyk"
-  | "autumn"
-  | "business"
-  | "acid"
-  | "lemonade"
-  | "night"
-  | "coffee"
-  | "winter"
-  | "dim"
-  | "nord"
-  | "sunset"
+  | 'light'
+  | 'dark'
+  | 'cupcake'
+  | 'bumblebee'
+  | 'emerald'
+  | 'corporate'
+  | 'synthwave'
+  | 'retro'
+  | 'cyberpunk'
+  | 'valentine'
+  | 'halloween'
+  | 'garden'
+  | 'forest'
+  | 'aqua'
+  | 'lofi'
+  | 'pastel'
+  | 'fantasy'
+  | 'wireframe'
+  | 'black'
+  | 'luxury'
+  | 'dracula'
+  | 'cmyk'
+  | 'autumn'
+  | 'business'
+  | 'acid'
+  | 'lemonade'
+  | 'night'
+  | 'coffee'
+  | 'winter'
+  | 'dim'
+  | 'nord'
+  | 'sunset'
 
 interface DaisyUIConfig {
   /**

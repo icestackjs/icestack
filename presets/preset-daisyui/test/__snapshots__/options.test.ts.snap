@@ -1,0 +1,616 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`options > daisyui options 1`] = `
+{
+  "base": {
+    "extraCss": [
+      {
+        ":root,[data-theme]": {
+          "css": {
+            "background-color": "theme(colors.base-100)",
+            "color": "theme(colors.base-content)",
+          },
+        },
+        "@supports not (color: oklch(0 0 0))": {
+          ":root": {
+            "css": {
+              "--fallback-a": "#00cfbd",
+              "--fallback-ac": "#00100d",
+              "--fallback-b1": "#ffffff",
+              "--fallback-b2": "#e5e6e6",
+              "--fallback-b3": "#e5e6e6",
+              "--fallback-bc": "#1f2937",
+              "--fallback-er": "#ff6f70",
+              "--fallback-erc": "#000000",
+              "--fallback-in": "#00b3f0",
+              "--fallback-inc": "#000000",
+              "--fallback-n": "#2b3440",
+              "--fallback-nc": "#d7dde4",
+              "--fallback-p": "#491eff",
+              "--fallback-pc": "#d4dbff",
+              "--fallback-s": "#ff41c7",
+              "--fallback-sc": "#fff9fc",
+              "--fallback-su": "#00ca92",
+              "--fallback-suc": "#000000",
+              "--fallback-wa": "#ffc22d",
+              "--fallback-wac": "#000000",
+              "color-scheme": "light",
+            },
+          },
+          "@media (prefers-color-scheme: dark)": {
+            ":root": {
+              "css": {
+                "--fallback-a": "#00c7b5",
+                "--fallback-ac": "#000e0c",
+                "--fallback-b1": "#1d232a",
+                "--fallback-b2": "#191e24",
+                "--fallback-b3": "#15191e",
+                "--fallback-bc": "#a6adbb",
+                "--fallback-er": "#ff6f70",
+                "--fallback-erc": "#000000",
+                "--fallback-in": "#00b3f0",
+                "--fallback-inc": "#000000",
+                "--fallback-n": "#2a323c",
+                "--fallback-nc": "#a6adbb",
+                "--fallback-p": "#7582ff",
+                "--fallback-pc": "#050617",
+                "--fallback-s": "#ff71cf",
+                "--fallback-sc": "#190211",
+                "--fallback-su": "#00ca92",
+                "--fallback-suc": "#000000",
+                "--fallback-wa": "#ffc22d",
+                "--fallback-wac": "#000000",
+                "color-scheme": "dark",
+              },
+            },
+          },
+        },
+        "html": {
+          "css": {
+            "-webkit-tap-highlight-color": "transparent",
+          },
+        },
+      },
+    ],
+    "themes": {
+      "dark": {
+        "extraColors": {
+          "base-100": "#000000",
+          "base-1000": "#f0f0f0",
+          "base-1100": "#f5f5f5",
+          "base-1200": "#fafafa",
+          "base-1300": "#ffffff",
+          "base-200": "#141414",
+          "base-300": "#1f1f1f",
+          "base-400": "#262626",
+          "base-500": "#434343",
+          "base-600": "#595959",
+          "base-700": "#8c8c8c",
+          "base-800": "#bfbfbf",
+          "base-900": "#d9d9d9",
+          "base-content": "#ffffff",
+        },
+        "extraVars": {
+          "animation-btn": "0.25s",
+          "animation-input": "0.2s",
+          "border-btn": "1px",
+          "rounded-badge": "1.9rem",
+          "rounded-box": "1rem",
+          "rounded-btn": "0.5rem",
+          "skeleton-duration": "1.2s",
+          "tab-border": "1px",
+          "tab-radius": "0.5rem",
+        },
+        "selector": "[data-mode="dark"]",
+        "types": {
+          "error": {
+            "error": "#d32029",
+            "error-active": "#e84749",
+            "error-content": "#ffffff",
+            "error-hover": "#a61d24",
+          },
+          "neutral": {
+            "neutral": "#5a5a5a",
+            "neutral-active": "#6a6a6a",
+            "neutral-content": "#ffffff",
+            "neutral-hover": "#494949",
+          },
+          "primary": {
+            "primary": "#1668dc",
+            "primary-active": "#3c89e8",
+            "primary-content": "#ffffff",
+            "primary-hover": "#1554ad",
+          },
+          "success": {
+            "success": "#49aa19",
+            "success-active": "#6abe39",
+            "success-content": "#ffffff",
+            "success-hover": "#3c8618",
+          },
+          "warning": {
+            "warning": "#d89614",
+            "warning-active": "#e8b339",
+            "warning-content": "#ffffff",
+            "warning-hover": "#aa7714",
+          },
+        },
+      },
+      "light": {
+        "extraColors": {
+          "base-100": "#ffffff",
+          "base-1000": "#262626",
+          "base-1100": "#1f1f1f",
+          "base-1200": "#141414",
+          "base-1300": "#000000",
+          "base-200": "#fafafa",
+          "base-300": "#f5f5f5",
+          "base-400": "#f0f0f0",
+          "base-500": "#d9d9d9",
+          "base-600": "#bfbfbf",
+          "base-700": "#8c8c8c",
+          "base-800": "#595959",
+          "base-900": "#434343",
+          "base-content": "#000000",
+        },
+        "extraVars": {
+          "animation-btn": "0.25s",
+          "animation-input": "0.2s",
+          "border-btn": "1px",
+          "rounded-badge": "1.9rem",
+          "rounded-box": "1rem",
+          "rounded-btn": "0.5rem",
+          "skeleton-duration": "1.2s",
+          "tab-border": "1px",
+          "tab-radius": "0.5rem",
+        },
+        "selector": ":root",
+        "types": {
+          "error": {
+            "error": "#f5222d",
+            "error-active": "#cf1322",
+            "error-content": "#ffffff",
+            "error-hover": "#ff4d4f",
+          },
+          "neutral": {
+            "neutral": "#666666",
+            "neutral-active": "#404040",
+            "neutral-content": "#ffffff",
+            "neutral-hover": "#737373",
+          },
+          "primary": {
+            "primary": "#1677ff",
+            "primary-active": "#0958d9",
+            "primary-content": "#ffffff",
+            "primary-hover": "#4096ff",
+          },
+          "success": {
+            "success": "#52c41a",
+            "success-active": "#389e0d",
+            "success-content": "#ffffff",
+            "success-hover": "#73d13d",
+          },
+          "warning": {
+            "warning": "#faad14",
+            "warning-active": "#d48806",
+            "warning-content": "#ffffff",
+            "warning-hover": "#ffc53d",
+          },
+        },
+      },
+    },
+  },
+  "components": {
+    "alert": {
+      "schema": [Function],
+      "selector": ".alert",
+    },
+    "avatar": {
+      "schema": [Function],
+      "selector": ".avatar",
+    },
+    "badge": {
+      "schema": [Function],
+      "selector": ".badge",
+    },
+    "bottom-navigation": {
+      "schema": [Function],
+      "selector": ".btm-nav",
+    },
+    "breadcrumbs": {
+      "schema": [Function],
+      "selector": ".breadcrumbs",
+    },
+    "button": {
+      "schema": [Function],
+      "selector": ".btn",
+    },
+    "card": {
+      "schema": [Function],
+      "selector": ".card",
+    },
+    "carousel": {
+      "schema": [Function],
+      "selector": ".carousel",
+    },
+    "chat": {
+      "schema": [Function],
+      "selector": ".chat",
+    },
+    "checkbox": {
+      "schema": [Function],
+      "selector": ".checkbox",
+    },
+    "collapse": {
+      "schema": [Function],
+      "selector": ".collapse",
+    },
+    "countdown": {
+      "schema": [Function],
+      "selector": ".countdown",
+      "varPrefix": {
+        "ignoreProp": [
+          "--value",
+        ],
+        "ignoreValueCustomProperty": [
+          "--value",
+        ],
+      },
+    },
+    "diff": {
+      "schema": [Function],
+      "selector": ".diff",
+    },
+    "divider": {
+      "schema": [Function],
+      "selector": ".divider",
+    },
+    "drawer": {
+      "schema": [Function],
+      "selector": ".drawer",
+    },
+    "dropdown": {
+      "schema": [Function],
+      "selector": ".dropdown",
+    },
+    "file-input": {
+      "schema": [Function],
+      "selector": ".file-input",
+    },
+    "footer": {
+      "schema": [Function],
+      "selector": ".footer",
+    },
+    "form": {
+      "schema": [Function],
+    },
+    "hero": {
+      "schema": [Function],
+      "selector": ".hero",
+    },
+    "indicator": {
+      "schema": [Function],
+      "selector": ".indicator",
+    },
+    "input": {
+      "schema": [Function],
+      "selector": ".input",
+    },
+    "join": {
+      "schema": [Function],
+      "selector": ".join",
+    },
+    "kbd": {
+      "schema": [Function],
+      "selector": ".kbd",
+    },
+    "link": {
+      "schema": [Function],
+      "selector": ".link",
+    },
+    "loading": {
+      "schema": [Function],
+      "selector": ".loading",
+    },
+    "mask": {
+      "schema": [Function],
+      "selector": ".mask",
+    },
+    "menu": {
+      "schema": [Function],
+      "selector": ".menu",
+    },
+    "navbar": {
+      "schema": [Function],
+      "selector": ".navbar",
+    },
+    "progress": {
+      "schema": [Function],
+      "selector": ".progress",
+    },
+    "radial-progress": {
+      "schema": [Function],
+      "selector": ".radial-progress",
+      "varPrefix": {
+        "ignoreProp": [
+          "--size",
+          "--thickness",
+          "--value",
+        ],
+        "ignoreValueCustomProperty": [
+          "--size",
+          "--thickness",
+          "--value",
+        ],
+      },
+    },
+    "radio": {
+      "schema": [Function],
+      "selector": ".radio",
+    },
+    "range": {
+      "schema": [Function],
+      "selector": ".range",
+    },
+    "rating": {
+      "schema": [Function],
+      "selector": ".rating",
+    },
+    "select": {
+      "schema": [Function],
+      "selector": ".select",
+    },
+    "skeleton": {
+      "schema": [Function],
+      "selector": ".skeleton",
+    },
+    "stack": {
+      "schema": [Function],
+      "selector": ".stack",
+    },
+    "stat": {
+      "schema": [Function],
+      "selector": ".stat",
+    },
+    "steps": {
+      "schema": [Function],
+      "selector": ".step",
+    },
+    "swap": {
+      "schema": [Function],
+      "selector": ".swap",
+    },
+    "tab": {
+      "schema": [Function],
+      "selector": ".tab",
+    },
+    "table": {
+      "schema": [Function],
+      "selector": ".table",
+    },
+    "textarea": {
+      "schema": [Function],
+      "selector": ".textarea",
+    },
+    "timeline": {
+      "schema": [Function],
+      "selector": ".timeline",
+    },
+    "toast": {
+      "schema": [Function],
+      "selector": ".toast",
+    },
+    "toggle": {
+      "schema": [Function],
+      "selector": ".toggle",
+    },
+    "tooltip": {
+      "schema": [Function],
+      "selector": ".tooltip",
+      "varPrefix": {
+        "ignoreProp": [
+          "--tooltip-tail",
+          "--tooltip-color",
+          "--tooltip-text-color",
+          "--tooltip-tail-offset",
+        ],
+        "ignoreValueCustomProperty": [
+          "--tooltip-tail",
+          "--tooltip-color",
+          "--tooltip-text-color",
+          "--tooltip-tail-offset",
+        ],
+      },
+    },
+  },
+  "dryRun": false,
+  "global": {
+    "atMedia": {
+      "hover": false,
+    },
+    "selector": {
+      "universal": "*",
+    },
+  },
+  "log": true,
+  "mode": "styled",
+  "prefix": {
+    "ignore": [],
+    "prefix": undefined,
+  },
+  "presets": [
+    {
+      "base": {
+        "extraCss": [
+          {
+            ":root,[data-theme]": {
+              "css": {
+                "background-color": "theme(colors.base-100)",
+                "color": "theme(colors.base-content)",
+              },
+            },
+            "@supports not (color: oklch(0 0 0))": {
+              ":root": {
+                "css": {
+                  "--fallback-a": "#00cfbd",
+                  "--fallback-ac": "#00100d",
+                  "--fallback-b1": "#ffffff",
+                  "--fallback-b2": "#e5e6e6",
+                  "--fallback-b3": "#e5e6e6",
+                  "--fallback-bc": "#1f2937",
+                  "--fallback-er": "#ff6f70",
+                  "--fallback-erc": "#000000",
+                  "--fallback-in": "#00b3f0",
+                  "--fallback-inc": "#000000",
+                  "--fallback-n": "#2b3440",
+                  "--fallback-nc": "#d7dde4",
+                  "--fallback-p": "#491eff",
+                  "--fallback-pc": "#d4dbff",
+                  "--fallback-s": "#ff41c7",
+                  "--fallback-sc": "#fff9fc",
+                  "--fallback-su": "#00ca92",
+                  "--fallback-suc": "#000000",
+                  "--fallback-wa": "#ffc22d",
+                  "--fallback-wac": "#000000",
+                  "color-scheme": "light",
+                },
+              },
+              "@media (prefers-color-scheme: dark)": {
+                ":root": {
+                  "css": {
+                    "--fallback-a": "#00c7b5",
+                    "--fallback-ac": "#000e0c",
+                    "--fallback-b1": "#1d232a",
+                    "--fallback-b2": "#191e24",
+                    "--fallback-b3": "#15191e",
+                    "--fallback-bc": "#a6adbb",
+                    "--fallback-er": "#ff6f70",
+                    "--fallback-erc": "#000000",
+                    "--fallback-in": "#00b3f0",
+                    "--fallback-inc": "#000000",
+                    "--fallback-n": "#2a323c",
+                    "--fallback-nc": "#a6adbb",
+                    "--fallback-p": "#7582ff",
+                    "--fallback-pc": "#050617",
+                    "--fallback-s": "#ff71cf",
+                    "--fallback-sc": "#190211",
+                    "--fallback-su": "#00ca92",
+                    "--fallback-suc": "#000000",
+                    "--fallback-wa": "#ffc22d",
+                    "--fallback-wac": "#000000",
+                    "color-scheme": "dark",
+                  },
+                },
+              },
+            },
+            "html": {
+              "css": {
+                "-webkit-tap-highlight-color": "transparent",
+              },
+            },
+          },
+        ],
+      },
+      "components": {},
+      "prefix": {
+        "ignore": [],
+        "prefix": undefined,
+      },
+      "tailwindcssConfig": {
+        "theme": {
+          "extend": {
+            "borderRadius": {
+              "badge": "var(--rounded-badge, 1.9rem)",
+              "box": "var(--rounded-box, 1rem)",
+              "btn": "var(--rounded-btn, 0.5rem)",
+            },
+            "colors": {
+              "accent": "var(--fallback-a,oklch(var(--a)/<alpha-value>))",
+              "accent-content": "var(--fallback-ac,oklch(var(--ac)/<alpha-value>))",
+              "base-100": "var(--fallback-b1,oklch(var(--b1)/<alpha-value>))",
+              "base-200": "var(--fallback-b2,oklch(var(--b2)/<alpha-value>))",
+              "base-300": "var(--fallback-b3,oklch(var(--b3)/<alpha-value>))",
+              "base-content": "var(--fallback-bc,oklch(var(--bc)/<alpha-value>))",
+              "current": "currentColor",
+              "error": "var(--fallback-er,oklch(var(--er)/<alpha-value>))",
+              "error-content": "var(--fallback-erc,oklch(var(--erc)/<alpha-value>))",
+              "info": "var(--fallback-in,oklch(var(--in)/<alpha-value>))",
+              "info-content": "var(--fallback-inc,oklch(var(--inc)/<alpha-value>))",
+              "neutral": "var(--fallback-n,oklch(var(--n)/<alpha-value>))",
+              "neutral-100": "#f5f5f5",
+              "neutral-200": "#e5e5e5",
+              "neutral-300": "#d4d4d4",
+              "neutral-400": "#a3a3a3",
+              "neutral-50": "#fafafa",
+              "neutral-500": "#737373",
+              "neutral-600": "#525252",
+              "neutral-700": "#404040",
+              "neutral-800": "#262626",
+              "neutral-900": "#171717",
+              "neutral-950": "#0a0a0a",
+              "neutral-content": "var(--fallback-nc,oklch(var(--nc)/<alpha-value>))",
+              "primary": "var(--fallback-p,oklch(var(--p)/<alpha-value>))",
+              "primary-content": "var(--fallback-pc,oklch(var(--pc)/<alpha-value>))",
+              "secondary": "var(--fallback-s,oklch(var(--s)/<alpha-value>))",
+              "secondary-content": "var(--fallback-sc,oklch(var(--sc)/<alpha-value>))",
+              "success": "var(--fallback-su,oklch(var(--su)/<alpha-value>))",
+              "success-content": "var(--fallback-suc,oklch(var(--suc)/<alpha-value>))",
+              "transparent": "transparent",
+              "warning": "var(--fallback-wa,oklch(var(--wa)/<alpha-value>))",
+              "warning-content": "var(--fallback-wac,oklch(var(--wac)/<alpha-value>))",
+            },
+          },
+        },
+      },
+    },
+  ],
+  "tailwindcssConfig": {
+    "theme": {
+      "extend": {
+        "borderRadius": {
+          "badge": "var(--rounded-badge, 1.9rem)",
+          "box": "var(--rounded-box, 1rem)",
+          "btn": "var(--rounded-btn, 0.5rem)",
+        },
+        "colors": {
+          "accent": "var(--fallback-a,oklch(var(--a)/<alpha-value>))",
+          "accent-content": "var(--fallback-ac,oklch(var(--ac)/<alpha-value>))",
+          "base-100": "var(--fallback-b1,oklch(var(--b1)/<alpha-value>))",
+          "base-200": "var(--fallback-b2,oklch(var(--b2)/<alpha-value>))",
+          "base-300": "var(--fallback-b3,oklch(var(--b3)/<alpha-value>))",
+          "base-content": "var(--fallback-bc,oklch(var(--bc)/<alpha-value>))",
+          "current": "currentColor",
+          "error": "var(--fallback-er,oklch(var(--er)/<alpha-value>))",
+          "error-content": "var(--fallback-erc,oklch(var(--erc)/<alpha-value>))",
+          "info": "var(--fallback-in,oklch(var(--in)/<alpha-value>))",
+          "info-content": "var(--fallback-inc,oklch(var(--inc)/<alpha-value>))",
+          "neutral": "var(--fallback-n,oklch(var(--n)/<alpha-value>))",
+          "neutral-100": "#f5f5f5",
+          "neutral-200": "#e5e5e5",
+          "neutral-300": "#d4d4d4",
+          "neutral-400": "#a3a3a3",
+          "neutral-50": "#fafafa",
+          "neutral-500": "#737373",
+          "neutral-600": "#525252",
+          "neutral-700": "#404040",
+          "neutral-800": "#262626",
+          "neutral-900": "#171717",
+          "neutral-950": "#0a0a0a",
+          "neutral-content": "var(--fallback-nc,oklch(var(--nc)/<alpha-value>))",
+          "primary": "var(--fallback-p,oklch(var(--p)/<alpha-value>))",
+          "primary-content": "var(--fallback-pc,oklch(var(--pc)/<alpha-value>))",
+          "secondary": "var(--fallback-s,oklch(var(--s)/<alpha-value>))",
+          "secondary-content": "var(--fallback-sc,oklch(var(--sc)/<alpha-value>))",
+          "success": "var(--fallback-su,oklch(var(--su)/<alpha-value>))",
+          "success-content": "var(--fallback-suc,oklch(var(--suc)/<alpha-value>))",
+          "transparent": "transparent",
+          "warning": "var(--fallback-wa,oklch(var(--wa)/<alpha-value>))",
+          "warning-content": "var(--fallback-wac,oklch(var(--wac)/<alpha-value>))",
+        },
+      },
+    },
+  },
+  "varPrefix": {
+    "varPrefix": "--ice-",
+  },
+}
+`;

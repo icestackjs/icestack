@@ -50,7 +50,8 @@
     "url": "https://github.com/sonofmagic/icestack"
   },
   "devDependencies": {
-    "@icestack/ui": "workspace:^"
+    "@icestack/ui": "workspace:^",
+    "daisyui": "^4.4.23"
   },
   "dependencies": {
     "@icestack/shared": "workspace:^",

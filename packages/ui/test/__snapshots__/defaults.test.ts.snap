@@ -66,6 +66,10 @@ exports[`defaults > injectSchema 1`] = `
     "schema": [Function],
     "selector": ".divider",
   },
+  "drawer": {
+    "schema": [Function],
+    "selector": ".drawer",
+  },
   "dropdown": {
     "schema": [Function],
     "selector": ".dropdown",
@@ -74,8 +78,16 @@ exports[`defaults > injectSchema 1`] = `
     "schema": [Function],
     "selector": ".file-input",
   },
+  "footer": {
+    "schema": [Function],
+    "selector": ".footer",
+  },
   "form": {
     "schema": [Function],
+  },
+  "hero": {
+    "schema": [Function],
+    "selector": ".hero",
   },
   "indicator": {
     "schema": [Function],

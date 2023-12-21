@@ -45,5 +45,8 @@ exports[`allComponents exports > snap 1`] = `
   "bottom-navigation",
   "navbar",
   "file-input",
+  "drawer",
+  "footer",
+  "hero",
 ]
 `;

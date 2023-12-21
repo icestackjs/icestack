@@ -5,43 +5,46 @@ import indicator from './indicator'
 import divider from './divider'
 import stack from './stack'
 import tab from './tab'
-import avatar from '@/components/avatar'
-import button from '@/components/button'
-import alert from '@/components/alert'
-import badge from '@/components/badge'
-import chat from '@/components/chat'
-import checkbox from '@/components/checkbox'
-import input from '@/components/input'
-import link from '@/components/link'
-import progress from '@/components/progress'
-import textarea from '@/components/textarea'
-import toggle from '@/components/toggle'
-import select from '@/components/select'
-import radio from '@/components/radio'
-import range from '@/components/range'
-import loading from '@/components/loading'
-import mask from '@/components/mask'
-import form from '@/components/form'
-import table from '@/components/table'
-import skeleton from '@/components/skeleton'
-import radialProgress from '@/components/radialProgress'
-import countdown from '@/components/countdown'
-import diff from '@/components/diff'
-import kbd from '@/components/kbd'
-import tooltip from '@/components/tooltip'
-import toast from '@/components/toast'
-import steps from '@/components/steps'
-import dropdown from '@/components/dropdown'
-import swap from '@/components/swap'
-import card from '@/components/card'
-import carousel from '@/components/carousel'
-import stat from '@/components/stat'
-import timeline from '@/components/timeline'
-import breadcrumbs from '@/components/breadcrumbs'
-import menu from '@/components/menu'
-import bottomNavigation from '@/components/bottom-navigation'
-import navbar from '@/components/navbar'
-import fileInput from '@/components/file-input'
+import drawer from './drawer'
+import footer from './footer'
+import avatar from './avatar'
+import button from './button'
+import alert from './alert'
+import badge from './badge'
+import chat from './chat'
+import checkbox from './checkbox'
+import input from './input'
+import link from './link'
+import progress from './progress'
+import textarea from './textarea'
+import toggle from './toggle'
+import select from './select'
+import radio from './radio'
+import range from './range'
+import loading from './loading'
+import mask from './mask'
+import form from './form'
+import table from './table'
+import skeleton from './skeleton'
+import radialProgress from './radial-progress'
+import countdown from './countdown'
+import diff from './diff'
+import kbd from './kbd'
+import tooltip from './tooltip'
+import toast from './toast'
+import steps from './steps'
+import dropdown from './dropdown'
+import swap from './swap'
+import card from './card'
+import carousel from './carousel'
+import stat from './stat'
+import timeline from './timeline'
+import breadcrumbs from './breadcrumbs'
+import menu from './menu'
+import bottomNavigation from './bottom-navigation'
+import navbar from './navbar'
+import fileInput from './file-input'
+import hero from './hero'
 const schemaMap = {
   alert,
   avatar,
@@ -61,7 +64,6 @@ const schemaMap = {
   mask,
   form,
   table,
-  // tabs,
   skeleton,
   'radial-progress': radialProgress,
   countdown,
@@ -86,7 +88,10 @@ const schemaMap = {
   menu,
   'bottom-navigation': bottomNavigation,
   navbar,
-  'file-input': fileInput
+  'file-input': fileInput,
+  drawer,
+  footer,
+  hero
 } as const
 
 const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap

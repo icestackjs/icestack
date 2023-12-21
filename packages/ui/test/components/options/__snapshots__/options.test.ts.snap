@@ -3574,6 +3574,405 @@ exports[`'divider' options > snap 1`] = `
 }
 `;
 
+exports[`'drawer' options > raw snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".drawer": {
+        "&-content": {
+          "apply": [
+            "col-start-2 row-start-1 min-w-0",
+          ],
+        },
+        "&-end": {
+          ".drawer-toggle": {
+            "&:checked~.drawer-side>*:not(.drawer-overlay)": {
+              "css": {
+                "transform": "translateX(0%)",
+              },
+            },
+            "&~.drawer-content": {
+              "apply": [
+                "col-start-1",
+              ],
+            },
+            "&~.drawer-side": {
+              "apply": [
+                "col-start-2 justify-items-end",
+              ],
+            },
+            "&~.drawer-side>*:not(.drawer-overlay)": {
+              "[dir="rtl"] &": {
+                "css": {
+                  "transform": "translateX(-100%)",
+                },
+              },
+              "css": {
+                "transform": "translateX(100%)",
+              },
+            },
+          },
+          "css": {
+            "grid-auto-columns": "auto max-content",
+          },
+        },
+        "&-side": {
+          "&>*": {
+            "apply": [
+              "col-start-1 row-start-1",
+            ],
+          },
+          "&>*:not(.drawer-overlay)": {
+            "[dir="rtl"] &": {
+              "css": {
+                "transform": "translateX(100%)",
+              },
+            },
+            "apply": [
+              "transition-transform duration-300 ease-out will-change-transform",
+            ],
+            "css": {
+              "transform": "translateX(-100%)",
+            },
+          },
+          "&>.drawer-overlay": {
+            "apply": [
+              "sticky top-0 place-self-stretch",
+            ],
+          },
+          "apply": [
+            "pointer-events-none fixed start-0 top-0 col-start-1 row-start-1 grid w-full grid-cols-1 grid-rows-1 items-start justify-items-start overflow-y-auto overscroll-contain",
+          ],
+          "css": {
+            "height": "100dvh",
+          },
+        },
+        "&-toggle": {
+          "&:checked": {
+            "&~.drawer-side": {
+              "&>*:not(.drawer-overlay)": {
+                "css": {
+                  "transform": "translateX(0%)",
+                },
+              },
+              "apply": [
+                "pointer-events-auto visible",
+              ],
+            },
+          },
+          "apply": [
+            "fixed h-0 w-0 appearance-none opacity-0",
+          ],
+        },
+        "apply": [
+          "relative grid",
+        ],
+        "css": {
+          "grid-auto-columns": "max-content auto",
+        },
+      },
+    },
+    "styled": {
+      ".drawer": {
+        "&-side": {
+          "&>.drawer-overlay": {
+            "apply": [
+              "cursor-pointer bg-transparent transition-colors duration-200 ease-out",
+            ],
+          },
+        },
+        "&-toggle": {
+          "&:checked~.drawer-side": {
+            "&>.drawer-overlay": {
+              "css": {
+                "background-color": "#0006",
+              },
+            },
+          },
+          "&:focus-visible~.drawer-content label.drawer-button": {
+            "apply": [
+              "outline outline-2 outline-offset-2",
+            ],
+          },
+        },
+        "css": {
+          "width": "100%",
+        },
+      },
+    },
+    "utils": {
+      ".drawer-open>.drawer-toggle": {
+        "&:checked~.drawer-side": {
+          "apply": [
+            "pointer-events-auto visible",
+          ],
+        },
+        "&~.drawer-side": {
+          "&>*:not(.drawer-overlay)": {
+            "[dir="rtl"] &": {
+              "css": {
+                "transform": "translateX(0%)",
+              },
+            },
+            "css": {
+              "transform": "translateX(0%)",
+            },
+          },
+          "&>.drawer-overlay": {
+            "apply": [
+              "cursor-default bg-transparent",
+            ],
+          },
+          "apply": [
+            "pointer-events-auto visible sticky block w-auto overscroll-auto",
+          ],
+        },
+        "apply": [
+          "hidden",
+        ],
+      },
+    },
+  },
+  "selector": ".drawer",
+}
+`;
+
+exports[`'drawer' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".drawer": {
+        "&-content": {
+          "apply": [
+            [
+              "col-start-2",
+              "row-start-1",
+              "min-w-0",
+            ],
+          ],
+        },
+        "&-end": {
+          ".drawer-toggle": {
+            "&:checked~.drawer-side>*:not(.drawer-overlay)": {
+              "css": {
+                "transform": "translateX(0%)",
+              },
+            },
+            "&~.drawer-content": {
+              "apply": [
+                [
+                  "col-start-1",
+                ],
+              ],
+            },
+            "&~.drawer-side": {
+              "apply": [
+                [
+                  "col-start-2",
+                  "justify-items-end",
+                ],
+              ],
+            },
+            "&~.drawer-side>*:not(.drawer-overlay)": {
+              "[dir="rtl"] &": {
+                "css": {
+                  "transform": "translateX(-100%)",
+                },
+              },
+              "css": {
+                "transform": "translateX(100%)",
+              },
+            },
+          },
+          "css": {
+            "grid-auto-columns": "auto max-content",
+          },
+        },
+        "&-side": {
+          "&>*": {
+            "apply": [
+              [
+                "col-start-1",
+                "row-start-1",
+              ],
+            ],
+          },
+          "&>*:not(.drawer-overlay)": {
+            "[dir="rtl"] &": {
+              "css": {
+                "transform": "translateX(100%)",
+              },
+            },
+            "apply": [
+              [
+                "transition-transform",
+                "duration-300",
+                "ease-out",
+                "will-change-transform",
+              ],
+            ],
+            "css": {
+              "transform": "translateX(-100%)",
+            },
+          },
+          "&>.drawer-overlay": {
+            "apply": [
+              [
+                "sticky",
+                "top-0",
+                "place-self-stretch",
+              ],
+            ],
+          },
+          "apply": [
+            [
+              "pointer-events-none",
+              "fixed",
+              "start-0",
+              "top-0",
+              "col-start-1",
+              "row-start-1",
+              "grid",
+              "w-full",
+              "grid-cols-1",
+              "grid-rows-1",
+              "items-start",
+              "justify-items-start",
+              "overflow-y-auto",
+              "overscroll-contain",
+            ],
+          ],
+          "css": {
+            "height": "100dvh",
+          },
+        },
+        "&-toggle": {
+          "&:checked": {
+            "&~.drawer-side": {
+              "&>*:not(.drawer-overlay)": {
+                "css": {
+                  "transform": "translateX(0%)",
+                },
+              },
+              "apply": [
+                [
+                  "pointer-events-auto",
+                  "visible",
+                ],
+              ],
+            },
+          },
+          "apply": [
+            [
+              "fixed",
+              "h-0",
+              "w-0",
+              "appearance-none",
+              "opacity-0",
+            ],
+          ],
+        },
+        "apply": [
+          [
+            "relative",
+            "grid",
+          ],
+        ],
+        "css": {
+          "grid-auto-columns": "max-content auto",
+        },
+      },
+    },
+    "styled": {
+      ".drawer": {
+        "&-side": {
+          "&>.drawer-overlay": {
+            "apply": [
+              [
+                "cursor-pointer",
+                "bg-transparent",
+                "transition-colors",
+                "duration-200",
+                "ease-out",
+              ],
+            ],
+          },
+        },
+        "&-toggle": {
+          "&:checked~.drawer-side": {
+            "&>.drawer-overlay": {
+              "css": {
+                "background-color": "#0006",
+              },
+            },
+          },
+          "&:focus-visible~.drawer-content label.drawer-button": {
+            "apply": [
+              [
+                "outline",
+                "outline-2",
+                "outline-offset-2",
+              ],
+            ],
+          },
+        },
+        "css": {
+          "width": "100%",
+        },
+      },
+    },
+    "utils": {
+      ".drawer-open>.drawer-toggle": {
+        "&:checked~.drawer-side": {
+          "apply": [
+            [
+              "pointer-events-auto",
+              "visible",
+            ],
+          ],
+        },
+        "&~.drawer-side": {
+          "&>*:not(.drawer-overlay)": {
+            "[dir="rtl"] &": {
+              "css": {
+                "transform": "translateX(0%)",
+              },
+            },
+            "css": {
+              "transform": "translateX(0%)",
+            },
+          },
+          "&>.drawer-overlay": {
+            "apply": [
+              [
+                "cursor-default",
+                "bg-transparent",
+              ],
+            ],
+          },
+          "apply": [
+            [
+              "pointer-events-auto",
+              "visible",
+              "sticky",
+              "block",
+              "w-auto",
+              "overscroll-auto",
+            ],
+          ],
+        },
+        "apply": [
+          [
+            "hidden",
+          ],
+        ],
+      },
+    },
+  },
+  "selector": ".drawer",
+}
+`;
+
 exports[`'dropdown' options > raw snap 1`] = `
 {
   "defaults": {
@@ -4392,6 +4791,150 @@ exports[`'file-input' options > snap 1`] = `
 }
 `;
 
+exports[`'footer' options > raw snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".footer": {
+        "&-center": {
+          "&>*": {
+            "apply": [
+              "place-items-center",
+            ],
+          },
+          "apply": [
+            "place-items-center text-center",
+          ],
+        },
+        "&>*": {
+          "apply": [
+            "grid place-items-start",
+          ],
+        },
+        "apply": [
+          "grid w-full grid-flow-row place-items-start",
+        ],
+      },
+      "@media (min-width: 48rem)": {
+        ".footer": {
+          "css": {
+            "grid-auto-flow": "column",
+          },
+        },
+        ".footer-center": {
+          "css": {
+            "grid-auto-flow": "row dense",
+          },
+        },
+      },
+    },
+    "styled": {
+      ".footer": {
+        "&-title": {
+          "apply": [
+            "mb-2 font-bold uppercase opacity-60",
+          ],
+        },
+        "&>*": {
+          "apply": [
+            "gap-2",
+          ],
+        },
+        "apply": [
+          "gap-x-4 gap-y-10 text-sm",
+        ],
+      },
+    },
+    "utils": {},
+  },
+  "selector": ".footer",
+}
+`;
+
+exports[`'footer' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".footer": {
+        "&-center": {
+          "&>*": {
+            "apply": [
+              [
+                "place-items-center",
+              ],
+            ],
+          },
+          "apply": [
+            [
+              "place-items-center",
+              "text-center",
+            ],
+          ],
+        },
+        "&>*": {
+          "apply": [
+            [
+              "grid",
+              "place-items-start",
+            ],
+          ],
+        },
+        "apply": [
+          [
+            "grid",
+            "w-full",
+            "grid-flow-row",
+            "place-items-start",
+          ],
+        ],
+      },
+      "@media (min-width: 48rem)": {
+        ".footer": {
+          "css": {
+            "grid-auto-flow": "column",
+          },
+        },
+        ".footer-center": {
+          "css": {
+            "grid-auto-flow": "row dense",
+          },
+        },
+      },
+    },
+    "styled": {
+      ".footer": {
+        "&-title": {
+          "apply": [
+            [
+              "mb-2",
+              "font-bold",
+              "uppercase",
+              "opacity-60",
+            ],
+          ],
+        },
+        "&>*": {
+          "apply": [
+            [
+              "gap-2",
+            ],
+          ],
+        },
+        "apply": [
+          [
+            "gap-x-4",
+            "gap-y-10",
+            "text-sm",
+          ],
+        ],
+      },
+    },
+    "utils": {},
+  },
+  "selector": ".footer",
+}
+`;
+
 exports[`'form' options > raw snap 1`] = `
 {
   "defaults": {
@@ -4482,6 +5025,122 @@ exports[`'form' options > snap 1`] = `
     "utils": {},
   },
   "selector": undefined,
+}
+`;
+
+exports[`'hero' options > raw snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".hero": {
+        "&-content": {
+          "apply": [
+            "z-0 flex items-center justify-center",
+          ],
+        },
+        "&-overlay": {
+          "apply": [
+            "col-start-1 row-start-1 h-full w-full",
+          ],
+        },
+        "&>*": {
+          "apply": [
+            "col-start-1 row-start-1",
+          ],
+        },
+        "apply": [
+          "grid w-full place-items-center bg-cover bg-center",
+        ],
+      },
+    },
+    "styled": {
+      ".hero": {
+        "&-content": {
+          "apply": [
+            "max-w-7xl gap-4 p-4",
+          ],
+        },
+        "&-overlay": {
+          "apply": [
+            "bg-neutral bg-opacity-50",
+          ],
+        },
+      },
+    },
+    "utils": {},
+  },
+  "selector": ".hero",
+}
+`;
+
+exports[`'hero' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".hero": {
+        "&-content": {
+          "apply": [
+            [
+              "z-0",
+              "flex",
+              "items-center",
+              "justify-center",
+            ],
+          ],
+        },
+        "&-overlay": {
+          "apply": [
+            [
+              "col-start-1",
+              "row-start-1",
+              "h-full",
+              "w-full",
+            ],
+          ],
+        },
+        "&>*": {
+          "apply": [
+            [
+              "col-start-1",
+              "row-start-1",
+            ],
+          ],
+        },
+        "apply": [
+          [
+            "grid",
+            "w-full",
+            "place-items-center",
+            "bg-cover",
+            "bg-center",
+          ],
+        ],
+      },
+    },
+    "styled": {
+      ".hero": {
+        "&-content": {
+          "apply": [
+            [
+              "max-w-7xl",
+              "gap-4",
+              "p-4",
+            ],
+          ],
+        },
+        "&-overlay": {
+          "apply": [
+            [
+              "bg-neutral",
+              "bg-opacity-50",
+            ],
+          ],
+        },
+      },
+    },
+    "utils": {},
+  },
+  "selector": ".hero",
 }
 `;
 

@@ -181,6 +181,15 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   rating: {
     selector: '.rating'
+  },
+  drawer: {
+    selector: '.drawer'
+  },
+  footer: {
+    selector: '.footer'
+  },
+  hero: {
+    selector: '.hero'
   }
 }
 

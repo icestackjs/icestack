@@ -12,9 +12,9 @@
   },
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.7.1",
-    "@icestack/cva": "link:../../packages/cva",
-    "@icestack/tailwindcss": "link:../../packages/tailwindcss",
-    "@icestack/ui": "link:../../packages/ui",
+    "@icestack/cva": "workspace:^",
+    "@icestack/tailwindcss": "workspace:^",
+    "@icestack/ui": "workspace:^",
     "@iconify-json/logos": "^1.1.41",
     "@iconify-json/mdi": "^1.1.63",
     "@intlify/shared": "^9.8.0",
@@ -38,7 +38,6 @@
     "vue-router": "^4.2.5"
   },
   "dependencies": {
-    "@nuxt/content": "^2.9.0",
-    "@nuxtjs/i18n": "8.0.0-rc.11"
+    "@nuxt/content": "^2.9.0"
   }
 }

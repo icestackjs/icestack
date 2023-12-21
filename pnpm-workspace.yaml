@@ -3,6 +3,7 @@ packages:
   - "plugins/*"
   - "packages/*"
   - "presets/*"
+  - "examples/*"
   - "!playground/*"
   - "website"
   - "storybook"

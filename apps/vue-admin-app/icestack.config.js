@@ -1,4 +1,4 @@
-const customThemes = require('./themes')
+const customThemes = require('./themes.js')
 
 /**
  * @type {import('@icestack/ui').Config}

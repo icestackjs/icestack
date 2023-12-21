@@ -3,8 +3,4 @@
     <ContentDoc />
   </main>
 </template>
-<script setup lang="ts">
-const colorMode = useColorMode()
-
-console.log(colorMode.preference)
-</script>
+<script setup lang="ts"></script>

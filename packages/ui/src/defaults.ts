@@ -166,6 +166,21 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   breadcrumbs: {
     selector: '.breadcrumbs'
+  },
+  'bottom-navigation': {
+    selector: '.btm-nav'
+  },
+  menu: {
+    selector: '.menu'
+  },
+  navbar: {
+    selector: '.navbar'
+  },
+  'file-input': {
+    selector: '.file-input'
+  },
+  rating: {
+    selector: '.rating'
   }
 }
 

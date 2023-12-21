@@ -38,7 +38,10 @@ import carousel from '@/components/carousel'
 import stat from '@/components/stat'
 import timeline from '@/components/timeline'
 import breadcrumbs from '@/components/breadcrumbs'
-
+import menu from '@/components/menu'
+import bottomNavigation from '@/components/bottom-navigation'
+import navbar from '@/components/navbar'
+import fileInput from '@/components/file-input'
 const schemaMap = {
   alert,
   avatar,
@@ -79,7 +82,11 @@ const schemaMap = {
   carousel,
   stat,
   timeline,
-  breadcrumbs
+  breadcrumbs,
+  menu,
+  'bottom-navigation': bottomNavigation,
+  navbar,
+  'file-input': fileInput
 } as const
 
 const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap

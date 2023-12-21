@@ -143,6 +143,10 @@ exports[`options > getCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".badge",
     },
+    "bottom-navigation": {
+      "schema": [Function],
+      "selector": ".btm-nav",
+    },
     "breadcrumbs": {
       "schema": [Function],
       "selector": ".breadcrumbs",
@@ -195,6 +199,10 @@ exports[`options > getCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".dropdown",
     },
+    "file-input": {
+      "schema": [Function],
+      "selector": ".file-input",
+    },
     "form": {
       "schema": [Function],
     },
@@ -226,6 +234,14 @@ exports[`options > getCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".mask",
     },
+    "menu": {
+      "schema": [Function],
+      "selector": ".menu",
+    },
+    "navbar": {
+      "schema": [Function],
+      "selector": ".navbar",
+    },
     "progress": {
       "schema": [Function],
       "selector": ".progress",
@@ -253,6 +269,10 @@ exports[`options > getCodegenOptions snap 1`] = `
     "range": {
       "schema": [Function],
       "selector": ".range",
+    },
+    "rating": {
+      "schema": undefined,
+      "selector": ".rating",
     },
     "select": {
       "schema": [Function],
@@ -481,6 +501,10 @@ exports[`options > getRawCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".badge",
     },
+    "bottom-navigation": {
+      "schema": [Function],
+      "selector": ".btm-nav",
+    },
     "breadcrumbs": {
       "schema": [Function],
       "selector": ".breadcrumbs",
@@ -533,6 +557,10 @@ exports[`options > getRawCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".dropdown",
     },
+    "file-input": {
+      "schema": [Function],
+      "selector": ".file-input",
+    },
     "form": {
       "schema": [Function],
     },
@@ -564,6 +592,14 @@ exports[`options > getRawCodegenOptions snap 1`] = `
       "schema": [Function],
       "selector": ".mask",
     },
+    "menu": {
+      "schema": [Function],
+      "selector": ".menu",
+    },
+    "navbar": {
+      "schema": [Function],
+      "selector": ".navbar",
+    },
     "progress": {
       "schema": [Function],
       "selector": ".progress",
@@ -591,6 +627,10 @@ exports[`options > getRawCodegenOptions snap 1`] = `
     "range": {
       "schema": [Function],
       "selector": ".range",
+    },
+    "rating": {
+      "schema": undefined,
+      "selector": ".rating",
     },
     "select": {
       "schema": [Function],

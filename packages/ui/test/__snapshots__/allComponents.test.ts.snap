@@ -41,5 +41,9 @@ exports[`allComponents exports > snap 1`] = `
   "stat",
   "timeline",
   "breadcrumbs",
+  "menu",
+  "bottom-navigation",
+  "navbar",
+  "file-input",
 ]
 `;

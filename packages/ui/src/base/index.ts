@@ -1,7 +1,8 @@
 import { TinyColor } from '@ctrl/tinycolor'
 import merge from 'merge'
-import { generateColorVars, makeRgbaValue } from './colors'
+import { generateColorVars, makeRgbaValue, sharedExtraColors, sharedExtraVars } from './colors'
 import { CodegenOptions } from '@/types'
+
 // import { preHandleString } from '@/utils'
 
 export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, shareVars1: Record<string, string>) => {
@@ -64,8 +65,8 @@ export const calcBase = (options: CodegenOptions) => {
                 }
               }
             }, {}),
-            extraColors,
-            extraVars
+            extraColors ?? sharedExtraColors.light,
+            extraVars ?? sharedExtraVars
           ),
           ...makeArray(extraCss)
         )

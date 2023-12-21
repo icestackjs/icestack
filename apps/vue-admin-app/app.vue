@@ -5,7 +5,6 @@
       <button class="btn btn-neutral" @click="setColorMode('dark')">dark</button>
     </div>
     <NuxtPage></NuxtPage>
-    <div class="text-red-400 dark:text-blue-300">ccav</div>
   </div>
 </template>
 <script setup lang="ts">
@@ -17,8 +16,7 @@ function setColorMode(value: string) {
 
 </script>
 <style lang="scss">
-:root,
-[data-theme] {
+:root {
   @apply bg-base-100 text-base-content;
 }
 </style>

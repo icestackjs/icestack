@@ -41,3 +41,33 @@ export function generateColorVars(key: string, color: string, opt?: any) {
     [`${key}-content`]: gray[1]
   }
 }
+
+// https://github.com/ant-design/ant-design/blob/5393d9ce36821e64590d3f0d07daa0d393a4c299/.dumi/theme/common/Color/ColorStyle.tsx#L13
+export const sharedExtraColors = {
+  light: {
+    ...Object.values(gray).reduce<Record<string, string>>((acc, value, idx) => {
+      acc[`base-${idx + 1}00`] = value
+      return acc
+    }, {}),
+    'base-content': '#000000'
+  },
+  dark: {
+    ...Object.values(gray).reduce<Record<string, string>>((acc, value, idx) => {
+      acc[`base-${13 - idx}00`] = value
+      return acc
+    }, {}),
+    'base-content': '#ffffff'
+  }
+}
+
+export const sharedExtraVars = {
+  'rounded-box': '1rem',
+  'rounded-btn': '0.5rem',
+  'rounded-badge': '1.9rem',
+  'animation-btn': '0.25s',
+  'animation-input': '0.2s',
+  'skeleton-duration': '1.2s',
+  'border-btn': '1px',
+  'tab-border': '1px',
+  'tab-radius': '0.5rem'
+}

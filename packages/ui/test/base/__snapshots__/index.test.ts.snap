@@ -198,10 +198,38 @@ exports[`base > add new theme case 0 1`] = `
 }
 
 .fuck {
+  --ice-base-100: 255 255 255;
+  --ice-base-200: 250 250 250;
+  --ice-base-300: 245 245 245;
+  --ice-base-400: 240 240 240;
+  --ice-base-500: 217 217 217;
+  --ice-base-600: 191 191 191;
+  --ice-base-700: 140 140 140;
+  --ice-base-800: 89 89 89;
+  --ice-base-900: 67 67 67;
+  --ice-base-1000: 38 38 38;
+  --ice-base-1100: 31 31 31;
+  --ice-base-1200: 20 20 20;
+  --ice-base-1300: 0 0 0;
+  --ice-base-content: 0 0 0;
   --ice-a: 18 52 86;
 }
 
 .shit {
+  --ice-base-100: 255 255 255;
+  --ice-base-200: 250 250 250;
+  --ice-base-300: 245 245 245;
+  --ice-base-400: 240 240 240;
+  --ice-base-500: 217 217 217;
+  --ice-base-600: 191 191 191;
+  --ice-base-700: 140 140 140;
+  --ice-base-800: 89 89 89;
+  --ice-base-900: 67 67 67;
+  --ice-base-1000: 38 38 38;
+  --ice-base-1100: 31 31 31;
+  --ice-base-1200: 20 20 20;
+  --ice-base-1300: 0 0 0;
+  --ice-base-content: 0 0 0;
   --ice-b: 101 67 33;
 }"
 `;
@@ -300,11 +328,39 @@ exports[`base > add new theme case 1 1`] = `
 }
 
 .fuck {
+  --ice-base-100: 255 255 255;
+  --ice-base-200: 250 250 250;
+  --ice-base-300: 245 245 245;
+  --ice-base-400: 240 240 240;
+  --ice-base-500: 217 217 217;
+  --ice-base-600: 191 191 191;
+  --ice-base-700: 140 140 140;
+  --ice-base-800: 89 89 89;
+  --ice-base-900: 67 67 67;
+  --ice-base-1000: 38 38 38;
+  --ice-base-1100: 31 31 31;
+  --ice-base-1200: 20 20 20;
+  --ice-base-1300: 0 0 0;
+  --ice-base-content: 0 0 0;
   --ice-a: 18 52 86;
   backgroud-color: red;
 }
 
 .shit {
+  --ice-base-100: 255 255 255;
+  --ice-base-200: 250 250 250;
+  --ice-base-300: 245 245 245;
+  --ice-base-400: 240 240 240;
+  --ice-base-500: 217 217 217;
+  --ice-base-600: 191 191 191;
+  --ice-base-700: 140 140 140;
+  --ice-base-800: 89 89 89;
+  --ice-base-900: 67 67 67;
+  --ice-base-1000: 38 38 38;
+  --ice-base-1100: 31 31 31;
+  --ice-base-1200: 20 20 20;
+  --ice-base-1300: 0 0 0;
+  --ice-base-content: 0 0 0;
   --ice-b: 101 67 33;
   backgroud-color: yellow;
 }"

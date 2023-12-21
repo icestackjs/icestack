@@ -63,19 +63,6 @@ export function pascalCase(str: string) {
   return mappedWords.join('')
 }
 
-// export function walkScssSync(dir: string) {
-//   return klawSync(dir, {
-//     nodir: true,
-//     filter: (item) => {
-//       if (path.basename(item.path).startsWith('_')) {
-//         return false
-//       }
-//       return /\.scss$/.test(item.path)
-//     },
-//     traverseAll: true
-//   })
-// }
-
 export function JSONStringify(value: any) {
   return JSON.stringify(value, null, 2)
 }

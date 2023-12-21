@@ -1,6 +1,8 @@
 import { transformCss2Js } from '@icestack/shared'
 import { createContext, IContext } from '@/context'
 import { getCodegenOptions } from '@/options'
+import { sharedExtraColors } from '@/defaults'
+import { calcBase } from '@/base'
 
 describe('base', () => {
   let ctx: IContext
@@ -13,98 +15,99 @@ describe('base', () => {
   })
 
   it('snap case 1', async () => {
-    const ctx = createContext(
-      getCodegenOptions({
-        base: {
-          themes: {
-            light: {
-              selector: '.light'
-            },
-            dark: {
-              selector: '.dark'
-            }
+    const opts = getCodegenOptions({
+      base: {
+        themes: {
+          light: {
+            selector: '.light'
+          },
+          dark: {
+            selector: '.dark'
           }
         }
-      })
-    )
+      }
+    })
+    const ctx = createContext(opts)
+
     const { css } = await ctx.compileScss('base.index')
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+    expect(calcBase(opts)).toMatchSnapshot('calcBase')
   })
 
   it('add new theme case 0', async () => {
-    const ctx = createContext(
-      getCodegenOptions({
-        base: {
-          themes: {
-            light: {
-              selector: '.light'
-            },
-            dark: {
-              selector: '.dark'
-            },
-            fuck: {
-              selector: '.fuck',
-              extraVars: {
-                a: '#123456'
-              }
-            },
-            shit: {
-              selector: '.shit',
-              extraVars: {
-                b: '#654321'
-              }
+    const opts = getCodegenOptions({
+      base: {
+        themes: {
+          light: {
+            selector: '.light'
+          },
+          dark: {
+            selector: '.dark'
+          },
+          fuck: {
+            selector: '.fuck',
+            extraVars: {
+              a: '#123456'
+            }
+          },
+          shit: {
+            selector: '.shit',
+            extraVars: {
+              b: '#654321'
             }
           }
         }
-      })
-    )
+      }
+    })
+    const ctx = createContext(opts)
     const { css } = await ctx.compileScss('base.index')
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+    expect(calcBase(opts)).toMatchSnapshot('calcBase')
   })
 
   it('add new theme case 1', async () => {
-    const ctx = createContext(
-      getCodegenOptions({
-        base: {
-          themes: {
-            light: {
-              selector: '.light'
+    const opts = getCodegenOptions({
+      base: {
+        themes: {
+          light: {
+            selector: '.light'
+          },
+          dark: {
+            selector: '.dark'
+          },
+          fuck: {
+            selector: '.fuck',
+            extraVars: {
+              a: '#123456'
             },
-            dark: {
-              selector: '.dark'
-            },
-            fuck: {
-              selector: '.fuck',
-              extraVars: {
-                a: '#123456'
-              },
-              extraCss: [
-                {
-                  // @ts-ignore
-                  'backgroud-color': 'red'
-                }
-              ]
-            },
-            shit: {
-              selector: '.shit',
-              extraVars: {
-                b: '#654321'
-              },
-              // @ts-ignore
-              extraCss: {
-                'backgroud-color': 'yellow'
+            extraCss: [
+              {
+                // @ts-ignore
+                'backgroud-color': 'red'
               }
+            ]
+          },
+          shit: {
+            selector: '.shit',
+            extraVars: {
+              b: '#654321'
+            },
+            // @ts-ignore
+            extraCss: {
+              'backgroud-color': 'yellow'
             }
           }
         }
-      })
-    )
+      }
+    })
+    const ctx = createContext(opts)
     const { css } = await ctx.compileScss('base.index')
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+    expect(calcBase(opts)).toMatchSnapshot('calcBase')
   })
 
   it('add extra css options', async () => {
-    const ctx = createContext({
+    const opts = getCodegenOptions({
       mode: 'raw',
       base: {
         extraCss: transformCss2Js(`:root,
@@ -166,7 +169,39 @@ describe('base', () => {
           `)
       }
     })
+    const ctx = createContext(opts)
     const { css } = await ctx.compileScss('base.index')
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+    expect(calcBase(opts)).toMatchSnapshot('calcBase')
+  })
+
+  it('add custom theme case 0', async () => {
+    const opts = getCodegenOptions({
+      base: {
+        themes: {
+          cupcake: {
+            selector: '[data-mode="cupcake"]',
+            types: {
+              primary: '#65c3c8',
+              secondary: '#ef9fbc',
+              accent: '#eeaf3a',
+              neutral: '#291334'
+              // success: '#addfad'
+            },
+            extraColors: {
+              ...sharedExtraColors.light,
+              'base-100': '#faf7f5',
+              'base-200': '#efeae6',
+              'base-300': '#e7e2df',
+              'base-content': '#291334'
+            }
+          }
+        }
+      }
+    })
+    const ctx = createContext(opts)
+    const { css } = await ctx.compileScss('base.index')
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+    expect(calcBase(opts)).toMatchSnapshot('calcBase')
   })
 })

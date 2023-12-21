@@ -3,11 +3,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
+    "build": "pnpm build:ui && nuxt build",
+    "dev": "pnpm build:ui && nuxt dev",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
+    "postinstall": "nuxt prepare",
+    "build:ui": "icestack build"
   },
   "devDependencies": {
     "@icestack/cva": "link:../../packages/cva",

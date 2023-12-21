@@ -18,22 +18,22 @@ import { Tabs, Tab, Cards, Card } from 'nextra/components'
 <Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
   <Tab>
 ```bash 
-pnpm install -D @icestack/ui 
+pnpm install -D @icestack/ui @icestack/tailwindcss
 ```
 </Tab>
   <Tab>
 ```bash
-npm install -D @icestack/ui 
+npm install -D @icestack/ui @icestack/tailwindcss
 ```
 </Tab>
   <Tab>
 ```bash 
-yarn add -D @icestack/ui 
+yarn add -D @icestack/ui @icestack/tailwindcss
 ```
 </Tab>
   <Tab>
 ```bash 
-bun add -D @icestack/ui 
+bun add -D @icestack/ui @icestack/tailwindcss
 ```
 </Tab>
 </Tabs>
@@ -73,32 +73,6 @@ npx icestack build
 这个命令会在当前配置文件下的 `'./my-ui'` 目录构建出产物，接下来你就可以直接使用这些 `css`,`js`，或者也可以交给 `tailwindcss` 进行使用
 
 ## 作为 tailwindcss plugin 来使用
-
-### 安装 `@icestack/tailwindcss`
-
-<Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
-  <Tab>
-```bash 
-pnpm install -D @icestack/tailwindcss
-```
-</Tab>
-  <Tab>
-```bash
-npm install -D @icestack/tailwindcss
-```
-</Tab>
-  <Tab>
-```bash 
-yarn add -D @icestack/tailwindcss
-```
-</Tab>
-  <Tab>
-```bash 
-bun add -D @icestack/tailwindcss
-```
-</Tab>
-</Tabs>
-
 
 ### 配置
 

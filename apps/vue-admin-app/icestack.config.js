@@ -1,4 +1,4 @@
-const { sharedExtraColors, sharedExtraVars } = require('@icestack/ui/defaults')
+const customThemes = require('./themes')
 
 /**
  * @type {import('@icestack/ui').Config}
@@ -7,8 +7,7 @@ const config = {
   outdir: './my-ui',
   base: {
     themes: {
-      light: {},
-      dark: {}
+      ...customThemes
     }
   }
 }

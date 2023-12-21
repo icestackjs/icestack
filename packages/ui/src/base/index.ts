@@ -3,8 +3,6 @@ import merge from 'merge'
 import { generateColorVars, makeRgbaValue, sharedExtraColors, sharedExtraVars } from './colors'
 import { CodegenOptions } from '@/types'
 
-// import { preHandleString } from '@/utils'
-
 export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, shareVars1: Record<string, string>) => {
   return Object.entries({
     ...colorsMap,
@@ -36,52 +34,36 @@ export const calcBase = (options: CodegenOptions) => {
   const themes = base?.themes
   const globalExtraCss = base?.extraCss
   const typesSet = new Set<string>()
-
+  function addColors(obj: Record<string, string>) {
+    for (const x of Object.keys(obj)) {
+      const key = varPrefix + x
+      colors[x] = makeRgbaValue(key)
+    }
+  }
   const presets = Object.entries(themes).reduce<Record<string, any>>((acc, [theme, { selector, extraColors, extraVars, extraCss, types }]) => {
     if (selector) {
-      acc[selector] = {
-        css: merge.recursive(
-          true,
-          composeVarsObject(
-            Object.entries(types ?? {}).reduce<Record<string, string>>((acc, [key, hit]) => {
-              switch (true) {
-                case typeof hit === 'string': {
-                  return {
-                    ...acc,
-                    ...generateColorVars(key, hit, theme === 'dark')
-                  }
-                }
-                case Array.isArray(hit): {
-                  return {
-                    ...acc,
-                    ...generateColorVars(key, hit[0], hit[1])
-                  }
-                }
-                default: {
-                  return {
-                    ...acc,
-                    ...hit
-                  }
-                }
-              }
-            }, {}),
-            extraColors ?? sharedExtraColors.light,
-            extraVars ?? sharedExtraVars
-          ),
-          ...makeArray(extraCss)
-        )
-      }
-    }
-    if (types) {
-      for (const [type, value] of Object.entries(types)) {
+      const entries = Object.entries(types ?? {})
+      const typesColors = entries.reduce<Record<string, string>>((acc, [type, value]) => {
         typesSet.add(type)
-
-        if (typeof value === 'object') {
-          for (const x of Object.keys(value)) {
-            const key = varPrefix + x
-            colors[x] = makeRgbaValue(key)
+        let obj = value
+        switch (true) {
+          case typeof value === 'string': {
+            obj = generateColorVars(type, value, theme === 'dark')
+            break
+          }
+          case Array.isArray(value): {
+            obj = generateColorVars(type, value[0], value[1])
+            break
           }
         }
+        addColors(obj as Record<string, string>)
+        return {
+          ...acc,
+          ...(obj as Record<string, string>)
+        }
+      }, {})
+      acc[selector] = {
+        css: merge.recursive(true, composeVarsObject(typesColors, extraColors ?? sharedExtraColors.light, extraVars ?? sharedExtraVars), ...makeArray(extraCss))
       }
     }
 

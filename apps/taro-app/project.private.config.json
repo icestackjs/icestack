@@ -33,9 +33,37 @@
           "scene": null
         },
         {
+          "name": "bottom-navigation",
+          "pathName": "pages/index/component",
+          "query": "id=bottom-navigation",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "breadcrumbs",
+          "pathName": "pages/index/component",
+          "query": "id=breadcrumbs",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "button",
           "pathName": "pages/index/component",
           "query": "id=button",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "card",
+          "pathName": "pages/index/component",
+          "query": "id=card",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "carousel",
+          "pathName": "pages/index/component",
+          "query": "id=carousel",
           "launchMode": "default",
           "scene": null
         },
@@ -82,9 +110,44 @@
           "scene": null
         },
         {
+          "name": "drawer",
+          "pathName": "pages/index/component",
+          "query": "id=drawer",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "dropdown",
+          "pathName": "pages/index/component",
+          "query": "id=dropdown",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "file-input",
+          "pathName": "pages/index/component",
+          "query": "id=file-input",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "footer",
+          "pathName": "pages/index/component",
+          "query": "id=footer",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "form",
           "pathName": "pages/index/component",
           "query": "id=form",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "hero",
+          "pathName": "pages/index/component",
+          "query": "id=hero",
           "launchMode": "default",
           "scene": null
         },
@@ -138,6 +201,20 @@
           "scene": null
         },
         {
+          "name": "menu",
+          "pathName": "pages/index/component",
+          "query": "id=menu",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "navbar",
+          "pathName": "pages/index/component",
+          "query": "id=navbar",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "progress",
           "pathName": "pages/index/component",
           "query": "id=progress",
@@ -166,6 +243,13 @@
           "scene": null
         },
         {
+          "name": "rating",
+          "pathName": "pages/index/component",
+          "query": "id=rating",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "select",
           "pathName": "pages/index/component",
           "query": "id=select",
@@ -187,9 +271,23 @@
           "scene": null
         },
         {
+          "name": "stat",
+          "pathName": "pages/index/component",
+          "query": "id=stat",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "steps",
           "pathName": "pages/index/component",
           "query": "id=steps",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "swap",
+          "pathName": "pages/index/component",
+          "query": "id=swap",
           "launchMode": "default",
           "scene": null
         },
@@ -211,6 +309,13 @@
           "name": "textarea",
           "pathName": "pages/index/component",
           "query": "id=textarea",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "timeline",
+          "pathName": "pages/index/component",
+          "query": "id=timeline",
           "launchMode": "default",
           "scene": null
         },

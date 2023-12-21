@@ -13,17 +13,23 @@ const config = defineConfig({
   },
   sourceRoot: 'src',
   outputRoot: 'dist',
-  plugins: ['@tarojs/plugin-http',
-    ['@tarojs/plugin-inject', {
-      components: {
-        View: {
-          'data-content': "'dataContent'"
-        },
-        // ScrollView: {
-        //   'data-observe': "'dataObserve'",
-        // }
-      }
-    }]],
+
+  plugins: [
+    '@tarojs/plugin-http'
+    // [
+    //   '@tarojs/plugin-inject',
+    //   {
+    //     components: {
+    //       View: {
+    //         'data-content': "'dataContent'"
+    //       }
+    //       // ScrollView: {
+    //       //   'data-observe': "'dataObserve'",
+    //       // }
+    //     }
+    //   }
+    // ]
+  ],
   defineConstants: {},
   copy: {
     patterns: [],
@@ -45,12 +51,13 @@ const config = defineConfig({
     '@/store': path.resolve(__dirname, '..', 'src/store'),
     '#docs': path.resolve(__dirname, '../../../website/pages/docs'),
     '#': path.resolve(__dirname, '../../../website'),
-    '~': path.resolve(__dirname, '../../../packages/ui'),
+    '~': path.resolve(__dirname, '../../../packages/ui')
   },
   terser: {
     enable: false
   },
   mini: {
+    debugReact: true,
     postcss: {
       pxtransform: {
         enable: true,

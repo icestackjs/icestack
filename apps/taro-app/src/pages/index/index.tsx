@@ -59,7 +59,10 @@ function mapChildItem(children: [string, string][], x: string) {
 
 function DocsIndex() {
   const coreChildren = Object.entries(level2Core18n)
-  const usageChildren = Object.entries(level2Usage18n)
+  const usageChildren = Object.entries(level2Usage18n).filter(([x, y]) => {
+    return typeof y === 'string'
+  })
+  // console.log(coreChildren, usageChildren)
   return (
     <>
       <View className="mb-6 px-4">

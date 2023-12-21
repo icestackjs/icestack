@@ -1,5 +1,3 @@
-
-
 export const colors = `
 :root,
 [data-theme] {

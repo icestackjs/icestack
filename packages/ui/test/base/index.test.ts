@@ -180,7 +180,36 @@ describe('base', () => {
       base: {
         themes: {
           cupcake: {
-            selector: '[data-mode="cupcake"]',
+            selector: '.cupcake',
+            types: {
+              primary: '#65c3c8',
+              secondary: '#ef9fbc',
+              accent: '#eeaf3a',
+              neutral: '#291334'
+              // success: '#addfad'
+            },
+            extraColors: {
+              ...sharedExtraColors.light,
+              'base-100': '#faf7f5',
+              'base-200': '#efeae6',
+              'base-300': '#e7e2df',
+              'base-content': '#291334'
+            }
+          }
+        }
+      }
+    })
+    const ctx = createContext(opts)
+    const { css } = await ctx.compileScss('base.index')
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+    expect(calcBase(opts)).toMatchSnapshot('calcBase')
+  })
+
+  it('add custom theme case without selecor 0', async () => {
+    const opts = getCodegenOptions({
+      base: {
+        themes: {
+          cupcake: {
             types: {
               primary: '#65c3c8',
               secondary: '#ef9fbc',

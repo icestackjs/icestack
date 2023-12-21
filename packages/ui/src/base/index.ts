@@ -41,7 +41,10 @@ export const calcBase = (options: CodegenOptions) => {
     }
   }
   const presets = Object.entries(themes).reduce<Record<string, any>>((acc, [theme, { selector, extraColors, extraVars, extraCss, types }]) => {
-    if (selector) {
+    if (selector === undefined) {
+      selector = `[data-mode="${theme}"]`
+    }
+    if (typeof selector === 'string' && selector) {
       const entries = Object.entries(types ?? {})
       const typesColors = entries.reduce<Record<string, string>>((acc, [type, value]) => {
         typesSet.add(type)

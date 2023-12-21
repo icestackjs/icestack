@@ -1,35 +1,6 @@
-# Modifying and Extending Color Types
+# 修改和扩展颜色种类
 
-{/* As a developer designing our own applications, it's not often that we're happy with the default component styles of third-party component libraries */}
-
-Under the `@icestack/ui` default preset.
-
-## Color
-
-There are five main color types: `primary`, `success`, `warning`, `error`, and `neutral`.
-
-The `css` output then produces the
-
-```js
-'btn-primary', 'btn-success', 'btn-warning', 'btn-error', 'btn-neutral', 'badge-primary', 'badge-primary', 'btn-success', 'btn-error', 'btn-neutral'
-'badge-primary', 'badge-success', 'badge-warning', 'badge-error', 'badge-neutral'
-```
-
-The css product of this type
-
-## Size shapes
-
-The same principle applies, the default sizes are `xs`,`sm`,`md`,`lg` so it generates.
-
-```js
-'btn-xs', 'btn-sm', 'btn-md', 'btn-lg', 'badge-xs', 'badge-sm', 'badge-md', 'badge-lg'
-```
-
-## Themes
-
-By default there are `light` and `dark`, which generate their own `CSS` variable blocks, which you can override and extend.
-
-## Modifying and extending configuration
+## 修改原有颜色
 
 ```js filename="icestack.config.js"
 /**
@@ -39,39 +10,19 @@ const config = {
   outdir: './my-ui',
   // 修改 base
   base: {
-    // 颜色 type
-    types: {
-      // override primary type
-      // 覆盖 primary 色
-      primary: {
-        // 覆盖 light mode 下的颜色
-        light: {
-          primary: '#1677ff',
-          'primary-content': '#ffffff',
-          // hover 和 active 色是给部分组件使用的，比如 `button`
-          'primary-hover': '#4096ff',
-          'primary-active': '#0958d9'
+    // 主题
+    themes: {
+      // 覆盖 light mode 下的颜色
+      light: {
+        types: {
+          primary: '#eb2f96'
         }
-        // 同样也可以覆盖 dark mode 下的表现
-        // dark: {}
       },
-      // 或者你添加一种新的颜色主题: pure
-      pure: {
-        // light mode colors
-        light: {
-          pure: '#1677ff',
-          'pure-hover': '#4096ff',
-          'pure-active': '#0958d9',
-          'pure-content': '#ffffff'
-        },
-        // dark mode colors
-        dark: {
-          pure: '#1677ff',
-          'pure-hover': '#4096ff',
-          'pure-active': '#0958d9',
-          'pure-content': '#ffffff'
+      // 同样也可以覆盖 dark mode 下的表现
+      dark: {
+        types: {
+          primary: '#cb2b83'
         }
-        // custom mode colors
       }
     }
   }
@@ -79,14 +30,82 @@ const config = {
 module.exports = config
 ```
 
-## Build
+你传入一个颜色字符串，它会被交给 [`ant-design-colors`](https://github.com/ant-design/ant-design-colors) 进行颜色的自动生成，从而计算出 `hover`,`active` 等状态的颜色
 
-Once you've made your changes, run the `icestack build` command to rebuild `my-ui`.
+当然你也可以传入一个 `object` 来精准的控制所有状态下的颜色：
 
-You'll see that the new color theme, the overrides of the original theme colors, and the related changes are already in the new `my-ui` output.
+```js filename="icestack.config.js"
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  // 修改 base
+  base: {
+    // 主题
+    themes: {
+      // 覆盖 light mode 下的颜色
+      light: {
+        types: {
+          primary: {
+            // 一共四种颜色，key 的名称就是 css 变量名
+            primary: '#1677ff',
+            'primary-content': '#ffffff',
+            // 主要是上面2种颜色， hover 和 active 色是给部分组件使用的，比如 `button`
+            'primary-hover': '#4096ff',
+            'primary-active': '#0958d9'
+          }
+        }
+      }
+      // dark:{}
+    }
+  }
+}
+module.exports = config
+```
 
-At this point you can use:
+修改完成之后执行 `icestack build` 进行构建即可。
+
+## 扩展更多颜色
+
+```js filename="icestack.config.js"
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  // 修改 base
+  base: {
+    themes: {
+      light: {
+        // 或者你添加一种新的颜色主题: pure
+        types: {
+          // light mode colors
+          pure: '#1677ff'
+        }
+      },
+      dark: {
+        types: {
+          // dark mode colors
+          pure: '#642ab5'
+        }
+      }
+    }
+  }
+}
+module.exports = config
+```
+
+## 构建
+
+再修改好配置之后，执行 `icestack build` 指令, 重新构建 `my-ui`
+
+接着你会发现，新的颜色主题，和原先主题色的覆盖，相关的改动就已经出现新的 `my-ui` 产物中了，
+
+这时候你就可以使用:
 
 ```js
 'btn-pure', 'badge-pure'
 ```
+
+这种类名了。

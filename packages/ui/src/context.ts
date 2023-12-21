@@ -30,7 +30,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
   const globalPrefix = resolvePrefixOption(_globalPrefix)
   const globalVarPrefix = resolveVarPrefixOption(_globalVarPrefix)
   logger.logFlag = log
-  const { types, presets: basePresets } = base.calcBase(options)
+  const { types, presets: basePresets, colors } = base.calcBase(options)
 
   function writeFile(file: string, data: string) {
     !dryRun && fs.writeFileSync(file, data, 'utf8')
@@ -74,7 +74,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
   const presets = createPreset({
     types
   })
-  const colors = getColors(options)
+
   const allComponentsNames = Object.keys(presets)
   const twConfig = initTailwindcssConfig(tailwindcssConfig, {
     theme: {

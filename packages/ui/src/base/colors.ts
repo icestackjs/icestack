@@ -1,6 +1,6 @@
 import { generate } from '@ant-design/colors'
 
-import type { CodegenOptions } from './types'
+import type { CodegenOptions } from '@/types'
 export { generate, presetPrimaryColors } from '@ant-design/colors'
 
 export function makeRgbaValue(key: string) {

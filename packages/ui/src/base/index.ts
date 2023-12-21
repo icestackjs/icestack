@@ -1,6 +1,6 @@
 import { TinyColor } from '@ctrl/tinycolor'
 import merge from 'merge'
-import { generateColorVars } from './colors'
+import { generateColorVars, getColors } from './colors'
 import { CodegenOptions } from '@/types'
 // import { preHandleString } from '@/utils'
 
@@ -26,6 +26,7 @@ function makeArray(value: any | any[]) {
 }
 
 export const calcBase = (options: CodegenOptions) => {
+  const colors = getColors(options)
   const themes = options?.base?.themes
   const globalExtraCss = options?.base?.extraCss
   const typesSet = new Set<string>()
@@ -77,6 +78,7 @@ export const calcBase = (options: CodegenOptions) => {
   merge.recursive(presets, globalExtraCss)
   return {
     presets,
-    types: [...typesSet]
+    types: [...typesSet],
+    colors
   }
 }

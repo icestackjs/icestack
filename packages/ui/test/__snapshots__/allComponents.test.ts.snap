@@ -34,5 +34,12 @@ exports[`allComponents exports > snap 1`] = `
   "divider",
   "stack",
   "tab",
+  "dropdown",
+  "swap",
+  "card",
+  "carousel",
+  "stat",
+  "timeline",
+  "breadcrumbs",
 ]
 `;

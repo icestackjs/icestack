@@ -15,9 +15,9 @@ export default defineBuildConfig({
       respectExternal: false
     },
     commonjs: {
-      ignore: (id) => {
-        return id.startsWith('../assets/')
-      }
+      // ignore: (id) => {
+      //   return id.startsWith('../assets/')
+      // }
     }
     // resolve: {
     //   resolveOnly: (module) => !module.startsWith('../assets/')

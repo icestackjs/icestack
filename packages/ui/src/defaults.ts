@@ -145,6 +145,27 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   },
   tab: {
     selector: '.tab'
+  },
+  dropdown: {
+    selector: '.dropdown'
+  },
+  swap: {
+    selector: '.swap'
+  },
+  card: {
+    selector: '.card'
+  },
+  carousel: {
+    selector: '.carousel'
+  },
+  stat: {
+    selector: '.stat'
+  },
+  timeline: {
+    selector: '.timeline'
+  },
+  breadcrumbs: {
+    selector: '.breadcrumbs'
   }
 }
 

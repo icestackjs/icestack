@@ -23,7 +23,6 @@ import loading from '@/components/loading'
 import mask from '@/components/mask'
 import form from '@/components/form'
 import table from '@/components/table'
-// import tabs from '@/components/tabs'
 import skeleton from '@/components/skeleton'
 import radialProgress from '@/components/radialProgress'
 import countdown from '@/components/countdown'
@@ -32,6 +31,13 @@ import kbd from '@/components/kbd'
 import tooltip from '@/components/tooltip'
 import toast from '@/components/toast'
 import steps from '@/components/steps'
+import dropdown from '@/components/dropdown'
+import swap from '@/components/swap'
+import card from '@/components/card'
+import carousel from '@/components/carousel'
+import stat from '@/components/stat'
+import timeline from '@/components/timeline'
+import breadcrumbs from '@/components/breadcrumbs'
 
 const schemaMap = {
   alert,
@@ -66,7 +72,14 @@ const schemaMap = {
   indicator,
   divider,
   stack,
-  tab
+  tab,
+  dropdown,
+  swap,
+  card,
+  carousel,
+  stat,
+  timeline,
+  breadcrumbs
 } as const
 
 const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap

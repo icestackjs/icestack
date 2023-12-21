@@ -14,9 +14,21 @@ exports[`defaults > injectSchema 1`] = `
     "schema": [Function],
     "selector": ".badge",
   },
+  "breadcrumbs": {
+    "schema": [Function],
+    "selector": ".breadcrumbs",
+  },
   "button": {
     "schema": [Function],
     "selector": ".btn",
+  },
+  "card": {
+    "schema": [Function],
+    "selector": ".card",
+  },
+  "carousel": {
+    "schema": [Function],
+    "selector": ".carousel",
   },
   "chat": {
     "schema": [Function],
@@ -49,6 +61,10 @@ exports[`defaults > injectSchema 1`] = `
   "divider": {
     "schema": [Function],
     "selector": ".divider",
+  },
+  "dropdown": {
+    "schema": [Function],
+    "selector": ".dropdown",
   },
   "form": {
     "schema": [Function],
@@ -121,9 +137,17 @@ exports[`defaults > injectSchema 1`] = `
     "schema": [Function],
     "selector": ".stack",
   },
+  "stat": {
+    "schema": [Function],
+    "selector": ".stat",
+  },
   "steps": {
     "schema": [Function],
     "selector": ".step",
+  },
+  "swap": {
+    "schema": [Function],
+    "selector": ".swap",
   },
   "tab": {
     "schema": [Function],
@@ -136,6 +160,10 @@ exports[`defaults > injectSchema 1`] = `
   "textarea": {
     "schema": [Function],
     "selector": ".textarea",
+  },
+  "timeline": {
+    "schema": [Function],
+    "selector": ".timeline",
   },
   "toast": {
     "schema": [Function],

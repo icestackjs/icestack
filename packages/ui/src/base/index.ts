@@ -1,6 +1,6 @@
 import { TinyColor } from '@ctrl/tinycolor'
 import merge from 'merge'
-import { generateColorVars, getColors } from './colors'
+import { generateColorVars, makeRgbaValue } from './colors'
 import { CodegenOptions } from '@/types'
 // import { preHandleString } from '@/utils'
 
@@ -26,13 +26,17 @@ function makeArray(value: any | any[]) {
 }
 
 export const calcBase = (options: CodegenOptions) => {
-  const colors = getColors(options)
-  const themes = options?.base?.themes
-  const globalExtraCss = options?.base?.extraCss
+  const { base, varPrefix: varPrefixOptions } = options
+  const { varPrefix } = varPrefixOptions
+  const colors: Record<string, string> = {
+    transparent: 'transparent',
+    current: 'currentColor'
+  }
+  const themes = base?.themes
+  const globalExtraCss = base?.extraCss
   const typesSet = new Set<string>()
-  const themesMap = themes === undefined ? {} : themes
 
-  const presets = Object.entries(themesMap).reduce<Record<string, any>>((acc, [theme, { selector, extraColors, extraVars, extraCss, types }]) => {
+  const presets = Object.entries(themes).reduce<Record<string, any>>((acc, [theme, { selector, extraColors, extraVars, extraCss, types }]) => {
     if (selector) {
       acc[selector] = {
         css: merge.recursive(
@@ -68,8 +72,22 @@ export const calcBase = (options: CodegenOptions) => {
       }
     }
     if (types) {
-      for (const type of Object.keys(types)) {
+      for (const [type, value] of Object.entries(types)) {
         typesSet.add(type)
+
+        if (typeof value === 'object') {
+          for (const x of Object.keys(value)) {
+            const key = varPrefix + x
+            colors[x] = makeRgbaValue(key)
+          }
+        }
+      }
+    }
+
+    if (extraColors) {
+      for (const x of Object.keys(extraColors)) {
+        const key = varPrefix + x
+        colors[x] = makeRgbaValue(key)
       }
     }
 

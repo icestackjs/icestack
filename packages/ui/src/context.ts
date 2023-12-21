@@ -8,7 +8,6 @@ import cliProgress from 'cli-progress'
 import { defu } from '@icestack/shared'
 import type { CodegenOptions, DeepPartial, ILayer, CssInJs } from './types'
 import { generateIndexCode } from './js'
-import { getColors } from './base/colors'
 import { transformJsToSass } from './sass'
 import { createDefaultTailwindcssExtends } from './defaults'
 import { logger } from './log'
@@ -18,7 +17,7 @@ import { stages } from '@/constants'
 import { JSONStringify, ensureDirSync } from '@/utils'
 import { CreatePresetOptions, handleOptions } from '@/components/shared'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
-import * as base from '@/base'
+import { calcBase } from '@/base'
 import { getPrefixerPlugin, getCssVarsPrefixerPlugin, resolveTailwindcss, initTailwindcssConfig, objectify, process, resolvePrefixOption, resolveVarPrefixOption } from '@/postcss'
 function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
   return `${layer}.${suffixes.join('.')}`
@@ -30,7 +29,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
   const globalPrefix = resolvePrefixOption(_globalPrefix)
   const globalVarPrefix = resolveVarPrefixOption(_globalVarPrefix)
   logger.logFlag = log
-  const { types, presets: basePresets, colors } = base.calcBase(options)
+  const { types, presets: basePresets, colors } = calcBase(options)
 
   function writeFile(file: string, data: string) {
     !dryRun && fs.writeFileSync(file, data, 'utf8')

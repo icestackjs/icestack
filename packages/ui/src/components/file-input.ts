@@ -1,8 +1,9 @@
+import dedent from 'dedent'
 import { transformCss2Js } from './shared'
 import type { GetSchemaFn } from './shared'
 
 const schema: GetSchemaFn = (opts) => {
-  const { selector } = opts
+  const { selector, types } = opts
   return {
     selector,
     defaults: {
@@ -41,42 +42,22 @@ const schema: GetSchemaFn = (opts) => {
             @apply border border-transparent bg-transparent text-current;
           }
         }
-        &-primary {
-          @apply border-primary;
-          &:focus {
-            @apply outline-primary;
-          }
-          &::file-selector-button {
-            @apply border-primary bg-primary text-primary-content;
-          }
-        }
-        &-success {
-          @apply border-success;
-          &:focus {
-            @apply outline-success;
-          }
-          &::file-selector-button {
-            @apply border-success bg-success text-success-content;
-          }
-        }
-        &-warning {
-          @apply border-warning;
-          &:focus {
-            @apply outline-warning;
-          }
-          &::file-selector-button {
-            @apply border-warning bg-warning text-warning-content;
-          }
-        }
-        &-error {
-          @apply border-error;
-          &:focus {
-            @apply outline-error;
-          }
-          &::file-selector-button {
-            @apply border-error bg-error text-error-content;
-          }
-        }
+        ${types
+          .map((type) => {
+            return dedent`
+            &-${type} {
+              @apply border-${type};
+              &:focus {
+                @apply outline-${type};
+              }
+              &::file-selector-button {
+                @apply border-${type} bg-${type} text-${type}-content;
+              }
+            }
+            `
+          })
+          .join('\n')}
+
         &-disabled,
         &[disabled] {
           @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;

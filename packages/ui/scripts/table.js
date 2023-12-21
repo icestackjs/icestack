@@ -691,6 +691,7 @@ module.exports = {
       "file-input-success",
       "file-input-warning",
       "file-input-error",
+      "file-input-neutral",
       "file-input-disabled"
     ],
     "utils": [

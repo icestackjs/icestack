@@ -132,6 +132,21 @@ import CssTable from '../../components/CssTable'
           ]
         }
       },
+      "&-neutral": {
+        "apply": [
+          "border-neutral"
+        ],
+        "&:focus": {
+          "apply": [
+            "outline-neutral"
+          ]
+        },
+        "&::file-selector-button": {
+          "apply": [
+            "border-neutral bg-neutral text-neutral-content"
+          ]
+        }
+      },
       "&-disabled,&[disabled]": {
         "apply": [
           "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20"

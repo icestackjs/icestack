@@ -33,6 +33,38 @@ exports[`presets > default preset 1`] = `
           "tab-radius": "0.5rem",
         },
         "selector": ".dark",
+        "types": {
+          "error": {
+            "error": "#d32029",
+            "error-active": "#e84749",
+            "error-content": "#ffffff",
+            "error-hover": "#a61d24",
+          },
+          "neutral": {
+            "neutral": "#5a5a5a",
+            "neutral-active": "#6a6a6a",
+            "neutral-content": "#ffffff",
+            "neutral-hover": "#494949",
+          },
+          "primary": {
+            "primary": "#1668dc",
+            "primary-active": "#3c89e8",
+            "primary-content": "#ffffff",
+            "primary-hover": "#1554ad",
+          },
+          "success": {
+            "success": "#49aa19",
+            "success-active": "#6abe39",
+            "success-content": "#ffffff",
+            "success-hover": "#3c8618",
+          },
+          "warning": {
+            "warning": "#d89614",
+            "warning-active": "#e8b339",
+            "warning-content": "#ffffff",
+            "warning-hover": "#aa7714",
+          },
+        },
       },
       "light": {
         "extraColors": {
@@ -63,77 +95,37 @@ exports[`presets > default preset 1`] = `
           "tab-radius": "0.5rem",
         },
         "selector": "page",
-      },
-    },
-    "types": {
-      "error": {
-        "dark": {
-          "error": "#d32029",
-          "error-active": "#e84749",
-          "error-content": "#ffffff",
-          "error-hover": "#a61d24",
-        },
-        "light": {
-          "error": "#f5222d",
-          "error-active": "#cf1322",
-          "error-content": "#ffffff",
-          "error-hover": "#ff4d4f",
-        },
-      },
-      "neutral": {
-        "dark": {
-          "neutral": "#5a5a5a",
-          "neutral-active": "#6a6a6a",
-          "neutral-content": "#ffffff",
-          "neutral-hover": "#494949",
-        },
-        "light": {
-          "neutral": "#666666",
-          "neutral-active": "#404040",
-          "neutral-content": "#ffffff",
-          "neutral-hover": "#737373",
-        },
-      },
-      "primary": {
-        "dark": {
-          "primary": "#1668dc",
-          "primary-active": "#3c89e8",
-          "primary-content": "#ffffff",
-          "primary-hover": "#1554ad",
-        },
-        "light": {
-          "primary": "#1677ff",
-          "primary-active": "#0958d9",
-          "primary-content": "#ffffff",
-          "primary-hover": "#4096ff",
-        },
-      },
-      "success": {
-        "dark": {
-          "success": "#49aa19",
-          "success-active": "#6abe39",
-          "success-content": "#ffffff",
-          "success-hover": "#3c8618",
-        },
-        "light": {
-          "success": "#52c41a",
-          "success-active": "#389e0d",
-          "success-content": "#ffffff",
-          "success-hover": "#73d13d",
-        },
-      },
-      "warning": {
-        "dark": {
-          "warning": "#d89614",
-          "warning-active": "#e8b339",
-          "warning-content": "#ffffff",
-          "warning-hover": "#aa7714",
-        },
-        "light": {
-          "warning": "#faad14",
-          "warning-active": "#d48806",
-          "warning-content": "#ffffff",
-          "warning-hover": "#ffc53d",
+        "types": {
+          "error": {
+            "error": "#f5222d",
+            "error-active": "#cf1322",
+            "error-content": "#ffffff",
+            "error-hover": "#ff4d4f",
+          },
+          "neutral": {
+            "neutral": "#666666",
+            "neutral-active": "#404040",
+            "neutral-content": "#ffffff",
+            "neutral-hover": "#737373",
+          },
+          "primary": {
+            "primary": "#1677ff",
+            "primary-active": "#0958d9",
+            "primary-content": "#ffffff",
+            "primary-hover": "#4096ff",
+          },
+          "success": {
+            "success": "#52c41a",
+            "success-active": "#389e0d",
+            "success-content": "#ffffff",
+            "success-hover": "#73d13d",
+          },
+          "warning": {
+            "warning": "#faad14",
+            "warning-active": "#d48806",
+            "warning-content": "#ffffff",
+            "warning-hover": "#ffc53d",
+          },
         },
       },
     },

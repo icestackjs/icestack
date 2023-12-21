@@ -10,7 +10,7 @@ const { createT, groupedComponents } = require('./i18n')
 const componentsDir = path.resolve(__dirname, '../pages/components')
 const { JSONStringify } = require('./utils')
 const defaultBase = getDefaultBase()
-const types = Object.keys(defaultBase.types)
+const types = Object.keys(defaultBase.themes.light.types)
 
 function resolve(...args) {
   return path.resolve(componentsDir, ...args)

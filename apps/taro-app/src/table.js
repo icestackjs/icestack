@@ -523,5 +523,236 @@ module.exports = {
       "tabs-sm",
       "tabs-xs"
     ]
+  },
+  "dropdown": {
+    "base": [
+      "dropdown",
+      "dropdown-content",
+      "dropdown-end",
+      "dropdown-left",
+      "dropdown-right",
+      "dropdown-bottom",
+      "dropdown-top",
+      "dropdown-open",
+      "dropdown-hover"
+    ],
+    "styled": [],
+    "utils": []
+  },
+  "swap": {
+    "base": [
+      "swap",
+      "swap-on",
+      "swap-indeterminate",
+      "swap-off",
+      "swap-active"
+    ],
+    "styled": [
+      "swap-rotate",
+      "swap-flip"
+    ],
+    "utils": []
+  },
+  "card": {
+    "base": [
+      "card",
+      "card-body",
+      "card-actions",
+      "image-full"
+    ],
+    "styled": [
+      "bordered",
+      "card-bordered",
+      "compact",
+      "card-title"
+    ],
+    "utils": [
+      "card-side",
+      "card-compact",
+      "card-body",
+      "card-title",
+      "card-normal"
+    ]
+  },
+  "carousel": {
+    "base": [
+      "carousel",
+      "carousel-vertical",
+      "carousel-item",
+      "carousel-center",
+      "carousel-end"
+    ],
+    "styled": [],
+    "utils": []
+  },
+  "stat": {
+    "base": [
+      "stats",
+      "stat",
+      "stat-figure",
+      "stat-title",
+      "stat-value",
+      "stat-desc",
+      "stat-actions"
+    ],
+    "styled": [],
+    "utils": [
+      "stats-horizontal",
+      "stats-vertical"
+    ]
+  },
+  "timeline": {
+    "base": [
+      "timeline",
+      "timeline-start",
+      "timeline-middle",
+      "timeline-end"
+    ],
+    "styled": [
+      "timeline-box"
+    ],
+    "utils": [
+      "timeline-vertical",
+      "timeline-compact",
+      "timeline-horizontal",
+      "timeline-start",
+      "timeline-end",
+      "timeline-snap-icon",
+      "timeline-middle"
+    ]
+  },
+  "breadcrumbs": {
+    "base": [
+      "breadcrumbs"
+    ],
+    "styled": [],
+    "utils": []
+  },
+  "bottom-navigation": {
+    "base": [
+      "btm-nav"
+    ],
+    "styled": [
+      "active",
+      "disabled",
+      "label"
+    ],
+    "utils": [
+      "btm-nav-xs",
+      "active",
+      "btm-nav-label",
+      "btm-nav-sm",
+      "btm-nav-md",
+      "btm-nav-lg"
+    ]
+  },
+  "menu": {
+    "base": [
+      "menu",
+      "menu-title",
+      "disabled",
+      "menu-dropdown",
+      "menu-dropdown-show",
+      "badge"
+    ],
+    "styled": [
+      "active",
+      "focus",
+      "menu-dropdown-toggle"
+    ],
+    "utils": [
+      "menu-horizontal",
+      "menu-title",
+      "menu-vertical",
+      "menu-xs",
+      "menu-sm",
+      "menu-md",
+      "menu-lg"
+    ]
+  },
+  "navbar": {
+    "base": [
+      "navbar",
+      "navbar-start",
+      "navbar-center",
+      "navbar-end"
+    ],
+    "styled": [],
+    "utils": []
+  },
+  "file-input": {
+    "base": [
+      "file-input"
+    ],
+    "styled": [
+      "file-input-bordered",
+      "file-input-ghost",
+      "file-input-primary",
+      "file-input-success",
+      "file-input-warning",
+      "file-input-error",
+      "file-input-disabled"
+    ],
+    "utils": [
+      "file-input-xs",
+      "file-input-sm",
+      "file-input-md",
+      "file-input-lg"
+    ]
+  },
+  "rating": {
+    "base": [
+      "rating"
+    ],
+    "styled": [
+      "rating-hidden",
+      "rating-half"
+    ],
+    "utils": [
+      "rating-xs",
+      "rating-sm",
+      "rating-md",
+      "rating-lg",
+      "rating-half",
+      "rating-hidden"
+    ]
+  },
+  "drawer": {
+    "base": [
+      "drawer",
+      "drawer-content",
+      "drawer-side",
+      "drawer-overlay",
+      "drawer-toggle",
+      "drawer-end"
+    ],
+    "styled": [
+      "drawer-button"
+    ],
+    "utils": [
+      "drawer-open",
+      "drawer-toggle",
+      "drawer-side",
+      "drawer-overlay"
+    ]
+  },
+  "footer": {
+    "base": [
+      "footer",
+      "footer-center"
+    ],
+    "styled": [
+      "footer-title"
+    ],
+    "utils": []
+  },
+  "hero": {
+    "base": [
+      "hero",
+      "hero-overlay",
+      "hero-content"
+    ],
+    "styled": [],
+    "utils": []
   }
 }

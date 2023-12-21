@@ -1,0 +1,233 @@
+import CssTable from '../../components/CssTable'
+
+## 类名表格
+
+<CssTable name="card" />
+
+## 样例和演示
+
+[前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/data-display-card--docs)
+
+## Css 结构
+
+```json
+{
+"selector": ".card",
+"defaults": {
+  "base": {
+    ".card": {
+      "apply": [
+        "relative flex flex-col"
+      ],
+      "&:focus": {
+        "apply": [
+          "outline-none"
+        ]
+      },
+      "&-body": {
+        "apply": [
+          "flex flex-auto flex-col"
+        ],
+        ":where(p)": {
+          "apply": [
+            "flex-grow"
+          ]
+        }
+      },
+      "&-actions": {
+        "apply": [
+          "flex flex-wrap items-start gap-2"
+        ]
+      },
+      "& figure": {
+        "apply": [
+          "flex items-center justify-center"
+        ]
+      },
+      "&.image-full": {
+        "apply": [
+          "grid"
+        ],
+        "&:before": {
+          "apply": [
+            "relative"
+          ],
+          "css": {
+            "content": "\"\""
+          }
+        },
+        "&:before,&>*": {
+          "apply": [
+            "col-start-1 row-start-1"
+          ]
+        },
+        "&>figure img": {
+          "apply": [
+            "h-full object-cover"
+          ]
+        }
+      },
+      "&.image-full>&-body": {
+        "apply": [
+          "relative"
+        ]
+      }
+    }
+  },
+  "styled": {
+    ".card": {
+      "apply": [
+        "rounded-box"
+      ],
+      ":where(figure:first-child)": {
+        "apply": [
+          "overflow-hidden"
+        ],
+        "css": {
+          "border-start-start-radius": "inherit",
+          "border-start-end-radius": "inherit",
+          "border-end-start-radius": "unset",
+          "border-end-end-radius": "unset"
+        }
+      },
+      ":where(figure:last-child)": {
+        "apply": [
+          "overflow-hidden"
+        ],
+        "css": {
+          "border-start-start-radius": "unset",
+          "border-start-end-radius": "unset",
+          "border-end-start-radius": "inherit",
+          "border-end-end-radius": "inherit"
+        }
+      },
+      "&:focus-visible": {
+        "css": {
+          "outline": "2px solid currentColor",
+          "outline-offset": "2px"
+        }
+      },
+      "&.bordered": {
+        "apply": [
+          "border-base-200 border"
+        ]
+      },
+      "&-bordered": {
+        "apply": [
+          "border-base-200 border"
+        ]
+      },
+      "&.compact": {
+        ".card-body": {
+          "apply": [
+            "p-4 text-sm"
+          ]
+        }
+      },
+      "&-body": {
+        "css": {
+          "padding": "var(--padding-card, 2rem)"
+        },
+        "apply": [
+          "flex flex-col gap-2"
+        ]
+      },
+      "&-title": {
+        "apply": [
+          "flex items-center gap-2 text-xl font-semibold"
+        ]
+      },
+      "&.image-full": {
+        "&:before": {
+          "apply": [
+            "bg-neutral rounded-box z-10 opacity-75"
+          ]
+        },
+        ":where(figure)": {
+          "apply": [
+            "overflow-hidden"
+          ],
+          "css": {
+            "border-radius": "inherit"
+          }
+        }
+      },
+      "&.image-full>&-body": {
+        "apply": [
+          "text-neutral-content z-20"
+        ]
+      }
+    }
+  },
+  "utils": {
+    ".card-side": {
+      "css": {
+        "align-items": "stretch",
+        "flex-direction": "row"
+      },
+      ":where(figure:first-child)": {
+        "apply": [
+          "overflow-hidden"
+        ],
+        "css": {
+          "border-start-start-radius": "inherit",
+          "border-start-end-radius": "unset",
+          "border-end-start-radius": "inherit",
+          "border-end-end-radius": "unset"
+        }
+      },
+      ":where(figure:last-child)": {
+        "apply": [
+          "overflow-hidden"
+        ],
+        "css": {
+          "border-start-start-radius": "unset",
+          "border-start-end-radius": "inherit",
+          "border-end-start-radius": "unset",
+          "border-end-end-radius": "inherit"
+        }
+      },
+      "& figure>*": {
+        "css": {
+          "max-width": "unset"
+        }
+      }
+    },
+    ":where(.card-side figure>*)": {
+      "css": {
+        "width": "100%",
+        "height": "100%",
+        "object-fit": "cover"
+      }
+    },
+    ".card-compact": {
+      ".card-body": {
+        "apply": [
+          "p-4 text-sm"
+        ]
+      },
+      ".card-title": {
+        "apply": [
+          "mb-1"
+        ]
+      }
+    },
+    ".card-normal": {
+      ".card-body": {
+        "css": {
+          "padding": "var(--padding-card, 2rem)"
+        },
+        "apply": [
+          "text-base"
+        ]
+      },
+      ".card-title": {
+        "apply": [
+          "mb-3"
+        ]
+      }
+    }
+  }
+}
+}
+```

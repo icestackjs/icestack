@@ -1,0 +1,85 @@
+import CssTable from '../../components/CssTable'
+
+## 类名表格
+
+<CssTable name="breadcrumbs" />
+
+## 样例和演示
+
+[前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/navigation-breadcrumbs--docs)
+
+## Css 结构
+
+```json
+{
+"selector": ".breadcrumbs",
+"defaults": {
+  "base": {
+    ".breadcrumbs": {
+      "apply": [
+        "max-w-full overflow-x-auto"
+      ],
+      "&>ul,&>ol": {
+        "apply": [
+          "flex items-center whitespace-nowrap"
+        ],
+        "css": {
+          "min-height": "min-content"
+        },
+        "&>li": {
+          "apply": [
+            "flex items-center"
+          ],
+          "&>a": {
+            "apply": [
+              "flex cursor-pointer items-center [@media(hover:hover)]:hover:underline"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "styled": {
+    ".breadcrumbs": {
+      "apply": [
+        "py-2"
+      ],
+      "&>ul,&>ol": {
+        "&>li": {
+          "&>a": {
+            "&:focus": {
+              "apply": [
+                "outline-none"
+              ]
+            },
+            "&:focus-visible": {
+              "css": {
+                "outline": "2px solid currentColor",
+                "outline-offset": "2px"
+              }
+            }
+          },
+          "&+*:before": {
+            "css": {
+              "content": "\"\"",
+              "border-top": "1px solid",
+              "border-right": "1px solid",
+              "background-color": "transparent"
+            },
+            "apply": [
+              "ml-2 mr-3 block h-1.5 w-1.5 rotate-45 transform opacity-40"
+            ]
+          }
+        }
+      }
+    },
+    "[dir=\"rtl\"] .breadcrumbs>ul>li+*:before,[dir=\"rtl\"] .breadcrumbs>ol>li+*:before": {
+      "css": {
+        "--tw-rotate": "-135deg"
+      }
+    }
+  },
+  "utils": {}
+}
+}
+```

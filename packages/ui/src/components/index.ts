@@ -45,6 +45,7 @@ import bottomNavigation from './bottom-navigation'
 import navbar from './navbar'
 import fileInput from './file-input'
 import hero from './hero'
+import rating from './rating'
 const schemaMap = {
   alert,
   avatar,
@@ -91,7 +92,8 @@ const schemaMap = {
   'file-input': fileInput,
   drawer,
   footer,
-  hero
+  hero,
+  rating
 } as const
 
 const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap

@@ -283,7 +283,7 @@ exports[`options > getCodegenOptions snap 1`] = `
       "selector": ".range",
     },
     "rating": {
-      "schema": undefined,
+      "schema": [Function],
       "selector": ".rating",
     },
     "select": {
@@ -653,7 +653,7 @@ exports[`options > getRawCodegenOptions snap 1`] = `
       "selector": ".range",
     },
     "rating": {
-      "schema": undefined,
+      "schema": [Function],
       "selector": ".rating",
     },
     "select": {

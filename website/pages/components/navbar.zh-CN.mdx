@@ -1,0 +1,60 @@
+import CssTable from '../../components/CssTable'
+
+## 类名表格
+
+<CssTable name="navbar" />
+
+## 样例和演示
+
+[前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/navigation-navbar--docs)
+
+## Css 结构
+
+```json
+{
+"selector": ".navbar",
+"defaults": {
+  "base": {
+    ".navbar": {
+      "apply": [
+        "flex items-center"
+      ]
+    },
+    ":where(.navbar>*)": {
+      "apply": [
+        "inline-flex items-center"
+      ]
+    },
+    ".navbar-start": {
+      "css": {
+        "width": "50%",
+        "justify-content": "flex-start"
+      }
+    },
+    ".navbar-center": {
+      "apply": [
+        "shrink-0"
+      ]
+    },
+    ".navbar-end": {
+      "css": {
+        "width": "50%",
+        "justify-content": "flex-end"
+      }
+    }
+  },
+  "styled": {
+    ".navbar": {
+      "css": {
+        "padding": "var(--navbar-padding, 0.5rem)",
+        "min-height": "4rem"
+      },
+      "apply": [
+        "w-full"
+      ]
+    }
+  },
+  "utils": {}
+}
+}
+```

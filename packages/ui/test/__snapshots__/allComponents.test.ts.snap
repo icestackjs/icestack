@@ -48,5 +48,6 @@ exports[`allComponents exports > snap 1`] = `
   "drawer",
   "footer",
   "hero",
+  "rating",
 ]
 `;

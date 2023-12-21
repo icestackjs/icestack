@@ -8216,6 +8216,324 @@ exports[`'range' options > snap 1`] = `
 }
 `;
 
+exports[`'rating' options > raw snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".rating": {
+        ":where(input)": {
+          "apply": [
+            "cursor-pointer rounded-none",
+          ],
+        },
+        "apply": [
+          "relative inline-flex",
+        ],
+      },
+    },
+    "styled": {
+      ".rating": {
+        "& .rating-hidden": {
+          "apply": [
+            "w-2 bg-transparent",
+          ],
+        },
+        "& input": {
+          "apply": [
+            "appearance-none",
+          ],
+          "css": {
+            "-webkit-appearance": "none",
+          },
+        },
+        "& input:active:focus": {
+          "css": {
+            "animation": "none",
+            "transform": "translateY(-0.125em)",
+          },
+        },
+        ":where(input)": {
+          "apply": [
+            "bg-base-content h-6 w-6 bg-opacity-100",
+          ],
+          "css": {
+            "animation": "rating-pop var(--animation-input, 0.25s) ease-out",
+          },
+        },
+        "input:checked~input,input[aria-checked="true"]~input": {
+          "apply": [
+            "bg-opacity-20",
+          ],
+        },
+        "input:focus-visible": {
+          "apply": [
+            "transition-transform duration-300 ease-out",
+          ],
+          "css": {
+            "transform": "translateY(-0.125em)",
+          },
+        },
+        "input[type="radio"]:checked": {
+          "css": {
+            "background-image": "none",
+          },
+        },
+      },
+      ".rating-half": {
+        ":where(input:not(.rating-hidden))": {
+          "apply": [
+            "w-3",
+          ],
+        },
+      },
+      "@keyframes rating-pop": {
+        "0%": {
+          "css": {
+            "transform": "translateY(-0.125em)",
+          },
+        },
+        "100%": {
+          "css": {
+            "transform": "translateY(0)",
+          },
+        },
+        "40%": {
+          "css": {
+            "transform": "translateY(-0.125em)",
+          },
+        },
+      },
+    },
+    "utils": {
+      ".rating-half": {
+        "&.rating-lg input:not(.rating-hidden)": {
+          "apply": [
+            "w-5",
+          ],
+        },
+        "&.rating-md input:not(.rating-hidden)": {
+          "apply": [
+            "w-3",
+          ],
+        },
+        "&.rating-sm input:not(.rating-hidden)": {
+          "apply": [
+            "w-2",
+          ],
+        },
+        "&.rating-xs input:not(.rating-hidden)": {
+          "apply": [
+            "w-1.5",
+          ],
+        },
+      },
+      ".rating-lg input": {
+        "apply": [
+          "h-10 w-10",
+        ],
+      },
+      ".rating-md input": {
+        "apply": [
+          "h-6 w-6",
+        ],
+      },
+      ".rating-sm input": {
+        "apply": [
+          "h-4 w-4",
+        ],
+      },
+      ".rating-xs input": {
+        "apply": [
+          "h-3 w-3",
+        ],
+      },
+    },
+  },
+  "selector": ".rating",
+}
+`;
+
+exports[`'rating' options > snap 1`] = `
+{
+  "defaults": {
+    "base": {
+      ".rating": {
+        ":where(input)": {
+          "apply": [
+            [
+              "cursor-pointer",
+              "rounded-none",
+            ],
+          ],
+        },
+        "apply": [
+          [
+            "relative",
+            "inline-flex",
+          ],
+        ],
+      },
+    },
+    "styled": {
+      ".rating": {
+        "& .rating-hidden": {
+          "apply": [
+            [
+              "w-2",
+              "bg-transparent",
+            ],
+          ],
+        },
+        "& input": {
+          "apply": [
+            [
+              "appearance-none",
+            ],
+          ],
+          "css": {
+            "-webkit-appearance": "none",
+          },
+        },
+        "& input:active:focus": {
+          "css": {
+            "animation": "none",
+            "transform": "translateY(-0.125em)",
+          },
+        },
+        ":where(input)": {
+          "apply": [
+            [
+              "bg-base-content",
+              "h-6",
+              "w-6",
+              "bg-opacity-100",
+            ],
+          ],
+          "css": {
+            "animation": "rating-pop var(--animation-input, 0.25s) ease-out",
+          },
+        },
+        "input:checked~input,input[aria-checked="true"]~input": {
+          "apply": [
+            [
+              "bg-opacity-20",
+            ],
+          ],
+        },
+        "input:focus-visible": {
+          "apply": [
+            [
+              "transition-transform",
+              "duration-300",
+              "ease-out",
+            ],
+          ],
+          "css": {
+            "transform": "translateY(-0.125em)",
+          },
+        },
+        "input[type="radio"]:checked": {
+          "css": {
+            "background-image": "none",
+          },
+        },
+      },
+      ".rating-half": {
+        ":where(input:not(.rating-hidden))": {
+          "apply": [
+            [
+              "w-3",
+            ],
+          ],
+        },
+      },
+      "@keyframes rating-pop": {
+        "0%": {
+          "css": {
+            "transform": "translateY(-0.125em)",
+          },
+        },
+        "100%": {
+          "css": {
+            "transform": "translateY(0)",
+          },
+        },
+        "40%": {
+          "css": {
+            "transform": "translateY(-0.125em)",
+          },
+        },
+      },
+    },
+    "utils": {
+      ".rating-half": {
+        "&.rating-lg input:not(.rating-hidden)": {
+          "apply": [
+            [
+              "w-5",
+            ],
+          ],
+        },
+        "&.rating-md input:not(.rating-hidden)": {
+          "apply": [
+            [
+              "w-3",
+            ],
+          ],
+        },
+        "&.rating-sm input:not(.rating-hidden)": {
+          "apply": [
+            [
+              "w-2",
+            ],
+          ],
+        },
+        "&.rating-xs input:not(.rating-hidden)": {
+          "apply": [
+            [
+              "w-1.5",
+            ],
+          ],
+        },
+      },
+      ".rating-lg input": {
+        "apply": [
+          [
+            "h-10",
+            "w-10",
+          ],
+        ],
+      },
+      ".rating-md input": {
+        "apply": [
+          [
+            "h-6",
+            "w-6",
+          ],
+        ],
+      },
+      ".rating-sm input": {
+        "apply": [
+          [
+            "h-4",
+            "w-4",
+          ],
+        ],
+      },
+      ".rating-xs input": {
+        "apply": [
+          [
+            "h-3",
+            "w-3",
+          ],
+        ],
+      },
+    },
+  },
+  "selector": ".rating",
+}
+`;
+
 exports[`'select' options > raw snap 1`] = `
 {
   "defaults": {

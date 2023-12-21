@@ -1,0 +1,133 @@
+import CssTable from '../../components/CssTable'
+
+## 类名表格
+
+<CssTable name="dropdown" />
+
+## 样例和演示
+
+[前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/general-dropdown--docs)
+
+## Css 结构
+
+```json
+{
+"selector": ".dropdown",
+"defaults": {
+  "base": {
+    ".dropdown": {
+      "apply": [
+        "relative inline-block"
+      ]
+    },
+    ".dropdown>*:not(summary):focus": {
+      "apply": [
+        "outline-none"
+      ]
+    },
+    ".dropdown .dropdown-content": {
+      "apply": [
+        "absolute"
+      ]
+    },
+    ".dropdown:is(:not(details)) .dropdown-content": {
+      "apply": [
+        "invisible opacity-0"
+      ]
+    },
+    ".dropdown-end .dropdown-content": {
+      "apply": [
+        "end-0"
+      ]
+    },
+    ".dropdown-left .dropdown-content": {
+      "apply": [
+        "bottom-auto end-full top-0"
+      ]
+    },
+    ".dropdown-right .dropdown-content": {
+      "apply": [
+        "bottom-auto start-full top-0"
+      ]
+    },
+    ".dropdown-bottom .dropdown-content": {
+      "apply": [
+        "bottom-auto top-full"
+      ]
+    },
+    ".dropdown-top .dropdown-content": {
+      "apply": [
+        "bottom-full top-auto"
+      ]
+    },
+    ".dropdown-end.dropdown-right .dropdown-content": {
+      "apply": [
+        "bottom-0 top-auto"
+      ]
+    },
+    ".dropdown-end.dropdown-left .dropdown-content": {
+      "apply": [
+        "bottom-0 top-auto"
+      ]
+    },
+    ".dropdown.dropdown-open .dropdown-content,.dropdown:not(.dropdown-hover):focus .dropdown-content,.dropdown:focus-within .dropdown-content": {
+      "apply": [
+        "visible opacity-100"
+      ]
+    },
+    "@media (hover: hover)": {
+      ".dropdown.dropdown-hover:hover .dropdown-content": {
+        "apply": [
+          "visible opacity-100"
+        ]
+      }
+    },
+    ".dropdown:is(details) summary::-webkit-details-marker": {
+      "apply": [
+        "hidden"
+      ]
+    }
+  },
+  "styled": {
+    ".dropdown:is(:not(details)) .dropdown-content": {
+      "apply": [
+        "origin-top scale-95 transform transition duration-200 ease-out"
+      ]
+    },
+    ".dropdown-bottom .dropdown-content": {
+      "apply": [
+        "origin-top"
+      ]
+    },
+    ".dropdown-top .dropdown-content": {
+      "apply": [
+        "origin-bottom"
+      ]
+    },
+    ".dropdown-left .dropdown-content": {
+      "apply": [
+        "origin-right"
+      ]
+    },
+    ".dropdown-right .dropdown-content": {
+      "apply": [
+        "origin-left"
+      ]
+    },
+    ".dropdown.dropdown-open .dropdown-content,.dropdown:focus .dropdown-content,.dropdown:focus-within .dropdown-content": {
+      "apply": [
+        "scale-100"
+      ]
+    },
+    "@media (hover: hover)": {
+      ".dropdown.dropdown-hover:hover .dropdown-content": {
+        "apply": [
+          "scale-100"
+        ]
+      }
+    }
+  },
+  "utils": {}
+}
+}
+```

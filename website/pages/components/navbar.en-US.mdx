@@ -1,0 +1,60 @@
+import CssTable from '../../components/CssTable'
+
+## Class Table
+
+<CssTable name="navbar" />
+
+## Demo and Playground
+
+[Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/navigation-navbar--docs)
+
+## Css Schema
+
+```json
+{
+"selector": ".navbar",
+"defaults": {
+  "base": {
+    ".navbar": {
+      "apply": [
+        "flex items-center"
+      ]
+    },
+    ":where(.navbar>*)": {
+      "apply": [
+        "inline-flex items-center"
+      ]
+    },
+    ".navbar-start": {
+      "css": {
+        "width": "50%",
+        "justify-content": "flex-start"
+      }
+    },
+    ".navbar-center": {
+      "apply": [
+        "shrink-0"
+      ]
+    },
+    ".navbar-end": {
+      "css": {
+        "width": "50%",
+        "justify-content": "flex-end"
+      }
+    }
+  },
+  "styled": {
+    ".navbar": {
+      "css": {
+        "padding": "var(--navbar-padding, 0.5rem)",
+        "min-height": "4rem"
+      },
+      "apply": [
+        "w-full"
+      ]
+    }
+  },
+  "utils": {}
+}
+}
+```

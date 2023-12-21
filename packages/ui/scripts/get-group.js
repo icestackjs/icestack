@@ -7,11 +7,11 @@ const root = path.resolve(__dirname, '../../../')
 function main() {
   const result = {
     group: {
-      General: orderBy(['button', 'loading', 'mask']),
-      Layout: ['join', 'indicator', 'divider', 'stack'],
-      Navigation: orderBy(['link', 'steps', 'tab']),
-      'Data Entry': orderBy(['checkbox', 'input', 'radio', 'range', 'select', 'textarea', 'toggle']),
-      'Data Display': orderBy(['avatar', 'badge', 'chat', 'countdown', 'diff', 'table', 'kbd', 'collapse']),
+      General: orderBy(['button', 'dropdown', 'swap', 'loading', 'mask']),
+      Layout: ['join', 'indicator', 'divider', 'drawer', 'footer', 'hero', 'stack'],
+      Navigation: orderBy(['link', 'steps', 'tab', 'breadcrumbs', 'bottom-navigation', 'menu', 'navbar']),
+      'Data Entry': orderBy(['checkbox', 'input', 'radio', 'range', 'select', 'textarea', 'toggle', 'file-input', 'rating']),
+      'Data Display': orderBy(['avatar', 'badge', 'chat', 'countdown', 'diff', 'table', 'kbd', 'collapse', 'card', 'carousel', 'stat', 'timeline']),
       Feedback: orderBy(['alert', 'skeleton', 'tooltip', 'progress', 'radial-progress', 'toast']),
       Other: []
     },

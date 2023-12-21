@@ -1,0 +1,71 @@
+import CssTable from '../../components/CssTable'
+
+## 类名表格
+
+<CssTable name="footer" />
+
+## 样例和演示
+
+[前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-footer--docs)
+
+## Css 结构
+
+```json
+{
+"selector": ".footer",
+"defaults": {
+  "base": {
+    ".footer": {
+      "apply": [
+        "grid w-full grid-flow-row place-items-start"
+      ],
+      "&>*": {
+        "apply": [
+          "grid place-items-start"
+        ]
+      },
+      "&-center": {
+        "apply": [
+          "place-items-center text-center"
+        ],
+        "&>*": {
+          "apply": [
+            "place-items-center"
+          ]
+        }
+      }
+    },
+    "@media (min-width: 48rem)": {
+      ".footer": {
+        "css": {
+          "grid-auto-flow": "column"
+        }
+      },
+      ".footer-center": {
+        "css": {
+          "grid-auto-flow": "row dense"
+        }
+      }
+    }
+  },
+  "styled": {
+    ".footer": {
+      "apply": [
+        "gap-x-4 gap-y-10 text-sm"
+      ],
+      "&>*": {
+        "apply": [
+          "gap-2"
+        ]
+      },
+      "&-title": {
+        "apply": [
+          "mb-2 font-bold uppercase opacity-60"
+        ]
+      }
+    }
+  },
+  "utils": {}
+}
+}
+```

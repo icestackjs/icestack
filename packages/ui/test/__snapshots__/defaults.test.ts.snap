@@ -154,7 +154,7 @@ exports[`defaults > injectSchema 1`] = `
     "selector": ".range",
   },
   "rating": {
-    "schema": undefined,
+    "schema": [Function],
     "selector": ".rating",
   },
   "select": {

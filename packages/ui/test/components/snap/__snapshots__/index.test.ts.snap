@@ -2541,6 +2541,90 @@ exports[`'range' > utils 1`] = `
 }"
 `;
 
+exports[`'rating' > base 1`] = `
+".rating {
+  @apply relative inline-flex;
+}
+.rating :where(input) {
+  @apply cursor-pointer rounded-none;
+}"
+`;
+
+exports[`'rating' > styled 1`] = `
+".rating input {
+  @apply appearance-none;
+  -webkit-appearance: none;
+}
+.rating :where(input) {
+  animation: rating-pop var(--ice-animation-input, 0.25s) ease-out;
+  @apply bg-base-content h-6 w-6 bg-opacity-100;
+}
+.rating .rating-hidden {
+  @apply w-2 bg-transparent;
+}
+.rating input[type=radio]:checked {
+  background-image: none;
+}
+.rating input:checked ~ input, .rating input[aria-checked=true] ~ input {
+  @apply bg-opacity-20;
+}
+.rating input:focus-visible {
+  @apply transition-transform duration-300 ease-out;
+  transform: translateY(-0.125em);
+}
+.rating input:active:focus {
+  animation: none;
+  transform: translateY(-0.125em);
+}
+
+.rating-half :where(input:not(.rating-hidden)) {
+  @apply w-3;
+}
+
+@keyframes rating-pop {
+  0% {
+    transform: translateY(-0.125em);
+  }
+  40% {
+    transform: translateY(-0.125em);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}"
+`;
+
+exports[`'rating' > utils 1`] = `
+".rating-xs input {
+  @apply h-3 w-3;
+}
+
+.rating-sm input {
+  @apply h-4 w-4;
+}
+
+.rating-md input {
+  @apply h-6 w-6;
+}
+
+.rating-lg input {
+  @apply h-10 w-10;
+}
+
+.rating-half.rating-xs input:not(.rating-hidden) {
+  @apply w-1.5;
+}
+.rating-half.rating-sm input:not(.rating-hidden) {
+  @apply w-2;
+}
+.rating-half.rating-md input:not(.rating-hidden) {
+  @apply w-3;
+}
+.rating-half.rating-lg input:not(.rating-hidden) {
+  @apply w-5;
+}"
+`;
+
 exports[`'select' > base 1`] = `
 ".select {
   @apply inline-flex cursor-pointer select-none appearance-none min-h-8 h-8 pl-3 pr-8 text-sm leading-8;
@@ -4049,11 +4133,6 @@ exports[`bug fixed > custom component case 0 1`] = `
 
 exports[`bug fixed > custom component case 1 1`] = `
 {
-  "rating": {
-    "base": {},
-    "styled": {},
-    "utils": {},
-  },
   "subtitle": {
     "base": {},
     "styled": {},
@@ -4113,21 +4192,11 @@ exports[`bug fixed > custom component case 2 1`] = `
     "styled": {},
     "utils": {},
   },
-  "rating": {
-    "base": {},
-    "styled": {},
-    "utils": {},
-  },
 }
 `;
 
 exports[`bug fixed > custom component case 3 1`] = `
 {
-  "rating": {
-    "base": {},
-    "styled": {},
-    "utils": {},
-  },
   "xxx": {
     "base": {},
     "styled": {},
@@ -4146,11 +4215,6 @@ exports[`bug fixed > custom component case 3 1`] = `
 
 exports[`bug fixed > custom component case 4 !important 1`] = `
 {
-  "rating": {
-    "base": {},
-    "styled": {},
-    "utils": {},
-  },
   "xxx": {
     "base": {},
     "styled": {},
@@ -4169,11 +4233,6 @@ exports[`bug fixed > custom component case 4 !important 1`] = `
 
 exports[`bug fixed > custom component case 5 !important 1`] = `
 {
-  "rating": {
-    "base": {},
-    "styled": {},
-    "utils": {},
-  },
   "xxx": {
     "base": {},
     "styled": {},
@@ -4192,11 +4251,6 @@ exports[`bug fixed > custom component case 5 !important 1`] = `
 
 exports[`bug fixed > custom component case 6 1`] = `
 {
-  "rating": {
-    "base": {},
-    "styled": {},
-    "utils": {},
-  },
   "xxx": {
     "base": {},
     "styled": {},

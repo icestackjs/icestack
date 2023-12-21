@@ -1,0 +1,174 @@
+import CssTable from '../../components/CssTable'
+
+## Class Table
+
+<CssTable name="drawer" />
+
+## Demo and Playground
+
+[Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-drawer--docs)
+
+## Css Schema
+
+```json
+{
+"selector": ".drawer",
+"defaults": {
+  "base": {
+    ".drawer": {
+      "apply": [
+        "relative grid"
+      ],
+      "css": {
+        "grid-auto-columns": "max-content auto"
+      },
+      "&-content": {
+        "apply": [
+          "col-start-2 row-start-1 min-w-0"
+        ]
+      },
+      "&-side": {
+        "apply": [
+          "pointer-events-none fixed start-0 top-0 col-start-1 row-start-1 grid w-full grid-cols-1 grid-rows-1 items-start justify-items-start overflow-y-auto overscroll-contain"
+        ],
+        "css": {
+          "height": "100dvh"
+        },
+        "&>.drawer-overlay": {
+          "apply": [
+            "sticky top-0 place-self-stretch"
+          ]
+        },
+        "&>*": {
+          "apply": [
+            "col-start-1 row-start-1"
+          ]
+        },
+        "&>*:not(.drawer-overlay)": {
+          "apply": [
+            "transition-transform duration-300 ease-out will-change-transform"
+          ],
+          "css": {
+            "transform": "translateX(-100%)"
+          },
+          "[dir=\"rtl\"] &": {
+            "css": {
+              "transform": "translateX(100%)"
+            }
+          }
+        }
+      },
+      "&-toggle": {
+        "apply": [
+          "fixed h-0 w-0 appearance-none opacity-0"
+        ],
+        "&:checked": {
+          "&~.drawer-side": {
+            "apply": [
+              "pointer-events-auto visible"
+            ],
+            "&>*:not(.drawer-overlay)": {
+              "css": {
+                "transform": "translateX(0%)"
+              }
+            }
+          }
+        }
+      },
+      "&-end": {
+        "css": {
+          "grid-auto-columns": "auto max-content"
+        },
+        ".drawer-toggle": {
+          "&~.drawer-content": {
+            "apply": [
+              "col-start-1"
+            ]
+          },
+          "&~.drawer-side": {
+            "apply": [
+              "col-start-2 justify-items-end"
+            ]
+          },
+          "&~.drawer-side>*:not(.drawer-overlay)": {
+            "css": {
+              "transform": "translateX(100%)"
+            },
+            "[dir=\"rtl\"] &": {
+              "css": {
+                "transform": "translateX(-100%)"
+              }
+            }
+          },
+          "&:checked~.drawer-side>*:not(.drawer-overlay)": {
+            "css": {
+              "transform": "translateX(0%)"
+            }
+          }
+        }
+      }
+    }
+  },
+  "styled": {
+    ".drawer": {
+      "css": {
+        "width": "100%"
+      },
+      "&-side": {
+        "&>.drawer-overlay": {
+          "apply": [
+            "cursor-pointer bg-transparent transition-colors duration-200 ease-out"
+          ]
+        }
+      },
+      "&-toggle": {
+        "&:checked~.drawer-side": {
+          "&>.drawer-overlay": {
+            "css": {
+              "background-color": "#0006"
+            }
+          }
+        },
+        "&:focus-visible~.drawer-content label.drawer-button": {
+          "apply": [
+            "outline outline-2 outline-offset-2"
+          ]
+        }
+      }
+    }
+  },
+  "utils": {
+    ".drawer-open>.drawer-toggle": {
+      "apply": [
+        "hidden"
+      ],
+      "&~.drawer-side": {
+        "apply": [
+          "pointer-events-auto visible sticky block w-auto overscroll-auto"
+        ],
+        "&>*:not(.drawer-overlay)": {
+          "css": {
+            "transform": "translateX(0%)"
+          },
+          "[dir=\"rtl\"] &": {
+            "css": {
+              "transform": "translateX(0%)"
+            }
+          }
+        },
+        "&>.drawer-overlay": {
+          "apply": [
+            "cursor-default bg-transparent"
+          ]
+        }
+      },
+      "&:checked~.drawer-side": {
+        "apply": [
+          "pointer-events-auto visible"
+        ]
+      }
+    }
+  }
+}
+}
+```

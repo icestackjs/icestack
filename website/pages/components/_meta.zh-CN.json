@@ -5,8 +5,10 @@
     "title": "通用"
   },
   "button": "Button 按钮",
+  "dropdown": "Dropdown ",
   "loading": "Loading 加载动画",
   "mask": "Mask 遮罩",
+  "swap": "Swap ",
   "-- Layout": {
     "type": "separator",
     "title": "布局"
@@ -14,12 +16,19 @@
   "join": "Join 分组容器",
   "indicator": "Indicator 标识",
   "divider": "Divider 分隔线",
+  "drawer": "Drawer ",
+  "footer": "Footer ",
+  "hero": "Hero ",
   "stack": "Stack 堆叠",
   "-- Navigation": {
     "type": "separator",
     "title": "导航"
   },
+  "bottom-navigation": "Bottom-navigation ",
+  "breadcrumbs": "Breadcrumbs ",
   "link": "Link 链接",
+  "menu": "Menu ",
+  "navbar": "Navbar ",
   "steps": "Steps 步骤条",
   "tab": "Tab 选项卡",
   "-- Data Entry": {
@@ -27,9 +36,11 @@
     "title": "数据录入"
   },
   "checkbox": "Checkbox 多选框",
+  "file-input": "File-input ",
   "input": "Input 输入框",
   "radio": "Radio 单选框",
   "range": "Range 滑块",
+  "rating": "Rating ",
   "select": "Select 选择器",
   "textarea": "Textarea 多行文本框",
   "toggle": "Toggle 开关",
@@ -39,12 +50,16 @@
   },
   "avatar": "Avatar 头像",
   "badge": "Badge 徽章",
+  "card": "Card ",
+  "carousel": "Carousel ",
   "chat": "Chat 聊天气泡",
   "collapse": "Collapse 折叠面板",
   "countdown": "Countdown 计数",
   "diff": "Diff 差异",
   "kbd": "Kbd 键盘按键",
+  "stat": "Stat ",
   "table": "Table 表格",
+  "timeline": "Timeline ",
   "-- Feedback": {
     "type": "separator",
     "title": "反馈"

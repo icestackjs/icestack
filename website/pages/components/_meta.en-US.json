@@ -5,8 +5,10 @@
     "title": "General"
   },
   "button": "Button",
+  "dropdown": "Dropdown",
   "loading": "Loading",
   "mask": "Mask",
+  "swap": "Swap",
   "-- Layout": {
     "type": "separator",
     "title": "Layout"
@@ -14,12 +16,19 @@
   "join": "Join",
   "indicator": "Indicator",
   "divider": "Divider",
+  "drawer": "Drawer",
+  "footer": "Footer",
+  "hero": "Hero",
   "stack": "Stack",
   "-- Navigation": {
     "type": "separator",
     "title": "Navigation"
   },
+  "bottom-navigation": "Bottom-navigation",
+  "breadcrumbs": "Breadcrumbs",
   "link": "Link",
+  "menu": "Menu",
+  "navbar": "Navbar",
   "steps": "Steps",
   "tab": "Tab",
   "-- Data Entry": {
@@ -27,9 +36,11 @@
     "title": "Data Entry"
   },
   "checkbox": "Checkbox",
+  "file-input": "File-input",
   "input": "Input",
   "radio": "Radio",
   "range": "Range",
+  "rating": "Rating",
   "select": "Select",
   "textarea": "Textarea",
   "toggle": "Toggle",
@@ -39,12 +50,16 @@
   },
   "avatar": "Avatar",
   "badge": "Badge",
+  "card": "Card",
+  "carousel": "Carousel",
   "chat": "Chat",
   "collapse": "Collapse",
   "countdown": "Countdown",
   "diff": "Diff",
   "kbd": "Kbd",
+  "stat": "Stat",
   "table": "Table",
+  "timeline": "Timeline",
   "-- Feedback": {
     "type": "separator",
     "title": "Feedback"

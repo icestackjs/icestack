@@ -2,25 +2,36 @@ module.exports = {
   "group": {
     "General": [
       "button",
+      "dropdown",
       "loading",
-      "mask"
+      "mask",
+      "swap"
     ],
     "Layout": [
       "join",
       "indicator",
       "divider",
+      "drawer",
+      "footer",
+      "hero",
       "stack"
     ],
     "Navigation": [
+      "bottom-navigation",
+      "breadcrumbs",
       "link",
+      "menu",
+      "navbar",
       "steps",
       "tab"
     ],
     "Data Entry": [
       "checkbox",
+      "file-input",
       "input",
       "radio",
       "range",
+      "rating",
       "select",
       "textarea",
       "toggle"
@@ -28,12 +39,16 @@ module.exports = {
     "Data Display": [
       "avatar",
       "badge",
+      "card",
+      "carousel",
       "chat",
       "collapse",
       "countdown",
       "diff",
       "kbd",
-      "table"
+      "stat",
+      "table",
+      "timeline"
     ],
     "Feedback": [
       "alert",

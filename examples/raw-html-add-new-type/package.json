@@ -5,6 +5,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "watch:ui": "icestack watch",
     "build:ui": "icestack build"
   },
   "keywords": [],

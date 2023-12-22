@@ -10,9 +10,24 @@
   <link rel="stylesheet" href="./my-ui/css-resolved/components/button/base.css">
   <link rel="stylesheet" href="./my-ui/css-resolved/components/button/styled.css">
   <link rel="stylesheet" href="./my-ui/css-resolved/components/button/utils.css">
+  <style>
+    :root {
+      --tw-bg-opacity: 1;
+      background-color: rgba(var(--ice-base-100) / var(--tw-bg-opacity));
+      --tw-text-opacity: 1;
+      color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
+    }
+  </style>
 </head>
 
 <body>
+  <!-- ["light", "dark", "cupcake", "nord", "dracula", "dim"] -->
+  <button class="btn" onclick="toggleTheme('light')">light</button>
+  <button class="btn" onclick="toggleTheme('dark')">dark</button>
+  <button class="btn" onclick="toggleTheme('cupcake')">cupcake</button>
+  <button class="btn" onclick="toggleTheme('nord')">nord</button>
+  <button class="btn" onclick="toggleTheme('dracula')">dracula</button>
+  <button class="btn" onclick="toggleTheme('dim')">dim</button>
   <div>
     <h2>Button</h2>
     <button class="btn">Button</button>
@@ -33,7 +48,18 @@
     <button class="btn btn-sm">Small</button>
     <button class="btn btn-xs">Tiny</button>
   </div>
+  <script>
+    function toggleTheme(mode) {
+      const html = document.documentElement
+      console.log()
+      if (!html.getAttribute('data-mode')) {
+        html.setAttribute('data-mode', mode)
+      } else {
+        html.removeAttribute('data-mode')
+      }
+    }
 
+  </script>
 </body>
 
 </html>

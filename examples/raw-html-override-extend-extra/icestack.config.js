@@ -8,7 +8,7 @@ const config = {
       override: ({ selector, types }) => {
         return {
           selector,
-          base: {}
+          utils: {}
         }
       }
     }

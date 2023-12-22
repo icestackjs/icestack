@@ -1,15 +1,15 @@
-const customThemes = require('./themes.js')
+const customThemes = require("./themes.js");
 
 /**
  * @type {import('@icestack/ui').Config}
  */
 const config = {
-  outdir: './my-ui',
+  outdir: "./my-ui",
   base: {
     themes: {
-      ...customThemes
-    }
-  }
-}
+      ...customThemes,
+    },
+  },
+};
 
-module.exports = config
+module.exports = config;

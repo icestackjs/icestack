@@ -1,17 +1,17 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   devtools: { enabled: true },
-  css: ['~/assets/scss/main.scss'],
+  css: ["~/assets/scss/main.scss"],
   postcss: {
     plugins: {
       tailwindcss: {},
-      autoprefixer: {}
-    }
+      autoprefixer: {},
+    },
   },
-  modules: ['@nuxt/content', '@nuxtjs/color-mode'], //, '@nuxtjs/i18n'], //
+  modules: ["@nuxt/content", "@nuxtjs/color-mode"], //, '@nuxtjs/i18n'], //
   content: {},
   colorMode: {
     // classSuffix: '',
-    dataValue: 'mode'
-  }
-})
+    dataValue: "mode",
+  },
+});

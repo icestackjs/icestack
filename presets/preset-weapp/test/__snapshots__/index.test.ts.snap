@@ -152,7 +152,7 @@ exports[`presets > default preset 1`] = `
       "selector": ".breadcrumbs",
     },
     "button": {
-      "extra": [Function],
+      "extra": {},
       "schema": [Function],
       "selector": ".btn",
     },
@@ -179,7 +179,7 @@ exports[`presets > default preset 1`] = `
       "selector": ".collapse",
     },
     "countdown": {
-      "extra": [Function],
+      "extra": {},
       "schema": [Function],
       "selector": ".countdown",
       "varPrefix": {
@@ -221,7 +221,7 @@ exports[`presets > default preset 1`] = `
       "selector": ".indicator",
     },
     "input": {
-      "extra": [Function],
+      "extra": {},
       "schema": [Function],
       "selector": ".input",
     },
@@ -313,7 +313,7 @@ exports[`presets > default preset 1`] = `
       "selector": ".table",
     },
     "textarea": {
-      "extra": [Function],
+      "extra": {},
       "schema": [Function],
       "selector": ".textarea",
     },
@@ -361,7 +361,9 @@ exports[`presets > default preset 1`] = `
       },
       "components": {
         "button": {
-          "extra": [Function],
+          "extra": [
+            [Function],
+          ],
         },
         "card": false,
         "checkbox": {
@@ -376,12 +378,16 @@ exports[`presets > default preset 1`] = `
           "schema": [Function],
         },
         "countdown": {
-          "extra": [Function],
+          "extra": [
+            [Function],
+          ],
         },
         "diff": false,
         "drawer": false,
         "input": {
-          "extra": [Function],
+          "extra": [
+            [Function],
+          ],
         },
         "join": {
           "schema": [Function],
@@ -414,7 +420,9 @@ exports[`presets > default preset 1`] = `
           "schema": [Function],
         },
         "textarea": {
-          "extra": [Function],
+          "extra": [
+            [Function],
+          ],
         },
         "timeline": false,
         "toggle": {
@@ -1384,9 +1392,6 @@ exports[`presets > default preset all css 1`] = `
       },
     },
     "utils": {
-      ".btn": {
-        "borderStyle": "solid",
-      },
       ".btn-block": {
         "width": "100%",
       },
@@ -1475,9 +1480,6 @@ exports[`presets > default preset all css 1`] = `
         "minHeight": "1.5rem",
         "paddingLeft": "0.5rem",
         "paddingRight": "0.5rem",
-      },
-      ".btn::after": {
-        "border": "none",
       },
     },
   },
@@ -1859,11 +1861,7 @@ exports[`presets > default preset all css 1`] = `
         "transition": "all 1s cubic-bezier(1, 0, 0, 1)",
       },
     },
-    "utils": {
-      ".countdown>view": {
-        "lineHeight": "1em",
-      },
-    },
+    "utils": {},
   },
   "divider": {
     "base": {
@@ -2604,9 +2602,6 @@ exports[`presets > default preset all css 1`] = `
       },
     },
     "utils": {
-      ".input": {
-        "borderStyle": "solid",
-      },
       ".input-lg": {
         "fontSize": "1.125rem",
         "height": "4rem",
@@ -4183,9 +4178,6 @@ exports[`presets > default preset all css 1`] = `
       },
     },
     "utils": {
-      ".textarea": {
-        "borderStyle": "solid",
-      },
       ".textarea-lg": {
         "fontSize": "1.125rem",
         "lineHeight": [

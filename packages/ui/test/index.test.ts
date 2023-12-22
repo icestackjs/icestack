@@ -1,5 +1,5 @@
-import merge from 'merge'
 import { getCss } from './utils'
+import { mergeRClone } from '@/shared'
 
 describe('main', () => {
   it('default', async () => {
@@ -44,7 +44,7 @@ describe('main', () => {
   })
 
   it('merge case 0', () => {
-    const obj = merge.recursive(true, undefined, { a: 1 }, undefined)
+    const obj = mergeRClone(undefined, { a: 1 }, undefined)
     expect(obj).toEqual({ a: 1 })
   })
 })

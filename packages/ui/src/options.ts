@@ -1,9 +1,8 @@
 import { loadConfig } from 'c12'
 import { flattenDeep, get, set, isObject } from 'lodash'
-import merge from 'merge'
 import { getCodegenDefaults } from './defaults'
 import type { CodegenOptions, DeepPartial, Preset } from '@/types'
-import { defuOptions } from '@/shared'
+import { defuOptions, mergeRClone } from '@/shared'
 import { makeExtraCssArray } from '@/utils'
 
 export function preHandleOptions(options?: DeepPartial<CodegenOptions>): DeepPartial<CodegenOptions> {
@@ -58,7 +57,7 @@ export function postHandleOptions(options: DeepPartial<CodegenOptions>): Codegen
         const p = `base.themes.${theme}.extraCss`
         const v = get(options, p)
         if (Array.isArray(v)) {
-          set(options, p, merge.recursive(true, ...v))
+          set(options, p, mergeRClone(...v))
         }
       }
     }
@@ -68,14 +67,14 @@ export function postHandleOptions(options: DeepPartial<CodegenOptions>): Codegen
     const p = `base.extraCss`
     const v = get(options, p)
     if (Array.isArray(v)) {
-      set(options, p, merge.recursive(true, ...v))
+      set(options, p, mergeRClone(...v))
     }
   }
   if (isObject(options?.utilities) && options.utilities.extraCss && options.utilities.extraCss) {
     const p = `utilities.extraCss`
     const v = get(options, p)
     if (Array.isArray(v)) {
-      set(options, p, merge.recursive(true, ...v))
+      set(options, p, mergeRClone(...v))
     }
   }
 
@@ -86,7 +85,7 @@ export function postHandleOptions(options: DeepPartial<CodegenOptions>): Codegen
           const p = `components.${componentName}.override.${k}`
           const v = get(options, p)
           if (Array.isArray(v)) {
-            set(options, p, merge.recursive(true, ...v))
+            set(options, p, mergeRClone(...v))
           }
         }
       }
@@ -95,7 +94,7 @@ export function postHandleOptions(options: DeepPartial<CodegenOptions>): Codegen
           const p = `components.${componentName}.extend.${k}`
           const v = get(options, p)
           if (Array.isArray(v)) {
-            set(options, p, merge.recursive(true, ...v))
+            set(options, p, mergeRClone(...v))
           }
         }
       }
@@ -104,7 +103,7 @@ export function postHandleOptions(options: DeepPartial<CodegenOptions>): Codegen
         const p = `components.${componentName}.extra`
         const v = get(options, p)
         if (Array.isArray(v)) {
-          set(options, p, merge.recursive(true, ...v))
+          set(options, p, mergeRClone(...v))
         }
       }
 
@@ -112,7 +111,7 @@ export function postHandleOptions(options: DeepPartial<CodegenOptions>): Codegen
         const p = `components.${componentName}.baseDefault`
         const v = get(options, p)
         if (Array.isArray(v)) {
-          set(options, p, merge.recursive(true, ...v))
+          set(options, p, mergeRClone(...v))
         }
       }
     }

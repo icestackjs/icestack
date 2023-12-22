@@ -1,14 +1,13 @@
-import merge from 'merge'
 import glass from './glass'
 import variables from './variables'
 import type { CssInJs } from '@/types'
-import { preprocessCssInJs } from '@/shared'
+import { preprocessCssInJs, mergeRClone } from '@/shared'
 import { makeExtraCssArray } from '@/utils'
 const _utilitiesMap = {
   glass,
   variables,
   custom: (value: any) => {
-    return merge.recursive(true, ...makeExtraCssArray(value))
+    return mergeRClone(...makeExtraCssArray(value))
   }
 } as unknown as Record<string, () => CssInJs>
 

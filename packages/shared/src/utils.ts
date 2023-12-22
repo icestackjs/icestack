@@ -1,7 +1,7 @@
 import { isObject, set, get } from 'lodash'
 import postcss from 'postcss'
 import selectorParser from 'postcss-selector-parser'
-
+import merge from 'merge'
 import { createDefu } from 'defu'
 
 const defuOverrideArray = createDefu((obj, key, value) => {
@@ -133,6 +133,14 @@ export function transformCss2Js(css: string) {
   const root = postcss.parse(css)
   const result = recursiveNodes(root.nodes)
   return result
+}
+
+export function mergeR(...items: any[]) {
+  return merge.recursive(...items)
+}
+
+export function mergeRClone(...items: any[]) {
+  return merge.recursive(true, ...items)
 }
 
 export { default as defu } from 'defu'

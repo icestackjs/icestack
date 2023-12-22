@@ -1,8 +1,8 @@
 import { TinyColor } from '@ctrl/tinycolor'
-import merge from 'merge'
 import { generateColorVars, makeRgbaValue, sharedExtraColors, sharedExtraVars } from './colors'
 import { CodegenOptions } from '@/types'
 import { makeExtraCssArray } from '@/utils'
+import { mergeR, mergeRClone } from '@/shared'
 
 export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, shareVars1: Record<string, string>) => {
   return Object.entries({
@@ -63,7 +63,7 @@ export const calcBase = (options: CodegenOptions) => {
         }
       }, {})
       acc[selector] = {
-        css: merge.recursive(true, composeVarsObject(typesColors, extraColors ?? sharedExtraColors.light, extraVars ?? sharedExtraVars), ...makeExtraCssArray(extraCss))
+        css: mergeRClone(composeVarsObject(typesColors, extraColors ?? sharedExtraColors.light, extraVars ?? sharedExtraVars), ...makeExtraCssArray(extraCss))
       }
     }
 
@@ -77,7 +77,7 @@ export const calcBase = (options: CodegenOptions) => {
     return acc
   }, {})
   if (globalExtraCss) {
-    merge.recursive(presets, ...makeExtraCssArray(globalExtraCss))
+    mergeR(presets, ...makeExtraCssArray(globalExtraCss))
   }
 
   return {

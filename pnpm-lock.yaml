@@ -298,6 +298,9 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      merge:
+        specifier: ^2.1.1
+        version: 2.1.1
       postcss:
         specifier: ^8.4.31
         version: 8.4.32
@@ -14362,7 +14365,6 @@ packages:
 
   /merge@2.1.1:
     resolution: {integrity: sha512-jz+Cfrg9GWOZbQAnDQ4hlVnQky+341Yk5ru8bZSe6sIDTCIg8n9i/u7hSQGSVOF3C7lH6mGtqjkiT9G4wFLL0w==}
-    dev: true
 
   /mermaid@10.5.0:
     resolution: {integrity: sha512-9l0o1uUod78D3/FVYPGSsgV+Z0tSnzLBDiC9rVzvelPxuO80HbN1oDr9ofpPETQy9XpypPQa26fr09VzEPfvWA==}

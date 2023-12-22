@@ -4,14 +4,7 @@
 const config = {
   outdir: './my-ui',
   components: {
-    button: {
-      override: ({ selector, types }) => {
-        return {
-          selector,
-          utils: {}
-        }
-      }
-    }
+    button: {}
   }
 }
 

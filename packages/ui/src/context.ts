@@ -6,13 +6,13 @@ import type { Value } from 'sass'
 import type { Root, AcceptedPlugin } from 'postcss'
 import cliProgress from 'cli-progress'
 import kleur from 'kleur'
-import type { CodegenOptions, DeepPartial, ILayer, CssInJs } from './types'
 import { generateIndexCode } from './js'
 import { transformJsToSass } from './sass'
 import { createDefaultTailwindcssExtends } from './defaults'
 import { logger } from './log'
 import { cmdClear } from './utils'
-import { defu, CreatePresetOptions } from '@/shared'
+import type { CodegenOptions, DeepPartial, ILayer, CssInJs, CreatePresetOptions } from '@/types'
+import { defu } from '@/shared'
 import { getCodegenOptions } from '@/options'
 import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, scssTemplate } from '@/dirs'
 import { stages } from '@/constants'
@@ -245,7 +245,9 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
       fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.cjs'), code, 'utf8')
     }
     b1.stop()
-    cmdClear()
+    try {
+      cmdClear()
+    } catch {}
 
     return res
   }

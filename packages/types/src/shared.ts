@@ -1,3 +1,7 @@
+import type { CssInJs } from 'postcss-js'
+
+export type CssValue = string | CssInJs | (CssInJs | string)[]
+
 export interface CreatePresetOptions {
   types: string[]
 }
@@ -24,6 +28,8 @@ export type ISchema = {
   defaults: IDefaults
 }
 
-export type SchemaFnOptions = CreatePresetOptions & { selector: string; params: Record<string, any> }
+export type SchemaFnOptions = CreatePresetOptions & { selector: string; params: Record<string, any>; baseDefault: CssValue }
 
 export type GetSchemaFn = (opts: SchemaFnOptions) => ISchema
+
+export { type CssInJs } from 'postcss-js'

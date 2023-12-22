@@ -42,6 +42,9 @@ export function preHandleOptions(options?: DeepPartial<CodegenOptions>): DeepPar
       if (opts && opts.extra) {
         set(options, `components.${componentName}.extra`, makeExtraCssArray(opts.extra))
       }
+      if (opts && opts.baseDefault) {
+        set(options, `components.${componentName}.default`, makeExtraCssArray(opts.baseDefault))
+      }
     }
   }
 
@@ -99,6 +102,14 @@ export function postHandleOptions(options: DeepPartial<CodegenOptions>): Codegen
 
       if (opts && opts.extra) {
         const p = `components.${componentName}.extra`
+        const v = get(options, p)
+        if (Array.isArray(v)) {
+          set(options, p, merge.recursive(true, ...v))
+        }
+      }
+
+      if (opts && opts.baseDefault) {
+        const p = `components.${componentName}.baseDefault`
         const v = get(options, p)
         if (Array.isArray(v)) {
           set(options, p, merge.recursive(true, ...v))

@@ -1,4 +1,3 @@
-import { GetSchemaFn, preprocessCssInJs } from '@/shared'
 import collapse from './collapse'
 import join from './join'
 import indicator from './indicator'
@@ -46,6 +45,8 @@ import navbar from './navbar'
 import fileInput from './file-input'
 import hero from './hero'
 import rating from './rating'
+import { preprocessCssInJs } from '@/shared'
+import type { GetSchemaFn } from '@/types'
 const schemaMap = {
   alert,
   avatar,
@@ -121,5 +122,3 @@ const removeDefaultComponents = componentNames.reduce<Record<string, false>>((ac
 export { componentNames as names, schemaMap, resolvedSchemaMap, removeDefaultComponents }
 
 export { expandTypes, getSelector, compressCssSelector, preprocessCssInJs, transformCss2Js } from '@/shared'
-
-export type { GetSchemaFn } from '@/shared'

@@ -1,13 +1,11 @@
 import type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
-import type { CssInJs } from 'postcss-js'
-import type { GetSchemaFn, SchemaFnOptions } from './shared'
+
+import type { GetSchemaFn, SchemaFnOptions, CssValue } from './shared'
 import type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 
-export type { CreatePresetOptions, GetSchemaFn, IDefaults, ISchema, IValue, SchemaFnOptions } from './shared'
+export type { CreatePresetOptions, GetSchemaFn, IDefaults, ISchema, IValue, SchemaFnOptions, CssValue, CssInJs } from './shared'
 export type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 export type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
-
-export type CssValue = string | CssInJs | (CssInJs | string)[]
 
 export type BaseOptions = {
   themes: Record<
@@ -37,7 +35,8 @@ export type ComponentsValue = {
   mode: CodegenMode
   override: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
   extend: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
-  extra: CssValue | ((opts: SchemaFnOptions) => CssInJs)
+  extra: CssValue | ((opts: SchemaFnOptions) => CssValue)
+  baseDefault: CssValue
   selector: string
   schema: GetSchemaFn
   disabled: boolean
@@ -145,7 +144,5 @@ export type DeepPartial<T> = {
 export type DeepRequired<T> = Required<{
   [K in keyof T]: T[K] extends Required<T[K]> ? T[K] : DeepRequired<T[K]>
 }>
-
-export { type CssInJs } from 'postcss-js'
 
 export type ILayer = 'base' | 'utilities' | 'components'

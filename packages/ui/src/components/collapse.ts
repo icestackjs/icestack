@@ -1,6 +1,6 @@
 import { transformCss2Js } from '@/shared'
-import type { GetSchemaFn } from '@/shared'
 
+import type { GetSchemaFn } from '@/types'
 const schema: GetSchemaFn = (opts) => {
   const { selector } = opts
   return {

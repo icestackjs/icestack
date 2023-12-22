@@ -1,5 +1,5 @@
-import { GetSchemaFn, getSelector, IValue, expandTypes } from '@/shared'
-
+import { getSelector, expandTypes } from '@/shared'
+import type { GetSchemaFn, IValue } from '@/types'
 const schema: GetSchemaFn = (opts) => {
   const { selector, types } = opts
 

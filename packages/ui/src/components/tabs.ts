@@ -1,5 +1,5 @@
-import { GetSchemaFn, transformCss2Js } from '@/shared'
-
+import { transformCss2Js } from '@/shared'
+import type { GetSchemaFn } from '@/types'
 /**
  * @deprecated
  * @param opts

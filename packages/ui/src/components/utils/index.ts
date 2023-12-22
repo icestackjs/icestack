@@ -52,11 +52,12 @@ export function handleFn<T extends string | Record<string, any> | ((...args: any
   return input
 }
 
-export function handleOptions({ extend, override, selector, extra, mode, schema, params }: ComponentsValue, { types }: CreatePresetOptions) {
+export function handleOptions({ extend, override, selector, extra, mode, schema, params, baseDefault }: ComponentsValue, { types }: CreatePresetOptions) {
   const opts: SchemaFnOptions = {
     types,
     selector,
-    params
+    params,
+    baseDefault
   }
   const d: ISchema | undefined = schema?.(opts)
   let de: Partial<ISchema> = d ?? {}

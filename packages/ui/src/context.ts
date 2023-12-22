@@ -25,7 +25,7 @@ function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
 
 export function createContext(opts?: DeepPartial<CodegenOptions>) {
   const options = getCodegenOptions(opts)
-  const { outdir, dryRun, prefix: _globalPrefix, varPrefix: _globalVarPrefix, mode: globalMode, components, log, tailwindcssConfig } = options
+  const { outdir, dryRun, prefix: _globalPrefix, varPrefix: _globalVarPrefix, mode: globalMode, components, log, tailwindcssConfig, utilities } = options
   const globalPrefix = resolvePrefixOption(_globalPrefix)
   const globalVarPrefix = resolveVarPrefixOption(_globalVarPrefix)
   logger.logFlag = log
@@ -103,10 +103,10 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
               break
             }
             case 'utilities': {
-              const { options } = get(utilitiesMap, suffix, {
-                options: () => {}
-              })
-              res = options?.()
+              const fn = get(utilitiesMap, suffix, () => {})
+              // @ts-ignore
+              res = suffix === 'custom' ? fn?.(utilities?.extraCss) : fn?.()
+
               break
             }
             default:

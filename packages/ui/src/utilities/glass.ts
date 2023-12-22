@@ -1,6 +1,6 @@
 import { transformCss2Js } from '@/components/shared'
 
-export const options = () => {
+export default () => {
   return transformCss2Js(`.glass {
     border: none;
     backdrop-filter: blur(var(--glass-blur, 40px));

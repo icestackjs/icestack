@@ -18,6 +18,32 @@ describe('utilities', () => {
     const { css } = await ctx.compileScss('utilities.variables')
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
+
+  it('custom snap', async () => {
+    const ctx = createContext(getCodegenOptions())
+    const { css } = await ctx.compileScss('utilities.custom')
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+  })
+
+  it('custom snap case 0', async () => {
+    const ctx = createContext({
+      utilities: {
+        extraCss: [
+          `.dsdsdsdsd{color:red;}`,
+          {
+            '.vvvv': {
+              apply: ['bg-blue-500'],
+              css: {
+                color: 'blue'
+              }
+            }
+          }
+        ]
+      }
+    })
+    const { css } = await ctx.compileScss('utilities.custom')
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+  })
 })
 
 // describe('for debugger', () => {

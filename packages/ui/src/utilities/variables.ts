@@ -1,6 +1,6 @@
 import { transformCss2Js } from '@/components/shared'
 
-export const options = () => {
+export default () => {
   return transformCss2Js(`.no-animation {
     --animation-btn: 0s;
     --animation-input: 0s;

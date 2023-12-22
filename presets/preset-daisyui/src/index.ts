@@ -6,6 +6,9 @@ import colorObject from 'daisyui/src/theming/index'
 // @ts-ignore
 import utilityClasses from 'daisyui/src/lib/utility-classes'
 import { transformCss2Js } from '@icestack/shared'
+import { trimStart } from 'lodash'
+import themes from './themes'
+import colorFunctions from './functions'
 import type { Config } from './types'
 import { schemaMap } from './components'
 import { colors, general } from './base'
@@ -15,14 +18,26 @@ const daisyui: (config?: Config) => DeepPartial<CodegenOptions> = (config = {}) 
   if (config.base !== false) {
     extraCss.push(transformCss2Js([colors, general].join('\n')))
   }
-
+  const themeInjector = colorFunctions.injectThemes(config, themes)
+  console.log(themeInjector.includedThemesObj)
   return {
     prefix: {
       prefix: config.prefix,
       ignore: []
     },
     base: {
-      extraCss
+      extraCss,
+      themes: {
+        ...Object.entries(themeInjector.includedThemesObj).reduce((acc, [themeName, varsObj]) => {
+          acc[themeName] = {
+            extraVars: Object.entries(varsObj).reduce((acc, [name, value]) => {
+              acc[trimStart(name, '-')] = value
+              return acc
+            }, {})
+          }
+          return acc
+        }, {})
+      }
     },
     components,
     tailwindcssConfig: {

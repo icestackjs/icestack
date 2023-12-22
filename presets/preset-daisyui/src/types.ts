@@ -64,7 +64,7 @@ interface DaisyUIConfig {
    *
    * @default 'dark'
    */
-  darkTheme?: string
+  darkTheme?: string | boolean
   /**
    * If it's true, a [few base styles](https://github.com/saadeghi/daisyui/blob/master/src/base) will be added.
    *
@@ -109,6 +109,8 @@ interface DaisyUIConfig {
    * @default true
    */
   logs?: boolean
+
+  themeRoot?: string
 }
 
 export type { DaisyUIConfig as Config, Theme, CustomTheme }

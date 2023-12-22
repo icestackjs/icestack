@@ -84,3 +84,7 @@ export function preHandleString<T>(val: T) {
   }
   return val
 }
+
+export function makeExtraCssArray(value: any | any[]) {
+  return Array.isArray(value) ? value.map((x) => preHandleString(x)) : [preHandleString(value)]
+}

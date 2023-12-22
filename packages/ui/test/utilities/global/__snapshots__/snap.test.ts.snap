@@ -1,5 +1,18 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`utilities > custom snap 1`] = `""`;
+
+exports[`utilities > custom snap case 0 1`] = `
+".dsdsdsdsd {
+  color: red;
+}
+
+.vvvv {
+  @apply bg-blue-500;
+  color: blue;
+}"
+`;
+
 exports[`utilities > glass snap 1`] = `
 ".glass {
   border: none;

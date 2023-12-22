@@ -1,20 +1,22 @@
 import type { CssInJs } from '@icestack/postcss'
-import * as glass from './glass'
-import * as variables from './variables'
+import merge from 'merge'
+import glass from './glass'
+import variables from './variables'
 import { preprocessCssInJs } from '@/components/shared'
-
+import { makeExtraCssArray } from '@/utils'
 const _utilitiesMap = {
   glass,
-  variables
-} as unknown as Record<string, { options: () => CssInJs }>
+  variables,
+  custom: (value: any) => {
+    return merge.recursive(true, ...makeExtraCssArray(value))
+  }
+} as unknown as Record<string, () => CssInJs>
 
-const utilitiesMap = {} as Record<string, { options: () => CssInJs }>
+const utilitiesMap = {} as Record<string, () => CssInJs>
 for (const componentName of Object.keys(_utilitiesMap)) {
-  const o = _utilitiesMap[componentName].options
-  utilitiesMap[componentName] = {
-    options: (...args) => {
-      return preprocessCssInJs(o(...args))
-    }
+  const o = _utilitiesMap[componentName]
+  utilitiesMap[componentName] = (...args) => {
+    return preprocessCssInJs(o(...args))
   }
 }
 

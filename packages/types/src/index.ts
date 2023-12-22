@@ -62,6 +62,10 @@ export type GlobalOptions = {
   }
 }
 
+export type UtilitiesOptions = {
+  extraCss: (CssInJs | string)[]
+}
+
 export type CodegenMode = 'styled' | 'base' | 'raw' | 'none'
 
 export type Preset = DeepPartial<Pick<CodegenOptions, 'base' | 'components' | 'global' | 'tailwindcssConfig'>>
@@ -75,6 +79,10 @@ export type CodegenOptions = {
    * @description custom all your components
    */
   components: ComponentsOptions
+  /**
+   * @description css utilities
+   */
+  utilities: UtilitiesOptions
   /**
    * @description global postcss options
    */

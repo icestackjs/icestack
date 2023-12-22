@@ -33,14 +33,33 @@ export type ComponentsValue = {
   prefix: PrefixerOptions
   varPrefix: VarPrefixerOptions
   mode: CodegenMode
-  override: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
-  extend: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
   extra: CssValue | ((opts: SchemaFnOptions) => CssValue)
   // baseDefault: CssValue
+  /**
+   * @description css selector
+   */
   selector: string
-  schema: GetSchemaFn
+
+  /**
+   * @description disabled component, same to set false
+   */
   disabled: boolean
+  /**
+   * @description use params
+   */
   params: Record<string, any>
+  /**
+   * @description senior
+   */
+  override: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
+  /**
+   * @description senior
+   */
+  extend: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
+  /**
+   * @description senior
+   */
+  schema: GetSchemaFn
 }
 
 export type ComponentsOptions = Record<string, ComponentsValue | false>
@@ -50,10 +69,10 @@ export type GlobalOptions = {
     // default false
     hover: boolean
   }
-  pseudo: {
-    // default true
-    where: boolean
-  }
+  // pseudo: {
+  //   // default true
+  //   where: boolean
+  // }
   selector: {
     // default *
     universal: string // | string[] // | (() => string)
@@ -85,13 +104,13 @@ export type CodegenOptions = {
    */
   utilities: UtilitiesOptions
   /**
-   * @description global postcss options
-   */
-  global: GlobalOptions
-  /**
    * @description set themes and all types
    */
   base: BaseOptions
+  /**
+   * @description global postcss options
+   */
+  global: GlobalOptions
   /**
    * @description css var prefix
    * @example '--primary' -> '--ice-primary'
@@ -111,7 +130,7 @@ export type CodegenOptions = {
   /**
    * @description load presets
    */
-  presets: (DeepPartial<Preset> | ((options?: any) => DeepPartial<Preset>))[]
+  presets: (Preset | ((options?: any) => Preset))[]
   /**
    * @description required! set output dir path.
    */

@@ -49,7 +49,7 @@
         </div>
 
         <div class="flex justify-center">
-          <button type="submit" class="btn btn-primary btn-sm btn-block">
+          <button type="submit" class="btn btn-primary btn-block">
             Sign in
           </button>
         </div>

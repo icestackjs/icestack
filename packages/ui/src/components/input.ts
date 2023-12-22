@@ -54,7 +54,7 @@ const schema: GetSchemaFn = (opts) => {
       },
       base: {
         [selector]: {
-          apply: 'flex-shrink h-8 px-3 text-sm leading-loose'
+          apply: 'flex-shrink h-12 px-4 text-sm leading-loose'
         }
       },
       utils: {

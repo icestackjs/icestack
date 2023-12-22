@@ -24,9 +24,9 @@ export type BaseOptions = {
 }
 
 export type ModeMergeValue = {
-  base?: CssInJs
-  styled?: CssInJs
-  utils?: CssInJs
+  base?: string | CssInJs
+  styled?: string | CssInJs
+  utils?: string | CssInJs
 }
 
 export type ComponentsValue = {
@@ -35,7 +35,7 @@ export type ComponentsValue = {
   mode: CodegenMode
   override: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
   extend: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
-  extra: CssInJs | ((opts: SchemaFnOptions) => CssInJs)
+  extra: string | CssInJs | ((opts: SchemaFnOptions) => CssInJs)
   selector: string
   schema: GetSchemaFn
   disabled: boolean

@@ -5171,7 +5171,7 @@ exports[`'input' options > raw snap 1`] = `
   "defaults": {
     "base": {
       ".input": {
-        "apply": "flex-shrink h-8 px-3 text-sm leading-loose",
+        "apply": "flex-shrink h-12 px-4 text-sm leading-loose",
       },
     },
     "styled": {
@@ -5238,8 +5238,8 @@ exports[`'input' options > snap 1`] = `
         "apply": [
           [
             "flex-shrink",
-            "h-8",
-            "px-3",
+            "h-12",
+            "px-4",
             "text-sm",
             "leading-loose",
           ],

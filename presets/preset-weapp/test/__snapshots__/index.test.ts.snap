@@ -2501,13 +2501,13 @@ exports[`presets > default preset all css 1`] = `
       ".input": {
         "flexShrink": 1,
         "fontSize": "0.875rem",
-        "height": "2rem",
+        "height": "3rem",
         "lineHeight": [
           "1.25rem",
           2,
         ],
-        "paddingLeft": "0.75rem",
-        "paddingRight": "0.75rem",
+        "paddingLeft": "1rem",
+        "paddingRight": "1rem",
       },
     },
     "styled": {

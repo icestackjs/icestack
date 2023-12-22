@@ -1,12 +1,12 @@
 import { pick } from 'lodash'
-import { preprocessCssInJs, defu, defuOverrideApplyCss } from '@icestack/shared'
+import { preprocessCssInJs, defu, defuOverrideApplyCss, transformCss2Js } from '@icestack/shared'
 import type { CreatePresetOptions, ISchema } from '@icestack/shared'
 
 import type { CodegenMode, ComponentsValue, CssInJs, ModeMergeValue, SchemaFnOptions } from '@/types'
 export { expandTypes, compressCssSelector, preprocessCssInJs, getSelector, recursiveNodes, transformCss2Js } from '@icestack/shared'
 
 export function makeDefaults(obj?: ModeMergeValue, selector?: string) {
-  const res: Record<string, Record<string, CssInJs>> = {
+  const res: Record<string, Record<string, CssInJs | string>> = {
     base: {},
     styled: {},
     utils: {}
@@ -39,9 +39,16 @@ function getPickedProps(mode: CodegenMode = 'styled') {
   }
 }
 
-export function handleFn<T extends Record<string, any> | ((...args: any[]) => Record<string, any>)>(input: T, opts: SchemaFnOptions): Record<string, any> {
+export function handleFn<T extends string | Record<string, any> | ((...args: any[]) => Record<string, any>)>(input: T, opts: SchemaFnOptions): Record<string, any> {
   if (typeof input === 'function') {
-    return input(opts)
+    const x = input(opts)
+    if (typeof x === 'string') {
+      return transformCss2Js(x)
+    }
+    return x
+  }
+  if (typeof input === 'string') {
+    return transformCss2Js(input)
   }
   return input
 }

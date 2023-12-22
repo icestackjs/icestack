@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises'
 import fss from 'node:fs'
+import readline from 'node:readline'
 import { transformCss2Js } from '@icestack/shared'
 
 export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]> {
@@ -90,6 +91,8 @@ export function makeExtraCssArray(value: any | any[]) {
 }
 
 export function cmdClear(rowCount = 1) {
-  process.stdout.moveCursor(0, -rowCount)
-  process.stdout.clearLine(1)
+  readline.moveCursor(process.stdout, 0, -rowCount)
+  readline.clearLine(process.stdout, 1)
+  // process.stdout.moveCursor(0, -rowCount)
+  // process.stdout.clearLine(1)
 }

@@ -88,3 +88,8 @@ export function preHandleString<T>(val: T) {
 export function makeExtraCssArray(value: any | any[]) {
   return Array.isArray(value) ? value.map((x) => preHandleString(x)) : [preHandleString(value)]
 }
+
+export function cmdClear(rowCount = 1) {
+  process.stdout.moveCursor(0, -rowCount)
+  process.stdout.clearLine(1)
+}

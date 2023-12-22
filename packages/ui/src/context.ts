@@ -6,11 +6,13 @@ import type { Value } from 'sass'
 import type { Root, AcceptedPlugin } from 'postcss'
 import cliProgress from 'cli-progress'
 import { defu } from '@icestack/shared'
+import kleur from 'kleur'
 import type { CodegenOptions, DeepPartial, ILayer, CssInJs } from './types'
 import { generateIndexCode } from './js'
 import { transformJsToSass } from './sass'
 import { createDefaultTailwindcssExtends } from './defaults'
 import { logger } from './log'
+import { cmdClear } from './utils'
 import { getCodegenOptions } from '@/options'
 import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, scssTemplate } from '@/dirs'
 import { stages } from '@/constants'
@@ -243,6 +245,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
       fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.cjs'), code, 'utf8')
     }
     b1.stop()
+    cmdClear()
 
     return res
   }
@@ -264,22 +267,22 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
     const base = await buildBase()
     performance.mark('buildBase-end')
     const buildBaseMeasure = performance.measure('buildBase', 'buildBase-start', 'buildBase-end')
-    logger.success('build base finished! ' + `${buildBaseMeasure.duration.toFixed(2)}ms`)
+    logger.success('build base finished! ' + kleur.green(`${buildBaseMeasure.duration.toFixed(2)}ms`))
     performance.mark('buildUtilities-start')
     const utilities = await buildUtilities()
     performance.mark('buildUtilities-end')
     const buildUtilitiesMeasure = performance.measure('buildUtilities', 'buildUtilities-start', 'buildUtilities-end')
-    logger.success('build utilities finished! ' + `${buildUtilitiesMeasure.duration.toFixed(2)}ms`)
+    logger.success('build utilities finished! ' + kleur.green(`${buildUtilitiesMeasure.duration.toFixed(2)}ms`))
     performance.mark('buildComponents-start')
     const components = await buildComponents()
     performance.mark('buildComponents-end')
     const buildComponentsMeasure = performance.measure('buildComponents', 'buildComponents-start', 'buildComponents-end')
-    logger.success('build components finished! ' + `${buildComponentsMeasure.duration.toFixed(2)}ms`)
+    logger.success('build components finished! ' + kleur.green(`${buildComponentsMeasure.duration.toFixed(2)}ms`))
     performance.mark('buildTailwindcssConfig-start')
     const tailwindcssConfig = await buildTailwindcssConfig()
     performance.mark('buildTailwindcssConfig-end')
     const buildTailwindcssConfigMeasure = performance.measure('buildTailwindcssConfig', 'buildTailwindcssConfig-start', 'buildTailwindcssConfig-end')
-    logger.success('build tailwindcss config finished! ' + `${buildTailwindcssConfigMeasure.duration.toFixed(2)}ms`)
+    logger.success('build tailwindcss config finished! ' + kleur.green(`${buildTailwindcssConfigMeasure.duration.toFixed(2)}ms`))
     performance.clearMarks()
     performance.clearMeasures()
     return {

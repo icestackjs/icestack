@@ -69,8 +69,8 @@ importers:
         specifier: ^9.0.0
         version: 9.1.0(eslint@8.56.0)
       eslint-plugin-prettier:
-        specifier: ^5.1.0
-        version: 5.1.0(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
+        specifier: ^5.1.1
+        version: 5.1.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
       klaw:
         specifier: ^4.1.0
         version: 4.1.0
@@ -199,8 +199,8 @@ importers:
         specifier: ^9.1.0
         version: 9.1.0(eslint@8.56.0)
       eslint-plugin-prettier:
-        specifier: ^5.1.0
-        version: 5.1.0(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
+        specifier: ^5.1.1
+        version: 5.1.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1)
       install:
         specifier: ^0.13.0
         version: 0.13.0
@@ -390,6 +390,9 @@ importers:
       immutable:
         specifier: ^4.0.0
         version: 4.3.4
+      kleur:
+        specifier: ^4.1.5
+        version: 4.1.5
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -10867,8 +10870,8 @@ packages:
       semver: 6.3.1
     dev: true
 
-  /eslint-plugin-prettier@5.1.0(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1):
-    resolution: {integrity: sha512-hQc+2zbnMeXcIkg+pKZtVa+3Yqx4WY7SMkn1PLZ4VbBEU7jJIpVn9347P8BBhTbz6ne85aXvQf30kvexcqBeWw==}
+  /eslint-plugin-prettier@5.1.1(eslint-config-prettier@9.1.0)(eslint@8.56.0)(prettier@3.1.1):
+    resolution: {integrity: sha512-WQpV3mSmIobb77s4qiCZu3dBrZZ0rj8ckSfBtRrgNK9Wnh2s3eiaxNTWloz1LJ1WtvqZES/PAI7PLvsrGt/CEA==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
       '@types/eslint': '>=8.0.0'

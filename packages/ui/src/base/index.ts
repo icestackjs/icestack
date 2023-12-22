@@ -80,7 +80,10 @@ export const calcBase = (options: CodegenOptions) => {
 
     return acc
   }, {})
-  merge.recursive(presets, globalExtraCss)
+  if (globalExtraCss) {
+    merge.recursive(presets, ...makeExtraCssArray(globalExtraCss))
+  }
+
   return {
     presets,
     types: [...typesSet],

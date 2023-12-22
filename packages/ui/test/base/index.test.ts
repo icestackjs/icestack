@@ -245,6 +245,27 @@ describe('base', () => {
     expect(calcBase(opts)).toMatchSnapshot('calcBase')
   })
 
+  it('add extra css options case 1', async () => {
+    const opts = getCodegenOptions({
+      base: {
+        extraCss: [
+          `:root{
+            color:black;
+         }
+         :host{
+          color:red;
+         }
+         
+         `
+        ]
+      }
+    })
+    const ctx = createContext(opts)
+    const { css } = await ctx.compileScss('base.index')
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+    expect(calcBase(opts)).toMatchSnapshot('calcBase')
+  })
+
   it('add custom theme case 0', async () => {
     const opts = getCodegenOptions({
       base: {

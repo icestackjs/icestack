@@ -18,8 +18,8 @@ const Com: FC<{ name: string }> = (props) => {
     }
   }, [name])
   return (
-    <div className="overflow-x-auto">
-      <table className="table table-sm">
+    <div className="overflow-x-auto overflow-y-scroll max-h-96">
+      <table className="table table-sm table-pin-rows">
         <thead>
           <tr>
             <th>{t('components.table.className')}</th>

@@ -90,11 +90,19 @@ async function main() {
   
   [${t('Go to Storybook')}](https://story.ui.icebreaker.top/?path=/docs/${kebabCase(groupName)}-${componentName}--docs)
   
-  ## ${t('Css Schema')}
-  
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+## ${t('Css Schema')}
+</div>
+<div class="collapse-content"> 
+
   \`\`\`json
   ${codeString}
   \`\`\`
+
+</div>
+</div>
         `
         )
       }

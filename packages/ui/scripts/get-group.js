@@ -58,7 +58,22 @@ function main() {
       indicator: '标识',
       divider: '分隔线',
       stack: '堆叠',
-      tab: '选项卡'
+      tab: '选项卡',
+      dropdown: '下拉菜单',
+      swap: '交换',
+      drawer: '抽屉',
+      footer: '页脚',
+      hero: '',
+      'bottom-navigation': '底部导航',
+      breadcrumbs: '面包屑',
+      menu: '菜单',
+      navbar: '导航栏',
+      'file-input': '文件上传',
+      rating: '打分',
+      card: '卡片',
+      carousel: '轮播',
+      stat: '统计',
+      timeline: '时间轴'
     }
   }
 

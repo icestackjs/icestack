@@ -18,5 +18,23 @@
   "options": {
     "title": "Types",
     "type": "page"
+  },
+  "playground": {
+    "title": "Playground",
+    "type": "menu",
+    "items": {
+      "storybook": {
+        "title": "storybook",
+        "type": "page",
+        "href": "https://story.ui.icebreaker.top/",
+        "newWindow": true
+      },
+      "nuxt": {
+        "title": "nuxt-admin-app",
+        "type": "page",
+        "href": "https://nuxt.icebreaker.top/",
+        "newWindow": true
+      }
+    }
   }
 }

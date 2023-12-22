@@ -34,6 +34,29 @@ describe('base', () => {
     expect(calcBase(opts)).toMatchSnapshot('calcBase')
   })
 
+  it('snap case 0', async () => {
+    const opts = getCodegenOptions({
+      mode: 'none'
+    })
+    const ctx = createContext(opts)
+
+    const { css } = await ctx.compileScss('base.index')
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+    expect(calcBase(opts)).toMatchSnapshot('calcBase')
+  })
+
+  it('mediaDarkTheme case 0', async () => {
+    const opts = getCodegenOptions({
+      base: {
+        mediaDarkTheme: 'dark'
+      }
+    })
+    const ctx = createContext(opts)
+
+    const { css } = await ctx.compileScss('base.index')
+    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+    expect(calcBase(opts)).toMatchSnapshot('calcBase')
+  })
   it('add new theme case 0', async () => {
     const opts = getCodegenOptions({
       base: {

@@ -21,6 +21,10 @@ export type BaseOptions = {
   >
 
   extraCss: CssValue
+
+  themeSelectorTemplate: (theme: string) => string
+
+  mediaDarkTheme: string | boolean
 }
 
 export type ModeMergeValue = {

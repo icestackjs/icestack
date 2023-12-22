@@ -818,33 +818,6 @@ exports[`base > add extra css options > calcBase 1`] = `
         },
       },
     },
-    "[data-mode="dark"]": {
-      "css": {
-        "--animation-btn": "0.25s",
-        "--animation-input": "0.2s",
-        "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
-        "--border-btn": "1px",
-        "--rounded-badge": "1.9rem",
-        "--rounded-box": "1rem",
-        "--rounded-btn": "0.5rem",
-        "--skeleton-duration": "1.2s",
-        "--tab-border": "1px",
-        "--tab-radius": "0.5rem",
-      },
-    },
   },
   "types": [
     "primary",
@@ -878,32 +851,6 @@ exports[`base > add extra css options 1`] = `
   --ice-neutral-hover: 115 115 115;
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
-  --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
-  --ice-rounded-box: 1rem;
-  --ice-rounded-btn: 0.5rem;
-  --ice-rounded-badge: 1.9rem;
-  --ice-animation-btn: 0.25s;
-  --ice-animation-input: 0.2s;
-  --ice-skeleton-duration: 1.2s;
-  --ice-border-btn: 1px;
-  --ice-tab-border: 1px;
-  --ice-tab-radius: 0.5rem;
-}
-
-[data-mode=dark] {
   --ice-base-100: 255 255 255;
   --ice-base-200: 250 250 250;
   --ice-base-300: 245 245 245;
@@ -2225,6 +2172,339 @@ exports[`base > add new theme case 1 1`] = `
 }"
 `;
 
+exports[`base > mediaDarkTheme case 0 > calcBase 1`] = `
+{
+  "colors": {
+    "base-100": "rgba(var(--ice-base-100) / <alpha-value>)",
+    "base-1000": "rgba(var(--ice-base-1000) / <alpha-value>)",
+    "base-1100": "rgba(var(--ice-base-1100) / <alpha-value>)",
+    "base-1200": "rgba(var(--ice-base-1200) / <alpha-value>)",
+    "base-1300": "rgba(var(--ice-base-1300) / <alpha-value>)",
+    "base-200": "rgba(var(--ice-base-200) / <alpha-value>)",
+    "base-300": "rgba(var(--ice-base-300) / <alpha-value>)",
+    "base-400": "rgba(var(--ice-base-400) / <alpha-value>)",
+    "base-500": "rgba(var(--ice-base-500) / <alpha-value>)",
+    "base-600": "rgba(var(--ice-base-600) / <alpha-value>)",
+    "base-700": "rgba(var(--ice-base-700) / <alpha-value>)",
+    "base-800": "rgba(var(--ice-base-800) / <alpha-value>)",
+    "base-900": "rgba(var(--ice-base-900) / <alpha-value>)",
+    "base-content": "rgba(var(--ice-base-content) / <alpha-value>)",
+    "current": "currentColor",
+    "error": "rgba(var(--ice-error) / <alpha-value>)",
+    "error-active": "rgba(var(--ice-error-active) / <alpha-value>)",
+    "error-content": "rgba(var(--ice-error-content) / <alpha-value>)",
+    "error-hover": "rgba(var(--ice-error-hover) / <alpha-value>)",
+    "neutral": "rgba(var(--ice-neutral) / <alpha-value>)",
+    "neutral-active": "rgba(var(--ice-neutral-active) / <alpha-value>)",
+    "neutral-content": "rgba(var(--ice-neutral-content) / <alpha-value>)",
+    "neutral-hover": "rgba(var(--ice-neutral-hover) / <alpha-value>)",
+    "primary": "rgba(var(--ice-primary) / <alpha-value>)",
+    "primary-active": "rgba(var(--ice-primary-active) / <alpha-value>)",
+    "primary-content": "rgba(var(--ice-primary-content) / <alpha-value>)",
+    "primary-hover": "rgba(var(--ice-primary-hover) / <alpha-value>)",
+    "success": "rgba(var(--ice-success) / <alpha-value>)",
+    "success-active": "rgba(var(--ice-success-active) / <alpha-value>)",
+    "success-content": "rgba(var(--ice-success-content) / <alpha-value>)",
+    "success-hover": "rgba(var(--ice-success-hover) / <alpha-value>)",
+    "transparent": "transparent",
+    "warning": "rgba(var(--ice-warning) / <alpha-value>)",
+    "warning-active": "rgba(var(--ice-warning-active) / <alpha-value>)",
+    "warning-content": "rgba(var(--ice-warning-content) / <alpha-value>)",
+    "warning-hover": "rgba(var(--ice-warning-hover) / <alpha-value>)",
+  },
+  "presets": {
+    ":root": {
+      "css": {
+        "--animation-btn": "0.25s",
+        "--animation-input": "0.2s",
+        "--base-100": "255 255 255",
+        "--base-1000": "38 38 38",
+        "--base-1100": "31 31 31",
+        "--base-1200": "20 20 20",
+        "--base-1300": "0 0 0",
+        "--base-200": "250 250 250",
+        "--base-300": "245 245 245",
+        "--base-400": "240 240 240",
+        "--base-500": "217 217 217",
+        "--base-600": "191 191 191",
+        "--base-700": "140 140 140",
+        "--base-800": "89 89 89",
+        "--base-900": "67 67 67",
+        "--base-content": "0 0 0",
+        "--border-btn": "1px",
+        "--error": "245 34 45",
+        "--error-active": "207 19 34",
+        "--error-content": "255 255 255",
+        "--error-hover": "255 77 79",
+        "--neutral": "102 102 102",
+        "--neutral-active": "64 64 64",
+        "--neutral-content": "255 255 255",
+        "--neutral-hover": "115 115 115",
+        "--primary": "22 119 255",
+        "--primary-active": "9 88 217",
+        "--primary-content": "255 255 255",
+        "--primary-hover": "64 150 255",
+        "--rounded-badge": "1.9rem",
+        "--rounded-box": "1rem",
+        "--rounded-btn": "0.5rem",
+        "--skeleton-duration": "1.2s",
+        "--success": "82 196 26",
+        "--success-active": "56 158 13",
+        "--success-content": "255 255 255",
+        "--success-hover": "115 209 61",
+        "--tab-border": "1px",
+        "--tab-radius": "0.5rem",
+        "--warning": "250 173 20",
+        "--warning-active": "212 136 6",
+        "--warning-content": "255 255 255",
+        "--warning-hover": "255 197 61",
+      },
+    },
+    "@media (prefers-color-scheme: dark)": {
+      "css": {
+        "--animation-btn": "0.25s",
+        "--animation-input": "0.2s",
+        "--base-100": "0 0 0",
+        "--base-1000": "240 240 240",
+        "--base-1100": "245 245 245",
+        "--base-1200": "250 250 250",
+        "--base-1300": "255 255 255",
+        "--base-200": "20 20 20",
+        "--base-300": "31 31 31",
+        "--base-400": "38 38 38",
+        "--base-500": "67 67 67",
+        "--base-600": "89 89 89",
+        "--base-700": "140 140 140",
+        "--base-800": "191 191 191",
+        "--base-900": "217 217 217",
+        "--base-content": "255 255 255",
+        "--border-btn": "1px",
+        "--error": "211 32 41",
+        "--error-active": "232 71 73",
+        "--error-content": "255 255 255",
+        "--error-hover": "166 29 36",
+        "--neutral": "90 90 90",
+        "--neutral-active": "106 106 106",
+        "--neutral-content": "255 255 255",
+        "--neutral-hover": "73 73 73",
+        "--primary": "22 104 220",
+        "--primary-active": "60 137 232",
+        "--primary-content": "255 255 255",
+        "--primary-hover": "21 84 173",
+        "--rounded-badge": "1.9rem",
+        "--rounded-box": "1rem",
+        "--rounded-btn": "0.5rem",
+        "--skeleton-duration": "1.2s",
+        "--success": "73 170 25",
+        "--success-active": "106 190 57",
+        "--success-content": "255 255 255",
+        "--success-hover": "60 134 24",
+        "--tab-border": "1px",
+        "--tab-radius": "0.5rem",
+        "--warning": "216 150 20",
+        "--warning-active": "232 179 57",
+        "--warning-content": "255 255 255",
+        "--warning-hover": "170 119 20",
+      },
+    },
+    "[data-mode="dark"]": {
+      "css": {
+        "--animation-btn": "0.25s",
+        "--animation-input": "0.2s",
+        "--base-100": "0 0 0",
+        "--base-1000": "240 240 240",
+        "--base-1100": "245 245 245",
+        "--base-1200": "250 250 250",
+        "--base-1300": "255 255 255",
+        "--base-200": "20 20 20",
+        "--base-300": "31 31 31",
+        "--base-400": "38 38 38",
+        "--base-500": "67 67 67",
+        "--base-600": "89 89 89",
+        "--base-700": "140 140 140",
+        "--base-800": "191 191 191",
+        "--base-900": "217 217 217",
+        "--base-content": "255 255 255",
+        "--border-btn": "1px",
+        "--error": "211 32 41",
+        "--error-active": "232 71 73",
+        "--error-content": "255 255 255",
+        "--error-hover": "166 29 36",
+        "--neutral": "90 90 90",
+        "--neutral-active": "106 106 106",
+        "--neutral-content": "255 255 255",
+        "--neutral-hover": "73 73 73",
+        "--primary": "22 104 220",
+        "--primary-active": "60 137 232",
+        "--primary-content": "255 255 255",
+        "--primary-hover": "21 84 173",
+        "--rounded-badge": "1.9rem",
+        "--rounded-box": "1rem",
+        "--rounded-btn": "0.5rem",
+        "--skeleton-duration": "1.2s",
+        "--success": "73 170 25",
+        "--success-active": "106 190 57",
+        "--success-content": "255 255 255",
+        "--success-hover": "60 134 24",
+        "--tab-border": "1px",
+        "--tab-radius": "0.5rem",
+        "--warning": "216 150 20",
+        "--warning-active": "232 179 57",
+        "--warning-content": "255 255 255",
+        "--warning-hover": "170 119 20",
+      },
+    },
+  },
+  "types": [
+    "primary",
+    "success",
+    "warning",
+    "error",
+    "neutral",
+  ],
+}
+`;
+
+exports[`base > mediaDarkTheme case 0 1`] = `
+":root {
+  --ice-primary: 22 119 255;
+  --ice-primary-hover: 64 150 255;
+  --ice-primary-active: 9 88 217;
+  --ice-primary-content: 255 255 255;
+  --ice-success: 82 196 26;
+  --ice-success-hover: 115 209 61;
+  --ice-success-active: 56 158 13;
+  --ice-success-content: 255 255 255;
+  --ice-warning: 250 173 20;
+  --ice-warning-hover: 255 197 61;
+  --ice-warning-active: 212 136 6;
+  --ice-warning-content: 255 255 255;
+  --ice-error: 245 34 45;
+  --ice-error-hover: 255 77 79;
+  --ice-error-active: 207 19 34;
+  --ice-error-content: 255 255 255;
+  --ice-neutral: 102 102 102;
+  --ice-neutral-hover: 115 115 115;
+  --ice-neutral-active: 64 64 64;
+  --ice-neutral-content: 255 255 255;
+  --ice-base-100: 255 255 255;
+  --ice-base-200: 250 250 250;
+  --ice-base-300: 245 245 245;
+  --ice-base-400: 240 240 240;
+  --ice-base-500: 217 217 217;
+  --ice-base-600: 191 191 191;
+  --ice-base-700: 140 140 140;
+  --ice-base-800: 89 89 89;
+  --ice-base-900: 67 67 67;
+  --ice-base-1000: 38 38 38;
+  --ice-base-1100: 31 31 31;
+  --ice-base-1200: 20 20 20;
+  --ice-base-1300: 0 0 0;
+  --ice-base-content: 0 0 0;
+  --ice-rounded-box: 1rem;
+  --ice-rounded-btn: 0.5rem;
+  --ice-rounded-badge: 1.9rem;
+  --ice-animation-btn: 0.25s;
+  --ice-animation-input: 0.2s;
+  --ice-skeleton-duration: 1.2s;
+  --ice-border-btn: 1px;
+  --ice-tab-border: 1px;
+  --ice-tab-radius: 0.5rem;
+}
+
+[data-mode=dark] {
+  --ice-primary: 22 104 220;
+  --ice-primary-hover: 21 84 173;
+  --ice-primary-active: 60 137 232;
+  --ice-primary-content: 255 255 255;
+  --ice-success: 73 170 25;
+  --ice-success-hover: 60 134 24;
+  --ice-success-active: 106 190 57;
+  --ice-success-content: 255 255 255;
+  --ice-warning: 216 150 20;
+  --ice-warning-hover: 170 119 20;
+  --ice-warning-active: 232 179 57;
+  --ice-warning-content: 255 255 255;
+  --ice-error: 211 32 41;
+  --ice-error-hover: 166 29 36;
+  --ice-error-active: 232 71 73;
+  --ice-error-content: 255 255 255;
+  --ice-neutral: 90 90 90;
+  --ice-neutral-hover: 73 73 73;
+  --ice-neutral-active: 106 106 106;
+  --ice-neutral-content: 255 255 255;
+  --ice-base-1300: 255 255 255;
+  --ice-base-1200: 250 250 250;
+  --ice-base-1100: 245 245 245;
+  --ice-base-1000: 240 240 240;
+  --ice-base-900: 217 217 217;
+  --ice-base-800: 191 191 191;
+  --ice-base-700: 140 140 140;
+  --ice-base-600: 89 89 89;
+  --ice-base-500: 67 67 67;
+  --ice-base-400: 38 38 38;
+  --ice-base-300: 31 31 31;
+  --ice-base-200: 20 20 20;
+  --ice-base-100: 0 0 0;
+  --ice-base-content: 255 255 255;
+  --ice-rounded-box: 1rem;
+  --ice-rounded-btn: 0.5rem;
+  --ice-rounded-badge: 1.9rem;
+  --ice-animation-btn: 0.25s;
+  --ice-animation-input: 0.2s;
+  --ice-skeleton-duration: 1.2s;
+  --ice-border-btn: 1px;
+  --ice-tab-border: 1px;
+  --ice-tab-radius: 0.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  --ice-primary: 22 104 220;
+  --ice-primary-hover: 21 84 173;
+  --ice-primary-active: 60 137 232;
+  --ice-primary-content: 255 255 255;
+  --ice-success: 73 170 25;
+  --ice-success-hover: 60 134 24;
+  --ice-success-active: 106 190 57;
+  --ice-success-content: 255 255 255;
+  --ice-warning: 216 150 20;
+  --ice-warning-hover: 170 119 20;
+  --ice-warning-active: 232 179 57;
+  --ice-warning-content: 255 255 255;
+  --ice-error: 211 32 41;
+  --ice-error-hover: 166 29 36;
+  --ice-error-active: 232 71 73;
+  --ice-error-content: 255 255 255;
+  --ice-neutral: 90 90 90;
+  --ice-neutral-hover: 73 73 73;
+  --ice-neutral-active: 106 106 106;
+  --ice-neutral-content: 255 255 255;
+  --ice-base-1300: 255 255 255;
+  --ice-base-1200: 250 250 250;
+  --ice-base-1100: 245 245 245;
+  --ice-base-1000: 240 240 240;
+  --ice-base-900: 217 217 217;
+  --ice-base-800: 191 191 191;
+  --ice-base-700: 140 140 140;
+  --ice-base-600: 89 89 89;
+  --ice-base-500: 67 67 67;
+  --ice-base-400: 38 38 38;
+  --ice-base-300: 31 31 31;
+  --ice-base-200: 20 20 20;
+  --ice-base-100: 0 0 0;
+  --ice-base-content: 255 255 255;
+  --ice-rounded-box: 1rem;
+  --ice-rounded-btn: 0.5rem;
+  --ice-rounded-badge: 1.9rem;
+  --ice-animation-btn: 0.25s;
+  --ice-animation-input: 0.2s;
+  --ice-skeleton-duration: 1.2s;
+  --ice-border-btn: 1px;
+  --ice-tab-border: 1px;
+  --ice-tab-radius: 0.5rem;
+}"
+`;
+
 exports[`base > snap 1`] = `
 ":root {
   --ice-primary: 22 119 255;
@@ -2318,6 +2598,19 @@ exports[`base > snap 1`] = `
   --ice-tab-radius: 0.5rem;
 }"
 `;
+
+exports[`base > snap case 0 > calcBase 1`] = `
+{
+  "colors": {
+    "current": "currentColor",
+    "transparent": "transparent",
+  },
+  "presets": {},
+  "types": [],
+}
+`;
+
+exports[`base > snap case 0 1`] = `""`;
 
 exports[`base > snap case 1 > calcBase 1`] = `
 {

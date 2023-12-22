@@ -28,8 +28,13 @@ export const calcBase = (options: CodegenOptions) => {
     transparent: 'transparent',
     current: 'currentColor'
   }
-  const themes = base?.themes
-  const globalExtraCss = base?.extraCss
+  const { themes, extraCss: globalExtraCss, themeSelectorTemplate, mediaDarkTheme } = base ?? {}
+
+  // @media (prefers-color-scheme: dark)
+  // ??
+  //   ((theme: string) => {
+  //     return `[data-mode="${theme}"]`
+  //   })
   const typesSet = new Set<string>()
   function addColors(obj: Record<string, string>) {
     for (const x of Object.keys(obj)) {
@@ -39,7 +44,7 @@ export const calcBase = (options: CodegenOptions) => {
   }
   const presets = Object.entries(themes).reduce<Record<string, any>>((acc, [theme, { selector, extraColors, extraVars, extraCss, types }]) => {
     if (selector === undefined) {
-      selector = `[data-mode="${theme}"]`
+      selector = themeSelectorTemplate(theme) // `[data-mode="${theme}"]`
     }
     if (typeof selector === 'string' && selector) {
       const entries = Object.entries(types ?? {})
@@ -62,8 +67,14 @@ export const calcBase = (options: CodegenOptions) => {
           ...(obj as Record<string, string>)
         }
       }, {})
+      const css = mergeRClone(composeVarsObject(typesColors, extraColors ?? sharedExtraColors.light, extraVars ?? sharedExtraVars), ...makeExtraCssArray(extraCss))
       acc[selector] = {
-        css: mergeRClone(composeVarsObject(typesColors, extraColors ?? sharedExtraColors.light, extraVars ?? sharedExtraVars), ...makeExtraCssArray(extraCss))
+        css
+      }
+      if (mediaDarkTheme === theme) {
+        acc['@media (prefers-color-scheme: dark)'] = {
+          css
+        }
       }
     }
 

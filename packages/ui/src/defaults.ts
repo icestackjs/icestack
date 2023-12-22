@@ -1,16 +1,25 @@
 import type { Config } from 'tailwindcss'
 import { presetPrimaryColors, generateColorVars, sharedExtraColors, sharedExtraVars } from './base/colors'
-import type { CodegenOptions, DeepPartial, ComponentsOptions, CodegenMode } from './types'
+import type { CodegenOptions, DeepPartial, ComponentsOptions, CodegenMode, BaseOptions } from './types'
 import { defaultVarPrefix } from './constants'
 import { schemaMap, names as componentNames } from '@/components'
 
 export function getDefaultBase(mode?: CodegenMode) {
-  const base = {
+  const base: {
     themes: {
-      light: {},
-      dark: {}
+      light?: object
+      dark?: object
     }
+    themeSelectorTemplate: (theme: string) => string
+    mediaDarkTheme: string | boolean
+  } = {
+    themes: {},
+    themeSelectorTemplate: (theme: string) => {
+      return `[data-mode="${theme}"]`
+    },
+    mediaDarkTheme: false // 'dark'
   }
+
   if (mode !== 'none') {
     base.themes.light = {
       selector: ':root',

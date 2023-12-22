@@ -3,6 +3,8 @@
 exports[`options > getCodegenOptions snap 1`] = `
 {
   "base": {
+    "mediaDarkTheme": false,
+    "themeSelectorTemplate": [Function],
     "themes": {
       "dark": {
         "extraColors": {
@@ -385,10 +387,9 @@ exports[`options > getCodegenOptions snap merge case 0 1`] = `
         },
       },
     },
-    "themes": {
-      "dark": {},
-      "light": {},
-    },
+    "mediaDarkTheme": false,
+    "themeSelectorTemplate": [Function],
+    "themes": {},
   },
   "components": {},
   "dryRun": false,
@@ -433,10 +434,9 @@ exports[`options > getCodegenOptions snap merge case 1 1`] = `
         },
       },
     },
-    "themes": {
-      "dark": {},
-      "light": {},
-    },
+    "mediaDarkTheme": false,
+    "themeSelectorTemplate": [Function],
+    "themes": {},
   },
   "components": {},
   "dryRun": false,
@@ -488,8 +488,6 @@ exports[`options > getCodegenOptions snap merge case 2 1`] = `
 
 exports[`options > getCodegenOptions snap merge case 3 1`] = `
 {
-  "dark": {},
-  "light": {},
   "xxx": {
     "extraCss": {
       ".a": {

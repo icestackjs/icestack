@@ -70,6 +70,8 @@ exports[`options > daisyui options 1`] = `
         },
       },
     },
+    "mediaDarkTheme": false,
+    "themeSelectorTemplate": [Function],
     "themes": {
       "acid": {
         "extraVars": {

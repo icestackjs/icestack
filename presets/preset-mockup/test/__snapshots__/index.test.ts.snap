@@ -3,6 +3,8 @@
 exports[`presets > default preset 1`] = `
 {
   "base": {
+    "mediaDarkTheme": false,
+    "themeSelectorTemplate": [Function],
     "themes": {
       "dark": {
         "extraColors": {

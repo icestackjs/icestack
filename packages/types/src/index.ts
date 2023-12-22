@@ -7,6 +7,8 @@ export type { CreatePresetOptions, GetSchemaFn, IDefaults, ISchema, IValue, Sche
 export type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 export type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 
+export type CssValue = string | CssInJs | (CssInJs | string)[]
+
 export type BaseOptions = {
   themes: Record<
     string,
@@ -14,19 +16,19 @@ export type BaseOptions = {
       selector: string
       extraColors: Record<string, string>
       extraVars: Record<string, string>
-      extraCss: (CssInJs | string)[]
+      extraCss: CssValue
       //    typeName | colors string/colors cssVars obj
       types: Record<string, string | Record<string, string>>
     }
   >
 
-  extraCss: (CssInJs | string)[]
+  extraCss: CssValue
 }
 
 export type ModeMergeValue = {
-  base?: string | CssInJs
-  styled?: string | CssInJs
-  utils?: string | CssInJs
+  base?: CssValue
+  styled?: CssValue
+  utils?: CssValue
 }
 
 export type ComponentsValue = {
@@ -35,7 +37,7 @@ export type ComponentsValue = {
   mode: CodegenMode
   override: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
   extend: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
-  extra: string | CssInJs | ((opts: SchemaFnOptions) => CssInJs)
+  extra: CssValue | ((opts: SchemaFnOptions) => CssInJs)
   selector: string
   schema: GetSchemaFn
   disabled: boolean
@@ -63,10 +65,10 @@ export type GlobalOptions = {
 }
 
 export type UtilitiesOptions = {
-  extraCss: (CssInJs | string)[]
+  extraCss: CssValue
 }
 
-export type CodegenMode = 'styled' | 'base' | 'raw' | 'none'
+export type CodegenMode = 'styled' | 'base' | 'none' //  'raw' |
 
 export type Preset = DeepPartial<Pick<CodegenOptions, 'base' | 'components' | 'global' | 'tailwindcssConfig'>>
 

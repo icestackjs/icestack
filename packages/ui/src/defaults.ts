@@ -7,35 +7,39 @@ import { schemaMap, names as componentNames } from '@/components'
 export function getDefaultBase(mode?: CodegenMode) {
   const base = {
     themes: {
-      light: {
-        selector: ':root',
-        extraColors: sharedExtraColors.light,
-        extraVars: sharedExtraVars,
-        types: {
-          primary: generateColorVars('primary', presetPrimaryColors.blue),
-          success: generateColorVars('success', presetPrimaryColors.green),
-          warning: generateColorVars('warning', presetPrimaryColors.gold),
-          error: generateColorVars('error', presetPrimaryColors.red),
-          neutral: generateColorVars('neutral', presetPrimaryColors.grey)
-        }
-      },
+      light: {},
       dark: {}
     }
   }
-  if (mode === undefined || mode === 'styled') {
-    base.themes.dark = {
-      selector: '[data-mode="dark"]',
-      extraColors: sharedExtraColors.dark,
+  if (mode !== 'none') {
+    base.themes.light = {
+      selector: ':root',
+      extraColors: sharedExtraColors.light,
       extraVars: sharedExtraVars,
       types: {
-        primary: generateColorVars('primary', presetPrimaryColors.blue, true),
-        success: generateColorVars('success', presetPrimaryColors.green, true),
-        warning: generateColorVars('warning', presetPrimaryColors.gold, true),
-        error: generateColorVars('error', presetPrimaryColors.red, true),
-        neutral: generateColorVars('neutral', presetPrimaryColors.grey, true)
+        primary: generateColorVars('primary', presetPrimaryColors.blue),
+        success: generateColorVars('success', presetPrimaryColors.green),
+        warning: generateColorVars('warning', presetPrimaryColors.gold),
+        error: generateColorVars('error', presetPrimaryColors.red),
+        neutral: generateColorVars('neutral', presetPrimaryColors.grey)
+      }
+    }
+    if (mode === undefined || mode === 'styled') {
+      base.themes.dark = {
+        selector: '[data-mode="dark"]',
+        extraColors: sharedExtraColors.dark,
+        extraVars: sharedExtraVars,
+        types: {
+          primary: generateColorVars('primary', presetPrimaryColors.blue, true),
+          success: generateColorVars('success', presetPrimaryColors.green, true),
+          warning: generateColorVars('warning', presetPrimaryColors.gold, true),
+          error: generateColorVars('error', presetPrimaryColors.red, true),
+          neutral: generateColorVars('neutral', presetPrimaryColors.grey, true)
+        }
       }
     }
   }
+
   return base
 }
 
@@ -227,6 +231,7 @@ export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {
 
 export function getCodegenDefaults(mode?: CodegenMode): DeepPartial<CodegenOptions> {
   const base = getDefaultBase(mode)
+  const components = mode === 'none' ? {} : injectSchema(defaultSelectorMap)
   return {
     mode: 'styled',
     varPrefix: {
@@ -243,9 +248,7 @@ export function getCodegenDefaults(mode?: CodegenMode): DeepPartial<CodegenOptio
       }
     },
     base,
-    components: {
-      ...injectSchema(defaultSelectorMap)
-    }
+    components
   }
 }
 

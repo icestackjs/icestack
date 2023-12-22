@@ -91,5 +91,64 @@ exports[`base > base css 1`] = `
   --ice-border-btn: 1px;
   --ice-tab-border: 1px;
   --ice-tab-radius: 0.5rem;
+}
+
+:root, [data-theme] {
+  background-color: theme(colors.base-100);
+  color: theme(colors.base-content);
+}
+
+@supports not (color: oklch(0 0 0)) {
+  :root {
+    color-scheme: light;
+    --ice-fallback-p: #491eff;
+    --ice-fallback-pc: #d4dbff;
+    --ice-fallback-s: #ff41c7;
+    --ice-fallback-sc: #fff9fc;
+    --ice-fallback-a: #00cfbd;
+    --ice-fallback-ac: #00100d;
+    --ice-fallback-n: #2b3440;
+    --ice-fallback-nc: #d7dde4;
+    --ice-fallback-b1: #ffffff;
+    --ice-fallback-b2: #e5e6e6;
+    --ice-fallback-b3: #e5e6e6;
+    --ice-fallback-bc: #1f2937;
+    --ice-fallback-in: #00b3f0;
+    --ice-fallback-inc: #000000;
+    --ice-fallback-su: #00ca92;
+    --ice-fallback-suc: #000000;
+    --ice-fallback-wa: #ffc22d;
+    --ice-fallback-wac: #000000;
+    --ice-fallback-er: #ff6f70;
+    --ice-fallback-erc: #000000;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      color-scheme: dark;
+      --ice-fallback-p: #7582ff;
+      --ice-fallback-pc: #050617;
+      --ice-fallback-s: #ff71cf;
+      --ice-fallback-sc: #190211;
+      --ice-fallback-a: #00c7b5;
+      --ice-fallback-ac: #000e0c;
+      --ice-fallback-n: #2a323c;
+      --ice-fallback-nc: #a6adbb;
+      --ice-fallback-b1: #1d232a;
+      --ice-fallback-b2: #191e24;
+      --ice-fallback-b3: #15191e;
+      --ice-fallback-bc: #a6adbb;
+      --ice-fallback-in: #00b3f0;
+      --ice-fallback-inc: #000000;
+      --ice-fallback-su: #00ca92;
+      --ice-fallback-suc: #000000;
+      --ice-fallback-wa: #ffc22d;
+      --ice-fallback-wac: #000000;
+      --ice-fallback-er: #ff6f70;
+      --ice-fallback-erc: #000000;
+    }
+  }
+}
+html {
+  -webkit-tap-highlight-color: transparent;
 }"
 `;

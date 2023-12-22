@@ -510,7 +510,149 @@ exports[`options > daisyui options 1`] = `
           },
         ],
       },
-      "components": {},
+      "components": {
+        "alert": {
+          "schema": [Function],
+        },
+        "avatar": {
+          "schema": [Function],
+        },
+        "badge": {
+          "schema": [Function],
+        },
+        "bottom-navigation": {
+          "schema": [Function],
+        },
+        "breadcrumbs": {
+          "schema": [Function],
+        },
+        "button": {
+          "schema": [Function],
+        },
+        "card": {
+          "schema": [Function],
+        },
+        "carousel": {
+          "schema": [Function],
+        },
+        "chat": {
+          "schema": [Function],
+        },
+        "checkbox": {
+          "schema": [Function],
+        },
+        "collapse": {
+          "schema": [Function],
+        },
+        "countdown": {
+          "schema": [Function],
+        },
+        "diff": {
+          "schema": [Function],
+        },
+        "divider": {
+          "schema": [Function],
+        },
+        "drawer": {
+          "schema": [Function],
+        },
+        "dropdown": {
+          "schema": [Function],
+        },
+        "file-input": {
+          "schema": [Function],
+        },
+        "footer": {
+          "schema": [Function],
+        },
+        "form": {
+          "schema": [Function],
+        },
+        "hero": {
+          "schema": [Function],
+        },
+        "indicator": {
+          "schema": [Function],
+        },
+        "input": {
+          "schema": [Function],
+        },
+        "join": {
+          "schema": [Function],
+        },
+        "kbd": {
+          "schema": [Function],
+        },
+        "link": {
+          "schema": [Function],
+        },
+        "loading": {
+          "schema": [Function],
+        },
+        "mask": {
+          "schema": [Function],
+        },
+        "menu": {
+          "schema": [Function],
+        },
+        "navbar": {
+          "schema": [Function],
+        },
+        "progress": {
+          "schema": [Function],
+        },
+        "radial-progress": {
+          "schema": [Function],
+        },
+        "radio": {
+          "schema": [Function],
+        },
+        "range": {
+          "schema": [Function],
+        },
+        "rating": {
+          "schema": [Function],
+        },
+        "select": {
+          "schema": [Function],
+        },
+        "skeleton": {
+          "schema": [Function],
+        },
+        "stack": {
+          "schema": [Function],
+        },
+        "stat": {
+          "schema": [Function],
+        },
+        "steps": {
+          "schema": [Function],
+        },
+        "swap": {
+          "schema": [Function],
+        },
+        "tab": {
+          "schema": [Function],
+        },
+        "table": {
+          "schema": [Function],
+        },
+        "textarea": {
+          "schema": [Function],
+        },
+        "timeline": {
+          "schema": [Function],
+        },
+        "toast": {
+          "schema": [Function],
+        },
+        "toggle": {
+          "schema": [Function],
+        },
+        "tooltip": {
+          "schema": [Function],
+        },
+      },
       "prefix": {
         "ignore": [],
         "prefix": undefined,

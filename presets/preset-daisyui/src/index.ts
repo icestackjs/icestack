@@ -1,15 +1,16 @@
 import type { DeepPartial, CodegenOptions } from '@icestack/types'
 // @ts-ignore
-import baseCss from 'daisyui/dist/base'
+// import baseCss from 'daisyui/dist/base'
 // @ts-ignore
 import colorObject from 'daisyui/src/theming/index'
 // @ts-ignore
 import utilityClasses from 'daisyui/src/lib/utility-classes'
 import { transformCss2Js } from '@icestack/shared'
 import type { Config } from './types'
+import { schemaMap } from './components'
 import { colors, general } from './base'
 const daisyui: (config?: Config) => DeepPartial<CodegenOptions> = (config = {}) => {
-  const components = {}
+  const components = schemaMap
   const extraCss = []
   if (config.base !== false) {
     extraCss.push(transformCss2Js([colors, general].join('\n')))

@@ -12,6 +12,7 @@ import colorFunctions from './functions'
 import type { Config } from './types'
 import { schemaMap } from './components'
 import { colors, general } from './base'
+import { utilities } from './utilities'
 const daisyui: (config?: Config) => DeepPartial<CodegenOptions> = (config = {}) => {
   const components = schemaMap
   const extraCss = []
@@ -19,7 +20,7 @@ const daisyui: (config?: Config) => DeepPartial<CodegenOptions> = (config = {}) 
     extraCss.push(transformCss2Js([colors, general].join('\n')))
   }
   const themeInjector = colorFunctions.injectThemes(config, themes)
-  console.log(themeInjector.includedThemesObj)
+
   return {
     prefix: {
       prefix: config.prefix,
@@ -28,9 +29,9 @@ const daisyui: (config?: Config) => DeepPartial<CodegenOptions> = (config = {}) 
     base: {
       extraCss,
       themes: {
-        ...Object.entries(themeInjector.includedThemesObj).reduce((acc, [themeName, varsObj]) => {
+        ...Object.entries(themeInjector.includedThemesObj).reduce<Record<string, any>>((acc, [themeName, varsObj]) => {
           acc[themeName] = {
-            extraVars: Object.entries(varsObj).reduce((acc, [name, value]) => {
+            extraVars: Object.entries(varsObj).reduce<Record<string, any>>((acc, [name, value]) => {
               acc[trimStart(name, '-')] = value
               return acc
             }, {})
@@ -38,6 +39,9 @@ const daisyui: (config?: Config) => DeepPartial<CodegenOptions> = (config = {}) 
           return acc
         }, {})
       }
+    },
+    utilities: {
+      extraCss: [utilities]
     },
     components,
     tailwindcssConfig: {

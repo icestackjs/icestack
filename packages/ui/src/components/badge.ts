@@ -1,4 +1,4 @@
-import { expandTypes, getSelector } from '@/shared'
+import { expandTypes, getSelector, defuBaseDefault } from '@/shared'
 import type { GetSchemaFn } from '@/types'
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
@@ -6,6 +6,35 @@ function generateDefault(typeName: string) {
 
 function generateOutline(typeName: string) {
   return `text-${typeName}`
+}
+
+const xs = {
+  apply: 'h-3 text-xs leading-3',
+  css: {
+    'padding-left': '0.313rem',
+    'padding-right': '0.313rem'
+  }
+}
+const sm = {
+  apply: 'h-4 text-xs leading-4',
+  css: {
+    'padding-left': '0.438rem',
+    'padding-right': '0.438rem'
+  }
+}
+const md = {
+  apply: 'h-5 text-sm leading-5',
+  css: {
+    'padding-left': '0.563rem',
+    'padding-right': '0.563rem'
+  }
+}
+const lg = {
+  apply: 'h-6 text-base leading-6',
+  css: {
+    'padding-left': '0.688rem',
+    'padding-right': '0.688rem'
+  }
 }
 
 const schema: GetSchemaFn = (opts) => {
@@ -42,40 +71,16 @@ const schema: GetSchemaFn = (opts) => {
         }
       },
       base: {
-        [selector]: {
-          apply: 'inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem]'
-        }
+        [selector]: defuBaseDefault<any, any[]>(md, {
+          apply: 'inline-flex items-center justify-center transition duration-200 ease-out w-[fit-content]'
+        })
       },
       utils: {
         [selector]: {
-          [`&${getSelector('xs')}`]: {
-            apply: 'h-3 text-xs leading-3',
-            css: {
-              'padding-left': '0.313rem',
-              'padding-right': '0.313rem'
-            }
-          },
-          [`&${getSelector('sm')}`]: {
-            apply: 'h-4 text-xs leading-4',
-            css: {
-              'padding-left': '0.438rem',
-              'padding-right': '0.438rem'
-            }
-          },
-          [`&${getSelector('md')}`]: {
-            apply: 'h-5 text-sm leading-5',
-            css: {
-              'padding-left': '0.563rem',
-              'padding-right': '0.563rem'
-            }
-          },
-          [`&${getSelector('lg')}`]: {
-            apply: 'h-6 text-base leading-6',
-            css: {
-              'padding-left': '0.688rem',
-              'padding-right': '0.688rem'
-            }
-          }
+          [`&${getSelector('xs')}`]: xs,
+          [`&${getSelector('sm')}`]: sm,
+          [`&${getSelector('md')}`]: md,
+          [`&${getSelector('lg')}`]: lg
         }
       }
     }

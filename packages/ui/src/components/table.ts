@@ -1,7 +1,42 @@
-import { transformCss2Js } from '@/shared'
+import { transformCss2Js, defuBaseDefault } from '@/shared'
 import type { GetSchemaFn } from '@/types'
+
 const schema: GetSchemaFn = (opts) => {
   const { selector } = opts
+
+  const xs = `
+  ${selector}-xs :not(thead):not(tfoot) tr {
+    @apply text-xs;
+  }
+  ${selector}-xs :where(th, td) {
+    @apply px-2 py-1;
+  }
+  `
+  const sm = `
+  ${selector}-sm :not(thead):not(tfoot) tr {
+    @apply text-sm;
+  }
+  ${selector}-sm :where(th, td) {
+    @apply px-3 py-2;
+  }
+  `
+  const md = `
+  ${selector}-md :not(thead):not(tfoot) tr {
+    @apply text-sm;
+  }
+  ${selector}-md :where(th, td) {
+    @apply px-4 py-3;
+  }
+  `
+  const lg = `
+  ${selector}-lg :not(thead):not(tfoot) tr {
+    @apply text-base;
+  }
+  ${selector}-lg :where(th, td) {
+    @apply px-6 py-4;
+  }
+  `
+  // const d = baseDefault ?? md
   return {
     selector,
     defaults: {
@@ -41,7 +76,8 @@ const schema: GetSchemaFn = (opts) => {
         }`)
       },
       base: {
-        [selector]: transformCss2Js(`@apply relative w-full;
+        [selector]: defuBaseDefault<any, any[]>(
+          transformCss2Js(`@apply relative w-full;
         :where(${selector}-pin-rows thead tr) {
           @apply bg-base-100 sticky top-0 z-[1];
         }
@@ -54,32 +90,15 @@ const schema: GetSchemaFn = (opts) => {
         &-zebra tbody tr:nth-child(even) :where(${selector}-pin-cols tr th) {
           @apply bg-base-200;
         }`)
+        )
       },
       utils: {
-        ...transformCss2Js(`${selector}-xs :not(thead):not(tfoot) tr {
-          @apply text-xs;
-        }
-        ${selector}-xs :where(th, td) {
-          @apply px-2 py-1;
-        }
-        ${selector}-sm :not(thead):not(tfoot) tr {
-          @apply text-sm;
-        }
-        ${selector}-sm :where(th, td) {
-          @apply px-3 py-2;
-        }
-        ${selector}-md :not(thead):not(tfoot) tr {
-          @apply text-sm;
-        }
-        ${selector}-md :where(th, td) {
-          @apply px-4 py-3;
-        }
-        ${selector}-lg :not(thead):not(tfoot) tr {
-          @apply text-base;
-        }
-        ${selector}-lg :where(th, td) {
-          @apply px-6 py-4;
-        }`)
+        ...transformCss2Js(`
+        ${xs}
+        ${sm}
+        ${md}
+        ${lg}
+        `)
       }
     }
   }

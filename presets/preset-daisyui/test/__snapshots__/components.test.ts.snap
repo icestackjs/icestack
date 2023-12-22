@@ -57,7 +57,9 @@ exports[`'avatar' > utils 1`] = `""`;
 
 exports[`'badge' > base 1`] = `
 ".badge {
-  @apply inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem];
+  @apply inline-flex items-center justify-center transition duration-200 ease-out w-[fit-content] h-5 text-sm leading-5;
+  padding-left: 0.563rem;
+  padding-right: 0.563rem;
 }"
 `;
 
@@ -246,8 +248,8 @@ exports[`'breadcrumbs' > utils 1`] = `""`;
 exports[`'button' > base 1`] = `
 ".btn {
   @apply rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4;
-  font-size: 0.875rem;
   line-height: 1em;
+  font-size: 0.875rem;
 }
 .btn-disabled, .btn[disabled], .btn:disabled {
   @apply pointer-events-none cursor-not-allowed;

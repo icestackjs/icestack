@@ -163,7 +163,11 @@ exports[`'badge' options > raw snap 1`] = `
   "defaults": {
     "base": {
       ".badge": {
-        "apply": "inline-flex items-center justify-center transition duration-200 ease-out h-5 text-sm leading-5 w-[fit-content] pl-[0.563rem] pr-[0.563rem]",
+        "apply": "inline-flex items-center justify-center transition duration-200 ease-out w-[fit-content] h-5 text-sm leading-5",
+        "css": {
+          "padding-left": "0.563rem",
+          "padding-right": "0.563rem",
+        },
       },
     },
     "styled": {
@@ -227,14 +231,16 @@ exports[`'badge' options > snap 1`] = `
             "transition",
             "duration-200",
             "ease-out",
+            "w-[fit-content]",
             "h-5",
             "text-sm",
             "leading-5",
-            "w-[fit-content]",
-            "pl-[0.563rem]",
-            "pr-[0.563rem]",
           ],
         ],
+        "css": {
+          "padding-left": "0.563rem",
+          "padding-right": "0.563rem",
+        },
       },
     },
     "styled": {

@@ -36,7 +36,7 @@ export type ComponentsValue = {
   override: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
   extend: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
   extra: CssValue | ((opts: SchemaFnOptions) => CssValue)
-  baseDefault: CssValue
+  // baseDefault: CssValue
   selector: string
   schema: GetSchemaFn
   disabled: boolean

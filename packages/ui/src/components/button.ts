@@ -1,5 +1,34 @@
-import { getSelector, expandTypes } from '@/shared'
+import { getSelector, expandTypes, defuBaseDefault } from '@/shared'
 import type { GetSchemaFn, IValue } from '@/types'
+
+const xs = {
+  apply: 'min-h-6 h-6 px-2',
+  css: {
+    'font-size': '0.75rem'
+  }
+}
+
+const sm = {
+  apply: 'min-h-8 h-8 px-3',
+  css: {
+    'font-size': '0.875rem'
+  }
+}
+
+const md = {
+  apply: 'min-h-12 h-12 px-4',
+  css: {
+    'font-size': '0.875rem'
+  }
+}
+
+const lg = {
+  apply: 'min-h-16 h-16 px-6',
+  css: {
+    'font-size': '1.125rem'
+  }
+}
+
 const schema: GetSchemaFn = (opts) => {
   const { selector, types } = opts
 
@@ -108,12 +137,13 @@ const schema: GetSchemaFn = (opts) => {
       },
       base: {
         [selector]: {
-          apply:
-            'rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4',
-          css: {
-            'font-size': '0.875rem',
-            'line-height': '1em'
-          },
+          ...defuBaseDefault<any, any[]>(md, {
+            apply:
+              'rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out',
+            css: {
+              'line-height': '1em'
+            }
+          }),
           [`&-disabled,
         &[disabled],
         &:disabled`]: {
@@ -123,30 +153,10 @@ const schema: GetSchemaFn = (opts) => {
       },
       utils: {
         [selector]: {
-          [`&${getSelector('xs')}`]: {
-            apply: 'min-h-6 h-6 px-2',
-            css: {
-              'font-size': '0.75rem'
-            }
-          },
-          [`&${getSelector('sm')}`]: {
-            apply: 'min-h-8 h-8 px-3',
-            css: {
-              'font-size': '0.875rem'
-            }
-          },
-          [`&${getSelector('md')}`]: {
-            apply: 'min-h-12 h-12 px-4',
-            css: {
-              'font-size': '0.875rem'
-            }
-          },
-          [`&${getSelector('lg')}`]: {
-            apply: 'min-h-16 h-16 px-6',
-            css: {
-              'font-size': '1.125rem'
-            }
-          },
+          [`&${getSelector('xs')}`]: xs,
+          [`&${getSelector('sm')}`]: sm,
+          [`&${getSelector('md')}`]: md,
+          [`&${getSelector('lg')}`]: lg,
           [`&${getSelector('wide')}`]: {
             apply: 'w-64'
           },

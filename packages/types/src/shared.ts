@@ -27,8 +27,8 @@ export type ISchema = {
   selector: string
   defaults: IDefaults
 }
-
-export type SchemaFnOptions = CreatePresetOptions & { selector: string; params: Record<string, any>; baseDefault: CssValue }
+// baseDefault: CssValue
+export type SchemaFnOptions = CreatePresetOptions & { selector: string; params: Record<string, any> }
 
 export type GetSchemaFn = (opts: SchemaFnOptions) => ISchema
 

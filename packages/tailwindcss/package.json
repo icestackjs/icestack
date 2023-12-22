@@ -1,7 +1,7 @@
 {
   "name": "@icestack/tailwindcss",
   "description": "The tailwindcss plugin of @icestack/ui",
-  "version": "0.3.8",
+  "version": "0.3.9",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

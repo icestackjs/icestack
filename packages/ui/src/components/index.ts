@@ -1,4 +1,4 @@
-import { GetSchemaFn, preprocessCssInJs } from './shared'
+import { GetSchemaFn, preprocessCssInJs } from '@/shared'
 import collapse from './collapse'
 import join from './join'
 import indicator from './indicator'
@@ -120,6 +120,6 @@ const removeDefaultComponents = componentNames.reduce<Record<string, false>>((ac
 }, {})
 export { componentNames as names, schemaMap, resolvedSchemaMap, removeDefaultComponents }
 
-export { expandTypes, getSelector, compressCssSelector, preprocessCssInJs, transformCss2Js } from './shared'
+export { expandTypes, getSelector, compressCssSelector, preprocessCssInJs, transformCss2Js } from '@/shared'
 
-export type { GetSchemaFn } from './shared'
+export type { GetSchemaFn } from '@/shared'

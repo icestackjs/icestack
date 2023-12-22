@@ -1,4 +1,4 @@
-import { GetSchemaFn, transformCss2Js } from './shared'
+import { GetSchemaFn, transformCss2Js } from '@/shared'
 
 /**
  * @deprecated

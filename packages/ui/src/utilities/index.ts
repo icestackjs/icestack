@@ -1,8 +1,8 @@
-import type { CssInJs } from '@icestack/postcss'
 import merge from 'merge'
 import glass from './glass'
 import variables from './variables'
-import { preprocessCssInJs } from '@/components/shared'
+import type { CssInJs } from '@/types'
+import { preprocessCssInJs } from '@/shared'
 import { makeExtraCssArray } from '@/utils'
 const _utilitiesMap = {
   glass,

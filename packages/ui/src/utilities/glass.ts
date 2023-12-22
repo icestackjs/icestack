@@ -1,4 +1,4 @@
-import { transformCss2Js } from '@/components/shared'
+import { transformCss2Js } from '@/shared'
 
 export default () => {
   return transformCss2Js(`.glass {

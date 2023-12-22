@@ -1,4 +1,4 @@
-import { expandTypes, GetSchemaFn, getSelector } from './shared'
+import { expandTypes, GetSchemaFn, getSelector } from '@/shared'
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
 }

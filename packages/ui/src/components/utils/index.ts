@@ -1,9 +1,8 @@
 import { pick } from 'lodash'
-import { preprocessCssInJs, defu, defuOverrideApplyCss, transformCss2Js } from '@icestack/shared'
-import type { CreatePresetOptions, ISchema } from '@icestack/shared'
+import { preprocessCssInJs, defu, defuOverrideApplyCss, transformCss2Js } from '@/shared'
+import type { CreatePresetOptions, ISchema } from '@/shared'
 
 import type { CodegenMode, ComponentsValue, CssInJs, ModeMergeValue, SchemaFnOptions } from '@/types'
-export { expandTypes, compressCssSelector, preprocessCssInJs, getSelector, recursiveNodes, transformCss2Js } from '@icestack/shared'
 
 export function makeDefaults(obj?: ModeMergeValue, selector?: string) {
   const res: Record<string, Record<string, CssInJs | string>> = {

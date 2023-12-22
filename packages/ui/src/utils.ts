@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import fss from 'node:fs'
 import readline from 'node:readline'
-import { transformCss2Js } from '@icestack/shared'
+import { transformCss2Js } from '@/shared'
 
 export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]> {
   if (!Array.isArray(arr)) {

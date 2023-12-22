@@ -1,4 +1,4 @@
-import { transformCss2Js } from '@/components/shared'
+import { transformCss2Js } from '@/shared'
 describe('transformCss', () => {
   it('case0', () => {
     const caseCss = `.alert {

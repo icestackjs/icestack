@@ -1,4 +1,4 @@
-import { GetSchemaFn, getSelector } from './shared'
+import { GetSchemaFn, getSelector } from '@/shared'
 import { loading as loading64Map } from './assets/svg.json'
 
 function makeMaskImage(base64: string) {

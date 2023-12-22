@@ -1,4 +1,4 @@
-import { GetSchemaFn } from './shared'
+import { GetSchemaFn } from '@/shared'
 
 const schema: GetSchemaFn = (opts) => {
   const { selector } = opts

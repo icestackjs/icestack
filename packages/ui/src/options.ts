@@ -2,7 +2,7 @@ import { loadConfig } from 'c12'
 import { flattenDeep, get, set, isObject } from 'lodash'
 import merge from 'merge'
 import { getCodegenDefaults } from './defaults'
-import type { CodegenOptions, DeepPartial, Preset } from './types'
+import type { CodegenOptions, DeepPartial, Preset } from '@/types'
 import { defuOptions } from '@/shared'
 import { makeExtraCssArray } from '@/utils'
 
@@ -110,7 +110,7 @@ export function postHandleOptions(options: DeepPartial<CodegenOptions>): Codegen
   return options as CodegenOptions
 }
 
-export function getCodegenOptions(options?: DeepPartial<CodegenOptions>): CodegenOptions {
+export function getCodegenOptions(options?: DeepPartial<CodegenOptions>) {
   let presets: Preset[] = []
   if (options?.presets && Array.isArray(options?.presets)) {
     presets =
@@ -125,12 +125,12 @@ export function getCodegenOptions(options?: DeepPartial<CodegenOptions>): Codege
         })
       ).filter(Boolean) ?? []
   }
-  const a = preHandleOptions(options)
+  const a = preHandleOptions(options) as CodegenOptions
   const bs = presets.map((p) => {
     return preHandleOptions(p)
   })
   const d = preHandleOptions(getCodegenDefaults(options?.mode))
-  const opts = defuOptions<CodegenOptions, DeepPartial<CodegenOptions>[]>(a, ...bs, d)
+  const opts = defuOptions<DeepPartial<CodegenOptions>, DeepPartial<CodegenOptions>[]>(a, ...bs, d)
   const pp = postHandleOptions(opts)
   return pp
 }

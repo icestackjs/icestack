@@ -1,0 +1,122 @@
+import CodeRender from '../../CodeRender'
+
+### Default Usage
+
+<CodeRender code={`<button class="btn btn-primary">Primary</button>
+<button class="btn btn-success">Success</button>
+<button class="btn btn-warning">Warning</button>
+<button class="btn btn-error">Error</button>
+<button class="btn btn-neutral">Neutral</button>
+
+<button class="btn btn-outline btn-primary">Info</button>
+<button class="btn btn-outline btn-success">Success</button>
+<button class="btn btn-outline btn-warning">Warning</button>
+<button class="btn btn-outline btn-error">Error</button>
+<button class="btn btn-outline btn-neutral">Neutral</button>
+`}></CodeRender>
+
+```html
+<button class="btn btn-primary">Primary</button>
+<button class="btn btn-success">Success</button>
+<button class="btn btn-warning">Warning</button>
+<button class="btn btn-error">Error</button>
+<button class="btn btn-neutral">Neutral</button>
+```
+
+### Outline
+
+<CodeRender code={`<button class="btn btn-outline btn-primary">Info</button>
+<button class="btn btn-outline btn-success">Success</button>
+<button class="btn btn-outline btn-warning">Warning</button>
+<button class="btn btn-outline btn-error">Error</button>
+<button class="btn btn-outline btn-neutral">Neutral</button>
+`}></CodeRender>
+
+```html
+<button class="btn btn-outline btn-primary">Info</button>
+<button class="btn btn-outline btn-success">Success</button>
+<button class="btn btn-outline btn-warning">Warning</button>
+<button class="btn btn-outline btn-error">Error</button>
+<button class="btn btn-outline btn-neutral">Neutral</button>
+```
+
+### Size
+
+<CodeRender
+  code={`<button class="btn btn-lg">Large</button>
+<button class="btn btn-md">Normal</button>
+<button class="btn btn-sm">Small</button>
+<button class="btn btn-xs">Tiny</button>`}
+></CodeRender>
+
+```html
+<button class="btn btn-lg">Large</button>
+<button class="btn btn-md">Normal</button>
+<button class="btn btn-sm">Small</button>
+<button class="btn btn-xs">Tiny</button>
+```
+
+### Button State
+
+<CodeRender
+  code={`<button class="btn btn-primary">Primary</button>
+<button class="btn btn-primary btn-hover">Primary hover</button>
+<button class="btn btn-primary btn-active">Primary active</button>
+<button class="btn btn-primary btn-disabled">Primary disabled</button>`}
+></CodeRender>
+
+```html
+<button class="btn btn-primary">Primary</button>
+<button class="btn btn-primary btn-hover">Primary hover</button>
+<button class="btn btn-primary btn-active">Primary active</button>
+<button class="btn btn-primary btn-disabled">Primary disabled</button>
+```
+
+
+### Shape
+
+<CodeRender
+  code={`<button class="btn btn-square">
+  <i class="i-mdi-check-bold"></i>
+</button>
+<button class="btn btn-square btn-outline">
+  <i class="i-mdi-check-bold"></i>
+</button>
+<button class="btn btn-circle">
+  <i class="i-mdi-check-bold"></i>
+</button>
+<button class="btn btn-circle btn-outline">
+  <i class="i-mdi-check-bold"></i>
+</button>`}
+></CodeRender>
+
+```html
+<button class="btn btn-square">
+  <i class="i-mdi-check-bold"></i>
+</button>
+<button class="btn btn-square btn-outline">
+  <i class="i-mdi-check-bold"></i>
+</button>
+<button class="btn btn-circle">
+  <i class="i-mdi-check-bold"></i>
+</button>
+<button class="btn btn-circle btn-outline">
+  <i class="i-mdi-check-bold"></i>
+</button>
+```
+
+### Loading
+
+<CodeRender
+  code={`<button class="btn">
+  <i class="loading loading-spinning-circles loading-sm mr-1"></i>
+  loading
+</button>`}
+></CodeRender>
+
+```html
+<button class="btn">
+  <i class="loading loading-spinning-circles loading-sm mr-1"></i>
+  loading
+</button>
+```

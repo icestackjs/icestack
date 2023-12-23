@@ -15,6 +15,11 @@ const opt = {
   i18n,
   // output: process.env.NEXT_OUTPUT,
   webpack: (config) => {
+    // console.log(config.module.rules)
+    config.module.rules.push({
+      resourceQuery: /raw/,
+      type: 'asset/source'
+    })
     // config.resolve.fallback = { fs: false, path: false, module: false, v8: false, perf_hooks: false }
     // config.plugins.push(
     //   autoImport({

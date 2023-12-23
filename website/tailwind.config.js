@@ -6,8 +6,8 @@ const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
+    './pages/**/*.{js,ts,jsx,tsx,mdx,md}',
+    './components/**/*.{js,ts,jsx,tsx,mdx,md}',
     './theme.config.jsx',
     {
       // https://github.com/tailwindlabs/tailwindcss/issues/11134

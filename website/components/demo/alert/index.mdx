@@ -1,0 +1,42 @@
+import CodeRender from '../../CodeRender'
+
+### Default Usage
+
+<CodeRender code={`<div role="alert" class="alert">
+  <i class="i-mdi-info-outline"></i>
+  <span>12 unread messages. Tap to see.</span>
+</div> `}></CodeRender>
+
+```html
+<div role="alert" class="alert">
+  <i class="i-mdi-info-outline"></i>
+  <span>12 unread messages. Tap to see.</span>
+</div>
+```
+
+### Other Colors
+
+<CodeRender code={`<div role="alert" class="alert alert-success">
+  <i class="i-mdi-success-circle"></i>
+  <span>Your purchase has been confirmed!</span>
+</div>`}></CodeRender>
+
+```html
+<div role="alert" class="alert alert-success">
+  <i class="i-mdi-success-circle"></i>
+  <span>Your purchase has been confirmed!</span>
+</div>
+```
+
+you can use other colors like `primary`,`warning`,`error` and you define custom color types.
+
+### Custom Alert
+
+<CodeRender code={`<div role="alert" class="alert shadow-lg">
+  <i class="i-mdi-message-alert-outline"></i>
+  <div>
+    <h3 class="font-bold">New message!</h3>
+    <div class="text-xs">You have 1 unread message</div>
+  </div>
+  <button class="btn btn-sm">See</button>
+</div>`}></CodeRender>

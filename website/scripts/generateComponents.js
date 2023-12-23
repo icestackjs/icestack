@@ -1,4 +1,5 @@
 const fs = require('node:fs/promises')
+const fss = require('node:fs')
 const path = require('node:path')
 // const jb = require('js-beautify')
 const { upperFirst, kebabCase } = require('lodash')
@@ -8,12 +9,17 @@ const { schemaMap } = require('@icestack/ui/components')
 const i18n = require('../i18n')
 const { createT, groupedComponents } = require('./i18n')
 const componentsDir = path.resolve(__dirname, '../pages/components')
+const demosDir = path.resolve(__dirname, '../components/demo')
 const { JSONStringify } = require('./utils')
 const defaultBase = getDefaultBase()
 const types = Object.keys(defaultBase.themes.light.types)
 
 function resolve(...args) {
   return path.resolve(componentsDir, ...args)
+}
+
+function resolveDemo(...args) {
+  return path.resolve(demosDir, ...args)
 }
 
 function generateMetaJson(options) {
@@ -76,24 +82,37 @@ async function main() {
           selector: defaultSelectorMap[componentName]?.selector,
           types
         })
+        const demoPath = resolveDemo(componentName, 'index.mdx')
+        const flag = fss.existsSync(demoPath)
+
         const codeString = JSONStringify(p) // format(serialize(p))
         await fs.writeFile(
           resolve(`${componentName}.${local}.mdx`),
           dedent`
   import CssTable from '../../components/CssTable'
-  
+  ${flag ? `import Demo from '../../components/demo/${componentName}/index.mdx'` : ''}
+
   ## ${t('Class Table')}
   
   <CssTable name="${componentName}" />
   
-  ## ${t('Demo and Playground')}
+  ${
+    flag
+      ? `## ${t('Demo')}
+  
+  <Demo></Demo>`
+      : ''
+  }
+
+  ## ${t('Playground')}
   
   [${t('Go to Storybook')}](https://story.ui.icebreaker.top/?path=/docs/${kebabCase(groupName)}-${componentName}--docs)
   
+  ## ${t('Css Schema')}
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-## ${t('Css Schema')}
+  <span class="btn">Click to Show Schema</span>
 </div>
 <div class="collapse-content"> 
 

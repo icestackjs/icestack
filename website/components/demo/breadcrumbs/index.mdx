@@ -1,1 +1,76 @@
 import CodeRender from '../../CodeRender'
+
+### Default usage
+
+<CodeRender code={`
+<div class="text-sm breadcrumbs">
+  <ul>
+    <li><a>Home</a></li> 
+    <li><a>Documents</a></li> 
+    <li>Add Document</li>
+  </ul>
+</div>
+`} />
+
+```html
+<div class="text-sm breadcrumbs">
+  <ul>
+    <li><a>Home</a></li> 
+    <li><a>Documents</a></li> 
+    <li>Add Document</li>
+  </ul>
+</div>
+```
+
+### Breadcrumbs with icons
+
+
+<CodeRender code={`
+<div class="text-sm breadcrumbs">
+  <ul>
+    <li>
+      <a>
+        <i class="i-mdi-home-outline"></i>
+        Home
+      </a>
+    </li> 
+    <li>
+      <a>
+        <i class="i-mdi-file-document-outline"></i>
+        Documents
+      </a>
+    </li> 
+    <li>
+      <span class="inline-flex gap-2 items-center">
+        <i class="i-mdi-file-outline"></i>
+        Add File
+      </span>
+    </li>
+  </ul>
+</div>
+`} />
+
+```html
+<div class="text-sm breadcrumbs">
+  <ul>
+    <li>
+      <a>
+        <i class="i-mdi-home-outline"></i>
+        Home
+      </a>
+    </li> 
+    <li>
+      <a>
+        <i class="i-mdi-file-document-outline"></i>
+        Documents
+      </a>
+    </li> 
+    <li>
+      <span class="inline-flex gap-2 items-center">
+        <i class="i-mdi-file-outline"></i>
+        Add File
+      </span>
+    </li>
+  </ul>
+</div>
+```

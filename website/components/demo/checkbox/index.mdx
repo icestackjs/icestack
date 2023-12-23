@@ -1,1 +1,87 @@
 import CodeRender from '../../CodeRender'
+
+### Default usage
+
+<CodeRender
+  code={`
+<input type="checkbox" checked="checked" class="checkbox" />
+`}
+/>
+
+```html
+<input type="checkbox" checked="checked" class="checkbox" />
+```
+
+### Colors
+
+<CodeRender
+  code={`
+<input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-success" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-warning" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-error" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-neutral" />
+`}
+/>
+
+```html
+<input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-success" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-warning" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-error" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-neutral" />
+```
+
+### Sizes
+
+<CodeRender
+  code={`
+<input type="checkbox" checked="checked" class="checkbox checkbox-lg" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-md" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-sm" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-xs" />
+`}
+/>
+
+```html
+<input type="checkbox" checked="checked" class="checkbox checkbox-lg" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-md" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-sm" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-xs" />
+```
+
+### Disabled and checked
+
+<CodeRender
+  code={`
+<input type="checkbox" class="checkbox" disabled />
+<input type="checkbox" class="checkbox" disabled checked />
+`}
+/>
+
+```html
+<input type="checkbox" class="checkbox" disabled />
+<input type="checkbox" class="checkbox" disabled checked />
+```
+
+### With label and form-control
+
+<CodeRender
+  code={`
+<div class="form-control">
+  <label class="label cursor-pointer">
+    <span class="label-text">Remember me</span> 
+    <input type="checkbox" checked="checked" class="checkbox" />
+  </label>
+</div>
+`}
+/>
+
+```html
+<div class="form-control">
+  <label class="label cursor-pointer">
+    <span class="label-text">Remember me</span> 
+    <input type="checkbox" checked="checked" class="checkbox" />
+  </label>
+</div>
+```

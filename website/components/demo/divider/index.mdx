@@ -1,1 +1,127 @@
 import CodeRender from '../../CodeRender'
+
+### Default usage
+
+<CodeRender
+  code={`
+<div class="flex flex-col w-full border-opacity-50">
+  <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
+  <div class="divider">OR</div>
+  <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
+</div>
+`}
+/>
+
+```html
+<div class="flex flex-col w-full border-opacity-50">
+  <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
+  <div class="divider">OR</div>
+  <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
+</div>
+```
+
+### Divider horizontal
+
+<CodeRender
+  code={`
+<div class="flex w-full">
+  <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
+  <div class="divider divider-horizontal">OR</div>
+  <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
+</div>
+`}
+/>
+
+```html
+<div class="flex w-full">
+  <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
+  <div class="divider divider-horizontal">OR</div>
+  <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
+</div>
+```
+
+### Divider with no text
+
+<CodeRender
+  code={`
+<div class="flex flex-col w-full">
+  <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div> 
+  <div class="divider"></div> 
+  <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
+</div>
+`}
+/>
+
+```html
+<div class="flex flex-col w-full">
+  <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
+  <div class="divider"></div>
+  <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
+</div>
+```
+
+### Divider with colors
+
+<CodeRender
+  code={`
+<div class="flex flex-col w-full">
+  <div class="divider">Default</div>
+  <div class="divider divider-neutral">Neutral</div>
+  <div class="divider divider-primary">Primary</div>
+  <div class="divider divider-success">Success</div>
+  <div class="divider divider-warning">Warning</div>
+  <div class="divider divider-error">Error</div>
+</div>
+`}
+/>
+
+```html
+<div class="flex flex-col w-full">
+  <div class="divider">Default</div>
+  <div class="divider divider-neutral">Neutral</div>
+  <div class="divider divider-primary">Primary</div>
+  <div class="divider divider-success">Success</div>
+  <div class="divider divider-warning">Warning</div>
+  <div class="divider divider-error">Error</div>
+</div>
+```
+
+### Divider in different positions
+
+<CodeRender
+  code={`
+<div class="flex flex-col w-full">
+  <div class="divider divider-start">Start</div>
+  <div class="divider">Default</div>
+  <div class="divider divider-end">End</div>
+</div>
+`}
+/>
+
+```html
+<div class="flex flex-col w-full">
+  <div class="divider divider-start">Start</div>
+  <div class="divider">Default</div>
+  <div class="divider divider-end">End</div>
+</div>
+```
+
+### Divider in different positions (horizontal)
+
+<CodeRender
+  code={`
+<div class="flex w-full justify-center h-52">
+  <div class="divider divider-horizontal divider-start">Start</div>
+  <div class="divider divider-horizontal">Default</div>
+  <div class="divider divider-horizontal divider-end">End</div>
+</div>
+`}
+/>
+
+```html
+<div class="flex w-full justify-center h-52">
+  <div class="divider divider-horizontal divider-start">Start</div>
+  <div class="divider divider-horizontal">Default</div>
+  <div class="divider divider-horizontal divider-end">End</div>
+</div>
+```

@@ -84,7 +84,13 @@ async function main() {
         })
         const demoPath = resolveDemo(componentName, 'index.mdx')
         const flag = fss.existsSync(demoPath)
+        if (!flag) {
+          try {
+            fss.mkdirSync(path.dirname(demoPath))
+          } catch {}
 
+          fss.writeFileSync(demoPath, `import CodeRender from '../../CodeRender'\n`, 'utf8')
+        }
         const codeString = JSONStringify(p) // format(serialize(p))
         await fs.writeFile(
           resolve(`${componentName}.${local}.mdx`),

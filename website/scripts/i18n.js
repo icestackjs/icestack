@@ -35,7 +35,9 @@ const i18nMap = {
     'Demo and Playground': 'Demo and Playground',
     'Css Schema': 'Css Schema',
     'Go to Storybook': 'Go to Storybook',
-    skeleton: 'skeleton'
+    skeleton: 'skeleton',
+    Demo: 'Demo',
+    Playground: 'Playground'
   }
 }
 

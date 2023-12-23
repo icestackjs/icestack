@@ -36,7 +36,8 @@ module.exports = {
     //   })
     // }),
     icestackPlugin({
-      loadDirectory: path.resolve(__dirname, './my-ui')
+      loadDirectory: path.resolve(__dirname, './my-ui'),
+      loadConfig: true
     }),
     iconsPlugin({
       collections: getIconCollections(['mdi'])

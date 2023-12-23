@@ -1,1 +1,223 @@
 import CodeRender from '../../CodeRender'
+
+### Default usage
+
+<CodeRender code={`
+<div class="btm-nav relative">
+  <button>
+    <i class="i-mdi-home-outline text-lg"></i>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+  </button>
+</div>
+`} />
+
+```html
+<div class="btm-nav">
+  <button>
+    <i class="i-mdi-home-outline text-lg"></i>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+  </button>
+</div>
+```
+
+### With title
+
+<CodeRender code={`
+<div class="btm-nav relative">
+  <button>
+    <i class="i-mdi-home-outline text-lg"></i>
+    <span class="btm-nav-label">Home</span>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+    <span class="btm-nav-label">Matrix</span>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+    <span class="btm-nav-label">Star</span>
+  </button>
+</div>
+`} />
+
+```html
+<div class="btm-nav">
+  <button>
+    <i class="i-mdi-home-outline text-lg"></i>
+    <span class="btm-nav-label">Home</span>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+    <span class="btm-nav-label">Matrix</span>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+    <span class="btm-nav-label">Star</span>
+  </button>
+</div>
+```
+
+### Sizes
+
+<CodeRender code={`
+<div class="btm-nav btm-nav-xs relative">
+  <button>
+    <i class="i-mdi-home-outline text-lg"></i>
+    <span class="btm-nav-label">Home</span>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+    <span class="btm-nav-label">Matrix</span>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+    <span class="btm-nav-label">Star</span>
+  </button>
+</div>
+<div class="btm-nav btm-nav-sm relative">
+  <button>
+    <i class="i-mdi-home-outline text-lg"></i>
+    <span class="btm-nav-label">Home</span>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+    <span class="btm-nav-label">Matrix</span>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+    <span class="btm-nav-label">Star</span>
+  </button>
+</div>
+<div class="btm-nav btm-nav-md relative">
+  <button>
+    <i class="i-mdi-home-outline text-lg"></i>
+    <span class="btm-nav-label">Home</span>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+    <span class="btm-nav-label">Matrix</span>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+    <span class="btm-nav-label">Star</span>
+  </button>
+</div>
+<div class="btm-nav btm-nav-lg relative">
+  <button>
+    <i class="i-mdi-home-outline text-lg"></i>
+    <span class="btm-nav-label">Home</span>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+    <span class="btm-nav-label">Matrix</span>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+    <span class="btm-nav-label">Star</span>
+  </button>
+</div>
+`} />
+
+```html
+<div class="btm-nav btm-nav-xs">
+  <button>
+    <i class="i-mdi-home-outline text-lg"></i>
+    <span class="btm-nav-label">Home</span>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+    <span class="btm-nav-label">Matrix</span>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+    <span class="btm-nav-label">Star</span>
+  </button>
+</div>
+<div class="btm-nav btm-nav-sm">
+  <button>
+    <i class="i-mdi-home-outline text-lg"></i>
+    <span class="btm-nav-label">Home</span>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+    <span class="btm-nav-label">Matrix</span>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+    <span class="btm-nav-label">Star</span>
+  </button>
+</div>
+<div class="btm-nav btm-nav-md">
+  <button>
+    <i class="i-mdi-home-outline text-lg"></i>
+    <span class="btm-nav-label">Home</span>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+    <span class="btm-nav-label">Matrix</span>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+    <span class="btm-nav-label">Star</span>
+  </button>
+</div>
+<div class="btm-nav btm-nav-lg">
+  <button>
+    <i class="i-mdi-home-outline text-lg"></i>
+    <span class="btm-nav-label">Home</span>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+    <span class="btm-nav-label">Matrix</span>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+    <span class="btm-nav-label">Star</span>
+  </button>
+</div>
+```
+
+### Disabled buttons
+
+<CodeRender code={`
+<div class="btm-nav relative">
+  <button class="disabled">
+    <i class="i-mdi-home-outline text-lg"></i>
+    <span class="btm-nav-label">Home</span>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+    <span class="btm-nav-label">Matrix</span>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+    <span class="btm-nav-label">Star</span>
+  </button>
+</div>
+`} />
+
+```html
+<div class="btm-nav">
+  <button class="disabled">
+    <i class="i-mdi-home-outline text-lg"></i>
+    <span class="btm-nav-label">Home</span>
+  </button>
+  <button class="active">
+    <i class="i-mdi-data-matrix text-lg"></i>
+    <span class="btm-nav-label">Matrix</span>
+  </button>
+  <button>
+    <i class="i-mdi-star-box-outline text-lg"></i>
+    <span class="btm-nav-label">Star</span>
+  </button>
+</div>
+```

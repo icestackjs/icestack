@@ -5,7 +5,7 @@ describe('extra', () => {
   it('extra btn', async () => {
     const components = {
       button: {
-        extra: `
+        extend: `
         .btn{
           @apply rounded-lg p-0.5;
           height: auto;

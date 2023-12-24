@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises'
 import fss from 'node:fs'
 import readline from 'node:readline'
+import { CssInJs, CssValue } from './types'
 import { transformCss2Js } from '@/shared'
 
 export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]> {
@@ -79,20 +80,20 @@ export function arrMatch(matchArr?: (string | RegExp)[], str?: string) {
   })
 }
 
-export function preHandleString<T>(val: T) {
+export function preHandleString(val: any): CssInJs {
   if (typeof val === 'string') {
     return transformCss2Js(val)
   }
   return val
 }
 
-export function makeExtraCssArray(value: any | any[]) {
+export function makeExtraCssArray(value: CssValue): CssInJs[] {
   return Array.isArray(value) ? value.map((x) => preHandleString(x)) : [preHandleString(value)]
 }
 
-export function cmdClear(rowCount = 1) {
-  readline.moveCursor(process.stdout, 0, -rowCount)
-  readline.clearLine(process.stdout, 1)
-  // process.stdout.moveCursor(0, -rowCount)
-  // process.stdout.clearLine(1)
+export function cmdClearLine(rowCount = 1) {
+  try {
+    readline.moveCursor(process.stdout, 0, -rowCount)
+    readline.clearLine(process.stdout, 1)
+  } catch {}
 }

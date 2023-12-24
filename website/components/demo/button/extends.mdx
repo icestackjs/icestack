@@ -1,0 +1,66 @@
+import CodeRender from '../../CodeRender'
+
+## Extends
+
+### Extends Colors
+
+```js filename="icestack.config.js"
+/**
+ * @type {import('@icestack/ui/types').Themes}
+ */
+const extendColorsTypes = {
+  light: {
+    types: {
+      // auto generate colors
+      info: '#13c2c2',
+      secondary: '#2f54eb'
+    }
+  },
+  dark: {
+    types: {
+      // is dark: true
+      // [string, boolean|options]
+      info: ['#13c2c2', true],
+      // full control
+      secondary: {
+        secondary: '#2f54eb',
+        'secondary-content': '#ffffff',
+        'secondary-hover': '#263ea0',
+        'secondary-active': '#5273e0'
+      }
+    }
+  }
+}
+```
+
+<CodeRender className='space-x-2' code={`<button class="btn btn-info">Info</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-info btn-outline">Info Outline</button>
+<button class="btn btn-secondary btn-outline">Secondary Outline</button>
+`}></CodeRender>
+
+```html
+<button class="btn btn-info">Info</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-info btn-outline">Info Outline</button>
+<button class="btn btn-secondary btn-outline">Secondary Outline</button>
+```
+
+### Extends Sizes
+
+<CodeRender className='space-x-2' code={`
+<button class="btn btn-2xl">2xl</button>
+<button class="btn btn-xl">xl</button>
+<button class="btn btn-lg">Large</button>
+<button class="btn btn-md">Normal</button>
+<button class="btn btn-sm">Small</button>
+<button class="btn btn-xs">Tiny</button>
+
+`}></CodeRender>
+
+```html
+<button class="btn btn-info">Info</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-info btn-outline">Info Outline</button>
+<button class="btn btn-secondary btn-outline">Secondary Outline</button>
+```

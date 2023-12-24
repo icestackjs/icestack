@@ -1,4 +1,4 @@
-const { themes } = require('./icestack/index')
+const { themes, components } = require('./icestack/index')
 
 /**
  * @type {import('@icestack/ui').Config}
@@ -9,6 +9,9 @@ const config = {
     themes: {
       ...themes
     }
+  },
+  components: {
+    ...components
   },
   presets: []
 }

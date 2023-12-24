@@ -39,7 +39,7 @@ export type ComponentsValue = {
   prefix: PrefixerOptions
   varPrefix: VarPrefixerOptions
   mode: CodegenMode
-  extra: CssValue | ((opts: SchemaFnOptions) => CssValue)
+  // extra: CssValue | ((opts: SchemaFnOptions) => CssValue)
   // baseDefault: CssValue
   /**
    * @description css selector
@@ -57,11 +57,11 @@ export type ComponentsValue = {
   /**
    * @description senior
    */
-  override: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
+  override: CssValue | ModeMergeValue | ((opts: SchemaFnOptions) => CssValue | ModeMergeValue)
   /**
    * @description senior
    */
-  extend: ModeMergeValue | ((opts: SchemaFnOptions) => ModeMergeValue)
+  extend: CssValue | ModeMergeValue | ((opts: SchemaFnOptions) => CssValue | ModeMergeValue)
   /**
    * @description senior
    */

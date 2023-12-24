@@ -81,22 +81,25 @@ describe('createPreset options', () => {
         alert: {
           extend: {
             base: {
-              apply: ['bg-red-800']
+              '.xxx': {
+                apply: ['bg-red-800']
+              },
+              '.ccc': {
+                css: {
+                  color: 'red'
+                },
+                apply: ['bg-blue-500']
+              }
             }
           },
           override: {
             base: {
-              apply: ['bg-red-900']
+              '.xxx': {
+                apply: ['bg-red-900']
+              }
             }
           },
-          extra: {
-            '.ccc': {
-              css: {
-                color: 'red'
-              },
-              apply: ['bg-blue-500']
-            }
-          },
+
           selector: '.xxx'
         }
       }
@@ -115,15 +118,19 @@ describe('createPreset options', () => {
       mode: 'raw',
       components: {
         alert: {
-          extra: {
-            '.my-xxx': {
-              css: {
-                color: 'red'
-              },
-              apply: ['bg-blue-500'],
-              '&:hover': {
-                css: {
-                  color: 'blue'
+          extend: {
+            utils: {
+              '.alert': {
+                '.my-xxx': {
+                  css: {
+                    color: 'red'
+                  },
+                  apply: ['bg-blue-500'],
+                  '&:hover': {
+                    css: {
+                      color: 'blue'
+                    }
+                  }
                 }
               }
             }

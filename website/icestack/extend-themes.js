@@ -15,26 +15,31 @@ const overrideDefaultSelector = {
 /**
  * @type {import('@icestack/ui/types').Themes}
  */
-const extendSecondaryTypes = {
+const extendColorsTypes = {
   light: {
     types: {
-      secondary: '#faad14'
+      // auto generate colors
+      info: '#13c2c2',
+      secondary: '#2f54eb'
     }
   },
   dark: {
     types: {
+      // is dark: true
+      info: ['#13c2c2', true],
+      // full control
       secondary: {
-        secondary: '#d89614',
+        secondary: '#2f54eb',
         'secondary-content': '#ffffff',
-        'secondary-hover': '#aa7714',
-        'secondary-active': '#e8b339'
+        'secondary-hover': '#263ea0',
+        'secondary-active': '#5273e0'
       }
     }
   }
 }
 
 function extendThemes(...args) {
-  return defu(...args, extendSecondaryTypes, overrideDefaultSelector)
+  return defu(...args, extendColorsTypes, overrideDefaultSelector)
 }
 
 /**

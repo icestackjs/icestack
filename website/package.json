@@ -25,6 +25,7 @@
   "license": "ISC",
   "dependencies": {
     "@icebreakers/nextra-theme-docs": "^0.0.1",
+    "@icestack/cva": "workspace:^",
     "axios": "^1.6.2",
     "cheerio": "1.0.0-rc.12",
     "class-variance-authority": "^0.7.0",

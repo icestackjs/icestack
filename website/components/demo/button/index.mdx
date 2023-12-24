@@ -1,18 +1,15 @@
 import CodeRender from '../../CodeRender'
+import Extends from './extends.mdx'
 
 ### Default Usage
 
-<CodeRender code={`<button class="btn btn-primary">Primary</button>
+<CodeRender className='space-x-2' code={`
+<button class="btn btn-primary">Primary</button>
 <button class="btn btn-success">Success</button>
 <button class="btn btn-warning">Warning</button>
 <button class="btn btn-error">Error</button>
 <button class="btn btn-neutral">Neutral</button>
 
-<button class="btn btn-outline btn-primary">Info</button>
-<button class="btn btn-outline btn-success">Success</button>
-<button class="btn btn-outline btn-warning">Warning</button>
-<button class="btn btn-outline btn-error">Error</button>
-<button class="btn btn-outline btn-neutral">Neutral</button>
 `}></CodeRender>
 
 ```html
@@ -25,12 +22,15 @@ import CodeRender from '../../CodeRender'
 
 ### Outline
 
-<CodeRender code={`<button class="btn btn-outline btn-primary">Info</button>
+<CodeRender
+  className="space-x-2"
+  code={`<button class="btn btn-outline btn-primary">Info</button>
 <button class="btn btn-outline btn-success">Success</button>
 <button class="btn btn-outline btn-warning">Warning</button>
 <button class="btn btn-outline btn-error">Error</button>
 <button class="btn btn-outline btn-neutral">Neutral</button>
-`}></CodeRender>
+`}
+></CodeRender>
 
 ```html
 <button class="btn btn-outline btn-primary">Info</button>
@@ -40,9 +40,10 @@ import CodeRender from '../../CodeRender'
 <button class="btn btn-outline btn-neutral">Neutral</button>
 ```
 
-### Size
+### Sizes
 
 <CodeRender
+  className="space-x-2"
   code={`<button class="btn btn-lg">Large</button>
 <button class="btn btn-md">Normal</button>
 <button class="btn btn-sm">Small</button>
@@ -59,6 +60,7 @@ import CodeRender from '../../CodeRender'
 ### Button State
 
 <CodeRender
+  className="space-x-2"
   code={`<button class="btn btn-primary">Primary</button>
 <button class="btn btn-primary btn-hover">Primary hover</button>
 <button class="btn btn-primary btn-active">Primary active</button>
@@ -72,10 +74,10 @@ import CodeRender from '../../CodeRender'
 <button class="btn btn-primary btn-disabled">Primary disabled</button>
 ```
 
-
-### Shape
+### Shapes
 
 <CodeRender
+  className="space-x-2"
   code={`<button class="btn btn-square">
   <i class="i-mdi-check-bold"></i>
 </button>
@@ -120,3 +122,7 @@ import CodeRender from '../../CodeRender'
   loading
 </button>
 ```
+
+[More Loading Types See](./loading)
+
+<Extends />

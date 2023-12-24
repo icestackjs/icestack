@@ -820,6 +820,9 @@ importers:
       '@icebreakers/nextra-theme-docs':
         specifier: ^0.0.1
         version: 0.0.1(next@14.0.4)(nextra@2.13.2)(react-dom@18.2.0)(react@18.2.0)
+      '@icestack/cva':
+        specifier: workspace:^
+        version: link:../packages/cva
       axios:
         specifier: ^1.6.2
         version: 1.6.2

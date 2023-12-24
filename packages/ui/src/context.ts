@@ -9,7 +9,7 @@ import kleur from 'kleur'
 import { transformJsToSass } from '@/sass'
 import { createDefaultTailwindcssExtends } from '@/defaults'
 import { logger } from '@/log'
-import { cmdClear, JSONStringify, ensureDirSync } from '@/utils'
+import { cmdClearLine, JSONStringify, ensureDirSync } from '@/utils'
 import { generateIndexCode } from '@/js'
 import type { CodegenOptions, DeepPartial, ILayer, CssInJs, CreatePresetOptions } from '@/types'
 import { defu } from '@/shared'
@@ -244,9 +244,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
       fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.cjs'), code, 'utf8')
     }
     b1.stop()
-    try {
-      cmdClear()
-    } catch {}
+    cmdClearLine()
 
     return res
   }

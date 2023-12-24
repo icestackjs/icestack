@@ -6,19 +6,21 @@ exports[`createPreset options > add custom component raw override case 0 1`] = `
     "base": {},
     "styled": {},
     "utils": {
-      ".my-xxx": {
-        "&:hover": {
-          "css": {
-            "color": "blue",
+      ".alert": {
+        ".my-xxx": {
+          "&:hover": {
+            "css": {
+              "color": "blue",
+            },
           },
-        },
-        "apply": [
-          [
-            "bg-blue-500",
+          "apply": [
+            [
+              "bg-blue-500",
+            ],
           ],
-        ],
-        "css": {
-          "color": "red",
+          "css": {
+            "color": "red",
+          },
         },
       },
     },
@@ -243,6 +245,16 @@ exports[`createPreset options > alert raw override case 0 1`] = `
 {
   "defaults": {
     "base": {
+      ".ccc": {
+        "apply": [
+          [
+            "bg-blue-500",
+          ],
+        ],
+        "css": {
+          "color": "red",
+        },
+      },
       ".xxx": {
         "apply": [
           [
@@ -255,18 +267,7 @@ exports[`createPreset options > alert raw override case 0 1`] = `
       },
     },
     "styled": {},
-    "utils": {
-      ".ccc": {
-        "apply": [
-          [
-            "bg-blue-500",
-          ],
-        ],
-        "css": {
-          "color": "red",
-        },
-      },
-    },
+    "utils": {},
   },
   "selector": ".xxx",
 }

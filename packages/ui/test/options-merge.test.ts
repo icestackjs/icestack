@@ -61,4 +61,245 @@ describe('options merge', () => {
     const cssObj = await ctx.buildComponents()
     expect(cssObj).toMatchSnapshot()
   })
+
+  it('merge case 2', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        button: {
+          extend: [
+            ({ selector }) => {
+              return {
+                utils: {
+                  [`${selector}::after`]: {
+                    css: {
+                      border: 'none'
+                    }
+                  },
+                  [selector]: {
+                    css: {
+                      'border-style': 'solid'
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      dryRun: true
+      // outdir
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('merge case 3', async () => {
+    const selector = '.btn'
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        button: {
+          extend: [
+            {
+              utils: {
+                [`${selector}::after`]: {
+                  css: {
+                    border: 'none'
+                  }
+                },
+                [selector]: {
+                  css: {
+                    'border-style': 'solid'
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('merge case 4', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        button: {
+          extend: `
+          .btn::after{
+            border:none;
+          }
+          .btn{
+            border-style:solid;
+          }
+          `
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('merge case 5', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        button: {
+          extend: [
+            `
+          .btn::after{
+            border:none;
+          }
+          .btn{
+            border-style:solid;
+          }
+          `
+          ]
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('merge case 6', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        button: {
+          extend: [
+            `
+          .btn::after{
+            border:none;
+          }
+          
+          `,
+            {
+              utils: {
+                '.btn': {
+                  css: {
+                    'border-style': 'solid'
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('merge case 7', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        button: {
+          extend: [
+            `
+          .btn::after{
+            border:none;
+          }
+          
+          `,
+            `.btn{
+            border-style:solid;
+          }`
+          ]
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('merge case 8', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        button: {
+          extend: [
+            `
+          .btn::after{
+            border:none;
+          }
+          
+          `,
+            ({ selector }) => {
+              return {
+                utils: {
+                  [selector]: {
+                    css: {
+                      'border-style': 'solid'
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('merge case 9', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          selector: '.xxx',
+          extend: [
+            `
+          .btn::after{
+            border:none;
+          }
+          
+          `,
+            ({ selector }) => {
+              return {
+                utils: {
+                  [selector]: {
+                    css: {
+                      'border-style': 'solid'
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
 })

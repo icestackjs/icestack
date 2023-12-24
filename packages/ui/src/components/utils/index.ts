@@ -1,7 +1,7 @@
 import { pick } from 'lodash'
 import { preprocessCssInJs, defu, defuOverrideApplyCss, mergeRClone } from '@/shared'
-import type { CodegenMode, ComponentsValue, SchemaFnOptions, CssValue, CreatePresetOptions, ISchema } from '@/types'
-import { makeExtraCssArray, preHandleString, isModeMergeValue } from '@/utils'
+import type { CodegenMode, ComponentsValue, SchemaFnOptions, CssValue, CreatePresetOptions, ISchema, ModeMergeValue } from '@/types'
+import { makeExtraCssArray, isModeMergeValue } from '@/utils'
 
 function getPickedProps(mode: CodegenMode = 'styled') {
   switch (mode) {
@@ -17,35 +17,23 @@ function getPickedProps(mode: CodegenMode = 'styled') {
   }
 }
 
-function invoke(arr: any | any[], opts: any) {
-  if (!Array.isArray(arr)) {
-    arr = [arr]
-  }
-  return arr.map((x: unknown) => {
-    if (typeof x === 'function') {
-      const r = x(opts)
-      if (typeof r === 'string') {
-        return {
-          utils: preHandleString(x)
+function invoke(arr: (ModeMergeValue | string | ((opts: SchemaFnOptions) => ModeMergeValue | string))[], opts: SchemaFnOptions) {
+  return arr.map((x) => {
+    x = typeof x === 'function' ? x(opts) : x
+
+    return isModeMergeValue(x)
+      ? {
+          base: mergeRClone(...makeExtraCssArray(x.base)),
+          styled: mergeRClone(...makeExtraCssArray(x.styled)),
+          utils: mergeRClone(...makeExtraCssArray(x.utils))
         }
-      }
-      return r
-    } else if (typeof x === 'string') {
-      return {
-        utils: preHandleString(x)
-      }
-    } else if (isModeMergeValue(x)) {
-      return {
-        base: mergeRClone(...makeExtraCssArray(x.base)),
-        styled: mergeRClone(...makeExtraCssArray(x.styled)),
-        utils: mergeRClone(...makeExtraCssArray(x.utils))
-      }
-    }
-    return x
+      : {
+          utils: mergeRClone(...makeExtraCssArray(x))
+        }
   })
 }
 
-export function handleFn<T extends any[]>(input: T, opts: SchemaFnOptions): Record<string, CssValue> {
+export function mergeAllOptions<T extends any[]>(input: T, opts: SchemaFnOptions): Record<string, CssValue> {
   if (!input) {
     return input
   }
@@ -60,6 +48,8 @@ export function handleFn<T extends any[]>(input: T, opts: SchemaFnOptions): Reco
   )
 }
 
+type PrepareArray = (ModeMergeValue | CssValue | ((opts: SchemaFnOptions) => ModeMergeValue | CssValue))[]
+
 export function handleOptions({ extend, override, selector, mode, schema, params }: ComponentsValue, { types }: CreatePresetOptions) {
   const opts: SchemaFnOptions = {
     types,
@@ -67,8 +57,6 @@ export function handleOptions({ extend, override, selector, mode, schema, params
     params
   }
 
-  // const isExtendUtils = typeof extend === 'string' || Array.isArray(extend)
-  // const isOverrideUtils = typeof override === 'string' || Array.isArray(override)
   const d: ISchema | undefined = schema?.(opts)
   let de: Partial<ISchema> = d ?? {}
   de.defaults = preprocessCssInJs(pick(de.defaults, getPickedProps(mode)))
@@ -76,7 +64,7 @@ export function handleOptions({ extend, override, selector, mode, schema, params
     de = defuOverrideApplyCss(
       {
         selector,
-        defaults: preprocessCssInJs(handleFn(override as any[], opts)) // makeDefaults(, isOverrideUtils)
+        defaults: preprocessCssInJs(mergeAllOptions(override as PrepareArray, opts))
       },
       de
     )
@@ -85,7 +73,7 @@ export function handleOptions({ extend, override, selector, mode, schema, params
   const res = defu(
     {
       selector,
-      defaults: preprocessCssInJs(handleFn(extend as any[], opts)) // makeDefaults(, isExtendUtils)
+      defaults: preprocessCssInJs(mergeAllOptions(extend as PrepareArray, opts))
     },
     de
   )

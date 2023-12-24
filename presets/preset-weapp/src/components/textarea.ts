@@ -2,7 +2,7 @@
 import { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
-  extra: ({ selector }) => {
+  extend: ({ selector }) => {
     return {
       [selector]: {
         css: {

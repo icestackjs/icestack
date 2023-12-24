@@ -216,4 +216,33 @@ describe('cutsom', () => {
     const cssObj = await ctx.buildComponents()
     expect(cssObj).toMatchSnapshot()
   })
+
+  it('custom component case 7', async () => {
+    // const outdir = path.resolve(__dirname, './outdir')
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          override: () => {
+            return {
+              base: {
+                '.xxx': {
+                  apply: 'bg-red-300 text-sm leading-4 !important',
+                  css: {
+                    color: 'red'
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      dryRun: true
+      // outdir
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
 })

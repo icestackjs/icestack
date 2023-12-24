@@ -141,3 +141,21 @@ exports[`cutsom > custom component case 6 1`] = `
   },
 }
 `;
+
+exports[`cutsom > custom component case 7 1`] = `
+{
+  "xxx": {
+    "base": {
+      ".xxx": {
+        "--tw-bg-opacity": "1 !important",
+        "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity)) !important",
+        "color": "red",
+        "fontSize": "0.875rem !important",
+        "lineHeight": "1rem !important",
+      },
+    },
+    "styled": {},
+    "utils": {},
+  },
+}
+`;

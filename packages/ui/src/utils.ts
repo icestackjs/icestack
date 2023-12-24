@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises'
 import fss from 'node:fs'
 import readline from 'node:readline'
-import { CssInJs, CssValue } from './types'
+import { CssInJs, CssValue, ModeMergeValue } from './types'
 import { transformCss2Js } from '@/shared'
 
 export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]> {
@@ -87,7 +87,7 @@ export function preHandleString(val: any): CssInJs {
   return val
 }
 
-export function makeExtraCssArray(value: CssValue): CssInJs[] {
+export function makeExtraCssArray(value?: CssValue): CssInJs[] {
   return Array.isArray(value) ? value.map((x) => preHandleString(x)) : [preHandleString(value)]
 }
 
@@ -96,4 +96,8 @@ export function cmdClearLine(rowCount = 1) {
     readline.moveCursor(process.stdout, 0, -rowCount)
     readline.clearLine(process.stdout, 1)
   } catch {}
+}
+
+export function isModeMergeValue(input: any): input is ModeMergeValue {
+  return typeof input === 'object' && (Reflect.has(input, 'base') || Reflect.has(input, 'styled') || Reflect.has(input, 'utils'))
 }

@@ -28,30 +28,12 @@ export function preHandleOptions(options?: DeepPartial<CodegenOptions>): DeepPar
   if (isObject(options?.components)) {
     for (const [componentName, opts] of Object.entries(options.components)) {
       if (opts) {
-        if (typeof opts.override === 'string' || Array.isArray(opts.override)) {
-          set(options, `components.${componentName}.override`, {
-            utils: makeExtraCssArray(opts.override)
-          })
-        } else if (typeof opts.override === 'function') {
-          set(options, `components.${componentName}.override`, makeExtraCssArray(opts.override))
-        } else if (isObject(opts.override)) {
-          for (const [k, v] of Object.entries(opts.override)) {
-            set(options, `components.${componentName}.override.${k}`, makeExtraCssArray(v))
-          }
+        if (opts.override && !Array.isArray(opts.override)) {
+          set(options, `components.${componentName}.override`, [opts.override])
         }
-      }
-      if (opts) {
-        if (typeof opts.extend === 'string' || Array.isArray(opts.extend)) {
-          // ob
-          set(options, `components.${componentName}.extend`, {
-            utils: makeExtraCssArray(opts.extend)
-          })
-        } else if (typeof opts.extend === 'function') {
-          set(options, `components.${componentName}.extend`, makeExtraCssArray(opts.extend))
-        } else if (isObject(opts.extend)) {
-          for (const [k, v] of Object.entries(opts.extend)) {
-            set(options, `components.${componentName}.extend.${k}`, makeExtraCssArray(v))
-          }
+
+        if (opts.extend && !Array.isArray(opts.extend)) {
+          set(options, `components.${componentName}.extend`, [opts.extend])
         }
       }
 

@@ -4,9 +4,11 @@ import { ComponentsValue } from '@/types'
 const options: Partial<ComponentsValue> = {
   extend: ({ selector }) => {
     return {
-      [selector]: {
-        css: {
-          'border-style': 'solid'
+      utils: {
+        [selector]: {
+          css: {
+            'border-style': 'solid'
+          }
         }
       }
     }

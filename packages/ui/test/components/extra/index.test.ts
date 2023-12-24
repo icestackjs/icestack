@@ -1,9 +1,11 @@
 // import { omit } from 'lodash-es'
+import { removeDefaultComponents } from '@/components'
 import { createContext } from '@/context'
 
 describe('extra', () => {
   it('extra btn', async () => {
     const components = {
+      ...removeDefaultComponents,
       button: {
         extend: `
         .btn{

@@ -52,8 +52,6 @@ exports[`createPreset options > alert base case 0 1`] = `
         ],
       },
     },
-    "styled": {},
-    "utils": {},
   },
   "selector": ".alert",
 }
@@ -140,7 +138,6 @@ exports[`createPreset options > alert case 0 1`] = `
         ],
       },
     },
-    "utils": {},
   },
   "selector": ".alert",
 }
@@ -182,7 +179,6 @@ exports[`createPreset options > alert case 1 1`] = `
         ],
       },
     },
-    "utils": {},
   },
   "selector": ".alert",
 }
@@ -190,11 +186,7 @@ exports[`createPreset options > alert case 1 1`] = `
 
 exports[`createPreset options > alert raw case 0 1`] = `
 {
-  "defaults": {
-    "base": {},
-    "styled": {},
-    "utils": {},
-  },
+  "defaults": {},
   "selector": ".alert",
 }
 `;
@@ -235,7 +227,6 @@ exports[`createPreset options > alert raw case 1 1`] = `
         ],
       },
     },
-    "utils": {},
   },
   "selector": ".alert",
 }

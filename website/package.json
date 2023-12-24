@@ -10,6 +10,8 @@
     "start": "next start",
     "lint": "next lint",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
+    "test": "vitest run",
+    "test:dev": "vitest",
     "build:ui": "icestack build",
     "build:coms": "node scripts/generateComponents.js",
     "build:docs": "node scripts/generateDocs.js",

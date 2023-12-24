@@ -10,4 +10,4 @@ export function defineConfig(options?: Config) {
 export { createContext } from './context'
 export type { IContext } from './context'
 export { getCodegenOptions } from './options'
-export { transformCss2Js } from '@icestack/shared'
+export { transformCss2Js, defu } from '@icestack/shared'

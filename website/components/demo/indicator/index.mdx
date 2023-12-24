@@ -1,1 +1,317 @@
 import CodeRender from '../../CodeRender'
+
+### Empty badge as indicator
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item badge badge-primary"></span> 
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item badge badge-primary"></span> 
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+```
+
+### Badge as indicator
+
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item badge badge-primary">new</span> 
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item badge badge-primary">new</span> 
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+```
+
+### for button
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item badge badge-primary">99+</span> 
+  <button class="btn">inbox</button>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item badge badge-primary">99+</span> 
+  <button class="btn">inbox</button>
+</div>
+```
+
+### for tab
+
+<CodeRender code={`
+<div class="tabs tabs-lifted">
+  <a class="tab">Messages</a> 
+  <a class="indicator tab tab-active">
+    Notifications 
+    <span class="indicator-item badge">8</span>
+  </a> 
+  <a class="tab">Requests</a>
+</div>
+`} />
+
+```html
+<div class="tabs tabs-lifted">
+  <a class="tab">Messages</a> 
+  <a class="indicator tab tab-active">
+    Notifications 
+    <span class="indicator-item badge">8</span>
+  </a> 
+  <a class="tab">Requests</a>
+</div>
+```
+
+### for avatar
+
+<CodeRender code={`
+<div class="avatar indicator">
+  <span class="indicator-item badge badge-primary">typing…</span> 
+  <div class="w-20 h-20 rounded-lg">
+    <img alt="Tailwind CSS examples" src="/panda.jpg" />
+  </div>
+</div>
+`} />
+
+```html
+<div class="avatar indicator">
+  <span class="indicator-item badge badge-primary">typing…</span> 
+  <div class="w-20 h-20 rounded-lg">
+    <img alt="Tailwind CSS examples" src="/panda.jpg" />
+  </div>
+</div>
+```
+
+### for an input
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item badge">Required</span>
+  <input type="text" placeholder="Your email address" class="input input-bordered" />
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item badge">Required</span>
+  <input type="text" placeholder="Your email address" class="input input-bordered" />
+</div>
+```
+
+### A button as an indicator for a card
+
+<CodeRender code={`
+<div class="indicator">
+  <div class="indicator-item indicator-bottom">
+    <button class="btn btn-primary">Apply</button>
+  </div> 
+  <div class="card border">
+    <div class="card-body">
+      <h2 class="card-title">Job Title</h2> 
+      <p>Rerum reiciendis beatae tenetur excepturi</p>
+    </div>
+  </div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <div class="indicator-item indicator-bottom">
+    <button class="btn btn-primary">Apply</button>
+  </div> 
+  <div class="card border">
+    <div class="card-body">
+      <h2 class="card-title">Job Title</h2> 
+      <p>Rerum reiciendis beatae tenetur excepturi</p>
+    </div>
+  </div>
+</div>
+```
+
+### indicator-top (default) indicator-start
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item indicator-start badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item indicator-start badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+```
+
+### indicator-top (default) indicator-center
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item indicator-center badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item indicator-center badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+```
+
+### indicator-top (default) indicator-end (default)
+
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+```
+
+### indicator-middle indicator-start
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item indicator-middle indicator-start badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item indicator-middle indicator-start badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+```
+
+### indicator-middle indicator-center
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item indicator-middle indicator-center badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item indicator-middle indicator-center badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+```
+
+### indicator-middle indicator-end (default)
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item indicator-middle badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item indicator-middle badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+```
+
+### indicator-bottom indicator-start
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item indicator-bottom indicator-start badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item indicator-bottom indicator-start badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+```
+
+### indicator-bottom indicator-center
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item indicator-bottom indicator-center badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item indicator-bottom indicator-center badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+```
+
+### indicator-bottom indicator-end (default)
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item indicator-bottom badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item indicator-bottom badge badge-primary"></span>
+  <div class="grid w-32 h-32 bg-base-300 place-items-center">content</div>
+</div>
+```
+
+### multiple indicators
+
+<CodeRender code={`
+<div class="indicator">
+  <span class="indicator-item indicator-top indicator-start badge badge-primary">top+start</span>
+  <span class="indicator-item indicator-top indicator-center badge badge-primary">top+center</span>
+  <span class="indicator-item indicator-top indicator-end badge badge-primary">top+end</span>
+  <span class="indicator-item indicator-middle indicator-start badge badge-primary">middle+start</span>
+  <span class="indicator-item indicator-middle indicator-center badge badge-primary">middle+center</span>
+  <span class="indicator-item indicator-middle indicator-end badge badge-primary">middle+end</span>
+  <span class="indicator-item indicator-bottom indicator-start badge badge-primary">bottom+start</span>
+  <span class="indicator-item indicator-bottom indicator-center badge badge-primary">bottom+center</span>
+  <span class="indicator-item indicator-bottom indicator-end badge badge-primary">bottom+end</span>
+  <div class="grid w-60 h-32 bg-base-300 place-items-center">content</div>
+</div>
+`} />
+
+```html
+<div class="indicator">
+  <span class="indicator-item indicator-top indicator-start badge badge-primary">top+start</span>
+  <span class="indicator-item indicator-top indicator-center badge badge-primary">top+center</span>
+  <span class="indicator-item indicator-top indicator-end badge badge-primary">top+end</span>
+  <span class="indicator-item indicator-middle indicator-start badge badge-primary">middle+start</span>
+  <span class="indicator-item indicator-middle indicator-center badge badge-primary">middle+center</span>
+  <span class="indicator-item indicator-middle indicator-end badge badge-primary">middle+end</span>
+  <span class="indicator-item indicator-bottom indicator-start badge badge-primary">bottom+start</span>
+  <span class="indicator-item indicator-bottom indicator-center badge badge-primary">bottom+center</span>
+  <span class="indicator-item indicator-bottom indicator-end badge badge-primary">bottom+end</span>
+  <div class="grid w-60 h-32 bg-base-300 place-items-center">content</div>
+</div>
+```

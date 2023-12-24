@@ -1,0 +1,264 @@
+import CodeRender from '../../CodeRender'
+
+### Checkbox
+
+<CodeRender code={`
+<input type="checkbox" checked="checked" class="checkbox" />
+
+`} />
+
+```html
+<input type="checkbox" checked="checked" class="checkbox" />
+
+```
+### With label and form-control
+
+<CodeRender code={`
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox" />
+</label>
+</div>
+
+`} />
+
+```html
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox" />
+</label>
+</div>
+
+```
+### Primary color
+
+<CodeRender code={`
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
+</label>
+</div>
+
+`} />
+
+```html
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
+</label>
+</div>
+
+```
+### Secondary color
+
+<CodeRender code={`
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-secondary" />
+</label>
+</div>
+
+`} />
+
+```html
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-secondary" />
+</label>
+</div>
+
+```
+### Accent color
+
+<CodeRender code={`
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-accent" />
+</label>
+</div>
+
+`} />
+
+```html
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-accent" />
+</label>
+</div>
+
+```
+### Success color
+
+<CodeRender code={`
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-success" />
+</label>
+</div>
+
+`} />
+
+```html
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-success" />
+</label>
+</div>
+
+```
+### Warning color
+
+<CodeRender code={`
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-warning" />
+</label>
+</div>
+
+`} />
+
+```html
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-warning" />
+</label>
+</div>
+
+```
+### Info color
+
+<CodeRender code={`
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-info" />
+</label>
+</div>
+
+`} />
+
+```html
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-info" />
+</label>
+</div>
+
+```
+### Error color
+
+<CodeRender code={`
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-error" />
+</label>
+</div>
+
+`} />
+
+```html
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" checked="checked" class="checkbox checkbox-error" />
+</label>
+</div>
+
+```
+### Sizes
+
+<CodeRender code={`
+<div class="flex flex-col items-center gap-2">
+<input type="checkbox" checked="checked" class="checkbox checkbox-xs" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-sm" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-md" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-lg" />
+</div>
+
+`} />
+
+```html
+<div class="flex flex-col items-center gap-2">
+<input type="checkbox" checked="checked" class="checkbox checkbox-xs" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-sm" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-md" />
+<input type="checkbox" checked="checked" class="checkbox checkbox-lg" />
+</div>
+
+```
+### Disabled
+
+<CodeRender code={`
+<input type="checkbox" disabled="disabled" class="checkbox" />
+
+`} />
+
+```html
+<input type="checkbox" disabled="disabled" class="checkbox" />
+
+```
+### Disabled and checked
+
+<CodeRender code={`
+<input type="checkbox" disabled="disabled" class="checkbox" checked="checked" />
+
+`} />
+
+```html
+<input type="checkbox" disabled="disabled" class="checkbox" checked="checked" />
+
+```
+### Indeterminate
+
+<CodeRender code={`
+<input type="checkbox" class="checkbox" indeterminate="true" />
+
+`} />
+
+```html
+<input type="checkbox" class="checkbox" indeterminate="true" />
+
+```
+### Checkbox with custom colors
+
+<CodeRender code={`
+<input
+type="checkbox"
+checked="checked"
+class="checkbox border-orange-400 checked:border-indigo-800 [--chkbg:theme(colors.indigo.600)] [--chkfg:orange]"
+/>
+<input
+type="checkbox"
+checked="checked"
+class="checkbox [--chkbg:oklch(var(--a))] [--chkfg:oklch(var(--p))]"
+/>
+
+`} />
+
+```html
+<input
+type="checkbox"
+checked="checked"
+class="checkbox border-orange-400 checked:border-indigo-800 [--chkbg:theme(colors.indigo.600)] [--chkfg:orange]"
+/>
+<input
+type="checkbox"
+checked="checked"
+class="checkbox [--chkbg:oklch(var(--a))] [--chkfg:oklch(var(--p))]"
+/>
+
+```

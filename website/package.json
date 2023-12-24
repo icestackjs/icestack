@@ -15,6 +15,7 @@
     "build:ui": "icestack build",
     "build:coms": "node scripts/generateComponents.js",
     "build:docs": "node scripts/generateDocs.js",
+    "get-demos": "node scripts/get-demos.js",
     "build:cos": "cross-env NEXT_OUTPUT=export npm run build",
     "deploy:cos": "npm run build:cos && ice-deploy -c --dir=storybook-static",
     "typedoc": "typedoc --plugin typedoc-plugin-markdown --out pages/options ../packages/ui/src/types.ts --readme none --tsconfig ./tsconfig.api.json"
@@ -24,9 +25,12 @@
   "license": "ISC",
   "dependencies": {
     "@icebreakers/nextra-theme-docs": "^0.0.1",
+    "axios": "^1.6.2",
+    "cheerio": "1.0.0-rc.12",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "css-to-tailwindcss-plugin": "workspace:^",
+    "dotenv": "^16.3.1",
     "html-react-parser": "^5.0.11",
     "lodash-es": "^4.17.21",
     "next": "^14.0.4",

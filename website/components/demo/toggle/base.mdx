@@ -1,0 +1,177 @@
+import CodeRender from '../../CodeRender'
+
+### Toggle
+
+<CodeRender code={`
+<input type="checkbox" class="toggle" checked="" />
+
+`} />
+
+```html
+<input type="checkbox" class="toggle" checked="" />
+
+```
+### With label and form-control
+
+<CodeRender code={`
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" class="toggle" checked="" />
+</label>
+</div>
+
+`} />
+
+```html
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+<span class="label-text">Remember me</span>
+<input type="checkbox" class="toggle" checked="" />
+</label>
+</div>
+
+```
+### Checkboxes with brand colors
+
+<CodeRender code={`
+<div class="flex flex-col">
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+  <span class="label-text">Remember me</span>
+  <input type="checkbox" class="toggle toggle-primary" checked="" />
+</label>
+</div>
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+  <span class="label-text">Remember me</span>
+  <input type="checkbox" class="toggle toggle-secondary" checked="" />
+</label>
+</div>
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+  <span class="label-text">Remember me</span>
+  <input type="checkbox" class="toggle toggle-accent" checked="" />
+</label>
+</div>
+</div>
+
+`} />
+
+```html
+<div class="flex flex-col">
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+  <span class="label-text">Remember me</span>
+  <input type="checkbox" class="toggle toggle-primary" checked="" />
+</label>
+</div>
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+  <span class="label-text">Remember me</span>
+  <input type="checkbox" class="toggle toggle-secondary" checked="" />
+</label>
+</div>
+<div class="form-control w-52">
+<label class="cursor-pointer label">
+  <span class="label-text">Remember me</span>
+  <input type="checkbox" class="toggle toggle-accent" checked="" />
+</label>
+</div>
+</div>
+
+```
+### Checkboxes with state colors
+
+<CodeRender code={`
+<div class="flex flex-col items-center gap-2">
+<input type="checkbox" class="toggle toggle-success" checked="" />
+<input type="checkbox" class="toggle toggle-warning" checked="" />
+<input type="checkbox" class="toggle toggle-info" checked="" />
+<input type="checkbox" class="toggle toggle-error" checked="" />
+</div>
+
+`} />
+
+```html
+<div class="flex flex-col items-center gap-2">
+<input type="checkbox" class="toggle toggle-success" checked="" />
+<input type="checkbox" class="toggle toggle-warning" checked="" />
+<input type="checkbox" class="toggle toggle-info" checked="" />
+<input type="checkbox" class="toggle toggle-error" checked="" />
+</div>
+
+```
+### Sizes
+
+<CodeRender code={`
+<div class="flex flex-col items-center gap-2">
+<input type="checkbox" class="toggle toggle-xs" checked="" />
+<input type="checkbox" class="toggle toggle-sm" checked="" />
+<input type="checkbox" class="toggle toggle-md" checked="" />
+<input type="checkbox" class="toggle toggle-lg" checked="" />
+</div>
+
+`} />
+
+```html
+<div class="flex flex-col items-center gap-2">
+<input type="checkbox" class="toggle toggle-xs" checked="" />
+<input type="checkbox" class="toggle toggle-sm" checked="" />
+<input type="checkbox" class="toggle toggle-md" checked="" />
+<input type="checkbox" class="toggle toggle-lg" checked="" />
+</div>
+
+```
+### Disabled
+
+<CodeRender code={`
+<input type="checkbox" class="toggle" disabled="" />
+
+`} />
+
+```html
+<input type="checkbox" class="toggle" disabled="" />
+
+```
+### Disabled and checked
+
+<CodeRender code={`
+<input type="checkbox" class="toggle" disabled="" checked="" />
+
+`} />
+
+```html
+<input type="checkbox" class="toggle" disabled="" checked="" />
+
+```
+### Indeterminate
+
+<CodeRender code={`
+<input type="checkbox" class="toggle" indeterminate="true" />
+
+`} />
+
+```html
+<input type="checkbox" class="toggle" indeterminate="true" />
+
+```
+### Toggle with custom color
+
+<CodeRender code={`
+<input
+type="checkbox"
+class="toggle [--tglbg:yellow] bg-blue-500 hover:bg-blue-700 border-blue-500"
+checked=""
+/>
+
+`} />
+
+```html
+<input
+type="checkbox"
+class="toggle [--tglbg:yellow] bg-blue-500 hover:bg-blue-700 border-blue-500"
+checked=""
+/>
+
+```

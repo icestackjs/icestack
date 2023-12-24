@@ -7,20 +7,11 @@ const dedent = require('dedent')
 const { getDefaultBase, defaultSelectorMap } = require('@icestack/ui/defaults')
 const { schemaMap } = require('@icestack/ui/components')
 const i18n = require('../i18n')
+const { resolveComponent, resolveDemo } = require('./dirs')
 const { createT, groupedComponents } = require('./i18n')
-const componentsDir = path.resolve(__dirname, '../pages/components')
-const demosDir = path.resolve(__dirname, '../components/demo')
 const { JSONStringify } = require('./utils')
 const defaultBase = getDefaultBase()
 const types = Object.keys(defaultBase.themes.light.types)
-
-function resolve(...args) {
-  return path.resolve(componentsDir, ...args)
-}
-
-function resolveDemo(...args) {
-  return path.resolve(demosDir, ...args)
-}
 
 function generateMetaJson(options) {
   const { local } = options
@@ -93,7 +84,7 @@ async function main() {
         }
         const codeString = JSONStringify(p) // format(serialize(p))
         await fs.writeFile(
-          resolve(`${componentName}.${local}.mdx`),
+          resolveComponent(`${componentName}.${local}.mdx`),
           dedent`
   import CssTable from '../../components/CssTable'
   ${flag ? `import Demo from '../../components/demo/${componentName}/index.mdx'` : ''}
@@ -132,8 +123,8 @@ async function main() {
         )
       }
     }
-    await fs.writeFile(resolve(`_meta.${local}.json`), JSONStringify(generateMetaJson({ local })))
-    await fs.writeFile(resolve(`overview.${local}.mdx`), generateOverview({ local }).join('\n'))
+    await fs.writeFile(resolveComponent(`_meta.${local}.json`), JSONStringify(generateMetaJson({ local })))
+    await fs.writeFile(resolveComponent(`overview.${local}.mdx`), generateOverview({ local }).join('\n'))
   }
 }
 

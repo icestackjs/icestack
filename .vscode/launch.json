@@ -135,6 +135,13 @@
       "cwd": "${workspaceFolder}/website"
     },
     {
+      "command": "npm run get-demos",
+      "name": "website get-demos",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/website"
+    },
+    {
       "command": "npm run codegen",
       "name": "[taro-app] codegen",
       "request": "launch",

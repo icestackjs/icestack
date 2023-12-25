@@ -1,6 +1,6 @@
 {
   "name": "icestack",
-  "version": "0.4.6",
+  "version": "0.4.7",
   "private": true,
   "scripts": {
     "build": "turbo run build --filter=./packages/* --filter=./plugins/* --filter=./presets/*",

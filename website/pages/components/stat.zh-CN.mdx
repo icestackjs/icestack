@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/stat/index.mdx'
 
-## 类名表格
+## 默认类名表格
 
 <CssTable name="stat" />
 
@@ -14,119 +14,114 @@ import Demo from '../../components/demo/stat/index.mdx'
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/data-display-stat--docs)
 
 ## Css 结构
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".stat",
-"defaults": {
-  "base": {
-    ".stats": {
-      "apply": [
-        "inline-grid"
-      ]
-    },
-    ":where(.stats)": {
-      "apply": [
-        "grid-flow-col"
-      ]
-    },
-    ".stat": {
-      "apply": [
-        "inline-grid w-full"
-      ],
-      "css": {
-        "grid-template-columns": "repeat(1, 1fr)"
-      },
-      "&-figure": {
-        "apply": [
-          "col-start-2 row-span-3 row-start-1 place-self-center justify-self-end"
-        ]
-      },
-      "&-title": {
-        "apply": [
-          "col-start-1 whitespace-nowrap"
-        ]
-      },
-      "&-value": {
-        "apply": [
-          "col-start-1 whitespace-nowrap"
-        ]
-      },
-      "&-desc": {
-        "apply": [
-          "col-start-1 whitespace-nowrap"
-        ]
-      },
-      "&-actions": {
-        "apply": [
-          "col-start-1 whitespace-nowrap"
-        ]
-      }
-    }
-  },
-  "styled": {
-    ".stats": {
-      "apply": [
-        "bg-base-100 text-base-content rounded-box"
-      ]
-    },
-    ":where(.stats)": {
-      "apply": [
-        "divide-x divide-y-0 overflow-x-auto"
-      ]
-    },
-    ":is([dir=\"rtl\"] .stats>:not([hidden])~:not([hidden]))": {
-      "css": {
-        "--tw-divide-x-reverse": "1"
-      }
-    },
-    ".stat": {
-      "apply": [
-        "border-base-content gap-x-4 border-opacity-10 px-6 py-4"
-      ],
-      "&-title": {
-        "apply": [
-          "text-base-content/60"
-        ]
-      },
-      "&-value": {
-        "apply": [
-          "text-4xl font-extrabold"
-        ]
-      },
-      "&-desc": {
-        "apply": [
-          "text-base-content/60 text-xs"
-        ]
-      },
-      "&-actions": {
-        "apply": [
-          "mt-4"
-        ]
-      }
-    }
-  },
-  "utils": {
-    ".stats-horizontal": {
-      "apply": [
-        "grid-flow-col",
-        "divide-x divide-y-0 overflow-x-auto rtl:[--tw-divide-x-reverse:1]"
-      ]
-    },
-    ".stats-vertical": {
-      "apply": [
-        "grid-flow-row",
-        "divide-x-0 divide-y overflow-y-auto"
-      ]
-    }
-  }
+```css
+.stats {
+@apply inline-grid;
 }
+
+:where(.stats) {
+@apply grid-flow-col;
+}
+
+.stat {
+@apply inline-grid w-full;
+grid-template-columns: repeat(1, 1fr);
+}
+.stat-figure {
+@apply col-start-2 row-span-3 row-start-1 place-self-center justify-self-end;
+}
+.stat-title {
+@apply col-start-1 whitespace-nowrap;
+}
+.stat-value {
+@apply col-start-1 whitespace-nowrap;
+}
+.stat-desc {
+@apply col-start-1 whitespace-nowrap;
+}
+.stat-actions {
+@apply col-start-1 whitespace-nowrap;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.stats {
+@apply bg-base-100 text-base-content rounded-box;
+}
+
+:where(.stats) {
+@apply divide-x divide-y-0 overflow-x-auto;
+}
+
+:is([dir=rtl] .stats > :not([hidden]) ~ :not([hidden])) {
+--tw-divide-x-reverse: 1;
+}
+
+.stat {
+@apply border-base-content gap-x-4 border-opacity-10 px-6 py-4;
+}
+.stat-title {
+@apply text-base-content/60;
+}
+.stat-value {
+@apply text-4xl font-extrabold;
+}
+.stat-desc {
+@apply text-base-content/60 text-xs;
+}
+.stat-actions {
+@apply mt-4;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.stats-horizontal {
+@apply grid-flow-col;
+@apply divide-x divide-y-0 overflow-x-auto rtl:[--tw-divide-x-reverse:1];
+}
+
+.stats-vertical {
+@apply grid-flow-row;
+@apply divide-x-0 divide-y overflow-y-auto;
 }
 ```
 

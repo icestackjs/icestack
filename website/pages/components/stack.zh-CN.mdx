@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/stack/index.mdx'
 
-## 类名表格
+## 默认类名表格
 
 <CssTable name="stack" />
 
@@ -14,71 +14,82 @@ import Demo from '../../components/demo/stack/index.mdx'
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-stack--docs)
 
 ## Css 结构
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".stack",
-"defaults": {
-  "base": {
-    ".stack": {
-      "apply": [
-        "inline-grid"
-      ],
-      "&>*": {
-        "apply": [
-          "col-start-1 row-start-1"
-        ],
-        "css": {
-          "transform": "translateY(10%) scale(0.9)",
-          "z-index": "1"
-        }
-      },
-      "&>*:nth-child(2)": {
-        "css": {
-          "transform": "translateY(5%) scale(0.95)",
-          "z-index": "2"
-        }
-      },
-      "&>*:nth-child(1)": {
-        "css": {
-          "transform": "translateY(0) scale(1)",
-          "z-index": "3"
-        }
-      }
-    }
-  },
-  "styled": {
-    ".stack": {
-      "apply": [
-        "place-items-center items-end"
-      ],
-      "&>*": {
-        "apply": [
-          "w-full",
-          "opacity-60"
-        ]
-      },
-      "&>*:nth-child(2)": {
-        "apply": [
-          "opacity-80"
-        ]
-      },
-      "&>*:nth-child(1)": {
-        "apply": [
-          "opacity-100"
-        ]
-      }
-    }
-  },
-  "utils": {}
+```css
+.stack {
+@apply inline-grid;
 }
+.stack > * {
+@apply col-start-1 row-start-1;
+transform: translateY(10%) scale(0.9);
+z-index: 1;
 }
+.stack > *:nth-child(2) {
+transform: translateY(5%) scale(0.95);
+z-index: 2;
+}
+.stack > *:nth-child(1) {
+transform: translateY(0) scale(1);
+z-index: 3;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.stack {
+@apply place-items-center items-end;
+}
+.stack > * {
+@apply w-full;
+@apply opacity-60;
+}
+.stack > *:nth-child(2) {
+@apply opacity-80;
+}
+.stack > *:nth-child(1) {
+@apply opacity-100;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+
 ```
 
 </div>

@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/textarea/index.mdx'
 
-## Class Table
+## Default Class Table
 
 <CssTable name="textarea" />
 
@@ -14,97 +14,116 @@ import Demo from '../../components/demo/textarea/index.mdx'
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/data-entry-textarea--docs)
 
 ## Css Schema
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".textarea",
-"defaults": {
-  "styled": {
-    ".textarea": {
-      "apply": "bg-base-100 rounded-btn border border-transparent",
-      "&-bordered": {
-        "apply": "border-base-content/20"
-      },
-      "&:focus": {
-        "apply": "border-base-content/20 outline-base-content/20 outline outline-2 outline-offset-2",
-        "css": {
-          "box-shadow": "none"
-        }
-      },
-      "&-ghost": {
-        "apply": "bg-opacity-5",
-        "&:focus": {
-          "apply": "text-base-content bg-opacity-100",
-          "css": {
-            "box-shadow": "none"
-          }
-        }
-      },
-      "&-primary": {
-        "apply": "border-primary",
-        "&:focus": {
-          "apply": "outline-primary border-primary"
-        }
-      },
-      "&-success": {
-        "apply": "border-success",
-        "&:focus": {
-          "apply": "outline-success border-success"
-        }
-      },
-      "&-warning": {
-        "apply": "border-warning",
-        "&:focus": {
-          "apply": "outline-warning border-warning"
-        }
-      },
-      "&-error": {
-        "apply": "border-error",
-        "&:focus": {
-          "apply": "outline-error border-error"
-        }
-      },
-      "&-neutral": {
-        "apply": "border-neutral",
-        "&:focus": {
-          "apply": "outline-neutral border-neutral"
-        }
-      },
-      "&-disabled,
-          &:disabled,
-          &[disabled]": {
-        "apply": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20"
-      }
-    }
-  },
-  "base": {
-    ".textarea": {
-      "apply": "min-h-12 flex-shrink px-4 py-2 text-sm leading-loose"
-    }
-  },
-  "utils": {
-    ".textarea": {
-      "&-xs": {
-        "apply": "px-2 py-1 text-xs leading-relaxed"
-      },
-      "&-sm": {
-        "apply": "px-3 py-1 text-sm leading-8"
-      },
-      "&-md": {
-        "apply": "px-4 py-3 text-sm leading-loose"
-      },
-      "&-lg": {
-        "apply": "px-6 py-4 text-lg leading-loose"
-      }
-    }
-  }
+```css
+.textarea {
+@apply min-h-12 flex-shrink px-4 py-2 text-sm leading-loose;
 }
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.textarea {
+@apply bg-base-100 rounded-btn border border-transparent;
+}
+.textarea-bordered {
+@apply border-base-content/20;
+}
+.textarea:focus {
+@apply border-base-content/20 outline-base-content/20 outline outline-2 outline-offset-2;
+box-shadow: none;
+}
+.textarea-ghost {
+@apply bg-opacity-5;
+}
+.textarea-ghost:focus {
+@apply text-base-content bg-opacity-100;
+box-shadow: none;
+}
+.textarea-primary {
+@apply border-primary;
+}
+.textarea-primary:focus {
+@apply outline-primary border-primary;
+}
+.textarea-success {
+@apply border-success;
+}
+.textarea-success:focus {
+@apply outline-success border-success;
+}
+.textarea-warning {
+@apply border-warning;
+}
+.textarea-warning:focus {
+@apply outline-warning border-warning;
+}
+.textarea-error {
+@apply border-error;
+}
+.textarea-error:focus {
+@apply outline-error border-error;
+}
+.textarea-neutral {
+@apply border-neutral;
+}
+.textarea-neutral:focus {
+@apply outline-neutral border-neutral;
+}
+.textarea-disabled, .textarea:disabled, .textarea[disabled] {
+@apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.textarea-xs {
+@apply px-2 py-1 text-xs leading-relaxed;
+}
+.textarea-sm {
+@apply px-3 py-1 text-sm leading-8;
+}
+.textarea-md {
+@apply px-4 py-3 text-sm leading-loose;
+}
+.textarea-lg {
+@apply px-6 py-4 text-lg leading-loose;
 }
 ```
 

@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/hero/index.mdx'
 
-## 类名表格
+## 默认类名表格
 
 <CssTable name="hero" />
 
@@ -14,56 +14,71 @@ import Demo from '../../components/demo/hero/index.mdx'
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-hero--docs)
 
 ## Css 结构
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".hero",
-"defaults": {
-  "base": {
-    ".hero": {
-      "apply": [
-        "grid w-full place-items-center bg-cover bg-center"
-      ],
-      "&>*": {
-        "apply": [
-          "col-start-1 row-start-1"
-        ]
-      },
-      "&-overlay": {
-        "apply": [
-          "col-start-1 row-start-1 h-full w-full"
-        ]
-      },
-      "&-content": {
-        "apply": [
-          "z-0 flex items-center justify-center"
-        ]
-      }
-    }
-  },
-  "styled": {
-    ".hero": {
-      "&-overlay": {
-        "apply": [
-          "bg-neutral bg-opacity-50"
-        ]
-      },
-      "&-content": {
-        "apply": [
-          "max-w-7xl gap-4 p-4"
-        ]
-      }
-    }
-  },
-  "utils": {}
+```css
+.hero {
+@apply grid w-full place-items-center bg-cover bg-center;
 }
+.hero > * {
+@apply col-start-1 row-start-1;
 }
+.hero-overlay {
+@apply col-start-1 row-start-1 h-full w-full;
+}
+.hero-content {
+@apply z-0 flex items-center justify-center;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.hero-overlay {
+@apply bg-neutral bg-opacity-50;
+}
+.hero-content {
+@apply max-w-7xl gap-4 p-4;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+
 ```
 
 </div>

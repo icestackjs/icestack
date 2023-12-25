@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/checkbox/index.mdx'
 
-## 类名表格
+## 默认类名表格
 
 <CssTable name="checkbox" />
 
@@ -14,180 +14,154 @@ import Demo from '../../components/demo/checkbox/index.mdx'
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/data-entry-checkbox--docs)
 
 ## Css 结构
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".checkbox",
-"defaults": {
-  "styled": {
-    ".checkbox": {
-      "apply": "border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20",
-      "css": {
-        "--chkbg": "var(--base-content)",
-        "--chkfg": "var(--base-400)"
-      },
-      "&:focus-visible": {
-        "apply": "outline-base-content outline outline-2 outline-offset-2"
-      },
-      "&:checked,
-          &[checked=\"true\"],
-          &[aria-checked=\"true\"]": {
-        "apply": "bg-base-content bg-no-repeat",
-        "css": {
-          "animation": "checkmark var(--animation-input, 0.2s) ease-out",
-          "background-image": "linear-gradient(-45deg, transparent 65%, rgba(var(--chkbg)) 65.99%),
-              linear-gradient(45deg, transparent 75%, rgba(var(--chkbg)) 75.99%),
-              linear-gradient(-45deg, rgba(var(--chkbg)) 40%, transparent 40.99%),
-              linear-gradient(
-                45deg,
-                rgba(var(--chkbg)) 30%,
-                rgba(var(--chkfg)) 30.99%,
-                rgba(var(--chkfg)) 40%,
-                transparent 40.99%
-              ),
-              linear-gradient(-45deg, rgba(var(--chkfg)) 50%, rgba(var(--chkbg)) 50.99%)"
-        }
-      },
-      "&:indeterminate": {
-        "apply": "bg-base-content bg-no-repeat",
-        "css": {
-          "animation": "checkmark var(--animation-input, 0.2s) ease-out",
-          "background-image": "linear-gradient(90deg, transparent 80%, rgba(var(--chkbg)) 80%),
-          linear-gradient(-90deg, transparent 80%, rgba(var(--chkbg)) 80%),
-          linear-gradient(
-            0deg,
-            rgba(var(--chkbg)) 43%,
-            rgba(var(--chkfg)) 43%,
-            rgba(var(--chkfg)) 57%,
-            rgba(var(--chkbg)) 57%
-          )"
-        }
-      },
-      "&-primary": {
-        "apply": "border-primary [@media(hover:hover)]:hover:border-primary",
-        "css": {
-          "--chkbg": "var(--primary)",
-          "--chkfg": "var(--primary-content)"
-        },
-        "&:focus-visible": {
-          "apply": "outline-primary"
-        },
-        "&:checked,
-          &[checked=\"true\"],
-          &[aria-checked=\"true\"]": {
-          "apply": "border-primary bg-primary text-primary-content"
-        }
-      },
-      "&-success": {
-        "apply": "border-success [@media(hover:hover)]:hover:border-success",
-        "css": {
-          "--chkbg": "var(--success)",
-          "--chkfg": "var(--success-content)"
-        },
-        "&:focus-visible": {
-          "apply": "outline-success"
-        },
-        "&:checked,
-          &[checked=\"true\"],
-          &[aria-checked=\"true\"]": {
-          "apply": "border-success bg-success text-success-content"
-        }
-      },
-      "&-warning": {
-        "apply": "border-warning [@media(hover:hover)]:hover:border-warning",
-        "css": {
-          "--chkbg": "var(--warning)",
-          "--chkfg": "var(--warning-content)"
-        },
-        "&:focus-visible": {
-          "apply": "outline-warning"
-        },
-        "&:checked,
-          &[checked=\"true\"],
-          &[aria-checked=\"true\"]": {
-          "apply": "border-warning bg-warning text-warning-content"
-        }
-      },
-      "&-error": {
-        "apply": "border-error [@media(hover:hover)]:hover:border-error",
-        "css": {
-          "--chkbg": "var(--error)",
-          "--chkfg": "var(--error-content)"
-        },
-        "&:focus-visible": {
-          "apply": "outline-error"
-        },
-        "&:checked,
-          &[checked=\"true\"],
-          &[aria-checked=\"true\"]": {
-          "apply": "border-error bg-error text-error-content"
-        }
-      },
-      "&-neutral": {
-        "apply": "border-neutral [@media(hover:hover)]:hover:border-neutral",
-        "css": {
-          "--chkbg": "var(--neutral)",
-          "--chkfg": "var(--neutral-content)"
-        },
-        "&:focus-visible": {
-          "apply": "outline-neutral"
-        },
-        "&:checked,
-          &[checked=\"true\"],
-          &[aria-checked=\"true\"]": {
-          "apply": "border-neutral bg-neutral text-neutral-content"
-        }
-      },
-      "&:disabled": {
-        "apply": "bg-base-content cursor-not-allowed border-transparent opacity-20"
-      }
-    },
-    "@keyframes checkmark": {
-      "0%": {
-        "css": {
-          "background-position-y": "5px"
-        }
-      },
-      "50%": {
-        "css": {
-          "background-position-y": "-2px"
-        }
-      },
-      "100%": {
-        "css": {
-          "background-position-y": "0"
-        }
-      }
-    }
-  },
-  "base": {
-    ".checkbox": {
-      "apply": "shrink-0"
-    }
-  },
-  "utils": {
-    ".checkbox": {
-      "&-xs": {
-        "apply": "h-4 w-4"
-      },
-      "&-sm": {
-        "apply": "h-5 w-5"
-      },
-      "&-md": {
-        "apply": "h-6 w-6"
-      },
-      "&-lg": {
-        "apply": "h-8 w-8"
-      }
-    }
-  }
+```css
+.checkbox {
+@apply shrink-0;
 }
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.checkbox {
+@apply border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20;
+--chkbg: var(--base-content);
+--chkfg: var(--base-400);
+}
+.checkbox:focus-visible {
+@apply outline-base-content outline outline-2 outline-offset-2;
+}
+.checkbox:checked, .checkbox[checked=true], .checkbox[aria-checked=true] {
+@apply bg-base-content bg-no-repeat;
+animation: checkmark var(--animation-input, 0.2s) ease-out;
+background-image: linear-gradient(-45deg, transparent 65%, rgba(var(--chkbg)) 65.99%), linear-gradient(45deg, transparent 75%, rgba(var(--chkbg)) 75.99%), linear-gradient(-45deg, rgba(var(--chkbg)) 40%, transparent 40.99%), linear-gradient( 45deg, rgba(var(--chkbg)) 30%, rgba(var(--chkfg)) 30.99%, rgba(var(--chkfg)) 40%, transparent 40.99% ), linear-gradient(-45deg, rgba(var(--chkfg)) 50%, rgba(var(--chkbg)) 50.99%);
+}
+.checkbox:indeterminate {
+@apply bg-base-content bg-no-repeat;
+animation: checkmark var(--animation-input, 0.2s) ease-out;
+background-image: linear-gradient(90deg, transparent 80%, rgba(var(--chkbg)) 80%), linear-gradient(-90deg, transparent 80%, rgba(var(--chkbg)) 80%), linear-gradient( 0deg, rgba(var(--chkbg)) 43%, rgba(var(--chkfg)) 43%, rgba(var(--chkfg)) 57%, rgba(var(--chkbg)) 57% );
+}
+.checkbox-primary {
+@apply border-primary [@media(hover:hover)]:hover:border-primary;
+--chkbg: var(--primary);
+--chkfg: var(--primary-content);
+}
+.checkbox-primary:focus-visible {
+@apply outline-primary;
+}
+.checkbox-primary:checked, .checkbox-primary[checked=true], .checkbox-primary[aria-checked=true] {
+@apply border-primary bg-primary text-primary-content;
+}
+.checkbox-success {
+@apply border-success [@media(hover:hover)]:hover:border-success;
+--chkbg: var(--success);
+--chkfg: var(--success-content);
+}
+.checkbox-success:focus-visible {
+@apply outline-success;
+}
+.checkbox-success:checked, .checkbox-success[checked=true], .checkbox-success[aria-checked=true] {
+@apply border-success bg-success text-success-content;
+}
+.checkbox-warning {
+@apply border-warning [@media(hover:hover)]:hover:border-warning;
+--chkbg: var(--warning);
+--chkfg: var(--warning-content);
+}
+.checkbox-warning:focus-visible {
+@apply outline-warning;
+}
+.checkbox-warning:checked, .checkbox-warning[checked=true], .checkbox-warning[aria-checked=true] {
+@apply border-warning bg-warning text-warning-content;
+}
+.checkbox-error {
+@apply border-error [@media(hover:hover)]:hover:border-error;
+--chkbg: var(--error);
+--chkfg: var(--error-content);
+}
+.checkbox-error:focus-visible {
+@apply outline-error;
+}
+.checkbox-error:checked, .checkbox-error[checked=true], .checkbox-error[aria-checked=true] {
+@apply border-error bg-error text-error-content;
+}
+.checkbox-neutral {
+@apply border-neutral [@media(hover:hover)]:hover:border-neutral;
+--chkbg: var(--neutral);
+--chkfg: var(--neutral-content);
+}
+.checkbox-neutral:focus-visible {
+@apply outline-neutral;
+}
+.checkbox-neutral:checked, .checkbox-neutral[checked=true], .checkbox-neutral[aria-checked=true] {
+@apply border-neutral bg-neutral text-neutral-content;
+}
+.checkbox:disabled {
+@apply bg-base-content cursor-not-allowed border-transparent opacity-20;
+}
+
+@keyframes checkmark {
+0% {
+  background-position-y: 5px;
+}
+50% {
+  background-position-y: -2px;
+}
+100% {
+  background-position-y: 0;
+}
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.checkbox-xs {
+@apply h-4 w-4;
+}
+.checkbox-sm {
+@apply h-5 w-5;
+}
+.checkbox-md {
+@apply h-6 w-6;
+}
+.checkbox-lg {
+@apply h-8 w-8;
 }
 ```
 

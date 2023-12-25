@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/rating/index.mdx'
 
-## Class Table
+## Default Class Table
 
 <CssTable name="rating" />
 
@@ -14,147 +14,126 @@ import Demo from '../../components/demo/rating/index.mdx'
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/data-entry-rating--docs)
 
 ## Css Schema
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".rating",
-"defaults": {
-  "base": {
-    ".rating": {
-      "apply": [
-        "relative inline-flex"
-      ],
-      ":where(input)": {
-        "apply": [
-          "cursor-pointer rounded-none"
-        ]
-      }
-    }
-  },
-  "styled": {
-    ".rating": {
-      "& input": {
-        "apply": [
-          "appearance-none"
-        ],
-        "css": {
-          "-webkit-appearance": "none"
-        }
-      },
-      ":where(input)": {
-        "css": {
-          "animation": "rating-pop var(--animation-input, 0.25s) ease-out"
-        },
-        "apply": [
-          "bg-base-content h-6 w-6 bg-opacity-100"
-        ]
-      },
-      "& .rating-hidden": {
-        "apply": [
-          "w-2 bg-transparent"
-        ]
-      },
-      "input[type=\"radio\"]:checked": {
-        "css": {
-          "background-image": "none"
-        }
-      },
-      "input:checked~input,input[aria-checked=\"true\"]~input": {
-        "apply": [
-          "bg-opacity-20"
-        ]
-      },
-      "input:focus-visible": {
-        "apply": [
-          "transition-transform duration-300 ease-out"
-        ],
-        "css": {
-          "transform": "translateY(-0.125em)"
-        }
-      },
-      "& input:active:focus": {
-        "css": {
-          "animation": "none",
-          "transform": "translateY(-0.125em)"
-        }
-      }
-    },
-    ".rating-half": {
-      ":where(input:not(.rating-hidden))": {
-        "apply": [
-          "w-3"
-        ]
-      }
-    },
-    "@keyframes rating-pop": {
-      "0%": {
-        "css": {
-          "transform": "translateY(-0.125em)"
-        }
-      },
-      "40%": {
-        "css": {
-          "transform": "translateY(-0.125em)"
-        }
-      },
-      "100%": {
-        "css": {
-          "transform": "translateY(0)"
-        }
-      }
-    }
-  },
-  "utils": {
-    ".rating-xs input": {
-      "apply": [
-        "h-3 w-3"
-      ]
-    },
-    ".rating-sm input": {
-      "apply": [
-        "h-4 w-4"
-      ]
-    },
-    ".rating-md input": {
-      "apply": [
-        "h-6 w-6"
-      ]
-    },
-    ".rating-lg input": {
-      "apply": [
-        "h-10 w-10"
-      ]
-    },
-    ".rating-half": {
-      "&.rating-xs input:not(.rating-hidden)": {
-        "apply": [
-          "w-1.5"
-        ]
-      },
-      "&.rating-sm input:not(.rating-hidden)": {
-        "apply": [
-          "w-2"
-        ]
-      },
-      "&.rating-md input:not(.rating-hidden)": {
-        "apply": [
-          "w-3"
-        ]
-      },
-      "&.rating-lg input:not(.rating-hidden)": {
-        "apply": [
-          "w-5"
-        ]
-      }
-    }
-  }
+```css
+.rating {
+@apply relative inline-flex;
 }
+.rating :where(input) {
+@apply cursor-pointer rounded-none;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.rating input {
+@apply appearance-none;
+-webkit-appearance: none;
+}
+.rating :where(input) {
+animation: rating-pop var(--animation-input, 0.25s) ease-out;
+@apply bg-base-content h-6 w-6 bg-opacity-100;
+}
+.rating .rating-hidden {
+@apply w-2 bg-transparent;
+}
+.rating input[type=radio]:checked {
+background-image: none;
+}
+.rating input:checked ~ input, .rating input[aria-checked=true] ~ input {
+@apply bg-opacity-20;
+}
+.rating input:focus-visible {
+@apply transition-transform duration-300 ease-out;
+transform: translateY(-0.125em);
+}
+.rating input:active:focus {
+animation: none;
+transform: translateY(-0.125em);
+}
+
+.rating-half :where(input:not(.rating-hidden)) {
+@apply w-3;
+}
+
+@keyframes rating-pop {
+0% {
+  transform: translateY(-0.125em);
+}
+40% {
+  transform: translateY(-0.125em);
+}
+100% {
+  transform: translateY(0);
+}
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.rating-xs input {
+@apply h-3 w-3;
+}
+
+.rating-sm input {
+@apply h-4 w-4;
+}
+
+.rating-md input {
+@apply h-6 w-6;
+}
+
+.rating-lg input {
+@apply h-10 w-10;
+}
+
+.rating-half.rating-xs input:not(.rating-hidden) {
+@apply w-1.5;
+}
+.rating-half.rating-sm input:not(.rating-hidden) {
+@apply w-2;
+}
+.rating-half.rating-md input:not(.rating-hidden) {
+@apply w-3;
+}
+.rating-half.rating-lg input:not(.rating-hidden) {
+@apply w-5;
 }
 ```
 

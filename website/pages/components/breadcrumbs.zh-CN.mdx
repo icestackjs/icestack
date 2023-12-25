@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/breadcrumbs/index.mdx'
 
-## 类名表格
+## 默认类名表格
 
 <CssTable name="breadcrumbs" />
 
@@ -14,85 +14,87 @@ import Demo from '../../components/demo/breadcrumbs/index.mdx'
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/navigation-breadcrumbs--docs)
 
 ## Css 结构
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".breadcrumbs",
-"defaults": {
-  "base": {
-    ".breadcrumbs": {
-      "apply": [
-        "max-w-full overflow-x-auto"
-      ],
-      "&>ul,&>ol": {
-        "apply": [
-          "flex items-center whitespace-nowrap"
-        ],
-        "css": {
-          "min-height": "min-content"
-        },
-        "&>li": {
-          "apply": [
-            "flex items-center"
-          ],
-          "&>a": {
-            "apply": [
-              "flex cursor-pointer items-center [@media(hover:hover)]:hover:underline"
-            ]
-          }
-        }
-      }
-    }
-  },
-  "styled": {
-    ".breadcrumbs": {
-      "apply": [
-        "py-2"
-      ],
-      "&>ul,&>ol": {
-        "&>li": {
-          "&>a": {
-            "&:focus": {
-              "apply": [
-                "outline-none"
-              ]
-            },
-            "&:focus-visible": {
-              "css": {
-                "outline": "2px solid currentColor",
-                "outline-offset": "2px"
-              }
-            }
-          },
-          "&+*:before": {
-            "css": {
-              "content": "\"\"",
-              "border-top": "1px solid",
-              "border-right": "1px solid",
-              "background-color": "transparent"
-            },
-            "apply": [
-              "ml-2 mr-3 block h-1.5 w-1.5 rotate-45 transform opacity-40"
-            ]
-          }
-        }
-      }
-    },
-    "[dir=\"rtl\"] .breadcrumbs>ul>li+*:before,[dir=\"rtl\"] .breadcrumbs>ol>li+*:before": {
-      "css": {
-        "--tw-rotate": "-135deg"
-      }
-    }
-  },
-  "utils": {}
+```css
+.breadcrumbs {
+@apply max-w-full overflow-x-auto;
 }
+.breadcrumbs > ul, .breadcrumbs > ol {
+@apply flex items-center whitespace-nowrap;
+min-height: min-content;
 }
+.breadcrumbs > ul > li, .breadcrumbs > ol > li {
+@apply flex items-center;
+}
+.breadcrumbs > ul > li > a, .breadcrumbs > ol > li > a {
+@apply flex cursor-pointer items-center [@media(hover:hover)]:hover:underline;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.breadcrumbs {
+@apply py-2;
+}
+.breadcrumbs > ul > li > a:focus, .breadcrumbs > ol > li > a:focus {
+@apply outline-none;
+}
+.breadcrumbs > ul > li > a:focus-visible, .breadcrumbs > ol > li > a:focus-visible {
+outline: 2px solid currentColor;
+outline-offset: 2px;
+}
+.breadcrumbs > ul > li + *:before, .breadcrumbs > ol > li + *:before {
+content: "";
+border-top: 1px solid;
+border-right: 1px solid;
+background-color: transparent;
+@apply ml-2 mr-3 block h-1.5 w-1.5 rotate-45 transform opacity-40;
+}
+
+[dir=rtl] .breadcrumbs > ul > li + *:before, [dir=rtl] .breadcrumbs > ol > li + *:before {
+--tw-rotate: -135deg;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+
 ```
 
 </div>

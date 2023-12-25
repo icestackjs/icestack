@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/toggle/index.mdx'
 
-## 类名表格
+## 默认类名表格
 
 <CssTable name="toggle" />
 
@@ -14,159 +14,133 @@ import Demo from '../../components/demo/toggle/index.mdx'
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/data-entry-toggle--docs)
 
 ## Css 结构
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".toggle",
-"defaults": {
-  "styled": {
-    ".toggle": {
-      "apply": "border-base-content bg-base-content rounded-badge h-6 w-12 cursor-pointer appearance-none border border-opacity-20 bg-opacity-50",
-      "css": {
-        "--tglbg": "rgba(var(--base-100))",
-        "--handleoffset": "1.5rem",
-        "--handleoffsetcalculator": "calc(var(--handleoffset) * -1)",
-        "--togglehandleborder": "0 0",
-        "transition": "background,
-            box-shadow var(--animation-input, 0.2s) ease-out",
-        "box-shadow": "var(--handleoffsetcalculator) 0 0 2px var(--tglbg) inset,
-            0 0 0 2px var(--tglbg) inset,
-            var(--togglehandleborder)"
-      },
-      "[dir=\"rtl\"] &": {
-        "css": {
-          "--handleoffsetcalculator": "calc(var(--handleoffset) * 1)"
-        }
-      },
-      "&:focus-visible": {
-        "apply": "outline-base-content/20 outline outline-2 outline-offset-2"
-      },
-      "&:checked,
-          &[checked=\"true\"],
-          &[aria-checked=\"true\"]": {
-        "apply": "border-opacity-100 bg-opacity-100",
-        "css": {
-          "--handleoffsetcalculator": "var(--handleoffset)"
-        },
-        "[dir=\"rtl\"] &": {
-          "css": {
-            "--handleoffsetcalculator": "calc(var(--handleoffset) * -1)"
-          }
-        }
-      },
-      "&:indeterminate": {
-        "apply": "border-opacity-100 bg-opacity-100",
-        "css": {
-          "box-shadow": "calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
-            calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
-            0 0 0 2px var(--tglbg) inset"
-        },
-        "[dir=\"rtl\"] &": {
-          "css": {
-            "box-shadow": "calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
-                calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
-                0 0 0 2px var(--tglbg) inset"
-          }
-        }
-      },
-      "&-primary": {
-        "&:focus-visible": {
-          "apply": "outline-primary"
-        },
-        "&:checked,
-                &[checked=\"true\"],
-                &[aria-checked=\"true\"]": {
-          "apply": "border-primary bg-primary text-primary-content border-opacity-10"
-        }
-      },
-      "&-success": {
-        "&:focus-visible": {
-          "apply": "outline-success"
-        },
-        "&:checked,
-                &[checked=\"true\"],
-                &[aria-checked=\"true\"]": {
-          "apply": "border-success bg-success text-success-content border-opacity-10"
-        }
-      },
-      "&-warning": {
-        "&:focus-visible": {
-          "apply": "outline-warning"
-        },
-        "&:checked,
-                &[checked=\"true\"],
-                &[aria-checked=\"true\"]": {
-          "apply": "border-warning bg-warning text-warning-content border-opacity-10"
-        }
-      },
-      "&-error": {
-        "&:focus-visible": {
-          "apply": "outline-error"
-        },
-        "&:checked,
-                &[checked=\"true\"],
-                &[aria-checked=\"true\"]": {
-          "apply": "border-error bg-error text-error-content border-opacity-10"
-        }
-      },
-      "&-neutral": {
-        "&:focus-visible": {
-          "apply": "outline-neutral"
-        },
-        "&:checked,
-                &[checked=\"true\"],
-                &[aria-checked=\"true\"]": {
-          "apply": "border-neutral bg-neutral text-neutral-content border-opacity-10"
-        }
-      },
-      "&:disabled": {
-        "apply": "border-base-content cursor-not-allowed bg-transparent opacity-30",
-        "css": {
-          "--togglehandleborder": "0 0 0 3px rgba(var(--base-content)) inset, var(--handleoffsetcalculator) 0 0 3px rgba(var(--base-content)) inset"
-        }
-      }
-    }
-  },
-  "base": {
-    ".toggle": {
-      "apply": "shrink-0"
-    }
-  },
-  "utils": {
-    ".toggle": {
-      "&-xs": {
-        "apply": "h-4 w-6",
-        "css": {
-          "--handleoffset": "0.5rem"
-        }
-      },
-      "&-sm": {
-        "apply": "h-5 w-8",
-        "css": {
-          "--handleoffset": "0.75rem"
-        }
-      },
-      "&-md": {
-        "apply": "h-6 w-12",
-        "css": {
-          "--handleoffset": "1.5rem"
-        }
-      },
-      "&-lg": {
-        "apply": "h-8 w-16",
-        "css": {
-          "--handleoffset": "2rem"
-        }
-      }
-    }
-  }
+```css
+.toggle {
+@apply shrink-0;
 }
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.toggle {
+@apply border-base-content bg-base-content rounded-badge h-6 w-12 cursor-pointer appearance-none border border-opacity-20 bg-opacity-50;
+--tglbg: rgba(var(--base-100));
+--handleoffset: 1.5rem;
+--handleoffsetcalculator: calc(var(--handleoffset) * -1);
+--togglehandleborder: 0 0;
+transition: background, box-shadow var(--animation-input, 0.2s) ease-out;
+box-shadow: var(--handleoffsetcalculator) 0 0 2px var(--tglbg) inset, 0 0 0 2px var(--tglbg) inset, var(--togglehandleborder);
+}
+[dir=rtl] .toggle {
+--handleoffsetcalculator: calc(var(--handleoffset) * 1);
+}
+.toggle:focus-visible {
+@apply outline-base-content/20 outline outline-2 outline-offset-2;
+}
+.toggle:checked, .toggle[checked=true], .toggle[aria-checked=true] {
+@apply border-opacity-100 bg-opacity-100;
+--handleoffsetcalculator: var(--handleoffset);
+}
+[dir=rtl] .toggle:checked, [dir=rtl] .toggle[checked=true], [dir=rtl] .toggle[aria-checked=true] {
+--handleoffsetcalculator: calc(var(--handleoffset) * -1);
+}
+.toggle:indeterminate {
+@apply border-opacity-100 bg-opacity-100;
+box-shadow: calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset, calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset, 0 0 0 2px var(--tglbg) inset;
+}
+[dir=rtl] .toggle:indeterminate {
+box-shadow: calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset, calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset, 0 0 0 2px var(--tglbg) inset;
+}
+.toggle-primary:focus-visible {
+@apply outline-primary;
+}
+.toggle-primary:checked, .toggle-primary[checked=true], .toggle-primary[aria-checked=true] {
+@apply border-primary bg-primary text-primary-content border-opacity-10;
+}
+.toggle-success:focus-visible {
+@apply outline-success;
+}
+.toggle-success:checked, .toggle-success[checked=true], .toggle-success[aria-checked=true] {
+@apply border-success bg-success text-success-content border-opacity-10;
+}
+.toggle-warning:focus-visible {
+@apply outline-warning;
+}
+.toggle-warning:checked, .toggle-warning[checked=true], .toggle-warning[aria-checked=true] {
+@apply border-warning bg-warning text-warning-content border-opacity-10;
+}
+.toggle-error:focus-visible {
+@apply outline-error;
+}
+.toggle-error:checked, .toggle-error[checked=true], .toggle-error[aria-checked=true] {
+@apply border-error bg-error text-error-content border-opacity-10;
+}
+.toggle-neutral:focus-visible {
+@apply outline-neutral;
+}
+.toggle-neutral:checked, .toggle-neutral[checked=true], .toggle-neutral[aria-checked=true] {
+@apply border-neutral bg-neutral text-neutral-content border-opacity-10;
+}
+.toggle:disabled {
+@apply border-base-content cursor-not-allowed bg-transparent opacity-30;
+--togglehandleborder: 0 0 0 3px rgba(var(--base-content)) inset, var(--handleoffsetcalculator) 0 0 3px rgba(var(--base-content)) inset;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.toggle-xs {
+@apply h-4 w-6;
+--handleoffset: 0.5rem;
+}
+.toggle-sm {
+@apply h-5 w-8;
+--handleoffset: 0.75rem;
+}
+.toggle-md {
+@apply h-6 w-12;
+--handleoffset: 1.5rem;
+}
+.toggle-lg {
+@apply h-8 w-16;
+--handleoffset: 2rem;
 }
 ```
 

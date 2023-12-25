@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/button/index.mdx'
 
-## Class Table
+## Default Class Table
 
 <CssTable name="button" />
 
@@ -14,325 +14,330 @@ import Demo from '../../components/demo/button/index.mdx'
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/general-button--docs)
 
 ## Css Schema
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".btn",
-"defaults": {
-  "styled": {
-    ".btn": {
-      "apply": "border-base-400 bg-base-400 text-base-content outline-base-400 no-underline",
-      "css": {
-        "border-width": "var(--border-btn, 1px)"
-      },
-      "&:focus-visible": {
-        "apply": "outline outline-2 outline-offset-2"
-      },
-      "&.btn-focus-visible": {
-        "apply": "outline outline-2 outline-offset-2"
-      },
-      "&.btn-hover": {
-        "apply": "border-base-300 bg-base-300"
-      },
-      "&:hover": {
-        "apply": "border-base-300 bg-base-300"
-      },
-      "&:active": {
-        "apply": "border-base-500 bg-base-500"
-      },
-      "&.btn-active": {
-        "apply": "border-base-500 bg-base-500"
-      },
-      "&-primary": {
-        "apply": "border-primary bg-primary text-primary-content outline-primary",
-        "&.btn-hover": {
-          "apply": "border-primary-hover bg-primary-hover"
-        },
-        "&:hover": {
-          "apply": "border-primary-hover bg-primary-hover"
-        },
-        "&:active": {
-          "apply": "border-primary-active bg-primary-active"
-        },
-        "&.btn-active": {
-          "apply": "border-primary-active bg-primary-active"
-        }
-      },
-      "&-success": {
-        "apply": "border-success bg-success text-success-content outline-success",
-        "&.btn-hover": {
-          "apply": "border-success-hover bg-success-hover"
-        },
-        "&:hover": {
-          "apply": "border-success-hover bg-success-hover"
-        },
-        "&:active": {
-          "apply": "border-success-active bg-success-active"
-        },
-        "&.btn-active": {
-          "apply": "border-success-active bg-success-active"
-        }
-      },
-      "&-warning": {
-        "apply": "border-warning bg-warning text-warning-content outline-warning",
-        "&.btn-hover": {
-          "apply": "border-warning-hover bg-warning-hover"
-        },
-        "&:hover": {
-          "apply": "border-warning-hover bg-warning-hover"
-        },
-        "&:active": {
-          "apply": "border-warning-active bg-warning-active"
-        },
-        "&.btn-active": {
-          "apply": "border-warning-active bg-warning-active"
-        }
-      },
-      "&-error": {
-        "apply": "border-error bg-error text-error-content outline-error",
-        "&.btn-hover": {
-          "apply": "border-error-hover bg-error-hover"
-        },
-        "&:hover": {
-          "apply": "border-error-hover bg-error-hover"
-        },
-        "&:active": {
-          "apply": "border-error-active bg-error-active"
-        },
-        "&.btn-active": {
-          "apply": "border-error-active bg-error-active"
-        }
-      },
-      "&-neutral": {
-        "apply": "border-neutral bg-neutral text-neutral-content outline-neutral",
-        "&.btn-hover": {
-          "apply": "border-neutral-hover bg-neutral-hover"
-        },
-        "&:hover": {
-          "apply": "border-neutral-hover bg-neutral-hover"
-        },
-        "&:active": {
-          "apply": "border-neutral-active bg-neutral-active"
-        },
-        "&.btn-active": {
-          "apply": "border-neutral-active bg-neutral-active"
-        }
-      },
-      "&.glass": {
-        "apply": "shadow-none outline-current",
-        "&:active": {
-          "css": {
-            "--glass-opacity": "25%",
-            "--glass-border-opacity": "15%"
-          }
-        },
-        "&.btn-active": {
-          "css": {
-            "--glass-opacity": "25%",
-            "--glass-border-opacity": "15%"
-          }
-        }
-      },
-      "&-ghost": {
-        "apply": "border border-transparent bg-transparent text-current shadow-none outline-current",
-        "&:active": {
-          "apply": "border-opacity-0 bg-base-content bg-opacity-20"
-        },
-        "&.btn-active": {
-          "apply": "border-opacity-0 bg-base-content bg-opacity-20"
-        }
-      },
-      "&-link": {
-        "apply": "text-primary border-transparent bg-transparent underline shadow-none outline-current",
-        "&:active": {
-          "apply": "border-transparent bg-transparent underline"
-        },
-        "&.btn-active": {
-          "apply": "border-transparent bg-transparent underline"
-        }
-      },
-      "&-outline": {
-        "apply": "border-current bg-transparent shadow-none text-base-content",
-        "&.btn-hover": {
-          "apply": "border-base-900 bg-base-900 text-base-100"
-        },
-        "&:hover": {
-          "apply": "border-base-900 bg-base-900 text-base-100"
-        },
-        "&:active": {
-          "apply": "border-base-1100 bg-base-1100 text-base-100"
-        },
-        "&.btn-active": {
-          "apply": "border-base-1100 bg-base-1100 text-base-100"
-        },
-        "&.btn-primary": {
-          "apply": "text-primary",
-          "&.btn-hover": {
-            "apply": "border-primary-hover bg-primary-hover text-primary-content"
-          },
-          "&:hover": {
-            "apply": "border-primary-hover bg-primary-hover text-primary-content"
-          },
-          "&:active": {
-            "apply": "border-primary-active bg-primary-active text-primary-content"
-          },
-          "&.btn-active": {
-            "apply": "border-primary-active bg-primary-active text-primary-content"
-          }
-        },
-        "&.btn-success": {
-          "apply": "text-success",
-          "&.btn-hover": {
-            "apply": "border-success-hover bg-success-hover text-success-content"
-          },
-          "&:hover": {
-            "apply": "border-success-hover bg-success-hover text-success-content"
-          },
-          "&:active": {
-            "apply": "border-success-active bg-success-active text-success-content"
-          },
-          "&.btn-active": {
-            "apply": "border-success-active bg-success-active text-success-content"
-          }
-        },
-        "&.btn-warning": {
-          "apply": "text-warning",
-          "&.btn-hover": {
-            "apply": "border-warning-hover bg-warning-hover text-warning-content"
-          },
-          "&:hover": {
-            "apply": "border-warning-hover bg-warning-hover text-warning-content"
-          },
-          "&:active": {
-            "apply": "border-warning-active bg-warning-active text-warning-content"
-          },
-          "&.btn-active": {
-            "apply": "border-warning-active bg-warning-active text-warning-content"
-          }
-        },
-        "&.btn-error": {
-          "apply": "text-error",
-          "&.btn-hover": {
-            "apply": "border-error-hover bg-error-hover text-error-content"
-          },
-          "&:hover": {
-            "apply": "border-error-hover bg-error-hover text-error-content"
-          },
-          "&:active": {
-            "apply": "border-error-active bg-error-active text-error-content"
-          },
-          "&.btn-active": {
-            "apply": "border-error-active bg-error-active text-error-content"
-          }
-        },
-        "&.btn-neutral": {
-          "apply": "text-neutral",
-          "&.btn-hover": {
-            "apply": "border-neutral-hover bg-neutral-hover text-neutral-content"
-          },
-          "&:hover": {
-            "apply": "border-neutral-hover bg-neutral-hover text-neutral-content"
-          },
-          "&:active": {
-            "apply": "border-neutral-active bg-neutral-active text-neutral-content"
-          },
-          "&.btn-active": {
-            "apply": "border-neutral-active bg-neutral-active text-neutral-content"
-          }
-        }
-      },
-      "&.btn-disabled,
-          &[disabled],
-          &:disabled": {
-        "apply": "bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20"
-      }
-    }
-  },
-  "base": {
-    ".btn": {
-      "apply": "rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4",
-      "css": {
-        "line-height": "1em",
-        "font-size": "0.875rem"
-      },
-      "&-disabled,
-        &[disabled],
-        &:disabled": {
-        "apply": "pointer-events-none cursor-not-allowed"
-      }
-    }
-  },
-  "utils": {
-    ".btn": {
-      "&-xs": {
-        "apply": "min-h-6 h-6 px-2",
-        "css": {
-          "font-size": "0.75rem"
-        }
-      },
-      "&-sm": {
-        "apply": "min-h-8 h-8 px-3",
-        "css": {
-          "font-size": "0.875rem"
-        }
-      },
-      "&-md": {
-        "apply": "min-h-12 h-12 px-4",
-        "css": {
-          "font-size": "0.875rem"
-        }
-      },
-      "&-lg": {
-        "apply": "min-h-16 h-16 px-6",
-        "css": {
-          "font-size": "1.125rem"
-        }
-      },
-      "&-wide": {
-        "apply": "w-64"
-      },
-      "&-block": {
-        "apply": "w-full"
-      },
-      "&-square": {
-        "apply": "h-12 w-12 p-0",
-        "&:where(.btn-xs)": {
-          "apply": "h-6 w-6 p-0"
-        },
-        "&:where(.btn-sm)": {
-          "apply": "h-8 w-8 p-0"
-        },
-        "&:where(.btn-md)": {
-          "apply": "h-12 w-12 p-0"
-        },
-        "&:where(.btn-lg)": {
-          "apply": "h-16 w-16 p-0"
-        }
-      },
-      "&-circle": {
-        "apply": "h-12 w-12 rounded-full p-0",
-        "&:where(.btn-xs)": {
-          "apply": "h-6 w-6 rounded-full p-0"
-        },
-        "&:where(.btn-sm)": {
-          "apply": "h-8 w-8 rounded-full p-0"
-        },
-        "&:where(.btn-md)": {
-          "apply": "h-12 w-12 rounded-full p-0"
-        },
-        "&:where(.btn-lg)": {
-          "apply": "h-16 w-16 rounded-full p-0"
-        }
-      }
-    }
-  }
+```css
+.btn {
+@apply rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4;
+line-height: 1em;
+font-size: 0.875rem;
 }
+.btn-disabled, .btn[disabled], .btn:disabled {
+@apply pointer-events-none cursor-not-allowed;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.btn {
+@apply border-base-400 bg-base-400 text-base-content outline-base-400 no-underline;
+border-width: var(--border-btn, 1px);
+}
+.btn:focus-visible {
+@apply outline outline-2 outline-offset-2;
+}
+.btn.btn-focus-visible {
+@apply outline outline-2 outline-offset-2;
+}
+.btn.btn-hover {
+@apply border-base-300 bg-base-300;
+}
+.btn:hover {
+@apply border-base-300 bg-base-300;
+}
+.btn:active {
+@apply border-base-500 bg-base-500;
+}
+.btn.btn-active {
+@apply border-base-500 bg-base-500;
+}
+.btn-primary {
+@apply border-primary bg-primary text-primary-content outline-primary;
+}
+.btn-primary.btn-hover {
+@apply border-primary-hover bg-primary-hover;
+}
+.btn-primary:hover {
+@apply border-primary-hover bg-primary-hover;
+}
+.btn-primary:active {
+@apply border-primary-active bg-primary-active;
+}
+.btn-primary.btn-active {
+@apply border-primary-active bg-primary-active;
+}
+.btn-success {
+@apply border-success bg-success text-success-content outline-success;
+}
+.btn-success.btn-hover {
+@apply border-success-hover bg-success-hover;
+}
+.btn-success:hover {
+@apply border-success-hover bg-success-hover;
+}
+.btn-success:active {
+@apply border-success-active bg-success-active;
+}
+.btn-success.btn-active {
+@apply border-success-active bg-success-active;
+}
+.btn-warning {
+@apply border-warning bg-warning text-warning-content outline-warning;
+}
+.btn-warning.btn-hover {
+@apply border-warning-hover bg-warning-hover;
+}
+.btn-warning:hover {
+@apply border-warning-hover bg-warning-hover;
+}
+.btn-warning:active {
+@apply border-warning-active bg-warning-active;
+}
+.btn-warning.btn-active {
+@apply border-warning-active bg-warning-active;
+}
+.btn-error {
+@apply border-error bg-error text-error-content outline-error;
+}
+.btn-error.btn-hover {
+@apply border-error-hover bg-error-hover;
+}
+.btn-error:hover {
+@apply border-error-hover bg-error-hover;
+}
+.btn-error:active {
+@apply border-error-active bg-error-active;
+}
+.btn-error.btn-active {
+@apply border-error-active bg-error-active;
+}
+.btn-neutral {
+@apply border-neutral bg-neutral text-neutral-content outline-neutral;
+}
+.btn-neutral.btn-hover {
+@apply border-neutral-hover bg-neutral-hover;
+}
+.btn-neutral:hover {
+@apply border-neutral-hover bg-neutral-hover;
+}
+.btn-neutral:active {
+@apply border-neutral-active bg-neutral-active;
+}
+.btn-neutral.btn-active {
+@apply border-neutral-active bg-neutral-active;
+}
+.btn.glass {
+@apply shadow-none outline-current;
+}
+.btn.glass:active {
+--glass-opacity: 25%;
+--glass-border-opacity: 15%;
+}
+.btn.glass.btn-active {
+--glass-opacity: 25%;
+--glass-border-opacity: 15%;
+}
+.btn-ghost {
+@apply border border-transparent bg-transparent text-current shadow-none outline-current;
+}
+.btn-ghost:active {
+@apply border-opacity-0 bg-base-content bg-opacity-20;
+}
+.btn-ghost.btn-active {
+@apply border-opacity-0 bg-base-content bg-opacity-20;
+}
+.btn-link {
+@apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+}
+.btn-link:active {
+@apply border-transparent bg-transparent underline;
+}
+.btn-link.btn-active {
+@apply border-transparent bg-transparent underline;
+}
+.btn-outline {
+@apply border-current bg-transparent shadow-none text-base-content;
+}
+.btn-outline.btn-hover {
+@apply border-base-900 bg-base-900 text-base-100;
+}
+.btn-outline:hover {
+@apply border-base-900 bg-base-900 text-base-100;
+}
+.btn-outline:active {
+@apply border-base-1100 bg-base-1100 text-base-100;
+}
+.btn-outline.btn-active {
+@apply border-base-1100 bg-base-1100 text-base-100;
+}
+.btn-outline.btn-primary {
+@apply text-primary;
+}
+.btn-outline.btn-primary.btn-hover {
+@apply border-primary-hover bg-primary-hover text-primary-content;
+}
+.btn-outline.btn-primary:hover {
+@apply border-primary-hover bg-primary-hover text-primary-content;
+}
+.btn-outline.btn-primary:active {
+@apply border-primary-active bg-primary-active text-primary-content;
+}
+.btn-outline.btn-primary.btn-active {
+@apply border-primary-active bg-primary-active text-primary-content;
+}
+.btn-outline.btn-success {
+@apply text-success;
+}
+.btn-outline.btn-success.btn-hover {
+@apply border-success-hover bg-success-hover text-success-content;
+}
+.btn-outline.btn-success:hover {
+@apply border-success-hover bg-success-hover text-success-content;
+}
+.btn-outline.btn-success:active {
+@apply border-success-active bg-success-active text-success-content;
+}
+.btn-outline.btn-success.btn-active {
+@apply border-success-active bg-success-active text-success-content;
+}
+.btn-outline.btn-warning {
+@apply text-warning;
+}
+.btn-outline.btn-warning.btn-hover {
+@apply border-warning-hover bg-warning-hover text-warning-content;
+}
+.btn-outline.btn-warning:hover {
+@apply border-warning-hover bg-warning-hover text-warning-content;
+}
+.btn-outline.btn-warning:active {
+@apply border-warning-active bg-warning-active text-warning-content;
+}
+.btn-outline.btn-warning.btn-active {
+@apply border-warning-active bg-warning-active text-warning-content;
+}
+.btn-outline.btn-error {
+@apply text-error;
+}
+.btn-outline.btn-error.btn-hover {
+@apply border-error-hover bg-error-hover text-error-content;
+}
+.btn-outline.btn-error:hover {
+@apply border-error-hover bg-error-hover text-error-content;
+}
+.btn-outline.btn-error:active {
+@apply border-error-active bg-error-active text-error-content;
+}
+.btn-outline.btn-error.btn-active {
+@apply border-error-active bg-error-active text-error-content;
+}
+.btn-outline.btn-neutral {
+@apply text-neutral;
+}
+.btn-outline.btn-neutral.btn-hover {
+@apply border-neutral-hover bg-neutral-hover text-neutral-content;
+}
+.btn-outline.btn-neutral:hover {
+@apply border-neutral-hover bg-neutral-hover text-neutral-content;
+}
+.btn-outline.btn-neutral:active {
+@apply border-neutral-active bg-neutral-active text-neutral-content;
+}
+.btn-outline.btn-neutral.btn-active {
+@apply border-neutral-active bg-neutral-active text-neutral-content;
+}
+.btn.btn-disabled, .btn[disabled], .btn:disabled {
+@apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.btn-xs {
+@apply min-h-6 h-6 px-2;
+font-size: 0.75rem;
+}
+.btn-sm {
+@apply min-h-8 h-8 px-3;
+font-size: 0.875rem;
+}
+.btn-md {
+@apply min-h-12 h-12 px-4;
+font-size: 0.875rem;
+}
+.btn-lg {
+@apply min-h-16 h-16 px-6;
+font-size: 1.125rem;
+}
+.btn-wide {
+@apply w-64;
+}
+.btn-block {
+@apply w-full;
+}
+.btn-square {
+@apply h-12 w-12 p-0;
+}
+.btn-square:where(.btn-xs) {
+@apply h-6 w-6 p-0;
+}
+.btn-square:where(.btn-sm) {
+@apply h-8 w-8 p-0;
+}
+.btn-square:where(.btn-md) {
+@apply h-12 w-12 p-0;
+}
+.btn-square:where(.btn-lg) {
+@apply h-16 w-16 p-0;
+}
+.btn-circle {
+@apply h-12 w-12 rounded-full p-0;
+}
+.btn-circle:where(.btn-xs) {
+@apply h-6 w-6 rounded-full p-0;
+}
+.btn-circle:where(.btn-sm) {
+@apply h-8 w-8 rounded-full p-0;
+}
+.btn-circle:where(.btn-md) {
+@apply h-12 w-12 rounded-full p-0;
+}
+.btn-circle:where(.btn-lg) {
+@apply h-16 w-16 rounded-full p-0;
 }
 ```
 

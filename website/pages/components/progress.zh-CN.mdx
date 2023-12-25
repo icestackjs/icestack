@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/progress/index.mdx'
 
-## 类名表格
+## 默认类名表格
 
 <CssTable name="progress" />
 
@@ -14,104 +14,117 @@ import Demo from '../../components/demo/progress/index.mdx'
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/feedback-progress--docs)
 
 ## Css 结构
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".progress",
-"defaults": {
-  "styled": {
-    ".progress": {
-      "apply": "rounded-box bg-base-content/20 h-2",
-      "&::-moz-progress-bar": {
-        "apply": "bg-base-content rounded-box"
-      },
-      "&::-webkit-progress-bar": {
-        "apply": "rounded-box bg-transparent"
-      },
-      "&::-webkit-progress-value": {
-        "apply": "bg-base-content rounded-box"
-      },
-      "&:indeterminate": {
-        "css": {
-          "background-image": "repeating-linear-gradient(
-                90deg,
-                var(--progress-color) -1%,
-                var(--progress-color) 10%,
-                transparent 10%,
-                transparent 90%
-              )",
-          "background-size": "200%",
-          "background-position-x": "15%",
-          "animation": "progress-loading 5s ease-in-out infinite"
-        },
-        "&::-moz-progress-bar": {
-          "apply": "bg-transparent",
-          "css": {
-            "background-image": "repeating-linear-gradient(
-                  90deg,
-                  var(--progress-color) -1%,
-                  var(--progress-color) 10%,
-                  transparent 10%,
-                  transparent 90%
-                )",
-            "background-size": "200%",
-            "background-position-x": "15%",
-            "animation": "progress-loading 5s ease-in-out infinite"
-          }
-        }
-      },
-      "&-primary::-moz-progress-bar": {
-        "apply": "bg-primary rounded-box"
-      },
-      "&-success::-moz-progress-bar": {
-        "apply": "bg-success rounded-box"
-      },
-      "&-warning::-moz-progress-bar": {
-        "apply": "bg-warning rounded-box"
-      },
-      "&-error::-moz-progress-bar": {
-        "apply": "bg-error rounded-box"
-      },
-      "&-neutral::-moz-progress-bar": {
-        "apply": "bg-neutral rounded-box"
-      },
-      "&-primary::-webkit-progress-value": {
-        "apply": "bg-primary"
-      },
-      "&-success::-webkit-progress-value": {
-        "apply": "bg-success"
-      },
-      "&-warning::-webkit-progress-value": {
-        "apply": "bg-warning"
-      },
-      "&-error::-webkit-progress-value": {
-        "apply": "bg-error"
-      },
-      "&-neutral::-webkit-progress-value": {
-        "apply": "bg-neutral"
-      }
-    },
-    "@keyframes progress-loading": {
-      "50%": {
-        "css": {
-          "background-position-x": "-115%"
-        }
-      }
-    }
-  },
-  "base": {
-    ".progress": {
-      "apply": "relative w-full appearance-none overflow-hidden"
-    }
-  }
+```css
+.progress {
+@apply relative w-full appearance-none overflow-hidden;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.progress {
+@apply rounded-box bg-base-content/20 h-2;
+}
+.progress::-moz-progress-bar {
+@apply bg-base-content rounded-box;
+}
+.progress::-webkit-progress-bar {
+@apply rounded-box bg-transparent;
+}
+.progress::-webkit-progress-value {
+@apply bg-base-content rounded-box;
+}
+.progress:indeterminate {
+background-image: repeating-linear-gradient( 90deg, var(--progress-color) -1%, var(--progress-color) 10%, transparent 10%, transparent 90% );
+background-size: 200%;
+background-position-x: 15%;
+animation: progress-loading 5s ease-in-out infinite;
+}
+.progress:indeterminate::-moz-progress-bar {
+@apply bg-transparent;
+background-image: repeating-linear-gradient( 90deg, var(--progress-color) -1%, var(--progress-color) 10%, transparent 10%, transparent 90% );
+background-size: 200%;
+background-position-x: 15%;
+animation: progress-loading 5s ease-in-out infinite;
+}
+.progress-primary::-moz-progress-bar {
+@apply bg-primary rounded-box;
+}
+.progress-success::-moz-progress-bar {
+@apply bg-success rounded-box;
+}
+.progress-warning::-moz-progress-bar {
+@apply bg-warning rounded-box;
+}
+.progress-error::-moz-progress-bar {
+@apply bg-error rounded-box;
+}
+.progress-neutral::-moz-progress-bar {
+@apply bg-neutral rounded-box;
+}
+.progress-primary::-webkit-progress-value {
+@apply bg-primary;
+}
+.progress-success::-webkit-progress-value {
+@apply bg-success;
+}
+.progress-warning::-webkit-progress-value {
+@apply bg-warning;
+}
+.progress-error::-webkit-progress-value {
+@apply bg-error;
+}
+.progress-neutral::-webkit-progress-value {
+@apply bg-neutral;
+}
+
+@keyframes progress-loading {
+50% {
+  background-position-x: -115%;
 }
 }
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+
 ```
 
 </div>

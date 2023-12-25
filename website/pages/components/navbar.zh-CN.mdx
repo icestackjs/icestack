@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/navbar/index.mdx'
 
-## 类名表格
+## 默认类名表格
 
 <CssTable name="navbar" />
 
@@ -14,60 +14,79 @@ import Demo from '../../components/demo/navbar/index.mdx'
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/navigation-navbar--docs)
 
 ## Css 结构
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".navbar",
-"defaults": {
-  "base": {
-    ".navbar": {
-      "apply": [
-        "flex items-center"
-      ]
-    },
-    ":where(.navbar>*)": {
-      "apply": [
-        "inline-flex items-center"
-      ]
-    },
-    ".navbar-start": {
-      "css": {
-        "width": "50%",
-        "justify-content": "flex-start"
-      }
-    },
-    ".navbar-center": {
-      "apply": [
-        "shrink-0"
-      ]
-    },
-    ".navbar-end": {
-      "css": {
-        "width": "50%",
-        "justify-content": "flex-end"
-      }
-    }
-  },
-  "styled": {
-    ".navbar": {
-      "css": {
-        "padding": "var(--navbar-padding, 0.5rem)",
-        "min-height": "4rem"
-      },
-      "apply": [
-        "w-full"
-      ]
-    }
-  },
-  "utils": {}
+```css
+.navbar {
+@apply flex items-center;
 }
+
+:where(.navbar > *) {
+@apply inline-flex items-center;
 }
+
+.navbar-start {
+width: 50%;
+justify-content: flex-start;
+}
+
+.navbar-center {
+@apply shrink-0;
+}
+
+.navbar-end {
+width: 50%;
+justify-content: flex-end;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.navbar {
+padding: var(--navbar-padding, 0.5rem);
+min-height: 4rem;
+@apply w-full;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+
 ```
 
 </div>

@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/range/index.mdx'
 
-## 类名表格
+## 默认类名表格
 
 <CssTable name="range" />
 
@@ -14,192 +14,175 @@ import Demo from '../../components/demo/range/index.mdx'
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/data-entry-range--docs)
 
 ## Css 结构
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".range",
-"defaults": {
-  "styled": {
-    ".range": {
-      "apply": "rounded-box overflow-hidden bg-transparent",
-      "css": {
-        "appearance": "none",
-        "--range-shdw": "var(--base-content)"
-      },
-      "&:focus-visible::-webkit-slider-thumb": {
-        "css": {
-          "--focus-shadow": "0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset"
-        }
-      },
-      "&:focus-visible::-moz-range-thumb": {
-        "css": {
-          "--focus-shadow": "0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset"
-        }
-      },
-      "&::-webkit-slider-runnable-track": {
-        "apply": "rounded-box bg-base-content/10 h-2 w-full"
-      },
-      "&::-moz-range-track": {
-        "apply": "rounded-box bg-base-content/10 h-2 w-full"
-      },
-      "&::-webkit-slider-thumb": {
-        "apply": "rounded-box bg-base-400 relative h-6 w-6 border-none",
-        "css": {
-          "appearance": "none",
-          "top": "50%",
-          "transform": "translateY(-50%)",
-          "color": "rgba(var(--range-shdw))",
-          "--filler-size": "100rem",
-          "--filler-offset": "0.6rem",
-          "box-shadow": "0 0 0 3px rgba(var(--range-shdw)) inset,
-          var(--focus-shadow, 0 0),
-          calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size)"
-        }
-      },
-      "&::-moz-range-thumb": {
-        "apply": "rounded-box bg-base-400 relative h-6 w-6 border-none",
-        "css": {
-          "top": "50%",
-          "color": "rgba(var(--range-shdw))",
-          "--filler-size": "100rem",
-          "--filler-offset": "0.5rem",
-          "box-shadow": "0 0 0 3px rgba(var(--range-shdw)) inset,
-          var(--focus-shadow, 0 0),
-          calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size)"
-        }
-      },
-      "&-primary": {
-        "css": {
-          "--range-shdw": "var(--primary)"
-        }
-      },
-      "&-success": {
-        "css": {
-          "--range-shdw": "var(--success)"
-        }
-      },
-      "&-warning": {
-        "css": {
-          "--range-shdw": "var(--warning)"
-        }
-      },
-      "&-error": {
-        "css": {
-          "--range-shdw": "var(--error)"
-        }
-      },
-      "&-neutral": {
-        "css": {
-          "--range-shdw": "var(--neutral)"
-        }
-      }
-    }
-  },
-  "base": {
-    ".range": {
-      "apply": "h-6 w-full cursor-pointer",
-      "&:focus": {
-        "css": {
-          "outline": "none"
-        }
-      }
-    }
-  },
-  "utils": {
-    ".range": {
-      "&-xs": {
-        "apply": "h-4",
-        "&::-webkit-slider-runnable-track": {
-          "apply": "h-1"
-        },
-        "&::-moz-range-track": {
-          "apply": "h-1"
-        },
-        "&::-webkit-slider-thumb": {
-          "apply": "h-4 w-4",
-          "css": {
-            "--filler-offset": "0.4rem"
-          }
-        },
-        "&::-moz-range-thumb": {
-          "apply": "h-4 w-4",
-          "css": {
-            "--filler-offset": "0.4rem"
-          }
-        }
-      },
-      "&-sm": {
-        "apply": "h-5",
-        "&::-webkit-slider-runnable-track": {
-          "apply": "h-1"
-        },
-        "&::-moz-range-track": {
-          "apply": "h-1"
-        },
-        "&::-webkit-slider-thumb": {
-          "apply": "h-5 w-5",
-          "css": {
-            "--filler-offset": "0.5rem"
-          }
-        },
-        "&::-moz-range-thumb": {
-          "apply": "h-5 w-5",
-          "css": {
-            "--filler-offset": "0.5rem"
-          }
-        }
-      },
-      "&-md": {
-        "apply": "h-6",
-        "&::-webkit-slider-runnable-track": {
-          "apply": "h-2"
-        },
-        "&::-moz-range-track": {
-          "apply": "h-2"
-        },
-        "&::-webkit-slider-thumb": {
-          "apply": "h-6 w-6",
-          "css": {
-            "--filler-offset": "0.6rem"
-          }
-        },
-        "&::-moz-range-thumb": {
-          "apply": "h-6 w-6",
-          "css": {
-            "--filler-offset": "0.6rem"
-          }
-        }
-      },
-      "&-lg": {
-        "apply": "h-8",
-        "&::-webkit-slider-runnable-track": {
-          "apply": "h-4"
-        },
-        "&::-moz-range-track": {
-          "apply": "h-4"
-        },
-        "&::-webkit-slider-thumb": {
-          "apply": "h-8 w-8",
-          "css": {
-            "--filler-offset": "1rem"
-          }
-        },
-        "&::-moz-range-thumb": {
-          "apply": "h-8 w-8",
-          "css": {
-            "--filler-offset": "1rem"
-          }
-        }
-      }
-    }
-  }
+```css
+.range {
+@apply h-6 w-full cursor-pointer;
 }
+.range:focus {
+outline: none;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.range {
+@apply rounded-box overflow-hidden bg-transparent;
+appearance: none;
+--range-shdw: var(--base-content);
+}
+.range:focus-visible::-webkit-slider-thumb {
+--focus-shadow: 0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset;
+}
+.range:focus-visible::-moz-range-thumb {
+--focus-shadow: 0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset;
+}
+.range::-webkit-slider-runnable-track {
+@apply rounded-box bg-base-content/10 h-2 w-full;
+}
+.range::-moz-range-track {
+@apply rounded-box bg-base-content/10 h-2 w-full;
+}
+.range::-webkit-slider-thumb {
+@apply rounded-box bg-base-400 relative h-6 w-6 border-none;
+appearance: none;
+top: 50%;
+transform: translateY(-50%);
+color: rgba(var(--range-shdw));
+--filler-size: 100rem;
+--filler-offset: 0.6rem;
+box-shadow: 0 0 0 3px rgba(var(--range-shdw)) inset, var(--focus-shadow, 0 0), calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size);
+}
+.range::-moz-range-thumb {
+@apply rounded-box bg-base-400 relative h-6 w-6 border-none;
+top: 50%;
+color: rgba(var(--range-shdw));
+--filler-size: 100rem;
+--filler-offset: 0.5rem;
+box-shadow: 0 0 0 3px rgba(var(--range-shdw)) inset, var(--focus-shadow, 0 0), calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size);
+}
+.range-primary {
+--range-shdw: var(--primary);
+}
+.range-success {
+--range-shdw: var(--success);
+}
+.range-warning {
+--range-shdw: var(--warning);
+}
+.range-error {
+--range-shdw: var(--error);
+}
+.range-neutral {
+--range-shdw: var(--neutral);
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.range-xs {
+@apply h-4;
+}
+.range-xs::-webkit-slider-runnable-track {
+@apply h-1;
+}
+.range-xs::-moz-range-track {
+@apply h-1;
+}
+.range-xs::-webkit-slider-thumb {
+@apply h-4 w-4;
+--filler-offset: 0.4rem;
+}
+.range-xs::-moz-range-thumb {
+@apply h-4 w-4;
+--filler-offset: 0.4rem;
+}
+.range-sm {
+@apply h-5;
+}
+.range-sm::-webkit-slider-runnable-track {
+@apply h-1;
+}
+.range-sm::-moz-range-track {
+@apply h-1;
+}
+.range-sm::-webkit-slider-thumb {
+@apply h-5 w-5;
+--filler-offset: 0.5rem;
+}
+.range-sm::-moz-range-thumb {
+@apply h-5 w-5;
+--filler-offset: 0.5rem;
+}
+.range-md {
+@apply h-6;
+}
+.range-md::-webkit-slider-runnable-track {
+@apply h-2;
+}
+.range-md::-moz-range-track {
+@apply h-2;
+}
+.range-md::-webkit-slider-thumb {
+@apply h-6 w-6;
+--filler-offset: 0.6rem;
+}
+.range-md::-moz-range-thumb {
+@apply h-6 w-6;
+--filler-offset: 0.6rem;
+}
+.range-lg {
+@apply h-8;
+}
+.range-lg::-webkit-slider-runnable-track {
+@apply h-4;
+}
+.range-lg::-moz-range-track {
+@apply h-4;
+}
+.range-lg::-webkit-slider-thumb {
+@apply h-8 w-8;
+--filler-offset: 1rem;
+}
+.range-lg::-moz-range-thumb {
+@apply h-8 w-8;
+--filler-offset: 1rem;
 }
 ```
 

@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/footer/index.mdx'
 
-## 类名表格
+## 默认类名表格
 
 <CssTable name="footer" />
 
@@ -14,71 +14,83 @@ import Demo from '../../components/demo/footer/index.mdx'
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-footer--docs)
 
 ## Css 结构
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".footer",
-"defaults": {
-  "base": {
-    ".footer": {
-      "apply": [
-        "grid w-full grid-flow-row place-items-start"
-      ],
-      "&>*": {
-        "apply": [
-          "grid place-items-start"
-        ]
-      },
-      "&-center": {
-        "apply": [
-          "place-items-center text-center"
-        ],
-        "&>*": {
-          "apply": [
-            "place-items-center"
-          ]
-        }
-      }
-    },
-    "@media (min-width: 48rem)": {
-      ".footer": {
-        "css": {
-          "grid-auto-flow": "column"
-        }
-      },
-      ".footer-center": {
-        "css": {
-          "grid-auto-flow": "row dense"
-        }
-      }
-    }
-  },
-  "styled": {
-    ".footer": {
-      "apply": [
-        "gap-x-4 gap-y-10 text-sm"
-      ],
-      "&>*": {
-        "apply": [
-          "gap-2"
-        ]
-      },
-      "&-title": {
-        "apply": [
-          "mb-2 font-bold uppercase opacity-60"
-        ]
-      }
-    }
-  },
-  "utils": {}
+```css
+.footer {
+@apply grid w-full grid-flow-row place-items-start;
+}
+.footer > * {
+@apply grid place-items-start;
+}
+.footer-center {
+@apply place-items-center text-center;
+}
+.footer-center > * {
+@apply place-items-center;
+}
+
+@media (min-width: 48rem) {
+.footer {
+  grid-auto-flow: column;
+}
+.footer-center {
+  grid-auto-flow: row dense;
 }
 }
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.footer {
+@apply gap-x-4 gap-y-10 text-sm;
+}
+.footer > * {
+@apply gap-2;
+}
+.footer-title {
+@apply mb-2 font-bold uppercase opacity-60;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+
 ```
 
 </div>

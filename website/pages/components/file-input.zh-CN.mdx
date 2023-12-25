@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/file-input/index.mdx'
 
-## 类名表格
+## 默认类名表格
 
 <CssTable name="file-input" />
 
@@ -14,219 +14,162 @@ import Demo from '../../components/demo/file-input/index.mdx'
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/data-entry-file-input--docs)
 
 ## Css 结构
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".file-input",
-"defaults": {
-  "base": {
-    ".file-input": {
-      "apply": [
-        "h-12 shrink pe-4 text-sm leading-loose"
-      ],
-      "&::file-selector-button": {
-        "apply": [
-          "me-4 inline-flex h-full shrink-0 cursor-pointer select-none flex-wrap items-center justify-center px-4 text-center text-sm transition duration-200 ease-out"
-        ],
-        "css": {
-          "line-height": "1em"
-        }
-      }
-    }
-  },
-  "styled": {
-    ".file-input": {
-      "apply": [
-        "border-base-content bg-base-100 rounded-btn overflow-hidden border border-opacity-0 text-base"
-      ],
-      "&::file-selector-button": {
-        "css": {
-          "border-style": "solid",
-          "border-width": "var(--border-btn, 1px)",
-          "animation": "button-pop var(--animation-btn, 0.25s) ease-out"
-        },
-        "apply": [
-          "border-neutral bg-neutral text-neutral-content font-semibold uppercase no-underline"
-        ]
-      },
-      "&-bordered": {
-        "apply": [
-          "border-opacity-20"
-        ]
-      },
-      "&:focus": {
-        "apply": [
-          "outline-base-content/20 outline outline-2 outline-offset-2"
-        ]
-      },
-      "&-ghost": {
-        "apply": [
-          "bg-opacity-5"
-        ],
-        "&:focus": {
-          "apply": [
-            "text-base-content bg-opacity-100"
-          ],
-          "css": {
-            "box-shadow": "none"
-          }
-        },
-        "&::file-selector-button": {
-          "apply": [
-            "border border-transparent bg-transparent text-current"
-          ]
-        }
-      },
-      "&-primary": {
-        "apply": [
-          "border-primary"
-        ],
-        "&:focus": {
-          "apply": [
-            "outline-primary"
-          ]
-        },
-        "&::file-selector-button": {
-          "apply": [
-            "border-primary bg-primary text-primary-content"
-          ]
-        }
-      },
-      "&-success": {
-        "apply": [
-          "border-success"
-        ],
-        "&:focus": {
-          "apply": [
-            "outline-success"
-          ]
-        },
-        "&::file-selector-button": {
-          "apply": [
-            "border-success bg-success text-success-content"
-          ]
-        }
-      },
-      "&-warning": {
-        "apply": [
-          "border-warning"
-        ],
-        "&:focus": {
-          "apply": [
-            "outline-warning"
-          ]
-        },
-        "&::file-selector-button": {
-          "apply": [
-            "border-warning bg-warning text-warning-content"
-          ]
-        }
-      },
-      "&-error": {
-        "apply": [
-          "border-error"
-        ],
-        "&:focus": {
-          "apply": [
-            "outline-error"
-          ]
-        },
-        "&::file-selector-button": {
-          "apply": [
-            "border-error bg-error text-error-content"
-          ]
-        }
-      },
-      "&-neutral": {
-        "apply": [
-          "border-neutral"
-        ],
-        "&:focus": {
-          "apply": [
-            "outline-neutral"
-          ]
-        },
-        "&::file-selector-button": {
-          "apply": [
-            "border-neutral bg-neutral text-neutral-content"
-          ]
-        }
-      },
-      "&-disabled,&[disabled]": {
-        "apply": [
-          "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20"
-        ],
-        "&::file-selector-button": {
-          "apply": [
-            "bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20"
-          ]
-        }
-      }
-    }
-  },
-  "utils": {
-    ".file-input": {
-      "&-xs": {
-        "apply": [
-          "h-6 pe-2 text-xs leading-relaxed"
-        ],
-        "&::file-selector-button": {
-          "apply": [
-            "mr-2"
-          ],
-          "css": {
-            "font-size": "0.75rem"
-          }
-        }
-      },
-      "&-sm": {
-        "apply": [
-          "h-8 pe-3 text-sm leading-loose"
-        ],
-        "&::file-selector-button": {
-          "apply": [
-            "mr-3"
-          ],
-          "css": {
-            "font-size": "0.875rem"
-          }
-        }
-      },
-      "&-md": {
-        "apply": [
-          "h-12 pe-4 text-sm leading-loose"
-        ],
-        "&::file-selector-button": {
-          "apply": [
-            "mr-4"
-          ],
-          "css": {
-            "font-size": "0.875rem"
-          }
-        }
-      },
-      "&-lg": {
-        "apply": [
-          "h-16 pe-6 text-lg leading-loose"
-        ],
-        "&::file-selector-button": {
-          "apply": [
-            "mr-6"
-          ],
-          "css": {
-            "font-size": "1.125rem"
-          }
-        }
-      }
-    }
-  }
+```css
+.file-input {
+@apply h-12 shrink pe-4 text-sm leading-loose;
 }
+.file-input::file-selector-button {
+@apply me-4 inline-flex h-full shrink-0 cursor-pointer select-none flex-wrap items-center justify-center px-4 text-center text-sm transition duration-200 ease-out;
+line-height: 1em;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.file-input {
+@apply border-base-content bg-base-100 rounded-btn overflow-hidden border border-opacity-0 text-base;
+}
+.file-input::file-selector-button {
+border-style: solid;
+border-width: var(--border-btn, 1px);
+animation: button-pop var(--animation-btn, 0.25s) ease-out;
+@apply border-neutral bg-neutral text-neutral-content font-semibold uppercase no-underline;
+}
+.file-input-bordered {
+@apply border-opacity-20;
+}
+.file-input:focus {
+@apply outline-base-content/20 outline outline-2 outline-offset-2;
+}
+.file-input-ghost {
+@apply bg-opacity-5;
+}
+.file-input-ghost:focus {
+@apply text-base-content bg-opacity-100;
+box-shadow: none;
+}
+.file-input-ghost::file-selector-button {
+@apply border border-transparent bg-transparent text-current;
+}
+.file-input-primary {
+@apply border-primary;
+}
+.file-input-primary:focus {
+@apply outline-primary;
+}
+.file-input-primary::file-selector-button {
+@apply border-primary bg-primary text-primary-content;
+}
+.file-input-success {
+@apply border-success;
+}
+.file-input-success:focus {
+@apply outline-success;
+}
+.file-input-success::file-selector-button {
+@apply border-success bg-success text-success-content;
+}
+.file-input-warning {
+@apply border-warning;
+}
+.file-input-warning:focus {
+@apply outline-warning;
+}
+.file-input-warning::file-selector-button {
+@apply border-warning bg-warning text-warning-content;
+}
+.file-input-error {
+@apply border-error;
+}
+.file-input-error:focus {
+@apply outline-error;
+}
+.file-input-error::file-selector-button {
+@apply border-error bg-error text-error-content;
+}
+.file-input-neutral {
+@apply border-neutral;
+}
+.file-input-neutral:focus {
+@apply outline-neutral;
+}
+.file-input-neutral::file-selector-button {
+@apply border-neutral bg-neutral text-neutral-content;
+}
+.file-input-disabled, .file-input[disabled] {
+@apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
+}
+.file-input-disabled::file-selector-button, .file-input[disabled]::file-selector-button {
+@apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.file-input-xs {
+@apply h-6 pe-2 text-xs leading-relaxed;
+}
+.file-input-xs::file-selector-button {
+@apply mr-2;
+font-size: 0.75rem;
+}
+.file-input-sm {
+@apply h-8 pe-3 text-sm leading-loose;
+}
+.file-input-sm::file-selector-button {
+@apply mr-3;
+font-size: 0.875rem;
+}
+.file-input-md {
+@apply h-12 pe-4 text-sm leading-loose;
+}
+.file-input-md::file-selector-button {
+@apply mr-4;
+font-size: 0.875rem;
+}
+.file-input-lg {
+@apply h-16 pe-6 text-lg leading-loose;
+}
+.file-input-lg::file-selector-button {
+@apply mr-6;
+font-size: 1.125rem;
 }
 ```
 

@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/bottom-navigation/index.mdx'
 
-## 类名表格
+## 默认类名表格
 
 <CssTable name="bottom-navigation" />
 
@@ -14,136 +14,117 @@ import Demo from '../../components/demo/bottom-navigation/index.mdx'
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/navigation-bottom-navigation--docs)
 
 ## Css 结构
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".btm-nav",
-"defaults": {
-  "base": {
-    ".btm-nav": {
-      "apply": [
-        "fixed bottom-0 left-0 right-0 flex w-full flex-row items-center justify-around"
-      ],
-      "css": {
-        "padding-bottom": "env(safe-area-inset-bottom)"
-      },
-      "&>*": {
-        "apply": [
-          "relative flex h-full basis-full cursor-pointer flex-col items-center justify-center gap-1"
-        ]
-      }
-    }
-  },
-  "styled": {
-    ".btm-nav": {
-      "apply": [
-        "bg-base-100 h-16 text-current"
-      ],
-      "&>*": {
-        "apply": [
-          "border-current"
-        ],
-        "&:not(.active)": {
-          "apply": [
-            "pt-0.5"
-          ]
-        },
-        "&:where(.active)": {
-          "apply": [
-            "bg-base-100 border-t-2"
-          ]
-        },
-        "&.disabled,&[disabled]": {
-          "apply": [
-            "bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20"
-          ]
-        },
-        "@media (hover: hover)": {
-          "&.disabled:hover,&[disabled]:hover": {
-            "apply": [
-              "bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20"
-            ]
-          }
-        },
-        ".label": {
-          "apply": [
-            "text-base"
-          ]
-        }
-      }
-    }
-  },
-  "utils": {
-    ".btm-nav": {
-      "&-xs": {
-        "apply": [
-          "h-10"
-        ],
-        "&>*:where(.active)": {
-          "apply": [
-            "border-t-[1px]"
-          ]
-        },
-        ".btm-nav-label": {
-          "apply": [
-            "text-xs"
-          ]
-        }
-      },
-      "&-sm": {
-        "apply": [
-          "h-12"
-        ],
-        "&>*:where(.active)": {
-          "apply": [
-            "border-t-2"
-          ]
-        },
-        ".btm-nav-label": {
-          "apply": [
-            "text-xs"
-          ]
-        }
-      },
-      "&-md": {
-        "apply": [
-          "h-16"
-        ],
-        "&>*:where(.active)": {
-          "apply": [
-            "border-t-2"
-          ]
-        },
-        ".btm-nav-label": {
-          "apply": [
-            "text-sm"
-          ]
-        }
-      },
-      "&-lg": {
-        "apply": [
-          "h-20"
-        ],
-        "&>*:where(.active)": {
-          "apply": [
-            "border-t-4"
-          ]
-        },
-        ".btm-nav-label": {
-          "apply": [
-            "text-base"
-          ]
-        }
-      }
-    }
-  }
+```css
+.btm-nav {
+@apply fixed bottom-0 left-0 right-0 flex w-full flex-row items-center justify-around;
+padding-bottom: env(safe-area-inset-bottom);
 }
+.btm-nav > * {
+@apply relative flex h-full basis-full cursor-pointer flex-col items-center justify-center gap-1;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.btm-nav {
+@apply bg-base-100 h-16 text-current;
+}
+.btm-nav > * {
+@apply border-current;
+}
+.btm-nav > *:not(.active) {
+@apply pt-0.5;
+}
+.btm-nav > *:where(.active) {
+@apply bg-base-100 border-t-2;
+}
+.btm-nav > *.disabled, .btm-nav > *[disabled] {
+@apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;
+}
+@media (hover: hover) {
+.btm-nav > *.disabled:hover, .btm-nav > *[disabled]:hover {
+  @apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;
+}
+}
+.btm-nav > * .label {
+@apply text-base;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.btm-nav-xs {
+@apply h-10;
+}
+.btm-nav-xs > *:where(.active) {
+@apply border-t-[1px];
+}
+.btm-nav-xs .btm-nav-label {
+@apply text-xs;
+}
+.btm-nav-sm {
+@apply h-12;
+}
+.btm-nav-sm > *:where(.active) {
+@apply border-t-2;
+}
+.btm-nav-sm .btm-nav-label {
+@apply text-xs;
+}
+.btm-nav-md {
+@apply h-16;
+}
+.btm-nav-md > *:where(.active) {
+@apply border-t-2;
+}
+.btm-nav-md .btm-nav-label {
+@apply text-sm;
+}
+.btm-nav-lg {
+@apply h-20;
+}
+.btm-nav-lg > *:where(.active) {
+@apply border-t-4;
+}
+.btm-nav-lg .btm-nav-label {
+@apply text-base;
 }
 ```
 

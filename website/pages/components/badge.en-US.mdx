@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/badge/index.mdx'
 
-## Class Table
+## Default Class Table
 
 <CssTable name="badge" />
 
@@ -14,100 +14,115 @@ import Demo from '../../components/demo/badge/index.mdx'
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/data-display-badge--docs)
 
 ## Css Schema
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".badge",
-"defaults": {
-  "styled": {
-    ".badge": {
-      "apply": "rounded-badge border border-base-400 bg-base-100 text-base-content",
-      "&-primary": {
-        "apply": "border-primary bg-primary text-primary-content"
-      },
-      "&-success": {
-        "apply": "border-success bg-success text-success-content"
-      },
-      "&-warning": {
-        "apply": "border-warning bg-warning text-warning-content"
-      },
-      "&-error": {
-        "apply": "border-error bg-error text-error-content"
-      },
-      "&-neutral": {
-        "apply": "border-neutral bg-neutral text-neutral-content"
-      },
-      "&-ghost": {
-        "apply": "border-base-400 bg-base-400 text-base-content"
-      },
-      "&-outline": {
-        "apply": "border-current border-opacity-50 bg-transparent text-current",
-        "&.badge-primary": {
-          "apply": "text-primary"
-        },
-        "&.badge-success": {
-          "apply": "text-success"
-        },
-        "&.badge-warning": {
-          "apply": "text-warning"
-        },
-        "&.badge-error": {
-          "apply": "text-error"
-        },
-        "&.badge-neutral": {
-          "apply": "text-neutral"
-        }
-      }
-    }
-  },
-  "base": {
-    ".badge": {
-      "apply": "inline-flex items-center justify-center transition duration-200 ease-out w-[fit-content] h-5 text-sm leading-5",
-      "css": {
-        "padding-left": "0.563rem",
-        "padding-right": "0.563rem"
-      }
-    }
-  },
-  "utils": {
-    ".badge": {
-      "&-xs": {
-        "apply": "h-3 text-xs leading-3",
-        "css": {
-          "padding-left": "0.313rem",
-          "padding-right": "0.313rem"
-        }
-      },
-      "&-sm": {
-        "apply": "h-4 text-xs leading-4",
-        "css": {
-          "padding-left": "0.438rem",
-          "padding-right": "0.438rem"
-        }
-      },
-      "&-md": {
-        "apply": "h-5 text-sm leading-5",
-        "css": {
-          "padding-left": "0.563rem",
-          "padding-right": "0.563rem"
-        }
-      },
-      "&-lg": {
-        "apply": "h-6 text-base leading-6",
-        "css": {
-          "padding-left": "0.688rem",
-          "padding-right": "0.688rem"
-        }
-      }
-    }
-  }
+```css
+.badge {
+@apply inline-flex items-center justify-center transition duration-200 ease-out w-[fit-content] h-5 text-sm leading-5;
+padding-left: 0.563rem;
+padding-right: 0.563rem;
 }
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.badge {
+@apply rounded-badge border border-base-400 bg-base-100 text-base-content;
+}
+.badge-primary {
+@apply border-primary bg-primary text-primary-content;
+}
+.badge-success {
+@apply border-success bg-success text-success-content;
+}
+.badge-warning {
+@apply border-warning bg-warning text-warning-content;
+}
+.badge-error {
+@apply border-error bg-error text-error-content;
+}
+.badge-neutral {
+@apply border-neutral bg-neutral text-neutral-content;
+}
+.badge-ghost {
+@apply border-base-400 bg-base-400 text-base-content;
+}
+.badge-outline {
+@apply border-current border-opacity-50 bg-transparent text-current;
+}
+.badge-outline.badge-primary {
+@apply text-primary;
+}
+.badge-outline.badge-success {
+@apply text-success;
+}
+.badge-outline.badge-warning {
+@apply text-warning;
+}
+.badge-outline.badge-error {
+@apply text-error;
+}
+.badge-outline.badge-neutral {
+@apply text-neutral;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.badge-xs {
+@apply h-3 text-xs leading-3;
+padding-left: 0.313rem;
+padding-right: 0.313rem;
+}
+.badge-sm {
+@apply h-4 text-xs leading-4;
+padding-left: 0.438rem;
+padding-right: 0.438rem;
+}
+.badge-md {
+@apply h-5 text-sm leading-5;
+padding-left: 0.563rem;
+padding-right: 0.563rem;
+}
+.badge-lg {
+@apply h-6 text-base leading-6;
+padding-left: 0.688rem;
+padding-right: 0.688rem;
 }
 ```
 

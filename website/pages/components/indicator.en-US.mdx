@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/indicator/index.mdx'
 
-## Class Table
+## Default Class Table
 
 <CssTable name="indicator" />
 
@@ -14,77 +14,82 @@ import Demo from '../../components/demo/indicator/index.mdx'
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-indicator--docs)
 
 ## Css Schema
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".indicator",
-"defaults": {
-  "base": {
-    ".indicator": {
-      "apply": [
-        "relative inline-flex"
-      ],
-      "css": {
-        "width": "max-content"
-      },
-      "& :where(.indicator-item)": {
-        "css": {
-          "z-index": "1"
-        },
-        "apply": [
-          "absolute transform whitespace-nowrap"
-        ]
-      }
-    }
-  },
-  "styled": {
-    ".indicator": {
-      "& :where(.indicator-item)": {
-        "apply": [
-          "bottom-auto end-0 start-auto top-0 -translate-y-1/2 translate-x-1/2 rtl:-translate-x-1/2"
-        ]
-      },
-      "& :where(.indicator-item.indicator-start)": {
-        "apply": [
-          "end-auto start-0 -translate-x-1/2 rtl:translate-x-1/2"
-        ]
-      },
-      "& :where(.indicator-item.indicator-center)": {
-        "apply": [
-          "end-1/2 start-1/2 -translate-x-1/2 rtl:translate-x-1/2"
-        ]
-      },
-      "& :where(.indicator-item.indicator-end)": {
-        "apply": [
-          "end-0 start-auto translate-x-1/2 rtl:-translate-x-1/2"
-        ]
-      },
-      "& :where(.indicator-item.indicator-bottom)": {
-        "apply": [
-          "bottom-0 top-auto translate-y-1/2"
-        ]
-      },
-      "& :where(.indicator-item.indicator-middle)": {
-        "apply": [
-          "bottom-1/2 top-1/2 -translate-y-1/2"
-        ]
-      },
-      "& :where(.indicator-item.indicator-top)": {
-        "apply": [
-          "bottom-auto top-0 -translate-y-1/2"
-        ]
-      }
-    }
-  },
-  "utils": {}
+```css
+.indicator {
+@apply relative inline-flex;
+width: max-content;
 }
+.indicator :where(.indicator-item) {
+z-index: 1;
+@apply absolute transform whitespace-nowrap;
 }
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.indicator :where(.indicator-item) {
+@apply bottom-auto end-0 start-auto top-0 -translate-y-1/2 translate-x-1/2 rtl:-translate-x-1/2;
+}
+.indicator :where(.indicator-item.indicator-start) {
+@apply end-auto start-0 -translate-x-1/2 rtl:translate-x-1/2;
+}
+.indicator :where(.indicator-item.indicator-center) {
+@apply end-1/2 start-1/2 -translate-x-1/2 rtl:translate-x-1/2;
+}
+.indicator :where(.indicator-item.indicator-end) {
+@apply end-0 start-auto translate-x-1/2 rtl:-translate-x-1/2;
+}
+.indicator :where(.indicator-item.indicator-bottom) {
+@apply bottom-0 top-auto translate-y-1/2;
+}
+.indicator :where(.indicator-item.indicator-middle) {
+@apply bottom-1/2 top-1/2 -translate-y-1/2;
+}
+.indicator :where(.indicator-item.indicator-top) {
+@apply bottom-auto top-0 -translate-y-1/2;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+
 ```
 
 </div>

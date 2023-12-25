@@ -1,7 +1,7 @@
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/carousel/index.mdx'
 
-## Class Table
+## Default Class Table
 
 <CssTable name="carousel" />
 
@@ -14,70 +14,79 @@ import Demo from '../../components/demo/carousel/index.mdx'
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/data-display-carousel--docs)
 
 ## Css Schema
+
+
+### Base
+
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-<span class="btn">Click to Show Schema</span>
+<span class="btn">Click to Show Base Schema</span>
 </div>
 <div class="collapse-content"> 
 
-```json
-{
-"selector": ".carousel",
-"defaults": {
-  "base": {
-    ".carousel": {
-      "apply": [
-        "inline-flex overflow-x-scroll"
-      ],
-      "css": {
-        "scroll-snap-type": "x mandatory",
-        "scroll-behavior": "smooth"
-      },
-      "&-vertical": {
-        "apply": [
-          "flex-col overflow-y-scroll"
-        ],
-        "css": {
-          "scroll-snap-type": "y mandatory"
-        }
-      },
-      "&-item": {
-        "apply": [
-          "box-content flex flex-none"
-        ],
-        "css": {
-          "scroll-snap-align": "start"
-        }
-      },
-      "&-center .carousel-item": {
-        "css": {
-          "scroll-snap-align": "center"
-        }
-      },
-      "&-end .carousel-item": {
-        "css": {
-          "scroll-snap-align": "end"
-        }
-      }
-    }
-  },
-  "styled": {
-    ".carousel": {
-      "css": {
-        "-ms-overflow-style": "none",
-        "scrollbar-width": "none"
-      },
-      "&::-webkit-scrollbar": {
-        "apply": [
-          "hidden"
-        ]
-      }
-    }
-  },
-  "utils": {}
+```css
+.carousel {
+@apply inline-flex overflow-x-scroll;
+scroll-snap-type: x mandatory;
+scroll-behavior: smooth;
 }
+.carousel-vertical {
+@apply flex-col overflow-y-scroll;
+scroll-snap-type: y mandatory;
 }
+.carousel-item {
+@apply box-content flex flex-none;
+scroll-snap-align: start;
+}
+.carousel-center .carousel-item {
+scroll-snap-align: center;
+}
+.carousel-end .carousel-item {
+scroll-snap-align: end;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Styled
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Styled Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+.carousel {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+@apply hidden;
+}
+```
+
+</div>
+</div>
+
+  
+
+### Utils
+
+<div className="collapse">
+<input type="checkbox" /> 
+<div class="collapse-title px-0">
+<span class="btn">Click to Show Utils Schema</span>
+</div>
+<div class="collapse-content"> 
+
+```css
+
 ```
 
 </div>

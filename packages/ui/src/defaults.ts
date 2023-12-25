@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss'
 import { presetPrimaryColors, generateColorVars, sharedExtraColors, sharedExtraVars } from './base/colors'
-import type { CodegenOptions, DeepPartial, ComponentsOptions, CodegenMode, BaseOptions } from './types'
+import type { CodegenOptions, ComponentsOptions, CodegenMode, BaseOptions } from './types'
 import { defaultVarPrefix } from './constants'
 import { schemaMap, names as componentNames } from '@/components'
 
@@ -49,10 +49,10 @@ export function getDefaultBase(mode?: CodegenMode) {
     }
   }
 
-  return base
+  return base as Partial<BaseOptions>
 }
 
-export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
+export const defaultSelectorMap: ComponentsOptions = {
   alert: {
     selector: '.alert'
   },
@@ -206,8 +206,8 @@ export const defaultSelectorMap: DeepPartial<ComponentsOptions> = {
   }
 }
 
-export function injectSchema(map: DeepPartial<ComponentsOptions>) {
-  return Object.entries(map).reduce<DeepPartial<ComponentsOptions>>((acc, [key, opts]) => {
+export function injectSchema(map: ComponentsOptions) {
+  return Object.entries(map).reduce<ComponentsOptions>((acc, [key, opts]) => {
     const k = key as unknown as (typeof componentNames)[number]
     acc[k] = {
       ...opts,
@@ -217,7 +217,7 @@ export function injectSchema(map: DeepPartial<ComponentsOptions>) {
   }, {})
 }
 
-export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {}): DeepPartial<Config>['theme'] {
+export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {}): Config['theme'] {
   const { varPrefix = defaultVarPrefix } = opts
   return {
     borderRadius: {
@@ -238,7 +238,7 @@ export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {
   }
 }
 
-export function getCodegenDefaults(mode?: CodegenMode): DeepPartial<CodegenOptions> {
+export function getCodegenDefaults(mode?: CodegenMode): Omit<CodegenOptions, 'outdir'> {
   const base = getDefaultBase(mode)
   const components = mode === 'none' ? {} : injectSchema(defaultSelectorMap)
   return {

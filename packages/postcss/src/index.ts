@@ -11,7 +11,7 @@ export { getPlugin as getCssVarsPrefixerPlugin } from './custom-property-prefixe
 export { initTailwindcssConfig, resolveTailwindcss } from './tailwindcss'
 export { getJsProcess } from './js'
 
-export function resolvePrefixOption(options: string | PrefixerOptions): PrefixerOptions {
+export function resolvePrefixOption(options?: string | PrefixerOptions) {
   return typeof options === 'string'
     ? {
         prefix: options
@@ -19,7 +19,7 @@ export function resolvePrefixOption(options: string | PrefixerOptions): Prefixer
     : options
 }
 
-export function resolveVarPrefixOption(options: string | VarPrefixerOptions): VarPrefixerOptions {
+export function resolveVarPrefixOption(options?: string | VarPrefixerOptions) {
   return typeof options === 'string'
     ? {
         varPrefix: options

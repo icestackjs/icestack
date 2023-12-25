@@ -1,6 +1,6 @@
 import { pick } from 'lodash'
 import { preprocessCssInJs, defu, defuOverrideApplyCss, mergeRClone } from '@/shared'
-import type { CodegenMode, ComponentsValue, SchemaFnOptions, CssValue, CreatePresetOptions, ISchema, ModeMergeValue } from '@/types'
+import type { CodegenMode, ComponentsValue, SchemaFnOptions, CssValue, CreatePresetOptions, ISchema, ModeMergeOptions } from '@/types'
 import { makeExtraCssArray, isModeMergeValue } from '@/utils'
 
 function getPickedProps(mode: CodegenMode = 'styled') {
@@ -17,7 +17,7 @@ function getPickedProps(mode: CodegenMode = 'styled') {
   }
 }
 
-function invoke(arr: (ModeMergeValue | string | ((opts: SchemaFnOptions) => ModeMergeValue | string))[], opts: SchemaFnOptions) {
+function invoke(arr: ModeMergeOptions[], opts: Partial<SchemaFnOptions>) {
   return arr.map((x) => {
     x = typeof x === 'function' ? x(opts) : x
 
@@ -33,7 +33,7 @@ function invoke(arr: (ModeMergeValue | string | ((opts: SchemaFnOptions) => Mode
   })
 }
 
-export function mergeAllOptions(input: (string | ModeMergeValue | ((opts: SchemaFnOptions) => string | ModeMergeValue))[], opts: SchemaFnOptions): Record<string, CssValue> {
+export function mergeAllOptions(input: ModeMergeOptions[], opts: Partial<SchemaFnOptions>): Record<string, CssValue> {
   if (!input) {
     return input
   }
@@ -48,8 +48,8 @@ export function mergeAllOptions(input: (string | ModeMergeValue | ((opts: Schema
   )
 }
 
-export function handleOptions({ extend, override, selector, mode, schema, params }: ComponentsValue, { types }: CreatePresetOptions) {
-  const opts: SchemaFnOptions = {
+export function handleOptions({ extend, override, selector, mode, schema, params }: Partial<ComponentsValue>, { types }: CreatePresetOptions) {
+  const opts: Partial<SchemaFnOptions> = {
     types,
     selector,
     params
@@ -62,7 +62,7 @@ export function handleOptions({ extend, override, selector, mode, schema, params
     de = defuOverrideApplyCss(
       {
         selector,
-        defaults: preprocessCssInJs(mergeAllOptions(override, opts))
+        defaults: preprocessCssInJs(mergeAllOptions(override as ModeMergeOptions[], opts))
       },
       de
     )
@@ -71,7 +71,7 @@ export function handleOptions({ extend, override, selector, mode, schema, params
   const res = defu(
     {
       selector,
-      defaults: preprocessCssInJs(mergeAllOptions(extend, opts))
+      defaults: preprocessCssInJs(mergeAllOptions(extend as ModeMergeOptions[], opts))
     },
     de
   )

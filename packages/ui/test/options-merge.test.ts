@@ -1,5 +1,6 @@
-import { getCodegenOptions, createContext } from 'dist'
+import { createContext, Config } from '@/index'
 import { removeDefaultComponents } from '@/components'
+import { DeepPartial } from '@/types'
 
 describe('options merge', () => {
   it('merge case 0', async () => {
@@ -31,7 +32,7 @@ describe('options merge', () => {
   })
 
   it('merge case 1', async () => {
-    const options = {
+    const options: DeepPartial<Config> = {
       components: {
         ...removeDefaultComponents,
         button: {

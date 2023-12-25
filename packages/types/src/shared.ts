@@ -30,6 +30,6 @@ export type ISchema = {
 // baseDefault: CssValue
 export type SchemaFnOptions = CreatePresetOptions & { selector: string; params: Record<string, any> }
 
-export type GetSchemaFn = (opts: SchemaFnOptions) => ISchema
+export type GetSchemaFn = (opts: Partial<SchemaFnOptions>) => ISchema
 
 export { type CssInJs } from 'postcss-js'

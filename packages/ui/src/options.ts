@@ -1,39 +1,39 @@
 import { loadConfig } from 'c12'
 import { flattenDeep, get, set, isObject } from 'lodash'
 import { getCodegenDefaults } from './defaults'
-import type { CodegenOptions, DeepPartial, Preset } from '@/types'
+import type { CodegenOptions, Preset } from '@/types'
 import { defuOptions, mergeRClone } from '@/shared'
 import { makeExtraCssArray } from '@/utils'
 
-export function preHandleOptions(options?: DeepPartial<CodegenOptions>): DeepPartial<CodegenOptions> {
-  if (options === undefined) {
-    return {}
-  }
-  if (isObject(options?.base?.themes)) {
-    for (const [theme, opts] of Object.entries(options.base?.themes)) {
+export function preHandleOptions(options: Partial<CodegenOptions>): Partial<CodegenOptions> {
+  const { base, utilities, components } = options
+  if (isObject(base?.themes)) {
+    for (const [theme, opts] of Object.entries(base.themes)) {
       if (opts?.extraCss) {
         set(options, `base.themes.${theme}.extraCss`, makeExtraCssArray(opts?.extraCss))
       }
     }
   }
 
-  if (isObject(options?.base) && options.base.extraCss) {
-    set(options, `base.extraCss`, makeExtraCssArray(options.base.extraCss))
+  if (isObject(base) && base.extraCss) {
+    set(options, `base.extraCss`, makeExtraCssArray(base.extraCss))
   }
 
-  if (isObject(options?.utilities) && options.utilities.extraCss && options.utilities.extraCss) {
-    set(options, `utilities.extraCss`, makeExtraCssArray(options.utilities.extraCss))
+  if (isObject(utilities) && utilities.extraCss && utilities.extraCss) {
+    set(options, `utilities.extraCss`, makeExtraCssArray(utilities.extraCss))
   }
 
-  if (isObject(options?.components)) {
-    for (const [componentName, opts] of Object.entries(options.components)) {
+  if (isObject(components)) {
+    for (const [componentName, opts] of Object.entries(components)) {
       if (opts) {
-        if (opts.override && !Array.isArray(opts.override)) {
-          set(options, `components.${componentName}.override`, [opts.override])
+        // make array for merge and array concat
+        const { override, extend } = opts
+        if (override && !Array.isArray(override)) {
+          set(options, `components.${componentName}.override`, [override])
         }
 
-        if (opts.extend && !Array.isArray(opts.extend)) {
-          set(options, `components.${componentName}.extend`, [opts.extend])
+        if (extend && !Array.isArray(extend)) {
+          set(options, `components.${componentName}.extend`, [extend])
         }
       }
 
@@ -46,9 +46,10 @@ export function preHandleOptions(options?: DeepPartial<CodegenOptions>): DeepPar
   return options
 }
 
-export function postHandleOptions(options: DeepPartial<CodegenOptions>): CodegenOptions {
-  if (isObject(options?.base?.themes)) {
-    for (const [theme, opts] of Object.entries(options.base?.themes)) {
+export function postHandleOptions(options: Partial<CodegenOptions>): CodegenOptions {
+  const { base, utilities } = options
+  if (isObject(base?.themes)) {
+    for (const [theme, opts] of Object.entries(base.themes)) {
       if (opts?.extraCss) {
         const p = `base.themes.${theme}.extraCss`
         const v = get(options, p)
@@ -59,14 +60,14 @@ export function postHandleOptions(options: DeepPartial<CodegenOptions>): Codegen
     }
   }
 
-  if (isObject(options?.base) && options.base.extraCss) {
+  if (isObject(base) && base.extraCss) {
     const p = `base.extraCss`
     const v = get(options, p)
     if (Array.isArray(v)) {
       set(options, p, mergeRClone(...v))
     }
   }
-  if (isObject(options?.utilities) && options.utilities.extraCss && options.utilities.extraCss) {
+  if (isObject(utilities) && utilities.extraCss && utilities.extraCss) {
     const p = `utilities.extraCss`
     const v = get(options, p)
     if (Array.isArray(v)) {
@@ -77,33 +78,31 @@ export function postHandleOptions(options: DeepPartial<CodegenOptions>): Codegen
   return options as CodegenOptions
 }
 
-export function getCodegenOptions(options?: DeepPartial<CodegenOptions>) {
+export function getCodegenOptions(options?: CodegenOptions) {
   let presets: Preset[] = []
   if (options?.presets && Array.isArray(options?.presets)) {
     presets =
       flattenDeep(
         options.presets.map((x) => {
           if (typeof x === 'function') {
-            // @ts-ignore
-            const res = x()
-            return res
+            return x()
           }
           return x
         })
       ).filter(Boolean) ?? []
   }
-  const a = preHandleOptions(options) as CodegenOptions
-  const bs = presets.map((p) => {
-    return preHandleOptions(p)
+
+  const arr = [options, ...presets, getCodegenDefaults(options?.mode)].filter(Boolean).map((x) => {
+    return preHandleOptions(x as Partial<CodegenOptions>)
   })
-  const d = preHandleOptions(getCodegenDefaults(options?.mode))
-  const opts = defuOptions<DeepPartial<CodegenOptions>, DeepPartial<CodegenOptions>[]>(a, ...bs, d)
-  const pp = postHandleOptions(opts)
-  return pp
+  // @ts-ignore
+  const opts = defuOptions(...arr)
+
+  return postHandleOptions(opts)
 }
 
 export async function load(cwd?: string) {
-  const { config } = await loadConfig<DeepPartial<CodegenOptions>>({
+  const { config } = await loadConfig<CodegenOptions>({
     name: 'icestack',
     cwd
   })

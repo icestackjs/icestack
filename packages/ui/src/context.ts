@@ -11,7 +11,7 @@ import { createDefaultTailwindcssExtends } from '@/defaults'
 import { logger } from '@/log'
 import { cmdClearLine, JSONStringify, ensureDirSync } from '@/utils'
 import { generateIndexCode } from '@/js'
-import type { CodegenOptions, DeepPartial, ILayer, CssInJs, CreatePresetOptions } from '@/types'
+import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@/types'
 import { defu } from '@/shared'
 import { getCodegenOptions } from '@/options'
 import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, scssTemplate } from '@/dirs'
@@ -24,12 +24,15 @@ function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
   return `${layer}.${suffixes.join('.')}`
 }
 
-export function createContext(opts?: DeepPartial<CodegenOptions>) {
+export function createContext(opts?: CodegenOptions) {
   const options = getCodegenOptions(opts)
-  const { outdir, dryRun, prefix: _globalPrefix, varPrefix: _globalVarPrefix, mode: globalMode, components, log, tailwindcssConfig, utilities } = options
+  const { outdir, dryRun, prefix: _globalPrefix, varPrefix: _globalVarPrefix, mode: globalMode, components = {}, log, tailwindcssConfig, utilities } = options
   const globalPrefix = resolvePrefixOption(_globalPrefix)
   const globalVarPrefix = resolveVarPrefixOption(_globalVarPrefix)
-  logger.logFlag = log
+  if (typeof log === 'boolean') {
+    logger.logFlag = log
+  }
+
   const { types, presets: basePresets, colors } = calcBase(options)
 
   function writeFile(file: string, data: string) {
@@ -79,7 +82,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
   const twConfig = initTailwindcssConfig(tailwindcssConfig, {
     theme: {
       extend: {
-        ...createDefaultTailwindcssExtends({ varPrefix: globalVarPrefix.varPrefix }),
+        ...createDefaultTailwindcssExtends({ varPrefix: globalVarPrefix!.varPrefix }),
         colors
       }
     }
@@ -135,7 +138,7 @@ export function createContext(opts?: DeepPartial<CodegenOptions>) {
         prefixerPlugin && plugins.push(prefixerPlugin)
       }
     } else {
-      const varPrefixerPlugin = getCssVarsPrefixerPlugin(globalVarPrefix)
+      const varPrefixerPlugin = getCssVarsPrefixerPlugin(globalVarPrefix!)
       varPrefixerPlugin && plugins.push(varPrefixerPlugin)
       const prefixerPlugin = getPrefixerPlugin(globalPrefix)
       prefixerPlugin && plugins.push(prefixerPlugin)

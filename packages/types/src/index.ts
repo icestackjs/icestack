@@ -35,7 +35,7 @@ export type ModeMergeValue = {
   utils?: CssValue
 }
 
-export type ModeMergeOptions = string | ModeMergeValue | ((opts: SchemaFnOptions) => string | ModeMergeValue)
+export type ModeMergeOptions = string | ModeMergeValue | ((opts: Partial<SchemaFnOptions>) => string | ModeMergeValue)
 
 export type ComponentsValue = {
   prefix: PrefixerOptions
@@ -69,12 +69,12 @@ export type ComponentsValue = {
   schema: GetSchemaFn
 }
 
-export type ComponentsOptions = Record<string, ComponentsValue | false>
+export type ComponentsOptions = Record<string, Partial<ComponentsValue> | false>
 
 export type GlobalOptions = {
   atMedia: {
     // default false
-    hover: boolean
+    hover?: boolean
   }
   // pseudo: {
   //   // default true
@@ -82,8 +82,8 @@ export type GlobalOptions = {
   // }
   selector: {
     // default *
-    universal: string // | string[] // | (() => string)
-    root: string
+    universal?: string // | string[] // | (() => string)
+    root?: string
     // default global
     // globalKeyword: string
   }
@@ -95,49 +95,49 @@ export type UtilitiesOptions = {
 
 export type CodegenMode = 'styled' | 'base' | 'none' //  'raw' |
 
-export type Preset = DeepPartial<Pick<CodegenOptions, 'base' | 'components' | 'global' | 'tailwindcssConfig'>>
+export type Preset = Partial<Pick<CodegenOptions, 'base' | 'components' | 'global' | 'tailwindcssConfig'>>
 
 export type CodegenOptions = {
   /**
    * @description load css mode
    */
-  mode: CodegenMode
+  mode?: CodegenMode
   /**
    * @description custom all your components
    */
-  components: ComponentsOptions
+  components?: ComponentsOptions
   /**
    * @description css utilities
    */
-  utilities: UtilitiesOptions
+  utilities?: Partial<UtilitiesOptions>
   /**
    * @description set themes and all types
    */
-  base: BaseOptions
+  base?: Partial<BaseOptions>
   /**
    * @description global postcss options
    */
-  global: GlobalOptions
+  global?: Partial<GlobalOptions>
   /**
    * @description css var prefix
    * @example '--primary' -> '--ice-primary'
    * @default '--ice-'
    */
-  varPrefix: VarPrefixerOptions
+  varPrefix?: Partial<VarPrefixerOptions>
   /**
    * @description if console.log some debug information
    * @default true
    */
-  log: boolean
+  log?: boolean
   /**
    * @type PrefixerOptions
    * @description PrefixerOptions, set prefix to your class and ignore class
    */
-  prefix: PrefixerOptions
+  prefix?: Partial<PrefixerOptions>
   /**
    * @description load presets
    */
-  presets: (Preset | ((options?: any) => Preset))[]
+  presets?: (Preset | ((options?: any) => Preset))[]
   /**
    * @description required! set output dir path.
    */
@@ -146,14 +146,14 @@ export type CodegenOptions = {
    * @description if run build without any output
    * @default false
    */
-  dryRun: boolean
+  dryRun?: boolean
   /**
    * @description your custom tailwindcss config to resolve `@apply`
    */
-  tailwindcssConfig: TailwindcssConfig
+  tailwindcssConfig?: Partial<TailwindcssConfig>
 }
 
-export type Config = Partial<CodegenOptions>
+export type Config = CodegenOptions
 
 export type TailwindcssPluginOptions = {
   loadDirectory: string

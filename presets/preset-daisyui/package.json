@@ -52,7 +52,7 @@
   "devDependencies": {
     "@icestack/ui": "workspace:^",
     "@types/culori": "^2.0.4",
-    "daisyui": "^4.4.23"
+    "daisyui": "^4.4.24"
   },
   "dependencies": {
     "@icestack/shared": "workspace:^",

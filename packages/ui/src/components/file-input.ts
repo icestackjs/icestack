@@ -1,8 +1,8 @@
 import dedent from 'dedent'
 import { transformCss2Js } from '@/shared'
-import type { GetSchemaFn } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
 
-const schema: GetSchemaFn = (opts) => {
+const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
   return {
     selector,

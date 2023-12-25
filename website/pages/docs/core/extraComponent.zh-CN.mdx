@@ -48,7 +48,7 @@ export type ComponentsValue = {
   // 选择器
   selector: string
   // 底层的 css schema，用于控制css模板渲染
-  schema: GetSchemaFn
+  schema: GetCssSchemaMethod
   // 是否启用这个组件,等效于直接把这个组件设为 false
   disabled: boolean
 }
@@ -65,13 +65,13 @@ export interface CreatePresetOptions {
   types: string[]
 }
 
-export type IDefaults = {
+export type CssSchemaDefaults = {
   styled?: object
   base?: object
   utils?: object
 }
 
-export type IValue =
+export type CssSchemaValue =
   | string
   | {
       apply: string | string[]
@@ -82,12 +82,12 @@ export type IValue =
       css: Record<string, string>
     }
 
-export type ISchema = {
+export type CssSchema = {
   selector: string
-  defaults: IDefaults
+  defaults: CssSchemaDefaults
 }
 
-export type GetSchemaFn = (opts: CreatePresetOptions & { selector: string }) => ISchema
+export type GetCssSchemaMethod = (opts: CreatePresetOptions & { selector: string }) => CssSchema
 ```
 
 ## 添加 my-table 组件

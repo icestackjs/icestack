@@ -1,6 +1,6 @@
-import { GetSchemaFn, getSelector, expandTypes } from './shared'
+import { GetCssSchemaMethod, getSelector, expandTypes } from './shared'
 
-const schema: GetSchemaFn = (opts) => {
+const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
   return {
     selector,

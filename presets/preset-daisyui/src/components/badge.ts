@@ -1,4 +1,4 @@
-import { expandTypes, GetSchemaFn, getSelector } from './shared'
+import { expandTypes, GetCssSchemaMethod, getSelector } from './shared'
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
 }
@@ -7,7 +7,7 @@ function generateOutline(typeName: string) {
   return `text-${typeName}`
 }
 
-const schema: GetSchemaFn = (opts) => {
+const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
 
   return {

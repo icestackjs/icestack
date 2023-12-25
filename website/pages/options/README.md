@@ -109,7 +109,7 @@ ___
 | `mode` | [`CodegenMode`](README.md#codegenmode) |
 | `override` | [`ModeMergeValue`](README.md#modemergevalue) |
 | `prefix` | `PrefixerOptions` |
-| `schema` | `GetSchemaFn` |
+| `schema` | `GetCssSchemaMethod` |
 | `selector` | `string` |
 
 #### Defined in

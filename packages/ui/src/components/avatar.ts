@@ -1,6 +1,6 @@
-import type { GetSchemaFn } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
 
-const schema: GetSchemaFn = (opts) => {
+const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
 
   return {

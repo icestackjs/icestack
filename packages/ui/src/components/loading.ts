@@ -1,6 +1,6 @@
 import { loading as loading64Map } from './assets/svg.json'
 import { getSelector } from '@/shared'
-import type { GetSchemaFn } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
 
 function makeMaskImage(base64: string) {
   return `url("${base64}")`
@@ -8,7 +8,7 @@ function makeMaskImage(base64: string) {
 
 // https://github.com/SamHerbert/SVG-Loaders
 // https://github.com/loadingio/css-spinner/
-const schema: GetSchemaFn = (opts) => {
+const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
   function getDefaultShapes() {
     return Object.entries(loading64Map).reduce<Record<string, object>>((acc, [key, value]) => {

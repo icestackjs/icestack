@@ -1,7 +1,7 @@
 import { transformCss2Js } from '@icestack/shared'
-import { GetSchemaFn } from './shared'
+import { GetCssSchemaMethod } from './shared'
 
-const schema: GetSchemaFn = (opts) => {
+const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
 
   return {

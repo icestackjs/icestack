@@ -1,5 +1,5 @@
 import { getSelector, expandTypes, defuBaseDefault } from '@/shared'
-import type { GetSchemaFn, IValue } from '@/types'
+import type { GetCssSchemaMethod, CssSchemaValue } from '@/types'
 
 const xs = {
   apply: 'min-h-6 h-6 px-2',
@@ -29,23 +29,23 @@ const lg = {
   }
 }
 
-const schema: GetSchemaFn = (opts) => {
+const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
 
-  function buttonHover(obj: IValue) {
+  function buttonHover(obj: CssSchemaValue) {
     return {
       [`&${selector}-hover`]: obj,
       '&:hover': obj
     }
   }
-  function buttonActive(obj: IValue) {
+  function buttonActive(obj: CssSchemaValue) {
     return {
       '&:active': obj,
       [`&${selector}-active`]: obj
     }
   }
 
-  function buttonFocusVisible(obj: IValue) {
+  function buttonFocusVisible(obj: CssSchemaValue) {
     return {
       '&:focus-visible': obj,
       [`&${selector}-focus-visible`]: obj

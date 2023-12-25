@@ -6,13 +6,13 @@ export interface CreatePresetOptions {
   types: string[]
 }
 
-export type IDefaults = {
-  styled?: object
-  base?: object
-  utils?: object
+export type CssSchemaDefaults = {
+  styled: object
+  base: object
+  utils: object
 }
 
-export type IValue =
+export type CssSchemaValue =
   | string
   | {
       apply: string | string[]
@@ -23,13 +23,13 @@ export type IValue =
       css: Record<string, string>
     }
 
-export type ISchema = {
-  selector: string
-  defaults: IDefaults
+export type CssSchema = {
+  selector?: string
+  defaults: Partial<CssSchemaDefaults>
 }
 // baseDefault: CssValue
-export type SchemaFnOptions = CreatePresetOptions & { selector: string; params: Record<string, any> }
+export type GetCssSchemaMethodOptions = CreatePresetOptions & { selector: string; params: Record<string, any> }
 
-export type GetSchemaFn = (opts: Partial<SchemaFnOptions>) => ISchema
+export type GetCssSchemaMethod = (opts: Partial<GetCssSchemaMethodOptions>) => CssSchema
 
 export { type CssInJs } from 'postcss-js'

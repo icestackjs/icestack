@@ -1,11 +1,11 @@
 import { transformCss2Js } from '@/shared'
-import type { GetSchemaFn } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
 /**
  * @deprecated
  * @param opts
  * @returns
  */
-const schema: GetSchemaFn = (opts) => {
+const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
   return {
     selector,

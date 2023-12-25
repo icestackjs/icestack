@@ -1,23 +1,22 @@
 import type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 
-import type { GetSchemaFn, SchemaFnOptions, CssValue } from './shared'
+import type { GetCssSchemaMethod, GetCssSchemaMethodOptions, CssValue } from './shared'
 import type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 
-export type { CreatePresetOptions, GetSchemaFn, IDefaults, ISchema, IValue, SchemaFnOptions, CssValue, CssInJs } from './shared'
+export type { CreatePresetOptions, GetCssSchemaMethod, CssSchemaDefaults, CssSchema, CssSchemaValue, GetCssSchemaMethodOptions, CssValue, CssInJs } from './shared'
 export type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 export type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 
-export type Themes = Record<
-  string,
-  {
-    selector: string
-    extraColors: Record<string, string>
-    extraVars: Record<string, string>
-    extraCss: CssValue
-    //    typeName | colors string/colors cssVars obj
-    types: Record<string, string | Record<string, string>>
-  }
->
+export type ThemeOptions = {
+  selector: string
+  extraColors: Record<string, string>
+  extraVars: Record<string, string>
+  extraCss: CssValue
+  //    typeName | colors string/colors cssVars obj
+  types: Record<string, string | Record<string, string>>
+}
+
+export type Themes = Record<string, Partial<ThemeOptions>>
 
 export type BaseOptions = {
   themes: Themes
@@ -35,7 +34,7 @@ export type ModeMergeValue = {
   utils?: CssValue
 }
 
-export type ModeMergeOptions = string | ModeMergeValue | ((opts: Partial<SchemaFnOptions>) => string | ModeMergeValue)
+export type ModeMergeOptions = string | ModeMergeValue | ((opts: Partial<GetCssSchemaMethodOptions>) => string | ModeMergeValue)
 
 export type ComponentsValue = {
   prefix: PrefixerOptions
@@ -66,7 +65,7 @@ export type ComponentsValue = {
   /**
    * @description senior
    */
-  schema: GetSchemaFn
+  schema: GetCssSchemaMethod
 }
 
 export type ComponentsOptions = Record<string, Partial<ComponentsValue> | false>

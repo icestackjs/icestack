@@ -1,4 +1,4 @@
-import type { ComponentsOptions, DeepPartial, Preset } from '@icestack/types'
+import type { ComponentsOptions, Preset } from '@icestack/types'
 import button from './button'
 import checkbox from './checkbox'
 import radio from './radio'
@@ -12,7 +12,7 @@ import collapse from './collapse'
 import join from './join'
 import tab from './tab'
 
-export const components: DeepPartial<ComponentsOptions> = {
+export const components: ComponentsOptions = {
   select: false,
   diff: false,
   tooltip: false,

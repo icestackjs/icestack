@@ -1,5 +1,5 @@
 import { expandTypes, getSelector, defuBaseDefault } from '@/shared'
-import type { GetSchemaFn } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
 function generateDefault(typeName: string) {
   return `border-${typeName} bg-${typeName} text-${typeName}-content`
 }
@@ -37,7 +37,7 @@ const lg = {
   }
 }
 
-const schema: GetSchemaFn = (opts) => {
+const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
 
   return {

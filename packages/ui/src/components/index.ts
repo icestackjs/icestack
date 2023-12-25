@@ -46,7 +46,7 @@ import fileInput from './file-input'
 import hero from './hero'
 import rating from './rating'
 import { preprocessCssInJs } from '@/shared'
-import type { GetSchemaFn } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
 const schemaMap = {
   alert,
   avatar,
@@ -99,7 +99,7 @@ const schemaMap = {
 
 const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap
 
-const resolvedSchemaMap = {} as Record<string, { schema: GetSchemaFn }>
+const resolvedSchemaMap = {} as Record<string, { schema: GetCssSchemaMethod }>
 for (const componentName of componentNames) {
   const o = schemaMap[componentName as keyof typeof schemaMap].schema
   resolvedSchemaMap[componentName] = {

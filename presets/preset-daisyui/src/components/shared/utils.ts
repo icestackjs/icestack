@@ -1,8 +1,8 @@
 import { pick } from 'lodash'
 import { preprocessCssInJs, defu, defuOverrideApplyCss } from '@icestack/shared'
-import type { CreatePresetOptions, ISchema } from '@icestack/shared'
+import type { CreatePresetOptions, CssSchema } from '@icestack/shared'
 
-import type { CodegenMode, ComponentsValue, CssInJs, ModeMergeValue, SchemaFnOptions } from '@icestack/types'
+import type { CodegenMode, ComponentsValue, CssInJs, ModeMergeValue, GetCssSchemaMethodOptions } from '@icestack/types'
 export { expandTypes, compressCssSelector, preprocessCssInJs, getSelector, recursiveNodes, transformCss2Js } from '@icestack/shared'
 
 export function makeDefaults(obj?: ModeMergeValue, selector?: string) {
@@ -39,7 +39,7 @@ function getPickedProps(mode: CodegenMode = 'styled') {
   }
 }
 
-export function handleFn<T extends Record<string, any> | ((...args: any[]) => Record<string, any>)>(input: T, opts: SchemaFnOptions): Record<string, any> {
+export function handleFn<T extends Record<string, any> | ((...args: any[]) => Record<string, any>)>(input: T, opts: GetCssSchemaMethodOptions): Record<string, any> {
   if (typeof input === 'function') {
     return input(opts)
   }
@@ -47,13 +47,13 @@ export function handleFn<T extends Record<string, any> | ((...args: any[]) => Re
 }
 
 export function handleOptions({ extend, override, selector, extra, mode, schema, params }: ComponentsValue, { types }: CreatePresetOptions) {
-  const opts: SchemaFnOptions = {
+  const opts: GetCssSchemaMethodOptions = {
     types,
     selector,
     params
   }
-  const d: ISchema | undefined = schema?.(opts)
-  let de: Partial<ISchema> = d ?? {}
+  const d: CssSchema | undefined = schema?.(opts)
+  let de: Partial<CssSchema> = d ?? {}
   de.defaults = preprocessCssInJs(pick(de.defaults, getPickedProps(mode)))
   if (override) {
     de = defuOverrideApplyCss(

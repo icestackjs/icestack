@@ -1,4 +1,4 @@
-import { GetSchemaFn, preprocessCssInJs } from './shared'
+import { GetCssSchemaMethod, preprocessCssInJs } from './shared'
 import collapse from './collapse'
 import join from './join'
 import indicator from './indicator'
@@ -98,7 +98,7 @@ const schemaMap = {
 
 const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap
 
-const resolvedSchemaMap = {} as Record<string, { schema: GetSchemaFn }>
+const resolvedSchemaMap = {} as Record<string, { schema: GetCssSchemaMethod }>
 for (const componentName of componentNames) {
   const o = schemaMap[componentName as keyof typeof schemaMap].schema
   resolvedSchemaMap[componentName] = {
@@ -122,4 +122,4 @@ export { componentNames as names, schemaMap, resolvedSchemaMap, removeDefaultCom
 
 export { expandTypes, getSelector, compressCssSelector, preprocessCssInJs, transformCss2Js } from './shared'
 
-export type { GetSchemaFn } from './shared'
+export type { GetCssSchemaMethod } from './shared'

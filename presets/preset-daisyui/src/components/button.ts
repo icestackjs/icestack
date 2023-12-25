@@ -1,22 +1,22 @@
-import { GetSchemaFn, getSelector, IValue, expandTypes } from './shared'
+import { GetCssSchemaMethod, getSelector, CssSchemaValue, expandTypes } from './shared'
 
-const schema: GetSchemaFn = (opts) => {
+const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
 
-  function buttonHover(obj: IValue) {
+  function buttonHover(obj: CssSchemaValue) {
     return {
       [`&${selector}-hover`]: obj,
       '&:hover': obj
     }
   }
-  function buttonActive(obj: IValue) {
+  function buttonActive(obj: CssSchemaValue) {
     return {
       '&:active': obj,
       [`&${selector}-active`]: obj
     }
   }
 
-  function buttonFocusVisible(obj: IValue) {
+  function buttonFocusVisible(obj: CssSchemaValue) {
     return {
       '&:focus-visible': obj,
       [`&${selector}-focus-visible`]: obj

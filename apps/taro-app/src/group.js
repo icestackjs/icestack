@@ -85,7 +85,7 @@ module.exports = {
     "Feedback": "反馈",
     "alert": "警告提示",
     "Other": "其他",
-    "Class Table": "类名表格",
+    "Class Table": "默认类名表格",
     "Demo and Playground": "样例和演示",
     "Playground": "演示",
     "Demo": "样例",

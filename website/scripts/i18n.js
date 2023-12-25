@@ -31,7 +31,7 @@ const i18nMap = {
     Feedback: 'Feedback',
     alert: 'alert',
     Other: 'Other',
-    'Class Table': 'Class Table',
+    'Class Table': 'Default Class Table',
     'Demo and Playground': 'Demo and Playground',
     'Css Schema': 'Css Schema',
     'Go to Storybook': 'Go to Storybook',

@@ -91,7 +91,7 @@ export function makeExtraCssArray(value?: CssValue): CssInJs[] {
   return Array.isArray(value) ? value.map((x) => preHandleString(x)) : [preHandleString(value)]
 }
 
-export function cmdClearLine(rowCount = 1) {
+export function clearLine(rowCount = 1) {
   try {
     readline.moveCursor(process.stdout, 0, -rowCount)
     readline.clearLine(process.stdout, 1)

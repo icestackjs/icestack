@@ -9,7 +9,7 @@ import kleur from 'kleur'
 import { transformJsToSass } from '@/sass'
 import { createDefaultTailwindcssExtends } from '@/defaults'
 import { logger } from '@/log'
-import { cmdClearLine, JSONStringify, ensureDirSync } from '@/utils'
+import { clearLine, JSONStringify, ensureDirSync } from '@/utils'
 import { generateIndexCode } from '@/js'
 import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@/types'
 import { defu } from '@/shared'
@@ -165,38 +165,39 @@ export function createContext(opts?: CodegenOptions) {
 
     writeFile(cssResolvedPath, resolvedCss)
 
-    const cssJsObj = objectify(root as Root)
+    const cssInJs = objectify(root as Root)
 
-    const data = 'module.exports = ' + JSONStringify(cssJsObj)
+    const data = 'module.exports = ' + JSONStringify(cssInJs)
     // css -> js
     writeFile(jsPath, data)
 
     return {
-      cssJsObj
+      css,
+      resolvedCss,
+      cssInJs
     }
   }
 
-  async function buildBase() {
+  function buildBase() {
     const layer: ILayer = 'base'
-    const { cssJsObj } = await internalBuild({
+    return internalBuild({
       layer,
       suffixes: ['index'],
       relPath: `${layer}/index.scss`
     })
-    return cssJsObj
   }
 
   async function buildUtilities() {
     const layer: ILayer = 'utilities'
     const res: Record<string, Record<string, CssInJs>> = {}
     for (const utilityName of utilitiesNames) {
-      const { cssJsObj } = await internalBuild({
+      const result = await internalBuild({
         layer,
         suffixes: [utilityName],
         relPath: `${layer}/${utilityName}.scss`
       })
 
-      set(res, `${utilityName}`, cssJsObj)
+      set(res, utilityName, result)
     }
 
     if (!dryRun) {
@@ -225,13 +226,13 @@ export function createContext(opts?: CodegenOptions) {
     for (const componentName of allComponentsNames) {
       // const start = performance.now()
       for (const stage of stages) {
-        const { cssJsObj } = await internalBuild({
+        const result = await internalBuild({
           layer,
           suffixes: [componentName, 'defaults', stage],
           relPath: `${layer}/${componentName}/${stage}.scss`
         })
 
-        set(res, `${componentName}.${stage}`, cssJsObj)
+        set(res, `${componentName}.${stage}`, result)
         // res[componentName][stage] = cssJsObj
       }
       b1.update(++idx, {
@@ -247,7 +248,7 @@ export function createContext(opts?: CodegenOptions) {
       fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.cjs'), code, 'utf8')
     }
     b1.stop()
-    cmdClearLine()
+    clearLine()
 
     return res
   }

@@ -5,7 +5,7 @@ import merge from 'merge'
 import type { CssInJs } from 'postcss-js'
 import type { CSSRuleObject, PluginCreator } from 'tailwindcss/types/config'
 
-import type { DeepPartial, TailwindcssPluginOptions } from '@icestack/types'
+import type { TailwindcssPluginOptions } from '@icestack/types'
 import { getJsProcess } from '@icestack/postcss'
 import { createLogger } from '@icestack/logger'
 import { Config } from 'tailwindcss'
@@ -26,7 +26,7 @@ export type IcestackCSSRule = {
 const noop: PluginCreator = () => {}
 
 export const icestackPlugin = plugin.withOptions(
-  function (opts: DeepPartial<TailwindcssPluginOptions>) {
+  function (opts: TailwindcssPluginOptions) {
     try {
       if (opts && opts.loadDirectory) {
         const { loadDirectory } = opts
@@ -79,7 +79,7 @@ export const icestackPlugin = plugin.withOptions(
       return noop
     }
   },
-  function (opts: DeepPartial<TailwindcssPluginOptions>) {
+  function (opts: TailwindcssPluginOptions) {
     try {
       if (opts && opts.loadDirectory) {
         const { loadConfig, loadDirectory } = opts

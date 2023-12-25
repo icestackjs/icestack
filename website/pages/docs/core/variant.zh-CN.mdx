@@ -1,3 +1,5 @@
+import CodeRender from '../../../components/CodeRender'
+
 # 修改和扩展颜色种类
 
 ## 修改原有颜色
@@ -78,16 +80,24 @@ const config = {
   base: {
     themes: {
       light: {
-        // 或者你添加一种新的颜色主题: pure
         types: {
-          // light mode colors
-          pure: '#1677ff'
+          // auto generate colors
+          info: '#13c2c2',
+          secondary: '#2f54eb'
         }
       },
       dark: {
         types: {
-          // dark mode colors
-          pure: '#642ab5'
+          // is dark: true
+          // [string, boolean|options]
+          info: ['#13c2c2', true],
+          // full control
+          secondary: {
+            secondary: '#2f54eb',
+            'secondary-content': '#ffffff',
+            'secondary-hover': '#263ea0',
+            'secondary-active': '#5273e0'
+          }
         }
       }
     }
@@ -105,10 +115,41 @@ module.exports = config
 这时候你就可以使用:
 
 ```js
-'btn-pure', 'badge-pure'
+'btn-secondary', 'badge-secondary'
+
+'btn-info', 'badge-info'
 ```
 
 这种类名了。
+
+## 演示
+
+<CodeRender className='space-x-2' code={`<button class="btn btn-info">Info</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-info btn-outline">Info Outline</button>
+<button class="btn btn-secondary btn-outline">Secondary Outline</button>
+`}></CodeRender>
+
+```html
+<button class="btn btn-info">Info</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-info btn-outline">Info Outline</button>
+<button class="btn btn-secondary btn-outline">Secondary Outline</button>
+```
+
+<CodeRender className='space-x-2' code={`<div class="badge badge-info">info</div>
+<div class="badge badge-secondary">secondary</div>
+<div class="badge badge-info badge-outline">info outline</div>
+<div class="badge badge-secondary badge-outline">secondary outline</div>
+`}></CodeRender>
+
+```html
+<button class="btn btn-info">Info</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-info btn-outline">Info Outline</button>
+<button class="btn btn-secondary btn-outline">Secondary Outline</button>
+```
+
 
 ## Examples
 

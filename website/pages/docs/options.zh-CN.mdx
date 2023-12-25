@@ -1,29 +1,61 @@
 # 通用配置项
 
+## Types
+
 ```ts
 export type CodegenOptions = {
-  // 全局模式默认 styled
-  mode: CodegenMode
-  // 组件配置
-  components: ComponentsOptions
-  // 全局配置
-  global: GlobalOptions
-  // base 配置
-  base: BaseOptions
-  // css变量前缀，防止 css 变量冲突，默认为 `ice-`
-  varPrefix: string
-  // 打印日志，默认为 true
-  log: boolean
-  // 组件前缀，比如 `.btn` 这里设置 `ice-` 后，相关的会变成 `.ice-btn`
-  // 你无需在 components 里手动添加
-  prefix: string | PrefixerOptions
-  // 加载的预设
-  presets: DeepPartial<CodegenOptions>[]
-  // 导出文件夹目录
+  /**
+   * @description load css mode
+   */
+  mode?: CodegenMode
+  /**
+   * @description custom all your components
+   */
+  components?: ComponentsOptions
+  /**
+   * @description css utilities
+   */
+  utilities?: Partial<UtilitiesOptions>
+  /**
+   * @description set themes and all types
+   */
+  base?: Partial<BaseOptions>
+  /**
+   * @description global postcss options
+   */
+  global?: Partial<GlobalOptions>
+  /**
+   * @description css var prefix
+   * @example '--primary' -> '--ice-primary'
+   * @default '--ice-'
+   */
+  varPrefix?: Partial<VarPrefixerOptions>
+  /**
+   * @description if console.log some debug information
+   * @default true
+   */
+  log?: boolean
+  /**
+   * @type PrefixerOptions
+   * @description PrefixerOptions, set prefix to your class and ignore class
+   */
+  prefix?: Partial<PrefixerOptions>
+  /**
+   * @description load presets
+   */
+  presets?: (Preset | ((options?: any) => Preset))[]
+  /**
+   * @description required! set output dir path.
+   */
   outdir: string
-  // 不生成文件，仅仅获取 js 对象
-  dryRun: boolean
-  // 自定义的 tailwindcss config, 用于 apply 的 resolve
-  tailwindcssConfig: TailwindcssConfig
+  /**
+   * @description if run build without any output
+   * @default false
+   */
+  dryRun?: boolean
+  /**
+   * @description your custom tailwindcss config to resolve `@apply`
+   */
+  tailwindcssConfig?: Partial<TailwindcssConfig>
 }
 ```

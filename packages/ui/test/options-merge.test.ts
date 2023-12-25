@@ -404,4 +404,88 @@ describe('options merge', () => {
     const cssObj = await ctx.buildComponents()
     expect(cssObj).toMatchSnapshot()
   })
+
+  it('merge case 13', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          selector: '.xxx',
+          extend: {
+            utils: `.content-area {
+              height: calc(100vh - theme(spacing.12));
+            }`
+          }
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('merge case 14', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          selector: '.xxx',
+          extend: {
+            utils: `.content-area {
+              height: calc(100vh - theme(spacing[2.5]));
+            }`
+          }
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('merge case 15', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          selector: '.xxx',
+          extend: {
+            utils: `.btn-blue {
+              background-color: theme(colors.blue.500);
+            }`
+          }
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('merge case 16', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          selector: '.xxx',
+          extend: {
+            utils: `.btn-blue {
+              background-color: theme(colors.blue.500 / 75%);
+            }`
+          }
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
 })

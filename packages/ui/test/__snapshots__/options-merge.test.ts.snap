@@ -12486,3 +12486,123 @@ exports[`options merge > merge case 12 1`] = `
   },
 }
 `;
+
+exports[`options merge > merge case 13 1`] = `
+{
+  "xxx": {
+    "base": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": ".content-area {
+  height: calc(100vh - theme(spacing.12));
+}",
+      "cssInJs": {
+        ".content-area": {
+          "height": "calc(100vh - 3rem)",
+        },
+      },
+      "resolvedCss": ".content-area {
+  height: calc(100vh - 3rem);
+}",
+    },
+  },
+}
+`;
+
+exports[`options merge > merge case 14 1`] = `
+{
+  "xxx": {
+    "base": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": ".content-area {
+  height: calc(100vh - theme(spacing[2.5]));
+}",
+      "cssInJs": {
+        ".content-area": {
+          "height": "calc(100vh - 0.625rem)",
+        },
+      },
+      "resolvedCss": ".content-area {
+  height: calc(100vh - 0.625rem);
+}",
+    },
+  },
+}
+`;
+
+exports[`options merge > merge case 15 1`] = `
+{
+  "xxx": {
+    "base": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": ".btn-blue {
+  background-color: theme(colors.blue.500);
+}",
+      "cssInJs": {
+        ".btn-blue": {
+          "backgroundColor": "#3b82f6",
+        },
+      },
+      "resolvedCss": ".btn-blue {
+  background-color: #3b82f6;
+}",
+    },
+  },
+}
+`;
+
+exports[`options merge > merge case 16 1`] = `
+{
+  "xxx": {
+    "base": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": ".btn-blue {
+  background-color: theme(colors.blue.500 / 75%);
+}",
+      "cssInJs": {
+        ".btn-blue": {
+          "backgroundColor": "rgb(59 130 246 / 75%)",
+        },
+      },
+      "resolvedCss": ".btn-blue {
+  background-color: rgb(59 130 246 / 75%);
+}",
+    },
+  },
+}
+`;

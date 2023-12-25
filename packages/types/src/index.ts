@@ -99,6 +99,9 @@ export type Preset = Partial<Pick<CodegenOptions, 'base' | 'components' | 'globa
 export type CodegenOptions = {
   /**
    * @description load css mode
+   * @default styled
+   * @enum "styled" | "base" | "none"
+   * @example styled load all, base load base, none load none
    */
   mode?: CodegenMode
   /**
@@ -147,7 +150,7 @@ export type CodegenOptions = {
    */
   dryRun?: boolean
   /**
-   * @description your custom tailwindcss config to resolve `@apply`
+   * @description your custom tailwindcss config to resolve `@apply` and theme()
    */
   tailwindcssConfig?: Partial<TailwindcssConfig>
 }

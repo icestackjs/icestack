@@ -1,4 +1,4 @@
-# 核心概念
+# 核心概念 - 扩展与覆盖
 
 `@icestack/ui` 在设计时候，目的就是要打造一个非常灵活的 `Css` 组件框架生成器。
 
@@ -54,62 +54,11 @@
 
 - 在这个模式下，什么预设样式都不加载，此时整个生成器就变成了一块等待作画的画布，你可以通过配置项完全控制所以组件的生成
 
-## CssInJs
+## string | CssInJs
 
-对于所有用法中，我们都可以传入这样的对象来扩展和覆盖组件的行为
+对于所有用法中，我们都可以传入 `css string`/`CssInJs`对象来扩展和覆盖组件的行为
 
-结构类似于:
-
-```js
-{
-  ".btn": {
-    "&-block": {
-      "apply": [
-        "w-full",
-      ],
-      "css":{
-
-      }
-    },
-    "&-circle": {
-      "&:where(.btn-lg)": {
-        "apply": [
-          "h-16",
-          "w-16",
-          "rounded-full",
-          "p-0",
-        ],
-        "css":{
-
-        }
-      },
-    },
-  },
-}
-```
-
-这样的结构体系:
-
-```ts
-{
-  ${selector}:{
-    apply: string[]
-    css: Record<string,string>
-    ${childSelector}:{
-      // ...
-      // css
-      // apply
-      // child selector
-    }
-  }
-}
-```
-
-最终我们扩展和覆盖组件都会使用这样的语法，其中 `css` 这个对象，就是最基础的 `CssInJs` 对象, 会生成对应节点下的 `CSS` 代码
-
-`apply` 这个字符串数组则会交给 `tailwindcss` 进行处理，然后 `resolve` 成 `CSS` 再和 `css` 字段中的对象进行合并。
-
-> 你可以使用 `@icestack/ui/components` 中导出的 `transformCss2Js` 方法，快速把任意 `css` 字符串转化成这种格式！
+着非常的简单，我们会在下面章节看到具体的使用方法。
 
 ## 生成产物
 
@@ -117,4 +66,4 @@
 
 1. `css` 这个文件夹用来存放已经初加工的 `css`,里面还包含着大量的 `@apply` 指令，这个里面的 `css` 产物想要直接使用必须要配合 `tailwindcss`
 2. `css-resolved` 这个文件夹用来存放已经被 `tailwindcss` 处理过的 `css` 产物，你可以直接使用
-3. `js` 这个文件夹用来存放 `css-resolved` 中样式对应的 `js` 形态
+3. `js` 这个文件夹用来存放 `css-resolved` 中样式对应的 `js` 形态，以及可扩展的 `tailwindcss` 配置文件

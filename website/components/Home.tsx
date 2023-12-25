@@ -6,7 +6,7 @@ import { useI18n } from '../locales'
 export const Home: FC = (props) => {
   const t = useI18n()
   return (
-    <div className="flex items-center justify-center min-h-[calc(100vh-220px)]">
+    <div className="flex items-center justify-center min-h-[calc(100vh-140px)]">
       <div className="flex items-center flex-col">
         <div>
           <Image src={Logo.src} width={Logo.width} height={Logo.height} alt="logo"></Image>

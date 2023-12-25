@@ -1,18 +1,18 @@
 # 在微信小程序里使用
 
-> 目前 `@icestack/presets` 必须要配合 [`weapp-tailwindcss`](https://weapp-tw.icebreaker.top/) 一起使用，在使用前请确保 [`weapp-tailwindcss`](https://weapp-tw.icebreaker.top/) 安装配置成功。
+> 目前 `@icestack/preset-weapp` 必须要配合 [`weapp-tailwindcss`](https://weapp-tw.icebreaker.top/) 一起使用，在使用前请确保 [`weapp-tailwindcss`](https://weapp-tw.icebreaker.top/) 安装配置成功。
 
 ## 安装
 
-`@icestack/presets` 内部实现了一套预设来兼容微信小程序
+`@icestack/preset-weapp` 内部实现了一套预设来兼容微信小程序
 
-你可以使用 `@icestack/presets` 中导出的 `miniprogramPreset` 来构建出小程序版本的默认 `ui` 库
+你可以使用 `@icestack/preset-weapp` 中导出的 `miniprogramPreset` 来构建出小程序版本的默认 `ui` 库
 
-首先我们安装 `@icestack/presets`
+首先我们安装 `@icestack/preset-weapp`
 
 ```sh
 # yarn / pnpm
-npm i -D @icestack/presets
+npm i -D @icestack/preset-weapp
 ```
 
 ## 注册
@@ -20,7 +20,7 @@ npm i -D @icestack/presets
 然后在 `icestack.config.js` 中注册
 
 ```js filename="icestack.config.js"
-const { miniprogramPreset } = require('@icestack/presets')
+const miniprogramPreset = require('@icestack/preset-weapp')
 /**
  * @type {import('@icestack/ui').Config}
  */

@@ -8,7 +8,7 @@ import pkg from '../package.json'
 import { load } from './options'
 import { logger } from '@/log'
 import { createContext } from '@/context'
-import { JSONStringify } from '@/utils'
+// import { JSONStringify } from '@/utils'
 const cli = new Command()
 
 // const tsT = `import { defineConfig } from '@icestack/ui'\n\nexport default defineConfig({
@@ -83,32 +83,32 @@ cli
       })
   })
 
-cli
-  .command('inspect [componentName]')
-  .description('inspect component to get css schema')
-  .option('-o, --out <filePath>', 'output file')
-  .action(async (componentName, options) => {
-    const cwd = process.cwd()
-    const config = await load(cwd)
-    if (config) {
-      const ctx = createContext(config)
-      if (componentName) {
-        if (componentName in ctx.presets) {
-          const outfile = path.resolve(cwd, options.out ?? `${componentName}.json`)
-          const res = JSONStringify(ctx.presets[componentName])
-          await fs.writeFile(outfile, res, 'utf8')
-          logger.success(`[${componentName}] has been exported! \nfile: ${outfile}`)
-        } else {
-          logger.error(`\`${componentName}\` is not a valid componentName!`)
-        }
-      } else {
-        const res = JSONStringify(ctx.presets)
-        const outfile = path.resolve(cwd, options.out ?? `all.json`)
-        await fs.writeFile(outfile, res, 'utf8')
-        logger.success(`all components has been exported! \nfile: ${outfile}`)
-      }
-    }
-  })
+// cli
+//   .command('inspect [componentName]')
+//   .description('inspect component to get css schema')
+//   .option('-o, --out <filePath>', 'output file')
+//   .action(async (componentName, options) => {
+//     const cwd = process.cwd()
+//     const config = await load(cwd)
+//     if (config) {
+//       const ctx = createContext(config)
+//       if (componentName) {
+//         if (componentName in ctx.presets) {
+//           const outfile = path.resolve(cwd, options.out ?? `${componentName}.json`)
+//           const res = JSONStringify(ctx.presets[componentName])
+//           await fs.writeFile(outfile, res, 'utf8')
+//           logger.success(`[${componentName}] has been exported! \nfile: ${outfile}`)
+//         } else {
+//           logger.error(`\`${componentName}\` is not a valid componentName!`)
+//         }
+//       } else {
+//         const res = JSONStringify(ctx.presets)
+//         const outfile = path.resolve(cwd, options.out ?? `all.json`)
+//         await fs.writeFile(outfile, res, 'utf8')
+//         logger.success(`all components has been exported! \nfile: ${outfile}`)
+//       }
+//     }
+//   })
 
 cli.version(pkg.version)
 cli.parse()

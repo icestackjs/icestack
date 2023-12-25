@@ -3,24 +3,24 @@ import { flattenDeep, get, set, isObject } from 'lodash'
 import { getCodegenDefaults } from './defaults'
 import type { CodegenOptions, Preset } from '@/types'
 import { defuOptions, mergeRClone } from '@/shared'
-import { makeExtraCssArray } from '@/utils'
+import { mapCss2JsArray } from '@/utils'
 
 export function preHandleOptions(options: Partial<CodegenOptions>): Partial<CodegenOptions> {
   const { base, utilities, components } = options
   if (isObject(base?.themes)) {
     for (const [theme, opts] of Object.entries(base.themes)) {
       if (opts?.extraCss) {
-        set(options, `base.themes.${theme}.extraCss`, makeExtraCssArray(opts?.extraCss))
+        set(options, `base.themes.${theme}.extraCss`, mapCss2JsArray(opts?.extraCss))
       }
     }
   }
 
   if (isObject(base) && base.extraCss) {
-    set(options, `base.extraCss`, makeExtraCssArray(base.extraCss))
+    set(options, `base.extraCss`, mapCss2JsArray(base.extraCss))
   }
 
   if (isObject(utilities) && utilities.extraCss && utilities.extraCss) {
-    set(options, `utilities.extraCss`, makeExtraCssArray(utilities.extraCss))
+    set(options, `utilities.extraCss`, mapCss2JsArray(utilities.extraCss))
   }
 
   if (isObject(components)) {
@@ -38,7 +38,7 @@ export function preHandleOptions(options: Partial<CodegenOptions>): Partial<Code
       }
 
       // if (opts && opts.baseDefault) {
-      //   set(options, `components.${componentName}.default`, makeExtraCssArray(opts.baseDefault))
+      //   set(options, `components.${componentName}.default`, mapCss2JsArray(opts.baseDefault))
       // }
     }
   }

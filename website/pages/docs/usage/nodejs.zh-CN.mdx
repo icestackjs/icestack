@@ -1,23 +1,80 @@
 # Nodejs API 调用
 
-## API
+## JavaScript API
+
+`@icestack/ui` 主要负责编译生成我们的样式，其中 `api` 主要有以下
+
+### `@icestack/ui`
 
 ```ts
-import { createContext, defineConfig } from '@icestack/ui'
+// import { createContext, defineConfig, defu, getCodegenOptions, transformCss2Js } from '@/index'
+// import type { Config, IContext } from '@/index'
+import { createContext } from '@icestack/ui'
 const ctx = createContext(config)
-
+// typeof ctx === IContext
 await ctx.build()
-import {
-  compressCssSelector,
-  expandTypes,
-  getSelector,
-  preprocessCssInJs,
-  transformCss2Js,
-  names,
-  removeDefaultComponents,
-  resolvedSchemaMap,
-  schemaMap
-} from '@icestack/ui/components'
-
-import { createDefaultTailwindcssExtends, defaultSelectorMap, getCodegenDefaults, getDefaultBase, injectSchema, sharedExtraColors, sharedExtraVars } from '@icestack/ui/defaults'
 ```
+
+#### IContext
+
+```ts
+tailwindcssConfig: TailwindcssConfig
+buildBase: () =>
+  Promise<{
+    css: string
+    resolvedCss: string
+    cssInJs: CssInJs
+  }>
+buildUtilities: () => Promise<Record<string, Record<string, CssInJs>>>
+buildComponents: () => Promise<Record<string, Record<string, CssInJs>>>
+buildTailwindcssConfig: () => TailwindcssConfig
+presets: Record<string, object>
+options: CodegenOptions
+build: () =>
+  Promise<{
+    base: {
+      css: string
+      resolvedCss: string
+      cssInJs: CssInJs
+    }
+    components: Record<string, Record<string, CssInJs>>
+    utilities: Record<string, Record<string, CssInJs>>
+    tailwindcssConfig: TailwindcssConfig
+  }>
+compileScss: (defaultPath?: string) => sass.CompileResult
+createPreset: (opts: CreatePresetOptions) => Record<string, object>
+preprocessCss: (css: string, layer?: ILayer, name?: string) => postcss_lib_lazy_result.default<postcss_lib_document.default | Root>
+```
+
+### `@icestack/ui/defaults`
+
+所有生成器默认值相关的参数和方法从这里导出
+
+```ts
+import {
+  createDefaultTailwindcssExtends,
+  defaultSelectorMap,
+  generate,
+  generateColorVars,
+  getCodegenDefaults,
+  getDefaultBase,
+  gray,
+  injectSchema,
+  makeRgbaValue,
+  presetPrimaryColors,
+  sharedExtraColors,
+  sharedExtraVars
+} from '@/defaults'
+```
+
+### `@icestack/ui/components`
+
+所有组件相关的方法，和常量从这里导出
+
+```ts
+import { compressCssSelector, expandTypes, getSelector, names, preprocessCssInJs, removeDefaultComponents, resolvedSchemaMap, schemaMap, transformCss2Js } from '@/components'
+```
+
+### `@icestack/ui/types`
+
+所有的类型从这里导出，同 `@icestack/types` 导出的类型

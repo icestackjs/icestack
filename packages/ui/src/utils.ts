@@ -87,7 +87,7 @@ export function preHandleString(val: any): CssInJs {
   return val
 }
 
-export function makeExtraCssArray(value?: CssValue): CssInJs[] {
+export function mapCss2JsArray(value?: CssValue): CssInJs[] {
   return Array.isArray(value) ? value.map((x) => preHandleString(x)) : [preHandleString(value)]
 }
 

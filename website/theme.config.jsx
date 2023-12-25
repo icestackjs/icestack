@@ -1,6 +1,37 @@
+import { useRouter } from 'next/router'
+import Image from 'next/image'
+function Footer() {
+  const router = useRouter()
+
+  const isZh = router.locale === 'zh-CN'
+  return (
+    <div className="bg-base-300 py-8">
+      <footer className="footer container mx-auto footer-center ">
+        <span className="flex text-xs space-x-2">
+          MIT {new Date().getFullYear()}
+          <a href="https://github.com/sonofmagic/icestack" rel="nofollow" target="_blank">
+            © IceStack
+          </a>
+          {isZh ? (
+            <>
+              <a rel="nofollow" target="_blank" href="http://beian.miit.gov.cn">
+                苏ICP备19002675号-2
+              </a>
+              <a className="flex items-center" rel="noreferrer" target="_blank" href="https://beian.mps.gov.cn/#/query/webSearch?code=32050602011962">
+                <Image className="mr-1" src={'/beian.png'} alt="beian" width={14} height={14}></Image>
+                苏公网安备32050602011962
+              </a>
+            </>
+          ) : undefined}
+        </span>
+      </footer>
+    </div>
+  )
+}
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
-  logo: <span>@icestack/ui</span>,
+  logo: <span>IceStack</span>,
   project: {
     link: 'https://github.com/sonofmagic/icestack'
   },
@@ -19,20 +50,7 @@ export default {
     { locale: 'zh-CN', text: '简体中文' }
   ],
   footer: {
-    text: (
-      <span className="text-xs space-x-2">
-        MIT {new Date().getFullYear()} ©{' '}
-        <a href="https://github.com/sonofmagic/icestack" rel="nofollow" target="_blank">
-          IceStack
-        </a>
-        <a rel="nofollow" target="_blank" href="http://beian.miit.gov.cn">
-          苏ICP备19002675号-2
-        </a>
-        <a rel="noreferrer" target="_blank" href="https://beian.mps.gov.cn/#/query/webSearch?code=32050602011962">
-          苏公网安备32050602011962
-        </a>
-      </span>
-    )
+    component: Footer
   }
   // footer: () => {
   //   return {

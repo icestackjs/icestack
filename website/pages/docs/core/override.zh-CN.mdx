@@ -2,11 +2,9 @@
 
 ## 介绍
 
-前文主要讲了在 `icestack.config.js` 中 `base` 的使用:
-
 要想针对每个组件行为尺寸形状样式做一些修改，这里就必须使用到 `components` 配置项：
 
-效果类似于下方:
+比如我们要给 `button` 添加 `2` 个尺寸 `xl`,`2xl`
 
 ```js filename="icestack.config.js"
 /**
@@ -17,84 +15,27 @@ const config = {
   components: {
     // 组件名称
     button: {
-      // 覆盖, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
-      override: {
-        base: {},
-        styled: {},
-        utils: {}
-      },
-      // 扩展, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
       extend: {
-        base: {},
-        styled: {},
-        utils: {}
-      },
-      // 额外的,传入一个 CssInJs 对象，在 `selector` 包裹之外， 优先级最高
-      // 你可以在这里定义动画，或者添加，覆盖整个组件的行为
-      extra: {}
-      // 模式，单个组件的模式，默认 styled
-      // mode: 'styled',
-      // 选择器
-      // selector: '.btn'
+        utils: [
+          // Sizes
+          // add xl
+          `.btn-xl {
+        @apply min-h-20 h-20 px-8;
+        font-size: 1.25rem;
+      }`,
+          // add 2xl
+          `.btn-2xl {
+        @apply min-h-24 h-24 px-10;
+        font-size: 1.5rem;
+      }`
+        ]
+      }
     }
   }
 }
 module.exports = config
 ```
 
-它们使用 `CssInJs` 对象，比如:
+### Examples
 
-```js
-const config = {
-  outdir: './my-ui',
-  components: {
-    // 组件名称
-    button: {
-      // 覆盖, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
-      override: {
-        base: {
-          '.btn': {
-            apply:
-              'rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out min-h-12 h-12 px-4',
-            css: {
-              'font-size': '0.875rem',
-              'line-height': '1em'
-            },
-            [`&-disabled,
-        &[disabled],
-        &:disabled`]: {
-              apply: 'pointer-events-none cursor-not-allowed'
-            }
-          }
-        }
-      }
-    }
-  }
-}
-```
-
-当然你觉得这比较复杂，你可以直接使用 `transformCss2Js` `API`
-
-```js
-const { transformCss2Js } = require('@icestack/ui/components')
-
-const config = {
-  outdir: './my-ui',
-  components: {
-    // 组件名称
-    alert: {
-      // 覆盖, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
-      override: {
-        base: transformCss2Js(`.alert {
-      display: grid;
-      width: 100%;
-      @apply text-xs;
-      @apply bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content;
-    }`)
-      }
-    }
-  }
-}
-```
-
-> 你可以使用 `icestack inspect [componentName]` 命令来检查每个组件的 `Css schema`
+https://github.com/sonofmagic/icestack/blob/main/website/icestack/components/button.js

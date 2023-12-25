@@ -2,12 +2,12 @@ import glass from './glass'
 import variables from './variables'
 import type { CssInJs } from '@/types'
 import { preprocessCssInJs, mergeRClone } from '@/shared'
-import { makeExtraCssArray } from '@/utils'
+import { mapCss2JsArray } from '@/utils'
 const _utilitiesMap = {
   glass,
   variables,
   custom: (value: any) => {
-    return mergeRClone(...makeExtraCssArray(value))
+    return mergeRClone(...mapCss2JsArray(value))
   }
 } as unknown as Record<string, () => CssInJs>
 

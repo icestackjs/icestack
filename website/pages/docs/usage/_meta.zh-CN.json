@@ -1,7 +1,5 @@
 {
-  "cli": {
-    "display": "hidden"
-  },
+  "cli": "命令行参数",
   "tailwindcss": {
     "title": "Tailwindcss Plugin",
     "display": "hidden"

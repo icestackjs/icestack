@@ -7,7 +7,7 @@ import { Tabs, Tab, Cards, Card } from 'nextra/components'
 - 纯 CSS 组件，通用且轻量
 - **0** 运行时，所有工作在编译时完成
 - 可结合 `tailwindcss` 使用，自动 `tree-shake`，所写即所得
-- 可扩展包括但不限于，主题，颜色，类型，尺寸... 所有一切都可以自定义
+- 可扩展包括但不限于，主题，颜色，类型，尺寸，形状... 所有一切都可以自定义
 
 ## 安装 `@icestack/ui`
 
@@ -70,13 +70,13 @@ module.exports = config
 npx icestack build
 ```
 
-这个命令会在当前配置文件下的 `'./my-ui'` 目录构建出产物，接下来你就可以直接使用这些 `css`,`js`，或者也可以交给 `tailwindcss` 进行使用
+这个命令会在当前配置文件下的 `'./my-ui'` 目录构建出产物，接下来你就可以直接使用这些 `css`,`js`，不过把它们交给 `tailwindcss` 进行使用也是个不错的选择
 
 ## 作为 tailwindcss plugin 来使用
 
 ### 配置
 
-然后传递一个 `loadDirectory` 配置项告诉插件刚刚生成的位置:
+在 `tailwind.config.js` 中注册 `icestackPlugin` 插件，并传一个 `loadDirectory` 参数来定位刚刚产物的生成的位置:
 
 ```js filename="tailwind.config.js"
 const path = require('node:path')
@@ -88,8 +88,9 @@ module.exports = {
   plugins: [
     icestackPlugin({
       loadDirectory: path.resolve(__dirname, 'my-ui'),
-      // 是否注入 theme, 默认值: false
+      // 是否注入 tailwindcss theme config
       // 为 true 时 生成器的 primary success warning 这些颜色会进入 tailwindcss theme extend 配置
+      // 默认值: false
       loadConfig: true
       // ...
     })
@@ -97,12 +98,15 @@ module.exports = {
 }
 ```
 
-接着只要我们正常运行项目，当前目录下的 `my-ui` 里就生成了对应的 `css`和 `js` 相关的代码
+接着只要我们正常运行项目，就直接能够使用所有的 `Css` 组件了！
 
-### 智能提示
+[你可以直接在这里找到列表并直接复制 `html`](./components/overview)
 
-通常我们每次保存 `tailwind.config.js` 文件，`tailwindcss` 插件就会去重新读取插件并生成智能提示
+### tailwindcss 智能提示
 
-所以我们每一次执行 `icestack build` 后，都可以去 `tailwind.config.js` 进行文件的保存操作
+只要我们安装好 IDE 的插件，智能提示就会出现，包括 `@icestack/ui` 默认预设的和你自己生成的所有`Css`类。
 
-这样智能提示就有了。
+通常每次 `icestack build` 构建后，我们可以去手动保存一下 `tailwind.config.js` 文件，
+
+此时 `tailwindcss` 插件就会去重新读取插件并生成智能提示了。
+

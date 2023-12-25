@@ -303,4 +303,105 @@ describe('options merge', () => {
     const cssObj = await ctx.buildComponents()
     expect(cssObj).toMatchSnapshot()
   })
+
+  it('merge case 10', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          selector: '.xxx',
+          extend: {
+            utils: [
+              `
+            .btn::after{
+              border:none;
+            }
+            
+            `,
+              ({ selector }) => {
+                return {
+                  [selector]: {
+                    css: {
+                      'border-style': 'solid'
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('merge case 11', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          selector: '.xxx',
+          extend: {
+            utils: [
+              ({ selector }) => {
+                return {
+                  [selector]: {
+                    '&::after': {
+                      css: {
+                        border: 'none'
+                      }
+                    },
+                    css: {
+                      'border-style': 'solid'
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
+
+  it('merge case 12', async () => {
+    const options = {
+      components: {
+        ...removeDefaultComponents,
+        xxx: {
+          selector: '.xxx',
+          extend: {
+            utils: ({ selector }) => {
+              return {
+                [selector]: {
+                  '&::after': {
+                    css: {
+                      border: 'none'
+                    }
+                  },
+                  css: {
+                    'border-style': 'solid'
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      dryRun: true
+    }
+    const ctx = createContext(options)
+
+    const cssObj = await ctx.buildComponents()
+    expect(cssObj).toMatchSnapshot()
+  })
 })

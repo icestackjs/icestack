@@ -12367,3 +12367,122 @@ exports[`options merge > merge case 9 1`] = `
   },
 }
 `;
+
+exports[`options merge > merge case 10 1`] = `
+{
+  "xxx": {
+    "base": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": ".btn::after {
+  border: none;
+}
+
+.xxx {
+  border-style: solid;
+}",
+      "cssInJs": {
+        ".btn::after": {
+          "border": "none",
+        },
+        ".xxx": {
+          "borderStyle": "solid",
+        },
+      },
+      "resolvedCss": ".btn::after {
+  border: none;
+}
+
+.xxx {
+  border-style: solid;
+}",
+    },
+  },
+}
+`;
+
+exports[`options merge > merge case 11 1`] = `
+{
+  "xxx": {
+    "base": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": ".xxx {
+  border-style: solid;
+}
+.xxx::after {
+  border: none;
+}",
+      "cssInJs": {
+        ".xxx": {
+          "borderStyle": "solid",
+        },
+        ".xxx::after": {
+          "border": "none",
+        },
+      },
+      "resolvedCss": ".xxx {
+  border-style: solid;
+}
+.xxx::after {
+  border: none;
+}",
+    },
+  },
+}
+`;
+
+exports[`options merge > merge case 12 1`] = `
+{
+  "xxx": {
+    "base": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": ".xxx {
+  border-style: solid;
+}
+.xxx::after {
+  border: none;
+}",
+      "cssInJs": {
+        ".xxx": {
+          "borderStyle": "solid",
+        },
+        ".xxx::after": {
+          "border": "none",
+        },
+      },
+      "resolvedCss": ".xxx {
+  border-style: solid;
+}
+.xxx::after {
+  border: none;
+}",
+    },
+  },
+}
+`;

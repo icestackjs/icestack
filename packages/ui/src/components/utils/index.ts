@@ -1,7 +1,7 @@
 import { pick } from 'lodash'
 import { preprocessCssInJs, defu, defuOverrideApplyCss, mergeRClone } from '@/shared'
 import type { CodegenMode, ComponentsValue, GetCssSchemaMethodOptions, CssValue, CreatePresetOptions, CssSchema, ModeMergeOptions } from '@/types'
-import { makeExtraCssArray, isModeMergeValue } from '@/utils'
+import { mapCss2JsArray, isModeMergeValue } from '@/utils'
 
 function getPickedProps(mode: CodegenMode = 'styled') {
   switch (mode) {
@@ -17,18 +17,25 @@ function getPickedProps(mode: CodegenMode = 'styled') {
   }
 }
 
-function invoke(arr: ModeMergeOptions[], opts: Partial<GetCssSchemaMethodOptions>) {
+function resolvedFunctionArray<T>(arr: T | T[], opts: Partial<GetCssSchemaMethodOptions>) {
+  if (!Array.isArray(arr)) {
+    arr = [arr]
+  }
   return arr.map((x) => {
-    x = typeof x === 'function' ? x(opts) : x
+    return typeof x === 'function' ? x(opts) : x
+  })
+}
 
+function invoke(arr: ModeMergeOptions[], opts: Partial<GetCssSchemaMethodOptions>) {
+  return resolvedFunctionArray(arr, opts).map((x) => {
     return isModeMergeValue(x)
       ? {
-          base: mergeRClone(...makeExtraCssArray(x.base)),
-          styled: mergeRClone(...makeExtraCssArray(x.styled)),
-          utils: mergeRClone(...makeExtraCssArray(x.utils))
+          base: mergeRClone(...mapCss2JsArray(resolvedFunctionArray(x.base, opts))),
+          styled: mergeRClone(...mapCss2JsArray(resolvedFunctionArray(x.styled, opts))),
+          utils: mergeRClone(...mapCss2JsArray(resolvedFunctionArray(x.utils, opts)))
         }
       : {
-          utils: mergeRClone(...makeExtraCssArray(x))
+          utils: mergeRClone(...mapCss2JsArray(x))
         }
   })
 }

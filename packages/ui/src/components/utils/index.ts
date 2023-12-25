@@ -33,7 +33,7 @@ function invoke(arr: (ModeMergeValue | string | ((opts: SchemaFnOptions) => Mode
   })
 }
 
-export function mergeAllOptions<T extends any[]>(input: T, opts: SchemaFnOptions): Record<string, CssValue> {
+export function mergeAllOptions(input: (string | ModeMergeValue | ((opts: SchemaFnOptions) => string | ModeMergeValue))[], opts: SchemaFnOptions): Record<string, CssValue> {
   if (!input) {
     return input
   }
@@ -47,8 +47,6 @@ export function mergeAllOptions<T extends any[]>(input: T, opts: SchemaFnOptions
     ...obj
   )
 }
-
-type PrepareArray = (ModeMergeValue | CssValue | ((opts: SchemaFnOptions) => ModeMergeValue | CssValue))[]
 
 export function handleOptions({ extend, override, selector, mode, schema, params }: ComponentsValue, { types }: CreatePresetOptions) {
   const opts: SchemaFnOptions = {
@@ -64,7 +62,7 @@ export function handleOptions({ extend, override, selector, mode, schema, params
     de = defuOverrideApplyCss(
       {
         selector,
-        defaults: preprocessCssInJs(mergeAllOptions(override as PrepareArray, opts))
+        defaults: preprocessCssInJs(mergeAllOptions(override, opts))
       },
       de
     )
@@ -73,7 +71,7 @@ export function handleOptions({ extend, override, selector, mode, schema, params
   const res = defu(
     {
       selector,
-      defaults: preprocessCssInJs(mergeAllOptions(extend as PrepareArray, opts))
+      defaults: preprocessCssInJs(mergeAllOptions(extend, opts))
     },
     de
   )

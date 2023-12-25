@@ -35,11 +35,12 @@ export type ModeMergeValue = {
   utils?: CssValue
 }
 
+export type ModeMergeOptions = string | ModeMergeValue | ((opts: SchemaFnOptions) => string | ModeMergeValue)
+
 export type ComponentsValue = {
   prefix: PrefixerOptions
   varPrefix: VarPrefixerOptions
   mode: CodegenMode
-  // extra: CssValue | ((opts: SchemaFnOptions) => CssValue)
   // baseDefault: CssValue
   /**
    * @description css selector
@@ -51,17 +52,17 @@ export type ComponentsValue = {
    */
   disabled: boolean
   /**
+   * @description senior
+   */
+  override: ModeMergeOptions | ModeMergeOptions[]
+  /**
+   * @description senior
+   */
+  extend: ModeMergeOptions | ModeMergeOptions[]
+  /**
    * @description use params
    */
   params: Record<string, any>
-  /**
-   * @description senior
-   */
-  override: CssValue | ModeMergeValue | ((opts: SchemaFnOptions) => CssValue | ModeMergeValue)
-  /**
-   * @description senior
-   */
-  extend: CssValue | ModeMergeValue | ((opts: SchemaFnOptions) => CssValue | ModeMergeValue)
   /**
    * @description senior
    */

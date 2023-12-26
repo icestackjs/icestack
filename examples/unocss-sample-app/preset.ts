@@ -26,12 +26,7 @@ export function getPreflightCss(loadDirectory: string) {
   return fs.readFileSync(path.resolve(loadDirectory, 'css-resolved/base/unocss.css'), 'utf8')
 }
 
-export const icestackPreset: (opts: UnocssPluginOptions) => Preset = (opts) => {
-  const { loadDirectory, loadConfig } = defu<UnocssPluginOptions, Partial<UnocssPluginOptions>[]>(opts, defaultOptions)
-  if (!loadDirectory) {
-    throw new Error('loadDirectory option must be passed')
-  }
-  const preflightCss = getPreflightCss(loadDirectory)
+export function getRules(loadDirectory: string) {
   const components = requireLib('js/components/index.cjs', loadDirectory) as Record<
     string,
     {
@@ -40,15 +35,7 @@ export const icestackPreset: (opts: UnocssPluginOptions) => Preset = (opts) => {
       utils: Record<string, object>
     }
   >
-  const config = requireLib('js/unocss/config.cjs', loadDirectory)
-  const keyframes = []
-  const theme = {
-    colors: {
-      ...config.theme.colors
-    }
-  }
   const rules: Rule<object>[] = []
-
   for (const { base, styled, utils } of Object.values(components)) {
     const v = mergeRClone(base, styled, utils)
     for (const [key, value] of Object.entries(v)) {
@@ -63,6 +50,27 @@ export const icestackPreset: (opts: UnocssPluginOptions) => Preset = (opts) => {
     //   return
     // }])
   }
+  return rules
+}
+
+export function getConfig(loadDirectory: string) {
+  const config = requireLib('js/unocss/config.cjs', loadDirectory)
+  return {
+    colors: {
+      ...config.theme.colors
+    }
+  }
+}
+
+export const icestackPreset: (opts: UnocssPluginOptions) => Preset = (opts) => {
+  const { loadDirectory, loadConfig } = defu<UnocssPluginOptions, Partial<UnocssPluginOptions>[]>(opts, defaultOptions)
+  if (!loadDirectory) {
+    throw new Error('loadDirectory option must be passed')
+  }
+  const preflightCss = getPreflightCss(loadDirectory)
+  const keyframes = []
+  const theme = getConfig(loadDirectory)
+  const rules: Rule<object>[] = getRules(loadDirectory)
   const preflights: Preflight<object>[] = [
     {
       getCSS() {

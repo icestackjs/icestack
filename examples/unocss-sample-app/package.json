@@ -6,9 +6,15 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:ui": "icestack build",
+    "test:dev": "vitest"
   },
   "dependencies": {
+    "@icestack/shared": "workspace:^",
+    "@icestack/types": "workspace:^",
+    "parsel-js": "^1.1.2",
+    "postcss-selector-parser": "^6.0.13",
     "vue": "^3.3.11"
   },
   "devDependencies": {

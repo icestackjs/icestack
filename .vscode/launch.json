@@ -161,6 +161,13 @@
       "request": "launch",
       "type": "node-terminal",
       "cwd": "${workspaceFolder}/storybook"
+    },
+    {
+      "command": "npm run dev",
+      "name": "[unocss] run app",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/examples/unocss-sample-app"
     }
   ]
 }

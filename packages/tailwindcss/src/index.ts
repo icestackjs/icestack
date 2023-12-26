@@ -1,7 +1,7 @@
 import path from 'node:path'
 import fs from 'node:fs'
 import plugin from 'tailwindcss/plugin'
-import merge from 'merge'
+import { mergeRClone } from '@icestack/shared'
 import type { CssInJs } from 'postcss-js'
 import type { CSSRuleObject, PluginCreator } from 'tailwindcss/types/config'
 
@@ -52,7 +52,7 @@ export const icestackPlugin = plugin.withOptions(
               // 优先级 utils > index > base
               const cssItems: (CssInJs | undefined)[] = [item.base, item.styled, item.utils]
 
-              let cssObj = merge.recursive(true, ...cssItems)
+              let cssObj = mergeRClone(...cssItems)
 
               cssObj = componentsProcess(cssObj)
 
@@ -62,7 +62,7 @@ export const icestackPlugin = plugin.withOptions(
             for (const [, item] of utilitiesEntries) {
               const cssItems: (CssInJs | undefined)[] = [item]
 
-              let cssObj = merge.recursive(true, ...cssItems)
+              let cssObj = mergeRClone(...cssItems)
 
               cssObj = utilitiesProcess(cssObj)
 

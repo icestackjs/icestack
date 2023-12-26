@@ -2,8 +2,8 @@ import { generate } from '@ant-design/colors'
 
 export { generate, presetPrimaryColors } from '@ant-design/colors'
 
-export function makeRgbaValue(key: string) {
-  return `rgba(var(${key}) / <alpha-value>)`
+export function makeRgbaValue(key: string, slash: boolean = true) {
+  return slash ? `rgba(var(${key}) / <alpha-value>)` : `rgba(var(${key}),<alpha-value>)`
 }
 
 export const gray: { [key: number]: string } = {

@@ -33,7 +33,9 @@ export function createContext(opts?: CodegenOptions) {
     logger.logFlag = log
   }
 
-  const { types, presets: basePresets, colors } = calcBase(options)
+  const { types, presets: tailwindcssPresets, colors: tailwindcssColors } = calcBase(options)
+
+  const { presets: unocssPresets, colors: unocssColors } = calcBase(options, { slash: false })
 
   function writeFile(file: string, data: string) {
     !dryRun && fs.writeFileSync(file, data, 'utf8')
@@ -83,7 +85,7 @@ export function createContext(opts?: CodegenOptions) {
     theme: {
       extend: {
         ...createDefaultTailwindcssExtends({ varPrefix: globalVarPrefix!.varPrefix }),
-        colors
+        colors: tailwindcssColors
       }
     }
   })
@@ -103,7 +105,15 @@ export function createContext(opts?: CodegenOptions) {
               break
             }
             case 'base': {
-              res = basePresets
+              res = get(
+                {
+                  index: tailwindcssPresets,
+                  unocss: unocssPresets
+                },
+                suffix,
+                {}
+              )
+
               break
             }
             case 'utilities': {
@@ -178,8 +188,15 @@ export function createContext(opts?: CodegenOptions) {
     }
   }
 
-  function buildBase() {
+  async function buildBase() {
     const layer: ILayer = 'base'
+
+    await internalBuild({
+      layer,
+      suffixes: ['unocss'],
+      relPath: `${layer}/unocss.scss`
+    })
+
     return internalBuild({
       layer,
       suffixes: ['index'],
@@ -265,6 +282,24 @@ export function createContext(opts?: CodegenOptions) {
     return twConfig
   }
 
+  function buildUnocssConfig() {
+    if (!dryRun) {
+      const code =
+        'module.exports = ' +
+        JSONStringify({
+          theme: {
+            colors: unocssColors
+          }
+        })
+      const outputDir = path.resolve(resolveJsDir(outdir), 'unocss')
+      ensureDirSync(outputDir)
+      const outputPath = path.resolve(outputDir, 'config.cjs')
+      fs.writeFileSync(outputPath, code, 'utf8')
+    }
+
+    return twConfig
+  }
+
   async function build() {
     performance.mark('buildBase-start')
     const base = await buildBase()
@@ -281,18 +316,20 @@ export function createContext(opts?: CodegenOptions) {
     performance.mark('buildComponents-end')
     const buildComponentsMeasure = performance.measure('buildComponents', 'buildComponents-start', 'buildComponents-end')
     logger.success('build components finished! ' + kleur.green(`${buildComponentsMeasure.duration.toFixed(2)}ms`))
-    performance.mark('buildTailwindcssConfig-start')
+    performance.mark('buildConfig-start')
     const tailwindcssConfig = await buildTailwindcssConfig()
-    performance.mark('buildTailwindcssConfig-end')
-    const buildTailwindcssConfigMeasure = performance.measure('buildTailwindcssConfig', 'buildTailwindcssConfig-start', 'buildTailwindcssConfig-end')
-    logger.success('build tailwindcss config finished! ' + kleur.green(`${buildTailwindcssConfigMeasure.duration.toFixed(2)}ms`))
+    const unocssConfig = await buildUnocssConfig()
+    performance.mark('buildConfig-end')
+    const buildConfigMeasure = performance.measure('buildConfig', 'buildConfig-start', 'buildConfig-end')
+    logger.success('build tailwindcss/unocss config finished! ' + kleur.green(`${buildConfigMeasure.duration.toFixed(2)}ms`))
     performance.clearMarks()
     performance.clearMeasures()
     return {
       base,
       components,
       utilities,
-      tailwindcssConfig
+      tailwindcssConfig,
+      unocssConfig
     }
   }
 

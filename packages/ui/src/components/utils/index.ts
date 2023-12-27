@@ -1,7 +1,7 @@
 import { pick } from 'lodash'
-import { preprocessCssInJs, defu, defuOverrideApplyCss, mergeRClone } from '@/shared'
+import { preprocessCssInJs, defu, defuOverrideApplyCss, mergeRClone, mapCss2JsArray } from '@/shared'
 import type { CodegenMode, ComponentsValue, GetCssSchemaMethodOptions, CssValue, CreatePresetOptions, CssSchema, ModeMergeOptions } from '@/types'
-import { mapCss2JsArray, isModeMergeValue } from '@/utils'
+import { isModeMergeValue } from '@/utils'
 
 function getPickedProps(mode: CodegenMode = 'styled') {
   switch (mode) {

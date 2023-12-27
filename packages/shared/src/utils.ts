@@ -3,6 +3,7 @@ import postcss from 'postcss'
 import selectorParser from 'postcss-selector-parser'
 import merge from 'merge'
 import { createDefu } from 'defu'
+import type { CssInJs, CssValue } from '@icestack/types'
 
 const defuOverrideArray = createDefu((obj, key, value) => {
   if (Array.isArray(obj[key]) && Array.isArray(value)) {
@@ -144,6 +145,7 @@ export function recursiveNodes(nodes: postcss.ChildNode[], result: Record<string
 }
 
 export function transformCss2Js(css: string): Record<string, any>
+export function transformCss2Js(css: string | CssInJs): Record<string, any>
 export function transformCss2Js<T>(css: T) {
   if (typeof css === 'string') {
     const root = postcss.parse(css)
@@ -159,6 +161,13 @@ export function mergeR(...items: any[]) {
 
 export function mergeRClone(...items: any[]) {
   return merge.recursive(true, ...items)
+}
+
+export function mapCss2JsArray(value?: CssValue) {
+  if (value) {
+    return Array.isArray(value) ? value.map((x) => transformCss2Js(x)) : [transformCss2Js(value)]
+  }
+  return []
 }
 
 export { default as defu } from 'defu'

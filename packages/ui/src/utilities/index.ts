@@ -1,8 +1,7 @@
 import glass from './glass'
 import variables from './variables'
 import type { CssInJs } from '@/types'
-import { preprocessCssInJs, mergeRClone } from '@/shared'
-import { mapCss2JsArray } from '@/utils'
+import { preprocessCssInJs, mergeRClone, mapCss2JsArray } from '@/shared'
 const _utilitiesMap = {
   glass,
   variables,

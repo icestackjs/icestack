@@ -1,8 +1,7 @@
 import fs from 'node:fs/promises'
 import fss from 'node:fs'
 import readline from 'node:readline'
-import { CssInJs, CssValue, ModeMergeValue } from './types'
-import { transformCss2Js } from './shared'
+import { ModeMergeValue } from '@/types'
 
 export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]> {
   if (!Array.isArray(arr)) {
@@ -78,10 +77,6 @@ export function arrMatch(matchArr?: (string | RegExp)[], str?: string) {
     }
     return str.match(regex)
   })
-}
-
-export function mapCss2JsArray(value?: CssValue): CssInJs[] {
-  return Array.isArray(value) ? value.map((x) => transformCss2Js(x)) : [transformCss2Js(value)]
 }
 
 export function clearLine(rowCount = 1) {

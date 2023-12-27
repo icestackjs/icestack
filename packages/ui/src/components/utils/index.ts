@@ -1,5 +1,5 @@
-import { pick } from 'lodash'
-import { preprocessCssInJs, defu, defuOverrideApplyCss, mergeRClone, mapCss2JsArray } from '@/shared'
+import { pick, reverse } from 'lodash'
+import { preprocessCssInJs, defu, defuOverrideApplyCss, mergeRClone, mapCss2JsArray, defuExtendApplyCss } from '@/shared'
 import type { CodegenMode, ComponentsValue, GetCssSchemaMethodOptions, CssValue, CreatePresetOptions, CssSchema, ModeMergeOptions } from '@/types'
 import { isModeMergeValue } from '@/utils'
 
@@ -31,24 +31,28 @@ export function mergeAllOptions(input: ModeMergeOptions[], opts: Partial<GetCssS
     return input
   }
   const obj = resolvedFunctionArray(input, opts).map((x) => {
-    return isModeMergeValue(x)
-      ? {
-          base: mergeRClone(...mapCss2JsArray(resolvedFunctionArray(x.base, opts))),
-          styled: mergeRClone(...mapCss2JsArray(resolvedFunctionArray(x.styled, opts))),
-          utils: mergeRClone(...mapCss2JsArray(resolvedFunctionArray(x.utils, opts)))
-        }
-      : {
-          utils: mergeRClone(...mapCss2JsArray(x))
-        }
+    if (isModeMergeValue(x)) {
+      const baseArr = mapCss2JsArray(resolvedFunctionArray(x.base, opts))
+      const styledArr = mapCss2JsArray(resolvedFunctionArray(x.styled, opts))
+      const utilsArr = mapCss2JsArray(resolvedFunctionArray(x.utils, opts))
+      return {
+        base: mergeRClone(...baseArr),
+        styled: mergeRClone(...styledArr),
+        utils: mergeRClone(...utilsArr)
+      }
+    }
+    const utilsArr = mapCss2JsArray(x)
+    return {
+      utils: mergeRClone(...utilsArr)
+    }
   })
-  return mergeRClone(
-    {
-      base: {},
-      styled: {},
-      utils: {}
-    },
-    ...obj
-  )
+  // override or extend?
+  // @ts-ignore
+  return defuExtendApplyCss(...reverse(obj), {
+    base: {},
+    styled: {},
+    utils: {}
+  })
 }
 
 export function handleOptions({ extend, override, selector, mode, schema, params }: Partial<ComponentsValue>, { types }: CreatePresetOptions) {

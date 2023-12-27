@@ -58,6 +58,8 @@ exports[`presets merge > extend case 1 1`] = `
   "xxx": {
     "base": {
       "css": ".xxx {
+  @apply bg-green-500 m-1;
+  @apply text-sky-500 !important;
   @apply bg-green-900 m-2;
   @apply text-sky-900 !important;
   @apply bg-red-500;
@@ -70,11 +72,13 @@ exports[`presets merge > extend case 1 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-text-opacity": "1 !important",
           "backgroundColor": [
+            "rgb(34 197 94 / var(--tw-bg-opacity))",
             "rgb(20 83 45 / var(--tw-bg-opacity))",
             "rgb(239 68 68 / var(--tw-bg-opacity))",
           ],
           "borderWidth": "var(--ice-xx-ee-bw)",
           "color": [
+            "rgb(14 165 233 / var(--tw-text-opacity)) !important",
             "rgb(12 74 110 / var(--tw-text-opacity)) !important",
             "rgb(59 130 246 / var(--tw-text-opacity)) !important",
           ],
@@ -83,6 +87,8 @@ exports[`presets merge > extend case 1 1`] = `
         },
       },
       "resolvedCss": ".xxx {
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+  color: rgb(14 165 233 / var(--tw-text-opacity)) !important;
   margin: 0.5rem;
   background-color: rgb(20 83 45 / var(--tw-bg-opacity));
   color: rgb(12 74 110 / var(--tw-text-opacity)) !important;
@@ -217,6 +223,8 @@ exports[`presets merge > override case 1 1`] = `
   "xxx": {
     "base": {
       "css": ".xxx {
+  @apply bg-green-500;
+  @apply text-sky-500 !important;
   @apply bg-green-900;
   @apply text-sky-900 !important;
   border-width: var(--xx-ee-bw);
@@ -226,13 +234,21 @@ exports[`presets merge > override case 1 1`] = `
         ".xxx": {
           "--tw-bg-opacity": "1",
           "--tw-text-opacity": "1 !important",
-          "backgroundColor": "rgb(20 83 45 / var(--tw-bg-opacity))",
+          "backgroundColor": [
+            "rgb(34 197 94 / var(--tw-bg-opacity))",
+            "rgb(20 83 45 / var(--tw-bg-opacity))",
+          ],
           "borderWidth": "var(--ice-xx-ee-bw)",
-          "color": "rgb(12 74 110 / var(--tw-text-opacity)) !important",
+          "color": [
+            "rgb(14 165 233 / var(--tw-text-opacity)) !important",
+            "rgb(12 74 110 / var(--tw-text-opacity)) !important",
+          ],
           "fontSize": "16px",
         },
       },
       "resolvedCss": ".xxx {
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+  color: rgb(14 165 233 / var(--tw-text-opacity)) !important;
   --tw-bg-opacity: 1;
   background-color: rgb(20 83 45 / var(--tw-bg-opacity));
   --tw-text-opacity: 1 !important;

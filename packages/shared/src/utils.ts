@@ -35,7 +35,15 @@ const defuBaseDefault = createDefu((obj, key, value) => {
   }
 })
 
-export { defuOverrideArray, defuOverrideApplyCss, defuOptions, defuBaseDefault }
+const defuExtendApplyCss = createDefu((obj, key, value) => {
+  if (key === 'apply' && Array.isArray(obj[key]) && Array.isArray(value)) {
+    // @ts-ignore
+    obj[key] = [...obj[key], ...value]
+    return true
+  }
+})
+// defuExtendApplyCss
+export { defuOverrideArray, defuOverrideApplyCss, defuOptions, defuBaseDefault, defuExtendApplyCss }
 
 const defaultSelectorParser = selectorParser()
 

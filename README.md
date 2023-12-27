@@ -10,39 +10,47 @@
 
 IceStack UI, Web UI for Mobile and PC , open-source Css Headless component library generator
 
+## Documents
+
+### [Official website →](https://ui.icebreaker.top/)
+
+### [See all components →](https://ui.icebreaker.top/components/overview)
+
+### [How to use →](https://ui.icebreaker.top/docs/usage)
+
 ## Repos
 
 ### Core
 
-- [@icestack/ui](./packages/ui/) IceStack UI, Web UI for Mobile and PC , open-source Css Headless component library generator
-- [@icestack/tailwindcss](./packages/tailwindcss/) IceStack UI For Tailwindcss plugin
-- [@icestack/postcss](./packages/postcss/) postcss plugins hub
-- [@icestack/types](./packages/types/) typescript types
-- [@icestack/shared](./packages/shared/) shared utils
-- [@icestack/logger](./packages/logger/) logger
-- (WIP) [@icestack/unocss](./packages/unocss/) IceStack UI For Unocss plugin
-- (WIP) [@icestack/cva](./packages/cva/) The class-variance-authority function collection of @icestack/ui
+- [@icestack/ui](./packages/ui/) - IceStack UI, Web UI for Mobile and PC , open-source Css Headless component library generator
+- [@icestack/tailwindcss](./packages/tailwindcss/) - IceStack UI For Tailwindcss plugin
+- [@icestack/postcss](./packages/postcss/) - Postcss plugins hub
+- [@icestack/types](./packages/types/) - Typescript types
+- [@icestack/shared](./packages/shared/) - Shared utils
+- [@icestack/logger](./packages/logger/) - Logger
+- (WIP) [@icestack/unocss](./packages/unocss/) - IceStack UI For Unocss plugin
+- (WIP) [@icestack/cva](./packages/cva/) - The class-variance-authority function collection of IceStack UI
 
 ### Presets
 
-- [@icestack/presets](./packages/presets/) included all presets
-- [@icestack/preset-weapp](./packages/preset-weapp/) weapp preset
-- [@icestack/preset-mockup](./packages/preset-mockup/) daisyui mockup components preset
-- (WIP) [@icestack/preset-daisyui](./packages/preset-daisyui/) daisyui preset
-- (WIP) [@icestack/preset-unicorn](./packages/preset-unicorn/) unicorn preset
+- [@icestack/presets](./packages/presets/) - Included all presets
+- [@icestack/preset-weapp](./packages/preset-weapp/) - Weapp preset
+- [@icestack/preset-mockup](./packages/preset-mockup/) - Daisyui mockup components preset
+- (WIP) [@icestack/preset-daisyui](./packages/preset-daisyui/) - Daisyui preset
+- (WIP) [@icestack/preset-unicorn](./packages/preset-unicorn/) - Unicorn preset
 
 ### Plugins
 
-- [css-to-tailwindcss-plugin](./plugins/css-to-tailwindcss-plugin) transform your `css/scss` to `tailwindcss plugin`
-- [compose-tailwindcss-plugins](./plugins/compose-tailwindcss-plugins) compose your multiple tailwindcss plugins into one
-- [postcss-custom-property-prefixer](./plugins/postcss-custom-property-prefixer) add prefix to your css custom-property
+- [css-to-tailwindcss-plugin](./plugins/css-to-tailwindcss-plugin) - Transform your `css/scss` to `tailwindcss plugin`
+- [compose-tailwindcss-plugins](./plugins/compose-tailwindcss-plugins) - Compose your multiple tailwindcss plugins into one
+- [postcss-custom-property-prefixer](./plugins/postcss-custom-property-prefixer) - Add prefix to your css custom-property postcss plugin
 
 ### Applications
 
-- [website](./website/) <https://ui.icebreaker.top> source code
-- [storybook](./storybook/) <https://story.ui.icebreaker.top> source code
-- [nuxt-admin-app](./examples/nuxt-admin-app/) <https://nuxt.icebreaker.top/> source code
-- [taro-app](./apps/taro-app/) weapp "爱思史塔克" source code
+- [website](./website/) - Source code of <https://ui.icebreaker.top>
+- [storybook](./storybook/) - Source code of <https://story.ui.icebreaker.top>
+- [nuxt-admin-app](./examples/nuxt-admin-app/) - Source code of <https://nuxt.icebreaker.top/>
+- [taro-app](./apps/taro-app/) - Source code of weapp "爱思史塔克"
 
 ## License
 

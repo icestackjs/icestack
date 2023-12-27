@@ -6,38 +6,51 @@ import CodeRender from '../../CodeRender'
 
 ```js filename="icestack.config.js"
 /**
- * @type {import('@icestack/ui/types').Themes}
+ * @type {import('@icestack/ui').Config}
  */
-const extendColorsTypes = {
-  light: {
-    types: {
-      // auto generate colors
-      info: '#13c2c2',
-      secondary: '#2f54eb'
-    }
-  },
-  dark: {
-    types: {
-      // is dark: true
-      // [string, boolean|options]
-      info: ['#13c2c2', true],
-      // full control
-      secondary: {
-        secondary: '#2f54eb',
-        'secondary-content': '#ffffff',
-        'secondary-hover': '#263ea0',
-        'secondary-active': '#5273e0'
+const config = {
+  outdir: './my-ui',
+  base: {
+    themes: {
+      // light theme
+      light: {
+        types: {
+          // auto generate colors:
+          // info, info-content, info-hover, info-active
+          info: '#13c2c2',
+          // secondary, secondary-content, secondary-hover, secondary-active
+          secondary: '#2f54eb'
+        }
+      },
+      // dark theme
+      dark: {
+        types: {
+          // is dark: true
+          // [string, boolean|options]
+          info: ['#13c2c2', true],
+          // full control css vars
+          secondary: {
+            secondary: '#2f54eb',
+            'secondary-content': '#ffffff',
+            'secondary-hover': '#263ea0',
+            'secondary-active': '#5273e0'
+          }
+        }
       }
     }
   }
 }
+module.exports = config
 ```
 
-<CodeRender className='space-x-2' code={`<button class="btn btn-info">Info</button>
+<CodeRender
+  className="space-x-2"
+  code={`<button class="btn btn-info">Info</button>
 <button class="btn btn-secondary">Secondary</button>
 <button class="btn btn-info btn-outline">Info Outline</button>
 <button class="btn btn-secondary btn-outline">Secondary Outline</button>
-`}></CodeRender>
+`}
+></CodeRender>
 
 ```html
 <button class="btn btn-info">Info</button>
@@ -47,6 +60,61 @@ const extendColorsTypes = {
 ```
 
 ### Extends Sizes
+
+```js filename="icestack.config.js"
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  components: {
+    // component name
+    button: {
+      // do extend
+      extend: {
+        // base styled utils
+        utils: [
+          // different ways to add Sizes to button `utils`
+          // btn-xl
+          `.btn-xl {
+            @apply min-h-20 h-20 px-8;
+            font-size: 1.25rem;
+          }`,
+          // btn-2xl
+          {
+            '.btn-2xl': {
+              apply: 'min-h-24 h-24 px-10',
+              css: {
+                'font-size': '1.5rem'
+              }
+            }
+          },
+          // btn-3xl
+          ({ selector }) => {
+            return {
+              [`${selector}-3xl`]: {
+                apply: 'min-h-28 h-28 px-12',
+                css: {
+                  'font-size': '1.75rem'
+                }
+              }
+            }
+          },
+          // btn-4xl
+          ({ selector }) => {
+            return `
+              ${selector}-4xl {
+                @apply min-h-32 h-32 px-14;
+                font-size: 2rem;
+              }`
+          }
+        ]
+      }
+    }
+  }
+}
+module.exports = config
+```
 
 <CodeRender className='space-y-2' code={`
 <div class="flex space-x-2 items-center">
@@ -77,4 +145,3 @@ const extendColorsTypes = {
 <button class="btn btn-sm">Small</button>
 <button class="btn btn-xs">Tiny</button>
 ```
-

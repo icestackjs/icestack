@@ -50,8 +50,7 @@
     "lodash": "^4.17.21",
     "merge": "^2.1.1",
     "postcss": "^8.4.31",
-    "postcss-selector-parser": "^6.0.14",
-    "tailwind-merge": "^2.2.0"
+    "postcss-selector-parser": "^6.0.14"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",

@@ -359,9 +359,6 @@ importers:
       postcss-selector-parser:
         specifier: ^6.0.14
         version: 6.0.14
-      tailwind-merge:
-        specifier: ^2.2.0
-        version: 2.2.0
     devDependencies:
       '@types/lodash':
         specifier: ^4.14.202
@@ -19427,6 +19424,7 @@ packages:
     resolution: {integrity: sha512-SqqhhaL0T06SW59+JVNfAqKdqLs0497esifRrZ7jOaefP3o64fdFNDMrAQWZFMxTLJPiHVjRLUywT8uFz1xNWQ==}
     dependencies:
       '@babel/runtime': 7.23.6
+    dev: true
 
   /tailwindcss@3.3.7(ts-node@10.9.2):
     resolution: {integrity: sha512-pjgQxDZPvyS/nG3ZYkyCvsbONJl7GdOejfm24iMt2ElYQQw8Jc4p0m8RdMp7mznPD0kUhfzwV3zAwa80qI0zmQ==}

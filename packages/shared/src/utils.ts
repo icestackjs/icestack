@@ -59,12 +59,18 @@ export function preprocessCssInJs(obj: Record<string, any>, res: Record<string, 
   for (const key of keys) {
     const value = obj[key]
     if (key === 'apply') {
+      /**
+       * @example 'xxxxxx'
+       */
       if (typeof value === 'string') {
         if (Array.isArray(res[key])) {
           res[key].push(value.split(' '))
         } else {
           res[key] = [value.split(' ')]
         }
+        /**
+         * @example ['xxxxxx','yyyyy']
+         */
       } else if (Array.isArray(value)) {
         // has been handled
         // preprocessCssInJs case 2
@@ -137,10 +143,14 @@ export function recursiveNodes(nodes: postcss.ChildNode[], result: Record<string
   return result
 }
 
-export function transformCss2Js(css: string) {
-  const root = postcss.parse(css)
-  const result = recursiveNodes(root.nodes)
-  return result
+export function transformCss2Js(css: string): Record<string, any>
+export function transformCss2Js<T>(css: T) {
+  if (typeof css === 'string') {
+    const root = postcss.parse(css)
+    const result = recursiveNodes(root.nodes)
+    return result
+  }
+  return css
 }
 
 export function mergeR(...items: any[]) {

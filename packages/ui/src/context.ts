@@ -24,9 +24,17 @@ function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
   return `${layer}.${suffixes.join('.')}`
 }
 
+export interface BuildOptions {
+  base?: boolean
+  utilities?: boolean
+  config?: boolean
+  components?: boolean
+}
+
 export function createContext(opts?: CodegenOptions) {
   const options = getCodegenOptions(opts)
   const { outdir, dryRun, prefix: _globalPrefix, varPrefix: _globalVarPrefix, mode: globalMode, components = {}, log, tailwindcssConfig, utilities } = options
+
   const globalPrefix = resolvePrefixOption(_globalPrefix)
   const globalVarPrefix = resolveVarPrefixOption(_globalVarPrefix)
   if (typeof log === 'boolean') {
@@ -190,18 +198,16 @@ export function createContext(opts?: CodegenOptions) {
 
   async function buildBase() {
     const layer: ILayer = 'base'
+    const res: Record<string, any> = {}
+    for (const x of ['index', 'unocss']) {
+      res[x] = await internalBuild({
+        layer,
+        suffixes: [x],
+        relPath: `${layer}/${x}.scss`
+      })
+    }
 
-    await internalBuild({
-      layer,
-      suffixes: ['unocss'],
-      relPath: `${layer}/unocss.scss`
-    })
-
-    return internalBuild({
-      layer,
-      suffixes: ['index'],
-      relPath: `${layer}/index.scss`
-    })
+    return res
   }
 
   async function buildUtilities() {
@@ -283,54 +289,81 @@ export function createContext(opts?: CodegenOptions) {
   }
 
   function buildUnocssConfig() {
+    const config = {
+      theme: {
+        colors: unocssColors
+      }
+    }
     if (!dryRun) {
-      const code =
-        'module.exports = ' +
-        JSONStringify({
-          theme: {
-            colors: unocssColors
-          }
-        })
+      const code = 'module.exports = ' + JSONStringify(config)
       const outputDir = path.resolve(resolveJsDir(outdir), 'unocss')
       ensureDirSync(outputDir)
       const outputPath = path.resolve(outputDir, 'config.cjs')
       fs.writeFileSync(outputPath, code, 'utf8')
     }
 
-    return twConfig
+    return config
   }
 
-  async function build() {
-    performance.mark('buildBase-start')
-    const base = await buildBase()
-    performance.mark('buildBase-end')
-    const buildBaseMeasure = performance.measure('buildBase', 'buildBase-start', 'buildBase-end')
-    logger.success('build base finished! ' + kleur.green(`${buildBaseMeasure.duration.toFixed(2)}ms`))
-    performance.mark('buildUtilities-start')
-    const utilities = await buildUtilities()
-    performance.mark('buildUtilities-end')
-    const buildUtilitiesMeasure = performance.measure('buildUtilities', 'buildUtilities-start', 'buildUtilities-end')
-    logger.success('build utilities finished! ' + kleur.green(`${buildUtilitiesMeasure.duration.toFixed(2)}ms`))
-    performance.mark('buildComponents-start')
-    const components = await buildComponents()
-    performance.mark('buildComponents-end')
-    const buildComponentsMeasure = performance.measure('buildComponents', 'buildComponents-start', 'buildComponents-end')
-    logger.success('build components finished! ' + kleur.green(`${buildComponentsMeasure.duration.toFixed(2)}ms`))
-    performance.mark('buildConfig-start')
-    const tailwindcssConfig = await buildTailwindcssConfig()
-    const unocssConfig = await buildUnocssConfig()
-    performance.mark('buildConfig-end')
-    const buildConfigMeasure = performance.measure('buildConfig', 'buildConfig-start', 'buildConfig-end')
-    logger.success('build tailwindcss/unocss config finished! ' + kleur.green(`${buildConfigMeasure.duration.toFixed(2)}ms`))
+  async function build(options?: BuildOptions) {
+    const {
+      base: baseFlag,
+      components: componentsFlag,
+      config: configFlag,
+      utilities: utilitiesFlag
+    } = defu<BuildOptions, BuildOptions[]>(options, {
+      base: true,
+      components: true,
+      config: true,
+      utilities: true
+    })
+    const result: {
+      base?: Awaited<ReturnType<typeof buildBase>>
+      utilities?: Awaited<ReturnType<typeof buildUtilities>>
+      components?: Awaited<ReturnType<typeof buildComponents>>
+      tailwindcssConfig?: Awaited<ReturnType<typeof buildTailwindcssConfig>>
+      unocssConfig?: Awaited<ReturnType<typeof buildUnocssConfig>>
+    } = {}
+    if (baseFlag) {
+      performance.mark('buildBase-start')
+      const base = await buildBase()
+      result.base = base
+      performance.mark('buildBase-end')
+      const buildBaseMeasure = performance.measure('buildBase', 'buildBase-start', 'buildBase-end')
+      logger.success('build base finished! ' + kleur.green(`${buildBaseMeasure.duration.toFixed(2)}ms`))
+    }
+    if (utilitiesFlag) {
+      performance.mark('buildUtilities-start')
+      const utilities = await buildUtilities()
+      result.utilities = utilities
+      performance.mark('buildUtilities-end')
+      const buildUtilitiesMeasure = performance.measure('buildUtilities', 'buildUtilities-start', 'buildUtilities-end')
+      logger.success('build utilities finished! ' + kleur.green(`${buildUtilitiesMeasure.duration.toFixed(2)}ms`))
+    }
+
+    if (componentsFlag) {
+      performance.mark('buildComponents-start')
+      const components = await buildComponents()
+      result.components = components
+      performance.mark('buildComponents-end')
+      const buildComponentsMeasure = performance.measure('buildComponents', 'buildComponents-start', 'buildComponents-end')
+      logger.success('build components finished! ' + kleur.green(`${buildComponentsMeasure.duration.toFixed(2)}ms`))
+    }
+
+    if (configFlag) {
+      performance.mark('buildConfig-start')
+      const tailwindcssConfig = await buildTailwindcssConfig()
+      const unocssConfig = await buildUnocssConfig()
+      result.tailwindcssConfig = tailwindcssConfig
+      result.unocssConfig = unocssConfig
+      performance.mark('buildConfig-end')
+      const buildConfigMeasure = performance.measure('buildConfig', 'buildConfig-start', 'buildConfig-end')
+      logger.success('build config finished! ' + kleur.green(`${buildConfigMeasure.duration.toFixed(2)}ms`))
+    }
+
     performance.clearMarks()
     performance.clearMeasures()
-    return {
-      base,
-      components,
-      utilities,
-      tailwindcssConfig,
-      unocssConfig
-    }
+    return result
   }
 
   return {

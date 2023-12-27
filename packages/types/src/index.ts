@@ -140,20 +140,33 @@ export type CodegenOptions = {
    * @description load presets
    */
   presets?: (Preset | ((options?: any) => Preset))[]
-  /**
-   * @description required! set output dir path.
-   */
-  outdir: string
+
   /**
    * @description if run build without any output
    * @default false
    */
   dryRun?: boolean
+
+  /**
+   * @description required! set output dir path.
+   */
+  outdir?: string
+
   /**
    * @description your custom tailwindcss config to resolve `@apply` and theme()
    */
   tailwindcssConfig?: Partial<TailwindcssConfig>
-}
+} & (
+  | {
+      /**
+       * @description required! set output dir path.
+       */
+      outdir: string
+    }
+  | {
+      dryRun: true
+    }
+)
 
 export type Config = CodegenOptions
 

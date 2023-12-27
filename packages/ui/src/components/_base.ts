@@ -1,5 +1,5 @@
 import { transformCss2Js } from '@/shared'
-import type { GetCssSchemaMethod } from '@/shared'
+import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts

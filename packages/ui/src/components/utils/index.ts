@@ -26,8 +26,11 @@ function resolvedFunctionArray<T>(arr: T | T[], opts: Partial<GetCssSchemaMethod
   })
 }
 
-function invoke(arr: ModeMergeOptions[], opts: Partial<GetCssSchemaMethodOptions>) {
-  return resolvedFunctionArray(arr, opts).map((x) => {
+export function mergeAllOptions(input: ModeMergeOptions[], opts: Partial<GetCssSchemaMethodOptions>): Record<string, CssValue> {
+  if (!input) {
+    return input
+  }
+  const obj = resolvedFunctionArray(input, opts).map((x) => {
     return isModeMergeValue(x)
       ? {
           base: mergeRClone(...mapCss2JsArray(resolvedFunctionArray(x.base, opts))),
@@ -38,13 +41,6 @@ function invoke(arr: ModeMergeOptions[], opts: Partial<GetCssSchemaMethodOptions
           utils: mergeRClone(...mapCss2JsArray(x))
         }
   })
-}
-
-export function mergeAllOptions(input: ModeMergeOptions[], opts: Partial<GetCssSchemaMethodOptions>): Record<string, CssValue> {
-  if (!input) {
-    return input
-  }
-  const obj = invoke(input, opts)
   return mergeRClone(
     {
       base: {},
@@ -56,31 +52,26 @@ export function mergeAllOptions(input: ModeMergeOptions[], opts: Partial<GetCssS
 }
 
 export function handleOptions({ extend, override, selector, mode, schema, params }: Partial<ComponentsValue>, { types }: CreatePresetOptions) {
-  const opts: Partial<GetCssSchemaMethodOptions> = {
+  const schemaOpts: GetCssSchemaMethodOptions = {
     types,
-    selector,
-    params
+    selector: selector ?? '',
+    params: params ?? {}
   }
 
-  const d: CssSchema | undefined = schema?.(opts)
+  const d: CssSchema | undefined = schema?.(schemaOpts)
   let de: Partial<CssSchema> = d ?? {}
   de.defaults = preprocessCssInJs(pick(de.defaults, getPickedProps(mode)))
   if (override) {
-    de = defuOverrideApplyCss(
-      {
-        selector,
-        defaults: preprocessCssInJs(mergeAllOptions(override as ModeMergeOptions[], opts))
-      },
-      de
-    )
-  }
-
-  const res = defu(
-    {
+    const overrideDefaults = {
       selector,
-      defaults: preprocessCssInJs(mergeAllOptions(extend as ModeMergeOptions[], opts))
-    },
-    de
-  )
+      defaults: preprocessCssInJs(mergeAllOptions(override as ModeMergeOptions[], schemaOpts))
+    }
+    de = defuOverrideApplyCss(overrideDefaults, de)
+  }
+  const extendDefaults = {
+    selector,
+    defaults: preprocessCssInJs(mergeAllOptions(extend as ModeMergeOptions[], schemaOpts))
+  }
+  const res = defu(extendDefaults, de)
   return res
 }

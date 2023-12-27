@@ -14,6 +14,8 @@
     "@icestack/shared": "workspace:^",
     "@icestack/types": "workspace:^",
     "parsel-js": "^1.1.2",
+    "postcss": "^8.4.32",
+    "postcss-js": "^4.0.1",
     "postcss-selector-parser": "^6.0.13",
     "vue": "^3.3.11"
   },

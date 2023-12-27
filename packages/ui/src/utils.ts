@@ -2,7 +2,7 @@ import fs from 'node:fs/promises'
 import fss from 'node:fs'
 import readline from 'node:readline'
 import { CssInJs, CssValue, ModeMergeValue } from './types'
-import { transformCss2Js } from '@/shared'
+import { transformCss2Js } from './shared'
 
 export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]> {
   if (!Array.isArray(arr)) {
@@ -47,23 +47,23 @@ export function ensureDirSync(p: string) {
 }
 
 // eslint-disable-next-line no-useless-escape
-const wordSeparators = /[\s!"#$%&'()*+,./:;<=>?@[\\\]^_`{|}~\u2000-\u206F\u2E00-\u2E7F\-]+/
+// const wordSeparators = /[\s!"#$%&'()*+,./:;<=>?@[\\\]^_`{|}~\u2000-\u206F\u2E00-\u2E7F\-]+/
 
-export function pascalCase(str: string) {
-  const words = str.split(wordSeparators)
-  const length = words.length
-  const mappedWords = Array.from({
-    length
-  })
-  for (let i = 0; i < length; i++) {
-    const word = words[i]
-    if (word === '') {
-      continue
-    }
-    mappedWords[i] = word[0].toUpperCase() + word.slice(1)
-  }
-  return mappedWords.join('')
-}
+// export function pascalCase(str: string) {
+//   const words = str.split(wordSeparators)
+//   const length = words.length
+//   const mappedWords = Array.from({
+//     length
+//   })
+//   for (let i = 0; i < length; i++) {
+//     const word = words[i]
+//     if (word === '') {
+//       continue
+//     }
+//     mappedWords[i] = word[0].toUpperCase() + word.slice(1)
+//   }
+//   return mappedWords.join('')
+// }
 
 export function JSONStringify(value: any) {
   return JSON.stringify(value, null, 2)
@@ -80,15 +80,8 @@ export function arrMatch(matchArr?: (string | RegExp)[], str?: string) {
   })
 }
 
-export function preHandleString(val: any): CssInJs {
-  if (typeof val === 'string') {
-    return transformCss2Js(val)
-  }
-  return val
-}
-
 export function mapCss2JsArray(value?: CssValue): CssInJs[] {
-  return Array.isArray(value) ? value.map((x) => preHandleString(x)) : [preHandleString(value)]
+  return Array.isArray(value) ? value.map((x) => transformCss2Js(x)) : [transformCss2Js(value)]
 }
 
 export function clearLine(rowCount = 1) {

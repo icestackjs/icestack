@@ -1,8 +1,14 @@
 import type { Config } from '@/index'
 
 describe('index', () => {
-  const c: Config = {}
+  const c: Config = {
+    dryRun: true
+  }
+  const a: Config = {
+    outdir: '.'
+  }
   it('true', () => {
-    expect(true).toBe(true)
+    expect(a).toBeTruthy()
+    expect(c).toBeTruthy()
   })
 })

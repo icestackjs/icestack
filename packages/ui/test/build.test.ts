@@ -52,4 +52,22 @@ describe('build', () => {
     const base = await ctx.buildBase()
     expect(base).toMatchSnapshot()
   })
+
+  it('build nothing', async () => {
+    const ctx = createContext({
+      dryRun: true,
+      base: {
+        themes: {
+          light: {
+            selector: 'page'
+          },
+          dark: {
+            selector: '.dark'
+          }
+        }
+      }
+    })
+    const base = await ctx.build({ base: false, components: false, config: false, utilities: false })
+    expect(base).toMatchSnapshot()
+  })
 })

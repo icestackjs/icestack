@@ -243,6 +243,12 @@ importers:
       parsel-js:
         specifier: ^1.1.2
         version: 1.1.2
+      postcss:
+        specifier: ^8.4.32
+        version: 8.4.32
+      postcss-js:
+        specifier: ^4.0.1
+        version: 4.0.1(postcss@8.4.32)
       postcss-selector-parser:
         specifier: ^6.0.13
         version: 6.0.13
@@ -524,6 +530,9 @@ importers:
       svg64:
         specifier: ^2.0.0
         version: 2.0.0
+      tailwind-merge:
+        specifier: ^2.2.0
+        version: 2.2.0
       tailwindcss:
         specifier: 3.4.0
         version: 3.4.0(ts-node@10.9.2)
@@ -3614,7 +3623,7 @@ packages:
   /@manypkg/find-root@1.1.0:
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
     dependencies:
-      '@babel/runtime': 7.23.4
+      '@babel/runtime': 7.23.6
       '@types/node': 12.20.55
       find-up: 4.1.0
       fs-extra: 8.1.0
@@ -19344,6 +19353,12 @@ packages:
       tailwindcss: 3.4.0(ts-node@10.9.2)
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /tailwind-merge@2.2.0:
+    resolution: {integrity: sha512-SqqhhaL0T06SW59+JVNfAqKdqLs0497esifRrZ7jOaefP3o64fdFNDMrAQWZFMxTLJPiHVjRLUywT8uFz1xNWQ==}
+    dependencies:
+      '@babel/runtime': 7.23.6
     dev: true
 
   /tailwindcss@3.3.7(ts-node@10.9.2):

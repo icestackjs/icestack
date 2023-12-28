@@ -1,5 +1,4 @@
 const miniprogramPreset = require('@icestack/preset-weapp')
-const { expandTypes, getSelector, transformCss2Js } = require('@icestack/ui/components')
 /**
  * @type {import('@icestack/ui').Config}
  */

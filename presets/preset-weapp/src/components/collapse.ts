@@ -1,4 +1,4 @@
-import { transformCss2Js } from '@icestack/shared'
+import { transformCss2Js } from '@icestack/postcss-utils'
 import { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {

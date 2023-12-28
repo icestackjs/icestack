@@ -1,4 +1,4 @@
-import { transformCss2Js } from '@icestack/shared'
+import { transformCss2Js } from '@icestack/postcss-utils'
 import type { ComponentsOptions, Preset } from '@icestack/types'
 
 const components: ComponentsOptions = {

@@ -48,4 +48,4 @@ export function process(plugins: AcceptedPlugin[], css: string): LazyResult<Docu
   })
 }
 
-export * from './utils'
+export * from '@icestack/postcss-utils'

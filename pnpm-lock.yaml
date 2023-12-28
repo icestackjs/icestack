@@ -348,6 +348,9 @@ importers:
 
   packages/postcss:
     dependencies:
+      '@icestack/postcss-utils':
+        specifier: workspace:^
+        version: link:../postcss-utils
       '@icestack/shared':
         specifier: workspace:^
         version: link:../shared
@@ -375,6 +378,21 @@ importers:
       postcss-selector-parser:
         specifier: ^6.0.14
         version: 6.0.14
+      tailwindcss:
+        specifier: ^3.4.0
+        version: 3.4.0(ts-node@10.9.2)
+
+  packages/postcss-utils:
+    dependencies:
+      '@icestack/types':
+        specifier: workspace:^
+        version: link:../types
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
+      postcss:
+        specifier: ^8.4.31
+        version: 8.4.32
       tailwindcss:
         specifier: ^3.4.0
         version: 3.4.0(ts-node@10.9.2)
@@ -593,6 +611,9 @@ importers:
 
   presets/preset-daisyui:
     dependencies:
+      '@icestack/postcss-utils':
+        specifier: workspace:^
+        version: link:../../packages/postcss-utils
       '@icestack/shared':
         specifier: workspace:^
         version: link:../../packages/shared
@@ -621,6 +642,9 @@ importers:
 
   presets/preset-mockup:
     dependencies:
+      '@icestack/postcss-utils':
+        specifier: workspace:^
+        version: link:../../packages/postcss-utils
       '@icestack/shared':
         specifier: workspace:^
         version: link:../../packages/shared
@@ -647,6 +671,9 @@ importers:
 
   presets/preset-weapp:
     dependencies:
+      '@icestack/postcss-utils':
+        specifier: workspace:^
+        version: link:../../packages/postcss-utils
       '@icestack/shared':
         specifier: workspace:^
         version: link:../../packages/shared

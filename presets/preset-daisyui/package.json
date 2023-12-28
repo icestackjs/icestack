@@ -55,8 +55,9 @@
     "daisyui": "^4.4.24"
   },
   "dependencies": {
-    "@icestack/shared": "workspace:^",
+    "@icestack/postcss-utils": "workspace:^",
     "@icestack/types": "workspace:^",
+    "@icestack/shared": "workspace:^",
     "culori": "^3.3.0",
     "lodash": "^4.17.21",
     "picocolors": "^1.0.0"

@@ -11,6 +11,10 @@
     "title": "Guide",
     "type": "page"
   },
+  "config": {
+    "title": "Config",
+    "type": "page"
+  },
   "components": {
     "title": "Components",
     "type": "page"

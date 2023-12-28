@@ -1,0 +1,17 @@
+```ts
+type BaseOptions = {
+  themes: Themes
+  extraCss: CssValue
+  themeSelectorTemplate: (theme: string) => string
+  mediaDarkTheme: string | boolean
+}
+
+type ThemeOptions = {
+  selector: string
+  extraColors: Record<string, string>
+  extraVars: Record<string, string>
+  extraCss: CssValue
+  types: Record<string, string | Record<string, string>>
+}
+type Themes = Record<string, Partial<ThemeOptions>>
+```

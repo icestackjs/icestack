@@ -1,11 +1,14 @@
-# 通用配置项
+# Configuring Icestack
 
 ## Types
 
 ```ts
-export type CodegenOptions = {
+type CodegenOptions = {
   /**
    * @description load css mode
+   * @default styled
+   * @enum "styled" | "base" | "none"
+   * @example styled load all, base load base, none load none
    */
   mode?: CodegenMode
   /**
@@ -45,17 +48,17 @@ export type CodegenOptions = {
    */
   presets?: (Preset | ((options?: any) => Preset))[]
   /**
-   * @description required! set output dir path.
-   */
-  outdir: string
-  /**
    * @description if run build without any output
    * @default false
    */
   dryRun?: boolean
   /**
-   * @description your custom tailwindcss config to resolve `@apply`
+   * @description required! set output dir path.
    */
-  tailwindcssConfig?: Partial<TailwindcssConfig>
+  outdir?: string
+  /**
+   * @description your custom tailwindcss config to resolve `@apply` and theme()
+   */
+  tailwindcssConfig?: Partial<Config$1>
 }
 ```

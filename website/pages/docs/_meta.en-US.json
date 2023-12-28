@@ -2,7 +2,10 @@
   "usage": "Get Started",
   "introduction": "Introduction",
   "core": "Extends",
-  "options": "Configuration",
   "contribute": "Contribute",
-  "motivation": "Motivation"
+  "motivation": "Motivation",
+  "config-ref": {
+    "title": "Configuration",
+    "href": "/config/overview"
+  }
 }

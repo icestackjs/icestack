@@ -20,13 +20,14 @@ const config = {
     // 组件名称
     button: {
       extend: {
+        // utils
         utils: [
           // Sizes
           // xl
           `.btn-xl {
-        @apply min-h-20 h-20 px-8;
-        font-size: 1.25rem;
-      }`,
+            @apply min-h-20 h-20 px-8;
+            font-size: 1.25rem;
+          }`,
           // 2xl
           {
             '.btn-2xl': {
@@ -50,11 +51,10 @@ const config = {
           // 4xl
           ({ selector }) => {
             return `
-        ${selector}-4xl {
-          @apply min-h-32 h-32 px-14;
-          font-size: 2rem;
-        }
-        `
+              ${selector}-4xl {
+                @apply min-h-32 h-32 px-14;
+                font-size: 2rem;
+              }`
           }
         ]
       }

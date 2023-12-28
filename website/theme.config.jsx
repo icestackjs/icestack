@@ -6,14 +6,16 @@ function Footer() {
   const isZh = router.locale === 'zh-CN'
   return (
     <div className="bg-base-300 py-8">
-      <footer className="footer container mx-auto footer-center ">
-        <span className="flex text-xs space-x-2">
-          MIT {new Date().getFullYear()}
-          <a href="https://github.com/sonofmagic/icestack" rel="nofollow" target="_blank">
-            © IceStack
-          </a>
+      <footer className="footer container mx-auto footer-center text-xs">
+        <div className="flex flex-col space-x-2">
+          <span className="flex space-x-2">
+            MIT {new Date().getFullYear()}
+            <a href="https://github.com/sonofmagic/icestack" rel="nofollow" target="_blank">
+              © IceStack
+            </a>
+          </span>
           {isZh ? (
-            <>
+            <span className="flex space-x-2">
               <a rel="nofollow" target="_blank" href="http://beian.miit.gov.cn">
                 苏ICP备19002675号-2
               </a>
@@ -21,9 +23,9 @@ function Footer() {
                 <Image className="mr-1" src={'/beian.png'} alt="beian" width={14} height={14}></Image>
                 苏公网安备32050602011962
               </a>
-            </>
+            </span>
           ) : undefined}
-        </span>
+        </div>
       </footer>
     </div>
   )

@@ -2,97 +2,10 @@
 
 当然，默认提供的组件可能满足不了你的需求，你也可以添加自己的组件
 
-## 组件配置项
-
-首先要介绍一下各个组件的配置项
-
-```ts
-// 用于覆盖和扩展组件行为的配置项
-// ComponentsValue 中的 override extend 都是此类
-export type CodegenMode = 'styled' | 'base' | 'raw'
-
-export type ModeMergeValue = {
-  base?: CssInJs
-  styled?: CssInJs
-  utils?: CssInJs
-}
-
-// postcss 插件配置
-export interface PrefixerOptions {
-  // prefix 前缀
-  prefix?: string
-  // 忽略数组
-  ignore?: ReadonlyArray<RegExp | string>
-}
-// postcss 插件配置
-export type VarPrefixerOptions = {
-  varPrefix?: string // | PrefixFunction
-  ignoreProp?: (RegExp | string)[]
-  ignoreValueCustomProperty?: (RegExp | string)[]
-}
-
-// 组件配置项
-export type ComponentsValue = {
-  // 用于单独配置组件的类名前缀
-  prefix: PrefixerOptions
-  // 用于单独配置组件的Css变量名前缀
-  varPrefix: VarPrefixerOptions
-  // 加载模式，默认使用全局的 mode
-  mode: CodegenMode
-  // 覆盖默认行为
-  override: ModeMergeValue
-  // 扩展默认行为
-  extend: ModeMergeValue
-  // 添加额外的样式
-  extra: CssInJs
-  // 选择器
-  selector: string
-  // 底层的 css schema，用于控制css模板渲染
-  schema: GetCssSchemaMethod
-  // 是否启用这个组件,等效于直接把这个组件设为 false
-  disabled: boolean
-}
-
-export type ComponentsOptions = Record<string, ComponentsValue | false>
-```
-
-## Schema
-
-在添加组件中最重要的就是它了，我们来看一下它的结构
-
-```ts
-export interface CreatePresetOptions {
-  types: string[]
-}
-
-export type CssSchemaDefaults = {
-  styled?: object
-  base?: object
-  utils?: object
-}
-
-export type CssSchemaValue =
-  | string
-  | {
-      apply: string | string[]
-    }
-  | { css: Record<string, string> }
-  | {
-      apply: string | string[]
-      css: Record<string, string>
-    }
-
-export type CssSchema = {
-  selector: string
-  defaults: CssSchemaDefaults
-}
-
-export type GetCssSchemaMethod = (opts: CreatePresetOptions & { selector: string }) => CssSchema
-```
-
 ## 添加 my-table 组件
 
 ```js
+// const { transformCss2Js } = require('@icestack/shared')
 /**
  * @type {import('@icestack/ui').Config}
  */
@@ -106,6 +19,7 @@ const config = {
       schema: (opts) => {
         // selector 为选择器
         // types 为各种 primary success 这样的颜色变量
+        // or use transformCss2Js exported by '@icestack/shared'
         const { selector, types } = opts
         return {
           selector,
@@ -149,7 +63,7 @@ const config = {
             },
             utils: {
               [selector]: {
-                [`&${getSelector('xs')}`]: {
+                [`&-xs`]: {
                   ':not(.thead):not(.tfoot) .tr': {
                     apply: 'text-xs'
                   },
@@ -157,7 +71,7 @@ const config = {
                     apply: 'px-2 py-1'
                   }
                 },
-                [`&${getSelector('sm')}`]: {
+                [`&-sm`]: {
                   ':not(.thead):not(.tfoot) .tr': {
                     apply: 'text-sm'
                   },
@@ -165,7 +79,7 @@ const config = {
                     apply: 'px-3 py-2'
                   }
                 },
-                [`&${getSelector('md')}`]: {
+                [`&-md`]: {
                   ':not(.thead):not(.tfoot) .tr': {
                     apply: 'text-sm'
                   },
@@ -173,7 +87,7 @@ const config = {
                     apply: 'px-4 py-3'
                   }
                 },
-                [`&${getSelector('lg')}`]: {
+                [`&-lg`]: {
                   ':not(.thead):not(.tfoot) .tr': {
                     apply: 'text-base'
                   },

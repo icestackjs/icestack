@@ -15,3 +15,51 @@ const config = {
 module.exports = config
 ```
 
+## 预设的定义
+
+类型为:
+
+```ts
+// Partial<Pick<CodegenOptions, 'base' | 'components' | 'global' | 'tailwindcssConfig'>>
+
+import type { Preset } from '@icestack/types'
+
+/**
+ * @type {import('@icestack/types').Preset}
+ */
+
+const myPreset: Preset = {}
+
+const myFunctionPreset: () => Preset = () => {
+  return {}
+}
+```
+
+## Examples
+
+### Add A Component
+
+```js
+const { transformCss2Js } = require('@icestack/shared')
+
+const myFunctionPreset = () => {
+  return {
+    components: {
+      myCustom: {
+        selector: '.cutsom',
+        schema: ({ selector, types, params }) => {
+          return {
+            selector,
+            defaults: {
+              // your css code here
+              base: transformCss2Js(``),
+              styled: transformCss2Js(``),
+              utils: transformCss2Js(``)
+            }
+          }
+        }
+      }
+    }
+  }
+}
+```

@@ -1,4 +1,4 @@
-import { Tabs, Tab, Cards, Card } from 'nextra/components'
+import { Tabs, Tab, Cards, Card,Callout } from 'nextra/components'
 
 # 快速开始
 
@@ -6,14 +6,11 @@ import { Tabs, Tab, Cards, Card } from 'nextra/components'
 
 - 纯 CSS 组件，通用且轻量
 - **0** 运行时，所有工作在编译时完成
-- 可结合 `tailwindcss` 使用，自动 `tree-shake`，所写即所得
-- 可扩展包括但不限于，主题，颜色，类型，尺寸，形状... 所有一切都可以自定义
+- 可结合 `tailwindcss` 使用，所写即所得
+- 可扩展 包括但不限于，主题，颜色，类型，尺寸，形状... 所有一切都可以自定义
 
 ## 安装 `@icestack/ui`
 
-首先你必须安装好 `nodejs` 环境:
-
-然后使用 `npm init` 创建 `package.json`，再在 `package.json` 目录下，执行命令:
 {/* prettier-ignore-start */}
 <Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
   <Tab>
@@ -43,7 +40,7 @@ bun add -D @icestack/ui @icestack/tailwindcss
 
 ## 初始化配置文件
 
-安装好 `@icestack/ui` 之后你可以执行:
+安装好 `@icestack/ui` 之后，执行:
 
 ```bash
 npx icestack init
@@ -70,7 +67,18 @@ module.exports = config
 npx icestack build
 ```
 
-这个命令会在当前配置文件下的 `'./my-ui'` 目录构建出产物，接下来你就可以直接使用这些 `css`,`js`，不过把它们交给 `tailwindcss` 进行使用也是个不错的选择
+<Callout type="info">
+你可以把 `icestack build` 注册到你的 `package.json` 中:
+```json
+{
+   "scripts": {
+    "build:ui": "icestack build"
+  },
+}
+```
+</Callout>
+
+这个命令会在当前配置文件下的 `'./my-ui'` 目录构建出产物，接下来你就可以直接导入这些 `css`,`js` 文件，不过把它们交给 `tailwindcss` 进行使用也是个不错的选择。
 
 ## 作为 tailwindcss plugin 来使用
 
@@ -87,9 +95,11 @@ module.exports = {
   // ...
   plugins: [
     icestackPlugin({
+      // 加载目录的绝对路径
       loadDirectory: path.resolve(__dirname, 'my-ui'),
       // 是否注入 tailwindcss theme config
-      // 为 true 时 生成器的 primary success warning 这些颜色会进入 tailwindcss theme extend 配置
+      // 为 true 时，生成器的 primary success warning 这些颜色会进入 tailwindcss.theme.extend 配置
+      // 你才能够使用 bg-primary / text-success
       // 默认值: false
       loadConfig: true
       // ...
@@ -98,15 +108,19 @@ module.exports = {
 }
 ```
 
-接着只要我们正常运行项目，就直接能够使用所有的 `Css` 组件了！
+接着只要我们正常运行项目，就直接能够使用 `my-ui` 目录下，所有的 `CSS` 组件了！
 
-[你可以直接在这里找到列表并直接复制 `html`](./components/overview)
+<Callout type="info">
+[你可以直接在这里，找到所有组件列表，并直接复制 `html`](./components/overview)
+</Callout>
+
 
 ### tailwindcss 智能提示
 
-只要我们安装好 IDE 的插件，智能提示就会出现，包括 `@icestack/ui` 默认预设的和你自己生成的所有`Css`类。
+只要我们安装好 IDE 的插件，智能提示就会出现，包括 `@icestack/ui` 默认预设的和你自己生成的所有`CSS`类。
 
 通常每次 `icestack build` 构建后，我们可以去手动保存一下 `tailwind.config.js` 文件，
 
 此时 `tailwindcss` 插件就会去重新读取插件并生成智能提示了。
 
+![IntelliSense](/IntelliSense.png)

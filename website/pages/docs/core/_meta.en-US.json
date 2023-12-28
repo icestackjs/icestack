@@ -5,5 +5,7 @@
   "override": "Customize component styles",
   "preset": "Presets",
   "composeClass": "Class compose",
-  "extraComponent": "Add components"
+  "extraComponent": "Add components",
+  "style": "Component Mode & Style",
+  "dist": "Dist"
 }

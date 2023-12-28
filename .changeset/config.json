@@ -14,7 +14,7 @@
   "updateInternalDependencies": "patch",
   "ignore": [
     "unocss-sample-app",
-    "@icestack/storybook",
-    "@icestack/website"
+    "@icestack/app-storybook",
+    "@icestack/app-website"
   ]
 }

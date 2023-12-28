@@ -5,5 +5,7 @@
   "override": "扩展组件尺寸形状样式",
   "preset": "预设的提炼与使用",
   "composeClass": "原子类样式的组合使用",
-  "extraComponent": "添加组件"
+  "extraComponent": "添加组件",
+  "style": "组件样式与模式",
+  "dist": "编译产物"
 }

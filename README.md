@@ -47,10 +47,10 @@ IceStack UI, Web UI for Mobile and PC , open-source Css Headless component libra
 
 ### Applications
 
-- [website](./website/) - Source code of <https://ui.icebreaker.top>
-- [storybook](./storybook/) - Source code of <https://story.ui.icebreaker.top>
+- [@icestack/app-website](./website/) - Source code of <https://ui.icebreaker.top>
+- [@icestack/app-storybook](./storybook/) - Source code of <https://story.ui.icebreaker.top>
+- [@icestack/app-weapp](./apps/taro-app/) - Source code of weapp "爱思史塔克"
 - [nuxt-admin-app](./examples/nuxt-admin-app/) - Source code of <https://nuxt.icebreaker.top/>
-- [taro-app](./apps/taro-app/) - Source code of weapp "爱思史塔克"
 
 ## License
 

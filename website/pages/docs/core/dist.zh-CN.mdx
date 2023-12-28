@@ -1,0 +1,9 @@
+# 产物
+
+## 生成产物
+
+在执行 `build` 命令之后，`@icestack/ui` 会在指定文件夹生成三类文件:
+
+1. `css` 这个文件夹用来存放已经初加工的 `css`,里面还包含着大量的 `@apply` 指令，这个里面的 `css` 产物想要直接使用必须要配合 `tailwindcss`
+2. `css-resolved` 这个文件夹用来存放已经被 `tailwindcss` 处理过的 `css` 产物，你可以直接使用
+3. `js` 这个文件夹用来存放 `css-resolved` 中样式对应的 `js` 形态，以及可扩展的 `tailwindcss` 配置文件

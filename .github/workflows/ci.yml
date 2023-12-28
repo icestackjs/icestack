@@ -4,7 +4,6 @@ on:
   # push:
   #   branches: ['main']
   pull_request:
-    types: [opened, synchronize]
   workflow_dispatch:
 
 jobs:
@@ -15,7 +14,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
-        node-version: [16, 18]
+        node-version: [16, 18, 20]
     runs-on: ${{ matrix.os }}
     # To use Remote Caching, uncomment the next lines and follow the steps below.
     # env:
@@ -24,7 +23,7 @@ jobs:
 
     steps:
       - name: Check out code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 2
 
@@ -44,7 +43,7 @@ jobs:
 
       - name: Test
         run: pnpm test
-      
+
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
         env:

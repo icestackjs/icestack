@@ -52,7 +52,7 @@
     "@types/klaw": "^3.0.6",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.10.5",
-    "@types/react": "^18.2.45",
+    "@types/react": "^18.2.46",
     "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.16",
     "bing-translate-api": "^2.10.0",
@@ -69,6 +69,6 @@
     "typedoc": "^0.25.4",
     "typedoc-plugin-markdown": "^3.17.1",
     "typescript": "^5.3.3",
-    "unplugin-auto-import": "^0.17.1"
+    "unplugin-auto-import": "^0.17.3"
   }
 }

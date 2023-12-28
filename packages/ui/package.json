@@ -86,9 +86,6 @@
     "sass": "^1.69.5"
   },
   "devDependencies": {
-    "@types/deasync": "^0.1.5",
-    "@types/findup-sync": "^4.0.4",
-    "@types/flat-cache": "^2.0.2",
     "@types/lodash": "^4.14.202",
     "@types/object-hash": "^3.0.6",
     "@types/serialize-javascript": "^5.0.4",
@@ -96,7 +93,6 @@
     "css-to-tailwindcss-plugin": "workspace:^",
     "del": "^7.1.0",
     "fast-glob": "^3.3.2",
-    "flat-cache": "^4.0.0",
     "klaw-sync": "^6.0.0",
     "merge": "^2.1.1",
     "object-hash": "^3.0.0",

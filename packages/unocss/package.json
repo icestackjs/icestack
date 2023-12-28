@@ -50,7 +50,7 @@
     "url": "https://github.com/sonofmagic/icestack"
   },
   "devDependencies": {
-    "unocss": "^0.58.0"
+    "unocss": "^0.58.2"
   },
   "dependencies": {
     "@icestack/logger": "workspace:^",

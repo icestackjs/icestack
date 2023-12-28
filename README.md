@@ -25,6 +25,7 @@ IceStack UI, Web UI for Mobile and PC , open-source Css Headless component libra
 - [@icestack/ui](./packages/ui/) - IceStack UI, Web UI for Mobile and PC , open-source Css Headless component library generator
 - [@icestack/tailwindcss](./packages/tailwindcss/) - IceStack UI For Tailwindcss plugin
 - [@icestack/postcss](./packages/postcss/) - Postcss plugins hub
+- [@icestack/postcss-utils](./packages/postcss-utils/) - Postcss utils hub
 - [@icestack/types](./packages/types/) - Typescript types
 - [@icestack/shared](./packages/shared/) - Shared utils
 - [@icestack/logger](./packages/logger/) - Logger

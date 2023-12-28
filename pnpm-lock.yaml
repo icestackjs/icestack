@@ -658,6 +658,9 @@ importers:
 
   presets/preset-unicorn:
     dependencies:
+      '@icestack/postcss-utils':
+        specifier: workspace:^
+        version: link:../../packages/postcss-utils
       '@icestack/shared':
         specifier: workspace:^
         version: link:../../packages/shared

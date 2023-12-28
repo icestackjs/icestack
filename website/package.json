@@ -1,6 +1,6 @@
 {
-  "name": "website",
-  "version": "1.0.0",
+  "name": "@icestack/website",
+  "version": "0.0.0",
   "description": "",
   "private": true,
   "main": "index.js",

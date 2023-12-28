@@ -12,5 +12,9 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": []
+  "ignore": [
+    "unocss-sample-app",
+    "@icestack/storybook",
+    "@icestack/website"
+  ]
 }

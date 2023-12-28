@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/indicator/index.mdx'
 
 ## 默认类名表格
-
+  
 <CssTable name="indicator" />
-
+  
 ## 样例
-
+  
 <Demo></Demo>
 
 ## 演示
-
+  
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-indicator--docs)
-
+  
 ## Css 结构
 
 
@@ -27,19 +28,20 @@ import Demo from '../../components/demo/indicator/index.mdx'
 
 ```css
 .indicator {
-@apply relative inline-flex;
-width: max-content;
+  @apply relative inline-flex;
+  width: max-content;
 }
 .indicator :where(.indicator-item) {
-z-index: 1;
-@apply absolute transform whitespace-nowrap;
+  z-index: 1;
+  @apply absolute transform whitespace-nowrap;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -52,32 +54,33 @@ z-index: 1;
 
 ```css
 .indicator :where(.indicator-item) {
-@apply bottom-auto end-0 start-auto top-0 -translate-y-1/2 translate-x-1/2 rtl:-translate-x-1/2;
+  @apply bottom-auto end-0 start-auto top-0 -translate-y-1/2 translate-x-1/2 rtl:-translate-x-1/2;
 }
 .indicator :where(.indicator-item.indicator-start) {
-@apply end-auto start-0 -translate-x-1/2 rtl:translate-x-1/2;
+  @apply end-auto start-0 -translate-x-1/2 rtl:translate-x-1/2;
 }
 .indicator :where(.indicator-item.indicator-center) {
-@apply end-1/2 start-1/2 -translate-x-1/2 rtl:translate-x-1/2;
+  @apply end-1/2 start-1/2 -translate-x-1/2 rtl:translate-x-1/2;
 }
 .indicator :where(.indicator-item.indicator-end) {
-@apply end-0 start-auto translate-x-1/2 rtl:-translate-x-1/2;
+  @apply end-0 start-auto translate-x-1/2 rtl:-translate-x-1/2;
 }
 .indicator :where(.indicator-item.indicator-bottom) {
-@apply bottom-0 top-auto translate-y-1/2;
+  @apply bottom-0 top-auto translate-y-1/2;
 }
 .indicator :where(.indicator-item.indicator-middle) {
-@apply bottom-1/2 top-1/2 -translate-y-1/2;
+  @apply bottom-1/2 top-1/2 -translate-y-1/2;
 }
 .indicator :where(.indicator-item.indicator-top) {
-@apply bottom-auto top-0 -translate-y-1/2;
+  @apply bottom-auto top-0 -translate-y-1/2;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -94,3 +97,6 @@ z-index: 1;
 
 </div>
 </div>
+
+
+

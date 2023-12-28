@@ -1,9 +1,10 @@
 const fs = require('node:fs/promises')
 const fss = require('node:fs')
 const path = require('node:path')
+const prettier = require('prettier')
 // const jb = require('js-beautify')
 const { upperFirst, kebabCase } = require('lodash')
-const dedent = require('dedent')
+// const dedent = require('dedent')
 // const { getDefaultBase, defaultSelectorMap } = require('@icestack/ui/defaults')
 // const { schemaMap } = require('@icestack/ui/components')
 const { createContext } = require('@icestack/ui')
@@ -60,7 +61,8 @@ function generateOverview(options) {
 
 async function main() {
   const ctx = createContext({
-    dryRun: true
+    dryRun: true,
+    log: false
   })
   const map = await ctx.buildComponents()
   const CssSchemaNames = ['base', 'styled', 'utils']
@@ -89,57 +91,66 @@ async function main() {
 
           fss.writeFileSync(demoPath, `import CodeRender from '../../CodeRender'\n`, 'utf8')
         }
-        // format(serialize(p))
-        await fs.writeFile(
-          resolveComponent(`${componentName}.${local}.mdx`),
-          dedent`
-  import CssTable from '../../components/CssTable'
-  ${flag ? `import Demo from '../../components/demo/${componentName}/index.mdx'` : ''}
-
-  ## ${t('Class Table')}
-  
-  <CssTable name="${componentName}" />
-  
-  ${
-    flag
-      ? `## ${t('Demo')}
-  
-  <Demo></Demo>`
-      : ''
-  }
-
-  ## ${t('Playground')}
-  
-  [${t('Go to Storybook')}](https://story.ui.icebreaker.top/?path=/docs/${kebabCase(groupName)}-${componentName}--docs)
-  
-  ## ${t('Css Schema')}
-
-  ${
-    hit
-      ? CssSchemaNames.map((x) => {
-          return `
+        const cssSchemaString = hit
+          ? (
+              await Promise.all(
+                CssSchemaNames.map(async (x) => {
+                  const css = await prettier.format(hit[x].css, {
+                    parser: 'css',
+                    tabWidth: 2,
+                    htmlWhitespaceSensitivity: 'ignore',
+                    printWidth: 100
+                  })
+                  return `
 ### ${upperFirst(x)}
 
 <div className="collapse">
 <input type="checkbox" /> 
 <div class="collapse-title px-0">
-  <span class="btn">Click to Show ${upperFirst(x)} Schema</span>
+<span class="btn">Click to Show ${upperFirst(x)} Schema</span>
 </div>
 <div class="collapse-content"> 
 
 \`\`\`css
-${hit[x].css}
+${css}
 \`\`\`
 
 </div>
 </div>
 
-    `
-        }).join('\n')
-      : ''
-  }
+`
+                })
+              )
+            ).join('\n')
+          : ''
+        // format(serialize(p))
+        await fs.writeFile(
+          resolveComponent(`${componentName}.${local}.mdx`),
+          `
+import CssTable from '../../components/CssTable'
+${flag ? `import Demo from '../../components/demo/${componentName}/index.mdx'` : ''}
 
-        `
+## ${t('Class Table')}
+  
+<CssTable name="${componentName}" />
+  
+${
+  flag
+    ? `## ${t('Demo')}
+  
+<Demo></Demo>`
+    : ''
+}
+
+## ${t('Playground')}
+  
+[${t('Go to Storybook')}](https://story.ui.icebreaker.top/?path=/docs/${kebabCase(groupName)}-${componentName}--docs)
+  
+## ${t('Css Schema')}
+
+${cssSchemaString}
+
+`
         )
       }
     }

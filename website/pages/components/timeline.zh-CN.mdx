@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/timeline/index.mdx'
 
 ## 默认类名表格
-
+  
 <CssTable name="timeline" />
-
+  
 ## 样例
-
+  
 <Demo></Demo>
 
 ## 演示
-
+  
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/data-display-timeline--docs)
-
+  
 ## Css 结构
 
 
@@ -27,43 +28,50 @@ import Demo from '../../components/demo/timeline/index.mdx'
 
 ```css
 .timeline {
-@apply relative flex;
+  @apply relative flex;
 }
 
 :where(.timeline > li) {
-@apply relative grid shrink-0 items-center;
-grid-template-rows: var(--timeline-row-start, minmax(0, 1fr)) auto var( --timeline-row-end, minmax(0, 1fr) );
-grid-template-columns: var(--timeline-col-start, minmax(0, 1fr)) auto var( --timeline-col-end, minmax(0, 1fr) );
+  @apply relative grid shrink-0 items-center;
+  grid-template-rows: var(--timeline-row-start, minmax(0, 1fr)) auto var(
+      --timeline-row-end,
+      minmax(0, 1fr)
+    );
+  grid-template-columns: var(--timeline-col-start, minmax(0, 1fr)) auto var(
+      --timeline-col-end,
+      minmax(0, 1fr)
+    );
 }
 
 .timeline > li > hr {
-@apply w-full border-0;
+  @apply w-full border-0;
 }
 
 :where(.timeline > li > hr):first-child {
-@apply col-start-1 row-start-2;
+  @apply col-start-1 row-start-2;
 }
 :where(.timeline > li > hr):last-child {
-@apply col-start-3 col-end-[none] row-start-2 row-end-auto;
+  @apply col-start-3 col-end-[none] row-start-2 row-end-auto;
 }
 
 .timeline-start {
-@apply col-start-1 col-end-4 row-start-1 row-end-2 m-1 self-end justify-self-center;
+  @apply col-start-1 col-end-4 row-start-1 row-end-2 m-1 self-end justify-self-center;
 }
 
 .timeline-middle {
-@apply col-start-2 row-start-2;
+  @apply col-start-2 row-start-2;
 }
 
 .timeline-end {
-@apply col-start-1 col-end-4 row-start-3 row-end-4 m-1 self-start justify-self-center;
+  @apply col-start-1 col-end-4 row-start-3 row-end-4 m-1 self-start justify-self-center;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -76,37 +84,38 @@ grid-template-columns: var(--timeline-col-start, minmax(0, 1fr)) auto var( --tim
 
 ```css
 .timeline hr {
-@apply h-1;
+  @apply h-1;
 }
 
 :where(.timeline hr) {
-@apply bg-base-300;
+  @apply bg-base-300;
 }
 
 :where(.timeline:has(.timeline-middle) hr):first-child {
-@apply rounded-e-badge rounded-s-none;
+  @apply rounded-e-badge rounded-s-none;
 }
 :where(.timeline:has(.timeline-middle) hr):last-child {
-@apply rounded-s-badge rounded-e-none;
+  @apply rounded-s-badge rounded-e-none;
 }
 
 :where(.timeline:not(:has(.timeline-middle)) :first-child hr:last-child) {
-@apply rounded-s-badge rounded-e-none;
+  @apply rounded-s-badge rounded-e-none;
 }
 
 :where(.timeline:not(:has(.timeline-middle)) :last-child hr:first-child) {
-@apply rounded-e-badge rounded-s-none;
+  @apply rounded-e-badge rounded-s-none;
 }
 
 .timeline-box {
-@apply rounded-box bg-base-100 border-base-300 border px-4 py-2 shadow-sm;
+  @apply rounded-box bg-base-100 border-base-300 border px-4 py-2 shadow-sm;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -119,123 +128,131 @@ grid-template-columns: var(--timeline-col-start, minmax(0, 1fr)) auto var( --tim
 
 ```css
 .timeline-vertical {
-@apply flex-col;
+  @apply flex-col;
 }
 
-.timeline-compact, .timeline-horizontal.timeline-compact {
---timeline-row-start: 0;
+.timeline-compact,
+.timeline-horizontal.timeline-compact {
+  --timeline-row-start: 0;
 }
-.timeline-compact .timeline-start, .timeline-horizontal.timeline-compact .timeline-start {
-@apply col-start-1 col-end-4 row-start-3 row-end-4 m-1 self-start justify-self-center;
+.timeline-compact .timeline-start,
+.timeline-horizontal.timeline-compact .timeline-start {
+  @apply col-start-1 col-end-4 row-start-3 row-end-4 m-1 self-start justify-self-center;
 }
-.timeline-compact li:has(.timeline-start) .timeline-end, .timeline-horizontal.timeline-compact li:has(.timeline-start) .timeline-end {
-@apply col-start-[none] row-start-auto;
+.timeline-compact li:has(.timeline-start) .timeline-end,
+.timeline-horizontal.timeline-compact li:has(.timeline-start) .timeline-end {
+  @apply col-start-[none] row-start-auto;
 }
 
 .timeline-vertical.timeline-compact > li {
---timeline-col-start: 0;
+  --timeline-col-start: 0;
 }
 .timeline-vertical.timeline-compact .timeline-start {
-@apply col-start-3 col-end-4 row-start-1 row-end-4 self-center justify-self-start;
+  @apply col-start-3 col-end-4 row-start-1 row-end-4 self-center justify-self-start;
 }
 .timeline-vertical.timeline-compact li:has(.timeline-start) .timeline-end {
-@apply col-start-auto row-start-[none];
+  @apply col-start-auto row-start-[none];
 }
 
 :where(.timeline-vertical > li) {
---timeline-row-start: minmax(0, 1fr);
---timeline-row-end: minmax(0, 1fr);
-@apply justify-items-center;
+  --timeline-row-start: minmax(0, 1fr);
+  --timeline-row-end: minmax(0, 1fr);
+  @apply justify-items-center;
 }
 
 .timeline-vertical > li > hr {
-@apply h-full;
-@apply w-1;
+  @apply h-full;
+  @apply w-1;
 }
 
 :where(.timeline-vertical > li > hr):first-child {
-@apply col-start-2 row-start-1;
+  @apply col-start-2 row-start-1;
 }
 :where(.timeline-vertical > li > hr):last-child {
-@apply col-start-2 col-end-auto row-start-3 row-end-[none];
+  @apply col-start-2 col-end-auto row-start-3 row-end-[none];
 }
 
 .timeline-vertical .timeline-start {
-@apply col-start-1 col-end-2 row-start-1 row-end-4 self-center justify-self-end;
+  @apply col-start-1 col-end-2 row-start-1 row-end-4 self-center justify-self-end;
 }
 
 .timeline-vertical .timeline-end {
-@apply col-start-3 col-end-4 row-start-1 row-end-4 self-center justify-self-start;
+  @apply col-start-3 col-end-4 row-start-1 row-end-4 self-center justify-self-start;
 }
 
 .timeline-vertical:where(.timeline-snap-icon) > li {
---timeline-col-start: minmax(0, 1fr);
---timeline-row-start: 0.5rem;
+  --timeline-col-start: minmax(0, 1fr);
+  --timeline-row-start: 0.5rem;
 }
 
 .timeline-horizontal {
-@apply flex-row;
+  @apply flex-row;
 }
 
 .timeline-horizontal > li > hr {
-@apply w-full;
-@apply h-1;
+  @apply w-full;
+  @apply h-1;
 }
 
 :where(.timeline-horizontal > li) {
-@apply items-center;
+  @apply items-center;
 }
 
 :where(.timeline-horizontal > li > hr):first-child {
-@apply col-start-1 row-start-2;
+  @apply col-start-1 row-start-2;
 }
 :where(.timeline-horizontal > li > hr):last-child {
-@apply col-start-3 col-end-[none] row-start-2 row-end-auto;
+  @apply col-start-3 col-end-[none] row-start-2 row-end-auto;
 }
 
 .timeline-horizontal .timeline-start {
-@apply col-start-1 col-end-4 row-start-1 row-end-2 self-end justify-self-center;
+  @apply col-start-1 col-end-4 row-start-1 row-end-2 self-end justify-self-center;
 }
 
 .timeline-horizontal .timeline-end {
-@apply col-start-1 col-end-4 row-start-3 row-end-4 self-start justify-self-center;
+  @apply col-start-1 col-end-4 row-start-3 row-end-4 self-start justify-self-center;
 }
 
-:where(.timeline-snap-icon) > li, .timeline-horizontal:where(.timeline-snap-icon) > li {
---timeline-col-start: 0.5rem;
---timeline-row-start: minmax(0, 1fr);
+:where(.timeline-snap-icon) > li,
+.timeline-horizontal:where(.timeline-snap-icon) > li {
+  --timeline-col-start: 0.5rem;
+  --timeline-row-start: minmax(0, 1fr);
 }
 
 :where(.timeline-vertical:has(.timeline-middle) > li > hr):first-child {
-@apply rounded-b-badge rounded-t-none;
+  @apply rounded-b-badge rounded-t-none;
 }
 :where(.timeline-vertical:has(.timeline-middle) > li > hr):last-child {
-@apply rounded-t-badge rounded-b-none;
+  @apply rounded-t-badge rounded-b-none;
 }
 
 :where(.timeline-vertical:not(:has(.timeline-middle)) :first-child > hr:last-child) {
-@apply rounded-t-badge rounded-b-none;
+  @apply rounded-t-badge rounded-b-none;
 }
 
 :where(.timeline-vertical:not(:has(.timeline-middle)) :last-child > hr:first-child) {
-@apply rounded-b-badge rounded-t-none;
+  @apply rounded-b-badge rounded-t-none;
 }
 
 :where(.timeline-horizontal:has(.timeline-middle) > li > hr):first-child {
-@apply rounded-e-badge rounded-s-none;
+  @apply rounded-e-badge rounded-s-none;
 }
 :where(.timeline-horizontal:has(.timeline-middle) > li > hr):last-child {
-@apply rounded-s-badge rounded-e-none;
+  @apply rounded-s-badge rounded-e-none;
 }
 
 :where(.timeline-horizontal:not(:has(.timeline-middle)) :first-child > hr:last-child) {
-@apply rounded-s-badge rounded-e-none;
+  @apply rounded-s-badge rounded-e-none;
 }
 
 :where(.timeline-horizontal:not(:has(.timeline-middle)) :last-child > hr:first-child) {
-@apply rounded-e-badge rounded-s-none;
+  @apply rounded-e-badge rounded-s-none;
 }
+
 ```
 
 </div>
 </div>
+
+
+

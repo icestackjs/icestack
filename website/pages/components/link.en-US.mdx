@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/link/index.mdx'
 
 ## Default Class Table
-
+  
 <CssTable name="link" />
-
+  
 ## Demo
-
+  
 <Demo></Demo>
 
 ## Playground
-
+  
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/navigation-link--docs)
-
+  
 ## Css Schema
 
 
@@ -27,17 +28,18 @@ import Demo from '../../components/demo/link/index.mdx'
 
 ```css
 .link {
-@apply cursor-pointer underline;
+  @apply cursor-pointer underline;
 }
 .link-hover {
-@apply no-underline hover:underline;
+  @apply no-underline hover:underline;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -50,33 +52,34 @@ import Demo from '../../components/demo/link/index.mdx'
 
 ```css
 .link-primary {
-@apply text-primary [@media(hover:hover)]:hover:text-primary-active;
+  @apply text-primary [@media(hover:hover)]:hover:text-primary-active;
 }
 .link-success {
-@apply text-success [@media(hover:hover)]:hover:text-success-active;
+  @apply text-success [@media(hover:hover)]:hover:text-success-active;
 }
 .link-warning {
-@apply text-warning [@media(hover:hover)]:hover:text-warning-active;
+  @apply text-warning [@media(hover:hover)]:hover:text-warning-active;
 }
 .link-error {
-@apply text-error [@media(hover:hover)]:hover:text-error-active;
+  @apply text-error [@media(hover:hover)]:hover:text-error-active;
 }
 .link-neutral {
-@apply text-neutral [@media(hover:hover)]:hover:text-neutral-active;
+  @apply text-neutral [@media(hover:hover)]:hover:text-neutral-active;
 }
 .link:focus {
-@apply outline-none;
+  @apply outline-none;
 }
 .link:focus-visible {
-outline: 2px solid currentColor;
-outline-offset: 2px;
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -93,3 +96,6 @@ outline-offset: 2px;
 
 </div>
 </div>
+
+
+

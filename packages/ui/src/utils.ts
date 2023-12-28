@@ -1,6 +1,5 @@
 import fs from 'node:fs/promises'
 import fss from 'node:fs'
-import readline from 'node:readline'
 import { ModeMergeValue } from '@/types'
 
 export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]> {
@@ -77,13 +76,6 @@ export function arrMatch(matchArr?: (string | RegExp)[], str?: string) {
     }
     return str.match(regex)
   })
-}
-
-export function clearLine(rowCount = 1) {
-  try {
-    readline.moveCursor(process.stdout, 0, -rowCount)
-    readline.clearLine(process.stdout, 1)
-  } catch {}
 }
 
 export function isModeMergeValue(input: any): input is ModeMergeValue {

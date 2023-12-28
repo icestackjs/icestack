@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/radial-progress/index.mdx'
 
 ## 默认类名表格
-
+  
 <CssTable name="radial-progress" />
-
+  
 ## 样例
-
+  
 <Demo></Demo>
 
 ## 演示
-
+  
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/feedback-radial-progress--docs)
-
+  
 ## Css 结构
 
 
@@ -27,49 +28,62 @@ import Demo from '../../components/demo/radial-progress/index.mdx'
 
 ```css
 .radial-progress {
---value: 0;
---size: 5rem;
---thickness: calc(var(--size) / 10);
-vertical-align: middle;
-box-sizing: content-box;
-@apply relative inline-grid h-[var(--size)] w-[var(--size)] place-content-center rounded-full bg-transparent;
+  --value: 0;
+  --size: 5rem;
+  --thickness: calc(var(--size) / 10);
+  vertical-align: middle;
+  box-sizing: content-box;
+  @apply relative inline-grid h-[var(--size)] w-[var(--size)] place-content-center rounded-full bg-transparent;
 }
 
 .radial-progress:after {
-@apply bg-current;
-inset: calc(50% - var(--thickness) / 2);
-transform: rotate(calc(var(--value) * 3.6deg - 90deg)) translate(calc(var(--size) / 2 - 50%));
+  @apply bg-current;
+  inset: calc(50% - var(--thickness) / 2);
+  transform: rotate(calc(var(--value) * 3.6deg - 90deg)) translate(calc(var(--size) / 2 - 50%));
 }
 
 .radial-progress::-moz-progress-bar {
-@apply appearance-none bg-transparent;
+  @apply appearance-none bg-transparent;
 }
 
 .radial-progress::-webkit-progress-value {
-@apply appearance-none bg-transparent;
+  @apply appearance-none bg-transparent;
 }
 
 .radial-progress::-webkit-progress-bar {
-@apply appearance-none bg-transparent;
+  @apply appearance-none bg-transparent;
 }
 
-.radial-progress:before, .radial-progress:after {
-@apply absolute rounded-full;
-content: "";
+.radial-progress:before,
+.radial-progress:after {
+  @apply absolute rounded-full;
+  content: "";
 }
 
 .radial-progress:before {
-@apply inset-0;
-background: radial-gradient(farthest-side, currentColor 98%, #0000) top/var(--thickness) var(--thickness) no-repeat, conic-gradient(currentColor calc(var(--value) * 1%), #0000 0);
--webkit-mask: radial-gradient( farthest-side, #0000 calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)) );
-mask: radial-gradient( farthest-side, #0000 calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)) );
+  @apply inset-0;
+  background:
+    radial-gradient(farthest-side, currentColor 98%, #0000) top/var(--thickness) var(--thickness)
+      no-repeat,
+    conic-gradient(currentColor calc(var(--value) * 1%), #0000 0);
+  -webkit-mask: radial-gradient(
+    farthest-side,
+    #0000 calc(99% - var(--thickness)),
+    #000 calc(100% - var(--thickness))
+  );
+  mask: radial-gradient(
+    farthest-side,
+    #0000 calc(99% - var(--thickness)),
+    #000 calc(100% - var(--thickness))
+  );
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -87,7 +101,7 @@ mask: radial-gradient( farthest-side, #0000 calc(99% - var(--thickness)), #000 c
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -104,3 +118,6 @@ mask: radial-gradient( farthest-side, #0000 calc(99% - var(--thickness)), #000 c
 
 </div>
 </div>
+
+
+

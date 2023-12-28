@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/progress/index.mdx'
 
 ## 默认类名表格
-
+  
 <CssTable name="progress" />
-
+  
 ## 样例
-
+  
 <Demo></Demo>
 
 ## 演示
-
+  
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/feedback-progress--docs)
-
+  
 ## Css 结构
 
 
@@ -27,14 +28,15 @@ import Demo from '../../components/demo/progress/index.mdx'
 
 ```css
 .progress {
-@apply relative w-full appearance-none overflow-hidden;
+  @apply relative w-full appearance-none overflow-hidden;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -47,72 +49,85 @@ import Demo from '../../components/demo/progress/index.mdx'
 
 ```css
 .progress {
-@apply rounded-box bg-base-content/20 h-2;
+  @apply rounded-box bg-base-content/20 h-2;
 }
 .progress::-moz-progress-bar {
-@apply bg-base-content rounded-box;
+  @apply bg-base-content rounded-box;
 }
 .progress::-webkit-progress-bar {
-@apply rounded-box bg-transparent;
+  @apply rounded-box bg-transparent;
 }
 .progress::-webkit-progress-value {
-@apply bg-base-content rounded-box;
+  @apply bg-base-content rounded-box;
 }
 .progress:indeterminate {
-background-image: repeating-linear-gradient( 90deg, var(--progress-color) -1%, var(--progress-color) 10%, transparent 10%, transparent 90% );
-background-size: 200%;
-background-position-x: 15%;
-animation: progress-loading 5s ease-in-out infinite;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--progress-color) -1%,
+    var(--progress-color) 10%,
+    transparent 10%,
+    transparent 90%
+  );
+  background-size: 200%;
+  background-position-x: 15%;
+  animation: progress-loading 5s ease-in-out infinite;
 }
 .progress:indeterminate::-moz-progress-bar {
-@apply bg-transparent;
-background-image: repeating-linear-gradient( 90deg, var(--progress-color) -1%, var(--progress-color) 10%, transparent 10%, transparent 90% );
-background-size: 200%;
-background-position-x: 15%;
-animation: progress-loading 5s ease-in-out infinite;
+  @apply bg-transparent;
+  background-image: repeating-linear-gradient(
+    90deg,
+    var(--progress-color) -1%,
+    var(--progress-color) 10%,
+    transparent 10%,
+    transparent 90%
+  );
+  background-size: 200%;
+  background-position-x: 15%;
+  animation: progress-loading 5s ease-in-out infinite;
 }
 .progress-primary::-moz-progress-bar {
-@apply bg-primary rounded-box;
+  @apply bg-primary rounded-box;
 }
 .progress-success::-moz-progress-bar {
-@apply bg-success rounded-box;
+  @apply bg-success rounded-box;
 }
 .progress-warning::-moz-progress-bar {
-@apply bg-warning rounded-box;
+  @apply bg-warning rounded-box;
 }
 .progress-error::-moz-progress-bar {
-@apply bg-error rounded-box;
+  @apply bg-error rounded-box;
 }
 .progress-neutral::-moz-progress-bar {
-@apply bg-neutral rounded-box;
+  @apply bg-neutral rounded-box;
 }
 .progress-primary::-webkit-progress-value {
-@apply bg-primary;
+  @apply bg-primary;
 }
 .progress-success::-webkit-progress-value {
-@apply bg-success;
+  @apply bg-success;
 }
 .progress-warning::-webkit-progress-value {
-@apply bg-warning;
+  @apply bg-warning;
 }
 .progress-error::-webkit-progress-value {
-@apply bg-error;
+  @apply bg-error;
 }
 .progress-neutral::-webkit-progress-value {
-@apply bg-neutral;
+  @apply bg-neutral;
 }
 
 @keyframes progress-loading {
-50% {
-  background-position-x: -115%;
+  50% {
+    background-position-x: -115%;
+  }
 }
-}
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -129,3 +144,6 @@ animation: progress-loading 5s ease-in-out infinite;
 
 </div>
 </div>
+
+
+

@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/input/index.mdx'
 
 ## 默认类名表格
-
+  
 <CssTable name="input" />
-
+  
 ## 样例
-
+  
 <Demo></Demo>
 
 ## 演示
-
+  
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/data-entry-input--docs)
-
+  
 ## Css 结构
 
 
@@ -27,14 +28,15 @@ import Demo from '../../components/demo/input/index.mdx'
 
 ```css
 .input {
-@apply flex-shrink h-12 px-4 text-sm leading-loose;
+  @apply flex-shrink h-12 px-4 text-sm leading-loose;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -47,66 +49,76 @@ import Demo from '../../components/demo/input/index.mdx'
 
 ```css
 .input {
-@apply border-base-content bg-base-100 rounded-btn border border-opacity-0 text-base;
+  @apply border-base-content bg-base-100 rounded-btn border border-opacity-0 text-base;
 }
 .input input:focus {
-@apply outline-none;
+  @apply outline-none;
 }
 .input[list]::-webkit-calendar-picker-indicator {
-line-height: 1em;
+  line-height: 1em;
 }
 .input-bordered {
-@apply border-opacity-20;
+  @apply border-opacity-20;
 }
-.input:focus, .input:focus-within {
-@apply outline-0 shadow-[0_0_0_2px] shadow-base-content/10;
+.input:focus,
+.input:focus-within {
+  @apply outline-0 shadow-[0_0_0_2px] shadow-base-content/10;
 }
 .input-ghost {
-@apply bg-opacity-5;
+  @apply bg-opacity-5;
 }
-.input-ghost:focus, .input-ghost:focus-within {
-@apply text-base-content bg-opacity-100;
-box-shadow: none;
+.input-ghost:focus,
+.input-ghost:focus-within {
+  @apply text-base-content bg-opacity-100;
+  box-shadow: none;
 }
 .input-primary {
-@apply border-primary;
+  @apply border-primary;
 }
-.input-primary:focus, .input-primary:focus-within {
-@apply shadow-primary/10;
+.input-primary:focus,
+.input-primary:focus-within {
+  @apply shadow-primary/10;
 }
 .input-success {
-@apply border-success;
+  @apply border-success;
 }
-.input-success:focus, .input-success:focus-within {
-@apply shadow-success/10;
+.input-success:focus,
+.input-success:focus-within {
+  @apply shadow-success/10;
 }
 .input-warning {
-@apply border-warning;
+  @apply border-warning;
 }
-.input-warning:focus, .input-warning:focus-within {
-@apply shadow-warning/10;
+.input-warning:focus,
+.input-warning:focus-within {
+  @apply shadow-warning/10;
 }
 .input-error {
-@apply border-error;
+  @apply border-error;
 }
-.input-error:focus, .input-error:focus-within {
-@apply shadow-error/10;
+.input-error:focus,
+.input-error:focus-within {
+  @apply shadow-error/10;
 }
 .input-neutral {
-@apply border-neutral;
+  @apply border-neutral;
 }
-.input-neutral:focus, .input-neutral:focus-within {
-@apply shadow-neutral/10;
+.input-neutral:focus,
+.input-neutral:focus-within {
+  @apply shadow-neutral/10;
 }
-.input-disabled, .input:disabled, .input[disabled] {
-@apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
+.input-disabled,
+.input:disabled,
+.input[disabled] {
+  @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -119,18 +131,22 @@ box-shadow: none;
 
 ```css
 .input-xs {
-@apply h-6 px-2 text-xs leading-relaxed;
+  @apply h-6 px-2 text-xs leading-relaxed;
 }
 .input-sm {
-@apply h-8 px-3 text-sm leading-8;
+  @apply h-8 px-3 text-sm leading-8;
 }
 .input-md {
-@apply h-12 px-4 text-sm leading-loose;
+  @apply h-12 px-4 text-sm leading-loose;
 }
 .input-lg {
-@apply h-16 px-6 text-lg leading-loose;
+  @apply h-16 px-6 text-lg leading-loose;
 }
+
 ```
 
 </div>
 </div>
+
+
+

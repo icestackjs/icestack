@@ -4,12 +4,11 @@ import { set, get, pick } from 'lodash'
 import * as sass from 'sass'
 import type { Value } from 'sass'
 import type { Root, AcceptedPlugin } from 'postcss'
-import cliProgress from 'cli-progress'
 import kleur from 'kleur'
 import { transformJsToSass } from '@/sass'
 import { createDefaultTailwindcssExtends } from '@/defaults'
 import { logger } from '@/log'
-import { clearLine, JSONStringify, ensureDirSync } from '@/utils'
+import { JSONStringify, ensureDirSync } from '@/utils'
 import { generateIndexCode } from '@/js'
 import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@/types'
 import { defu } from '@/shared'
@@ -233,15 +232,7 @@ export function createContext(opts?: CodegenOptions) {
   }
 
   async function buildComponents() {
-    const b1 = new cliProgress.SingleBar(
-      {
-        format: 'building components: [{bar}] | {componentName} | {value}/{total}'
-        // barCompleteChar: '\u2588',
-        // barIncompleteChar: '\u2591'
-        // hideCursor: true
-      },
-      cliProgress.Presets.shades_classic
-    )
+    const b1 = logger.createComponentsProgressBar()
     b1.start(allComponentsNames.length, 0)
     const layer: ILayer = 'components'
     const res: Record<string, Record<string, CssInJs>> = {}
@@ -271,7 +262,7 @@ export function createContext(opts?: CodegenOptions) {
       fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.cjs'), code, 'utf8')
     }
     b1.stop()
-    clearLine()
+    b1.clearLine()
 
     return res
   }

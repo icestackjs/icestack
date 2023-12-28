@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/toast/index.mdx'
 
 ## Default Class Table
-
+  
 <CssTable name="toast" />
-
+  
 ## Demo
-
+  
 <Demo></Demo>
 
 ## Playground
-
+  
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/feedback-toast--docs)
-
+  
 ## Css Schema
 
 
@@ -27,14 +28,15 @@ import Demo from '../../components/demo/toast/index.mdx'
 
 ```css
 .toast {
-@apply fixed flex min-w-fit flex-col whitespace-nowrap;
+  @apply fixed flex min-w-fit flex-col whitespace-nowrap;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -47,28 +49,29 @@ import Demo from '../../components/demo/toast/index.mdx'
 
 ```css
 .toast {
-@apply gap-2 p-4;
+  @apply gap-2 p-4;
 }
 .toast > * {
-animation: toast-pop 0.25s ease-out;
+  animation: toast-pop 0.25s ease-out;
 }
 
 @keyframes toast-pop {
-0% {
-  transform: scale(0.9);
-  opacity: 0;
+  0% {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
-100% {
-  transform: scale(1);
-  opacity: 1;
-}
-}
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -81,33 +84,37 @@ animation: toast-pop 0.25s ease-out;
 
 ```css
 :where(.toast) {
-@apply bottom-0 end-0 start-auto top-auto translate-x-0 translate-y-0;
+  @apply bottom-0 end-0 start-auto top-auto translate-x-0 translate-y-0;
 }
 
 .toast:where(.toast-start) {
-@apply end-auto start-0 translate-x-0;
+  @apply end-auto start-0 translate-x-0;
 }
 
 .toast:where(.toast-center) {
-@apply end-1/2 start-1/2 -translate-x-1/2 rtl:translate-x-1/2;
+  @apply end-1/2 start-1/2 -translate-x-1/2 rtl:translate-x-1/2;
 }
 
 .toast:where(.toast-end) {
-@apply end-0 start-auto translate-x-0;
+  @apply end-0 start-auto translate-x-0;
 }
 
 .toast:where(.toast-bottom) {
-@apply bottom-0 top-auto translate-y-0;
+  @apply bottom-0 top-auto translate-y-0;
 }
 
 .toast:where(.toast-middle) {
-@apply bottom-auto top-1/2 -translate-y-1/2;
+  @apply bottom-auto top-1/2 -translate-y-1/2;
 }
 
 .toast:where(.toast-top) {
-@apply bottom-auto top-0 translate-y-0;
+  @apply bottom-auto top-0 translate-y-0;
 }
+
 ```
 
 </div>
 </div>
+
+
+

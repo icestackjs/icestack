@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/table/index.mdx'
 
 ## Default Class Table
-
+  
 <CssTable name="table" />
-
+  
 ## Demo
-
+  
 <Demo></Demo>
 
 ## Playground
-
+  
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/data-display-table--docs)
-
+  
 ## Css Schema
 
 
@@ -27,26 +28,27 @@ import Demo from '../../components/demo/table/index.mdx'
 
 ```css
 .table {
-@apply relative w-full;
+  @apply relative w-full;
 }
 .table :where(.table-pin-rows thead tr) {
-@apply bg-base-100 sticky top-0 z-[1];
+  @apply bg-base-100 sticky top-0 z-[1];
 }
 .table :where(.table-pin-rows tfoot tr) {
-@apply bg-base-100 sticky bottom-0 z-[1];
+  @apply bg-base-100 sticky bottom-0 z-[1];
 }
 .table :where(.table-pin-cols tr th) {
-@apply bg-base-100 sticky left-0 right-0;
+  @apply bg-base-100 sticky left-0 right-0;
 }
 .table-zebra tbody tr:nth-child(even) :where(.table-pin-cols tr th) {
-@apply bg-base-200;
+  @apply bg-base-200;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -59,35 +61,43 @@ import Demo from '../../components/demo/table/index.mdx'
 
 ```css
 .table {
-@apply rounded-box text-left text-sm;
+  @apply rounded-box text-left text-sm;
 }
 .table :where(th, td) {
-@apply px-4 py-3 align-middle;
+  @apply px-4 py-3 align-middle;
 }
-.table tr.active, .table tr.active:nth-child(even), .table-zebra tbody tr:nth-child(even) {
-@apply bg-base-200;
+.table tr.active,
+.table tr.active:nth-child(even),
+.table-zebra tbody tr:nth-child(even) {
+  @apply bg-base-200;
 }
-.table tr.hover, .table tr.hover:nth-child(even) {
-@apply [@media(hover:hover)]:hover:bg-base-200;
+.table tr.hover,
+.table tr.hover:nth-child(even) {
+  @apply [@media(hover:hover)]:hover:bg-base-200;
 }
-.table-zebra tr.active, .table-zebra tr.active:nth-child(even), .table-zebra-zebra tbody tr:nth-child(even) {
-@apply bg-base-300;
+.table-zebra tr.active,
+.table-zebra tr.active:nth-child(even),
+.table-zebra-zebra tbody tr:nth-child(even) {
+  @apply bg-base-300;
 }
-.table-zebra tr.hover, .table-zebra tr.hover:nth-child(even) {
-@apply [@media(hover:hover)]:hover:bg-base-300;
+.table-zebra tr.hover,
+.table-zebra tr.hover:nth-child(even) {
+  @apply [@media(hover:hover)]:hover:bg-base-300;
 }
-.table :where(thead, tbody) :where(tr:not(:last-child)), .table :where(thead, tbody) :where(tr:first-child:last-child) {
-@apply border-b-base-200 border-b;
+.table :where(thead, tbody) :where(tr:not(:last-child)),
+.table :where(thead, tbody) :where(tr:first-child:last-child) {
+  @apply border-b-base-200 border-b;
 }
 .table :where(thead, tfoot) {
-@apply text-base-content/60 whitespace-nowrap text-xs font-bold;
+  @apply text-base-content/60 whitespace-nowrap text-xs font-bold;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -100,37 +110,41 @@ import Demo from '../../components/demo/table/index.mdx'
 
 ```css
 .table-xs :not(thead):not(tfoot) tr {
-@apply text-xs;
+  @apply text-xs;
 }
 
 .table-xs :where(th, td) {
-@apply px-2 py-1;
+  @apply px-2 py-1;
 }
 
 .table-sm :not(thead):not(tfoot) tr {
-@apply text-sm;
+  @apply text-sm;
 }
 
 .table-sm :where(th, td) {
-@apply px-3 py-2;
+  @apply px-3 py-2;
 }
 
 .table-md :not(thead):not(tfoot) tr {
-@apply text-sm;
+  @apply text-sm;
 }
 
 .table-md :where(th, td) {
-@apply px-4 py-3;
+  @apply px-4 py-3;
 }
 
 .table-lg :not(thead):not(tfoot) tr {
-@apply text-base;
+  @apply text-base;
 }
 
 .table-lg :where(th, td) {
-@apply px-6 py-4;
+  @apply px-6 py-4;
 }
+
 ```
 
 </div>
 </div>
+
+
+

@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/bottom-navigation/index.mdx'
 
 ## 默认类名表格
-
+  
 <CssTable name="bottom-navigation" />
-
+  
 ## 样例
-
+  
 <Demo></Demo>
 
 ## 演示
-
+  
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/navigation-bottom-navigation--docs)
-
+  
 ## Css 结构
 
 
@@ -27,18 +28,19 @@ import Demo from '../../components/demo/bottom-navigation/index.mdx'
 
 ```css
 .btm-nav {
-@apply fixed bottom-0 left-0 right-0 flex w-full flex-row items-center justify-around;
-padding-bottom: env(safe-area-inset-bottom);
+  @apply fixed bottom-0 left-0 right-0 flex w-full flex-row items-center justify-around;
+  padding-bottom: env(safe-area-inset-bottom);
 }
 .btm-nav > * {
-@apply relative flex h-full basis-full cursor-pointer flex-col items-center justify-center gap-1;
+  @apply relative flex h-full basis-full cursor-pointer flex-col items-center justify-center gap-1;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -51,34 +53,37 @@ padding-bottom: env(safe-area-inset-bottom);
 
 ```css
 .btm-nav {
-@apply bg-base-100 h-16 text-current;
+  @apply bg-base-100 h-16 text-current;
 }
 .btm-nav > * {
-@apply border-current;
+  @apply border-current;
 }
 .btm-nav > *:not(.active) {
-@apply pt-0.5;
+  @apply pt-0.5;
 }
 .btm-nav > *:where(.active) {
-@apply bg-base-100 border-t-2;
+  @apply bg-base-100 border-t-2;
 }
-.btm-nav > *.disabled, .btm-nav > *[disabled] {
-@apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;
-}
-@media (hover: hover) {
-.btm-nav > *.disabled:hover, .btm-nav > *[disabled]:hover {
+.btm-nav > *.disabled,
+.btm-nav > *[disabled] {
   @apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;
 }
+@media (hover: hover) {
+  .btm-nav > *.disabled:hover,
+  .btm-nav > *[disabled]:hover {
+    @apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;
+  }
 }
 .btm-nav > * .label {
-@apply text-base;
+  @apply text-base;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -91,42 +96,46 @@ padding-bottom: env(safe-area-inset-bottom);
 
 ```css
 .btm-nav-xs {
-@apply h-10;
+  @apply h-10;
 }
 .btm-nav-xs > *:where(.active) {
-@apply border-t-[1px];
+  @apply border-t-[1px];
 }
 .btm-nav-xs .btm-nav-label {
-@apply text-xs;
+  @apply text-xs;
 }
 .btm-nav-sm {
-@apply h-12;
+  @apply h-12;
 }
 .btm-nav-sm > *:where(.active) {
-@apply border-t-2;
+  @apply border-t-2;
 }
 .btm-nav-sm .btm-nav-label {
-@apply text-xs;
+  @apply text-xs;
 }
 .btm-nav-md {
-@apply h-16;
+  @apply h-16;
 }
 .btm-nav-md > *:where(.active) {
-@apply border-t-2;
+  @apply border-t-2;
 }
 .btm-nav-md .btm-nav-label {
-@apply text-sm;
+  @apply text-sm;
 }
 .btm-nav-lg {
-@apply h-20;
+  @apply h-20;
 }
 .btm-nav-lg > *:where(.active) {
-@apply border-t-4;
+  @apply border-t-4;
 }
 .btm-nav-lg .btm-nav-label {
-@apply text-base;
+  @apply text-base;
 }
+
 ```
 
 </div>
 </div>
+
+
+

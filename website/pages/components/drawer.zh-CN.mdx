@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/drawer/index.mdx'
 
 ## 默认类名表格
-
+  
 <CssTable name="drawer" />
-
+  
 ## 样例
-
+  
 <Demo></Demo>
 
 ## 演示
-
+  
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-drawer--docs)
-
+  
 ## Css 结构
 
 
@@ -27,62 +28,63 @@ import Demo from '../../components/demo/drawer/index.mdx'
 
 ```css
 .drawer {
-@apply relative grid;
-grid-auto-columns: max-content auto;
+  @apply relative grid;
+  grid-auto-columns: max-content auto;
 }
 .drawer-content {
-@apply col-start-2 row-start-1 min-w-0;
+  @apply col-start-2 row-start-1 min-w-0;
 }
 .drawer-side {
-@apply pointer-events-none fixed start-0 top-0 col-start-1 row-start-1 grid w-full grid-cols-1 grid-rows-1 items-start justify-items-start overflow-y-auto overscroll-contain;
-height: 100dvh;
+  @apply pointer-events-none fixed start-0 top-0 col-start-1 row-start-1 grid w-full grid-cols-1 grid-rows-1 items-start justify-items-start overflow-y-auto overscroll-contain;
+  height: 100dvh;
 }
 .drawer-side > .drawer-overlay {
-@apply sticky top-0 place-self-stretch;
+  @apply sticky top-0 place-self-stretch;
 }
 .drawer-side > * {
-@apply col-start-1 row-start-1;
+  @apply col-start-1 row-start-1;
 }
 .drawer-side > *:not(.drawer-overlay) {
-@apply transition-transform duration-300 ease-out will-change-transform;
-transform: translateX(-100%);
+  @apply transition-transform duration-300 ease-out will-change-transform;
+  transform: translateX(-100%);
 }
-[dir=rtl] .drawer-side > *:not(.drawer-overlay) {
-transform: translateX(100%);
+[dir="rtl"] .drawer-side > *:not(.drawer-overlay) {
+  transform: translateX(100%);
 }
 .drawer-toggle {
-@apply fixed h-0 w-0 appearance-none opacity-0;
+  @apply fixed h-0 w-0 appearance-none opacity-0;
 }
 .drawer-toggle:checked ~ .drawer-side {
-@apply pointer-events-auto visible;
+  @apply pointer-events-auto visible;
 }
 .drawer-toggle:checked ~ .drawer-side > *:not(.drawer-overlay) {
-transform: translateX(0%);
+  transform: translateX(0%);
 }
 .drawer-end {
-grid-auto-columns: auto max-content;
+  grid-auto-columns: auto max-content;
 }
 .drawer-end .drawer-toggle ~ .drawer-content {
-@apply col-start-1;
+  @apply col-start-1;
 }
 .drawer-end .drawer-toggle ~ .drawer-side {
-@apply col-start-2 justify-items-end;
+  @apply col-start-2 justify-items-end;
 }
 .drawer-end .drawer-toggle ~ .drawer-side > *:not(.drawer-overlay) {
-transform: translateX(100%);
+  transform: translateX(100%);
 }
-[dir=rtl] .drawer-end .drawer-toggle ~ .drawer-side > *:not(.drawer-overlay) {
-transform: translateX(-100%);
+[dir="rtl"] .drawer-end .drawer-toggle ~ .drawer-side > *:not(.drawer-overlay) {
+  transform: translateX(-100%);
 }
 .drawer-end .drawer-toggle:checked ~ .drawer-side > *:not(.drawer-overlay) {
-transform: translateX(0%);
+  transform: translateX(0%);
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -95,23 +97,24 @@ transform: translateX(0%);
 
 ```css
 .drawer {
-width: 100%;
+  width: 100%;
 }
 .drawer-side > .drawer-overlay {
-@apply cursor-pointer bg-transparent transition-colors duration-200 ease-out;
+  @apply cursor-pointer bg-transparent transition-colors duration-200 ease-out;
 }
 .drawer-toggle:checked ~ .drawer-side > .drawer-overlay {
-background-color: #0006;
+  background-color: #0006;
 }
 .drawer-toggle:focus-visible ~ .drawer-content label.drawer-button {
-@apply outline outline-2 outline-offset-2;
+  @apply outline outline-2 outline-offset-2;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -124,24 +127,28 @@ background-color: #0006;
 
 ```css
 .drawer-open > .drawer-toggle {
-@apply hidden;
+  @apply hidden;
 }
 .drawer-open > .drawer-toggle ~ .drawer-side {
-@apply pointer-events-auto visible sticky block w-auto overscroll-auto;
+  @apply pointer-events-auto visible sticky block w-auto overscroll-auto;
 }
 .drawer-open > .drawer-toggle ~ .drawer-side > *:not(.drawer-overlay) {
-transform: translateX(0%);
+  transform: translateX(0%);
 }
-[dir=rtl] .drawer-open > .drawer-toggle ~ .drawer-side > *:not(.drawer-overlay) {
-transform: translateX(0%);
+[dir="rtl"] .drawer-open > .drawer-toggle ~ .drawer-side > *:not(.drawer-overlay) {
+  transform: translateX(0%);
 }
 .drawer-open > .drawer-toggle ~ .drawer-side > .drawer-overlay {
-@apply cursor-default bg-transparent;
+  @apply cursor-default bg-transparent;
 }
 .drawer-open > .drawer-toggle:checked ~ .drawer-side {
-@apply pointer-events-auto visible;
+  @apply pointer-events-auto visible;
 }
+
 ```
 
 </div>
 </div>
+
+
+

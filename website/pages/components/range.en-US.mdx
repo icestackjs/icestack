@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/range/index.mdx'
 
 ## Default Class Table
-
+  
 <CssTable name="range" />
-
+  
 ## Demo
-
+  
 <Demo></Demo>
 
 ## Playground
-
+  
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/data-entry-range--docs)
-
+  
 ## Css Schema
 
 
@@ -27,17 +28,18 @@ import Demo from '../../components/demo/range/index.mdx'
 
 ```css
 .range {
-@apply h-6 w-full cursor-pointer;
+  @apply h-6 w-full cursor-pointer;
 }
 .range:focus {
-outline: none;
+  outline: none;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -50,61 +52,68 @@ outline: none;
 
 ```css
 .range {
-@apply rounded-box overflow-hidden bg-transparent;
-appearance: none;
---range-shdw: var(--base-content);
+  @apply rounded-box overflow-hidden bg-transparent;
+  appearance: none;
+  --range-shdw: var(--base-content);
 }
 .range:focus-visible::-webkit-slider-thumb {
---focus-shadow: 0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset;
+  --focus-shadow: 0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset;
 }
 .range:focus-visible::-moz-range-thumb {
---focus-shadow: 0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset;
+  --focus-shadow: 0 0 0 6px rgba(var(--base-400)) inset, 0 0 0 2rem rgba(var(--range-shdw)) inset;
 }
 .range::-webkit-slider-runnable-track {
-@apply rounded-box bg-base-content/10 h-2 w-full;
+  @apply rounded-box bg-base-content/10 h-2 w-full;
 }
 .range::-moz-range-track {
-@apply rounded-box bg-base-content/10 h-2 w-full;
+  @apply rounded-box bg-base-content/10 h-2 w-full;
 }
 .range::-webkit-slider-thumb {
-@apply rounded-box bg-base-400 relative h-6 w-6 border-none;
-appearance: none;
-top: 50%;
-transform: translateY(-50%);
-color: rgba(var(--range-shdw));
---filler-size: 100rem;
---filler-offset: 0.6rem;
-box-shadow: 0 0 0 3px rgba(var(--range-shdw)) inset, var(--focus-shadow, 0 0), calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size);
+  @apply rounded-box bg-base-400 relative h-6 w-6 border-none;
+  appearance: none;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(var(--range-shdw));
+  --filler-size: 100rem;
+  --filler-offset: 0.6rem;
+  box-shadow:
+    0 0 0 3px rgba(var(--range-shdw)) inset,
+    var(--focus-shadow, 0 0),
+    calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size);
 }
 .range::-moz-range-thumb {
-@apply rounded-box bg-base-400 relative h-6 w-6 border-none;
-top: 50%;
-color: rgba(var(--range-shdw));
---filler-size: 100rem;
---filler-offset: 0.5rem;
-box-shadow: 0 0 0 3px rgba(var(--range-shdw)) inset, var(--focus-shadow, 0 0), calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size);
+  @apply rounded-box bg-base-400 relative h-6 w-6 border-none;
+  top: 50%;
+  color: rgba(var(--range-shdw));
+  --filler-size: 100rem;
+  --filler-offset: 0.5rem;
+  box-shadow:
+    0 0 0 3px rgba(var(--range-shdw)) inset,
+    var(--focus-shadow, 0 0),
+    calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size);
 }
 .range-primary {
---range-shdw: var(--primary);
+  --range-shdw: var(--primary);
 }
 .range-success {
---range-shdw: var(--success);
+  --range-shdw: var(--success);
 }
 .range-warning {
---range-shdw: var(--warning);
+  --range-shdw: var(--warning);
 }
 .range-error {
---range-shdw: var(--error);
+  --range-shdw: var(--error);
 }
 .range-neutral {
---range-shdw: var(--neutral);
+  --range-shdw: var(--neutral);
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -117,74 +126,78 @@ box-shadow: 0 0 0 3px rgba(var(--range-shdw)) inset, var(--focus-shadow, 0 0), c
 
 ```css
 .range-xs {
-@apply h-4;
+  @apply h-4;
 }
 .range-xs::-webkit-slider-runnable-track {
-@apply h-1;
+  @apply h-1;
 }
 .range-xs::-moz-range-track {
-@apply h-1;
+  @apply h-1;
 }
 .range-xs::-webkit-slider-thumb {
-@apply h-4 w-4;
---filler-offset: 0.4rem;
+  @apply h-4 w-4;
+  --filler-offset: 0.4rem;
 }
 .range-xs::-moz-range-thumb {
-@apply h-4 w-4;
---filler-offset: 0.4rem;
+  @apply h-4 w-4;
+  --filler-offset: 0.4rem;
 }
 .range-sm {
-@apply h-5;
+  @apply h-5;
 }
 .range-sm::-webkit-slider-runnable-track {
-@apply h-1;
+  @apply h-1;
 }
 .range-sm::-moz-range-track {
-@apply h-1;
+  @apply h-1;
 }
 .range-sm::-webkit-slider-thumb {
-@apply h-5 w-5;
---filler-offset: 0.5rem;
+  @apply h-5 w-5;
+  --filler-offset: 0.5rem;
 }
 .range-sm::-moz-range-thumb {
-@apply h-5 w-5;
---filler-offset: 0.5rem;
+  @apply h-5 w-5;
+  --filler-offset: 0.5rem;
 }
 .range-md {
-@apply h-6;
+  @apply h-6;
 }
 .range-md::-webkit-slider-runnable-track {
-@apply h-2;
+  @apply h-2;
 }
 .range-md::-moz-range-track {
-@apply h-2;
+  @apply h-2;
 }
 .range-md::-webkit-slider-thumb {
-@apply h-6 w-6;
---filler-offset: 0.6rem;
+  @apply h-6 w-6;
+  --filler-offset: 0.6rem;
 }
 .range-md::-moz-range-thumb {
-@apply h-6 w-6;
---filler-offset: 0.6rem;
+  @apply h-6 w-6;
+  --filler-offset: 0.6rem;
 }
 .range-lg {
-@apply h-8;
+  @apply h-8;
 }
 .range-lg::-webkit-slider-runnable-track {
-@apply h-4;
+  @apply h-4;
 }
 .range-lg::-moz-range-track {
-@apply h-4;
+  @apply h-4;
 }
 .range-lg::-webkit-slider-thumb {
-@apply h-8 w-8;
---filler-offset: 1rem;
+  @apply h-8 w-8;
+  --filler-offset: 1rem;
 }
 .range-lg::-moz-range-thumb {
-@apply h-8 w-8;
---filler-offset: 1rem;
+  @apply h-8 w-8;
+  --filler-offset: 1rem;
 }
+
 ```
 
 </div>
 </div>
+
+
+

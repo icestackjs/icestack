@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/stack/index.mdx'
 
 ## Default Class Table
-
+  
 <CssTable name="stack" />
-
+  
 ## Demo
-
+  
 <Demo></Demo>
 
 ## Playground
-
+  
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-stack--docs)
-
+  
 ## Css Schema
 
 
@@ -27,27 +28,28 @@ import Demo from '../../components/demo/stack/index.mdx'
 
 ```css
 .stack {
-@apply inline-grid;
+  @apply inline-grid;
 }
 .stack > * {
-@apply col-start-1 row-start-1;
-transform: translateY(10%) scale(0.9);
-z-index: 1;
+  @apply col-start-1 row-start-1;
+  transform: translateY(10%) scale(0.9);
+  z-index: 1;
 }
 .stack > *:nth-child(2) {
-transform: translateY(5%) scale(0.95);
-z-index: 2;
+  transform: translateY(5%) scale(0.95);
+  z-index: 2;
 }
 .stack > *:nth-child(1) {
-transform: translateY(0) scale(1);
-z-index: 3;
+  transform: translateY(0) scale(1);
+  z-index: 3;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -60,24 +62,25 @@ z-index: 3;
 
 ```css
 .stack {
-@apply place-items-center items-end;
+  @apply place-items-center items-end;
 }
 .stack > * {
-@apply w-full;
-@apply opacity-60;
+  @apply w-full;
+  @apply opacity-60;
 }
 .stack > *:nth-child(2) {
-@apply opacity-80;
+  @apply opacity-80;
 }
 .stack > *:nth-child(1) {
-@apply opacity-100;
+  @apply opacity-100;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -94,3 +97,6 @@ z-index: 3;
 
 </div>
 </div>
+
+
+

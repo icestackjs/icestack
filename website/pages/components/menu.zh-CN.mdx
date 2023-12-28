@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/menu/index.mdx'
 
 ## 默认类名表格
-
+  
 <CssTable name="menu" />
-
+  
 ## 样例
-
+  
 <Demo></Demo>
 
 ## 演示
-
+  
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/navigation-menu--docs)
-
+  
 ## Css 结构
 
 
@@ -27,35 +28,37 @@ import Demo from '../../components/demo/menu/index.mdx'
 
 ```css
 .menu {
-@apply flex flex-col flex-wrap text-sm;
+  @apply flex flex-col flex-wrap text-sm;
 }
 .menu :where(li ul) {
-@apply relative whitespace-nowrap;
+  @apply relative whitespace-nowrap;
 }
-.menu :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
-@apply grid grid-flow-col content-start items-center gap-2;
-grid-auto-columns: minmax(auto, max-content) auto max-content;
-user-select: none;
+.menu :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)),
+.menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+  @apply grid grid-flow-col content-start items-center gap-2;
+  grid-auto-columns: minmax(auto, max-content) auto max-content;
+  user-select: none;
 }
 .menu li.disabled {
-@apply cursor-not-allowed select-none;
+  @apply cursor-not-allowed select-none;
 }
 .menu :where(li > .menu-dropdown:not(.menu-dropdown-show)) {
-@apply hidden;
+  @apply hidden;
 }
 
 :where(.menu li) {
-@apply relative flex shrink-0 flex-col flex-wrap items-stretch;
+  @apply relative flex shrink-0 flex-col flex-wrap items-stretch;
 }
 :where(.menu li) .badge {
-@apply justify-self-end;
+  @apply justify-self-end;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -68,84 +71,117 @@ user-select: none;
 
 ```css
 .menu {
-@apply p-2;
+  @apply p-2;
 }
 
 :where(.menu li:empty) {
-@apply bg-base-content opacity-10;
-margin: 0.5rem 1rem;
-height: 1px;
+  @apply bg-base-content opacity-10;
+  margin: 0.5rem 1rem;
+  height: 1px;
 }
 
 .menu :where(li ul) {
-@apply ms-4 ps-2;
+  @apply ms-4 ps-2;
 }
 .menu :where(li ul):before {
-@apply bg-base-content absolute bottom-3 start-0 top-3 w-px opacity-10;
-content: "";
+  @apply bg-base-content absolute bottom-3 start-0 top-3 w-px opacity-10;
+  content: "";
 }
 
-.menu :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)), .menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
-@apply rounded-btn px-4 py-2 text-start transition duration-200 ease-out;
-text-wrap: balance;
+.menu :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)),
+.menu :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+  @apply rounded-btn px-4 py-2 text-start transition duration-200 ease-out;
+  text-wrap: balance;
 }
 
-:where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(summary):not(.active).focus, :where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(summary):not(.active):focus, :where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):is(summary):not(.active):focus-visible, :where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):not(summary):not(.active).focus, :where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):not(summary):not(.active):focus, :where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):is(summary):not(.active):focus-visible {
-@apply bg-base-content/10 text-base-content cursor-pointer outline-none;
+:where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(
+    summary
+  ):not(.active).focus,
+:where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(
+    summary
+  ):not(.active):focus,
+:where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):is(
+    summary
+  ):not(.active):focus-visible,
+:where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):not(
+    summary
+  ):not(.active).focus,
+:where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):not(
+    summary
+  ):not(.active):focus,
+:where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):is(
+    summary
+  ):not(.active):focus-visible {
+  @apply bg-base-content/10 text-base-content cursor-pointer outline-none;
 }
 @media (hover: hover) {
-:where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(.active):hover, :where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):not(.active):hover {
-  @apply cursor-pointer outline-none;
-}
-@supports (color: oklch(0 0 0)) {
-  :where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(.active):hover, :where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):not(.active):hover {
-    @apply bg-base-content/10;
+  :where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(
+      .active
+    ):hover,
+  :where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):not(
+      .active
+    ):hover {
+    @apply cursor-pointer outline-none;
+  }
+  @supports (color: oklch(0 0 0)) {
+    :where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(
+        .active
+      ):hover,
+    :where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):not(
+        .active
+      ):hover {
+      @apply bg-base-content/10;
+    }
   }
 }
-}
 
-.menu li > *:not(ul):not(.menu-title):not(details):active, .menu li > *:not(ul):not(.menu-title):not(details).active, .menu li > details > summary:active {
-@apply bg-neutral text-neutral-content [@media(hover:hover)]:bg-neutral [@media(hover:hover)]:text-neutral-content;
+.menu li > *:not(ul):not(.menu-title):not(details):active,
+.menu li > *:not(ul):not(.menu-title):not(details).active,
+.menu li > details > summary:active {
+  @apply bg-neutral text-neutral-content [@media(hover:hover)]:bg-neutral [@media(hover:hover)]:text-neutral-content;
 }
 
 .menu li.disabled {
-@apply text-base-content/30;
+  @apply text-base-content/30;
 }
 
 .menu :where(li > details > summary)::-webkit-details-marker {
-@apply hidden;
+  @apply hidden;
 }
 
-.menu :where(li > details > summary):after, .menu :where(li > .menu-dropdown-toggle):after {
-@apply justify-self-end;
-display: block;
-margin-top: -0.5rem;
-height: 0.5rem;
-width: 0.5rem;
-transform: rotate(45deg);
-transition-property: transform, margin-top;
-transition-duration: 0.3s;
-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-content: "";
-transform-origin: 75% 75%;
-box-shadow: 2px 2px;
-pointer-events: none;
+.menu :where(li > details > summary):after,
+.menu :where(li > .menu-dropdown-toggle):after {
+  @apply justify-self-end;
+  display: block;
+  margin-top: -0.5rem;
+  height: 0.5rem;
+  width: 0.5rem;
+  transform: rotate(45deg);
+  transition-property: transform, margin-top;
+  transition-duration: 0.3s;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  content: "";
+  transform-origin: 75% 75%;
+  box-shadow: 2px 2px;
+  pointer-events: none;
 }
 
-.menu :where(li > details[open] > summary):after, .menu :where(li > .menu-dropdown-toggle.menu-dropdown-show):after {
-transform: rotate(225deg);
-margin-top: 0;
+.menu :where(li > details[open] > summary):after,
+.menu :where(li > .menu-dropdown-toggle.menu-dropdown-show):after {
+  transform: rotate(225deg);
+  margin-top: 0;
 }
 
 .menu-title {
-@apply text-base-content/40 px-4 py-2 text-sm font-bold;
+  @apply text-base-content/40 px-4 py-2 text-sm font-bold;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -158,56 +194,64 @@ margin-top: 0;
 
 ```css
 .menu-horizontal {
-@apply inline-flex flex-row;
+  @apply inline-flex flex-row;
 }
 .menu-horizontal > li:not(.menu-title) > details > ul {
-@apply absolute;
-@apply ms-0 mt-4 py-2 pe-2;
+  @apply absolute;
+  @apply ms-0 mt-4 py-2 pe-2;
 }
 .menu-horizontal > li > details > ul:before {
-content: none;
+  content: none;
 }
 
 .menu-vertical {
-@apply flex flex-col;
+  @apply flex flex-col;
 }
 .menu-vertical > li:not(.menu-title) > details > ul {
-@apply relative;
-@apply ms-4 mt-0 py-0 pe-0;
+  @apply relative;
+  @apply ms-4 mt-0 py-0 pe-0;
 }
 
 :where(.menu-horizontal > li:not(.menu-title) > details > ul) {
-@apply bg-base-100 rounded-box shadow-xl;
+  @apply bg-base-100 rounded-box shadow-xl;
 }
 
-.menu-xs :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)), .menu-xs :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
-@apply rounded px-2 py-1 text-xs;
+.menu-xs :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)),
+.menu-xs :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+  @apply rounded px-2 py-1 text-xs;
 }
 .menu-xs .menu-title {
-@apply px-2 py-1;
+  @apply px-2 py-1;
 }
 
-.menu-sm :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)), .menu-sm :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
-@apply rounded-btn px-3 py-1 text-sm;
+.menu-sm :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)),
+.menu-sm :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+  @apply rounded-btn px-3 py-1 text-sm;
 }
 .menu-sm .menu-title {
-@apply px-3 py-2;
+  @apply px-3 py-2;
 }
 
-.menu-md :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)), .menu-md :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
-@apply rounded-btn px-4 py-2 text-sm;
+.menu-md :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)),
+.menu-md :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+  @apply rounded-btn px-4 py-2 text-sm;
 }
 .menu-md .menu-title {
-@apply px-4 py-2;
+  @apply px-4 py-2;
 }
 
-.menu-lg :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)), .menu-lg :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
-@apply rounded-btn px-6 py-3 text-lg;
+.menu-lg :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)),
+.menu-lg :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
+  @apply rounded-btn px-6 py-3 text-lg;
 }
 .menu-lg .menu-title {
-@apply px-6 py-3;
+  @apply px-6 py-3;
 }
+
 ```
 
 </div>
 </div>
+
+
+

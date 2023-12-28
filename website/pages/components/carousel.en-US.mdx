@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/carousel/index.mdx'
 
 ## Default Class Table
-
+  
 <CssTable name="carousel" />
-
+  
 ## Demo
-
+  
 <Demo></Demo>
 
 ## Playground
-
+  
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/data-display-carousel--docs)
-
+  
 ## Css Schema
 
 
@@ -27,30 +28,31 @@ import Demo from '../../components/demo/carousel/index.mdx'
 
 ```css
 .carousel {
-@apply inline-flex overflow-x-scroll;
-scroll-snap-type: x mandatory;
-scroll-behavior: smooth;
+  @apply inline-flex overflow-x-scroll;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
 }
 .carousel-vertical {
-@apply flex-col overflow-y-scroll;
-scroll-snap-type: y mandatory;
+  @apply flex-col overflow-y-scroll;
+  scroll-snap-type: y mandatory;
 }
 .carousel-item {
-@apply box-content flex flex-none;
-scroll-snap-align: start;
+  @apply box-content flex flex-none;
+  scroll-snap-align: start;
 }
 .carousel-center .carousel-item {
-scroll-snap-align: center;
+  scroll-snap-align: center;
 }
 .carousel-end .carousel-item {
-scroll-snap-align: end;
+  scroll-snap-align: end;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -63,18 +65,19 @@ scroll-snap-align: end;
 
 ```css
 .carousel {
--ms-overflow-style: none;
-scrollbar-width: none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .carousel::-webkit-scrollbar {
-@apply hidden;
+  @apply hidden;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -91,3 +94,6 @@ scrollbar-width: none;
 
 </div>
 </div>
+
+
+

@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/stat/index.mdx'
 
 ## Default Class Table
-
+  
 <CssTable name="stat" />
-
+  
 ## Demo
-
+  
 <Demo></Demo>
 
 ## Playground
-
+  
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/data-display-stat--docs)
-
+  
 ## Css Schema
 
 
@@ -27,38 +28,39 @@ import Demo from '../../components/demo/stat/index.mdx'
 
 ```css
 .stats {
-@apply inline-grid;
+  @apply inline-grid;
 }
 
 :where(.stats) {
-@apply grid-flow-col;
+  @apply grid-flow-col;
 }
 
 .stat {
-@apply inline-grid w-full;
-grid-template-columns: repeat(1, 1fr);
+  @apply inline-grid w-full;
+  grid-template-columns: repeat(1, 1fr);
 }
 .stat-figure {
-@apply col-start-2 row-span-3 row-start-1 place-self-center justify-self-end;
+  @apply col-start-2 row-span-3 row-start-1 place-self-center justify-self-end;
 }
 .stat-title {
-@apply col-start-1 whitespace-nowrap;
+  @apply col-start-1 whitespace-nowrap;
 }
 .stat-value {
-@apply col-start-1 whitespace-nowrap;
+  @apply col-start-1 whitespace-nowrap;
 }
 .stat-desc {
-@apply col-start-1 whitespace-nowrap;
+  @apply col-start-1 whitespace-nowrap;
 }
 .stat-actions {
-@apply col-start-1 whitespace-nowrap;
+  @apply col-start-1 whitespace-nowrap;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -71,38 +73,39 @@ grid-template-columns: repeat(1, 1fr);
 
 ```css
 .stats {
-@apply bg-base-100 text-base-content rounded-box;
+  @apply bg-base-100 text-base-content rounded-box;
 }
 
 :where(.stats) {
-@apply divide-x divide-y-0 overflow-x-auto;
+  @apply divide-x divide-y-0 overflow-x-auto;
 }
 
-:is([dir=rtl] .stats > :not([hidden]) ~ :not([hidden])) {
---tw-divide-x-reverse: 1;
+:is([dir="rtl"] .stats > :not([hidden]) ~ :not([hidden])) {
+  --tw-divide-x-reverse: 1;
 }
 
 .stat {
-@apply border-base-content gap-x-4 border-opacity-10 px-6 py-4;
+  @apply border-base-content gap-x-4 border-opacity-10 px-6 py-4;
 }
 .stat-title {
-@apply text-base-content/60;
+  @apply text-base-content/60;
 }
 .stat-value {
-@apply text-4xl font-extrabold;
+  @apply text-4xl font-extrabold;
 }
 .stat-desc {
-@apply text-base-content/60 text-xs;
+  @apply text-base-content/60 text-xs;
 }
 .stat-actions {
-@apply mt-4;
+  @apply mt-4;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -115,15 +118,19 @@ grid-template-columns: repeat(1, 1fr);
 
 ```css
 .stats-horizontal {
-@apply grid-flow-col;
-@apply divide-x divide-y-0 overflow-x-auto rtl:[--tw-divide-x-reverse:1];
+  @apply grid-flow-col;
+  @apply divide-x divide-y-0 overflow-x-auto rtl:[--tw-divide-x-reverse:1];
 }
 
 .stats-vertical {
-@apply grid-flow-row;
-@apply divide-x-0 divide-y overflow-y-auto;
+  @apply grid-flow-row;
+  @apply divide-x-0 divide-y overflow-y-auto;
 }
+
 ```
 
 </div>
 </div>
+
+
+

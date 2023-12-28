@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/avatar/index.mdx'
 
 ## Default Class Table
-
+  
 <CssTable name="avatar" />
-
+  
 ## Demo
-
+  
 <Demo></Demo>
 
 ## Playground
-
+  
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/data-display-avatar--docs)
-
+  
 ## Css Schema
 
 
@@ -27,23 +28,24 @@ import Demo from '../../components/demo/avatar/index.mdx'
 
 ```css
 .avatar {
-@apply relative inline-flex;
+  @apply relative inline-flex;
 }
 .avatar > div {
-@apply block aspect-square overflow-hidden;
+  @apply block aspect-square overflow-hidden;
 }
 .avatar img {
-@apply h-full w-full object-cover;
+  @apply h-full w-full object-cover;
 }
 .avatar.placeholder > div {
-@apply flex items-center justify-center;
+  @apply flex items-center justify-center;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -56,17 +58,18 @@ import Demo from '../../components/demo/avatar/index.mdx'
 
 ```css
 .avatar-group {
-@apply flex overflow-hidden;
+  @apply flex overflow-hidden;
 }
 .avatar-group :where(.avatar) {
-@apply border-base-100 overflow-hidden rounded-full border-4;
+  @apply border-base-100 overflow-hidden rounded-full border-4;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -83,3 +86,6 @@ import Demo from '../../components/demo/avatar/index.mdx'
 
 </div>
 </div>
+
+
+

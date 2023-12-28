@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/footer/index.mdx'
 
 ## Default Class Table
-
+  
 <CssTable name="footer" />
-
+  
 ## Demo
-
+  
 <Demo></Demo>
 
 ## Playground
-
+  
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-footer--docs)
-
+  
 ## Css Schema
 
 
@@ -27,32 +28,33 @@ import Demo from '../../components/demo/footer/index.mdx'
 
 ```css
 .footer {
-@apply grid w-full grid-flow-row place-items-start;
+  @apply grid w-full grid-flow-row place-items-start;
 }
 .footer > * {
-@apply grid place-items-start;
+  @apply grid place-items-start;
 }
 .footer-center {
-@apply place-items-center text-center;
+  @apply place-items-center text-center;
 }
 .footer-center > * {
-@apply place-items-center;
+  @apply place-items-center;
 }
 
 @media (min-width: 48rem) {
-.footer {
-  grid-auto-flow: column;
+  .footer {
+    grid-auto-flow: column;
+  }
+  .footer-center {
+    grid-auto-flow: row dense;
+  }
 }
-.footer-center {
-  grid-auto-flow: row dense;
-}
-}
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -65,20 +67,21 @@ import Demo from '../../components/demo/footer/index.mdx'
 
 ```css
 .footer {
-@apply gap-x-4 gap-y-10 text-sm;
+  @apply gap-x-4 gap-y-10 text-sm;
 }
 .footer > * {
-@apply gap-2;
+  @apply gap-2;
 }
 .footer-title {
-@apply mb-2 font-bold uppercase opacity-60;
+  @apply mb-2 font-bold uppercase opacity-60;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -95,3 +98,6 @@ import Demo from '../../components/demo/footer/index.mdx'
 
 </div>
 </div>
+
+
+

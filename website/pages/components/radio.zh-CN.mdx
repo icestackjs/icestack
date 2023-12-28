@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/radio/index.mdx'
 
 ## 默认类名表格
-
+  
 <CssTable name="radio" />
-
+  
 ## 样例
-
+  
 <Demo></Demo>
 
 ## 演示
-
+  
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/data-entry-radio--docs)
-
+  
 ## Css 结构
 
 
@@ -27,14 +28,15 @@ import Demo from '../../components/demo/radio/index.mdx'
 
 ```css
 .radio {
-@apply shrink-0;
+  @apply shrink-0;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -47,82 +49,97 @@ import Demo from '../../components/demo/radio/index.mdx'
 
 ```css
 .radio {
-@apply border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20;
+  @apply border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20;
 }
 .radio:focus-visible {
-@apply outline-base-content outline outline-2 outline-offset-2;
+  @apply outline-base-content outline outline-2 outline-offset-2;
 }
-.radio:checked, .radio[aria-checked=true] {
-@apply bg-base-content;
-animation: radiomark var(--animation-input, 0.2s) ease-out;
-box-shadow: 0 0 0 4px rgba(var(--base-400)) inset, 0 0 0 4px rgba(var(--base-400)) inset;
+.radio:checked,
+.radio[aria-checked="true"] {
+  @apply bg-base-content;
+  animation: radiomark var(--animation-input, 0.2s) ease-out;
+  box-shadow:
+    0 0 0 4px rgba(var(--base-400)) inset,
+    0 0 0 4px rgba(var(--base-400)) inset;
 }
 .radio-primary {
-@apply border-primary hover:border-primary;
+  @apply border-primary hover:border-primary;
 }
 .radio-primary:focus-visible {
-@apply outline-primary;
+  @apply outline-primary;
 }
-.radio-primary:checked, .radio-primary[aria-checked=true] {
-@apply border-primary bg-primary text-primary-content;
+.radio-primary:checked,
+.radio-primary[aria-checked="true"] {
+  @apply border-primary bg-primary text-primary-content;
 }
 .radio-success {
-@apply border-success hover:border-success;
+  @apply border-success hover:border-success;
 }
 .radio-success:focus-visible {
-@apply outline-success;
+  @apply outline-success;
 }
-.radio-success:checked, .radio-success[aria-checked=true] {
-@apply border-success bg-success text-success-content;
+.radio-success:checked,
+.radio-success[aria-checked="true"] {
+  @apply border-success bg-success text-success-content;
 }
 .radio-warning {
-@apply border-warning hover:border-warning;
+  @apply border-warning hover:border-warning;
 }
 .radio-warning:focus-visible {
-@apply outline-warning;
+  @apply outline-warning;
 }
-.radio-warning:checked, .radio-warning[aria-checked=true] {
-@apply border-warning bg-warning text-warning-content;
+.radio-warning:checked,
+.radio-warning[aria-checked="true"] {
+  @apply border-warning bg-warning text-warning-content;
 }
 .radio-error {
-@apply border-error hover:border-error;
+  @apply border-error hover:border-error;
 }
 .radio-error:focus-visible {
-@apply outline-error;
+  @apply outline-error;
 }
-.radio-error:checked, .radio-error[aria-checked=true] {
-@apply border-error bg-error text-error-content;
+.radio-error:checked,
+.radio-error[aria-checked="true"] {
+  @apply border-error bg-error text-error-content;
 }
 .radio-neutral {
-@apply border-neutral hover:border-neutral;
+  @apply border-neutral hover:border-neutral;
 }
 .radio-neutral:focus-visible {
-@apply outline-neutral;
+  @apply outline-neutral;
 }
-.radio-neutral:checked, .radio-neutral[aria-checked=true] {
-@apply border-neutral bg-neutral text-neutral-content;
+.radio-neutral:checked,
+.radio-neutral[aria-checked="true"] {
+  @apply border-neutral bg-neutral text-neutral-content;
 }
 .radio:disabled {
-@apply cursor-not-allowed opacity-20;
+  @apply cursor-not-allowed opacity-20;
 }
 
 @keyframes radiomark {
-0% {
-  box-shadow: 0 0 0 12px rgba(var(--base-400)) inset, 0 0 0 12px rgba(var(--base-400)) inset;
+  0% {
+    box-shadow:
+      0 0 0 12px rgba(var(--base-400)) inset,
+      0 0 0 12px rgba(var(--base-400)) inset;
+  }
+  50% {
+    box-shadow:
+      0 0 0 3px rgba(var(--base-400)) inset,
+      0 0 0 3px rgba(var(--base-400)) inset;
+  }
+  100% {
+    box-shadow:
+      0 0 0 4px rgba(var(--base-400)) inset,
+      0 0 0 4px rgba(var(--base-400)) inset;
+  }
 }
-50% {
-  box-shadow: 0 0 0 3px rgba(var(--base-400)) inset, 0 0 0 3px rgba(var(--base-400)) inset;
-}
-100% {
-  box-shadow: 0 0 0 4px rgba(var(--base-400)) inset, 0 0 0 4px rgba(var(--base-400)) inset;
-}
-}
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -135,18 +152,22 @@ box-shadow: 0 0 0 4px rgba(var(--base-400)) inset, 0 0 0 4px rgba(var(--base-400
 
 ```css
 .radio-xs {
-@apply h-4 w-4;
+  @apply h-4 w-4;
 }
 .radio-sm {
-@apply h-5 w-5;
+  @apply h-5 w-5;
 }
 .radio-md {
-@apply h-6 w-6;
+  @apply h-6 w-6;
 }
 .radio-lg {
-@apply h-8 w-8;
+  @apply h-8 w-8;
 }
+
 ```
 
 </div>
 </div>
+
+
+

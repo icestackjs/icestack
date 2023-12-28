@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/dropdown/index.mdx'
 
 ## Default Class Table
-
+  
 <CssTable name="dropdown" />
-
+  
 ## Demo
-
+  
 <Demo></Demo>
 
 ## Playground
-
+  
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/general-dropdown--docs)
-
+  
 ## Css Schema
 
 
@@ -27,67 +28,70 @@ import Demo from '../../components/demo/dropdown/index.mdx'
 
 ```css
 .dropdown {
-@apply relative inline-block;
+  @apply relative inline-block;
 }
 
 .dropdown > *:not(summary):focus {
-@apply outline-none;
+  @apply outline-none;
 }
 
 .dropdown .dropdown-content {
-@apply absolute;
+  @apply absolute;
 }
 
 .dropdown:is(:not(details)) .dropdown-content {
-@apply invisible opacity-0;
+  @apply invisible opacity-0;
 }
 
 .dropdown-end .dropdown-content {
-@apply end-0;
+  @apply end-0;
 }
 
 .dropdown-left .dropdown-content {
-@apply bottom-auto end-full top-0;
+  @apply bottom-auto end-full top-0;
 }
 
 .dropdown-right .dropdown-content {
-@apply bottom-auto start-full top-0;
+  @apply bottom-auto start-full top-0;
 }
 
 .dropdown-bottom .dropdown-content {
-@apply bottom-auto top-full;
+  @apply bottom-auto top-full;
 }
 
 .dropdown-top .dropdown-content {
-@apply bottom-full top-auto;
+  @apply bottom-full top-auto;
 }
 
 .dropdown-end.dropdown-right .dropdown-content {
-@apply bottom-0 top-auto;
+  @apply bottom-0 top-auto;
 }
 
 .dropdown-end.dropdown-left .dropdown-content {
-@apply bottom-0 top-auto;
+  @apply bottom-0 top-auto;
 }
 
-.dropdown.dropdown-open .dropdown-content, .dropdown:not(.dropdown-hover):focus .dropdown-content, .dropdown:focus-within .dropdown-content {
-@apply visible opacity-100;
+.dropdown.dropdown-open .dropdown-content,
+.dropdown:not(.dropdown-hover):focus .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  @apply visible opacity-100;
 }
 
 @media (hover: hover) {
-.dropdown.dropdown-hover:hover .dropdown-content {
-  @apply visible opacity-100;
-}
+  .dropdown.dropdown-hover:hover .dropdown-content {
+    @apply visible opacity-100;
+  }
 }
 .dropdown:is(details) summary::-webkit-details-marker {
-@apply hidden;
+  @apply hidden;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -100,40 +104,43 @@ import Demo from '../../components/demo/dropdown/index.mdx'
 
 ```css
 .dropdown:is(:not(details)) .dropdown-content {
-@apply origin-top scale-95 transform transition duration-200 ease-out;
+  @apply origin-top scale-95 transform transition duration-200 ease-out;
 }
 
 .dropdown-bottom .dropdown-content {
-@apply origin-top;
+  @apply origin-top;
 }
 
 .dropdown-top .dropdown-content {
-@apply origin-bottom;
+  @apply origin-bottom;
 }
 
 .dropdown-left .dropdown-content {
-@apply origin-right;
+  @apply origin-right;
 }
 
 .dropdown-right .dropdown-content {
-@apply origin-left;
+  @apply origin-left;
 }
 
-.dropdown.dropdown-open .dropdown-content, .dropdown:focus .dropdown-content, .dropdown:focus-within .dropdown-content {
-@apply scale-100;
+.dropdown.dropdown-open .dropdown-content,
+.dropdown:focus .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  @apply scale-100;
 }
 
 @media (hover: hover) {
-.dropdown.dropdown-hover:hover .dropdown-content {
-  @apply scale-100;
+  .dropdown.dropdown-hover:hover .dropdown-content {
+    @apply scale-100;
+  }
 }
-}
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -150,3 +157,6 @@ import Demo from '../../components/demo/dropdown/index.mdx'
 
 </div>
 </div>
+
+
+

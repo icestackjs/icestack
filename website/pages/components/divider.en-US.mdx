@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/divider/index.mdx'
 
 ## Default Class Table
-
+  
 <CssTable name="divider" />
-
+  
 ## Demo
-
+  
 <Demo></Demo>
 
 ## Playground
-
+  
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-divider--docs)
-
+  
 ## Css Schema
 
 
@@ -27,23 +28,25 @@ import Demo from '../../components/demo/divider/index.mdx'
 
 ```css
 .divider {
-@apply flex flex-row items-center self-stretch;
+  @apply flex flex-row items-center self-stretch;
 }
-.divider:before, .divider:after {
-@apply h-0.5 w-full flex-grow content-[''];
+.divider:before,
+.divider:after {
+  @apply h-0.5 w-full flex-grow content-[''];
 }
 .divider-start:before {
-@apply hidden;
+  @apply hidden;
 }
 .divider-end:after {
-@apply hidden;
+  @apply hidden;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -56,35 +59,42 @@ import Demo from '../../components/demo/divider/index.mdx'
 
 ```css
 .divider {
-@apply my-4 h-4 whitespace-nowrap;
+  @apply my-4 h-4 whitespace-nowrap;
 }
-.divider:before, .divider:after {
-@apply bg-base-content/10;
+.divider:before,
+.divider:after {
+  @apply bg-base-content/10;
 }
 .divider:not(:empty) {
-@apply gap-4;
+  @apply gap-4;
 }
-.divider-primary:before, .divider-primary:after {
-@apply bg-primary;
+.divider-primary:before,
+.divider-primary:after {
+  @apply bg-primary;
 }
-.divider-success:before, .divider-success:after {
-@apply bg-success;
+.divider-success:before,
+.divider-success:after {
+  @apply bg-success;
 }
-.divider-warning:before, .divider-warning:after {
-@apply bg-warning;
+.divider-warning:before,
+.divider-warning:after {
+  @apply bg-warning;
 }
-.divider-error:before, .divider-error:after {
-@apply bg-error;
+.divider-error:before,
+.divider-error:after {
+  @apply bg-error;
 }
-.divider-neutral:before, .divider-neutral:after {
-@apply bg-neutral;
+.divider-neutral:before,
+.divider-neutral:after {
+  @apply bg-neutral;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -97,27 +107,31 @@ import Demo from '../../components/demo/divider/index.mdx'
 
 ```css
 .divider-horizontal {
-@apply flex-col;
-@apply mx-4 my-0 h-auto w-4;
+  @apply flex-col;
+  @apply mx-4 my-0 h-auto w-4;
 }
 .divider-horizontal:before {
-@apply h-full w-0.5;
+  @apply h-full w-0.5;
 }
 .divider-horizontal:after {
-@apply h-full w-0.5;
+  @apply h-full w-0.5;
 }
 
 .divider-vertical {
-@apply flex-row;
-@apply mx-0 my-4 h-4 w-auto;
+  @apply flex-row;
+  @apply mx-0 my-4 h-4 w-auto;
 }
 .divider-vertical:before {
-@apply h-0.5 w-full;
+  @apply h-0.5 w-full;
 }
 .divider-vertical:after {
-@apply h-0.5 w-full;
+  @apply h-0.5 w-full;
 }
+
 ```
 
 </div>
 </div>
+
+
+

@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/toggle/index.mdx'
 
 ## Default Class Table
-
+  
 <CssTable name="toggle" />
-
+  
 ## Demo
-
+  
 <Demo></Demo>
 
 ## Playground
-
+  
 [Go to Storybook](https://story.ui.icebreaker.top/?path=/docs/data-entry-toggle--docs)
-
+  
 ## Css Schema
 
 
@@ -27,14 +28,15 @@ import Demo from '../../components/demo/toggle/index.mdx'
 
 ```css
 .toggle {
-@apply shrink-0;
+  @apply shrink-0;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -47,74 +49,101 @@ import Demo from '../../components/demo/toggle/index.mdx'
 
 ```css
 .toggle {
-@apply border-base-content bg-base-content rounded-badge h-6 w-12 cursor-pointer appearance-none border border-opacity-20 bg-opacity-50;
---tglbg: rgba(var(--base-100));
---handleoffset: 1.5rem;
---handleoffsetcalculator: calc(var(--handleoffset) * -1);
---togglehandleborder: 0 0;
-transition: background, box-shadow var(--animation-input, 0.2s) ease-out;
-box-shadow: var(--handleoffsetcalculator) 0 0 2px var(--tglbg) inset, 0 0 0 2px var(--tglbg) inset, var(--togglehandleborder);
+  @apply border-base-content bg-base-content rounded-badge h-6 w-12 cursor-pointer appearance-none border border-opacity-20 bg-opacity-50;
+  --tglbg: rgba(var(--base-100));
+  --handleoffset: 1.5rem;
+  --handleoffsetcalculator: calc(var(--handleoffset) * -1);
+  --togglehandleborder: 0 0;
+  transition:
+    background,
+    box-shadow var(--animation-input, 0.2s) ease-out;
+  box-shadow:
+    var(--handleoffsetcalculator) 0 0 2px var(--tglbg) inset,
+    0 0 0 2px var(--tglbg) inset,
+    var(--togglehandleborder);
 }
-[dir=rtl] .toggle {
---handleoffsetcalculator: calc(var(--handleoffset) * 1);
+[dir="rtl"] .toggle {
+  --handleoffsetcalculator: calc(var(--handleoffset) * 1);
 }
 .toggle:focus-visible {
-@apply outline-base-content/20 outline outline-2 outline-offset-2;
+  @apply outline-base-content/20 outline outline-2 outline-offset-2;
 }
-.toggle:checked, .toggle[checked=true], .toggle[aria-checked=true] {
-@apply border-opacity-100 bg-opacity-100;
---handleoffsetcalculator: var(--handleoffset);
+.toggle:checked,
+.toggle[checked="true"],
+.toggle[aria-checked="true"] {
+  @apply border-opacity-100 bg-opacity-100;
+  --handleoffsetcalculator: var(--handleoffset);
 }
-[dir=rtl] .toggle:checked, [dir=rtl] .toggle[checked=true], [dir=rtl] .toggle[aria-checked=true] {
---handleoffsetcalculator: calc(var(--handleoffset) * -1);
+[dir="rtl"] .toggle:checked,
+[dir="rtl"] .toggle[checked="true"],
+[dir="rtl"] .toggle[aria-checked="true"] {
+  --handleoffsetcalculator: calc(var(--handleoffset) * -1);
 }
 .toggle:indeterminate {
-@apply border-opacity-100 bg-opacity-100;
-box-shadow: calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset, calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset, 0 0 0 2px var(--tglbg) inset;
+  @apply border-opacity-100 bg-opacity-100;
+  box-shadow:
+    calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
+    calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
+    0 0 0 2px var(--tglbg) inset;
 }
-[dir=rtl] .toggle:indeterminate {
-box-shadow: calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset, calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset, 0 0 0 2px var(--tglbg) inset;
+[dir="rtl"] .toggle:indeterminate {
+  box-shadow:
+    calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset,
+    calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset,
+    0 0 0 2px var(--tglbg) inset;
 }
 .toggle-primary:focus-visible {
-@apply outline-primary;
+  @apply outline-primary;
 }
-.toggle-primary:checked, .toggle-primary[checked=true], .toggle-primary[aria-checked=true] {
-@apply border-primary bg-primary text-primary-content border-opacity-10;
+.toggle-primary:checked,
+.toggle-primary[checked="true"],
+.toggle-primary[aria-checked="true"] {
+  @apply border-primary bg-primary text-primary-content border-opacity-10;
 }
 .toggle-success:focus-visible {
-@apply outline-success;
+  @apply outline-success;
 }
-.toggle-success:checked, .toggle-success[checked=true], .toggle-success[aria-checked=true] {
-@apply border-success bg-success text-success-content border-opacity-10;
+.toggle-success:checked,
+.toggle-success[checked="true"],
+.toggle-success[aria-checked="true"] {
+  @apply border-success bg-success text-success-content border-opacity-10;
 }
 .toggle-warning:focus-visible {
-@apply outline-warning;
+  @apply outline-warning;
 }
-.toggle-warning:checked, .toggle-warning[checked=true], .toggle-warning[aria-checked=true] {
-@apply border-warning bg-warning text-warning-content border-opacity-10;
+.toggle-warning:checked,
+.toggle-warning[checked="true"],
+.toggle-warning[aria-checked="true"] {
+  @apply border-warning bg-warning text-warning-content border-opacity-10;
 }
 .toggle-error:focus-visible {
-@apply outline-error;
+  @apply outline-error;
 }
-.toggle-error:checked, .toggle-error[checked=true], .toggle-error[aria-checked=true] {
-@apply border-error bg-error text-error-content border-opacity-10;
+.toggle-error:checked,
+.toggle-error[checked="true"],
+.toggle-error[aria-checked="true"] {
+  @apply border-error bg-error text-error-content border-opacity-10;
 }
 .toggle-neutral:focus-visible {
-@apply outline-neutral;
+  @apply outline-neutral;
 }
-.toggle-neutral:checked, .toggle-neutral[checked=true], .toggle-neutral[aria-checked=true] {
-@apply border-neutral bg-neutral text-neutral-content border-opacity-10;
+.toggle-neutral:checked,
+.toggle-neutral[checked="true"],
+.toggle-neutral[aria-checked="true"] {
+  @apply border-neutral bg-neutral text-neutral-content border-opacity-10;
 }
 .toggle:disabled {
-@apply border-base-content cursor-not-allowed bg-transparent opacity-30;
---togglehandleborder: 0 0 0 3px rgba(var(--base-content)) inset, var(--handleoffsetcalculator) 0 0 3px rgba(var(--base-content)) inset;
+  @apply border-base-content cursor-not-allowed bg-transparent opacity-30;
+  --togglehandleborder: 0 0 0 3px rgba(var(--base-content)) inset,
+    var(--handleoffsetcalculator) 0 0 3px rgba(var(--base-content)) inset;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -127,22 +156,26 @@ box-shadow: calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset, calc(var(-
 
 ```css
 .toggle-xs {
-@apply h-4 w-6;
---handleoffset: 0.5rem;
+  @apply h-4 w-6;
+  --handleoffset: 0.5rem;
 }
 .toggle-sm {
-@apply h-5 w-8;
---handleoffset: 0.75rem;
+  @apply h-5 w-8;
+  --handleoffset: 0.75rem;
 }
 .toggle-md {
-@apply h-6 w-12;
---handleoffset: 1.5rem;
+  @apply h-6 w-12;
+  --handleoffset: 1.5rem;
 }
 .toggle-lg {
-@apply h-8 w-16;
---handleoffset: 2rem;
+  @apply h-8 w-16;
+  --handleoffset: 2rem;
 }
+
 ```
 
 </div>
 </div>
+
+
+

@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/hero/index.mdx'
 
 ## 默认类名表格
-
+  
 <CssTable name="hero" />
-
+  
 ## 样例
-
+  
 <Demo></Demo>
 
 ## 演示
-
+  
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/layout-hero--docs)
-
+  
 ## Css 结构
 
 
@@ -27,23 +28,24 @@ import Demo from '../../components/demo/hero/index.mdx'
 
 ```css
 .hero {
-@apply grid w-full place-items-center bg-cover bg-center;
+  @apply grid w-full place-items-center bg-cover bg-center;
 }
 .hero > * {
-@apply col-start-1 row-start-1;
+  @apply col-start-1 row-start-1;
 }
 .hero-overlay {
-@apply col-start-1 row-start-1 h-full w-full;
+  @apply col-start-1 row-start-1 h-full w-full;
 }
 .hero-content {
-@apply z-0 flex items-center justify-center;
+  @apply z-0 flex items-center justify-center;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -56,17 +58,18 @@ import Demo from '../../components/demo/hero/index.mdx'
 
 ```css
 .hero-overlay {
-@apply bg-neutral bg-opacity-50;
+  @apply bg-neutral bg-opacity-50;
 }
 .hero-content {
-@apply max-w-7xl gap-4 p-4;
+  @apply max-w-7xl gap-4 p-4;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -83,3 +86,6 @@ import Demo from '../../components/demo/hero/index.mdx'
 
 </div>
 </div>
+
+
+

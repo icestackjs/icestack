@@ -1,18 +1,19 @@
+
 import CssTable from '../../components/CssTable'
 import Demo from '../../components/demo/diff/index.mdx'
 
 ## 默认类名表格
-
+  
 <CssTable name="diff" />
-
+  
 ## 样例
-
+  
 <Demo></Demo>
 
 ## 演示
-
+  
 [前往 Storybook](https://story.ui.icebreaker.top/?path=/docs/data-display-diff--docs)
-
+  
 ## Css 结构
 
 
@@ -27,41 +28,45 @@ import Demo from '../../components/demo/diff/index.mdx'
 
 ```css
 .diff {
-@apply relative grid w-full overflow-hidden;
-container-type: inline-size;
-grid-template-columns: auto 1fr;
+  @apply relative grid w-full overflow-hidden;
+  container-type: inline-size;
+  grid-template-columns: auto 1fr;
 }
 
 .diff-resizer {
-@apply relative top-1/2 z-[1] h-12 w-[25rem] min-w-[1rem] max-w-[calc(100cqi-1rem)] resize-x overflow-hidden opacity-0;
-transform-origin: 100% 100%;
-scale: 4;
-translate: 1.5rem -1.5rem;
-clip-path: inset(calc(100% - 0.75rem) 0 0 calc(100% - 0.75rem));
+  @apply relative top-1/2 z-[1] h-12 w-[25rem] min-w-[1rem] max-w-[calc(100cqi-1rem)] resize-x overflow-hidden opacity-0;
+  transform-origin: 100% 100%;
+  scale: 4;
+  translate: 1.5rem -1.5rem;
+  clip-path: inset(calc(100% - 0.75rem) 0 0 calc(100% - 0.75rem));
 }
 
-.diff-resizer, .diff-item-1, .diff-item-2 {
-@apply relative col-start-1 row-start-1;
+.diff-resizer,
+.diff-item-1,
+.diff-item-2 {
+  @apply relative col-start-1 row-start-1;
 }
 
 .diff-item-1:after {
-@apply pointer-events-none absolute bottom-0 right-px top-1/2 z-[1] h-8 w-8 content-[''];
-translate: 50% -50%;
+  @apply pointer-events-none absolute bottom-0 right-px top-1/2 z-[1] h-8 w-8 content-[''];
+  translate: 50% -50%;
 }
 
 .diff-item-2 {
-@apply overflow-hidden;
+  @apply overflow-hidden;
 }
 
-.diff-item-1 > *, .diff-item-2 > * {
-@apply pointer-events-none absolute bottom-0 left-0 top-0 h-full w-[100cqi] max-w-none object-cover object-center;
+.diff-item-1 > *,
+.diff-item-2 > * {
+  @apply pointer-events-none absolute bottom-0 left-0 top-0 h-full w-[100cqi] max-w-none object-cover object-center;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Styled
 
@@ -74,19 +79,20 @@ translate: 50% -50%;
 
 ```css
 .diff-item-1:after {
-@apply bg-base-100/50 border-base-100 outline-base-content/5 rounded-full border-2 shadow-sm outline outline-offset-[-3px] backdrop-blur;
-translate: 50% -50%;
+  @apply bg-base-100/50 border-base-100 outline-base-content/5 rounded-full border-2 shadow-sm outline outline-offset-[-3px] backdrop-blur;
+  translate: 50% -50%;
 }
 
 .diff-item-2 {
-@apply border-base-100 border-r-2;
+  @apply border-base-100 border-r-2;
 }
+
 ```
 
 </div>
 </div>
 
-  
+
 
 ### Utils
 
@@ -103,3 +109,6 @@ translate: 50% -50%;
 
 </div>
 </div>
+
+
+

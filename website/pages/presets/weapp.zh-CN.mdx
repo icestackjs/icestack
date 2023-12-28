@@ -1,0 +1,62 @@
+import { Tabs, Tab, Cards, Card } from 'nextra/components'
+
+# Weapp preset
+
+## Installation
+
+<Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
+  <Tab>
+
+```bash
+pnpm install -D @icestack/preset-weapp
+```
+
+</Tab>
+  <Tab>
+  
+```bash
+npm install -D @icestack/preset-weapp
+```
+
+</Tab>
+  <Tab>
+
+```bash
+yarn add -D @icestack/preset-weapp
+```
+
+</Tab>
+  <Tab>
+
+```bash
+bun add -D @icestack/preset-weapp
+```
+
+</Tab>
+</Tabs>
+
+```js filename="icestack.config.js"
+const miniprogramPreset = require('@icestack/preset-weapp')
+
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  presets: [miniprogramPreset()]
+}
+
+module.exports = config
+```
+
+## Usage
+
+WIP
+
+## Options
+
+WIP
+
+## Example
+
+![icestack](/mp.jpg)

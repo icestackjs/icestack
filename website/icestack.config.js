@@ -1,3 +1,4 @@
+const mockupPreset = require('@icestack/preset-mockup')
 const { themes, components } = require('./icestack/index')
 
 /**
@@ -13,6 +14,6 @@ const config = {
   components: {
     ...components
   },
-  presets: []
+  presets: [mockupPreset()]
 }
 module.exports = config

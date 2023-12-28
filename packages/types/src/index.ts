@@ -36,7 +36,7 @@ export type ModeMergeValue = {
 
 export type ModeMergeOptions = string | ModeMergeValue | ((opts: Partial<GetCssSchemaMethodOptions>) => string | ModeMergeValue)
 
-export type ComponentsValue = {
+export type ComponentsValue<Params extends Record<string, any> = Record<string, any>> = {
   prefix: PrefixerOptions
   varPrefix: VarPrefixerOptions
   mode: CodegenMode
@@ -61,11 +61,11 @@ export type ComponentsValue = {
   /**
    * @description use params
    */
-  params: Record<string, any>
+  params: Params
   /**
    * @description senior
    */
-  schema: GetCssSchemaMethod
+  schema: GetCssSchemaMethod<Params>
 }
 
 export type ComponentsOptions = Record<string, Partial<ComponentsValue> | false>

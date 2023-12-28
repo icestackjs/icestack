@@ -1,0 +1,9 @@
+{
+  "overview": "概述",
+  "--": {
+    "type": "separator",
+    "title": "Presets"
+  },
+  "weapp": "微信小程序",
+  "mockup": "mockup"
+}

@@ -6,7 +6,7 @@ const schema: GetCssSchemaMethod = (opts) => {
     selector,
     defaults: {
       base: transformCss2Js(`
-      .stack {
+      ${selector} {
         @apply inline-grid;
         & > * {
           @apply col-start-1 row-start-1;
@@ -27,7 +27,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       
       `),
       styled: transformCss2Js(`
-      .stack {
+      ${selector} {
         @apply place-items-center items-end;
         & > * {
           @apply w-full;

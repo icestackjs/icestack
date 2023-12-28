@@ -12,7 +12,7 @@
     "test": "vitest run --coverage.enabled --coverage.all=false",
     "_test": "turbo run test --filter=./packages/* --filter=./plugins/* --filter=./presets/*",
     "test:dev": "vitest",
-    "release": "turbo run release",
+    "release": "changeset",
     "pre": "pnpm build && pnpm test",
     "publish-packages": "pnpm pre && changeset version && changeset publish",
     "preinstall": "npx only-allow pnpm",

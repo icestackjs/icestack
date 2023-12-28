@@ -15,9 +15,23 @@
     "title": "Components",
     "type": "page"
   },
-  "options": {
-    "title": "Types",
-    "type": "page"
+  "presets": {
+    "title": "Presets",
+    "type": "menu",
+    "items": {
+      "overview": {
+        "title": "Overview",
+        "type": "page"
+      },
+      "weapp": {
+        "title": "Weapp",
+        "type": "page"
+      },
+      "mockup": {
+        "title": "Mockup",
+        "type": "page"
+      }
+    }
   },
   "playground": {
     "title": "Playground",

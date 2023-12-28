@@ -28,8 +28,8 @@ export type CssSchema = {
   defaults: Partial<CssSchemaDefaults>
 }
 // baseDefault: CssValue
-export type GetCssSchemaMethodOptions = CreatePresetOptions & { selector: string; params: Record<string, any> }
+export type GetCssSchemaMethodOptions<T extends Record<string, any> = Record<string, any>> = CreatePresetOptions & { selector: string; params: T }
 
-export type GetCssSchemaMethod = (opts: GetCssSchemaMethodOptions) => CssSchema
+export type GetCssSchemaMethod<T extends Record<string, any> = Record<string, any>> = (opts: GetCssSchemaMethodOptions<T>) => CssSchema
 
 export { type CssInJs } from 'postcss-js'

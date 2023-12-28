@@ -1,0 +1,163 @@
+import { Tabs, Tab, Cards, Card } from 'nextra/components'
+import CodeRender from '@/components/CodeRender'
+
+# Mockup preset
+
+## Installation
+
+<Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
+  <Tab>
+
+```bash
+pnpm install -D @icestack/preset-mockup
+```
+
+</Tab>
+  <Tab>
+  
+```bash
+npm install -D @icestack/preset-mockup
+```
+
+</Tab>
+  <Tab>
+
+```bash
+yarn add -D @icestack/preset-mockup
+```
+
+</Tab>
+  <Tab>
+
+```bash
+bun add -D @icestack/preset-mockup
+```
+
+</Tab>
+</Tabs>
+
+```js filename="icestack.config.js"
+const mockupPreset = require('@icestack/preset-mockup')
+
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  presets: [mockupPreset()]
+}
+
+module.exports = config
+```
+
+## Components
+
+### Artboard Table
+
+| Class name          | Description                                             |
+| ------------------- | ------------------------------------------------------- |
+| artboard            | Container element                                       |
+| artboard-demo       | The toolbar that can include addressbar or other things |
+| phone-1             | Size 1 (320×568)                                        |
+| phone-2             | Size 2 (375×667)                                        |
+| phone-3             | Size 3 (414×736)                                        |
+| phone-4             | Size 4 (375×812)                                        |
+| phone-5             | Size 5 (414×896)                                        |
+| phone-6             | Size 6 (320×1024)                                       |
+| artboard-horizontal | shows horizontal view                                   |
+
+### Artboard size
+
+<CodeRender
+  code={`<div class="bg-base-400 flex items-center justify-center artboard phone-1">320×568</div>`}
+/>
+
+```html
+<div class="artboard phone-1">320×568</div>
+```
+
+### Mockup Table
+
+| Class name             | Description                                             |
+| ---------------------- | ------------------------------------------------------- |
+| mockup-browser         | Container element                                       |
+| mockup-browser-toolbar | The toolbar that can include addressbar or other things |
+| mockup-code            | Container element                                       |
+| mockup-phone           | Container element                                       |
+| mockup-window          | Container element                                       |
+
+### Browser
+
+#### browser mockup with border
+
+<CodeRender
+  code={`<div class="mockup-browser border border-base-300">
+  <div class="mockup-browser-toolbar">
+    <div class="input border border-base-300">https://ui.icebreaker.top</div>
+  </div>
+  <div class="flex justify-center px-4 py-16 border-t border-base-300">Hello!</div>
+</div>`}
+/>
+
+```html
+<div class="mockup-browser border border-base-300">
+  <div class="mockup-browser-toolbar">
+    <div class="input border border-base-300">https://ui.icebreaker.top</div>
+  </div>
+  <div class="flex justify-center px-4 py-16 border-t border-base-300">Hello!</div>
+</div>
+```
+
+#### browser mockup with background color
+
+<CodeRender
+  code={`<div class="mockup-browser border bg-base-300">
+  <div class="mockup-browser-toolbar">
+    <div class="input">https://ui.icebreaker.top</div>
+  </div>
+  <div class="flex justify-center px-4 py-16 bg-base-200">Hello!</div>
+</div>`}
+/>
+
+```html
+<div class="mockup-browser border bg-base-300">
+  <div class="mockup-browser-toolbar">
+    <div class="input">https://ui.icebreaker.top</div>
+  </div>
+  <div class="flex justify-center px-4 py-16 bg-base-200">Hello!</div>
+</div>
+```
+
+### Phone
+
+<CodeRender
+  code={`<div class="mockup-phone">
+  <div class="camera"></div> 
+  <div class="display">
+    <div class="artboard artboard-demo phone-1">Hi.</div>
+  </div>
+</div>`}
+/>
+
+```html
+<div class="mockup-phone">
+  <div class="camera"></div>
+  <div class="display">
+    <div class="artboard artboard-demo phone-1">Hi.</div>
+  </div>
+</div>
+```
+
+### Window
+
+<CodeRender
+  code={`<div class="mockup-window border border-base-300 w-full">
+  <div class="flex justify-center px-4 py-16 border-t border-base-300">Hello!</div>
+</div>`}
+/>
+
+```html
+<div class="mockup-window border border-base-300 w-full">
+  <div class="flex justify-center px-4 py-16 border-t border-base-300">Hello!</div>
+</div>
+```

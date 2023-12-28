@@ -15,9 +15,23 @@
     "title": "CSS 组件",
     "type": "page"
   },
-  "options": {
-    "title": "Types",
-    "type": "page"
+  "presets": {
+    "title": "预设",
+    "type": "menu",
+    "items": {
+      "overview": {
+        "title": "概述",
+        "type": "page"
+      },
+      "weapp": {
+        "title": "微信小程序",
+        "type": "page"
+      },
+      "mockup": {
+        "title": "Mockup",
+        "type": "page"
+      }
+    }
   },
   "playground": {
     "title": "Playground",

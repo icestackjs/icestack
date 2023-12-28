@@ -137,6 +137,10 @@ exports[`presets > default preset 1`] = `
       "schema": [Function],
       "selector": ".alert",
     },
+    "artboard": {
+      "schema": [Function],
+      "selector": ".artboard",
+    },
     "avatar": {
       "schema": [Function],
       "selector": ".avatar",
@@ -373,6 +377,10 @@ exports[`presets > default preset 1`] = `
   "presets": [
     {
       "components": {
+        "artboard": {
+          "schema": [Function],
+          "selector": ".artboard",
+        },
         "mockup": {
           "schema": [Function],
           "selector": ".mockup",
@@ -546,6 +554,214 @@ exports[`presets > default preset all css 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+    },
+  },
+  "artboard": {
+    "base": {
+      "css": ".artboard {
+  @apply w-full;
+}",
+      "cssInJs": {
+        ".artboard": {
+          "width": "100%",
+        },
+      },
+      "resolvedCss": ".artboard {
+    width: 100%
+}",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": ".artboard-demo {
+  @apply bg-base-300 text-base-content rounded-box;
+  @apply flex flex-none flex-col items-center justify-center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+.artboard.phone {
+  width: 320px;
+}
+.artboard.phone-1 {
+  width: 320px;
+  height: 568px;
+}
+.artboard.phone-1.horizontal, .artboard.phone-1.artboard-horizontal {
+  width: 568px;
+  height: 320px;
+}
+.artboard.phone-2 {
+  width: 375px;
+  height: 667px;
+}
+.artboard.phone-2.horizontal, .artboard.phone-2.artboard-horizontal {
+  width: 667px;
+  height: 375px;
+}
+.artboard.phone-3 {
+  width: 414px;
+  height: 736px;
+}
+.artboard.phone-3.horizontal, .artboard.phone-3.artboard-horizontal {
+  width: 736px;
+  height: 414px;
+}
+.artboard.phone-4 {
+  width: 375px;
+  height: 812px;
+}
+.artboard.phone-4.horizontal, .artboard.phone-4.artboard-horizontal {
+  width: 812px;
+  height: 375px;
+}
+.artboard.phone-5 {
+  width: 414px;
+  height: 896px;
+}
+.artboard.phone-5.horizontal, .artboard.phone-5.artboard-horizontal {
+  width: 896px;
+  height: 414px;
+}
+.artboard.phone-6 {
+  width: 320px;
+  height: 1024px;
+}
+.artboard.phone-6.horizontal, .artboard.phone-6.artboard-horizontal {
+  width: 1024px;
+  height: 320px;
+}",
+      "cssInJs": {
+        ".artboard-demo": {
+          "--tw-bg-opacity": "1",
+          "--tw-text-opacity": "1",
+          "alignItems": "center",
+          "backgroundColor": "rgba(var(--ice-base-300) / var(--tw-bg-opacity))",
+          "borderRadius": "var(--ice-rounded-box, 1rem)",
+          "boxShadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+          "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
+          "display": "flex",
+          "flex": "none",
+          "flexDirection": "column",
+          "justifyContent": "center",
+        },
+        ".artboard.phone": {
+          "width": "320px",
+        },
+        ".artboard.phone-1": {
+          "height": "568px",
+          "width": "320px",
+        },
+        ".artboard.phone-1.horizontal,.artboard.phone-1.artboard-horizontal": {
+          "height": "320px",
+          "width": "568px",
+        },
+        ".artboard.phone-2": {
+          "height": "667px",
+          "width": "375px",
+        },
+        ".artboard.phone-2.horizontal,.artboard.phone-2.artboard-horizontal": {
+          "height": "375px",
+          "width": "667px",
+        },
+        ".artboard.phone-3": {
+          "height": "736px",
+          "width": "414px",
+        },
+        ".artboard.phone-3.horizontal,.artboard.phone-3.artboard-horizontal": {
+          "height": "414px",
+          "width": "736px",
+        },
+        ".artboard.phone-4": {
+          "height": "812px",
+          "width": "375px",
+        },
+        ".artboard.phone-4.horizontal,.artboard.phone-4.artboard-horizontal": {
+          "height": "375px",
+          "width": "812px",
+        },
+        ".artboard.phone-5": {
+          "height": "896px",
+          "width": "414px",
+        },
+        ".artboard.phone-5.horizontal,.artboard.phone-5.artboard-horizontal": {
+          "height": "414px",
+          "width": "896px",
+        },
+        ".artboard.phone-6": {
+          "height": "1024px",
+          "width": "320px",
+        },
+        ".artboard.phone-6.horizontal,.artboard.phone-6.artboard-horizontal": {
+          "height": "320px",
+          "width": "1024px",
+        },
+      },
+      "resolvedCss": ".artboard-demo {
+  border-radius: var(--ice-rounded-box, 1rem);
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--ice-base-300) / var(--tw-bg-opacity));
+  --tw-text-opacity: 1;
+  color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+.artboard.phone {
+  width: 320px;
+}
+.artboard.phone-1 {
+  width: 320px;
+  height: 568px;
+}
+.artboard.phone-1.horizontal,.artboard.phone-1.artboard-horizontal {
+  width: 568px;
+  height: 320px;
+}
+.artboard.phone-2 {
+  width: 375px;
+  height: 667px;
+}
+.artboard.phone-2.horizontal,.artboard.phone-2.artboard-horizontal {
+  width: 667px;
+  height: 375px;
+}
+.artboard.phone-3 {
+  width: 414px;
+  height: 736px;
+}
+.artboard.phone-3.horizontal,.artboard.phone-3.artboard-horizontal {
+  width: 736px;
+  height: 414px;
+}
+.artboard.phone-4 {
+  width: 375px;
+  height: 812px;
+}
+.artboard.phone-4.horizontal,.artboard.phone-4.artboard-horizontal {
+  width: 812px;
+  height: 375px;
+}
+.artboard.phone-5 {
+  width: 414px;
+  height: 896px;
+}
+.artboard.phone-5.horizontal,.artboard.phone-5.artboard-horizontal {
+  width: 896px;
+  height: 414px;
+}
+.artboard.phone-6 {
+  width: 320px;
+  height: 1024px;
+}
+.artboard.phone-6.horizontal,.artboard.phone-6.artboard-horizontal {
+  width: 1024px;
+  height: 320px;
+}",
     },
   },
   "avatar": {

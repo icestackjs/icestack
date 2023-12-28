@@ -9,7 +9,7 @@ const components: ComponentsOptions = {
         selector,
         defaults: {
           base: transformCss2Js(`
-          .mockup {
+          ${selector} {
             &-code {
               @apply relative overflow-hidden overflow-x-auto;
               pre[data-prefix] {
@@ -40,7 +40,7 @@ const components: ComponentsOptions = {
           }          
           `),
           styled: transformCss2Js(`
-          .mockup {
+          ${selector} {
             &-code {
               @apply bg-neutral text-neutral-content rounded-box min-w-[18rem] py-5;
               direction: ltr;
@@ -126,7 +126,7 @@ const components: ComponentsOptions = {
             }
             &-browser {
               @apply rounded-box;
-              .mockup-browser-toolbar {
+              ${selector}-browser-toolbar {
                 @apply my-3 inline-flex w-full items-center pr-[1.4em] rtl:flex-row-reverse;
                 &:before {
                   content: "";
@@ -147,6 +147,97 @@ const components: ComponentsOptions = {
                     content: "";
                     @apply absolute left-5 top-1/2 h-2 translate-y-1/4 -rotate-45 rounded-full border border-current opacity-60;
                   }
+                }
+              }
+            }
+          }
+          
+          `)
+        }
+      }
+    }
+  },
+  artboard: {
+    selector: '.artboard',
+    schema: ({ selector }) => {
+      return {
+        selector,
+        defaults: {
+          base: transformCss2Js(`
+          ${selector} {
+            @apply w-full;
+          }
+          
+          `),
+          styled: transformCss2Js(``),
+          utils: transformCss2Js(`
+          ${selector} {
+            &-demo {
+              @apply bg-base-300 text-base-content rounded-box;
+              box-shadow:
+                0 1px 3px 0 rgba(0, 0, 0, 0.1),
+                0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            }
+          }
+          
+          ${selector} {
+            &-demo {
+              @apply flex flex-none flex-col items-center justify-center;
+            }
+            &.phone {
+              width: 320px;
+              &-1 {
+                width: 320px;
+                height: 568px;
+                &.horizontal,
+                &${selector}-horizontal {
+                  width: 568px;
+                  height: 320px;
+                }
+              }
+              &-2 {
+                width: 375px;
+                height: 667px;
+                &.horizontal,
+                &${selector}-horizontal {
+                  width: 667px;
+                  height: 375px;
+                }
+              }
+              &-3 {
+                width: 414px;
+                height: 736px;
+                &.horizontal,
+                &${selector}-horizontal {
+                  width: 736px;
+                  height: 414px;
+                }
+              }
+              &-4 {
+                width: 375px;
+                height: 812px;
+                &.horizontal,
+                &${selector}-horizontal {
+                  width: 812px;
+                  height: 375px;
+                }
+              }
+              &-5 {
+                width: 414px;
+                height: 896px;
+                &.horizontal,
+                &${selector}-horizontal {
+                  width: 896px;
+                  height: 414px;
+                }
+              }
+              &-6 {
+                width: 320px;
+                height: 1024px;
+                &.horizontal,
+                &${selector}-horizontal {
+                  width: 1024px;
+                  height: 320px;
                 }
               }
             }

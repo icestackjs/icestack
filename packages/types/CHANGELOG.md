@@ -1,5 +1,11 @@
 # @icestack/types
 
+## 0.5.0
+
+### Minor Changes
+
+- [`bcb03ca`](https://github.com/sonofmagic/icestack/commit/bcb03ca5b64672e0467ea047cb8c546a0ad57091) Thanks [@sonofmagic](https://github.com/sonofmagic)! - release 0.5.0
+
 ## 0.4.11
 
 ### Patch Changes

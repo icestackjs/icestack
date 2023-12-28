@@ -61,7 +61,6 @@
     "eslint-config-next": "^14.0.4",
     "klaw": "^4.1.0",
     "mdast-util-mdx": "^3.0.0",
-    "next-translate-plugin": "^2.6.2",
     "postcss": "^8.4.31",
     "sass": "^1.69.5",
     "serialize-javascript": "^6.0.1",

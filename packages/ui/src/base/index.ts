@@ -1,7 +1,8 @@
 import { TinyColor } from '@ctrl/tinycolor'
 import { generateColorVars, makeRgbaValue, sharedExtraColors, sharedExtraVars } from './colors'
 import { CodegenOptions } from '@/types'
-import { mergeR, mergeRClone, mapCss2JsArray } from '@/shared'
+import { mergeR, mergeRClone } from '@/shared'
+import { mapCss2JsArray } from '@/postcss'
 
 export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, slash: boolean = true) => {
   return Object.entries({

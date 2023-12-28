@@ -47,3 +47,5 @@ export function process(plugins: AcceptedPlugin[], css: string): LazyResult<Docu
     from: undefined
   })
 }
+
+export * from './utils'

@@ -1,4 +1,4 @@
-import { compressCssSelector, preprocessCssInJs } from '@/shared'
+import { compressCssSelector, preprocessCssInJs } from '@/utils'
 
 describe('utils', () => {
   it('compressCssSelector case 0', () => {

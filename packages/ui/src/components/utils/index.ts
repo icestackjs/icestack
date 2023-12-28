@@ -1,5 +1,6 @@
 import { pick, reverse } from 'lodash'
-import { preprocessCssInJs, defu, defuOverrideApplyCss, mergeRClone, mapCss2JsArray, defuExtendApplyCss } from '@/shared'
+import { defu, defuOverrideApplyCss, mergeRClone, defuExtendApplyCss } from '@/shared'
+import { preprocessCssInJs, mapCss2JsArray } from '@/postcss'
 import type { CodegenMode, ComponentsValue, GetCssSchemaMethodOptions, CssValue, CreatePresetOptions, CssSchema, ModeMergeOptions } from '@/types'
 import { isModeMergeValue } from '@/utils'
 
@@ -8,11 +9,12 @@ function getPickedProps(mode: CodegenMode = 'styled') {
     case 'base': {
       return ['base']
     }
-    case 'styled': {
-      return ['base', 'styled', 'utils']
-    }
+    // case 'styled': {
+    //   return ['base', 'styled', 'utils']
+    // }
+    // none
     default: {
-      return []
+      return ['base', 'styled', 'utils']
     }
   }
 }

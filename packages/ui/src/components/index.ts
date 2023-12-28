@@ -45,7 +45,7 @@ import navbar from './navbar'
 import fileInput from './file-input'
 import hero from './hero'
 import rating from './rating'
-import { preprocessCssInJs } from '@/shared'
+import { preprocessCssInJs } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 const schemaMap = {
   alert,
@@ -121,4 +121,5 @@ const removeDefaultComponents = componentNames.reduce<Record<string, false>>((ac
 }, {})
 export { componentNames as names, schemaMap, resolvedSchemaMap, removeDefaultComponents }
 
-export { expandTypes, getSelector, compressCssSelector, preprocessCssInJs, transformCss2Js } from '@/shared'
+export { expandTypes, getSelector } from '@/shared'
+export { compressCssSelector, preprocessCssInJs, transformCss2Js } from '@/postcss'

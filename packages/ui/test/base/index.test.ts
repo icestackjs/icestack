@@ -1,4 +1,4 @@
-import { transformCss2Js } from '@icestack/shared'
+import { transformCss2Js } from '@icestack/postcss'
 import { createContext, IContext } from '@/context'
 import { getCodegenOptions } from '@/options'
 import { sharedExtraColors } from '@/defaults'
@@ -25,7 +25,8 @@ describe('base', () => {
             selector: '.dark'
           }
         }
-      }
+      },
+      dryRun: true
     })
     const ctx = createContext(opts)
 
@@ -36,7 +37,8 @@ describe('base', () => {
 
   it('snap case 0', async () => {
     const opts = getCodegenOptions({
-      mode: 'none'
+      mode: 'none',
+      dryRun: true
     })
     const ctx = createContext(opts)
 
@@ -59,6 +61,7 @@ describe('base', () => {
   })
   it('add new theme case 0', async () => {
     const opts = getCodegenOptions({
+      dryRun: true,
       base: {
         themes: {
           light: {
@@ -90,6 +93,7 @@ describe('base', () => {
 
   it('add new theme case 1', async () => {
     const opts = getCodegenOptions({
+      dryRun: true,
       base: {
         themes: {
           light: {
@@ -200,6 +204,7 @@ describe('base', () => {
 
   it('add extra css options case 0', async () => {
     const opts = getCodegenOptions({
+      dryRun: true,
       base: {
         extraCss: [
           transformCss2Js(`:root,
@@ -270,6 +275,7 @@ describe('base', () => {
 
   it('add extra css options case 1', async () => {
     const opts = getCodegenOptions({
+      dryRun: true,
       base: {
         extraCss: [
           `:root{
@@ -291,6 +297,7 @@ describe('base', () => {
 
   it('add custom theme case 0', async () => {
     const opts = getCodegenOptions({
+      dryRun: true,
       base: {
         themes: {
           cupcake: {
@@ -321,6 +328,7 @@ describe('base', () => {
 
   it('add custom theme case without selecor 0', async () => {
     const opts = getCodegenOptions({
+      dryRun: true,
       base: {
         themes: {
           cupcake: {

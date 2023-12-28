@@ -1,4 +1,5 @@
-import { transformCss2Js, defuBaseDefault } from '@/shared'
+import { defuBaseDefault } from '@/shared'
+import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {

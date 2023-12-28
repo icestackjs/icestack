@@ -2,7 +2,8 @@ import { loadConfig } from 'c12'
 import { flattenDeep, get, set, isObject } from 'lodash'
 import { getCodegenDefaults } from './defaults'
 import type { CodegenOptions, Preset } from '@/types'
-import { defuOptions, mergeRClone, mapCss2JsArray } from '@/shared'
+import { defuOptions, mergeRClone } from '@/shared'
+import { mapCss2JsArray } from '@/postcss'
 
 export function preHandleOptions(options: Partial<CodegenOptions>): Partial<CodegenOptions> {
   const { base, utilities, components } = options

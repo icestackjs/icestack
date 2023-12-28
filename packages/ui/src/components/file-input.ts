@@ -1,5 +1,5 @@
 import dedent from 'dedent'
-import { transformCss2Js } from '@/shared'
+import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {

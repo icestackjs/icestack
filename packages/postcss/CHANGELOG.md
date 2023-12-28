@@ -1,5 +1,18 @@
 # @icestack/postcss
 
+## 0.5.0
+
+### Minor Changes
+
+- [`bcb03ca`](https://github.com/sonofmagic/icestack/commit/bcb03ca5b64672e0467ea047cb8c546a0ad57091) Thanks [@sonofmagic](https://github.com/sonofmagic)! - release 0.5.0
+
+### Patch Changes
+
+- Updated dependencies [[`bcb03ca`](https://github.com/sonofmagic/icestack/commit/bcb03ca5b64672e0467ea047cb8c546a0ad57091)]:
+  - @icestack/shared@0.5.0
+  - @icestack/types@0.5.0
+  - @icestack/postcss-utils@0.4.12
+
 ## 0.4.11
 
 ### Patch Changes

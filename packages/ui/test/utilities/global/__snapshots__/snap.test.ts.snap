@@ -13,6 +13,22 @@ exports[`utilities > custom snap case 0 1`] = `
 }"
 `;
 
+exports[`utilities > custom snap case 1 1`] = `
+{
+  "css": ".custom {
+  @apply font-display;
+}",
+  "cssInJs": {
+    ".custom": {
+      "fontFamily": "Oswald, ui-serif",
+    },
+  },
+  "resolvedCss": ".custom {
+    font-family: Oswald, ui-serif
+}",
+}
+`;
+
 exports[`utilities > glass snap 1`] = `
 ".glass {
   border: none;

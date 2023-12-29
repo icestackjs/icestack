@@ -1,64 +1,101 @@
 # Configuring Icestack
 
-## Types
+`icestack.config.js` 文件配置详解
 
-```ts
-type CodegenOptions = {
-  /**
-   * @description load css mode
-   * @default styled
-   * @enum "styled" | "base" | "none"
-   * @example styled load all, base load base, none load none
-   */
-  mode?: CodegenMode
-  /**
-   * @description custom all your components
-   */
-  components?: ComponentsOptions
-  /**
-   * @description css utilities
-   */
-  utilities?: Partial<UtilitiesOptions>
-  /**
-   * @description set themes and all types
-   */
-  base?: Partial<BaseOptions>
-  /**
-   * @description global postcss options
-   */
-  global?: Partial<GlobalOptions>
-  /**
-   * @description css var prefix
-   * @example '--primary' -> '--ice-primary'
-   * @default '--ice-'
-   */
-  varPrefix?: Partial<VarPrefixerOptions>
-  /**
-   * @description if console.log some debug information
-   * @default true
-   */
-  log?: boolean
-  /**
-   * @type PrefixerOptions
-   * @description PrefixerOptions, set prefix to your class and ignore class
-   */
-  prefix?: Partial<PrefixerOptions>
-  /**
-   * @description load presets
-   */
-  presets?: (Preset | ((options?: any) => Preset))[]
-  /**
-   * @description if run build without any output
-   * @default false
-   */
-  dryRun?: boolean
-  /**
-   * @description required! set output dir path.
-   */
-  outdir?: string
-  /**
-   * @description your custom tailwindcss config to resolve `@apply` and theme()
-   */
-  tailwindcssConfig?: Partial<Config$1>
+## outdir
+
+- **Type:** `string`
+- **Required!**
+
+必须项，输出 `css/js` 文件的指定目录
+
+## base
+
+核心配置，定义主题，颜色种类，以及 `base` 目录下的 `css/js` 文件生成，详见 [Base Options](./base)
+
+## components
+
+核心配置，定义组件，扩展样式，以及 `components` 目录下的 `css/js` 文件生成，详见 [Components Options](./components)
+
+## utilities
+
+定义工具类，扩展样式，以及 `utilities` 目录下的 `css/js` 文件生成
+
+### utilities.extraCss
+
+- **Type:** `string | CssInJs | (CssInJs | string)[]`
+
+定义额外附加的 `css`, 会被生成在 `utilities.custom` 文件中
+
+## postcss
+
+核心配置，全局 `postcss` 配置，详见 详见 [Postcss Options](./postcss)
+
+## tailwindcssConfig
+
+- **Type:** `Partial<TailwindcssConfig>`
+
+编译时，加载的 `tailwindcss config`, 可传入扩展此配置项，让 `@icestack/ui` 支持更多的 `@apply` / `theme()` 指令。
+
+例如你在 `tailwindcss` 扩展了一个字体:
+
+```js filename="icestack.config.js"
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  utilities: {
+    extraCss: [
+      // extraCss use @apply font-display
+      // `components` and `base` are same
+      `.custom{
+        @apply font-display;
+      }`
+    ]
+  },
+  tailwindcssConfig: {
+    theme: {
+      extend: {
+        fontFamily: {
+          display: 'Oswald, ui-serif'
+        }
+      }
+    }
+  }
 }
+module.exports = config
 ```
+
+这样你就能在 `base` / `components` / `utilities` 配置项的 `CssValue` 直接使用 `@apply font-display` 这样的命令字符串。
+
+## log
+
+- **Type:** `boolean`
+- **Default:** `true`
+
+是否在命令行输出构建信息。
+
+## presets
+
+- **Type:** `(Preset | ((options?: any) => Preset))[]`
+
+加载预设, 相关文档详见[预设的提炼与使用](/docs/core/preset)
+
+## dryRun
+
+- **Type:** `boolean`
+- **Default:** `false`
+
+是否只执行获得 `js` 对象，不输出 `css/js` 文件
+
+## mode
+
+- **Type:** `'styled' | 'base' | 'none'`
+- **Default:** `'styled'`
+
+样式生成模式，效果如下所示:
+
+- `'styled'`: 生成包括 `base`,`styled`,`utils` 和所有组件的样式。
+- `'base'`: 只生成 `base` 的样式
+- `'none'`: 不加载生成任何预设的主题和组件样式

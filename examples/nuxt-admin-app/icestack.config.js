@@ -9,6 +9,7 @@ const config = {
     themes: {
       ...customThemes,
     },
+    mediaDarkTheme: "dim",
   },
 };
 

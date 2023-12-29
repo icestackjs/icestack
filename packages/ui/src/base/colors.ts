@@ -21,9 +21,14 @@ export const gray: { [key: number]: string } = {
   12: '#141414',
   13: '#000000'
 }
-type GenerateOptions = Parameters<typeof generate>[1]
+
+interface ColorGenerateOptions {
+  theme?: 'dark' | 'default'
+  backgroundColor?: string
+}
+// type GenerateOptions = Parameters<typeof generate>[1]
 export function generateColorVars(key: string, color: string, dark?: boolean): Record<string, string>
-export function generateColorVars(key: string, color: string, opts: GenerateOptions): Record<string, string>
+export function generateColorVars(key: string, color: string, opts: ColorGenerateOptions): Record<string, string>
 export function generateColorVars(key: string, color: string, opt?: any) {
   let opts = opt
   if (opts === true) {

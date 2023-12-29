@@ -80,8 +80,14 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
         css
       }
       if (mediaDarkTheme === theme) {
-        acc['@media (prefers-color-scheme: dark)'] = {
-          css
+        // default selector
+        const defaultSelector = themes?.light.selector
+        if (defaultSelector) {
+          acc['@media (prefers-color-scheme: dark)'] = {
+            [defaultSelector]: {
+              css
+            }
+          }
         }
       }
     }

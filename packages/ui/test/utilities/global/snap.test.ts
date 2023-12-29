@@ -27,6 +27,7 @@ describe('utilities', () => {
 
   it('custom snap case 0', async () => {
     const ctx = createContext({
+      dryRun: true,
       utilities: {
         extraCss: [
           `.dsdsdsdsd{color:red;}`,
@@ -43,6 +44,30 @@ describe('utilities', () => {
     })
     const { css } = await ctx.compileScss('utilities.custom')
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+  })
+
+  it('custom snap case 1', async () => {
+    const ctx = createContext({
+      dryRun: true,
+      utilities: {
+        extraCss: [
+          `.custom{
+            @apply font-display;
+          }`
+        ]
+      },
+      tailwindcssConfig: {
+        theme: {
+          extend: {
+            fontFamily: {
+              display: 'Oswald, ui-serif'
+            }
+          }
+        }
+      }
+    })
+    const res = await ctx.buildUtilities()
+    expect(res.custom).toMatchSnapshot()
   })
 })
 

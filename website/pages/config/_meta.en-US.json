@@ -1,5 +1,7 @@
 {
   "overview": "Configuring Icestack",
-  "base": "base",
-  "components": "components"
+  "base": "Base Options",
+  "components": "Components Options",
+  "postcss": "Postcss Options",
+  "types": "Defined Types"
 }

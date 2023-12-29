@@ -1,17 +1,170 @@
-```ts
-type BaseOptions = {
-  themes: Themes
-  extraCss: CssValue
-  themeSelectorTemplate: (theme: string) => string
-  mediaDarkTheme: string | boolean
-}
+# Base Options
 
-type ThemeOptions = {
-  selector: string
-  extraColors: Record<string, string>
-  extraVars: Record<string, string>
-  extraCss: CssValue
-  types: Record<string, string | Record<string, string>>
+## base.themes
+
+- **Type:** `Themes`
+
+定义主题和颜色种类的配置
+
+```js
+const base = {
+  themes: {
+    // default themes
+    light: {
+      /*...*/
+    },
+    dark: {
+      /*...*/
+    },
+    // your custom themes
+    dim: {
+      /*...*/
+    },
+    cupcake: {
+      /*...*/
+    }
+    //....
+  }
 }
-type Themes = Record<string, Partial<ThemeOptions>>
 ```
+
+### [string]
+
+#### types
+
+- **Type:** `Record<string, string | Record<string, string>>`
+
+颜色种类定义的地方，默认情况下预设了 `primary`, `success`, `warning`, `error`, `neutral` 五种颜色种类
+
+你可以在此处扩展新的颜色种类，或者覆盖原有的颜色种类:
+
+```js
+// new theme called 'cupcake'
+const cupcake = {
+  types: {
+    // override primary and neutral
+    primary: '#65c3c8',
+    neutral: '#291334',
+    // extends secondary and accent color
+    // so you can use `btn-secondary` `badge-accent` `bg-secondary` etc...
+    secondary: '#ef9fbc',
+    accent: '#eeaf3a'
+  }
+}
+```
+
+- 当传入一个字符串的情况下，会交给 [ant-design-colors](https://github.com/ant-design/ant-design-colors) 使用 `default` 算法，去生成出 `content`,`hover`,`active` 时候的颜色。
+- 当传入一个数组的情况，会认为 `array[0]` 是 `color`(`string`)
+  - `array[1]` 为 `true`, 则使用默认的 `dark` 算法进行生成颜色
+  - `array[1]` 为 `object`, 则整个传入 `generate` 方法中
+- 当传入一个对象的情况，不使用生成算法，直接接管所有颜色的定义。
+
+你定义的颜色名称，最终会被转化成:
+
+```css
+:root {
+  --secondary: 189 147 249;
+  --secondary-hover: 220 191 255;
+  --secondary-active: 152 114 212;
+  --secondary-content: 255 255 255;
+  --accent: 255 184 108;
+  --accent-hover: 255 207 148;
+  --accent-active: 217 146 80;
+  --accent-content: 255 255 255;
+}
+```
+
+这样的颜色变量块。
+
+#### selector
+
+- **Type:** `string`
+
+CSS自定义变量注入块的选择器，不传默认使用 `themeSelectorTemplate`
+
+#### extraColors
+
+- **Type:** `Record<string, string>`
+
+额外的颜色，定义在这里的颜色，会被处理成 `rbg` 字符串，添加到对应的主题中
+
+```js
+const extraColors = {
+  'base-100': '#faf7f5',
+  'base-200': '#efeae6',
+  'base-300': '#e7e2df',
+  'base-content': '#291334'
+}
+```
+
+生成
+
+```css
+:root {
+  --base-100: 189 147 249;
+  --base-200: 220 191 255;
+  --base-300: 152 114 212;
+  --base-content: 255 255 255;
+}
+```
+
+#### extraVars
+
+- **Type:** `Record<string, string>`
+
+额外的CSS变量，与 `extraColors` 不同，定义在这里的变量，**不会**做任何的处理，就被添加到对应的主题中
+
+```js
+const extraVars = {
+  'base-100': '#faf7f5',
+  'base-200': '#efeae6',
+  'base-300': '#e7e2df',
+  'base-content': '#291334'
+}
+```
+
+生成
+
+```css
+:root {
+  --base-100: 189 147 249;
+  --base-200: 220 191 255;
+  --base-300: 152 114 212;
+  --base-content: 255 255 255;
+}
+```
+
+#### extraCss
+
+- **Type:** `CssValue`
+
+## base.mediaDarkTheme
+
+- **Type:** `string | boolean`
+- **Default:** `false`
+
+添加媒体查询语句，可传入指定的主题名称，用来作为暗黑模式下的默认主题。
+
+- 为 `true` 时，默认 `dark` theme 会作为默认主题
+- 为字符串时，比如之前定义的 `dim`，可指定为你的自定义主题颜色变量
+
+最终生成 `@media (prefers-color-scheme: dark)` 媒体查询语句。
+
+## base.themeSelectorTemplate
+
+- **Type:** `(theme: string) => string`
+- **Default:**
+
+```ts
+const themeSelectorTemplate = (theme: string) => {
+  return `[data-mode="${theme}"]`
+}
+```
+
+添加的每一个主题，默认生成的`CSS`选择器模版方法
+
+## base.extraCss
+
+- **Type:** `CssValue`
+
+额外的 Css 被添加到 `base` 下的 `css/js` 文件中

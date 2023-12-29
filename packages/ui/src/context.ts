@@ -377,6 +377,7 @@ export function createContext(opts?: CodegenOptions) {
     buildUtilities,
     buildComponents,
     buildTailwindcssConfig,
+    buildUnocssConfig,
     presets,
     options,
     build,

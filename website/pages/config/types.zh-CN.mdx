@@ -1,3 +1,6 @@
+## Types
+
+```ts
 import type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 import type { AcceptedPlugin } from 'postcss'
 import type { GetCssSchemaMethod, GetCssSchemaMethodOptions, CssValue } from './shared'
@@ -13,7 +16,7 @@ export type ThemeOptions = {
   extraVars: Record<string, string>
   extraCss: CssValue
   //    typeName | colors string/colors cssVars obj
-  types: Record<string, string | [string, true | ColorGenerateOptions] | Record<string, string>>
+  types: Record<string, string | Record<string, string>>
 }
 
 export type Themes = Record<string, Partial<ThemeOptions>>
@@ -191,16 +194,5 @@ export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : Partial<T[P]>
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-// export type DeepPartial<T> = T extends Function ? T : T extends Record<string, any> ? { [P in keyof T]?: DeepPartial<T[P]> } : T
-
-export type DeepRequired<T> = Required<{
-  [K in keyof T]: T[K] extends Required<T[K]> ? T[K] : DeepRequired<T[K]>
-}>
-
 export type ILayer = 'base' | 'utilities' | 'components'
-
-export interface ColorGenerateOptions {
-  theme?: 'dark' | 'default'
-  backgroundColor?: string
-}
+```

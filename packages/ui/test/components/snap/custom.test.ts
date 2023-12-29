@@ -8,7 +8,10 @@ describe('cutsom', () => {
   it('custom component case 0', async () => {
     const outdir = path.resolve(__dirname, './outdir')
     const options = getCodegenOptions({
-      prefix: 'ice-',
+      postcss: {
+        prefix: 'ice-'
+      },
+
       components: {
         ...removeDefaultComponents,
         subtitle: {
@@ -32,7 +35,9 @@ describe('cutsom', () => {
   it('custom component case 1', async () => {
     // const outdir = path.resolve(__dirname, './outdir')
     const options = getCodegenOptions({
-      prefix: 'ice-',
+      postcss: {
+        prefix: 'ice-'
+      },
       components: {
         ...removeDefaultComponents,
         subtitle: {
@@ -41,9 +46,12 @@ describe('cutsom', () => {
           }`
         },
         tips: {
-          prefix: {
-            prefix: 'som-'
+          postcss: {
+            prefix: {
+              prefix: 'som-'
+            }
           },
+
           extend: `.tips {
             @apply text-gray-500 text-xs pt-3 pb-2;
           }`
@@ -61,13 +69,19 @@ describe('cutsom', () => {
   it('custom component case 2', async () => {
     // const outdir = path.resolve(__dirname, './outdir')
     const options = getCodegenOptions({
-      prefix: 'ice-',
+      postcss: {
+        prefix: 'ice-'
+      },
+
       components: {
         ...removeDefaultComponents,
         checkbox: {
-          prefix: {
-            ignore: ['.wx-checkbox-input']
+          postcss: {
+            prefix: {
+              ignore: ['.wx-checkbox-input']
+            }
           },
+
           schema: ({ selector, types }) => {
             return {
               selector,

@@ -8,6 +8,7 @@ describe('options', () => {
   it('getCodegenOptions snap merge case 0', () => {
     expect(
       getCodegenOptions({
+        dryRun: true,
         mode: 'none',
         base: {
           extraCss: `:host{color:red;}`
@@ -26,6 +27,7 @@ describe('options', () => {
   it('getCodegenOptions snap merge case 1', () => {
     expect(
       getCodegenOptions({
+        dryRun: true,
         mode: 'none',
         base: {
           extraCss: `:host{color:red;}`
@@ -43,6 +45,7 @@ describe('options', () => {
 
   it('getCodegenOptions snap merge case 2', () => {
     const opts = getCodegenOptions({
+      dryRun: true,
       mode: 'none',
       base: {
         extraCss: `:host{color:red;}`
@@ -63,6 +66,7 @@ describe('options', () => {
 
   it('getCodegenOptions snap merge case 3', () => {
     const opts = getCodegenOptions({
+      dryRun: true,
       mode: 'none',
       base: {
         themes: {

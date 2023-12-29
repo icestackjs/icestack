@@ -1311,16 +1311,18 @@ exports[`options > daisyui options 1`] = `
       "selector": ".collapse",
     },
     "countdown": {
+      "postcss": {
+        "varPrefix": {
+          "ignoreProp": [
+            "--value",
+          ],
+          "ignoreValueCustomProperty": [
+            "--value",
+          ],
+        },
+      },
       "schema": [Function],
       "selector": ".countdown",
-      "varPrefix": {
-        "ignoreProp": [
-          "--value",
-        ],
-        "ignoreValueCustomProperty": [
-          "--value",
-        ],
-      },
     },
     "diff": {
       "schema": [Function],
@@ -1394,20 +1396,22 @@ exports[`options > daisyui options 1`] = `
       "selector": ".progress",
     },
     "radial-progress": {
+      "postcss": {
+        "varPrefix": {
+          "ignoreProp": [
+            "--size",
+            "--thickness",
+            "--value",
+          ],
+          "ignoreValueCustomProperty": [
+            "--size",
+            "--thickness",
+            "--value",
+          ],
+        },
+      },
       "schema": [Function],
       "selector": ".radial-progress",
-      "varPrefix": {
-        "ignoreProp": [
-          "--size",
-          "--thickness",
-          "--value",
-        ],
-        "ignoreValueCustomProperty": [
-          "--size",
-          "--thickness",
-          "--value",
-        ],
-      },
     },
     "radio": {
       "schema": [Function],
@@ -1470,35 +1474,38 @@ exports[`options > daisyui options 1`] = `
       "selector": ".toggle",
     },
     "tooltip": {
+      "postcss": {
+        "varPrefix": {
+          "ignoreProp": [
+            "--tooltip-tail",
+            "--tooltip-color",
+            "--tooltip-text-color",
+            "--tooltip-tail-offset",
+          ],
+          "ignoreValueCustomProperty": [
+            "--tooltip-tail",
+            "--tooltip-color",
+            "--tooltip-text-color",
+            "--tooltip-tail-offset",
+          ],
+        },
+      },
       "schema": [Function],
       "selector": ".tooltip",
-      "varPrefix": {
-        "ignoreProp": [
-          "--tooltip-tail",
-          "--tooltip-color",
-          "--tooltip-text-color",
-          "--tooltip-tail-offset",
-        ],
-        "ignoreValueCustomProperty": [
-          "--tooltip-tail",
-          "--tooltip-color",
-          "--tooltip-text-color",
-          "--tooltip-tail-offset",
-        ],
-      },
     },
   },
   "dryRun": false,
-  "global": {
+  "log": true,
+  "mode": "styled",
+  "postcss": {
     "atMedia": {
       "hover": false,
     },
-    "selector": {
-      "universal": "*",
+    "selector": {},
+    "varPrefix": {
+      "varPrefix": "--ice-",
     },
   },
-  "log": true,
-  "mode": "styled",
   "prefix": {
     "ignore": [],
     "prefix": undefined,
@@ -2932,9 +2939,6 @@ exports[`options > daisyui options 1`] = `
         },
       },
     },
-  },
-  "varPrefix": {
-    "varPrefix": "--ice-",
   },
 }
 `;

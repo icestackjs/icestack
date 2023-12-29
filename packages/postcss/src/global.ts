@@ -6,7 +6,7 @@ function isAtMediaHover(atRule: AtRule) {
   return /media\(\s*hover\s*:\s*hover\s*\)/.test(atRule.name) || (atRule.name === 'media' && /\(\s*hover\s*:\s*hover\s*\)/.test(atRule.params))
 }
 const creator: PluginCreator<CodegenOptions> = (options) => {
-  const globalOptions = options?.global
+  const globalOptions = options?.postcss
   const selectorOptions = globalOptions?.selector
   const universal = selectorOptions?.universal
   const root = selectorOptions?.root

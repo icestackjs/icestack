@@ -32,7 +32,8 @@ export interface BuildOptions {
 
 export function createContext(opts?: CodegenOptions) {
   const options = getCodegenOptions(opts)
-  const { outdir, dryRun, prefix: _globalPrefix, varPrefix: _globalVarPrefix, mode: globalMode, components = {}, log, tailwindcssConfig, utilities } = options
+  const { outdir, dryRun, postcss, mode: globalMode, components = {}, log, tailwindcssConfig, utilities } = options
+  const { prefix: _globalPrefix, varPrefix: _globalVarPrefix, plugins: globalPostcssPlugins } = postcss!
 
   const globalPrefix = resolvePrefixOption(_globalPrefix)
   const globalVarPrefix = resolveVarPrefixOption(_globalVarPrefix)
@@ -91,7 +92,7 @@ export function createContext(opts?: CodegenOptions) {
   const twConfig = initTailwindcssConfig(tailwindcssConfig, {
     theme: {
       extend: {
-        ...createDefaultTailwindcssExtends({ varPrefix: globalVarPrefix!.varPrefix }),
+        ...createDefaultTailwindcssExtends({ varPrefix: globalVarPrefix ? globalVarPrefix.varPrefix : undefined }),
         colors: tailwindcssColors
       }
     }
@@ -141,18 +142,31 @@ export function createContext(opts?: CodegenOptions) {
   }
 
   function preprocessCss(css: string, layer?: ILayer, name?: string) {
-    const plugins: AcceptedPlugin[] = []
+    let plugins: AcceptedPlugin[] = []
+
+    if (Array.isArray(globalPostcssPlugins)) {
+      plugins.push(...globalPostcssPlugins)
+    } else if (typeof globalPostcssPlugins === 'function') {
+      plugins = globalPostcssPlugins(plugins)
+    }
 
     if (layer === 'components' && name) {
       const t = components[name]
 
       if (typeof t === 'object') {
-        const varPrefixOptions = resolveVarPrefixOption(t.varPrefix)
+        const { postcss } = t
+        const varPrefixOptions = resolveVarPrefixOption(postcss?.varPrefix)
         const varPrefixerPlugin = getCssVarsPrefixerPlugin(defu(varPrefixOptions, globalVarPrefix))
         varPrefixerPlugin && plugins.push(varPrefixerPlugin)
-        const prefixOptions = resolvePrefixOption(t.prefix)
+        const prefixOptions = resolvePrefixOption(postcss?.prefix)
         const prefixerPlugin = getPrefixerPlugin(defu(prefixOptions, globalPrefix))
         prefixerPlugin && plugins.push(prefixerPlugin)
+
+        if (Array.isArray(postcss?.plugins)) {
+          plugins.push(...postcss.plugins)
+        } else if (typeof postcss?.plugins === 'function') {
+          plugins = postcss?.plugins(plugins)
+        }
       }
     } else {
       const varPrefixerPlugin = getCssVarsPrefixerPlugin(globalVarPrefix!)

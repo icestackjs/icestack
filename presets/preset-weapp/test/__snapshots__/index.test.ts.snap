@@ -186,16 +186,18 @@ exports[`presets > default preset 1`] = `
       "extend": [
         [Function],
       ],
+      "postcss": {
+        "varPrefix": {
+          "ignoreProp": [
+            "--value",
+          ],
+          "ignoreValueCustomProperty": [
+            "--value",
+          ],
+        },
+      },
       "schema": [Function],
       "selector": ".countdown",
-      "varPrefix": {
-        "ignoreProp": [
-          "--value",
-        ],
-        "ignoreValueCustomProperty": [
-          "--value",
-        ],
-      },
     },
     "diff": false,
     "divider": {
@@ -260,20 +262,22 @@ exports[`presets > default preset 1`] = `
       "selector": ".progress",
     },
     "radial-progress": {
+      "postcss": {
+        "varPrefix": {
+          "ignoreProp": [
+            "--size",
+            "--thickness",
+            "--value",
+          ],
+          "ignoreValueCustomProperty": [
+            "--size",
+            "--thickness",
+            "--value",
+          ],
+        },
+      },
       "schema": [Function],
       "selector": ".radial-progress",
-      "varPrefix": {
-        "ignoreProp": [
-          "--size",
-          "--thickness",
-          "--value",
-        ],
-        "ignoreValueCustomProperty": [
-          "--size",
-          "--thickness",
-          "--value",
-        ],
-      },
     },
     "radio": {
       "prefix": {
@@ -345,7 +349,9 @@ exports[`presets > default preset 1`] = `
     "tooltip": false,
   },
   "dryRun": false,
-  "global": {
+  "log": true,
+  "mode": "styled",
+  "postcss": {
     "atMedia": {
       "hover": false,
     },
@@ -354,9 +360,10 @@ exports[`presets > default preset 1`] = `
       "root": "page",
       "universal": "view",
     },
+    "varPrefix": {
+      "varPrefix": "--ice-",
+    },
   },
-  "log": true,
-  "mode": "styled",
   "presets": [
     {
       "base": {
@@ -446,7 +453,7 @@ exports[`presets > default preset 1`] = `
         },
         "tooltip": false,
       },
-      "global": {
+      "postcss": {
         "atMedia": {
           "hover": false,
         },
@@ -458,9 +465,6 @@ exports[`presets > default preset 1`] = `
       },
     },
   ],
-  "varPrefix": {
-    "varPrefix": "--ice-",
-  },
 }
 `;
 

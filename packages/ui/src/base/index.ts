@@ -1,6 +1,6 @@
 import { TinyColor } from '@ctrl/tinycolor'
 import { generateColorVars, makeRgbaValue, sharedExtraColors, sharedExtraVars } from './colors'
-import { CodegenOptions } from '@/types'
+import { CodegenOptions, VarPrefixerOptions } from '@/types'
 import { mergeR, mergeRClone } from '@/shared'
 import { mapCss2JsArray } from '@/postcss'
 
@@ -25,8 +25,9 @@ export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: 
 }
 
 export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } = { slash: true }) => {
-  const { base, varPrefix: varPrefixOptions } = options
-  const { varPrefix } = varPrefixOptions!
+  const { base, postcss } = options
+  const { varPrefix: varPrefixOptions } = postcss!
+  const { varPrefix } = varPrefixOptions as Partial<VarPrefixerOptions>
   const colors: Record<string, string> = {
     transparent: 'transparent',
     current: 'currentColor'

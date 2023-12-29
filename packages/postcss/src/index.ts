@@ -1,6 +1,6 @@
 import postcssJs from 'postcss-js'
 import postcss, { Root, AcceptedPlugin, LazyResult, Document } from 'postcss'
-import type { CodegenOptions, VarPrefixerOptions, PrefixerOptions } from '@icestack/types'
+import type { VarPrefixerOptions, PrefixerOptions } from '@icestack/types'
 import prefixer from './prefixer'
 
 export type { CssInJs } from 'postcss-js'
@@ -11,7 +11,10 @@ export { getPlugin as getCssVarsPrefixerPlugin } from './custom-property-prefixe
 export { initTailwindcssConfig, resolveTailwindcss } from './tailwindcss'
 export { getJsProcess } from './js'
 
-export function resolvePrefixOption(options?: string | PrefixerOptions) {
+export function resolvePrefixOption(options?: false | string | PrefixerOptions) {
+  if (options === false) {
+    return options
+  }
   return typeof options === 'string'
     ? {
         prefix: options
@@ -19,7 +22,10 @@ export function resolvePrefixOption(options?: string | PrefixerOptions) {
     : options
 }
 
-export function resolveVarPrefixOption(options?: string | VarPrefixerOptions) {
+export function resolveVarPrefixOption(options?: false | string | VarPrefixerOptions) {
+  if (options === false) {
+    return options
+  }
   return typeof options === 'string'
     ? {
         varPrefix: options
@@ -27,7 +33,7 @@ export function resolveVarPrefixOption(options?: string | VarPrefixerOptions) {
     : options
 }
 
-export function getPrefixerPlugin(prefix: CodegenOptions['prefix']) {
+export function getPrefixerPlugin(prefix?: false | string | PrefixerOptions) {
   if (typeof prefix === 'string') {
     return prefixer({
       prefix

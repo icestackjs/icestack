@@ -5,8 +5,7 @@ const withNextra = require('nextra')({
   themeConfig: './theme.config.jsx',
   defaultShowCopyCode: true
 })
-// const nextTranslate = require('next-translate-plugin')
-// const { i18n } = require('./next-i18next.config')
+
 const i18n = require('./i18n')
 /**
  * @type {import('next').NextConfig}

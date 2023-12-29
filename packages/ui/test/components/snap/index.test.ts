@@ -26,6 +26,7 @@ describe.each(componentsNames.map((x) => ({ name: x })))('$name', ({ name: compo
 describe('custom components', () => {
   const ctx = createContext(
     getCodegenOptions({
+      dryRun: true,
       components: {
         custom: {
           extend: {
@@ -53,31 +54,34 @@ describe('custom components', () => {
 
 describe('bug fixed', () => {
   it('button prefix base', () => {
-    const ctx = createContext(
-      getCodegenOptions({
+    const ctx = createContext({
+      dryRun: true,
+      postcss: {
         prefix: 'ice-'
-      })
-    )
+      }
+    })
     const { css } = ctx.compileScss(`components.button.defaults.base`)
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 
   it('button prefix styled', () => {
-    const ctx = createContext(
-      getCodegenOptions({
+    const ctx = createContext({
+      dryRun: true,
+      postcss: {
         prefix: 'ice-'
-      })
-    )
+      }
+    })
     const { css } = ctx.compileScss(`components.button.defaults.styled`)
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 
   it('button prefix utils', () => {
-    const ctx = createContext(
-      getCodegenOptions({
+    const ctx = createContext({
+      dryRun: true,
+      postcss: {
         prefix: 'ice-'
-      })
-    )
+      }
+    })
     const { css } = ctx.compileScss(`components.button.defaults.utils`)
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
@@ -85,31 +89,34 @@ describe('bug fixed', () => {
 
 describe('form bug', () => {
   it('form prefix base', () => {
-    const ctx = createContext(
-      getCodegenOptions({
+    const ctx = createContext({
+      dryRun: true,
+      postcss: {
         prefix: 'ice-'
-      })
-    )
+      }
+    })
     const { css } = ctx.compileScss(`components.form.defaults.base`)
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 
   it('form prefix styled', () => {
-    const ctx = createContext(
-      getCodegenOptions({
+    const ctx = createContext({
+      dryRun: true,
+      postcss: {
         prefix: 'ice-'
-      })
-    )
+      }
+    })
     const { css } = ctx.compileScss(`components.form.defaults.styled`)
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
 
   it('form prefix utils', () => {
-    const ctx = createContext(
-      getCodegenOptions({
+    const ctx = createContext({
+      dryRun: true,
+      postcss: {
         prefix: 'ice-'
-      })
-    )
+      }
+    })
     const { css } = ctx.compileScss(`components.form.defaults.utils`)
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })

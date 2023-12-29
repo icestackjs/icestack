@@ -39,7 +39,7 @@ export const components: ComponentsOptions = {
 
 export const miniprogramPreset: () => Preset = () => {
   return {
-    global: {
+    postcss: {
       atMedia: {
         hover: false
       },

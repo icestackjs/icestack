@@ -1,5 +1,5 @@
 import type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
-
+import type { AcceptedPlugin } from 'postcss'
 import type { GetCssSchemaMethod, GetCssSchemaMethodOptions, CssValue } from './shared'
 import type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 
@@ -37,8 +37,6 @@ export type ModeMergeValue = {
 export type ModeMergeOptions = string | ModeMergeValue | ((opts: Partial<GetCssSchemaMethodOptions>) => string | ModeMergeValue)
 
 export type ComponentsValue<Params extends Record<string, any> = Record<string, any>> = {
-  prefix: PrefixerOptions
-  varPrefix: VarPrefixerOptions
   mode: CodegenMode
   // baseDefault: CssValue
   /**
@@ -66,27 +64,13 @@ export type ComponentsValue<Params extends Record<string, any> = Record<string, 
    * @description senior
    */
   schema: GetCssSchemaMethod<Params>
+  /**
+   * @description postcss options
+   */
+  postcss: PostcssOptions
 }
 
 export type ComponentsOptions = Record<string, Partial<ComponentsValue> | false>
-
-export type GlobalOptions = {
-  atMedia: {
-    // default false
-    hover?: boolean
-  }
-  // pseudo: {
-  //   // default true
-  //   where: boolean
-  // }
-  selector: {
-    // default *
-    universal?: string // | string[] // | (() => string)
-    root?: string
-    // default global
-    // globalKeyword: string
-  }
-}
 
 export type UtilitiesOptions = {
   extraCss: CssValue
@@ -94,7 +78,39 @@ export type UtilitiesOptions = {
 
 export type CodegenMode = 'styled' | 'base' | 'none' //  'raw' |
 
-export type Preset = Partial<Pick<CodegenOptions, 'base' | 'components' | 'global' | 'tailwindcssConfig'>>
+export type Preset = Partial<Pick<CodegenOptions, 'base' | 'components' | 'postcss' | 'tailwindcssConfig'>>
+
+export type PostcssOptions = {
+  /**
+   * @type PrefixerOptions
+   * @description PrefixerOptions, set prefix to your class and ignore class
+   */
+  prefix?: string | false | Partial<PrefixerOptions>
+  /**
+   * @description css var prefix
+   * @example '--primary' -> '--ice-primary'
+   * @default '--ice-'
+   */
+  varPrefix?: string | false | Partial<VarPrefixerOptions>
+
+  atMedia?: {
+    // default false
+    hover?: boolean
+  }
+  // pseudo: {
+  //   // default true
+  //   where: boolean
+  // }
+  selector?: {
+    // default *
+    universal?: string // | string[] // | (() => string)
+    root?: string
+    // default global
+    // globalKeyword: string
+  }
+
+  plugins?: AcceptedPlugin[] | ((plugins: AcceptedPlugin[]) => AcceptedPlugin[])
+}
 
 export type CodegenOptions = {
   /**
@@ -117,25 +133,16 @@ export type CodegenOptions = {
    */
   base?: Partial<BaseOptions>
   /**
-   * @description global postcss options
+   * @description all postcss options
    */
-  global?: Partial<GlobalOptions>
-  /**
-   * @description css var prefix
-   * @example '--primary' -> '--ice-primary'
-   * @default '--ice-'
-   */
-  varPrefix?: Partial<VarPrefixerOptions>
+  postcss?: Partial<PostcssOptions>
+
   /**
    * @description if console.log some debug information
    * @default true
    */
   log?: boolean
-  /**
-   * @type PrefixerOptions
-   * @description PrefixerOptions, set prefix to your class and ignore class
-   */
-  prefix?: Partial<PrefixerOptions>
+
   /**
    * @description load presets
    */

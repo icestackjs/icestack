@@ -110,16 +110,20 @@ export const defaultSelectorMap: ComponentsOptions = {
   form: {},
   'radial-progress': {
     selector: '.radial-progress',
-    varPrefix: {
-      ignoreProp: ['--size', '--thickness', '--value'],
-      ignoreValueCustomProperty: ['--size', '--thickness', '--value']
+    postcss: {
+      varPrefix: {
+        ignoreProp: ['--size', '--thickness', '--value'],
+        ignoreValueCustomProperty: ['--size', '--thickness', '--value']
+      }
     }
   },
   countdown: {
     selector: '.countdown',
-    varPrefix: {
-      ignoreProp: ['--value'],
-      ignoreValueCustomProperty: ['--value']
+    postcss: {
+      varPrefix: {
+        ignoreProp: ['--value'],
+        ignoreValueCustomProperty: ['--value']
+      }
     }
   },
   diff: {
@@ -130,9 +134,11 @@ export const defaultSelectorMap: ComponentsOptions = {
   },
   tooltip: {
     selector: '.tooltip',
-    varPrefix: {
-      ignoreProp: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset'],
-      ignoreValueCustomProperty: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset']
+    postcss: {
+      varPrefix: {
+        ignoreProp: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset'],
+        ignoreValueCustomProperty: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset']
+      }
     }
   },
   toast: {
@@ -243,21 +249,20 @@ export function getCodegenDefaults(mode?: CodegenMode): Omit<CodegenOptions, 'ou
   const components = mode === 'none' ? {} : injectSchema(defaultSelectorMap)
   return {
     mode: 'styled',
-    varPrefix: {
-      varPrefix: defaultVarPrefix
-    },
+
     log: true,
     dryRun: false,
-    global: {
+    base,
+    components,
+    postcss: {
+      varPrefix: {
+        varPrefix: defaultVarPrefix
+      },
       atMedia: {
         hover: false
       },
-      selector: {
-        universal: '*'
-      }
-    },
-    base,
-    components
+      selector: {}
+    }
   }
 }
 

@@ -13,7 +13,8 @@ describe('global', () => {
   it('universal selector case 0', () => {
     const { css } = postcss([
       gloablPostcss({
-        global: {
+        dryRun: true,
+        postcss: {
           selector: {
             universal: 'view'
           }
@@ -28,7 +29,8 @@ describe('global', () => {
   it('pseudo root case 0', () => {
     const { css } = postcss([
       gloablPostcss({
-        global: {
+        dryRun: true,
+        postcss: {
           selector: {
             root: 'page'
           }

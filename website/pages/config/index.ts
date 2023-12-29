@@ -11,5 +11,22 @@ const config: Config = {
         types: {}
       }
     }
+  },
+  components: {
+    button: {
+      disabled: false,
+      extend: [{}],
+      mode: 'none',
+      override: [{}],
+      params: {},
+      postcss: {},
+      schema: ({ params, selector, types }) => {
+        return {
+          defaults: {},
+          selector
+        }
+      },
+      selector: '.xxx'
+    }
   }
 }

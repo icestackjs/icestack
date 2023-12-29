@@ -9,6 +9,9 @@ function getPickedProps(mode: CodegenMode = 'styled') {
     case 'base': {
       return ['base']
     }
+    case 'none': {
+      return []
+    }
     // case 'styled': {
     //   return ['base', 'styled', 'utils']
     // }
@@ -66,6 +69,7 @@ export function handleOptions({ extend, override, selector, mode, schema, params
 
   const d: CssSchema | undefined = schema?.(schemaOpts)
   let de: Partial<CssSchema> = d ?? {}
+  // mode: none , no default
   de.defaults = preprocessCssInJs(pick(de.defaults, getPickedProps(mode)))
   if (override) {
     const overrideDefaults = {

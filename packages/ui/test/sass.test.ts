@@ -1,7 +1,7 @@
 import path from 'node:path'
 import sassTrue from 'sass-true'
 import * as sass from 'sass'
-import { transformJsToSass } from '@/sass/utils'
+import { transformJsToSass } from '@/sass'
 // https://sass-lang.com/documentation/at-rules/mixin/#content-blocks
 
 // const cc = "dsadsa($a,$b)"

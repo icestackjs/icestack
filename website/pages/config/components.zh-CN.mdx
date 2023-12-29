@@ -1,1 +1,70 @@
 # Components Options
+
+定义与扩展所有组件的配置
+
+```js
+const components = {
+  // 定义原有组件行为
+  button: {},
+  // 添加新的组件
+  custom: {}
+}
+```
+
+> 所有组件的注册名称可以在 [此处查询到](https://github.com/sonofmagic/icestack/blob/main/packages/ui/src/components/index.ts)
+
+## [string]
+
+### mode
+
+- **Type:** `'styled' | 'base' | 'none'`
+- **Default:** `'styled'`
+
+同外部的 `mode`，内部 `mode` 优先级 > 外部
+
+### selector
+
+- **Type:** `string`
+
+选择器字符串，比如 `.btn`,`.badge`
+
+### disabled
+
+- **Type:** `boolean`
+- **Default:** `false`
+
+是否禁用此组件
+
+### override
+
+- **Type:** `ModeMergeOptions | ModeMergeOptions[]`
+
+传入对象，字符串，函数，覆盖组件的样式
+
+### extend
+
+- **Type:** `ModeMergeOptions | ModeMergeOptions[]`
+
+传入对象，字符串，函数，扩展组件的样式
+
+### schema
+
+- **Type:** `GetCssSchemaMethod<Params>`
+
+底层 `Css schema` 生成函数，用于根据传入参数渲染出 `Css` 模板
+
+### params
+
+- **Type:** `Params`
+
+传入 `Css schema` 生成函数的函数
+
+### postcss
+
+- **Type:** `PostcssOptions`
+
+组件级别的 `postcss` 配置，同全局 `postcss`，相关配置详见 [Postcss Options](./postcss)
+
+## [string]: false
+
+同 `disabled` 设置为 `false`

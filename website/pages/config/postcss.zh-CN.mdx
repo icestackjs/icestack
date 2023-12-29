@@ -1,1 +1,48 @@
 # Postcss Options
+
+全局或者组件级别的 `postcss` 配置
+
+## postcss.prefix
+
+- **Type:** `string | false | Partial<PrefixerOptions>`
+
+## postcss.varPrefix
+
+- **Type:** `string | false | Partial<VarPrefixerOptions>`
+- **Default:** `'--ice-'`
+
+example:
+
+```css
+/* before */
+--primary: rgba(var(--primary-color));
+/* after */
+--ice-primary: rgba(var(--ice-primary-color));
+```
+
+## postcss.atMedia.hover
+
+- **Type:** `boolean`
+
+是否去除 `@media (hover: hover)` 媒体查询
+
+## postcss.selector.universal
+
+- **Type:** `string`
+
+把 css `*` 选择器，替换为这个选项的值
+
+## postcss.selector.root
+
+- **Type:** `string`
+
+把 css `:root` 选择器，替换为这个选项的值
+
+## postcss.plugins
+
+- **Type:** `AcceptedPlugin[] | ((plugins: AcceptedPlugin[]) => AcceptedPlugin[])`
+
+自定义编译使用的 `postcss plugins`:
+
+- 传入一个数组可增加 postcss 处理步骤
+- 传入一方法，可完全接管 postcss 处理步骤

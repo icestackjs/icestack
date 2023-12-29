@@ -7,10 +7,9 @@ function isAtMediaHover(atRule: AtRule) {
 }
 const creator: PluginCreator<CodegenOptions> = (options) => {
   const globalOptions = options?.postcss
-  const selectorOptions = globalOptions?.selector
-  const universal = selectorOptions?.universal
-  const root = selectorOptions?.root
-  const removeAtMediaHover = !globalOptions?.atMedia?.hover
+  const { selector: selectorOptions, atMedia } = globalOptions ?? {}
+  const { universal, root } = selectorOptions ?? {}
+  const removeAtMediaHover = !atMedia?.hover
 
   const ruleTransformer = parser((selectors) => {
     selectors.walk((selector) => {

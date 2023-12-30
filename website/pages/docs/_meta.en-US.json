@@ -3,9 +3,10 @@
   "introduction": "Introduction",
   "core": "Extends",
   "contribute": "Contribute",
-  "motivation": "Motivation",
   "config-ref": {
     "title": "Configuration",
     "href": "/config/overview"
-  }
+  },
+  "nodejs": "Nodejs API",
+  "cli": "CLI"
 }

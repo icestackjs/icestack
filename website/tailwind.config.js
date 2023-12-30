@@ -1,6 +1,7 @@
 const path = require('node:path')
 const { icestackPlugin } = require('@icestack/tailwindcss')
 const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
+const { createTailwindcssContent } = require('@icestack/cva')
 // const plugin = require('tailwindcss/plugin')
 // const plugin = require('tailwindcss/plugin')
 /** @type {import('tailwindcss').Config} */
@@ -12,7 +13,8 @@ module.exports = {
     {
       // https://github.com/tailwindlabs/tailwindcss/issues/11134
       raw: 'dark'
-    }
+    },
+    createTailwindcssContent()
   ],
   theme: {},
   plugins: [

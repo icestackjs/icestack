@@ -8394,50 +8394,68 @@ exports[`'select' options > raw snap 1`] = `
     "base": {
       ".select": {
         "&[multiple]": {
-          "apply": "h-auto",
+          "apply": [
+            "h-auto",
+          ],
         },
-        "apply": "inline-flex cursor-pointer select-none appearance-none min-h-8 h-8 pl-3 pr-8 text-sm leading-8",
+        "apply": [
+          "inline-flex cursor-pointer select-none appearance-none",
+          "h-12 min-h-[3rem] pl-4 pr-10 text-sm leading-loose",
+        ],
       },
     },
     "styled": {
       ".select": {
         "&-bordered": {
-          "apply": "border-opacity-20",
+          "apply": [
+            "border-base-content/20",
+          ],
         },
-        "&-disabled,
-          &:disabled,
-          &[disabled]": {
-          "apply": "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20",
+        "&-disabled,&:disabled,&[disabled]": {
+          "apply": [
+            "border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20",
+          ],
         },
         "&-ghost": {
           "&:focus": {
-            "apply": "text-base-content bg-opacity-100",
+            "apply": [
+              "text-base-content bg-opacity-100",
+            ],
           },
-          "apply": "bg-opacity-5",
+          "apply": [
+            "bg-opacity-5",
+          ],
         },
-        "&-multiple,
-          &[multiple],
-          &[size]:not([size="1"])": {
-          "apply": "bg-none pr-4",
+        "&-multiple,&[multiple],&[size]:not([size="1"])": {
+          "apply": [
+            "bg-none pr-4",
+          ],
         },
         "&:focus": {
-          "apply": "outline-base-content/20 outline outline-2 outline-offset-2",
+          "apply": [
+            "border-base-content/20 outline-base-content/20 outline outline-2 outline-offset-2",
+          ],
+          "css": {
+            "box-shadow": "none",
+          },
         },
-        "apply": "border-base-content bg-base-100 rounded-btn border border-opacity-0 pr-10",
+        "apply": [
+          "bg-base-100 rounded-btn border border-transparent pr-10",
+        ],
         "css": {
           "background-image": "linear-gradient(45deg, transparent 50%, currentColor 50%),
-            linear-gradient(135deg, currentColor 50%, transparent 50%)",
+          linear-gradient(135deg, currentColor 50%, transparent 50%)",
           "background-position": "calc(100% - 20px) calc(1px + 50%),
-            calc(100% - 16.1px) calc(1px + 50%)",
+          calc(100% - 16.1px) calc(1px + 50%)",
           "background-repeat": "no-repeat",
           "background-size": "4px 4px,
-            4px 4px",
+          4px 4px",
         },
       },
       "[dir="rtl"] .select": {
         "css": {
           "background-position": "calc(0% + 12px) calc(1px + 50%),
-    calc(0% + 16px) calc(1px + 50%)",
+          calc(0% + 16px) calc(1px + 50%)",
         },
       },
     },
@@ -8445,27 +8463,43 @@ exports[`'select' options > raw snap 1`] = `
       ".select": {
         "&-lg": {
           "[dir="rtl"] &": {
-            "apply": "pl-8 pr-6",
+            "apply": [
+              "pl-8 pr-6",
+            ],
           },
-          "apply": "min-h-16 h-16 pl-6 pr-8 text-lg leading-loose",
+          "apply": [
+            "h-16 min-h-[4rem] pl-6 pr-8 text-lg leading-loose",
+          ],
         },
         "&-md": {
           "[dir="rtl"] &": {
-            "apply": "pl-10 pr-4",
+            "apply": [
+              "pl-10 pr-4",
+            ],
           },
-          "apply": "min-h-12 h-12 pl-4 pr-10 text-sm leading-loose",
+          "apply": [
+            "h-12 min-h-[3rem] pl-4 pr-10 text-sm leading-loose",
+          ],
         },
         "&-sm": {
           "[dir="rtl"] &": {
-            "apply": "pl-8 pr-3",
+            "apply": [
+              "pl-8 pr-3",
+            ],
           },
-          "apply": "min-h-8 h-8 pl-3 pr-8 text-sm leading-8",
+          "apply": [
+            "h-8 min-h-[2rem] pl-3 pr-8 text-sm leading-8",
+          ],
         },
         "&-xs": {
           "[dir="rtl"] &": {
-            "apply": "pl-8 pr-2",
+            "apply": [
+              "pl-8 pr-2",
+            ],
           },
-          "apply": "min-h-6 h-6 pl-2 pr-8 text-xs leading-relaxed",
+          "apply": [
+            "h-6 min-h-[1.5rem] pl-2 pr-8 text-xs leading-relaxed",
+          ],
         },
       },
     },
@@ -8492,12 +8526,14 @@ exports[`'select' options > snap 1`] = `
             "cursor-pointer",
             "select-none",
             "appearance-none",
-            "min-h-8",
-            "h-8",
-            "pl-3",
-            "pr-8",
+          ],
+          [
+            "h-12",
+            "min-h-[3rem]",
+            "pl-4",
+            "pr-10",
             "text-sm",
-            "leading-8",
+            "leading-loose",
           ],
         ],
       },
@@ -8507,7 +8543,7 @@ exports[`'select' options > snap 1`] = `
         "&-bordered": {
           "apply": [
             [
-              "border-opacity-20",
+              "border-base-content/20",
             ],
           ],
         },
@@ -8549,37 +8585,40 @@ exports[`'select' options > snap 1`] = `
         "&:focus": {
           "apply": [
             [
+              "border-base-content/20",
               "outline-base-content/20",
               "outline",
               "outline-2",
               "outline-offset-2",
             ],
           ],
+          "css": {
+            "box-shadow": "none",
+          },
         },
         "apply": [
           [
-            "border-base-content",
             "bg-base-100",
             "rounded-btn",
             "border",
-            "border-opacity-0",
+            "border-transparent",
             "pr-10",
           ],
         ],
         "css": {
           "background-image": "linear-gradient(45deg, transparent 50%, currentColor 50%),
-            linear-gradient(135deg, currentColor 50%, transparent 50%)",
+          linear-gradient(135deg, currentColor 50%, transparent 50%)",
           "background-position": "calc(100% - 20px) calc(1px + 50%),
-            calc(100% - 16.1px) calc(1px + 50%)",
+          calc(100% - 16.1px) calc(1px + 50%)",
           "background-repeat": "no-repeat",
           "background-size": "4px 4px,
-            4px 4px",
+          4px 4px",
         },
       },
       "[dir="rtl"] .select": {
         "css": {
           "background-position": "calc(0% + 12px) calc(1px + 50%),
-    calc(0% + 16px) calc(1px + 50%)",
+          calc(0% + 16px) calc(1px + 50%)",
         },
       },
     },
@@ -8596,8 +8635,8 @@ exports[`'select' options > snap 1`] = `
           },
           "apply": [
             [
-              "min-h-16",
               "h-16",
+              "min-h-[4rem]",
               "pl-6",
               "pr-8",
               "text-lg",
@@ -8616,8 +8655,8 @@ exports[`'select' options > snap 1`] = `
           },
           "apply": [
             [
-              "min-h-12",
               "h-12",
+              "min-h-[3rem]",
               "pl-4",
               "pr-10",
               "text-sm",
@@ -8636,8 +8675,8 @@ exports[`'select' options > snap 1`] = `
           },
           "apply": [
             [
-              "min-h-8",
               "h-8",
+              "min-h-[2rem]",
               "pl-3",
               "pr-8",
               "text-sm",
@@ -8656,8 +8695,8 @@ exports[`'select' options > snap 1`] = `
           },
           "apply": [
             [
-              "min-h-6",
               "h-6",
+              "min-h-[1.5rem]",
               "pl-2",
               "pr-8",
               "text-xs",

@@ -2,7 +2,6 @@ const path = require('node:path')
 const fs = require('node:fs')
 const axios = require('axios')
 const cheerio = require('cheerio')
-const dedent = require('dedent')
 const prettier = require('prettier')
 const walk = require('klaw-sync')
 const { resolveDemo, demosDir } = require('./dirs')
@@ -20,7 +19,7 @@ const componentsArray = dirs.map((x) => {
 })
 
 function makeAAA({ title, html }) {
-  return dedent`### ${title}
+  return `### ${title}
 
 <CodeRender code={\`
 ${html}
@@ -42,7 +41,7 @@ async function main() {
       const daole = $(this)
       const text = daole.find('.component-preview-title').text()
       const dom = daole.find('.preview')
-      dom.children().removeAttr('data-svelte-h')
+      dom.children('[data-svelte-h]').removeAttr('data-svelte-h')
       dom.children('img').attr('src', '/pig.jpg')
       const html = dom.html()
       result.push({
@@ -61,7 +60,7 @@ async function main() {
 
     fs.writeFileSync(
       resolveDemo(name, 'base.mdx'),
-      dedent`import CodeRender from '../../CodeRender'
+      `import CodeRender from '../../CodeRender'
 
 ${result.map((x) => makeAAA(x)).join('\n')}   
 

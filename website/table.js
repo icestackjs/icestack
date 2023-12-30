@@ -209,10 +209,10 @@ module.exports = {
       "select-multiple"
     ],
     "utils": [
-      "select-xs",
-      "select-sm",
       "select-md",
-      "select-lg"
+      "select-lg",
+      "select-sm",
+      "select-xs"
     ]
   },
   "textarea": {

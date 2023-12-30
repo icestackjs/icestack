@@ -91,6 +91,9 @@ async function main() {
 
           fss.writeFileSync(demoPath, `import CodeRender from '../../CodeRender'\n`, 'utf8')
         }
+        // `## ${t('Playground')}
+
+        // [${t('Go to Storybook')}](https://story.ui.icebreaker.top/?path=/docs/${kebabCase(groupName)}-${componentName}--docs)`
         const cssSchemaString = hit
           ? (
               await Promise.all(
@@ -141,10 +144,6 @@ ${
 <Demo></Demo>`
     : ''
 }
-
-## ${t('Playground')}
-  
-[${t('Go to Storybook')}](https://story.ui.icebreaker.top/?path=/docs/${kebabCase(groupName)}-${componentName}--docs)
   
 ## ${t('Css Schema')}
 

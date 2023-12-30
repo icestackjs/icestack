@@ -163,6 +163,11 @@ export type CodegenOptions = {
    * @description your custom tailwindcss config to resolve `@apply` and theme()
    */
   tailwindcssConfig?: Partial<TailwindcssConfig>
+
+  /**
+   * @description Whether to clean the output directory before generating the css.
+   */
+  clean?: boolean
 } & (
   | {
       /**

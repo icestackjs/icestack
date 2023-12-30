@@ -80,6 +80,7 @@
     "chokidar": "^3.5.3",
     "commander": "^11.1.0",
     "dedent": "^1.5.1",
+    "del": "^7.1.0",
     "immutable": "^4.0.0",
     "kleur": "^4.1.5",
     "lodash": "^4.17.21",

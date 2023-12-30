@@ -16,13 +16,19 @@ const cli = new Command()
 // })\n`
 // ts ? 'icestack.config.ts' :
 
-async function letUsBuild() {
+async function letUsBuild(options: { clean?: boolean } = {}) {
   const config = await load()
   if (config) {
     if (!config.outdir) {
       logger.error('outdir option must be passed!')
       return
     }
+    if (options.clean || config.clean) {
+      const { deleteAsync } = await import('del')
+      await deleteAsync(config.outdir)
+      logger.success(`del outdir: ${config.outdir} successfully!`)
+    }
+
     const ctx = createContext(config)
     await ctx.build()
     logger.success('build successfully!')
@@ -61,8 +67,10 @@ cli
 cli
   .command('build')
   .description('code generate')
-  .action(async () => {
-    await letUsBuild()
+  .option('--clean')
+  .action(async (options) => {
+    const { clean } = options
+    await letUsBuild({ clean })
   })
 
 cli

@@ -32,7 +32,7 @@ export function createTailwindcssContent(opts: CreateTailwindcssContentOptions =
         }
         return acc
       }, [])
-      .join(' ')
+      .join('\n')
   }
 }
 

@@ -1,0 +1,22 @@
+{
+  "name": "start-from-scratch",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build",
+    "preview": "vite preview",
+    "build:ui": "icestack build --clean"
+  },
+  "dependencies": {
+    "vue": "^3.3.11"
+  },
+  "devDependencies": {
+    "@icestack/ui": "workspace:^",
+    "@vitejs/plugin-vue": "^4.5.2",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vue-tsc": "^1.8.25"
+  }
+}

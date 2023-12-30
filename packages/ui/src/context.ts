@@ -46,7 +46,10 @@ export function createContext(opts?: CodegenOptions) {
   const { presets: unocssPresets, colors: unocssColors } = calcBase(options, { slash: false })
 
   function writeFile(file: string, data: string) {
-    !dryRun && fs.writeFileSync(file, data, 'utf8')
+    if (!dryRun) {
+      ensureDirSync(path.dirname(file))
+      fs.writeFileSync(file, data, 'utf8')
+    }
   }
 
   function getPaths(relPath: string) {
@@ -54,11 +57,6 @@ export function createContext(opts?: CodegenOptions) {
     const jsPath = getJsPath(relPath, outdir)
     const cssResolvedPath = getCssResolvedPath(relPath, outdir)
 
-    if (!dryRun) {
-      ensureDirSync(path.dirname(cssPath))
-      ensureDirSync(path.dirname(jsPath))
-      ensureDirSync(path.dirname(cssResolvedPath))
-    }
     return {
       cssPath,
       jsPath,
@@ -239,7 +237,7 @@ export function createContext(opts?: CodegenOptions) {
     if (!dryRun) {
       const outputPath = path.resolve(resolveJsDir(outdir), 'utilities')
       const code = generateIndexCode(utilitiesNames, 'utilities')
-      fs.writeFileSync(path.resolve(outputPath, 'index.cjs'), code, 'utf8')
+      writeFile(path.resolve(outputPath, 'index.cjs'), code)
     }
 
     return res
@@ -273,7 +271,7 @@ export function createContext(opts?: CodegenOptions) {
     if (!dryRun) {
       const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
       const code = generateIndexCode(allComponentsNames, 'components')
-      fs.writeFileSync(path.resolve(componentsJsOutputPath, 'index.cjs'), code, 'utf8')
+      writeFile(path.resolve(componentsJsOutputPath, 'index.cjs'), code)
     }
     b1.stop()
     b1.clearLine()
@@ -285,9 +283,9 @@ export function createContext(opts?: CodegenOptions) {
     if (!dryRun) {
       const code = 'module.exports = ' + JSONStringify(pick(twConfig, ['theme']))
       const outputDir = path.resolve(resolveJsDir(outdir), 'tailwindcss')
-      ensureDirSync(outputDir)
+
       const outputPath = path.resolve(outputDir, 'config.cjs')
-      fs.writeFileSync(outputPath, code, 'utf8')
+      writeFile(outputPath, code)
     }
 
     return twConfig
@@ -302,9 +300,9 @@ export function createContext(opts?: CodegenOptions) {
     if (!dryRun) {
       const code = 'module.exports = ' + JSONStringify(config)
       const outputDir = path.resolve(resolveJsDir(outdir), 'unocss')
-      ensureDirSync(outputDir)
+
       const outputPath = path.resolve(outputDir, 'config.cjs')
-      fs.writeFileSync(outputPath, code, 'utf8')
+      writeFile(outputPath, code)
     }
 
     return config

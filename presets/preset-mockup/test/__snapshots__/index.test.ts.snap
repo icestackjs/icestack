@@ -11465,7 +11465,8 @@ details.collapse summary{
   "select": {
     "base": {
       "css": ".select {
-  @apply inline-flex cursor-pointer select-none appearance-none min-h-8 h-8 pl-3 pr-8 text-sm leading-8;
+  @apply inline-flex cursor-pointer select-none appearance-none;
+  @apply h-12 min-h-[3rem] pl-4 pr-10 text-sm leading-loose;
 }
 .select[multiple] {
   @apply h-auto;
@@ -11476,11 +11477,14 @@ details.collapse summary{
           "cursor": "pointer",
           "display": "inline-flex",
           "fontSize": "0.875rem",
-          "height": "2rem",
-          "lineHeight": "2rem",
-          "minHeight": "2rem",
-          "paddingLeft": "0.75rem",
-          "paddingRight": "2rem",
+          "height": "3rem",
+          "lineHeight": [
+            "1.25rem",
+            2,
+          ],
+          "minHeight": "3rem",
+          "paddingLeft": "1rem",
+          "paddingRight": "2.5rem",
           "userSelect": "none",
         },
         ".select[multiple]": {
@@ -11489,15 +11493,16 @@ details.collapse summary{
       },
       "resolvedCss": ".select {
     display: inline-flex;
-    height: 2rem;
-    min-height: 2rem;
     cursor: pointer;
     user-select: none;
     appearance: none;
-    padding-left: 0.75rem;
-    padding-right: 2rem;
+    height: 3rem;
+    min-height: 3rem;
+    padding-left: 1rem;
+    padding-right: 2.5rem;
     font-size: 0.875rem;
-    line-height: 2rem
+    line-height: 1.25rem;
+    line-height: 2
 }
 .select[multiple] {
     height: auto
@@ -11505,17 +11510,18 @@ details.collapse summary{
     },
     "styled": {
       "css": ".select {
-  @apply border-base-content bg-base-100 rounded-btn border border-opacity-0 pr-10;
+  @apply bg-base-100 rounded-btn border border-transparent pr-10;
   background-image: linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%);
   background-position: calc(100% - 20px) calc(1px + 50%), calc(100% - 16.1px) calc(1px + 50%);
   background-size: 4px 4px, 4px 4px;
   background-repeat: no-repeat;
 }
 .select-bordered {
-  @apply border-opacity-20;
+  @apply border-base-content/20;
 }
 .select:focus {
-  @apply outline-base-content/20 outline outline-2 outline-offset-2;
+  box-shadow: none;
+  @apply border-base-content/20 outline-base-content/20 outline outline-2 outline-offset-2;
 }
 .select-ghost {
   @apply bg-opacity-5;
@@ -11527,31 +11533,31 @@ details.collapse summary{
   @apply border-primary;
 }
 .select-primary:focus {
-  @apply outline-primary;
+  @apply outline-primary border-primary;
 }
 .select-success {
   @apply border-success;
 }
 .select-success:focus {
-  @apply outline-success;
+  @apply outline-success border-success;
 }
 .select-warning {
   @apply border-warning;
 }
 .select-warning:focus {
-  @apply outline-warning;
+  @apply outline-warning border-warning;
 }
 .select-error {
   @apply border-error;
 }
 .select-error:focus {
-  @apply outline-error;
+  @apply outline-error border-error;
 }
 .select-neutral {
   @apply border-neutral;
 }
 .select-neutral:focus {
-  @apply outline-neutral;
+  @apply outline-neutral border-neutral;
 }
 .select-disabled, .select:disabled, .select[disabled] {
   @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
@@ -11566,19 +11572,18 @@ details.collapse summary{
       "cssInJs": {
         ".select": {
           "--tw-bg-opacity": "1",
-          "--tw-border-opacity": "0",
           "backgroundColor": "rgba(var(--ice-base-100) / var(--tw-bg-opacity))",
           "backgroundImage": "linear-gradient(45deg, transparent 50%, currentColor 50%), linear-gradient(135deg, currentColor 50%, transparent 50%)",
           "backgroundPosition": "calc(100% - 20px) calc(1px + 50%), calc(100% - 16.1px) calc(1px + 50%)",
           "backgroundRepeat": "no-repeat",
           "backgroundSize": "4px 4px, 4px 4px",
-          "borderColor": "rgba(var(--ice-base-content) / var(--tw-border-opacity))",
+          "borderColor": "transparent",
           "borderRadius": "var(--ice-rounded-btn, 0.5rem)",
           "borderWidth": "1px",
           "paddingRight": "2.5rem",
         },
         ".select-bordered": {
-          "--tw-border-opacity": "0.2",
+          "borderColor": "rgba(var(--ice-base-content) / 0.2)",
         },
         ".select-disabled,.select:disabled,.select[disabled]": {
           "--tw-bg-opacity": "1",
@@ -11597,6 +11602,8 @@ details.collapse summary{
           "borderColor": "rgba(var(--ice-error) / var(--tw-border-opacity))",
         },
         ".select-error:focus": {
+          "--tw-border-opacity": "1",
+          "borderColor": "rgba(var(--ice-error) / var(--tw-border-opacity))",
           "outlineColor": "rgba(var(--ice-error) / 1)",
         },
         ".select-ghost": {
@@ -11616,6 +11623,8 @@ details.collapse summary{
           "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
         },
         ".select-neutral:focus": {
+          "--tw-border-opacity": "1",
+          "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
           "outlineColor": "rgba(var(--ice-neutral) / 1)",
         },
         ".select-primary": {
@@ -11623,6 +11632,8 @@ details.collapse summary{
           "borderColor": "rgba(var(--ice-primary) / var(--tw-border-opacity))",
         },
         ".select-primary:focus": {
+          "--tw-border-opacity": "1",
+          "borderColor": "rgba(var(--ice-primary) / var(--tw-border-opacity))",
           "outlineColor": "rgba(var(--ice-primary) / 1)",
         },
         ".select-success": {
@@ -11630,6 +11641,8 @@ details.collapse summary{
           "borderColor": "rgba(var(--ice-success) / var(--tw-border-opacity))",
         },
         ".select-success:focus": {
+          "--tw-border-opacity": "1",
+          "borderColor": "rgba(var(--ice-success) / var(--tw-border-opacity))",
           "outlineColor": "rgba(var(--ice-success) / 1)",
         },
         ".select-warning": {
@@ -11637,9 +11650,13 @@ details.collapse summary{
           "borderColor": "rgba(var(--ice-warning) / var(--tw-border-opacity))",
         },
         ".select-warning:focus": {
+          "--tw-border-opacity": "1",
+          "borderColor": "rgba(var(--ice-warning) / var(--tw-border-opacity))",
           "outlineColor": "rgba(var(--ice-warning) / 1)",
         },
         ".select:focus": {
+          "borderColor": "rgba(var(--ice-base-content) / 0.2)",
+          "boxShadow": "none",
           "outlineColor": "rgba(var(--ice-base-content) / 0.2)",
           "outlineOffset": "2px",
           "outlineStyle": "solid",
@@ -11652,8 +11669,7 @@ details.collapse summary{
       "resolvedCss": ".select {
   border-radius: var(--ice-rounded-btn, 0.5rem);
   border-width: 1px;
-  border-color: rgba(var(--ice-base-content) / var(--tw-border-opacity));
-  --tw-border-opacity: 0;
+  border-color: transparent;
   --tw-bg-opacity: 1;
   background-color: rgba(var(--ice-base-100) / var(--tw-bg-opacity));
   padding-right: 2.5rem;
@@ -11663,9 +11679,11 @@ details.collapse summary{
   background-repeat: no-repeat;
 }
 .select-bordered {
-  --tw-border-opacity: 0.2;
+  border-color: rgba(var(--ice-base-content) / 0.2);
 }
 .select:focus {
+  box-shadow: none;
+  border-color: rgba(var(--ice-base-content) / 0.2);
   outline-style: solid;
   outline-width: 2px;
   outline-offset: 2px;
@@ -11684,6 +11702,8 @@ details.collapse summary{
   border-color: rgba(var(--ice-primary) / var(--tw-border-opacity));
 }
 .select-primary:focus {
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--ice-primary) / var(--tw-border-opacity));
   outline-color: rgba(var(--ice-primary) / 1);
 }
 .select-success {
@@ -11691,6 +11711,8 @@ details.collapse summary{
   border-color: rgba(var(--ice-success) / var(--tw-border-opacity));
 }
 .select-success:focus {
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--ice-success) / var(--tw-border-opacity));
   outline-color: rgba(var(--ice-success) / 1);
 }
 .select-warning {
@@ -11698,6 +11720,8 @@ details.collapse summary{
   border-color: rgba(var(--ice-warning) / var(--tw-border-opacity));
 }
 .select-warning:focus {
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--ice-warning) / var(--tw-border-opacity));
   outline-color: rgba(var(--ice-warning) / 1);
 }
 .select-error {
@@ -11705,6 +11729,8 @@ details.collapse summary{
   border-color: rgba(var(--ice-error) / var(--tw-border-opacity));
 }
 .select-error:focus {
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--ice-error) / var(--tw-border-opacity));
   outline-color: rgba(var(--ice-error) / 1);
 }
 .select-neutral {
@@ -11712,6 +11738,8 @@ details.collapse summary{
   border-color: rgba(var(--ice-neutral) / var(--tw-border-opacity));
 }
 .select-neutral:focus {
+  --tw-border-opacity: 1;
+  border-color: rgba(var(--ice-neutral) / var(--tw-border-opacity));
   outline-color: rgba(var(--ice-neutral) / 1);
 }
 .select-disabled,.select:disabled,.select[disabled] {
@@ -11736,29 +11764,29 @@ details.collapse summary{
 }",
     },
     "utils": {
-      "css": ".select-xs {
-  @apply min-h-6 h-6 pl-2 pr-8 text-xs leading-relaxed;
-}
-[dir=rtl] .select-xs {
-  @apply pl-8 pr-2;
-}
-.select-sm {
-  @apply min-h-8 h-8 pl-3 pr-8 text-sm leading-8;
-}
-[dir=rtl] .select-sm {
-  @apply pl-8 pr-3;
-}
-.select-md {
-  @apply min-h-12 h-12 pl-4 pr-10 text-sm leading-loose;
+      "css": ".select-md {
+  @apply h-12 min-h-[3rem] pl-4 pr-10 text-sm leading-loose;
 }
 [dir=rtl] .select-md {
   @apply pl-10 pr-4;
 }
 .select-lg {
-  @apply min-h-16 h-16 pl-6 pr-8 text-lg leading-loose;
+  @apply h-16 min-h-[4rem] pl-6 pr-8 text-lg leading-loose;
 }
 [dir=rtl] .select-lg {
   @apply pl-8 pr-6;
+}
+.select-sm {
+  @apply h-8 min-h-[2rem] pl-3 pr-8 text-sm leading-8;
+}
+[dir=rtl] .select-sm {
+  @apply pl-8 pr-3;
+}
+.select-xs {
+  @apply h-6 min-h-[1.5rem] pl-2 pr-8 text-xs leading-relaxed;
+}
+[dir=rtl] .select-xs {
+  @apply pl-8 pr-2;
 }",
       "cssInJs": {
         ".select-lg": {
@@ -11819,32 +11847,7 @@ details.collapse summary{
           "paddingRight": "0.5rem",
         },
       },
-      "resolvedCss": ".select-xs {
-    height: 1.5rem;
-    min-height: 1.5rem;
-    padding-left: 0.5rem;
-    padding-right: 2rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    line-height: 1.625
-}
-[dir=rtl] .select-xs {
-    padding-left: 2rem;
-    padding-right: 0.5rem
-}
-.select-sm {
-    height: 2rem;
-    min-height: 2rem;
-    padding-left: 0.75rem;
-    padding-right: 2rem;
-    font-size: 0.875rem;
-    line-height: 2rem
-}
-[dir=rtl] .select-sm {
-    padding-left: 2rem;
-    padding-right: 0.75rem
-}
-.select-md {
+      "resolvedCss": ".select-md {
     height: 3rem;
     min-height: 3rem;
     padding-left: 1rem;
@@ -11869,6 +11872,31 @@ details.collapse summary{
 [dir=rtl] .select-lg {
     padding-left: 2rem;
     padding-right: 1.5rem
+}
+.select-sm {
+    height: 2rem;
+    min-height: 2rem;
+    padding-left: 0.75rem;
+    padding-right: 2rem;
+    font-size: 0.875rem;
+    line-height: 2rem
+}
+[dir=rtl] .select-sm {
+    padding-left: 2rem;
+    padding-right: 0.75rem
+}
+.select-xs {
+    height: 1.5rem;
+    min-height: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 2rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    line-height: 1.625
+}
+[dir=rtl] .select-xs {
+    padding-left: 2rem;
+    padding-right: 0.5rem
 }",
     },
   },

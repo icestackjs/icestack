@@ -1,5 +1,14 @@
 # @icestack/postcss-utils
 
+## 0.4.14
+
+### Patch Changes
+
+- [`99ebaf4`](https://github.com/sonofmagic/icestack/commit/99ebaf459d0727f7f57111827362456f2a9f3f27) Thanks [@sonofmagic](https://github.com/sonofmagic)! - fix: base.mediaDarkTheme option
+
+- Updated dependencies [[`99ebaf4`](https://github.com/sonofmagic/icestack/commit/99ebaf459d0727f7f57111827362456f2a9f3f27)]:
+  - @icestack/types@0.5.2
+
 ## 0.4.13
 
 ### Patch Changes

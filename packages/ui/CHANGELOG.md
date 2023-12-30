@@ -1,5 +1,17 @@
 # @icestack/ui
 
+## 0.5.2
+
+### Patch Changes
+
+- [`99ebaf4`](https://github.com/sonofmagic/icestack/commit/99ebaf459d0727f7f57111827362456f2a9f3f27) Thanks [@sonofmagic](https://github.com/sonofmagic)! - fix: base.mediaDarkTheme option
+
+- Updated dependencies [[`99ebaf4`](https://github.com/sonofmagic/icestack/commit/99ebaf459d0727f7f57111827362456f2a9f3f27)]:
+  - @icestack/logger@0.5.2
+  - @icestack/postcss@0.5.2
+  - @icestack/shared@0.5.2
+  - @icestack/types@0.5.2
+
 ## 0.5.1
 
 ### Patch Changes

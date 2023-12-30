@@ -1,7 +1,7 @@
 {
   "name": "@icestack/preset-mockup",
   "description": "The mockup preset of @icestack/ui",
-  "version": "0.2.11",
+  "version": "0.2.12",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

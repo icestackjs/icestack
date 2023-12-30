@@ -1,4 +1,121 @@
 import CodeRender from '../../CodeRender'
-import Base from './base.mdx'
 
-<Base/>
+### Radio
+
+<CodeRender className='gap-2' code={`
+<input type="radio" name="radio-1" class="radio" checked="" />
+<input type="radio" name="radio-1" class="radio" />
+
+`} />
+  
+```html
+<input type="radio" name="radio-1" class="radio" checked="" />
+<input type="radio" name="radio-1" class="radio" />
+
+```
+### Primary color
+
+<CodeRender className='gap-2' code={`
+<input type="radio" name="radio-2" class="radio radio-primary" checked="" />
+<input type="radio" name="radio-2" class="radio radio-primary" />
+
+`} />
+  
+```html
+<input type="radio" name="radio-2" class="radio radio-primary" checked="" />
+<input type="radio" name="radio-2" class="radio radio-primary" />
+
+```
+
+### Success color
+
+<CodeRender className='gap-2' code={`
+<input type="radio" name="radio-5" class="radio radio-success" checked="" />
+<input type="radio" name="radio-5" class="radio radio-success" />
+
+`} />
+  
+```html
+<input type="radio" name="radio-5" class="radio radio-success" checked="" />
+<input type="radio" name="radio-5" class="radio radio-success" />
+
+```
+### Warning color
+
+<CodeRender className='gap-2' code={`
+<input type="radio" name="radio-6" class="radio radio-warning" checked="" />
+<input type="radio" name="radio-6" class="radio radio-warning" />
+
+`} />
+  
+```html
+<input type="radio" name="radio-6" class="radio radio-warning" checked="" />
+<input type="radio" name="radio-6" class="radio radio-warning" />
+
+```
+
+### Error color
+
+<CodeRender className='gap-2' code={`
+<input type="radio" name="radio-8" class="radio radio-error" checked="" />
+<input type="radio" name="radio-8" class="radio radio-error" />
+
+`} />
+  
+```html
+<input type="radio" name="radio-8" class="radio radio-error" checked="" />
+<input type="radio" name="radio-8" class="radio radio-error" />
+
+```
+### Disabled
+
+<CodeRender className='gap-2' code={`
+<input type="radio" name="radio-9" class="radio" disabled="" checked="" />
+<input type="radio" name="radio-9" class="radio" disabled="" />
+
+`} />
+  
+```html
+<input type="radio" name="radio-9" class="radio" disabled="" checked="" />
+<input type="radio" name="radio-9" class="radio" disabled="" />
+
+```
+### With label and form-control and custom colors!
+
+<CodeRender code={`
+<div class="flex flex-col">
+  <div class="form-control w-52">
+    <label class="cursor-pointer label">
+      <span class="label-text">Red pill</span>
+      <input type="radio" name="radio-10" class="radio checked:bg-red-500" checked="" />
+    </label>
+  </div>
+  <div class="form-control w-52">
+    <label class="cursor-pointer label">
+      <span class="label-text">Blue pill</span>
+      <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked="" />
+    </label>
+  </div>
+</div>
+
+`} />
+  
+```html
+<div class="flex flex-col">
+  <div class="form-control w-52">
+    <label class="cursor-pointer label">
+      <span class="label-text">Red pill</span>
+      <input type="radio" name="radio-10" class="radio checked:bg-red-500" checked="" />
+    </label>
+  </div>
+  <div class="form-control w-52">
+    <label class="cursor-pointer label">
+      <span class="label-text">Blue pill</span>
+      <input type="radio" name="radio-10" class="radio checked:bg-blue-500" checked="" />
+    </label>
+  </div>
+</div>
+
+```   
+
+    

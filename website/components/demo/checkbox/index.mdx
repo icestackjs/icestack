@@ -15,6 +15,7 @@ import CodeRender from '../../CodeRender'
 ### Colors
 
 <CodeRender
+  className="gap-2"
   code={`
 <input type="checkbox" checked="checked" class="checkbox checkbox-primary" />
 <input type="checkbox" checked="checked" class="checkbox checkbox-success" />
@@ -35,6 +36,7 @@ import CodeRender from '../../CodeRender'
 ### Sizes
 
 <CodeRender
+  className="gap-2"
   code={`
 <input type="checkbox" checked="checked" class="checkbox checkbox-lg" />
 <input type="checkbox" checked="checked" class="checkbox checkbox-md" />
@@ -53,6 +55,7 @@ import CodeRender from '../../CodeRender'
 ### Disabled and checked
 
 <CodeRender
+  className="gap-2"
   code={`
 <input type="checkbox" class="checkbox" disabled />
 <input type="checkbox" class="checkbox" disabled checked />
@@ -60,15 +63,15 @@ import CodeRender from '../../CodeRender'
 />
 
 ```html
-<input type="checkbox" class="checkbox" disabled />
-<input type="checkbox" class="checkbox" disabled checked />
+<input type="checkbox" class="checkbox" disabled /> <input type="checkbox" class="checkbox" disabled checked />
 ```
 
 ### With label and form-control
 
 <CodeRender
+  className="gap-2"
   code={`
-<div class="form-control">
+<div class="form-control w-48">
   <label class="label cursor-pointer">
     <span class="label-text">Remember me</span> 
     <input type="checkbox" checked="checked" class="checkbox" />
@@ -80,7 +83,7 @@ import CodeRender from '../../CodeRender'
 ```html
 <div class="form-control">
   <label class="label cursor-pointer">
-    <span class="label-text">Remember me</span> 
+    <span class="label-text">Remember me</span>
     <input type="checkbox" checked="checked" class="checkbox" />
   </label>
 </div>

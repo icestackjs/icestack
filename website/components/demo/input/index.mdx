@@ -1,4 +1,219 @@
 import CodeRender from '../../CodeRender'
-import Base from './base.mdx'
 
-<Base/>
+### Text input
+
+<CodeRender code={`
+<input type="text" placeholder="Type here" class="input w-full max-w-xs" />
+
+`} />
+  
+```html
+<input type="text" placeholder="Type here" class="input w-full max-w-xs" />
+
+```
+### Text input with border
+
+<CodeRender code={`
+<input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+
+`} />
+  
+```html
+<input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+
+```
+### Ghost (no background)
+
+<CodeRender code={`
+<input type="text" placeholder="Type here" class="input input-ghost w-full max-w-xs" />
+
+`} />
+  
+```html
+<input type="text" placeholder="Type here" class="input input-ghost w-full max-w-xs" />
+
+```
+### With form-control and labels
+
+<CodeRender code={`
+<label class="form-control w-full max-w-xs">
+  <div class="label">
+    <span class="label-text">What is your name?</span>
+    <span class="label-text-alt">Top Right label</span>
+  </div>
+  <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+  <div class="label">
+    <span class="label-text-alt">Bottom Left label</span>
+    <span class="label-text-alt">Bottom Right label</span>
+  </div>
+</label>
+
+`} />
+  
+```html
+<label class="form-control w-full max-w-xs">
+  <div class="label">
+    <span class="label-text">What is your name?</span>
+    <span class="label-text-alt">Top Right label</span>
+  </div>
+  <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
+  <div class="label">
+    <span class="label-text-alt">Bottom Left label</span>
+    <span class="label-text-alt">Bottom Right label</span>
+  </div>
+</label>
+
+```
+### Primary color
+
+<CodeRender code={`
+<input
+  type="text"
+  placeholder="Type here"
+  class="input input-bordered input-primary w-full max-w-xs"
+/>
+
+`} />
+  
+```html
+<input
+  type="text"
+  placeholder="Type here"
+  class="input input-bordered input-primary w-full max-w-xs"
+/>
+
+```
+
+### Success color
+
+<CodeRender code={`
+<input
+  type="text"
+  placeholder="Type here"
+  class="input input-bordered input-success w-full max-w-xs"
+/>
+
+`} />
+  
+```html
+<input
+  type="text"
+  placeholder="Type here"
+  class="input input-bordered input-success w-full max-w-xs"
+/>
+
+```
+### Warning color
+
+<CodeRender code={`
+<input
+  type="text"
+  placeholder="Type here"
+  class="input input-bordered input-warning w-full max-w-xs"
+/>
+
+`} />
+  
+```html
+<input
+  type="text"
+  placeholder="Type here"
+  class="input input-bordered input-warning w-full max-w-xs"
+/>
+
+```
+### Error color
+
+<CodeRender code={`
+<input
+  type="text"
+  placeholder="Type here"
+  class="input input-bordered input-error w-full max-w-xs"
+/>
+
+`} />
+  
+```html
+<input
+  type="text"
+  placeholder="Type here"
+  class="input input-bordered input-error w-full max-w-xs"
+/>
+
+```
+### Sizes
+
+<CodeRender code={`
+<div class="flex flex-col gap-4 w-full items-center">
+  <input
+    type="text"
+    placeholder="Type here"
+    class="input input-bordered input-xs w-full max-w-xs"
+  />
+  <input
+    type="text"
+    placeholder="Type here"
+    class="input input-bordered input-sm w-full max-w-xs"
+  />
+  <input
+    type="text"
+    placeholder="Type here"
+    class="input input-bordered input-md w-full max-w-xs"
+  />
+  <input
+    type="text"
+    placeholder="Type here"
+    class="input input-bordered input-lg w-full max-w-xs"
+  />
+</div>
+
+`} />
+  
+```html
+<div class="flex flex-col gap-4 w-full items-center">
+  <input
+    type="text"
+    placeholder="Type here"
+    class="input input-bordered input-xs w-full max-w-xs"
+  />
+  <input
+    type="text"
+    placeholder="Type here"
+    class="input input-bordered input-sm w-full max-w-xs"
+  />
+  <input
+    type="text"
+    placeholder="Type here"
+    class="input input-bordered input-md w-full max-w-xs"
+  />
+  <input
+    type="text"
+    placeholder="Type here"
+    class="input input-bordered input-lg w-full max-w-xs"
+  />
+</div>
+
+```
+### Disabled
+
+<CodeRender code={`
+<input
+  type="text"
+  placeholder="You can't touch this"
+  class="input input-bordered w-full max-w-xs"
+  disabled=""
+/>
+
+`} />
+  
+```html
+<input
+  type="text"
+  placeholder="You can't touch this"
+  class="input input-bordered w-full max-w-xs"
+  disabled=""
+/>
+
+```   
+
+    

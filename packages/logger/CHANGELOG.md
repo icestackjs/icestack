@@ -1,5 +1,11 @@
 # @icestack/logger
 
+## 0.5.2
+
+### Patch Changes
+
+- [`99ebaf4`](https://github.com/sonofmagic/icestack/commit/99ebaf459d0727f7f57111827362456f2a9f3f27) Thanks [@sonofmagic](https://github.com/sonofmagic)! - fix: base.mediaDarkTheme option
+
 ## 0.5.1
 
 ### Patch Changes

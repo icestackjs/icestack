@@ -1,5 +1,15 @@
 # @icestack/unocss
 
+## 0.5.3
+
+### Patch Changes
+
+- [`f48c139`](https://github.com/sonofmagic/icestack/commit/f48c1390111741f21d98c2d8f5117e8ef0d5d080) Thanks [@sonofmagic](https://github.com/sonofmagic)! - add clean options
+
+- Updated dependencies [[`f48c139`](https://github.com/sonofmagic/icestack/commit/f48c1390111741f21d98c2d8f5117e8ef0d5d080)]:
+  - @icestack/logger@0.5.3
+  - @icestack/types@0.5.3
+
 ## 0.5.2
 
 ### Patch Changes

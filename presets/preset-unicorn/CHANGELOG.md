@@ -1,5 +1,14 @@
 # @icestack/preset-unicorn
 
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [[`f48c139`](https://github.com/sonofmagic/icestack/commit/f48c1390111741f21d98c2d8f5117e8ef0d5d080)]:
+  - @icestack/postcss-utils@0.4.15
+  - @icestack/shared@0.5.3
+  - @icestack/types@0.5.3
+
 ## 0.0.5
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # @icestack/logger
 
+## 0.5.4
+
+### Patch Changes
+
+- [`22b607d`](https://github.com/sonofmagic/icestack/commit/22b607d939d2a7c1794f179c6fffed41c7436efb) Thanks [@sonofmagic](https://github.com/sonofmagic)! - add pick options and change mode option
+
 ## 0.5.3
 
 ### Patch Changes

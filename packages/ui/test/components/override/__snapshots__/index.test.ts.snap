@@ -1,5 +1,25 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`override > mode btn case 0 1`] = `
+{
+  "base": {
+    "css": "",
+    "cssInJs": {},
+    "resolvedCss": "",
+  },
+  "styled": {
+    "css": "",
+    "cssInJs": {},
+    "resolvedCss": "",
+  },
+  "utils": {
+    "css": "",
+    "cssInJs": {},
+    "resolvedCss": "",
+  },
+}
+`;
+
 exports[`override > override btn 1`] = `
 {
   "base": {

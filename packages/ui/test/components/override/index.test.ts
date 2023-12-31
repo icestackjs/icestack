@@ -132,4 +132,20 @@ describe('override', () => {
     const res = await ctx.buildComponents()
     expect(res.button).toMatchSnapshot()
   })
+
+  it('mode btn case 0', async () => {
+    const components = {
+      ...removeDefaultComponents,
+      button: {
+        mode: 'none'
+      }
+    }
+    const ctx = createContext({
+      mode: 'preset',
+      components,
+      dryRun: false
+    })
+    const res = await ctx.buildComponents()
+    expect(res.button).toMatchSnapshot()
+  })
 })

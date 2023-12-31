@@ -350,7 +350,12 @@ exports[`presets > default preset 1`] = `
   },
   "dryRun": false,
   "log": true,
-  "mode": "styled",
+  "mode": "preset",
+  "pick": {
+    "base": true,
+    "styled": true,
+    "utils": true,
+  },
   "postcss": {
     "atMedia": {
       "hover": false,

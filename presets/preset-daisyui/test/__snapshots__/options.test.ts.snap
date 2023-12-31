@@ -1496,11 +1496,14 @@ exports[`options > daisyui options 1`] = `
   },
   "dryRun": false,
   "log": true,
-  "mode": "styled",
+  "mode": "preset",
+  "pick": {
+    "base": true,
+    "styled": true,
+    "utils": true,
+  },
   "postcss": {
-    "atMedia": {
-      "hover": false,
-    },
+    "atMedia": {},
     "selector": {},
     "varPrefix": {
       "varPrefix": "--ice-",

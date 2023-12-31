@@ -1,5 +1,17 @@
 # @icestack/tailwindcss
 
+## 0.5.4
+
+### Patch Changes
+
+- [`22b607d`](https://github.com/sonofmagic/icestack/commit/22b607d939d2a7c1794f179c6fffed41c7436efb) Thanks [@sonofmagic](https://github.com/sonofmagic)! - add pick options and change mode option
+
+- Updated dependencies [[`22b607d`](https://github.com/sonofmagic/icestack/commit/22b607d939d2a7c1794f179c6fffed41c7436efb)]:
+  - @icestack/logger@0.5.4
+  - @icestack/postcss@0.5.4
+  - @icestack/shared@0.5.4
+  - @icestack/types@0.5.4
+
 ## 0.5.3
 
 ### Patch Changes

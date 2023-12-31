@@ -1,5 +1,14 @@
 # @icestack/preset-weapp
 
+## 0.2.16
+
+### Patch Changes
+
+- Updated dependencies [[`22b607d`](https://github.com/sonofmagic/icestack/commit/22b607d939d2a7c1794f179c6fffed41c7436efb)]:
+  - @icestack/postcss-utils@0.4.16
+  - @icestack/shared@0.5.4
+  - @icestack/types@0.5.4
+
 ## 0.2.15
 
 ### Patch Changes

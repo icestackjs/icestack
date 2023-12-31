@@ -32,7 +32,7 @@ export interface BuildOptions {
 
 export function createContext(opts?: CodegenOptions) {
   const options = getCodegenOptions(opts)
-  const { outdir, dryRun, postcss, mode: globalMode, components = {}, log, tailwindcssConfig, utilities } = options
+  const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities } = options
   const { prefix: _globalPrefix, varPrefix: _globalVarPrefix, plugins: globalPostcssPlugins } = postcss!
 
   const globalPrefix = resolvePrefixOption(_globalPrefix)
@@ -72,6 +72,10 @@ export function createContext(opts?: CodegenOptions) {
 
       if (comOpt.mode === undefined) {
         comOpt.mode = globalMode
+      }
+
+      if (comOpt.pick === undefined) {
+        comOpt.pick = globalPick
       }
 
       if (!comOpt.disabled) {

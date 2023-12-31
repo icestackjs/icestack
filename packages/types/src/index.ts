@@ -38,6 +38,8 @@ export type ModeMergeOptions = string | ModeMergeValue | ((opts: Partial<GetCssS
 
 export type ComponentsValue<Params extends Record<string, any> = Record<string, any>> = {
   mode: CodegenMode
+
+  pick: PickCss
   // baseDefault: CssValue
   /**
    * @description css selector
@@ -76,7 +78,7 @@ export type UtilitiesOptions = {
   extraCss: CssValue
 }
 
-export type CodegenMode = 'styled' | 'base' | 'none' //  'raw' |
+export type CodegenMode = 'preset' | 'none'
 
 export type Preset = Partial<Pick<CodegenOptions, 'base' | 'components' | 'postcss' | 'tailwindcssConfig'>>
 
@@ -112,14 +114,22 @@ export type PostcssOptions = {
   plugins?: AcceptedPlugin[] | ((plugins: AcceptedPlugin[]) => AcceptedPlugin[])
 }
 
+export type PickCss = {
+  base?: boolean
+  styled?: boolean
+  utils?: boolean
+}
+
 export type CodegenOptions = {
   /**
    * @description load css mode
-   * @default styled
-   * @enum "styled" | "base" | "none"
-   * @example styled load all, base load base, none load none
+   * @default preset
+   * @enum 'preset' | 'none'
+   * @example styled load preset, none load none
    */
   mode?: CodegenMode
+
+  pick?: PickCss
   /**
    * @description custom all your components
    */

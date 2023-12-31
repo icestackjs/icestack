@@ -6,41 +6,39 @@ describe('options', () => {
   })
 
   it('getCodegenOptions snap merge case 0', () => {
-    expect(
-      getCodegenOptions({
-        dryRun: true,
-        mode: 'none',
-        base: {
-          extraCss: `:host{color:red;}`
-        },
-        presets: [
-          {
-            base: {
-              extraCss: `.aaa{color:blue;}`
-            }
+    const options = getCodegenOptions({
+      dryRun: true,
+      mode: 'none',
+      base: {
+        extraCss: `:host{color:red;}`
+      },
+      presets: [
+        {
+          base: {
+            extraCss: `.aaa{color:blue;}`
           }
-        ]
-      })
-    ).toMatchSnapshot()
+        }
+      ]
+    })
+    expect(options).toMatchSnapshot()
   })
 
   it('getCodegenOptions snap merge case 1', () => {
-    expect(
-      getCodegenOptions({
-        dryRun: true,
-        mode: 'none',
-        base: {
-          extraCss: `:host{color:red;}`
-        },
-        presets: [
-          {
-            base: {
-              extraCss: `:host{color:blue;}`
-            }
+    const options = getCodegenOptions({
+      dryRun: true,
+      mode: 'none',
+      base: {
+        extraCss: `:host{color:red;}`
+      },
+      presets: [
+        {
+          base: {
+            extraCss: `:host{color:blue;}`
           }
-        ]
-      })
-    ).toMatchSnapshot()
+        }
+      ]
+    })
+    expect(options).toMatchSnapshot()
   })
 
   it('getCodegenOptions snap merge case 2', () => {
@@ -61,7 +59,7 @@ describe('options', () => {
       ]
     })
     // expect(opts).toMatchSnapshot()
-    expect(opts.base.extraCss).toMatchSnapshot()
+    expect(opts?.base?.extraCss).toMatchSnapshot()
   })
 
   it('getCodegenOptions snap merge case 3', () => {

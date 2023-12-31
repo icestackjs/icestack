@@ -46,7 +46,7 @@ import fileInput from './file-input'
 import hero from './hero'
 import rating from './rating'
 import { preprocessCssInJs } from '@/postcss'
-import type { GetCssSchemaMethod } from '@/types'
+import type { ComponentsOptions, GetCssSchemaMethod } from '@/types'
 const schemaMap = {
   alert,
   avatar,
@@ -119,6 +119,166 @@ const removeDefaultComponents = componentNames.reduce<Record<string, false>>((ac
   acc[cur] = false
   return acc
 }, {})
+
+export const defaultSelectorMap: ComponentsOptions = {
+  alert: {
+    selector: '.alert'
+  },
+  avatar: {
+    selector: '.avatar'
+  },
+  badge: {
+    selector: '.badge'
+  },
+  button: {
+    selector: '.btn'
+  },
+  chat: {
+    selector: '.chat'
+  },
+  checkbox: {
+    selector: '.checkbox'
+  },
+  input: {
+    selector: '.input'
+  },
+  link: {
+    selector: '.link'
+  },
+  progress: {
+    selector: '.progress'
+  },
+  radio: {
+    selector: '.radio'
+  },
+  range: {
+    selector: '.range'
+  },
+  select: {
+    selector: '.select'
+  },
+  textarea: {
+    selector: '.textarea'
+  },
+  toggle: {
+    selector: '.toggle'
+  },
+  loading: {
+    selector: '.loading'
+  },
+  mask: {
+    selector: '.mask'
+  },
+  table: {
+    selector: '.table'
+  },
+  skeleton: {
+    selector: '.skeleton'
+  },
+  form: {},
+  'radial-progress': {
+    selector: '.radial-progress',
+    postcss: {
+      varPrefix: {
+        ignoreProp: ['--size', '--thickness', '--value'],
+        ignoreValueCustomProperty: ['--size', '--thickness', '--value']
+      }
+    }
+  },
+  countdown: {
+    selector: '.countdown',
+    postcss: {
+      varPrefix: {
+        ignoreProp: ['--value'],
+        ignoreValueCustomProperty: ['--value']
+      }
+    }
+  },
+  diff: {
+    selector: '.diff'
+  },
+  kbd: {
+    selector: '.kbd'
+  },
+  tooltip: {
+    selector: '.tooltip',
+    postcss: {
+      varPrefix: {
+        ignoreProp: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset'],
+        ignoreValueCustomProperty: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset']
+      }
+    }
+  },
+  toast: {
+    selector: '.toast'
+  },
+  steps: {
+    selector: '.step'
+  },
+  collapse: {
+    selector: '.collapse'
+  },
+  join: {
+    selector: '.join'
+  },
+  indicator: {
+    selector: '.indicator'
+  },
+  divider: {
+    selector: '.divider'
+  },
+  stack: {
+    selector: '.stack'
+  },
+  tab: {
+    selector: '.tab'
+  },
+  dropdown: {
+    selector: '.dropdown'
+  },
+  swap: {
+    selector: '.swap'
+  },
+  card: {
+    selector: '.card'
+  },
+  carousel: {
+    selector: '.carousel'
+  },
+  stat: {
+    selector: '.stat'
+  },
+  timeline: {
+    selector: '.timeline'
+  },
+  breadcrumbs: {
+    selector: '.breadcrumbs'
+  },
+  'bottom-navigation': {
+    selector: '.btm-nav'
+  },
+  menu: {
+    selector: '.menu'
+  },
+  navbar: {
+    selector: '.navbar'
+  },
+  'file-input': {
+    selector: '.file-input'
+  },
+  rating: {
+    selector: '.rating'
+  },
+  drawer: {
+    selector: '.drawer'
+  },
+  footer: {
+    selector: '.footer'
+  },
+  hero: {
+    selector: '.hero'
+  }
+}
 export { componentNames as names, schemaMap, resolvedSchemaMap, removeDefaultComponents }
 
 export { expandTypes, getSelector } from '@/shared'

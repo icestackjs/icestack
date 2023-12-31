@@ -363,11 +363,14 @@ exports[`options > getCodegenOptions snap 1`] = `
   },
   "dryRun": false,
   "log": true,
-  "mode": "styled",
+  "mode": "preset",
+  "pick": {
+    "base": true,
+    "styled": true,
+    "utils": true,
+  },
   "postcss": {
-    "atMedia": {
-      "hover": false,
-    },
+    "atMedia": {},
     "selector": {},
     "varPrefix": {
       "varPrefix": "--ice-",
@@ -399,10 +402,13 @@ exports[`options > getCodegenOptions snap merge case 0 1`] = `
   "dryRun": true,
   "log": true,
   "mode": "none",
+  "pick": {
+    "base": true,
+    "styled": true,
+    "utils": true,
+  },
   "postcss": {
-    "atMedia": {
-      "hover": false,
-    },
+    "atMedia": {},
     "selector": {},
     "varPrefix": {
       "varPrefix": "--ice-",
@@ -444,10 +450,13 @@ exports[`options > getCodegenOptions snap merge case 1 1`] = `
   "dryRun": true,
   "log": true,
   "mode": "none",
+  "pick": {
+    "base": true,
+    "styled": true,
+    "utils": true,
+  },
   "postcss": {
-    "atMedia": {
-      "hover": false,
-    },
+    "atMedia": {},
     "selector": {},
     "varPrefix": {
       "varPrefix": "--ice-",

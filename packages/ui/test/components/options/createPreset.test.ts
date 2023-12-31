@@ -33,29 +33,6 @@ describe('createPreset options', () => {
     expect(res.alert).toMatchSnapshot()
   })
 
-  it('alert base case 0', () => {
-    const ctx = createContext({
-      mode: 'base'
-    })
-    // const { allTypes } = calcBase(options)
-    const res = ctx.createPreset({
-      types: []
-    })
-    expect(res.alert).toMatchSnapshot()
-  })
-
-  it('alert raw case 0', () => {
-    const options = getCodegenOptions({
-      mode: 'raw'
-    })
-    const ctx = createContext(options)
-    // const { allTypes } = calcBase(options)
-    const res = ctx.createPreset({
-      types: []
-    })
-    expect(res.alert).toMatchSnapshot()
-  })
-
   it('alert raw case 1', () => {
     const options = getCodegenOptions({
       mode: 'raw',

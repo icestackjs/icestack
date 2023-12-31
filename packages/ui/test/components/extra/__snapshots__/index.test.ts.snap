@@ -1590,23 +1590,3 @@ exports[`extra > extra btn > schema 1`] = `
   },
 }
 `;
-
-exports[`extra > extra btn mode none > schema 1`] = `
-{
-  "base": {
-    "css": "",
-    "cssInJs": {},
-    "resolvedCss": "",
-  },
-  "styled": {
-    "css": "",
-    "cssInJs": {},
-    "resolvedCss": "",
-  },
-  "utils": {
-    "css": "",
-    "cssInJs": {},
-    "resolvedCss": "",
-  },
-}
-`;

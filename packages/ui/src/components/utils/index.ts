@@ -1,25 +1,19 @@
 import { pick, reverse } from 'lodash'
 import { defu, defuOverrideApplyCss, mergeRClone, defuExtendApplyCss } from '@/shared'
 import { preprocessCssInJs, mapCss2JsArray } from '@/postcss'
-import type { CodegenMode, ComponentsValue, GetCssSchemaMethodOptions, CssValue, CreatePresetOptions, CssSchema, ModeMergeOptions } from '@/types'
+import type { ComponentsValue, GetCssSchemaMethodOptions, CssValue, CreatePresetOptions, CssSchema, ModeMergeOptions, PickCss } from '@/types'
 import { isModeMergeValue } from '@/utils'
 
-function getPickedProps(mode: CodegenMode = 'styled') {
-  switch (mode) {
-    case 'base': {
-      return ['base']
-    }
-    case 'none': {
-      return []
-    }
-    // case 'styled': {
-    //   return ['base', 'styled', 'utils']
-    // }
-    // none
-    default: {
-      return ['base', 'styled', 'utils']
-    }
+function getPickedProps(pickCss?: PickCss) {
+  if (pickCss === undefined) {
+    return ['base', 'styled', 'utils']
   }
+  return Object.entries(pickCss).reduce<string[]>((acc, [key, value]) => {
+    if (value !== false) {
+      acc.push(key)
+    }
+    return acc
+  }, [])
 }
 
 function resolvedFunctionArray<T>(arr: T | T[], opts: Partial<GetCssSchemaMethodOptions>) {
@@ -60,7 +54,7 @@ export function mergeAllOptions(input: ModeMergeOptions[], opts: Partial<GetCssS
   })
 }
 
-export function handleOptions({ extend, override, selector, mode, schema, params }: Partial<ComponentsValue>, { types }: CreatePresetOptions) {
+export function handleOptions({ extend, override, selector, schema, params, pick: pickCss }: Partial<ComponentsValue>, { types }: CreatePresetOptions) {
   const schemaOpts: GetCssSchemaMethodOptions = {
     types,
     selector: selector ?? '',
@@ -70,7 +64,7 @@ export function handleOptions({ extend, override, selector, mode, schema, params
   const d: CssSchema | undefined = schema?.(schemaOpts)
   let de: Partial<CssSchema> = d ?? {}
   // mode: none , no default
-  de.defaults = preprocessCssInJs(pick(de.defaults, getPickedProps(mode)))
+  de.defaults = preprocessCssInJs(pick(de.defaults, getPickedProps(pickCss)))
   if (override) {
     const overrideDefaults = {
       selector,

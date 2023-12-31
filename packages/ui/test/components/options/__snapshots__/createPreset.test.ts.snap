@@ -60,34 +60,6 @@ exports[`createPreset options > add custom component raw override case 0 1`] = `
 }
 `;
 
-exports[`createPreset options > alert base case 0 1`] = `
-{
-  "defaults": {
-    "base": {
-      ".alert": {
-        "apply": [
-          [
-            "grid",
-            "w-full",
-            "grid-flow-row",
-            "content-start",
-            "items-center",
-            "justify-items-center",
-            "gap-4",
-            "text-center",
-            "sm:grid-flow-col",
-            "sm:grid-cols-[auto_minmax(auto,1fr)]",
-            "sm:justify-items-start",
-            "sm:text-left",
-          ],
-        ],
-      },
-    },
-  },
-  "selector": ".alert",
-}
-`;
-
 exports[`createPreset options > alert case 0 1`] = `
 {
   "defaults": {
@@ -175,47 +147,6 @@ exports[`createPreset options > alert case 0 1`] = `
 `;
 
 exports[`createPreset options > alert case 1 1`] = `
-{
-  "defaults": {
-    "base": {
-      ".alert": {
-        "apply": [
-          [
-            "grid",
-            "w-full",
-            "grid-flow-row",
-            "content-start",
-            "items-center",
-            "justify-items-center",
-            "gap-4",
-            "text-center",
-            "sm:grid-flow-col",
-            "sm:grid-cols-[auto_minmax(auto,1fr)]",
-            "sm:justify-items-start",
-            "sm:text-left",
-          ],
-        ],
-      },
-    },
-    "styled": {
-      ".alert": {
-        "apply": [
-          [
-            "rounded-box",
-            "border",
-            "p-4",
-            "text-base-content",
-            "border-base-400",
-          ],
-        ],
-      },
-    },
-  },
-  "selector": ".alert",
-}
-`;
-
-exports[`createPreset options > alert raw case 0 1`] = `
 {
   "defaults": {
     "base": {

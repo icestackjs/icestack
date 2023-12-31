@@ -92,7 +92,7 @@ export function getCodegenOptions(options?: CodegenOptions) {
       ).filter(Boolean) ?? []
   }
 
-  const arr = [options, ...presets, getCodegenDefaults(options?.mode)].filter(Boolean).map((x) => {
+  const arr = [options, ...presets, getCodegenDefaults(options)].filter(Boolean).map((x) => {
     return preHandleOptions(x as Partial<CodegenOptions>)
   })
   // @ts-ignore

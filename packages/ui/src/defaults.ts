@@ -1,8 +1,9 @@
 import type { Config } from 'tailwindcss'
 import { presetPrimaryColors, generateColorVars, sharedExtraColors, sharedExtraVars } from './base/colors'
-import type { CodegenOptions, ComponentsOptions, CodegenMode, BaseOptions } from './types'
+import type { CodegenOptions, ComponentsOptions, CodegenMode, BaseOptions, ComponentsValue } from './types'
 import { defaultVarPrefix } from './constants'
-import { schemaMap, names as componentNames } from '@/components'
+import { schemaMap, names as componentNames, defaultSelectorMap } from '@/components'
+export { defaultSelectorMap } from '@/components'
 
 export function getDefaultBase(mode?: CodegenMode) {
   const base: {
@@ -33,18 +34,16 @@ export function getDefaultBase(mode?: CodegenMode) {
         neutral: generateColorVars('neutral', presetPrimaryColors.grey)
       }
     }
-    if (mode === undefined || mode === 'styled') {
-      base.themes.dark = {
-        selector: '[data-mode="dark"]',
-        extraColors: sharedExtraColors.dark,
-        extraVars: sharedExtraVars,
-        types: {
-          primary: generateColorVars('primary', presetPrimaryColors.blue, true),
-          success: generateColorVars('success', presetPrimaryColors.green, true),
-          warning: generateColorVars('warning', presetPrimaryColors.gold, true),
-          error: generateColorVars('error', presetPrimaryColors.red, true),
-          neutral: generateColorVars('neutral', presetPrimaryColors.grey, true)
-        }
+    base.themes.dark = {
+      selector: '[data-mode="dark"]',
+      extraColors: sharedExtraColors.dark,
+      extraVars: sharedExtraVars,
+      types: {
+        primary: generateColorVars('primary', presetPrimaryColors.blue, true),
+        success: generateColorVars('success', presetPrimaryColors.green, true),
+        warning: generateColorVars('warning', presetPrimaryColors.gold, true),
+        error: generateColorVars('error', presetPrimaryColors.red, true),
+        neutral: generateColorVars('neutral', presetPrimaryColors.grey, true)
       }
     }
   }
@@ -52,173 +51,19 @@ export function getDefaultBase(mode?: CodegenMode) {
   return base as Partial<BaseOptions>
 }
 
-export const defaultSelectorMap: ComponentsOptions = {
-  alert: {
-    selector: '.alert'
-  },
-  avatar: {
-    selector: '.avatar'
-  },
-  badge: {
-    selector: '.badge'
-  },
-  button: {
-    selector: '.btn'
-  },
-  chat: {
-    selector: '.chat'
-  },
-  checkbox: {
-    selector: '.checkbox'
-  },
-  input: {
-    selector: '.input'
-  },
-  link: {
-    selector: '.link'
-  },
-  progress: {
-    selector: '.progress'
-  },
-  radio: {
-    selector: '.radio'
-  },
-  range: {
-    selector: '.range'
-  },
-  select: {
-    selector: '.select'
-  },
-  textarea: {
-    selector: '.textarea'
-  },
-  toggle: {
-    selector: '.toggle'
-  },
-  loading: {
-    selector: '.loading'
-  },
-  mask: {
-    selector: '.mask'
-  },
-  table: {
-    selector: '.table'
-  },
-  skeleton: {
-    selector: '.skeleton'
-  },
-  form: {},
-  'radial-progress': {
-    selector: '.radial-progress',
-    postcss: {
-      varPrefix: {
-        ignoreProp: ['--size', '--thickness', '--value'],
-        ignoreValueCustomProperty: ['--size', '--thickness', '--value']
-      }
-    }
-  },
-  countdown: {
-    selector: '.countdown',
-    postcss: {
-      varPrefix: {
-        ignoreProp: ['--value'],
-        ignoreValueCustomProperty: ['--value']
-      }
-    }
-  },
-  diff: {
-    selector: '.diff'
-  },
-  kbd: {
-    selector: '.kbd'
-  },
-  tooltip: {
-    selector: '.tooltip',
-    postcss: {
-      varPrefix: {
-        ignoreProp: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset'],
-        ignoreValueCustomProperty: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset']
-      }
-    }
-  },
-  toast: {
-    selector: '.toast'
-  },
-  steps: {
-    selector: '.step'
-  },
-  collapse: {
-    selector: '.collapse'
-  },
-  join: {
-    selector: '.join'
-  },
-  indicator: {
-    selector: '.indicator'
-  },
-  divider: {
-    selector: '.divider'
-  },
-  stack: {
-    selector: '.stack'
-  },
-  tab: {
-    selector: '.tab'
-  },
-  dropdown: {
-    selector: '.dropdown'
-  },
-  swap: {
-    selector: '.swap'
-  },
-  card: {
-    selector: '.card'
-  },
-  carousel: {
-    selector: '.carousel'
-  },
-  stat: {
-    selector: '.stat'
-  },
-  timeline: {
-    selector: '.timeline'
-  },
-  breadcrumbs: {
-    selector: '.breadcrumbs'
-  },
-  'bottom-navigation': {
-    selector: '.btm-nav'
-  },
-  menu: {
-    selector: '.menu'
-  },
-  navbar: {
-    selector: '.navbar'
-  },
-  'file-input': {
-    selector: '.file-input'
-  },
-  rating: {
-    selector: '.rating'
-  },
-  drawer: {
-    selector: '.drawer'
-  },
-  footer: {
-    selector: '.footer'
-  },
-  hero: {
-    selector: '.hero'
-  }
-}
-
-export function injectSchema(map: ComponentsOptions) {
+export function injectSchema(map: ComponentsOptions, components?: ComponentsOptions) {
   return Object.entries(map).reduce<ComponentsOptions>((acc, [key, opts]) => {
     const k = key as unknown as (typeof componentNames)[number]
-    acc[k] = {
-      ...opts,
-      schema: schemaMap[k]?.schema
-    }
+    acc[k] =
+      components && components[key] && (components[key] as Partial<ComponentsValue<Record<string, any>>>).mode === 'none'
+        ? {
+            ...opts
+          }
+        : {
+            ...opts,
+            schema: schemaMap[k]?.schema
+          }
+
     return acc
   }, {})
 }
@@ -244,12 +89,16 @@ export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {
   }
 }
 
-export function getCodegenDefaults(mode?: CodegenMode): Omit<CodegenOptions, 'outdir'> {
-  const base = getDefaultBase(mode)
-  const components = mode === 'none' ? {} : injectSchema(defaultSelectorMap)
+export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOptions, 'outdir'> {
+  const base = getDefaultBase(options?.mode)
+  const components = options?.mode === 'none' ? {} : injectSchema(defaultSelectorMap, options?.components)
   return {
-    mode: 'styled',
-
+    mode: 'preset',
+    pick: {
+      base: true,
+      styled: true,
+      utils: true
+    },
     log: true,
     dryRun: false,
     base,
@@ -258,9 +107,7 @@ export function getCodegenDefaults(mode?: CodegenMode): Omit<CodegenOptions, 'ou
       varPrefix: {
         varPrefix: defaultVarPrefix
       },
-      atMedia: {
-        hover: false
-      },
+      atMedia: {},
       selector: {}
     }
   }

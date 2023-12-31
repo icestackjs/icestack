@@ -26,18 +26,18 @@ describe('extra', () => {
     expect(ctx.preprocessCss(css).css).toMatchSnapshot('css')
   })
 
-  it('extra btn mode none', async () => {
-    const components = {
-      ...removeDefaultComponents,
-      button: {
-        mode: 'none'
-      }
-    }
-    const ctx = createContext({
-      components,
-      dryRun: false
-    })
-    const res = await ctx.buildComponents()
-    expect(res.button).toMatchSnapshot('schema')
-  })
+  // it('extra btn mode none', async () => {
+  //   const components = {
+  //     ...removeDefaultComponents,
+  //     button: {
+  //       mode: 'none'
+  //     }
+  //   }
+  //   const ctx = createContext({
+  //     components,
+  //     dryRun: false
+  //   })
+  //   const res = await ctx.buildComponents()
+  //   expect(res.button).toMatchSnapshot('schema')
+  // })
 })

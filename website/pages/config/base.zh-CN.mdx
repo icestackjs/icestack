@@ -161,7 +161,36 @@ const themeSelectorTemplate = (theme: string) => {
 }
 ```
 
-添加的每一个主题，默认生成的`CSS`选择器模版方法
+添加的主题，默认生成的`CSS`选择器模版方法
+
+## base.generateColors
+
+- **Type:** `(key: string, ...args: any[]) => Record<string, string>`
+- **Default:**
+
+```ts
+export { generate } from '@ant-design/colors'
+
+function generateColors(key: string, color: string, opt?: any) {
+  let opts = opt
+  if (opts === true) {
+    opts = {
+      theme: 'dark',
+      backgroundColor: '#141414'
+    }
+  }
+
+  const colors = generate(color, opts)
+  return {
+    [key]: colors[5],
+    [`${key}-hover`]: colors[4],
+    [`${key}-active`]: colors[6],
+    [`${key}-content`]: gray[1]
+  }
+}
+```
+
+自定义主题色颜色变量的生成算法
 
 ## base.extraCss
 

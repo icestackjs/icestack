@@ -3,6 +3,7 @@ const fs = require('node:fs')
 const axios = require('axios')
 const cheerio = require('cheerio')
 const prettier = require('prettier')
+const { default: MagicString } = require('magic-string')
 const walk = require('klaw-sync')
 const { resolveDemo, demosDir } = require('./dirs')
 require('dotenv').config({
@@ -31,8 +32,9 @@ ${html}
 }
 
 async function main() {
+  //
   for (const name of componentsArray) {
-    const res = await axios.default.get(process.env.C_URI + name)
+    const res = await axios.default.get('http://localhost:3000/components/' + name)
     const m = cheerio.load(res.data)
     const html = m('body .drawer-content .prose').html()
     const $ = cheerio.load(html)
@@ -41,12 +43,15 @@ async function main() {
       const daole = $(this)
       const text = daole.find('.component-preview-title').text()
       const dom = daole.find('.preview')
-      dom.children('[data-svelte-h]').removeAttr('data-svelte-h')
+      // dom.children('[data-svelte-h]').removeAttr('data-svelte-h')
       dom.children('img').attr('src', '/pig.jpg')
-      const html = dom.html()
+      const html = new MagicString(dom.html())
+      html.replaceAll(/data-svelte-h="[\w-]+"/g, '')
+      html.replaceAll('daisyUI', 'IceStack')
+
       result.push({
         title: text,
-        html
+        html: html.toString()
       })
     })
     for (const xxx of result) {
@@ -72,4 +77,6 @@ ${result.map((x) => makeAAA(x)).join('\n')}
   console.log('finished!')
 }
 
-main()
+main().catch((error) => {
+  console.error(error)
+})

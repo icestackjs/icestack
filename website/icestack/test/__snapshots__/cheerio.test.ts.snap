@@ -1,0 +1,51 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`cheerio > remove data-[] > inner html 1`] = `
+[
+  "
+        <span class="font-mono text-5xl countdown"><span style="--value: 15"></span></span>
+        days
+      ",
+  "
+        <span class="font-mono text-5xl countdown"><span style="--value: 10"></span></span>
+        hours
+      ",
+  "
+        <span class="font-mono text-5xl countdown"><span style="--value: 24"></span></span>
+        min
+      ",
+]
+`;
+
+exports[`cheerio > remove data-[] > result 1`] = `
+"
+    <div class="grid grid-flow-col gap-5 text-center auto-cols-max">
+      <div
+        class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content"
+        
+      >
+        <span class="font-mono text-5xl countdown"><span style="--value: 15"></span></span>
+        days
+      </div>
+      <div
+        class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content"
+        
+      >
+        <span class="font-mono text-5xl countdown"><span style="--value: 10"></span></span>
+        hours
+      </div>
+      <div
+        class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content"
+        
+      >
+        <span class="font-mono text-5xl countdown"><span style="--value: 24"></span></span>
+        min
+      </div>
+      <div class="flex flex-col p-2 bg-neutral rounded-box text-neutral-content">
+        <span class="font-mono text-5xl countdown"><span style="--value: 59"></span></span>
+        sec
+      </div>
+    </div>
+    
+    "
+`;

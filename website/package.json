@@ -60,6 +60,7 @@
     "eslint": "^8.56.0",
     "eslint-config-next": "^14.0.4",
     "klaw": "^4.1.0",
+    "magic-string": "^0.30.5",
     "mdast-util-mdx": "^3.0.0",
     "postcss": "^8.4.31",
     "sass": "^1.69.6",

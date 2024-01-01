@@ -144,11 +144,15 @@ exports[`index > compose case 0 1`] = `
   "dark": {
     "selector": ".dark",
     "types": {
+      "info": [
+        "#13c2c2",
+        true,
+      ],
       "secondary": {
-        "secondary": "#d89614",
-        "secondary-active": "#e8b339",
+        "secondary": "#2f54eb",
+        "secondary-active": "#5273e0",
         "secondary-content": "#ffffff",
-        "secondary-hover": "#aa7714",
+        "secondary-hover": "#263ea0",
       },
     },
   },
@@ -212,7 +216,8 @@ exports[`index > compose case 0 1`] = `
   "light": {
     "selector": "html,:root",
     "types": {
-      "secondary": "#faad14",
+      "info": "#13c2c2",
+      "secondary": "#2f54eb",
     },
   },
   "nord": {
@@ -252,18 +257,23 @@ exports[`index > extendThemes 1`] = `
   "dark": {
     "selector": ".dark",
     "types": {
+      "info": [
+        "#13c2c2",
+        true,
+      ],
       "secondary": {
-        "secondary": "#d89614",
-        "secondary-active": "#e8b339",
+        "secondary": "#2f54eb",
+        "secondary-active": "#5273e0",
         "secondary-content": "#ffffff",
-        "secondary-hover": "#aa7714",
+        "secondary-hover": "#263ea0",
       },
     },
   },
   "light": {
     "selector": "html,:root",
     "types": {
-      "secondary": "#faad14",
+      "info": "#13c2c2",
+      "secondary": "#2f54eb",
     },
   },
 }

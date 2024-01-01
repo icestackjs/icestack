@@ -1,5 +1,16 @@
 # @icestack/postcss
 
+## 0.5.5
+
+### Patch Changes
+
+- [`05c583d`](https://github.com/sonofmagic/icestack/commit/05c583d0683a87069fa9777c847c2784de4336cf) Thanks [@sonofmagic](https://github.com/sonofmagic)! - support raw string in css schema
+
+- Updated dependencies [[`05c583d`](https://github.com/sonofmagic/icestack/commit/05c583d0683a87069fa9777c847c2784de4336cf)]:
+  - @icestack/postcss-utils@0.4.17
+  - @icestack/shared@0.5.5
+  - @icestack/types@0.5.5
+
 ## 0.5.4
 
 ### Patch Changes

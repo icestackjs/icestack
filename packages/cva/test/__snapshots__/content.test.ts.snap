@@ -37,6 +37,7 @@ ice-glass
 ice-btn-ghost
 ice-btn-link
 ice-btn-outline
+ice-btn
 ice-btn-xs
 ice-btn-sm
 ice-btn-md
@@ -459,6 +460,7 @@ glass
 btn-ghost
 btn-link
 btn-outline
+btn
 btn-xs
 btn-sm
 btn-md

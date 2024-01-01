@@ -62,6 +62,7 @@ module.exports = {
       "btn-outline"
     ],
     "utils": [
+      "btn",
       "btn-xs",
       "btn-sm",
       "btn-md",

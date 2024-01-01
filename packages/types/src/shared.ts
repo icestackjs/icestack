@@ -7,9 +7,9 @@ export interface CreatePresetOptions {
 }
 
 export type CssSchemaDefaults = {
-  styled: object
-  base: object
-  utils: object
+  styled: CssValue
+  base: CssValue
+  utils: CssValue
 }
 
 export type CssSchemaValue =

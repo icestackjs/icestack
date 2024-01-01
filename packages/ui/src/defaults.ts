@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss'
-import { presetPrimaryColors, generateColorVars, sharedExtraColors, sharedExtraVars } from './base/colors'
-import type { CodegenOptions, ComponentsOptions, CodegenMode, BaseOptions, ComponentsValue } from './types'
 import { defaultVarPrefix } from './constants'
+import { presetPrimaryColors, generateColors, sharedExtraColors, sharedExtraVars } from '@/base/colors'
+import type { CodegenOptions, ComponentsOptions, CodegenMode, BaseOptions, ComponentsValue } from '@/types'
 import { schemaMap, names as componentNames, defaultSelectorMap } from '@/components'
 export { defaultSelectorMap } from '@/components'
 
@@ -11,39 +11,40 @@ export function getDefaultBase(mode?: CodegenMode) {
       light?: object
       dark?: object
     }
-    themeSelectorTemplate: (theme: string) => string
-    mediaDarkTheme: string | boolean
-  } = {
+  } & Partial<BaseOptions> = {
     themes: {},
     themeSelectorTemplate: (theme: string) => {
       return `[data-mode="${theme}"]`
     },
+    generateColors,
     mediaDarkTheme: false // 'dark'
   }
 
   if (mode !== 'none') {
-    base.themes.light = {
-      selector: ':root',
-      extraColors: sharedExtraColors.light,
-      extraVars: sharedExtraVars,
-      types: {
-        primary: generateColorVars('primary', presetPrimaryColors.blue),
-        success: generateColorVars('success', presetPrimaryColors.green),
-        warning: generateColorVars('warning', presetPrimaryColors.gold),
-        error: generateColorVars('error', presetPrimaryColors.red),
-        neutral: generateColorVars('neutral', presetPrimaryColors.grey)
-      }
-    }
-    base.themes.dark = {
-      selector: '[data-mode="dark"]',
-      extraColors: sharedExtraColors.dark,
-      extraVars: sharedExtraVars,
-      types: {
-        primary: generateColorVars('primary', presetPrimaryColors.blue, true),
-        success: generateColorVars('success', presetPrimaryColors.green, true),
-        warning: generateColorVars('warning', presetPrimaryColors.gold, true),
-        error: generateColorVars('error', presetPrimaryColors.red, true),
-        neutral: generateColorVars('neutral', presetPrimaryColors.grey, true)
+    base.themes = {
+      light: {
+        selector: ':root',
+        extraColors: sharedExtraColors.light,
+        extraVars: sharedExtraVars,
+        types: {
+          primary: generateColors('primary', presetPrimaryColors.blue),
+          success: generateColors('success', presetPrimaryColors.green),
+          warning: generateColors('warning', presetPrimaryColors.gold),
+          error: generateColors('error', presetPrimaryColors.red),
+          neutral: generateColors('neutral', presetPrimaryColors.grey)
+        }
+      },
+      dark: {
+        selector: '[data-mode="dark"]',
+        extraColors: sharedExtraColors.dark,
+        extraVars: sharedExtraVars,
+        types: {
+          primary: generateColors('primary', presetPrimaryColors.blue, true),
+          success: generateColors('success', presetPrimaryColors.green, true),
+          warning: generateColors('warning', presetPrimaryColors.gold, true),
+          error: generateColors('error', presetPrimaryColors.red, true),
+          neutral: generateColors('neutral', presetPrimaryColors.grey, true)
+        }
       }
     }
   }
@@ -60,8 +61,8 @@ export function injectSchema(map: ComponentsOptions, components?: ComponentsOpti
             ...opts
           }
         : {
-            ...opts,
-            schema: schemaMap[k]?.schema
+            schema: schemaMap[k]?.schema,
+            ...opts
           }
 
     return acc
@@ -90,8 +91,9 @@ export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {
 }
 
 export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOptions, 'outdir'> {
-  const base = getDefaultBase(options?.mode)
-  const components = options?.mode === 'none' ? {} : injectSchema(defaultSelectorMap, options?.components)
+  const { mode, components: rawComponents } = options ?? {}
+  const base = getDefaultBase(mode)
+  const components = mode === 'none' ? {} : injectSchema(defaultSelectorMap, rawComponents)
   return {
     mode: 'preset',
     pick: {
@@ -113,4 +115,4 @@ export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOption
   }
 }
 
-export { sharedExtraColors, sharedExtraVars, generate, generateColorVars, gray, makeRgbaValue, presetPrimaryColors } from './base/colors'
+export { sharedExtraColors, sharedExtraVars, generate, generateColors, gray, makeRgbaValue, presetPrimaryColors } from './base/colors'

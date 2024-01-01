@@ -1164,9 +1164,9 @@ exports[`build > build base with custom types 1`] = `
 }
 
 [data-mode=dark] {
-  --primary: 19 146 146;
-  --primary-hover: 19 116 116;
-  --primary-active: 46 165 161;
+  --primary: 19 168 168;
+  --primary-hover: 49 181 177;
+  --primary-active: 8 126 130;
   --primary-content: 255 255 255;
   --success: 73 170 25;
   --success-hover: 60 134 24;
@@ -1280,10 +1280,10 @@ exports[`build > build base with custom types 1`] = `
         "--ice-neutral-active": "106 106 106",
         "--ice-neutral-content": "255 255 255",
         "--ice-neutral-hover": "73 73 73",
-        "--ice-primary": "19 146 146",
-        "--ice-primary-active": "46 165 161",
+        "--ice-primary": "19 168 168",
+        "--ice-primary-active": "8 126 130",
         "--ice-primary-content": "255 255 255",
-        "--ice-primary-hover": "19 116 116",
+        "--ice-primary-hover": "49 181 177",
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
@@ -1347,9 +1347,9 @@ exports[`build > build base with custom types 1`] = `
 }
 
 [data-mode=dark] {
-  --ice-primary: 19 146 146;
-  --ice-primary-hover: 19 116 116;
-  --ice-primary-active: 46 165 161;
+  --ice-primary: 19 168 168;
+  --ice-primary-hover: 49 181 177;
+  --ice-primary-active: 8 126 130;
   --ice-primary-content: 255 255 255;
   --ice-success: 73 170 25;
   --ice-success-hover: 60 134 24;
@@ -1440,9 +1440,9 @@ exports[`build > build base with custom types 1`] = `
 }
 
 [data-mode=dark] {
-  --primary: 19,146,146;
-  --primary-hover: 19,116,116;
-  --primary-active: 46,165,161;
+  --primary: 19,168,168;
+  --primary-hover: 49,181,177;
+  --primary-active: 8,126,130;
   --primary-content: 255,255,255;
   --success: 73,170,25;
   --success-hover: 60,134,24;
@@ -1556,10 +1556,10 @@ exports[`build > build base with custom types 1`] = `
         "--ice-neutral-active": "106,106,106",
         "--ice-neutral-content": "255,255,255",
         "--ice-neutral-hover": "73,73,73",
-        "--ice-primary": "19,146,146",
-        "--ice-primary-active": "46,165,161",
+        "--ice-primary": "19,168,168",
+        "--ice-primary-active": "8,126,130",
         "--ice-primary-content": "255,255,255",
-        "--ice-primary-hover": "19,116,116",
+        "--ice-primary-hover": "49,181,177",
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
@@ -1623,9 +1623,9 @@ exports[`build > build base with custom types 1`] = `
 }
 
 [data-mode=dark] {
-  --ice-primary: 19,146,146;
-  --ice-primary-hover: 19,116,116;
-  --ice-primary-active: 46,165,161;
+  --ice-primary: 19,168,168;
+  --ice-primary-hover: 49,181,177;
+  --ice-primary-active: 8,126,130;
   --ice-primary-content: 255,255,255;
   --ice-success: 73,170,25;
   --ice-success-hover: 60,134,24;

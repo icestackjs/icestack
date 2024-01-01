@@ -3,6 +3,7 @@
 exports[`options > getCodegenOptions snap 1`] = `
 {
   "base": {
+    "generateColors": [Function],
     "mediaDarkTheme": false,
     "themeSelectorTemplate": [Function],
     "themes": {
@@ -394,6 +395,7 @@ exports[`options > getCodegenOptions snap merge case 0 1`] = `
         },
       },
     },
+    "generateColors": [Function],
     "mediaDarkTheme": false,
     "themeSelectorTemplate": [Function],
     "themes": {},
@@ -442,6 +444,7 @@ exports[`options > getCodegenOptions snap merge case 1 1`] = `
         },
       },
     },
+    "generateColors": [Function],
     "mediaDarkTheme": false,
     "themeSelectorTemplate": [Function],
     "themes": {},

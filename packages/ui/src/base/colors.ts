@@ -27,9 +27,9 @@ interface ColorGenerateOptions {
   backgroundColor?: string
 }
 // type GenerateOptions = Parameters<typeof generate>[1]
-export function generateColorVars(key: string, color: string, dark?: boolean): Record<string, string>
-export function generateColorVars(key: string, color: string, opts: ColorGenerateOptions): Record<string, string>
-export function generateColorVars(key: string, color: string, opt?: any) {
+export function generateColors(key: string, color: string, dark?: boolean): Record<string, string>
+export function generateColors(key: string, color: string, opts: true | ColorGenerateOptions): Record<string, string>
+export function generateColors(key: string, color: string, opt?: any) {
   let opts = opt
   if (opts === true) {
     opts = {

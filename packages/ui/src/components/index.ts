@@ -45,6 +45,7 @@ import navbar from './navbar'
 import fileInput from './file-input'
 import hero from './hero'
 import rating from './rating'
+import { preprocessDefaults } from './utils'
 import { preprocessCssInJs } from '@/postcss'
 import type { ComponentsOptions, GetCssSchemaMethod } from '@/types'
 const schemaMap = {
@@ -107,13 +108,11 @@ for (const componentName of componentNames) {
       const { defaults, selector } = o(...args)
       return {
         selector,
-        defaults: preprocessCssInJs(defaults)
+        defaults: preprocessCssInJs(preprocessDefaults(defaults))
       }
     }
   }
 }
-
-// const names = Object.keys(resolvedSchemaMap) as (keyof typeof schemaMap)[]
 
 const removeDefaultComponents = componentNames.reduce<Record<string, false>>((acc, cur) => {
   acc[cur] = false

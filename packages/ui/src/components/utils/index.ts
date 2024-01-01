@@ -55,18 +55,21 @@ export function mergeAllOptions(input: ModeMergeOptions[], opts: Partial<GetCssS
 }
 
 export function preprocessDefaults(de?: Partial<CssSchemaDefaults>) {
-  if (typeof de?.base === 'string') {
+  if (de === undefined) {
+    return {}
+  }
+  if (typeof de.base === 'string') {
     de.base = transformCss2Js(de.base)
   } else if (Array.isArray(de?.base)) {
     de.base = mergeRClone(...mapCss2JsArray(de.base))
   }
 
-  if (typeof de?.styled === 'string') {
+  if (typeof de.styled === 'string') {
     de.styled = transformCss2Js(de.styled)
   } else if (Array.isArray(de?.styled)) {
     de.styled = mergeRClone(...mapCss2JsArray(de.styled))
   }
-  if (typeof de?.utils === 'string') {
+  if (typeof de.utils === 'string') {
     de.utils = transformCss2Js(de.utils)
   } else if (Array.isArray(de?.utils)) {
     de.utils = mergeRClone(...mapCss2JsArray(de.utils))

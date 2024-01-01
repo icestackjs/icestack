@@ -12,7 +12,6 @@ describe('build', () => {
 
   it('build base with custom types', async () => {
     const ctx = createContext({
-      mode: 'styled',
       dryRun: true,
       base: {
         themes: {

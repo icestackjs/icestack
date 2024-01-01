@@ -1,5 +1,5 @@
 import { TinyColor } from '@ctrl/tinycolor'
-import { generateColorVars, makeRgbaValue, sharedExtraColors, sharedExtraVars } from './colors'
+import { makeRgbaValue, sharedExtraColors, sharedExtraVars } from './colors'
 import { CodegenOptions, VarPrefixerOptions } from '@/types'
 import { mergeR, mergeRClone } from '@/shared'
 import { mapCss2JsArray } from '@/postcss'
@@ -32,7 +32,7 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
     transparent: 'transparent',
     current: 'currentColor'
   }
-  const { themes, extraCss: globalExtraCss, themeSelectorTemplate, mediaDarkTheme } = base ?? {}
+  const { themes, extraCss: globalExtraCss, themeSelectorTemplate, mediaDarkTheme, generateColors } = base ?? {}
 
   // @media (prefers-color-scheme: dark)
   // ??
@@ -56,16 +56,19 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
       const typesColors = entries.reduce<Record<string, string>>((acc, [type, value]) => {
         typesSet.add(type)
         let obj = value
-        switch (true) {
-          case typeof value === 'string': {
-            obj = generateColorVars(type, value, theme === 'dark')
-            break
-          }
-          case Array.isArray(value): {
-            obj = generateColorVars(type, value[0], value[1])
-            break
+        if (generateColors) {
+          switch (true) {
+            case typeof value === 'string': {
+              obj = generateColors(type, value)
+              break
+            }
+            case Array.isArray(value): {
+              obj = generateColors(type, ...value)
+              break
+            }
           }
         }
+
         addColors(obj as Record<string, string>)
         return {
           ...acc,

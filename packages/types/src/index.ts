@@ -26,6 +26,8 @@ export type BaseOptions = {
   themeSelectorTemplate: (theme: string) => string
 
   mediaDarkTheme: string | boolean
+
+  generateColors: (key: string, ...args: any[]) => Record<string, string>
 }
 
 export type ModeMergeValue = {

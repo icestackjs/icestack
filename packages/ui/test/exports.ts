@@ -4,7 +4,7 @@ import {
   createDefaultTailwindcssExtends,
   defaultSelectorMap,
   generate,
-  generateColorVars,
+  generateColors,
   getCodegenDefaults,
   getDefaultBase,
   gray,

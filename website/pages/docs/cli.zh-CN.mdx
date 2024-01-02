@@ -18,6 +18,16 @@ icestack [command]
 
 在当前目录初始化配置文件
 
+### --only-config
+
+只初始化配置文件，不修改 `.gitignore` 文件，并进运行 `build` 构建
+
+### --format \<format\>
+
+**Type:** 'cjs','esm','ts'
+
+创建配置文件的格式
+
 ## icestack build
 
 读取配置，并构建样式产物
@@ -26,6 +36,14 @@ icestack [command]
 
 是否清理 `outdir`
 
+### -c, --config \<path\>
+
+加载的配置路径
+
 ## icestack watch
 
 监视配置文件更改，立刻构建样式
+
+### -c, --config
+
+加载的配置路径

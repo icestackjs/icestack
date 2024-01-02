@@ -144,8 +144,15 @@ exports[`index > compose case 0 1`] = `
   "dark": {
     "selector": ".dark",
     "types": {
+      "accent": [
+        "#22c55e",
+        {
+          "backgroundColor": "#000000",
+          "theme": "dark",
+        },
+      ],
       "info": [
-        "#13c2c2",
+        "#2dd4bf",
         true,
       ],
       "secondary": {
@@ -216,7 +223,8 @@ exports[`index > compose case 0 1`] = `
   "light": {
     "selector": "html,:root",
     "types": {
-      "info": "#13c2c2",
+      "accent": "#22c55e",
+      "info": "#2dd4bf",
       "secondary": "#2f54eb",
     },
   },
@@ -257,8 +265,15 @@ exports[`index > extendThemes 1`] = `
   "dark": {
     "selector": ".dark",
     "types": {
+      "accent": [
+        "#22c55e",
+        {
+          "backgroundColor": "#000000",
+          "theme": "dark",
+        },
+      ],
       "info": [
-        "#13c2c2",
+        "#2dd4bf",
         true,
       ],
       "secondary": {
@@ -272,7 +287,8 @@ exports[`index > extendThemes 1`] = `
   "light": {
     "selector": "html,:root",
     "types": {
-      "info": "#13c2c2",
+      "accent": "#22c55e",
+      "info": "#2dd4bf",
       "secondary": "#2f54eb",
     },
   },

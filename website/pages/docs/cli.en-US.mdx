@@ -18,6 +18,16 @@ icestack [command]
 
 Initialize the configuration file in the current directory
 
+### --only-config
+
+Only initialize the configuration file, do not modify the `.gitignore` file, and run `build` to build
+
+### --format \<format\>
+
+**Type:** 'cjs','esm','ts'
+
+Format for creating configuration files
+
 ## icestack build
 
 Read the configuration and build the style product
@@ -26,6 +36,14 @@ Read the configuration and build the style product
 
 Whether to clean `outdir`
 
+### -c, --config \<path\>
+
+Loaded configuration path
+
 ## icestack watch
 
 Monitor configuration file changes and build styles immediately
+
+### -c, --config
+
+Loaded configuration path

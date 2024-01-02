@@ -1,4 +1,5 @@
 import { Callout } from 'nextra/components'
+import CodeRender from '@/components/CodeRender'
 
 # Build button component
 
@@ -19,14 +20,16 @@ We found a `button` component on the Internet, its html is as follows
 
 The display effect is as follows:
 
-<a
+<CodeRender
+  code={`<a
   href="https://ui.icebreaker.top/"
   target="_blank"
   class="group relative overflow-hidden bg-blue-600 focus:ring-4 focus:ring-blue-300 inline-flex items-center px-7 py-2.5 rounded-lg text-white justify-center"
 >
   <span class="z-40">Hover Me</span>
   <div class="absolute inset-0 h-[200%] w-[200%] rotate-45 translate-x-[-75%] transition-all group-hover:scale-100 bg-white/30 group-hover:translate-x-[50%] z-20 duration-1000"></div>
-</a>
+</a>`}
+/>
 
 ## Style refinement
 
@@ -99,9 +102,13 @@ module.exports = config
 
 Then after executing `icestack build`, `.cbtn` will be successfully loaded by `tailwindcss plugin`. You can write like this:
 
+<CodeRender
+  code={`
 <a href="https://icebreaker.top/" target="_blank" class="cbtn">
   Hover Me
 </a>
+`}
+/>
 
 ```html
 <a href="https://icebreaker.top/" target="_blank" class="cbtn"> Hover Me </a>
@@ -152,6 +159,7 @@ module.exports = config
 
 After rebuilding, the effect is as follows:
 
+<CodeRender className="gap-2" code={`
 <button href="https://icebreaker.top/" target="_blank" class="cbtn">
   <span>Hover Me default</span>
 </button>
@@ -167,6 +175,7 @@ After rebuilding, the effect is as follows:
 <button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-green">
   <span>Hover Me green</span>
 </button>
+`} / >
 
 ```html
 <button href="https://icebreaker.top/" target="_blank" class="cbtn">
@@ -233,6 +242,7 @@ module.exports = config
 
 The effect is as follows:
 
+<CodeRender className="gap-2" code={`
 <button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-xs">
   <span>Hover Me xs</span>
 </button>
@@ -248,6 +258,25 @@ The effect is as follows:
 <button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-lg">
   <span>Hover Me lg</span>
 </button>
+`} />
+
+```html
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-xs">
+  <span>Hover Me xs</span>
+</button>
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-sm">
+  <span>Hover Me sm</span>
+</button>
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-md">
+  <span>Hover Me md</span>
+</button>
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-lg">
+  <span>Hover Me lg</span>
+</button>
+```
 
 ## More
 

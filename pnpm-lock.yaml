@@ -513,6 +513,9 @@ importers:
       '@icestack/postcss':
         specifier: workspace:^
         version: link:../postcss
+      '@icestack/preset-default':
+        specifier: workspace:^
+        version: link:../preset-default
       '@icestack/shared':
         specifier: workspace:^
         version: link:../shared

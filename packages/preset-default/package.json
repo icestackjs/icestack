@@ -1,7 +1,7 @@
 {
   "name": "@icestack/preset-default",
   "description": "The default preset of @icestack/ui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

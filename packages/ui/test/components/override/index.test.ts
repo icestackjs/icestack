@@ -27,7 +27,7 @@ describe('override', () => {
     }
     const ctx = createContext({
       components,
-      dryRun: false
+      dryRun: true
     })
     const res = await ctx.buildComponents()
     expect(res.button).toMatchSnapshot()
@@ -52,7 +52,7 @@ describe('override', () => {
     }
     const ctx = createContext({
       components,
-      dryRun: false
+      dryRun: true
     })
     const res = await ctx.buildComponents()
     expect(res.button).toMatchSnapshot()
@@ -79,7 +79,7 @@ describe('override', () => {
     }
     const ctx = createContext({
       components,
-      dryRun: false
+      dryRun: true
     })
     const res = await ctx.buildComponents()
     expect(res.button).toMatchSnapshot()
@@ -102,7 +102,7 @@ describe('override', () => {
     }
     const ctx = createContext({
       components,
-      dryRun: false
+      dryRun: true
     })
     const res = await ctx.buildComponents()
     expect(res.button).toMatchSnapshot()
@@ -127,7 +127,7 @@ describe('override', () => {
     }
     const ctx = createContext({
       components,
-      dryRun: false
+      dryRun: true
     })
     const res = await ctx.buildComponents()
     expect(res.button).toMatchSnapshot()
@@ -143,7 +143,7 @@ describe('override', () => {
     const ctx = createContext({
       mode: 'preset',
       components,
-      dryRun: false
+      dryRun: true
     })
     const res = await ctx.buildComponents()
     expect(res.button).toMatchSnapshot()

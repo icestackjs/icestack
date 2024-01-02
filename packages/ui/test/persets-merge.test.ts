@@ -1,7 +1,7 @@
 import { createContext, Config } from '@/index'
-import { removeDefaultComponents, transformCss2Js } from '@/components'
+import { removeDefaultComponents } from '@/components'
 import { DeepPartial } from '@/types'
-
+import { transformCss2Js } from '@/postcss'
 describe('presets merge', () => {
   it('merge case 0', async () => {
     const options: Config = {

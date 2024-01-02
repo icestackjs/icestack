@@ -1,7 +1,8 @@
 // @ts-nocheck
-import { schemaMap as componentsMap, preprocessCssInJs } from '@/components'
+import { schemaMap as componentsMap } from '@/components'
 import { createContext } from '@/index'
 import { getCodegenOptions } from '@/options'
+import { preprocessCssInJs } from '@/postcss'
 
 describe.each(
   Object.entries(componentsMap).map((x) => {

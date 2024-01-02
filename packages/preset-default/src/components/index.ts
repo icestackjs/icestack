@@ -265,7 +265,7 @@ const components: ComponentsOptions = {
     selector: '.hero'
   }
 }
-for (const [name, schema] of Object.entries(schemaMap)) {
+for (const [name, { schema }] of Object.entries(schemaMap)) {
   if (components[name]) {
     // @ts-ignore
     ;(components[name] as Partial<ComponentsValue>).schema = schema

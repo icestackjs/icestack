@@ -1,8 +1,5 @@
-import path from 'node:path'
-import fs from 'node:fs'
 import { createContext } from '@/context'
-import { getCodegenOptions } from '@/options'
-import { names as componentsNames, removeDefaultComponents, transformCss2Js } from '@/components'
+import { names as componentsNames } from '@/components'
 import { stages } from '@/constants'
 
 // const baseDir = path.resolve(scssDir, 'components')
@@ -14,40 +11,11 @@ import { stages } from '@/constants'
 //   }
 // })
 describe.each(componentsNames.map((x) => ({ name: x })))('$name', ({ name: componentName }) => {
-  const ctx = createContext(getCodegenOptions())
+  const ctx = createContext()
   for (const stage of stages) {
     it(stage, () => {
       const { css } = ctx.compileScss(`components.${componentName}.defaults.${stage}`)
       expect(ctx.preprocessCss(css).css).toMatchSnapshot()
-    })
-  }
-})
-
-describe('custom components', () => {
-  const ctx = createContext(
-    getCodegenOptions({
-      dryRun: true,
-      components: {
-        custom: {
-          extend: {
-            utils: {
-              '.custom': {
-                css: {
-                  color: 'red'
-                },
-                apply: ['bg-blue-500']
-              }
-            }
-          },
-          selector: '.custom'
-        }
-      }
-    })
-  )
-  for (const stage of stages) {
-    it('custom component ' + stage, () => {
-      const { css } = ctx.compileScss(`components.${'custom'}.defaults.${stage}`)
-      expect(css).toMatchSnapshot()
     })
   }
 })

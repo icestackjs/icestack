@@ -1,5 +1,16 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`custom components > custom component base 1`] = `""`;
+
+exports[`custom components > custom component styled 1`] = `""`;
+
+exports[`custom components > custom component utils 1`] = `
+".custom {
+  color: red;
+  @apply bg-blue-500;
+}"
+`;
+
 exports[`cutsom > custom component case 0 1`] = `
 ".ice-subtitle {
   @apply text-gray-600 text-sm pt-5 pb-4;

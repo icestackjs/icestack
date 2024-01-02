@@ -1,10 +1,10 @@
 import { components } from './components'
 import type { Preset } from '@/types'
 
-const mockupPreset: () => Preset = () => {
+const defaultPreset: () => Preset = () => {
   return {
     components
   }
 }
 
-export default mockupPreset
+export default defaultPreset

@@ -79,11 +79,13 @@ export function postHandleOptions(options: Partial<CodegenOptions>): CodegenOpti
 }
 
 export function getCodegenOptions(options?: CodegenOptions) {
-  let presets: Preset[] = []
-  if (options?.presets && Array.isArray(options?.presets)) {
-    presets =
+  const { presets } = options ?? {}
+  let expandPresets: Preset[] = []
+
+  if (presets && Array.isArray(presets)) {
+    expandPresets =
       flattenDeep(
-        options.presets.map((x) => {
+        presets.map((x) => {
           if (typeof x === 'function') {
             return x()
           }
@@ -92,7 +94,7 @@ export function getCodegenOptions(options?: CodegenOptions) {
       ).filter(Boolean) ?? []
   }
 
-  const arr = [options, ...presets, getCodegenDefaults(options)].filter(Boolean).map((x) => {
+  const arr = [options, ...expandPresets, getCodegenDefaults(options)].filter(Boolean).map((x) => {
     return preHandleOptions(x as Partial<CodegenOptions>)
   })
   // @ts-ignore

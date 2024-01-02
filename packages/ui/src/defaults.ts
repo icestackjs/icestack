@@ -1,9 +1,8 @@
 import type { Config } from 'tailwindcss'
-import { defaultVarPrefix } from './constants'
+import { components as defaultComponents } from '@icestack/preset-default/components'
+import { defaultVarPrefix } from '@/constants'
 import { presetPrimaryColors, generateColors, sharedExtraColors, sharedExtraVars } from '@/base/colors'
-import type { CodegenOptions, ComponentsOptions, CodegenMode, BaseOptions, ComponentsValue } from '@/types'
-import { schemaMap, names as componentNames, defaultSelectorMap } from '@/components'
-export { defaultSelectorMap } from '@/components'
+import type { CodegenOptions, CodegenMode, BaseOptions, ComponentsOptions, ComponentsValue } from '@/types'
 
 export function getDefaultBase(mode?: CodegenMode) {
   const base: {
@@ -54,17 +53,7 @@ export function getDefaultBase(mode?: CodegenMode) {
 
 export function injectSchema(map: ComponentsOptions, components?: ComponentsOptions) {
   return Object.entries(map).reduce<ComponentsOptions>((acc, [key, opts]) => {
-    const k = key as unknown as (typeof componentNames)[number]
-    acc[k] =
-      components && components[key] && (components[key] as Partial<ComponentsValue<Record<string, any>>>).mode === 'none'
-        ? {
-            ...opts
-          }
-        : {
-            schema: schemaMap[k]?.schema,
-            ...opts
-          }
-
+    acc[key] = components && components[key] && (components[key] as Partial<ComponentsValue<Record<string, any>>>).mode === 'none' ? {} : opts
     return acc
   }, {})
 }
@@ -93,7 +82,7 @@ export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {
 export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOptions, 'outdir'> {
   const { mode, components: rawComponents } = options ?? {}
   const base = getDefaultBase(mode)
-  const components = mode === 'none' ? {} : injectSchema(defaultSelectorMap, rawComponents)
+  const components = mode === 'none' ? {} : injectSchema(defaultComponents, rawComponents)
   return {
     mode: 'preset',
     pick: {

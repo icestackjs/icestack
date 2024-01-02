@@ -1,8 +1,8 @@
 import { Callout } from 'nextra/components'
 
-# 构建button组件
+# Build button component
 
-我们在网上找到了一个 `button` 组件，它的样式如下
+We found a `button` component on the Internet, its html is as follows
 
 ```html
 <a
@@ -17,7 +17,7 @@ import { Callout } from 'nextra/components'
 </a>
 ```
 
-效果如下:
+The display effect is as follows:
 
 <a
   href="https://ui.icebreaker.top/"
@@ -28,9 +28,9 @@ import { Callout } from 'nextra/components'
   <div class="absolute inset-0 h-[200%] w-[200%] rotate-45 translate-x-[-75%] transition-all group-hover:scale-100 bg-white/30 group-hover:translate-x-[50%] z-20 duration-1000"></div>
 </a>
 
-## 样式提炼
+## Style refinement
 
-然后我们开始提炼 `html`，把它的样式抽出:
+Then we start to refine `html` and extract its styles:
 
 ```html
 <a href="https://icebreaker.top/" target="_blank" class="cbtn">
@@ -38,7 +38,7 @@ import { Callout } from 'nextra/components'
 </a>
 ```
 
-把原先长传的 `class` 转换成 `@apply`, 并给包裹在选择器 `.cbtn`，然后把最后动画的的`div`元素转换成伪元素，并修改样式。
+Convert the original long-passed `class` into `@apply`, and wrap it in the selector `.cbtn`, then convert the last animated `div` element into a pseudo element, and modify the style.
 
 <Callout type="info">@apply should not be used with the 'group' utility</Callout>
 
@@ -57,7 +57,7 @@ import { Callout } from 'nextra/components'
 }
 ```
 
-## 放入配置文件
+## Write configuration file
 
 ```js
 /**
@@ -97,7 +97,7 @@ const config = {
 module.exports = config
 ```
 
-然后执行 `icestack build` 之后，`.cbtn` 就顺利的被 `tailwindcss plugin` 加载进来了，你可以这样写:
+Then after executing `icestack build`, `.cbtn` will be successfully loaded by `tailwindcss plugin`. You can write like this:
 
 <a href="https://icebreaker.top/" target="_blank" class="cbtn">
   Hover Me
@@ -107,11 +107,11 @@ module.exports = config
 <a href="https://icebreaker.top/" target="_blank" class="cbtn"> Hover Me </a>
 ```
 
-## 添加更多的颜色种类
+## Add more color varieties
 
-比如我们有需求，默认情况下是蓝色: `bg-blue-600 focus:ring-blue-300`
+The component written above has the default color: `bg-blue-600 focus:ring-blue-300`
 
-但是可以传入红色，黄色，等等其他颜色应该如何处理呢？
+We have a need to support incoming red, yellow, and other colors. How should we handle it?
 
 ```js
 /**
@@ -150,7 +150,7 @@ const config = {
 module.exports = config
 ```
 
-重新构建之后，效果如下:
+After rebuilding, the effect is as follows:
 
 <button href="https://icebreaker.top/" target="_blank" class="cbtn">
   <span>Hover Me default</span>
@@ -186,7 +186,7 @@ module.exports = config
 </button>
 ```
 
-## 添加更多的尺寸
+## Add more sizes
 
 ```js
 /**
@@ -231,7 +231,7 @@ const config = {
 module.exports = config
 ```
 
-效果如下:
+The effect is as follows:
 
 <button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-xs">
   <span>Hover Me xs</span>
@@ -249,12 +249,12 @@ module.exports = config
   <span>Hover Me lg</span>
 </button>
 
-## 更多
+## More
 
-想必你也注意到了，`schema` 方法有多个参数:
+You must have noticed that the `schema` method has multiple parameters:
 
-- `selector` 为选择器
-- `types` 为 `base` 选项中自动生成的颜色名称
-- `params` 为传入参数，可以根据参数的不同渲染组件不同的表现
+- `selector` is the selector
+- `types` is the automatically generated color name in the `base` option
+- `params` is the incoming parameter, which can render different performances of the component according to different parameters.
 
-我们可以根据不同的参数，渲染出不同的 `Css` 样式代码
+We can render different `Css` style codes based on different parameters.

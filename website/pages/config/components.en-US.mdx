@@ -1,1 +1,133 @@
-# Components Options
+#ComponentsOptions
+
+Define and extend the configuration of all components
+
+```js
+const components = {
+   // Define original component behavior
+   button: {},
+   //Add new component
+   custom: {}
+}
+```
+
+> The registered names of all components can be found [here](https://github.com/sonofmagic/icestack/blob/main/packages/ui/src/components/index.ts)
+
+## [string]
+
+### mode
+
+- **Type:** `'styled' | 'base' | 'none'`
+- **Default:** `'styled'`
+
+Same as external `mode`, internal `mode` priority > external
+
+### selector
+
+- **Type:** `string`
+
+Selector string, such as `.btn`, `.badge`
+
+### disabled
+
+- **Type:** `boolean`
+- **Default:** `false`
+
+Whether to disable this component
+
+### extend
+
+- **Type:** `ModeMergeOptions | ModeMergeOptions[]`
+
+Pass in objects, strings, and functions to extend the style of the original component
+
+example:
+
+```js
+const extend = {
+   // base
+   // ...
+   // styled
+   // ...
+   //utils
+   utils: [
+     // Sizes
+     //xl
+     `.btn-xl {
+             @apply min-h-20 h-20 px-8;
+             font-size: 1.25rem;
+           }`,
+     // 2xl
+     {
+       '.btn-2xl': {
+         apply: 'min-h-24 h-24 px-10',
+         css: {
+           'font-size': '1.5rem'
+         }
+       }
+     },
+     // 3xl
+     ({ selector }) => {
+       return {
+         [`${selector}-3xl`]: {
+           apply: 'min-h-28 h-28 px-12',
+           css: {
+             'font-size': '1.75rem'
+           }
+         }
+       }
+     },
+     // 4xl
+     ({ selector }) => {
+       return `
+               ${selector}-4xl {
+                 @apply min-h-32 h-32 px-14;
+                 font-size: 2rem;
+               }`
+     }
+   ]
+}
+```
+
+### override
+
+- **Type:** `ModeMergeOptions | ModeMergeOptions[]`
+
+Pass in objects, strings, and functions to override the component's style
+
+The writing method is the same as `extend`, but the difference is that this option will overwrite the original `Css schema`.
+
+### schema
+
+- **Type:** `GetCssSchemaMethod<Params>`
+
+The underlying `Css schema` generation function is used to render the `Css` template based on the incoming parameters.
+
+### params
+
+- **Type:** `Params`
+
+Pass in the `Css schema` function to generate the function
+
+### postcss
+
+- **Type:** `PostcssOptions`
+
+Component-level `postcss` configuration is the same as global `postcss`. For related configuration details, see [Postcss Options](./postcss)
+
+### pick
+
+- **Type:** `type PickCss = {
+   base?: boolean
+   styled?: boolean
+   utils?: boolean
+}`
+- **Default:** `{base:true,styled:true,utils:true}`
+
+Component-level loading Css schema option, all are loaded by default, that is, `base`+`styled`+`utils` is loaded. You can set it to `false` to not load a certain `Css`
+
+For global level, see [pick](/config/overview#pick)
+
+## [string]: false
+
+Same as `disabled` set to `false`

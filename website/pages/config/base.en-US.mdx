@@ -1,1 +1,199 @@
 # Base Options
+
+## base.themes
+
+- **Type:** `Themes`
+
+Define the configuration of themes and color types
+
+```js
+const base = {
+   themes: {
+     // default themes
+     light: {
+       /*...*/
+     },
+     dark: {
+       /*...*/
+     },
+     // your custom themes
+     dim: {
+       /*...*/
+     },
+     cupcake: {
+       /*...*/
+     }
+     //....
+   }
+}
+```
+
+### [string]
+
+#### types
+
+- **Type:** `Record<string, string | Record<string, string>>`
+
+Where color types are defined, five color types are preset by default: `primary`, `success`, `warning`, `error`, `neutral`
+
+You can add new color types here, or overwrite existing color types:
+
+```js
+// new theme called 'cupcake'
+const cupcake = {
+   types: {
+     // override primary and neutral
+     primary: '#65c3c8',
+     neutral: '#291334',
+     // extends secondary and accent color
+     // so you can use `btn-secondary` `badge-accent` `bg-secondary` etc...
+     secondary: '#ef9fbc',
+     accent: '#eeaf3a'
+   }
+}
+```
+
+- When a string is passed in, it will be handed over to [ant-design-colors](https://github.com/ant-design/ant-design-colors) to use the `default` algorithm to generate` The color when content`,`hover`,`active`.
+- When an array is passed in, `array[0]` will be considered to be `color`(`string`)
+   - If `array[1]` is `true`, the default `dark` algorithm is used to generate colors.
+   - `array[1]` is `object`, then the entire `array[1]` is passed into the `generate` method
+- When an object is passed in, the generation algorithm is not used and all color definitions are directly taken over.
+
+The color name you define will eventually be converted into:
+
+```css
+:root {
+   --secondary: 189 147 249;
+   --secondary-hover: 220 191 255;
+   --secondary-active: 152 114 212;
+   --secondary-content: 255 255 255;
+   --accent: 255 184 108;
+   --accent-hover: 255 207 148;
+   --accent-active: 217 146 80;
+   --accent-content: 255 255 255;
+}
+```
+
+Color variable block like this.
+
+#### selector
+
+- **Type:** `string`
+
+The selector of the CSS custom variable injection block. If not passed, `themeSelectorTemplate` will be used by default.
+
+#### extraColors
+
+- **Type:** `Record<string, string>`
+
+Additional colors, defined here, will be processed into `rbg` strings and added to the corresponding theme
+
+```js
+const extraColors = {
+   'base-100': '#faf7f5',
+   'base-200': '#efeae6',
+   'base-300': '#e7e2df',
+   'base-content': '#291334'
+}
+```
+
+generate
+
+```css
+:root {
+   --base-100: 189 147 249;
+   --base-200: 220 191 255;
+   --base-300: 152 114 212;
+   --base-content: 255 255 255;
+}
+```
+
+#### extraVars
+
+- **Type:** `Record<string, string>`
+
+Extra CSS variables, unlike `extraColors`, the variables defined here are added to the corresponding theme without any processing.
+
+```js
+const extraVars = {
+   'base-100': '#faf7f5',
+   'base-200': '#efeae6',
+   'base-300': '#e7e2df',
+   'base-content': '#291334'
+}
+```
+
+generate
+
+```css
+:root {
+   --base-100: 189 147 249;
+   --base-200: 220 191 255;
+   --base-300: 152 114 212;
+   --base-content: 255 255 255;
+}
+```
+
+#### extraCss
+
+- **Type:** `CssValue`
+
+## base.mediaDarkTheme
+
+- **Type:** `string | boolean`
+- **Default:** `false`
+
+Add a media query statement and pass in the specified theme name to use as the default theme in dark mode.
+
+- When `true`, the default `dark` theme will be used as the default theme
+- When it is a string, such as the previously defined `dim`, it can be specified as your custom theme color variable
+
+Finally, the `@media (prefers-color-scheme: dark)` media query statement is generated.
+
+## base.themeSelectorTemplate
+
+- **Type:** `(theme: string) => string`
+- **Default:**
+
+```ts
+const themeSelectorTemplate = (theme: string) => {
+   return `[data-mode="${theme}"]`
+}
+```
+
+The added theme, the default generated `CSS` selector template method
+
+## base.generateColors
+
+- **Type:** `(key: string, ...args: any[]) => Record<string, string>`
+- **Default:**
+
+```ts
+export { generate } from '@ant-design/colors'
+
+function generateColors(key: string, color: string, opt?: any) {
+   let opts = opt
+   if (opts === true) {
+     opts = {
+       theme: 'dark',
+       backgroundColor: '#141414'
+     }
+   }
+
+   const colors = generate(color, opts)
+   return {
+     [key]: colors[5],
+     [`${key}-hover`]: colors[4],
+     [`${key}-active`]: colors[6],
+     [`${key}-content`]: gray[1]
+   }
+}
+```
+
+Generating algorithm for custom theme color color variables
+
+## base.extraCss
+
+- **Type:** `CssValue`
+
+Additional CSS is added to the `css/js` file under `base`

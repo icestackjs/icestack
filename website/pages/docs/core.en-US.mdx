@@ -1,120 +1,21 @@
-# Core concepts
+# Core concepts - extension and coverage
 
-`@icestack/ui` was designed to be a very flexible `Css` component framework generator.
+When `@icestack/ui` was designed, the purpose was to create a very flexible `Css` component framework generator.
 
-It provides us with a set of predefined scenarios by default that we can use right out of the box, but its magic goes far beyond that.
+It provides us with a set of preset solutions by default that we can use directly out of the box, but its magic goes far beyond that.
 
-Around the idea of `CssInJs`, `@icestack/ui` has built a powerful set of style compilation capabilities.
+Based on the idea of `CssInJs`, `@icestack/ui` has built a set of powerful style compilation capabilities.
 
-This gives us the flexibility to generate the styles we want.
+This gives us the flexibility and freedom to generate the styles we want.
 
-We can pass in parameters to: `@icestack/ui`.
+We can do this by passing in parameters:
 
-- Generate a variety of themes, including but not limited to `Light`, `Dark`, `Tritanopia`, `Dimmed`, and so on.
+- Generate a variety of themes, including but not limited to `Light`, `Dark`, `Tritanopia`, `Dimmed` and other themes you want
 
-- You can also add different theme colors to the controls, such as `btn-primary`, `btn-secondary`, `btn-accent` to give them the theme color you want.
+- You can also add different theme colors to the control, such as `btn-primary`, `btn-secondary`, `btn-accent` the theme color you want
 
-- You can also provide them with more sizes including but not limited to `xs`,`sm`,`md`,`lg`, like `xl`,`2xl`,`3xl`.
+- You can also provide them with more sizes including but not limited to `xs`, `sm`, `md`, `lg`, like `xl`, `2xl`, `3xl`
 
-- More shapes than `square`, `circle`.
+- More shapes not limited to `square`, `circle`
 
-- and it's easy to extend and override existing styles.
-
-## Component Styling
-
-By default, a component consists of three styles, `base`, `styled`, and `utils`. The style priority between them is: `base`, `styled`, and `utils`.
-
-`utils` > `styled` > `base`.
-
-### base
-
-As the name suggests, this is the base of the component, and usually has the lowest priority.
-
-### styled
-
-This is where you can store styled variants of the component, such as colors, default sizes, behaviors, etc.
-
-### utils
-
-This is where the component's sizes, shapes, and so on are stored, and is usually the highest priority.
-
-## Component modes
-
-There are three main component modes, `styled`, `base` and `raw`.
-
-### styled
-
-- In this mode all component styles are loaded, including `base`, `styled` and `utils`.
-
-### base
-
-- In this mode, only the `base` component styles are loaded.
-
-### raw
-
-- In this mode, nothing is loaded, and the generator becomes a canvas waiting to be painted, and you have full control over the generation of the components through the configuration items.
-
-## CssInJs
-
-For all uses, we can pass in objects that extend and override the behavior of the component.
-
-The structure is similar to.
-
-```js
-{
-  ".btn": {
-    "&-block": {
-      "apply": [
-        "w-full",
-      ],
-      "css":{
-
-      }
-    },
-    "&-circle": {
-      "&:where(.btn-lg)": {
-        "apply": [
-          "h-16",
-          "w-16",
-          "rounded-full",
-          "p-0",
-        ],
-        "css":{
-
-        }
-      },
-    },
-  },
-}
-```
-
-A structural system such as this.
-
-```ts
-{
-  ${selector}:{
-    apply: string[]
-    css: Record<string,string>
-    ${childSelector}:{
-      // ...
-      // css
-      // apply
-      // child selector
-    }
-  }
-}
-```
-
-This is the syntax we'll use to extend and override components, where the `css` object, which is the basic `CssInJs` object, generates the `CSS` code for the corresponding node.
-
-The `apply` string array is passed to `tailwindcss`, which is then `resolved` to `CSS` and merged with the object in the `css` field.
-
-> You can use the `transformCss2Js` method exported in `@icestack/ui/components` to quickly transform any `css` string into this format!
-
-## Build
-
-After executing the `build` command, `@icestack/ui` generates three types of files in the specified folder.
-
-1. `css` This folder is used for storing raw `css`, and contains a large number of `@apply` directives, which must be used in conjunction with `tailwindcss` in order to use the `css` output.
-2. `css-resolved` This folder holds `css` products that have been processed by `tailwindcss` and can be used by you.
-3. `js` This folder holds the `js` output of `css-resolved` styles.
+- It can also easily extend and cover the original style

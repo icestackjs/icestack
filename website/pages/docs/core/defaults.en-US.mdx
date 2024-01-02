@@ -1,1 +1,59 @@
-# 默认预设
+# Default preset
+
+Under the default default of `@icestack/ui`:
+
+## Global color type
+
+There are five main global default color types: `primary`, `success`, `warning`, `error`, `neutral`
+
+So such classes are generated in the `css` products of each component:
+
+```js
+// btn
+'btn-primary', 'btn-success', 'btn-warning', 'btn-error', 'btn-neutral'
+// badge
+'badge-primary', 'badge-success', 'badge-warning', 'badge-error', 'badge-neutral'
+```
+
+For this type of CSS product, the color is global and can be freely modified and expanded through configuration.
+
+## Component size and shape
+
+The same principle applies. There are four default sizes: `xs`, `sm`, `md`, and `lg`, so the following will be generated:
+
+```js
+// btn
+'btn-xs', 'btn-sm', 'btn-md', 'btn-lg',
+// badge
+'badge-xs', 'badge-sm', 'badge-md', 'badge-lg'
+```
+
+For this type of CSS product, the component size is unique to each component and can be freely modified and expanded using `CSS Schema`.
+
+In addition, the shape of the component also follows the component. Each component is different and can be freely modified and expanded.
+
+## theme
+
+By default, `light` and `dark` **2** modes are preset, which will generate their own `CSS` variable blocks. Of course, you can also override and extend them.
+
+The default generated results are as follows:
+
+```css
+:root {
+   --ice-primary: 22 119 255;
+   --ice-primary-hover: 64 150 255;
+   --ice-primary-active: 9 88 217;
+   --ice-primary-content: 255 255 255;
+   /* ... */
+}
+
+[data-mode='dark'] {
+   --ice-primary: 22 104 220;
+   --ice-primary-hover: 21 84 173;
+   --ice-primary-active: 60 137 232;
+   --ice-primary-content: 255 255 255;
+   /* ... */
+}
+```
+
+Of course, your newly added theme will also become such a `CSS` variable block for dynamic switching.

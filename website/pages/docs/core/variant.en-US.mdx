@@ -1,111 +1,158 @@
-# 修改和扩展颜色种类
+import CodeRender from '../../../components/CodeRender'
 
-## 修改原有颜色
+# Modify and expand color types
 
-```js filename="icestack.config.js"
-/**
- * @type {import('@icestack/ui').Config}
- */
-const config = {
-  outdir: './my-ui',
-  // 修改 base
-  base: {
-    // 主题
-    themes: {
-      // 覆盖 light mode 下的颜色
-      light: {
-        types: {
-          primary: '#eb2f96'
-        }
-      },
-      // 同样也可以覆盖 dark mode 下的表现
-      dark: {
-        types: {
-          primary: '#cb2b83'
-        }
-      }
-    }
-  }
-}
-module.exports = config
-```
-
-你传入一个颜色字符串，它会被交给 [`ant-design-colors`](https://github.com/ant-design/ant-design-colors) 进行颜色的自动生成，从而计算出 `hover`,`active` 等状态的颜色
-
-当然你也可以传入一个 `object` 来精准的控制所有状态下的颜色：
+## Modify original color
 
 ```js filename="icestack.config.js"
 /**
- * @type {import('@icestack/ui').Config}
- */
+  * @type {import('@icestack/ui').Config}
+  */
 const config = {
-  outdir: './my-ui',
-  // 修改 base
-  base: {
-    // 主题
-    themes: {
-      // 覆盖 light mode 下的颜色
-      light: {
-        types: {
-          primary: {
-            // 一共四种颜色，key 的名称就是 css 变量名
-            primary: '#1677ff',
-            'primary-content': '#ffffff',
-            // 主要是上面2种颜色， hover 和 active 色是给部分组件使用的，比如 `button`
-            'primary-hover': '#4096ff',
-            'primary-active': '#0958d9'
-          }
-        }
-      }
-      // dark:{}
-    }
-  }
+   outdir: './my-ui',
+   //Modify base
+   base: {
+     // theme
+     themes: {
+       // Override the color in light mode
+       light: {
+         types: {
+           primary: '#eb2f96'
+         }
+       },
+       // You can also override the performance in dark mode
+       dark: {
+         types: {
+           primary: '#cb2b83'
+         }
+       }
+     }
+   }
 }
-module.exports = config
+module.exports=config
 ```
 
-修改完成之后执行 `icestack build` 进行构建即可。
+You pass in a color string and it will be handed over to [`ant-design-colors`](https://github.com/ant-design/ant-design-colors) for automatic color generation to calculate Colors of `hover`, `active` and other states
 
-## 扩展更多颜色
+Of course, you can also pass in an `object` to accurately control the color in all states:
 
 ```js filename="icestack.config.js"
 /**
- * @type {import('@icestack/ui').Config}
- */
+  * @type {import('@icestack/ui').Config}
+  */
 const config = {
-  outdir: './my-ui',
-  // 修改 base
-  base: {
-    themes: {
-      light: {
-        // 或者你添加一种新的颜色主题: pure
-        types: {
-          // light mode colors
-          pure: '#1677ff'
-        }
-      },
-      dark: {
-        types: {
-          // dark mode colors
-          pure: '#642ab5'
-        }
-      }
-    }
-  }
+   outdir: './my-ui',
+   //Modify base
+   base: {
+     // theme
+     themes: {
+       // Override the color in light mode
+       light: {
+         types: {
+           primary: {
+             //There are four colors in total, the name of the key is the css variable name
+             primary: '#1677ff',
+             'primary-content': '#ffffff',
+             // Mainly the above two colors, hover and active colors are used for some components, such as `button`
+             'primary-hover': '#4096ff',
+             'primary-active': '#0958d9'
+           }
+         }
+       }
+       // dark:{}
+     }
+   }
 }
-module.exports = config
+module.exports=config
 ```
 
-## 构建
+After the modification is completed, execute `icestack build` to build.
 
-再修改好配置之后，执行 `icestack build` 指令, 重新构建 `my-ui`
+## Expand more colors
 
-接着你会发现，新的颜色主题，和原先主题色的覆盖，相关的改动就已经出现新的 `my-ui` 产物中了，
+```js filename="icestack.config.js"
+/**
+  * @type {import('@icestack/ui').Config}
+  */
+const config = {
+   outdir: './my-ui',
+   //Modify base
+   base: {
+     themes: {
+       light: {
+         types: {
+           // auto generate colors
+           info: '#13c2c2',
+           secondary: '#2f54eb'
+         }
+       },
+       dark: {
+         types: {
+           // is dark: true
+           // [string, boolean|options]
+           info: ['#13c2c2', true],
+           // full control
+           secondary: {
+             secondary: '#2f54eb',
+             'secondary-content': '#ffffff',
+             'secondary-hover': '#263ea0',
+             'secondary-active': '#5273e0'
+           }
+         }
+       }
+     }
+   }
+}
+module.exports=config
+```
 
-这时候你就可以使用:
+## Construct
+
+After modifying the configuration, execute the `icestack build` command to rebuild `my-ui`
+
+Then you will find that the new color theme, covering the original theme color, and related changes have already appeared in the new `my-ui` product.
+
+Then you can use:
 
 ```js
-'btn-pure', 'badge-pure'
+'btn-secondary', 'badge-secondary'
+
+'btn-info', 'badge-info'
 ```
 
-这种类名了。
+This is the class name.
+
+## Demo
+
+<CodeRender className='space-x-2' code={`<button class="btn btn-info">Info</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-info btn-outline">Info Outline</button>
+<button class="btn btn-secondary btn-outline">Secondary Outline</button>
+`}></CodeRender>
+
+```html
+<button class="btn btn-info">Info</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-info btn-outline">Info Outline</button>
+<button class="btn btn-secondary btn-outline">Secondary Outline</button>
+```
+
+<CodeRender className='space-x-2' code={`<div class="badge badge-info">info</div>
+<div class="badge badge-secondary">secondary</div>
+<div class="badge badge-info badge-outline">info outline</div>
+<div class="badge badge-secondary badge-outline">secondary outline</div>
+`}></CodeRender>
+
+```html
+<button class="btn btn-info">Info</button>
+<button class="btn btn-secondary">Secondary</button>
+<button class="btn btn-info btn-outline">Info Outline</button>
+<button class="btn btn-secondary btn-outline">Secondary Outline</button>
+```
+
+
+## Examples
+
+https://github.com/sonofmagic/icestack/blob/main/website/icestack/extend-themes.js
+
+https://github.com/sonofmagic/icestack/tree/main/examples/raw-html-add-new-type

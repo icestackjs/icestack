@@ -1,18 +1,63 @@
-## Refining and Using Presets
+# Preset extraction and use
 
-## Introduction
+## introduce
 
-Presets act as a type of configuration, you can distill your configuration into a preset
+Preset is a kind of configuration. You can extract your configuration and make it into a preset.
 
 ```js filename="icestack.config.js"
 /**
- * @type {import('@icestack/ui').Config}
- */
+  * @type {import('@icestack/ui').Config}
+  */
 const config = {
-  outdir: './my-ui',
-  presets: [myPreset, myFunctionPreset(options)]
+   outdir: './my-ui',
+   presets: [myPreset, myFunctionPreset(options)]
 }
-module.exports = config
+module.exports=config
 ```
 
-{/* ## 小程序预设 (WIP) */}
+## Default definition
+
+The types are:
+
+```ts
+// Partial<Pick<CodegenOptions, 'base' | 'components' | 'global' | 'tailwindcssConfig'>>
+
+import type { Preset } from '@icestack/types'
+
+/**
+  * @type {import('@icestack/types').Preset}
+  */
+
+const myPreset: Preset = {}
+
+const myFunctionPreset: () => Preset = () => {
+   return {}
+}
+```
+
+## Examples
+
+### Add A Component
+
+```js
+const myFunctionPreset = () => {
+   return {
+     components: {
+       myCustom: {
+         selector: '.cutsom',
+         schema: ({ selector, types, params }) => {
+           return {
+             selector,
+             defaults: {
+               // your css code here
+               base: ``,
+               styled: ``,
+               utils: ``
+             }
+           }
+         }
+       }
+     }
+   }
+}
+```

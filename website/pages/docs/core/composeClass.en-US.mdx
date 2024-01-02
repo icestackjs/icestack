@@ -1,8 +1,8 @@
-# Combining Atomic Class Styles
+# Combination use of atomic class styles
 
-You should use a tool like `class-variance-authority` to combine your styles.
+You should use something like `class-variance-authority` to combine your styles
 
-Let's take the `button` component as an example.
+Here we take the `button` component as an example:
 
 ## Raw Js
 
@@ -10,40 +10,40 @@ Let's take the `button` component as an example.
 import { cva } from 'class-variance-authority'
 
 const getButtonClassname = cva(['btn'], {
-  variants: {
-    type: {
-      primary: ['btn-primary'],
-      success: ['btn-success'],
-      warning: ['btn-warning'],
-      error: ['btn-error']
-    },
-    outline: {
-      true: 'btn-outline'
-    },
-    size: {
-      xs: ['btn-xs'],
-      sm: ['btn-sm'],
-      md: ['btn-md'],
-      lg: ['btn-lg'],
-      wide: ['btn-wide'],
-      block: ['btn-block']
-    },
-    glass: {
-      true: 'glass'
-    },
-    disabled: {
-      true: 'btn-disabled'
-    },
-    shape: {
-      square: ['btn-square'],
-      circle: ['btn-circle']
-    }
-  },
-  defaultVariants: {}
+   variants: {
+     type: {
+       primary: ['btn-primary'],
+       success: ['btn-success'],
+       warning: ['btn-warning'],
+       error: ['btn-error']
+     },
+     outline: {
+       true: 'btn-outline'
+     },
+     size: {
+       xs: ['btn-xs'],
+       sm: ['btn-sm'],
+       md: ['btn-md'],
+       lg: ['btn-lg'],
+       wide: ['btn-wide'],
+       block: ['btn-block']
+     },
+     glass: {
+       true: 'glass'
+     },
+     disabled: {
+       true: 'btn-disabled'
+     },
+     shape: {
+       square: ['btn-square'],
+       circle: ['btn-circle']
+     }
+   },
+   defaultVariants: {}
 })
 ```
 
-## React
+## React encapsulation example
 
 ```tsx filename="MyButton.tsx"
 import { cva } from 'class-variance-authority'
@@ -51,43 +51,43 @@ import type { VariantProps } from 'class-variance-authority'
 import type { FC, PropsWithChildren } from 'react'
 
 const getButtonClassname = cva(['btn'], {
-  variants: {
-    type: {
-      primary: ['btn-primary'],
-      success: ['btn-success'],
-      warning: ['btn-warning'],
-      error: ['btn-error']
-    },
-    outline: {
-      true: 'btn-outline'
-    },
-    size: {
-      xs: ['btn-xs'],
-      sm: ['btn-sm'],
-      md: ['btn-md'],
-      lg: ['btn-lg'],
-      wide: ['btn-wide'],
-      block: ['btn-block']
-    },
-    glass: {
-      true: 'glass'
-    },
-    disabled: {
-      true: 'btn-disabled'
-    },
-    shape: {
-      square: ['btn-square'],
-      circle: ['btn-circle']
-    }
-  },
-  defaultVariants: {}
+   variants: {
+     type: {
+       primary: ['btn-primary'],
+       success: ['btn-success'],
+       warning: ['btn-warning'],
+       error: ['btn-error']
+     },
+     outline: {
+       true: 'btn-outline'
+     },
+     size: {
+       xs: ['btn-xs'],
+       sm: ['btn-sm'],
+       md: ['btn-md'],
+       lg: ['btn-lg'],
+       wide: ['btn-wide'],
+       block: ['btn-block']
+     },
+     glass: {
+       true: 'glass'
+     },
+     disabled: {
+       true: 'btn-disabled'
+     },
+     shape: {
+       square: ['btn-square'],
+       circle: ['btn-circle']
+     }
+   },
+   defaultVariants: {}
 })
 
 export type ButtonProps = PropsWithChildren<VariantProps<typeof getButtonClassname>>
 
 const MyButton: FC<ButtonProps> = (props) => {
-  return <button className={getButtonClassname(props)}>{props.children}</button>
+   return <button className={getButtonClassname(props)}>{props.children}</button>
 }
 
-export default MyButton
+export defaultMyButton
 ```

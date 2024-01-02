@@ -1,19 +1,80 @@
 # Nodejs API calls
 
-Calling methods directly from `@icestack/ui` import
+## JavaScript API
 
-## API \(WIP\)
+`@icestack/ui` is mainly responsible for compiling and generating our styles, among which `api` mainly includes the following
 
-### transformCss2Js
+### `@icestack/ui`
 
-`transformCss2Js(css: string): Record<string, any>`
+```ts
+// import { createContext, defineConfig, defu, getCodegenOptions, transformCss2Js } from '@/index'
+// import type { Config, IContext } from '@/index'
+import { createContext } from '@icestack/ui'
+const ctx = createContext(config)
+// typeof ctx === IContext
+await ctx.build()
+```
 
-Quickly transforms `CSS` into a `CssInJs` structure.
+#### IContext
 
-### build
+```ts
+tailwindcssConfig: TailwindcssConfig
+buildBase: () =>
+   Promise<{
+     css:string
+     resolvedCss: string
+     cssInJs: CssInJs
+   }>
+buildUtilities: () => Promise<Record<string, Record<string, CssInJs>>>
+buildComponents: () => Promise<Record<string, Record<string, CssInJs>>>
+buildTailwindcssConfig: () => TailwindcssConfig
+presets: Record<string, object>
+options: CodegenOptions
+build: () =>
+   Promise<{
+     base: {
+       css:string
+       resolvedCss: string
+       cssInJs: CssInJs
+     }
+     components: Record<string, Record<string, CssInJs>>
+     utilities: Record<string, Record<string, CssInJs>>
+     tailwindcssConfig: TailwindcssConfig
+   }>
+compileScss: (defaultPath?: string) => sass.CompileResult
+createPreset: (opts: CreatePresetOptions) => Record<string, object>
+preprocessCss: (css: string, layer?: ILayer, name?: string) => postcss_lib_lazy_result.default<postcss_lib_document.default | Root>
+```
 
-The build method
+### `@icestack/ui/defaults`
 
-### defineConfig
+All parameters and methods related to generator default values are exported from here
 
-Defines the configuration object
+```ts
+import {
+   createDefaultTailwindcssExtends,
+   defaultSelectorMap,
+   generate,
+   generateColors,
+   getCodegenDefaults,
+   getDefaultBase,
+   gray,
+   injectSchema,
+   makeRgbaValue,
+   presetPrimaryColors,
+   sharedExtraColors,
+   sharedExtraVars
+} from '@/defaults'
+```
+
+### `@icestack/ui/components`
+
+All component-related methods and constants are derived from here
+
+```ts
+import { compressCssSelector, expandTypes, getSelector, names, preprocessCssInJs, removeDefaultComponents, resolvedSchemaMap, schemaMap, transformCss2Js } from '@/components'
+```
+
+### `@icestack/ui/types`
+
+All types are exported from here, the same as the types exported by `@icestack/types`

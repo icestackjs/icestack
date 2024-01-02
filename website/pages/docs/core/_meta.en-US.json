@@ -1,11 +1,11 @@
 {
   "defaults": "Default preset",
-  "variant": "Customize color",
-  "theme": "Customize themes",
-  "override": "Customize component styles",
-  "preset": "Presets",
-  "composeClass": "Class compose",
-  "extraComponent": "Add components",
-  "style": "Component Mode & Style",
-  "dist": "Dist"
+  "variant": "Modify and expand color types",
+  "theme": "Modify extended theme",
+  "override": "Extended component size shape style",
+  "preset": "Preset extraction and use",
+  "composeClass": "Combined use of atomic class styles",
+  "extraComponent": "Add component",
+  "style": "Component style",
+  "dist": "Compile Dist"
 }

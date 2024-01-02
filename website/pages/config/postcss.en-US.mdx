@@ -1,1 +1,52 @@
 # Postcss Options
+
+Global or component level `postcss` configuration
+
+## postcss.prefix
+
+- **Type:** `string | false | Partial<PrefixerOptions>`
+
+If your original `class` naming conflicts with the default scheme, you can set this configuration item to add a prefix to avoid conflicts.
+
+## postcss.varPrefix
+
+- **Type:** `string | false | Partial<VarPrefixerOptions>`
+- **Default:** `'--ice-'`
+
+example:
+
+```css
+/* before */
+--primary: rgba(var(--primary-color));
+/* after */
+--ice-primary: rgba(var(--ice-primary-color));
+```
+
+Add `Css` variable prefix to avoid conflicts
+
+## postcss.atMedia.hover
+
+- **Type:** `boolean`
+
+Whether to remove `@media (hover: hover)` media query
+
+## postcss.selector.universal
+
+- **Type:** `string`
+
+Replace the css `*` selector with the value of this option
+
+## postcss.selector.root
+
+- **Type:** `string`
+
+Replace the css `:root` selector with the value of this option
+
+## postcss.plugins
+
+- **Type:** `AcceptedPlugin[] | ((plugins: AcceptedPlugin[]) => AcceptedPlugin[])`
+
+`postcss plugins` used for custom compilation:
+
+- Pass in an array to add postcss processing steps
+- Pass in a method to completely take over the postcss processing steps

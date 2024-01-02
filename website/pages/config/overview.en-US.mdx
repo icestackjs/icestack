@@ -1,0 +1,120 @@
+#ConfiguringIcestack
+
+Detailed explanation of `icestack.config.js` file configuration
+
+##outdir
+
+- **Type:** `string`
+- **Required!**
+
+Required, output the specified directory of the `css/js` file
+
+## base
+
+Core configuration, defining themes, color types, and generating `css/js` files in the `base` directory, see [Base Options](./base) for details
+
+## components
+
+Core configuration, component definition, extended styles, and `css/js` file generation in the `components` directory, see [Components Options](./components) for details
+
+## utilities
+
+Define tool classes, extend styles, and generate `css/js` files in the `utilities` directory
+
+### utilities.extraCss
+
+- **Type:** `string | CssInJs | (CssInJs | string)[]`
+
+Define additional `css`, which will be generated in the `utilities.custom` file
+
+## postcss
+
+Core configuration, global `postcss` configuration, see [Postcss Options](./postcss) for details
+
+## tailwindcssConfig
+
+- **Type:** `Partial<TailwindcssConfig>`
+
+When compiling, the loaded `tailwindcss config` can be passed in to extend this configuration item so that `@icestack/ui` supports more `@apply` / `theme()` instructions.
+
+For example, if you extend a font in `tailwindcss`:
+
+```js filename="icestack.config.js"
+/**
+  * @type {import('@icestack/ui').Config}
+  */
+const config = {
+   outdir: './my-ui',
+   utilities: {
+     extraCss: [
+       // extraCss use @apply font-display
+       // `components` and `base` are same
+       `.custom{
+         @apply font-display;
+       }`
+     ]
+   },
+   tailwindcssConfig: {
+     theme: {
+       extend: {
+         fontFamily: {
+           display: 'Oswald, ui-serif'
+         }
+       }
+     }
+   }
+}
+module.exports=config
+```
+
+In this way, you can directly use command strings like `@apply font-display` in the `CssValue` of the `base` / `components` / `utilities` configuration items.
+
+## log
+
+- **Type:** `boolean`
+- **Default:** `true`
+
+Whether to output build information on the command line.
+
+## presets
+
+- **Type:** `(Preset | ((options?: any) => Preset))[]`
+
+Load the preset. For related documents, see [Preset extraction and use](/docs/core/preset)
+
+## dryRun
+
+- **Type:** `boolean`
+- **Default:** `false`
+
+Whether to only execute and obtain the `js` object without outputting the `css/js` file
+
+## mode
+
+- **Type:** `'preset' | 'none'`
+- **Default:** `'preset'`
+
+Style generation mode, the effect is as follows:
+
+- `'preset'`: Load built-in preset themes and component styles written similarly to `daisyui`.
+- `'none'`: Do not load and generate any preset themes and component styles
+
+## pick
+
+- **Type:** `type PickCss = {
+   base?: boolean
+   styled?: boolean
+   utils?: boolean
+}`
+- **Default:** `{base:true,styled:true,utils:true}`
+
+Global loading Css schema option, all are loaded by default, that is, `base`+`styled`+`utils` is loaded. You can set it to `false` to not load a certain `Css`
+
+For component level, see [components[string].pick](/config/components#pick)
+
+## clean
+
+- **Type:** `boolean`
+- **Default:** `'false'`
+
+Clear the contents of the `outdir` directory for each build

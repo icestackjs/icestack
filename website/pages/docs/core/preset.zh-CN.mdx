@@ -40,8 +40,6 @@ const myFunctionPreset: () => Preset = () => {
 ### Add A Component
 
 ```js
-const { transformCss2Js } = require('@icestack/postcss-utils')
-
 const myFunctionPreset = () => {
   return {
     components: {
@@ -52,9 +50,9 @@ const myFunctionPreset = () => {
             selector,
             defaults: {
               // your css code here
-              base: transformCss2Js(``),
-              styled: transformCss2Js(``),
-              utils: transformCss2Js(``)
+              base: ``,
+              styled: ``,
+              utils: ``
             }
           }
         }

@@ -1,34 +1,144 @@
-# Adding components
+# Add component
 
-Of course, the components provided by default may not meet your needs, you can also add your own components
+Of course, the default components may not meet your needs. You can also add your own components.
+
+## Add my-table component
 
 ```js
+// const { transformCss2Js } = require('@icestack/shared')
 /**
- * @type {import('@icestack/ui').Config}
- */
+  * @type {import('@icestack/ui').Config}
+  */
 const config = {
-  outdir: './my-ui',
-  components: {
-    // 要添加的组件名称
-    xxxxx: {
-      // 覆盖, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
-      override: {
-        base: {},
-        styled: {},
-        utils: {}
-      },
-      // 扩展, 传入一个 CssInJs 对象, 在 `selector` 包裹之内
-      extend: {
-        base: {},
-        styled: {},
-        utils: {}
-      },
-      // 额外的,传入一个 CssInJs 对象，在 `selector` 包裹之外， 优先级最高
-      extra: {}
-      // 选择器
-      selector: '.xxxxxx'
-    }
-  }
+   outdir: './my-ui',
+   components: {
+     //The name of the component to be added
+     myTable: {
+       // Selector
+       selector: '.my-table',
+       schema: (opts) => {
+         // selector is the selector
+         // types are color variables such as primary success
+         // or use transformCss2Js exported by '@icestack/shared'
+         const { selector, types } = opts
+         return {
+           selector,
+           defaults: {
+             base: {
+               [selector]: {
+                 //Leave it to tailwindcss for processing
+                 apply: ['relative w-full', 'rounded text-left text-sm'],
+                 css: {
+                   display: 'table'
+                 },
+                 '.thead': {
+                   css: {
+                     display: 'table-header-group'
+                   },
+                   apply: ['whitespace-nowrap text-xs font-bold']
+                 },
+                 '.tbody': {
+                   css: {
+                     display: 'table-row-group'
+                   }
+                 },
+                 '.tfoot': {
+                   css: {
+                     display: 'table-footer-group'
+                   },
+                   apply: ['whitespace-nowrap text-xs font-bold']
+                 },
+                 '.tr': {
+                   css: {
+                     display: 'table-row'
+                   }
+                 },
+                 '.td,.th': {
+                   apply: ['px-4 py-3 align-middle'],
+                   css: {
+                     display: 'table-cell'
+                   }
+                 }
+               }
+             },
+             utils: {
+               [selector]: {
+                 [`&-xs`]: {
+                   ':not(.thead):not(.tfoot) .tr': {
+                     apply: 'text-xs'
+                   },
+                   '.th,.td': {
+                     apply: 'px-2 py-1'
+                   }
+                 },
+                 [`&-sm`]: {
+                   ':not(.thead):not(.tfoot) .tr': {
+                     apply: 'text-sm'
+                   },
+                   '.th,.td': {
+                     apply: 'px-3 py-2'
+                   }
+                 },
+                 [`&-md`]: {
+                   ':not(.thead):not(.tfoot) .tr': {
+                     apply: 'text-sm'
+                   },
+                   '.th,.td': {
+                     apply: 'px-4 py-3'
+                   }
+                 },
+                 [`&-lg`]: {
+                   ':not(.thead):not(.tfoot) .tr': {
+                     apply: 'text-base'
+                   },
+                   '.th,.td': {
+                     apply: 'px-6 py-4'
+                   }
+                 }
+               }
+             }
+           }
+         }
+       }
+     }
+   }
 }
-module.exports = config
+module.exports=config
 ```
+
+## transformCss2Js
+
+`transformCss2Js` as a method can quickly parse the `@apply` into:
+
+```ts
+{
+   [selector]:{
+     css:{},
+     apply:[],
+     [childSelector]:{
+       //..
+     }
+   }
+}
+```
+
+So using this method can help you write `schema`
+
+## !important
+
+If you want to use `!important`
+
+```ts
+// Render a single line @apply
+apply: 'bg-gray-400 text-yellow !important'
+// Render 2 lines @apply
+apply: ['bg-gray-100 text-blue', 'bg-gray-400 text-yellow !important']
+// css node
+css: {
+   color: 'red !important'
+}
+```
+
+## Contribution components
+
+You can also contribute your `Css schema` to the source code. For details, see [Contribution](/docs/contribute)

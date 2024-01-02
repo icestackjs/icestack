@@ -1,0 +1,9 @@
+# Dist
+
+## Generate dist
+
+After executing the `build` command, `@icestack/ui` will generate three types of files in the specified folder:
+
+1. `css` This folder is used to store the `css` that has been initially processed. It also contains a large number of `@apply` instructions. The `css` products in this folder must be used with `tailwindcss` if they are to be used directly.
+2. `css-resolved` This folder is used to store `css` products that have been processed by `tailwindcss`. You can use them directly
+3. `js` This folder is used to store the `js` form corresponding to the style in `css-resolved`, as well as the extensible `tailwindcss` configuration file

@@ -1,12 +1,16 @@
 {
   "usage": "Get Started",
   "introduction": "Introduction",
-  "core": "Extends",
+  "core": "Core",
+  "start-from-scratch": "Start From Scratch",
   "contribute": "Contribute",
+  "--": {
+    "type": "separator"
+  },
   "config-ref": {
-    "title": "Configuration",
+    "title": "Config",
     "href": "/config/overview"
   },
   "nodejs": "Nodejs API",
-  "cli": "CLI"
+  "cli": "Cli"
 }

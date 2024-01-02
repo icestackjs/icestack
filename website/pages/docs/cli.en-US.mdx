@@ -1,71 +1,31 @@
-## Used from the Cli command line
+# Command Line Interface
 
-## Initializing the configuration
-
-First after installing `@icestack/ui` you can run.
+## Usage
 
 ```bash
-npx icestack init
+icestack [command]
 ```
 
-This command generates an `icestack.config.js` file in the current directory, which by default looks like this.
+## Order
 
-```js filename="icestack.config.js"
-/**
- * @type {import('@icestack/ui').Config}
- */
-const config = {
-  outdir: './my-ui'
-}
+| Options | |
+| ------- | ------------------------------- |
+| `init` | Initialize the configuration file in the current directory |
+| `build` | Read the configuration and build the style product |
+| `watch` | Monitor configuration file changes and build styles immediately |
 
-module.exports = config
-```
+## icestack init
 
-## Build styles
+Initialize the configuration file in the current directory
 
-You can configure your own styles and options in `config`, and when you're done, run.
+## icestack build
 
-```bash
-npx icestack build
-```
+Read the configuration and build the style product
 
-Or add this script to your `package.json`.
+### --clean
 
-```diff filename="package.json"
-{
-  "scripts": {
-+   "build:ui": "icestack build"
-  },
-}
+Whether to clean `outdir`
 
-```
+## icestack watch
 
-Then running `npm run build:ui` achieves the same result.
-
-## The build product
-
-After running the build command, if the build is successful, the `my-ui` directory in your current directory will have all the `css` and `js` files, which you can load and use as you see fit.
-
-> It is recommended to put `my-ui` in your `.gitignore` to avoid committing too many files to `git`.
-
-There are three main types of files in `my-ui`.
-
-### css
-
-The `css` folder is used for storing raw `css`, and contains a large number of `@apply` directives, which must be used in conjunction with `tailwindcss` in order to use the `css` output directly.
-
-### css-resolved
-
-The `css-resolved` folder is used to store `css` products that have been processed by `tailwindcss` and can be used without registering `tailwindcss`.
-
-### js
-
-The `js` folder is used to store the `js` forms of the styles in `css-resolved`, i.e. `CssInJs`, which can be used by `js` or loaded as `tailwindcss plugin` base data.
-
-## Command
-
-| Options                             |                                                                                                                           |
-| ----------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
-| `init`                              | Initializes the configuration in the current directory                                                                    |
-| `build`                             | Reads the configuration and builds the style product                                                                      |
-| `inspect [componentName] -o <path>` | Load a component's `Css schema`, don't pass `componentName` to export all, use `-o`,`--out` with filename to specify path |
+Monitor configuration file changes and build styles immediately

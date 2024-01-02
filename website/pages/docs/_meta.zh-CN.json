@@ -2,6 +2,7 @@
   "usage": "快速开始",
   "introduction": "简介",
   "core": "扩展是核心",
+  "start-from-scratch": "从0开始构建组件库",
   "mp": "在微信小程序里使用",
   "contribute": "贡献",
   "--": {

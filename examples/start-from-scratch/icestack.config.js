@@ -6,7 +6,7 @@ const config = {
   outdir: './my-ui',
   components: {
     button: {
-      selector: '.btn',
+      selector: '.cbtn',
       schema: ({ selector }) => {
         return {
           selector,
@@ -17,7 +17,7 @@ const config = {
             
               &::after {
                 content: '';
-                @apply absolute inset-0 h-[200%] w-[200%] rotate-45 translate-x-[-70%] transition-all group-hover:scale-100 bg-white/30 z-20 duration-1000;
+                @apply absolute inset-0 h-[200%] w-[200%] rotate-45 translate-x-[-75%] transition-all bg-white/30 z-20 duration-1000;
               }
             
               &:hover::after {

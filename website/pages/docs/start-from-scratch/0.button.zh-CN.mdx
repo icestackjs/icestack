@@ -1,0 +1,258 @@
+import { Callout } from 'nextra/components'
+
+# 构建button组件
+
+我们在网上找到了一个 `button` 组件，它的样式如下
+
+```html
+<a
+  href="https://ui.icebreaker.top/"
+  target="_blank"
+  class="group relative overflow-hidden bg-blue-600 focus:ring-4 focus:ring-blue-300 inline-flex items-center px-7 py-2.5 rounded-lg text-white justify-center"
+>
+  <span class="z-40">Hover Me</span>
+  <div
+    class="absolute inset-0 h-[200%] w-[200%] rotate-45 translate-x-[-75%] transition-all group-hover:scale-100 bg-white/30 group-hover:translate-x-[50%] z-20 duration-1000"
+  ></div>
+</a>
+```
+
+效果如下:
+
+<a
+  href="https://ui.icebreaker.top/"
+  target="_blank"
+  class="group relative overflow-hidden bg-blue-600 focus:ring-4 focus:ring-blue-300 inline-flex items-center px-7 py-2.5 rounded-lg text-white justify-center"
+>
+  <span class="z-40">Hover Me</span>
+  <div class="absolute inset-0 h-[200%] w-[200%] rotate-45 translate-x-[-75%] transition-all group-hover:scale-100 bg-white/30 group-hover:translate-x-[50%] z-20 duration-1000"></div>
+</a>
+
+## 样式提炼
+
+然后我们开始提炼 `html`，把它的样式抽出:
+
+```html
+<a href="https://icebreaker.top/" target="_blank" class="cbtn">
+  <span>Hover Me</span>
+</a>
+```
+
+把原先长传的 `class` 转换成 `@apply`, 并给包裹在选择器 `.cbtn`，然后把最后动画的的`div`元素转换成伪元素，并修改样式。
+
+<Callout type="info">@apply should not be used with the 'group' utility</Callout>
+
+```scss
+.cbtn {
+  @apply relative overflow-hidden bg-blue-600 focus:ring-4 focus:ring-blue-300 inline-flex items-center px-7 py-2.5 rounded-lg text-white justify-center;
+
+  &::after {
+    content: '';
+    @apply absolute inset-0 h-[200%] w-[200%] rotate-45 translate-x-[-75%] transition-all bg-white/30 z-20 duration-1000;
+  }
+
+  &:hover::after {
+    @apply translate-x-[50%];
+  }
+}
+```
+
+## 放入配置文件
+
+```js
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  components: {
+    cbutton: {
+      selector: '.cbtn',
+      // selector is .cbtn
+      schema: ({ selector, params, types }) => {
+        return {
+          selector,
+          defaults: {
+            // return a string template
+            base: `
+            ${selector} {
+  @apply relative overflow-hidden bg-blue-600 focus:ring-4 focus:ring-blue-300 inline-flex items-center px-7 py-2.5 rounded-lg text-white justify-center;
+
+  &::after {
+    content: '';
+    @apply absolute inset-0 h-[200%] w-[200%] rotate-45 translate-x-[-75%] transition-all bg-white/30 z-20 duration-1000;
+  }
+
+  &:hover::after {
+    @apply translate-x-[50%];
+  }
+}
+            `
+          }
+        }
+      }
+    }
+  }
+}
+module.exports = config
+```
+
+然后执行 `icestack build` 之后，`.cbtn` 就顺利的被 `tailwindcss plugin` 加载进来了，你可以这样写:
+
+<a href="https://icebreaker.top/" target="_blank" class="cbtn">
+  Hover Me
+</a>
+
+```html
+<a href="https://icebreaker.top/" target="_blank" class="cbtn"> Hover Me </a>
+```
+
+## 添加更多的颜色种类
+
+比如我们有需求，默认情况下是蓝色: `bg-blue-600 focus:ring-blue-300`
+
+但是可以传入红色，黄色，等等其他颜色应该如何处理呢？
+
+```js
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  components: {
+    cbutton: {
+      selector: '.cbtn',
+      schema: ({ selector, params, types }) => {
+        // add colors
+        const colors = ['red', 'yellow', 'green']
+        return {
+          selector,
+          // utils > styled > base
+          defaults: {
+            base: `...previous code`,
+            // add styled
+            styled: `
+            ${colors
+              .map((color) => {
+                return `${selector}-${color}{
+                @apply bg-${color}-600 focus:ring-${color}-300;
+              }`
+              })
+              .join('\n')}
+            
+            `
+          }
+        }
+      }
+    }
+  }
+}
+module.exports = config
+```
+
+重新构建之后，效果如下:
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn">
+  <span>Hover Me default</span>
+</button>
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-red">
+  <span>Hover Me red</span>
+</button>
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-yellow">
+  <span>Hover Me yellow</span>
+</button>
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-green">
+  <span>Hover Me green</span>
+</button>
+
+```html
+<button href="https://icebreaker.top/" target="_blank" class="cbtn">
+  <span>Hover Me default</span>
+</button>
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-red">
+  <span>Hover Me red</span>
+</button>
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-yellow">
+  <span>Hover Me yellow</span>
+</button>
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-green">
+  <span>Hover Me green</span>
+</button>
+```
+
+## 添加更多的尺寸
+
+```js
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  components: {
+    cbutton: {
+      selector: '.cbtn',
+      schema: ({ selector, params, types }) => {
+        // add colors
+        const colors = ['red', 'yellow', 'green']
+        return {
+          selector,
+          // utils > styled > base
+          defaults: {
+            base: `...previous code`,
+            // add styled
+            styled: `...previous code`,
+            // add sizes
+            utils: `
+            ${selector}-xs{
+              @apply px-3 py-1.5 rounded;
+            }
+            ${selector}-sm{
+              @apply px-5 py-2 rounded-md;
+            }
+            ${selector}-md{
+              @apply px-7 py-2.5 rounded-lg;
+            }
+            ${selector}-lg{
+              @apply px-8 py-3 rounded-lg;
+            }
+            `
+          }
+        }
+      }
+    }
+  }
+}
+module.exports = config
+```
+
+效果如下:
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-xs">
+  <span>Hover Me xs</span>
+</button>
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-sm">
+  <span>Hover Me sm</span>
+</button>
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-md">
+  <span>Hover Me md</span>
+</button>
+
+<button href="https://icebreaker.top/" target="_blank" class="cbtn cbtn-lg">
+  <span>Hover Me lg</span>
+</button>
+
+## 更多
+
+想必你也注意到了，`schema` 方法有多个参数:
+
+- `selector` 为选择器
+- `types` 为 `base` 选项中自动生成的颜色名称
+- `params` 为传入参数，可以根据参数的不同渲染组件不同的表现

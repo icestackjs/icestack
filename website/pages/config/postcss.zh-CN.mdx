@@ -6,6 +6,8 @@
 
 - **Type:** `string | false | Partial<PrefixerOptions>`
 
+假如你原有的 `class` 命名与预设方案有冲突，可以设置此配置项来添加前缀，以此避免冲突。
+
 ## postcss.varPrefix
 
 - **Type:** `string | false | Partial<VarPrefixerOptions>`
@@ -19,6 +21,8 @@ example:
 /* after */
 --ice-primary: rgba(var(--ice-primary-color));
 ```
+
+添加 `Css` 变量前缀，以此来避免冲突
 
 ## postcss.atMedia.hover
 

@@ -1,3 +1,5 @@
+![Image](https://pic4.zhimg.com/80/v2-142cf9008c14984caca829eeea827a02.jpg)
+
 # 使用 IceStack 来构建你的 Css UI 吧
 
 - [使用 IceStack 来构建你的 Css UI 吧](#使用-icestack-来构建你的-css-ui-吧)
@@ -5,7 +7,6 @@
   - [初始化配置文件](#初始化配置文件)
     - [构建样式](#构建样式)
   - [作为 tailwindcss plugin 来使用](#作为-tailwindcss-plugin-来使用)
-    - [配置](#配置)
   - [默认预设](#默认预设)
   - [从0到1进行构建](#从0到1进行构建)
     - [构建button组件](#构建button组件)
@@ -26,8 +27,6 @@
 让我们看看如何来使用它吧！
 
 ## 安装 `@icestack/ui`
-
-执行:
 
 ```bash
 # yarn | pmpm
@@ -59,8 +58,6 @@ module.exports = config
 
 ### 构建样式
 
-执行:
-
 ```bash
 npx icestack build
 ```
@@ -68,8 +65,6 @@ npx icestack build
 这个命令会在当前配置文件下的 `'./my-ui'` 目录构建出产物，接下来你就可以直接导入这些 `css`,`js` 文件，不过把它们交给 `tailwindcss` 进行使用更加方便。
 
 ## 作为 tailwindcss plugin 来使用
-
-### 配置
 
 在 `tailwind.config.js` 中注册 `icestackPlugin` 插件，并传一个 `loadDirectory` 参数来定位刚刚产物的生成的位置:
 

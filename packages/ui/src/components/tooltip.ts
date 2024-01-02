@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`${selector} {
+      base: `${selector} {
         @apply relative inline-block;
         --tooltip-offset: calc(100% + 1px + var(--tooltip-tail, 0px));
       }
@@ -56,8 +55,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           bottom: auto;
         }
       }
-      `),
-      styled: transformCss2Js(`${selector} {
+      `,
+      styled: `${selector} {
         @apply relative inline-block text-center;
         --tooltip-tail: 0.1875rem;
         --tooltip-color: theme(colors.neutral);
@@ -154,8 +153,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           .join('\n')}
        
       }
-      `),
-      utils: transformCss2Js(``)
+      `,
+      utils: ''
     }
   }
 }

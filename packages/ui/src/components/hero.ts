@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply grid w-full place-items-center bg-cover bg-center;
         & > * {
@@ -19,8 +18,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           @apply z-0 flex items-center justify-center;
         }
       }
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         &-overlay {
           @apply bg-neutral bg-opacity-50;
@@ -30,8 +29,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      utils: transformCss2Js(``)
+      `,
+      utils: ``
     }
   }
 }

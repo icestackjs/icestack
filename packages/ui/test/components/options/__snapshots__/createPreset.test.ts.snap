@@ -141,6 +141,7 @@ exports[`createPreset options > alert case 0 1`] = `
         ],
       },
     },
+    "utils": {},
   },
   "selector": ".alert",
 }
@@ -182,6 +183,7 @@ exports[`createPreset options > alert case 1 1`] = `
         ],
       },
     },
+    "utils": {},
   },
   "selector": ".alert",
 }
@@ -223,6 +225,7 @@ exports[`createPreset options > alert raw case 1 1`] = `
         ],
       },
     },
+    "utils": {},
   },
   "selector": ".alert",
 }

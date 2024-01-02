@@ -1,5 +1,3 @@
-import dedent from 'dedent'
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -7,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply h-12 shrink pe-4 text-sm leading-loose;
         &::file-selector-button {
@@ -16,8 +14,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         @apply border-base-content bg-base-100 rounded-btn overflow-hidden border border-opacity-0 text-base;
         &::file-selector-button {
@@ -44,7 +42,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
         ${types
           .map((type) => {
-            return dedent`
+            return `
             &-${type} {
               @apply border-${type};
               &:focus {
@@ -67,8 +65,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      utils: transformCss2Js(`
+      `,
+      utils: `
       ${selector} {
         &-xs {
           @apply h-6 pe-2 text-xs leading-relaxed;
@@ -100,7 +98,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `)
+      `
     }
   }
 }

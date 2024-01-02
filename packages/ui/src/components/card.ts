@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply relative flex flex-col;
         &:focus {
@@ -43,8 +42,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         @apply rounded-box;
         :where(figure:first-child) {
@@ -100,8 +99,8 @@ const schema: GetCssSchemaMethod = (opts) => {
       }
       
       
-      `),
-      utils: transformCss2Js(`
+      `,
+      utils: `
       ${selector}-side {
         align-items: stretch;
         flex-direction: row;
@@ -147,7 +146,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `)
+      `
     }
   }
 }

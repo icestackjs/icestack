@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply relative inline-block;
       }
@@ -54,8 +53,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         @apply hidden;
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector}:is(:not(details)) ${selector}-content {
         @apply origin-top scale-95 transform transition duration-200 ease-out;
       }
@@ -82,8 +81,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      utils: transformCss2Js(``)
+      `,
+      utils: ``
     }
   }
 }

@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply flex flex-row items-center self-stretch;
         &:before,
@@ -21,8 +20,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         @apply my-4 h-4 whitespace-nowrap;
         &:before,
@@ -41,8 +40,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           .join('\n')}
       }
       
-      `),
-      utils: transformCss2Js(`
+      `,
+      utils: `
       ${selector}-horizontal {
         @apply flex-col;
         &:before {
@@ -69,7 +68,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         @apply mx-0 my-4 h-4 w-auto;
       }
       
-      `)
+      `
     }
   }
 }

@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply grid w-full grid-flow-row place-items-start;
         & > * {
@@ -28,8 +27,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         @apply gap-x-4 gap-y-10 text-sm;
         & > * {
@@ -40,8 +39,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      utils: transformCss2Js(``)
+      `,
+      utils: ``
     }
   }
 }

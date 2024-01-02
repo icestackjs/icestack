@@ -1,11 +1,10 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 const schema: GetCssSchemaMethod = (opts) => {
   const { types, selector } = opts
   return {
     selector,
     defaults: {
-      styled: transformCss2Js(`
+      styled: `
       ${selector} {
         @apply bg-base-100 rounded-btn border border-transparent pr-10;
         &-bordered {
@@ -61,8 +60,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           calc(0% + 12px) calc(1px + 50%),
           calc(0% + 16px) calc(1px + 50%);
       }
-      `),
-      base: transformCss2Js(`
+      `,
+      base: `
       ${selector} {
         @apply inline-flex cursor-pointer select-none appearance-none;
         @apply h-12 min-h-[3rem] pl-4 pr-10 text-sm leading-loose;
@@ -72,8 +71,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      utils: transformCss2Js(`
+      `,
+      utils: `
       
       ${selector} {
         &-md {
@@ -101,7 +100,7 @@ const schema: GetCssSchemaMethod = (opts) => {
           }
         }
       }
-      `)
+      `
     }
   }
 }

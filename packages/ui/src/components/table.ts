@@ -1,5 +1,3 @@
-import { defuBaseDefault } from '@/shared'
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -41,8 +39,8 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      styled: {
-        [selector]: transformCss2Js(`@apply rounded-box text-left text-sm;
+      styled: `${selector}{
+        @apply rounded-box text-left text-sm;
         :where(th, td) {
           @apply px-4 py-3 align-middle;
         }
@@ -74,11 +72,10 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
         :where(thead, tfoot) {
           @apply text-base-content/60 whitespace-nowrap text-xs font-bold;
-        }`)
-      },
-      base: {
-        [selector]: defuBaseDefault<any, any[]>(
-          transformCss2Js(`@apply relative w-full;
+        }
+      }`,
+      base: `${selector}{
+        @apply relative w-full;
         :where(${selector}-pin-rows thead tr) {
           @apply bg-base-100 sticky top-0 z-[1];
         }
@@ -90,17 +87,14 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
         &-zebra tbody tr:nth-child(even) :where(${selector}-pin-cols tr th) {
           @apply bg-base-200;
-        }`)
-        )
-      },
-      utils: {
-        ...transformCss2Js(`
-        ${xs}
-        ${sm}
-        ${md}
-        ${lg}
-        `)
-      }
+        }
+      }`,
+      utils: `
+      ${xs}
+      ${sm}
+      ${md}
+      ${lg}
+      `
     }
   }
 }

@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply flex items-center;
       }
@@ -25,16 +24,16 @@ const schema: GetCssSchemaMethod = (opts) => {
         justify-content: flex-end;
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         padding: var(--navbar-padding, 0.5rem);
         min-height: 4rem;
         @apply w-full;
       }
       
-      `),
-      utils: transformCss2Js(``)
+      `,
+      utils: ``
     }
   }
 }

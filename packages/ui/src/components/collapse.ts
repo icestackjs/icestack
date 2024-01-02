@@ -1,12 +1,10 @@
-import { transformCss2Js } from '@/postcss'
-
 import type { GetCssSchemaMethod } from '@/types'
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`${selector}:not(td):not(tr):not(colgroup) {
+      base: `${selector}:not(td):not(tr):not(colgroup) {
         @apply visible;
       }
       ${selector} {
@@ -44,8 +42,8 @@ const schema: GetCssSchemaMethod = (opts) => {
       ${selector}:not(${selector}-close) > input[type="radio"]:checked ~ ${selector}-content {
         @apply visible min-h-fit;
       }
-      `),
-      styled: transformCss2Js(`${selector} {
+      `,
+      styled: `${selector} {
         @apply rounded-box w-full;
       }
       details${selector} {
@@ -142,8 +140,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       ${selector}-plus:not(${selector}-close) > input[type="radio"]:checked ~ ${selector}-title:after {
         content: "−";
       }
-      `),
-      utils: transformCss2Js(``)
+      `
     }
   }
 }

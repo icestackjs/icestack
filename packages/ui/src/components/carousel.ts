@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply inline-flex overflow-x-scroll;
         scroll-snap-type: x mandatory;
@@ -27,8 +26,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       
       ${selector} {
         -ms-overflow-style: none;
@@ -38,8 +37,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      utils: transformCss2Js(``)
+      `
     }
   }
 }

@@ -1,13 +1,12 @@
 import dedent from 'dedent'
 import type { GetCssSchemaMethod } from '@/types'
-import { transformCss2Js } from '@/postcss'
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
   return {
     selector,
     defaults: {
-      styled: transformCss2Js(`${selector}s {
+      styled: `${selector}s {
         ${selector} {
           grid-template-rows: 2.5rem 1fr;
           grid-template-columns: auto;
@@ -46,8 +45,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           })
           .join('\n')}
       }
-      `),
-      base: transformCss2Js(`${selector}s {
+      `,
+      base: `${selector}s {
         @apply inline-grid grid-flow-col overflow-hidden overflow-x-auto;
         counter-reset: step;
         grid-auto-columns: 1fr;
@@ -55,8 +54,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           @apply grid grid-cols-1 grid-rows-2 place-items-center text-center;
         }
       }
-      `),
-      utils: transformCss2Js(`${selector}s {
+      `,
+      utils: `${selector}s {
         &-horizontal {
           ${selector} {
             grid-template-rows: 2.5rem 1fr;
@@ -121,7 +120,7 @@ ${selector}s {
   }
 }
 
-      `)
+      `
     }
   }
 }

@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 /**
  * @deprecated
@@ -10,7 +9,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      styled: transformCss2Js(`${selector} {
+      styled: `${selector} {
         @apply text-opacity-50 [@media(hover:hover)]:hover:text-opacity-100;
         --tab-color: rgba(var(--base-content) / var(--tw-text-opacity, 1));
         --tab-bg: rgba(var(--base-400) / var(--tw-bg-opacity, 1));
@@ -126,16 +125,16 @@ const schema: GetCssSchemaMethod = (opts) => {
         ${selector}-active:not(${selector}-disabled):not([disabled]) {
           @apply bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content;
         }
-      }`),
-      base: transformCss2Js(`${selector}s {
+      }`,
+      base: `${selector}s {
         @apply flex flex-wrap items-end;
       }
       ${selector} {
         @apply relative inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center;
         @apply h-8 text-sm leading-loose;
         --tab-padding: 1rem;
-      }`),
-      utils: transformCss2Js(`${selector}-border-none {
+      }`,
+      utils: `${selector}-border-none {
         --tab-border: 0px;
       }
       ${selector}-border {
@@ -152,7 +151,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       }
       ${selector}-rounded-lg {
         --tab-radius: 0.5rem;
-      }`)
+      }`
     }
   }
 }

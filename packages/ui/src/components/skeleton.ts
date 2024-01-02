@@ -1,11 +1,10 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`${selector} {
+      base: `${selector} {
         animation: skeleton-blink var(--skeleton-duration) ease-in-out
         infinite;
       }
@@ -13,11 +12,11 @@ const schema: GetCssSchemaMethod = (opts) => {
         50% {
           opacity: 0.6;
         }
-      }`),
-      styled: transformCss2Js(`${selector} {
+      }`,
+      styled: `${selector} {
         @apply bg-base-300;
-      }`),
-      utils: transformCss2Js(`
+      }`,
+      utils: `
       ${selector}-title {
         @apply w-2/5 h-4;
       }
@@ -27,7 +26,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       ${selector}-avatar {
         @apply h-8 w-8 rounded-full; 
       }
-      `)
+      `
     }
   }
 }

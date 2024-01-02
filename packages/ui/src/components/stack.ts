@@ -1,11 +1,10 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply inline-grid;
         & > * {
@@ -25,8 +24,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         @apply place-items-center items-end;
         & > * {
@@ -43,8 +42,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      utils: transformCss2Js(``)
+      `,
+      utils: ``
     }
   }
 }

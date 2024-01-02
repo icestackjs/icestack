@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply relative inline-flex;
         width: max-content;
@@ -15,8 +14,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           @apply absolute transform whitespace-nowrap;
         }
       }
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         & :where(${selector}-item) {
           @apply bottom-auto end-0 start-auto top-0 -translate-y-1/2 translate-x-1/2 rtl:-translate-x-1/2;
@@ -41,8 +40,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      utils: transformCss2Js(``)
+      `,
+      utils: ``
     }
   }
 }

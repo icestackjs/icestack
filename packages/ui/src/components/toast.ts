@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,11 +5,11 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`${selector} {
+      base: `${selector} {
         @apply fixed flex min-w-fit flex-col whitespace-nowrap;
       }
-      `),
-      styled: transformCss2Js(`${selector} {
+      `,
+      styled: `${selector} {
         @apply gap-2 p-4;
         & > * {
           animation: toast-pop 0.25s ease-out;
@@ -27,8 +26,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           opacity: 1;
         }
       }
-      `),
-      utils: transformCss2Js(`:where(${selector}) {
+      `,
+      utils: `:where(${selector}) {
         @apply bottom-0 end-0 start-auto top-auto translate-x-0 translate-y-0;
       }
       ${selector}:where(${selector}-start) {
@@ -49,7 +48,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       ${selector}:where(${selector}-top) {
         @apply bottom-auto top-0 translate-y-0;
       }
-      `)
+      `
     }
   }
 }

@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`${selector} {
+      base: `${selector} {
         --value: 0;
         --size: 5rem;
         --thickness: calc(var(--size) / 10);
@@ -56,9 +55,9 @@ const schema: GetCssSchemaMethod = (opts) => {
         transform: rotate(calc(var(--value) * 3.6deg - 90deg)) translate(calc(var(--size) / 2 - 50%));
       }
       
-      `),
-      styled: transformCss2Js(``),
-      utils: transformCss2Js(``)
+      `,
+      styled: ``,
+      utils: ``
     }
   }
 }

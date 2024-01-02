@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply relative grid;
         grid-auto-columns: max-content auto;
@@ -64,8 +63,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         width: 100%;
         &-side {
@@ -85,8 +84,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      utils: transformCss2Js(`
+      `,
+      utils: `
       ${selector}-open > ${selector}-toggle {
         @apply hidden;
         & ~ ${selector}-side {
@@ -112,7 +111,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `)
+      `
     }
   }
 }

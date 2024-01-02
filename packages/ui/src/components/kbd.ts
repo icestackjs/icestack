@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,20 +5,20 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply inline-flex items-center justify-center;
       }
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         @apply border-base-content bg-base-200 rounded-btn border border-opacity-20 px-2;
         border-bottom-width: 2px;
         min-height: 2.2em;
         min-width: 2.2em;
       }
-      `),
-      utils: transformCss2Js(`${selector} {
+      `,
+      utils: `${selector} {
         &-xs {
           @apply px-1 text-xs;
           min-height: 1.2em;
@@ -41,7 +40,7 @@ const schema: GetCssSchemaMethod = (opts) => {
           min-width: 2.5em;
         }
       }
-      `)
+      `
     }
   }
 }

@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply relative inline-grid select-none place-content-center;
       }
@@ -37,8 +36,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         @apply opacity-100;
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       
       ${selector} {
         @apply cursor-pointer;
@@ -93,8 +92,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         transform: rotateY(0deg);
       }
       
-      `),
-      utils: transformCss2Js(``)
+      `,
+      utils: ``
     }
   }
 }

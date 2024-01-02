@@ -1,11 +1,10 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply flex flex-col flex-wrap text-sm;
         :where(li ul) {
@@ -32,8 +31,8 @@ const schema: GetCssSchemaMethod = (opts) => {
       }
       
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         @apply p-2;
       }
@@ -109,8 +108,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         @apply text-base-content/40 px-4 py-2 text-sm font-bold;
       }
       
-      `),
-      utils: transformCss2Js(`
+      `,
+      utils: `
       ${selector}-horizontal {
         @apply inline-flex flex-row;
         & > li:not(${selector}-title) > details > ul {
@@ -180,7 +179,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `)
+      `
     }
   }
 }

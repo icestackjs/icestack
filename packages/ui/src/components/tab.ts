@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector}s {
         @apply grid items-end;
       }
@@ -44,8 +43,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         @apply block;
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector}s-lifted > ${selector}:focus-visible {
         border-end-end-radius: 0;
         border-end-start-radius: 0;
@@ -176,8 +175,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      utils: transformCss2Js(`
+      `,
+      utils: `
       ${selector}s-md :where(${selector}) {
         @apply h-8 text-sm leading-loose;
         --tab-padding: 1rem;
@@ -195,7 +194,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         --tab-padding: 0.5rem;
       }
       
-      `)
+      `
     }
   }
 }

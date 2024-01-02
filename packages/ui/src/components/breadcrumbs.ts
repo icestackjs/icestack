@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply max-w-full overflow-x-auto;
         & > ul,
@@ -22,8 +21,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         @apply py-2;
         & > ul,
@@ -54,8 +53,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         --tw-rotate: -135deg;
       }
       
-      `),
-      utils: transformCss2Js(``)
+      `
     }
   }
 }

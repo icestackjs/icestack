@@ -1,12 +1,10 @@
-import { transformCss2Js } from '@/postcss'
-
 import type { GetCssSchemaMethod } from '@/types'
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       :root ${selector} {
         line-height: 1em;
       }
@@ -22,18 +20,15 @@ const schema: GetCssSchemaMethod = (opts) => {
             top: calc(var(--value) * -1em);
           }
         }
-      }`),
-      styled: transformCss2Js(`${selector} {
+      }`,
+      styled: `${selector} {
         & > * {
           &:before {
             text-align: center;
             transition: all 1s cubic-bezier(1, 0, 0, 1);
           }
         }
-      }`),
-      utils: transformCss2Js(`
-     
-      `)
+      }`
     }
   }
 }

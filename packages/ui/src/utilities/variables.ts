@@ -1,7 +1,5 @@
-import { transformCss2Js } from '@/postcss'
-
 export default () => {
-  return transformCss2Js(`.no-animation {
+  return `.no-animation {
     --animation-btn: 0s;
     --animation-input: 0s;
     --skeleton-duration: 0s;
@@ -24,5 +22,5 @@ export default () => {
   .tab-rounded-lg {
     --tab-radius: 0.5rem;
   }
-  `)
+  `
 }

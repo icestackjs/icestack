@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector}s {
         @apply inline-grid;
       }
@@ -32,8 +31,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           @apply col-start-1 whitespace-nowrap;
         }
       }
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector}s {
         @apply bg-base-100 text-base-content rounded-box;
       }
@@ -58,8 +57,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           @apply mt-4;
         }
       }
-      `),
-      utils: transformCss2Js(`
+      `,
+      utils: `
       ${selector}s-horizontal {
         @apply grid-flow-col;
       }
@@ -74,7 +73,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         @apply divide-x-0 divide-y overflow-y-auto;
       }
       
-      `)
+      `
     }
   }
 }

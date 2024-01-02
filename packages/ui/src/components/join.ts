@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`${selector} {
+      base: `${selector} {
         @apply inline-flex items-stretch;
         & :where(${selector}-item) {
           border-start-end-radius: 0;
@@ -64,8 +63,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           @apply rounded-[inherit];
         }
       }
-      `),
-      styled: transformCss2Js(`${selector} {
+      `,
+      styled: `${selector} {
         @apply rounded-btn;
         & > :where(*:not(:first-child)) {
           @apply my-0 -ms-px;
@@ -74,8 +73,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           @apply isolate;
         }
       }
-      `),
-      utils: transformCss2Js(`${selector}${selector}-vertical {
+      `,
+      utils: `${selector}${selector}-vertical {
         @apply flex-col;
         & ${selector}-item:first-child:not(:last-child),
         & *:first-child:not(:last-child) ${selector}-item {
@@ -129,7 +128,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         @apply my-0 -ms-px;
       }
       
-      `)
+      `
     }
   }
 }

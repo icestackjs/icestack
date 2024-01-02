@@ -1,7 +1,5 @@
-import { transformCss2Js } from '@/postcss'
-
 export default () => {
-  return transformCss2Js(`.glass {
+  return `.glass {
     border: none;
     backdrop-filter: blur(var(--glass-blur, 40px));
     background-color: transparent;
@@ -15,5 +13,5 @@ export default () => {
       0 0 0 1px rgb(255 255 255 / var(--glass-border-opacity, 10%)) inset,
       0 0 0 2px rgb(0 0 0 / 5%);
     text-shadow: 0 1px rgb(0 0 0 / var(--glass-text-shadow-opacity, 5%));
-  }`)
+  }`
 }

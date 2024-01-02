@@ -1,11 +1,10 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply relative flex;
       }
@@ -43,8 +42,8 @@ const schema: GetCssSchemaMethod = (opts) => {
       }
       
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} hr {
         @apply h-1;
       }
@@ -69,8 +68,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         @apply rounded-box bg-base-100 border-base-300 border px-4 py-2 shadow-sm;
       }
       
-      `),
-      utils: transformCss2Js(`
+      `,
+      utils: `
       ${selector}-vertical {
         @apply flex-col;
       }
@@ -194,7 +193,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         @apply rounded-e-badge rounded-s-none;
       }
       
-      `)
+      `
     }
   }
 }

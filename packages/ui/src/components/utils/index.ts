@@ -62,17 +62,23 @@ export function preprocessDefaults(de?: Partial<CssSchemaDefaults>) {
     de.base = transformCss2Js(de.base)
   } else if (Array.isArray(de?.base)) {
     de.base = mergeRClone(...mapCss2JsArray(de.base))
+  } else if (de.base === undefined) {
+    de.base = {}
   }
 
   if (typeof de.styled === 'string') {
     de.styled = transformCss2Js(de.styled)
   } else if (Array.isArray(de?.styled)) {
     de.styled = mergeRClone(...mapCss2JsArray(de.styled))
+  } else if (de.styled === undefined) {
+    de.styled = {}
   }
   if (typeof de.utils === 'string') {
     de.utils = transformCss2Js(de.utils)
   } else if (Array.isArray(de?.utils)) {
     de.utils = mergeRClone(...mapCss2JsArray(de.utils))
+  } else if (de.utils === undefined) {
+    de.utils = {}
   }
 
   return de

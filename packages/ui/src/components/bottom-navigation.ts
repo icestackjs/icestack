@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@/postcss'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -6,7 +5,7 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      base: transformCss2Js(`
+      base: `
       ${selector} {
         @apply fixed bottom-0 left-0 right-0 flex w-full flex-row items-center justify-around;
         padding-bottom: env(safe-area-inset-bottom);
@@ -15,8 +14,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      styled: transformCss2Js(`
+      `,
+      styled: `
       ${selector} {
         @apply bg-base-100 h-16 text-current;
         & > * {
@@ -48,8 +47,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `),
-      utils: transformCss2Js(`
+      `,
+      utils: `
       ${selector} {
         &-xs {
           @apply h-10;
@@ -89,7 +88,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       }
       
-      `)
+      `
     }
   }
 }

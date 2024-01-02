@@ -108,6 +108,13 @@ module.exports = config
 }`
 - **Default:** `{base:true,styled:true,utils:true}`
 
-全局的加载 Css schema 选项，默认全部加载，即加载 `base`+`styled`+`utils`，可通过设置为 `false` 不加载某一 `Css` 
+全局的加载 Css schema 选项，默认全部加载，即加载 `base`+`styled`+`utils`，可通过设置为 `false` 不加载某一 `Css`
 
 组件级别见 [components[string].pick](/config/components#pick)
+
+## clean
+
+- **Type:** `boolean`
+- **Default:** `'false'`
+
+每次构建清除 `outdir` 目录下的内容

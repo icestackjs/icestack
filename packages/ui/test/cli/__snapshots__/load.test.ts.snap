@@ -32,6 +32,22 @@ exports[`load config > load js config 1`] = `
 }
 `;
 
+exports[`load config > load mjs config 1`] = `
+{
+  "base": {
+    "themes": {
+      "dark": {
+        "selector": ".dark",
+      },
+      "light": {
+        "selector": "page",
+      },
+    },
+  },
+  "log": false,
+}
+`;
+
 exports[`load config > load ts config 1`] = `
 {
   "base": {

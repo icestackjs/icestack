@@ -73,7 +73,7 @@
     "watch": "node scripts/watch.js"
   },
   "dependencies": {
-    "@ant-design/colors": "^7.0.1",
+    "@ant-design/colors": "^7.0.2",
     "@babel/generator": "^7.23.6",
     "@babel/types": "^7.23.6",
     "@ctrl/tinycolor": "^4.0.2",

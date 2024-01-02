@@ -51,9 +51,21 @@ export function getDefaultBase(mode?: CodegenMode) {
   return base as Partial<BaseOptions>
 }
 
-export function injectSchema(map: ComponentsOptions, components?: ComponentsOptions) {
+export function injectSchema(map: ComponentsOptions, options?: CodegenOptions) {
+  const { components, mode: globalMode } = options ?? {}
+  if (globalMode === 'none') {
+    return Object.entries(map).reduce<ComponentsOptions>((acc, [key, opts]) => {
+      const innerPreset = components && components[key] && (components[key] as Partial<ComponentsValue<Record<string, any>>>).mode === 'preset'
+      if (innerPreset) {
+        acc[key] = opts
+      }
+      return acc
+    }, {})
+  }
   return Object.entries(map).reduce<ComponentsOptions>((acc, [key, opts]) => {
-    acc[key] = components && components[key] && (components[key] as Partial<ComponentsValue<Record<string, any>>>).mode === 'none' ? {} : opts
+    const innerNone = components && components[key] && (components[key] as Partial<ComponentsValue<Record<string, any>>>).mode === 'none'
+
+    acc[key] = innerNone ? {} : opts
     return acc
   }, {})
 }
@@ -80,9 +92,9 @@ export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {
 }
 
 export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOptions, 'outdir'> {
-  const { mode, components: rawComponents } = options ?? {}
+  const { mode } = options ?? {}
   const base = getDefaultBase(mode)
-  const components = mode === 'none' ? {} : injectSchema(defaultComponents, rawComponents)
+  const components = injectSchema(defaultComponents, options)
   return {
     mode: 'preset',
     pick: {

@@ -1,4 +1,4 @@
-import { loadConfig } from 'c12'
+import { loadConfig, LoadConfigOptions } from 'c12'
 import { flattenDeep, get, set, isObject } from 'lodash'
 import { getCodegenDefaults } from './defaults'
 import type { CodegenOptions, Preset } from '@/types'
@@ -103,10 +103,12 @@ export function getCodegenOptions(options?: CodegenOptions) {
   return postHandleOptions(opts)
 }
 
-export async function load(cwd?: string) {
+export async function load(options?: LoadConfigOptions<CodegenOptions>) {
+  const { cwd, configFile } = options ?? {}
   const { config } = await loadConfig<CodegenOptions>({
     name: 'icestack',
-    cwd
+    cwd,
+    configFile
   })
   return config
 }

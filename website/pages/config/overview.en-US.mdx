@@ -1,6 +1,6 @@
-#ConfiguringIcestack
+# Configuring Icestack
 
-Detailed explanation of `icestack.config.js` file configuration
+Detailed explanation of `icestack.config.js` file configuration, support JSON, CJS, Typescript, and ESM config.
 
 ##outdir
 
@@ -41,30 +41,30 @@ For example, if you extend a font in `tailwindcss`:
 
 ```js filename="icestack.config.js"
 /**
-  * @type {import('@icestack/ui').Config}
-  */
+ * @type {import('@icestack/ui').Config}
+ */
 const config = {
-   outdir: './my-ui',
-   utilities: {
-     extraCss: [
-       // extraCss use @apply font-display
-       // `components` and `base` are same
-       `.custom{
+  outdir: './my-ui',
+  utilities: {
+    extraCss: [
+      // extraCss use @apply font-display
+      // `components` and `base` are same
+      `.custom{
          @apply font-display;
        }`
-     ]
-   },
-   tailwindcssConfig: {
-     theme: {
-       extend: {
-         fontFamily: {
-           display: 'Oswald, ui-serif'
-         }
-       }
-     }
-   }
+    ]
+  },
+  tailwindcssConfig: {
+    theme: {
+      extend: {
+        fontFamily: {
+          display: 'Oswald, ui-serif'
+        }
+      }
+    }
+  }
 }
-module.exports=config
+module.exports = config
 ```
 
 In this way, you can directly use command strings like `@apply font-display` in the `CssValue` of the `base` / `components` / `utilities` configuration items.

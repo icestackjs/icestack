@@ -35,21 +35,67 @@ const components = {
 
 是否禁用此组件
 
-### override
-
-- **Type:** `ModeMergeOptions | ModeMergeOptions[]`
-
-传入对象，字符串，函数，来覆盖组件的样式
-
-{/* example: */}
-
 ### extend
 
 - **Type:** `ModeMergeOptions | ModeMergeOptions[]`
 
 传入对象，字符串，函数，来扩展原有组件的样式
 
-{/* example: */}
+example:
+
+```js
+const extend = {
+  // base
+  // ...
+  // styled
+  // ...
+  // utils
+  utils: [
+    // Sizes
+    // xl
+    `.btn-xl {
+            @apply min-h-20 h-20 px-8;
+            font-size: 1.25rem;
+          }`,
+    // 2xl
+    {
+      '.btn-2xl': {
+        apply: 'min-h-24 h-24 px-10',
+        css: {
+          'font-size': '1.5rem'
+        }
+      }
+    },
+    // 3xl
+    ({ selector }) => {
+      return {
+        [`${selector}-3xl`]: {
+          apply: 'min-h-28 h-28 px-12',
+          css: {
+            'font-size': '1.75rem'
+          }
+        }
+      }
+    },
+    // 4xl
+    ({ selector }) => {
+      return `
+              ${selector}-4xl {
+                @apply min-h-32 h-32 px-14;
+                font-size: 2rem;
+              }`
+    }
+  ]
+}
+```
+
+### override
+
+- **Type:** `ModeMergeOptions | ModeMergeOptions[]`
+
+传入对象，字符串，函数，来覆盖组件的样式
+
+写法与 `extend` 一致，不同的是这个选项会把原先的 `Css schema` 给覆盖掉。
 
 ### schema
 
@@ -68,6 +114,19 @@ const components = {
 - **Type:** `PostcssOptions`
 
 组件级别的 `postcss` 配置，同全局 `postcss`，相关配置详见 [Postcss Options](./postcss)
+
+### pick
+
+- **Type:** `type PickCss = {
+  base?: boolean
+  styled?: boolean
+  utils?: boolean
+}`
+- **Default:** `{base:true,styled:true,utils:true}`
+
+组件级别的加载 Css schema 选项，默认全部加载，即加载 `base`+`styled`+`utils`，可通过设置为 `false` 不加载某一 `Css`
+
+全局级别见 [pick](/config/overview#pick)
 
 ## [string]: false
 

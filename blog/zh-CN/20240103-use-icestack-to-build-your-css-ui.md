@@ -109,7 +109,7 @@ module.exports = {
 
 ### 构建button组件
 
-我们在 [awesome-tailwindcss](https://github.com/aniftyco/awesome-tailwindcss) 的组件库里，找到了一个 `button` 组件，它的`html`如下
+我们可以在项目 [awesome-tailwindcss](https://github.com/aniftyco/awesome-tailwindcss) 的组件库里列表里，挑选自己喜爱的一个 `button` 组件，它的`html`如下
 
 ```html
 <a
@@ -129,7 +129,7 @@ module.exports = {
 然后我们开始提炼 `html`，把它的样式抽出:
 
 ```html
-<a href="https://ui.icebreaker.top/" target="_blank" class="btn">
+<a class="btn">
   <span>Hover Me</span>
 </a>
 ```
@@ -160,7 +160,7 @@ module.exports = {
 const config = {
   outdir: './my-ui',
   components: {
-    cbutton: {
+    button: {
       selector: '.btn',
       // selector is .btn
       schema: ({ selector, params, types }) => {
@@ -194,12 +194,12 @@ module.exports = config
 然后执行 `icestack build` 之后，`.btn` 就顺利的被 `tailwindcss plugin` 加载进来了，你可以这样写:
 
 ```html
-<a href="https://ui.icebreaker.top/" target="_blank" class="btn"> Hover Me </a>
+<a class="btn"> Hover Me </a>
 ```
 
 ### 添加更多的颜色种类
 
-比如我们有需求，默认情况下是蓝色: `bg-blue-600 focus:ring-blue-300`
+比如我们有需求，默认情况下是 `bg-blue-600 focus:ring-blue-300`
 
 但是可以传入红色，黄色，等等其他颜色应该如何处理呢？
 
@@ -210,7 +210,7 @@ module.exports = config
 const config = {
   outdir: './my-ui',
   components: {
-    cbutton: {
+    button: {
       selector: '.btn',
       // types 为默认的 primary / success ... 主题字符串数组
       schema: ({ selector, params, types }) => {
@@ -244,18 +244,18 @@ module.exports = config
 构建完成之后，接下来你就可以直接使用:
 
 ```html
-<button href="https://ui.icebreaker.top/" target="_blank" class="btn">
+<a class="btn">
   <span>Default</span>
-</button>
-<button href="https://ui.icebreaker.top/" target="_blank" class="btn btn-red">
+</a>
+<a class="btn btn-red">
   <span>Red</span>
-</button>
-<button href="https://ui.icebreaker.top/" target="_blank" class="btn btn-yellow">
+</a>
+<a class="btn btn-yellow">
   <span>Yellow</span>
-</button>
-<button href="https://ui.icebreaker.top/" target="_blank" class="btn btn-green">
+</a>
+<a class="btn btn-green">
   <span>Green</span>
-</button>
+</a>
 ```
 
 ### 添加更多的尺寸
@@ -269,7 +269,7 @@ module.exports = config
 const config = {
   outdir: './my-ui',
   components: {
-    cbutton: {
+    button: {
       selector: '.btn',
       schema: ({ selector, params, types }) => {
         // add colors
@@ -304,22 +304,21 @@ const config = {
 module.exports = config
 ```
 
+然后进行构建，便可以直接使用:
+
 ```html
-<button href="https://ui.icebreaker.top/" target="_blank" class="btn btn-xs">
+<a class="btn btn-xs">
   <span>xs</span>
-</button>
-
-<button href="https://ui.icebreaker.top/" target="_blank" class="btn btn-sm">
+</a>
+<a class="btn btn-sm">
   <span>sm</span>
-</button>
-
-<button href="https://ui.icebreaker.top/" target="_blank" class="btn btn-md">
+</a>
+<a class="btn btn-md">
   <span>md</span>
-</button>
-
-<button href="https://ui.icebreaker.top/" target="_blank" class="btn btn-lg">
+</a>
+<a class="btn btn-lg">
   <span>lg</span>
-</button>
+</a>
 ```
 
 ### 更多

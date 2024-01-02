@@ -45,7 +45,7 @@ npx icestack init
 
 This command will generate an `icestack.config.cjs` file in the current execution directory. The default content is as follows:
 
-```js filename="icestack.config.cjs"
+```js
 /**
  * @type {import('@icestack/ui').Config}
  */
@@ -68,7 +68,7 @@ This command reads the configuration and builds the product in the `'./my-ui'` d
 
 Register the `icestackPlugin` plugin in `tailwind.config.js` and pass a `loadDirectory` parameter to locate the location where the product was just generated:
 
-```js filename="tailwind.config.js"
+```js
 const path = require('node:path')
 const { icestackPlugin } = require('@icestack/tailwindcss')
 

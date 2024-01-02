@@ -161,7 +161,11 @@ exports[`presets > default preset 1`] = `
       "schema": [Function],
       "selector": ".btn",
     },
-    "card": false,
+    "card": {
+      "disabled": true,
+      "schema": [Function],
+      "selector": ".card",
+    },
     "carousel": {
       "schema": [Function],
       "selector": ".carousel",
@@ -202,12 +206,20 @@ exports[`presets > default preset 1`] = `
       "schema": [Function],
       "selector": ".countdown",
     },
-    "diff": false,
+    "diff": {
+      "disabled": true,
+      "schema": [Function],
+      "selector": ".diff",
+    },
     "divider": {
       "schema": [Function],
       "selector": ".divider",
     },
-    "drawer": false,
+    "drawer": {
+      "disabled": true,
+      "schema": [Function],
+      "selector": ".drawer",
+    },
     "dropdown": {
       "schema": [Function],
       "selector": ".dropdown",
@@ -258,8 +270,16 @@ exports[`presets > default preset 1`] = `
       "schema": [Function],
       "selector": ".mask",
     },
-    "menu": false,
-    "navbar": false,
+    "menu": {
+      "disabled": true,
+      "schema": [Function],
+      "selector": ".menu",
+    },
+    "navbar": {
+      "disabled": true,
+      "schema": [Function],
+      "selector": ".navbar",
+    },
     "progress": {
       "schema": [Function],
       "selector": ".progress",
@@ -300,8 +320,16 @@ exports[`presets > default preset 1`] = `
       "schema": [Function],
       "selector": ".range",
     },
-    "rating": false,
-    "select": false,
+    "rating": {
+      "disabled": true,
+      "schema": [Function],
+      "selector": ".rating",
+    },
+    "select": {
+      "disabled": true,
+      "schema": [Function],
+      "selector": ".select",
+    },
     "skeleton": {
       "schema": [Function],
       "selector": ".skeleton",
@@ -318,7 +346,11 @@ exports[`presets > default preset 1`] = `
       "schema": [Function],
       "selector": ".step",
     },
-    "swap": false,
+    "swap": {
+      "disabled": true,
+      "schema": [Function],
+      "selector": ".swap",
+    },
     "tab": {
       "schema": [Function],
       "selector": ".tab",
@@ -334,7 +366,11 @@ exports[`presets > default preset 1`] = `
       "schema": [Function],
       "selector": ".textarea",
     },
-    "timeline": false,
+    "timeline": {
+      "disabled": true,
+      "schema": [Function],
+      "selector": ".timeline",
+    },
     "toast": {
       "schema": [Function],
       "selector": ".toast",
@@ -349,7 +385,27 @@ exports[`presets > default preset 1`] = `
       "schema": [Function],
       "selector": ".toggle",
     },
-    "tooltip": false,
+    "tooltip": {
+      "disabled": true,
+      "postcss": {
+        "varPrefix": {
+          "ignoreProp": [
+            "--tooltip-tail",
+            "--tooltip-color",
+            "--tooltip-text-color",
+            "--tooltip-tail-offset",
+          ],
+          "ignoreValueCustomProperty": [
+            "--tooltip-tail",
+            "--tooltip-color",
+            "--tooltip-text-color",
+            "--tooltip-tail-offset",
+          ],
+        },
+      },
+      "schema": [Function],
+      "selector": ".tooltip",
+    },
   },
   "dryRun": false,
   "log": true,
@@ -390,7 +446,9 @@ exports[`presets > default preset 1`] = `
             [Function],
           ],
         },
-        "card": false,
+        "card": {
+          "disabled": true,
+        },
         "checkbox": {
           "postcss": {
             "prefix": {
@@ -409,8 +467,12 @@ exports[`presets > default preset 1`] = `
             [Function],
           ],
         },
-        "diff": false,
-        "drawer": false,
+        "diff": {
+          "disabled": true,
+        },
+        "drawer": {
+          "disabled": true,
+        },
         "input": {
           "extend": [
             [Function],
@@ -419,8 +481,12 @@ exports[`presets > default preset 1`] = `
         "join": {
           "schema": [Function],
         },
-        "menu": false,
-        "navbar": false,
+        "menu": {
+          "disabled": true,
+        },
+        "navbar": {
+          "disabled": true,
+        },
         "radio": {
           "prefix": {
             "ignore": [
@@ -437,9 +503,15 @@ exports[`presets > default preset 1`] = `
           },
           "schema": [Function],
         },
-        "rating": false,
-        "select": false,
-        "swap": false,
+        "rating": {
+          "disabled": true,
+        },
+        "select": {
+          "disabled": true,
+        },
+        "swap": {
+          "disabled": true,
+        },
         "tab": {
           "schema": [Function],
         },
@@ -451,7 +523,9 @@ exports[`presets > default preset 1`] = `
             [Function],
           ],
         },
-        "timeline": false,
+        "timeline": {
+          "disabled": true,
+        },
         "toggle": {
           "prefix": {
             "ignore": [
@@ -461,7 +535,9 @@ exports[`presets > default preset 1`] = `
           },
           "schema": [Function],
         },
-        "tooltip": false,
+        "tooltip": {
+          "disabled": true,
+        },
       },
       "postcss": {
         "atMedia": {

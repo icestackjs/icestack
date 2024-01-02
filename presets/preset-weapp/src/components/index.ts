@@ -13,16 +13,36 @@ import join from './join'
 import tab from './tab'
 
 export const components: ComponentsOptions = {
-  select: false,
-  diff: false,
-  tooltip: false,
-  swap: false,
-  card: false,
-  timeline: false,
-  menu: false,
-  navbar: false,
-  rating: false,
-  drawer: false,
+  select: {
+    disabled: true
+  },
+  diff: {
+    disabled: true
+  },
+  tooltip: {
+    disabled: true
+  },
+  swap: {
+    disabled: true
+  },
+  card: {
+    disabled: true
+  },
+  timeline: {
+    disabled: true
+  },
+  menu: {
+    disabled: true
+  },
+  navbar: {
+    disabled: true
+  },
+  rating: {
+    disabled: true
+  },
+  drawer: {
+    disabled: true
+  },
   button,
   checkbox,
   radio,

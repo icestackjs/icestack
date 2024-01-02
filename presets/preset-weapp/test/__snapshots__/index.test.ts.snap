@@ -171,10 +171,12 @@ exports[`presets > default preset 1`] = `
       "selector": ".chat",
     },
     "checkbox": {
-      "prefix": {
-        "ignore": [
-          ".wx-checkbox",
-        ],
+      "postcss": {
+        "prefix": {
+          "ignore": [
+            ".wx-checkbox",
+          ],
+        },
       },
       "schema": [Function],
       "selector": ".checkbox",
@@ -390,10 +392,12 @@ exports[`presets > default preset 1`] = `
         },
         "card": false,
         "checkbox": {
-          "prefix": {
-            "ignore": [
-              ".wx-checkbox",
-            ],
+          "postcss": {
+            "prefix": {
+              "ignore": [
+                ".wx-checkbox",
+              ],
+            },
           },
           "schema": [Function],
         },

@@ -66,7 +66,7 @@
     "get-table": "node scripts/get-table.js",
     "get-group": "node scripts/get-group.js",
     "get-svg": "node scripts/svg64.js",
-    "static": "npm run get-table && npm run get-group && npm run get-svg",
+    "static": "npm run get-table && npm run get-group",
     "tailwind-config-viewer": "tailwind-config-viewer -o",
     "raw": "node bin/icestack.js inspect -o ./all0.json",
     "sync": "cnpm sync @icestack/ui",

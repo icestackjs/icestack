@@ -4,7 +4,7 @@ describe.each(
   Object.entries(components).map((x) => {
     return {
       name: x[0],
-      value: x[1].schema
+      value: x[1]
     }
   })
 )('$name options', ({ name, value }) => {

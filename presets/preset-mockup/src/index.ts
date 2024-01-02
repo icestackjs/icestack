@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@icestack/postcss-utils'
 import type { ComponentsOptions, Preset } from '@icestack/types'
 
 const components: ComponentsOptions = {
@@ -8,7 +7,7 @@ const components: ComponentsOptions = {
       return {
         selector,
         defaults: {
-          base: transformCss2Js(`
+          base: `
           ${selector} {
             &-code {
               @apply relative overflow-hidden overflow-x-auto;
@@ -38,8 +37,8 @@ const components: ComponentsOptions = {
               }
             }
           }          
-          `),
-          styled: transformCss2Js(`
+          `,
+          styled: `
           ${selector} {
             &-code {
               @apply bg-neutral text-neutral-content rounded-box min-w-[18rem] py-5;
@@ -152,7 +151,7 @@ const components: ComponentsOptions = {
             }
           }
           
-          `)
+          `
         }
       }
     }
@@ -163,14 +162,14 @@ const components: ComponentsOptions = {
       return {
         selector,
         defaults: {
-          base: transformCss2Js(`
+          base: `
           ${selector} {
             @apply w-full;
           }
           
-          `),
-          styled: transformCss2Js(``),
-          utils: transformCss2Js(`
+          `,
+          styled: ``,
+          utils: `
           ${selector} {
             &-demo {
               @apply bg-base-300 text-base-content rounded-box;
@@ -243,7 +242,7 @@ const components: ComponentsOptions = {
             }
           }
           
-          `)
+          `
         }
       }
     }

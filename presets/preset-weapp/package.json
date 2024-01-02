@@ -52,7 +52,6 @@
     "@icestack/ui": "workspace:^"
   },
   "dependencies": {
-    "@icestack/postcss-utils": "workspace:^",
     "@icestack/types": "workspace:^",
     "@icestack/shared": "workspace:^"
   }

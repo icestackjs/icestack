@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@icestack/postcss-utils'
 import { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
@@ -6,7 +5,7 @@ const options: Partial<ComponentsValue> = {
     return {
       selector,
       defaults: {
-        base: transformCss2Js(`${selector} {
+        base: `${selector} {
           @apply inline-flex items-stretch;
           & :where(${selector}-item) {
             border-start-end-radius: 0;
@@ -46,8 +45,8 @@ const options: Partial<ComponentsValue> = {
             border-end-end-radius: inherit;
           }
         }
-        `),
-        styled: transformCss2Js(`${selector} {
+        `,
+        styled: `${selector} {
           @apply rounded-btn;
           & > *:not(:first-child) {
             @apply my-0 -ms-px;
@@ -56,8 +55,8 @@ const options: Partial<ComponentsValue> = {
             @apply isolate;
           }
         }
-        `),
-        utils: transformCss2Js(`${selector}${selector}-vertical {
+        `,
+        utils: `${selector}${selector}-vertical {
           @apply flex-col;
           & ${selector}-item:first-child:not(:last-child),
           & *:first-child:not(:last-child) ${selector}-item {
@@ -112,7 +111,7 @@ const options: Partial<ComponentsValue> = {
           @apply my-0 -ms-px;
         }
 
-        `)
+        `
       }
     }
   }

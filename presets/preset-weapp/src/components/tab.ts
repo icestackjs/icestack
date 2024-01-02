@@ -1,5 +1,3 @@
-// import { expandTypes, getSelector } from '../shared'
-import { transformCss2Js } from '@icestack/postcss-utils'
 import { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
@@ -7,7 +5,7 @@ const options: Partial<ComponentsValue> = {
     return {
       selector,
       defaults: {
-        base: transformCss2Js(`
+        base: `
         ${selector}s {
           @apply grid items-end;
         }
@@ -45,8 +43,8 @@ const options: Partial<ComponentsValue> = {
           @apply block;
         }
 
-        `),
-        styled: transformCss2Js(`
+        `,
+        styled: `
         ${selector}s-lifted > ${selector}:focus-visible {
           border-end-end-radius: 0;
           border-end-start-radius: 0;
@@ -177,8 +175,8 @@ const options: Partial<ComponentsValue> = {
           }
         }
 
-        `),
-        utils: transformCss2Js(`
+        `,
+        utils: `
         ${selector}s-md :where(${selector}) {
           @apply h-8 text-sm leading-loose;
           --tab-padding: 1rem;
@@ -196,7 +194,7 @@ const options: Partial<ComponentsValue> = {
           --tab-padding: 0.5rem;
         }
 
-        `)
+        `
       }
     }
   }

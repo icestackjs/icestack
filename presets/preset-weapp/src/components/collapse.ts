@@ -1,4 +1,3 @@
-import { transformCss2Js } from '@icestack/postcss-utils'
 import { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
@@ -7,7 +6,7 @@ const options: Partial<ComponentsValue> = {
       selector,
       defaults: {
         /* 提升优先级 */
-        base: transformCss2Js(`
+        base: `
       
         ${selector}:not(.td):not(.tr):not(.colgroup) {
           @apply visible;
@@ -34,8 +33,8 @@ const options: Partial<ComponentsValue> = {
         ${selector}-open > ${selector}-content {
           @apply visible min-h-fit;
         }
-        `),
-        styled: transformCss2Js(`${selector} {
+        `,
+        styled: `${selector} {
           @apply rounded-box w-full;
         }
 
@@ -60,7 +59,7 @@ const options: Partial<ComponentsValue> = {
             padding 0.2s ease-out,
             background-color 0.2s ease-out;
         }
-        `)
+        `
       }
     }
   }

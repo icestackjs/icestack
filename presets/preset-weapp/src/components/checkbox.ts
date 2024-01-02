@@ -2,8 +2,10 @@ import { expandTypes, getSelector } from '@icestack/shared'
 import { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
-  prefix: {
-    ignore: ['.wx-checkbox']
+  postcss: {
+    prefix: {
+      ignore: ['.wx-checkbox']
+    }
   },
   schema: (opts) => {
     const { selector, types } = opts

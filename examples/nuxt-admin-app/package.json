@@ -16,7 +16,7 @@
     "@icestack/tailwindcss": "workspace:^",
     "@icestack/ui": "workspace:^",
     "@iconify-json/logos": "^1.1.42",
-    "@iconify-json/mdi": "^1.1.63",
+    "@iconify-json/mdi": "^1.1.64",
     "@intlify/shared": "^9.8.0",
     "@nuxt/devtools": "latest",
     "@nuxt/eslint-config": "^0.2.0",

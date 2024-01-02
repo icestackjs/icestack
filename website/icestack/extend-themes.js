@@ -19,14 +19,23 @@ const extendColorsTypes = {
   light: {
     types: {
       // auto generate colors
-      info: '#13c2c2',
+
+      info: '#2dd4bf',
+      accent: '#22c55e',
       secondary: '#2f54eb'
     }
   },
   dark: {
     types: {
       // is dark: true
-      info: ['#13c2c2', true],
+      info: ['#2dd4bf', true],
+      accent: [
+        '#22c55e',
+        {
+          theme: 'dark',
+          backgroundColor: '#000000'
+        }
+      ],
       // full control
       secondary: {
         secondary: '#2f54eb',

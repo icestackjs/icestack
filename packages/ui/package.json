@@ -19,6 +19,11 @@
       "import": "./dist/components.mjs",
       "require": "./dist/components.cjs"
     },
+    "./postcss": {
+      "types": "./dist/postcss.d.ts",
+      "import": "./dist/postcss.mjs",
+      "require": "./dist/postcss.cjs"
+    },
     "./types": {
       "types": "./dist/types.d.ts",
       "import": "./dist/types.mjs",

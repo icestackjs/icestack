@@ -97,12 +97,12 @@ const schemaMap = {
   rating
 } as const
 
-// const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap
+const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap
 
-// const removeDefaultComponents = componentNames.reduce<Record<string, false>>((acc, cur) => {
-//   acc[cur] = false
-//   return acc
-// }, {})
+const removeDefaultComponents = componentNames.reduce<Record<string, false>>((acc, cur) => {
+  acc[cur] = false
+  return acc
+}, {})
 
 // removeDefaultComponents
 
@@ -272,4 +272,4 @@ for (const [name, schema] of Object.entries(schemaMap)) {
   }
 }
 
-export { components, schemaMap }
+export { components, schemaMap, componentNames, removeDefaultComponents }

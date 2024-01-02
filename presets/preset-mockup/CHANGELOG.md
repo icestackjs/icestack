@@ -1,5 +1,12 @@
 # @icestack/preset-mockup
 
+## 0.2.17
+
+### Patch Changes
+
+- Updated dependencies [[`e89ae02`](https://github.com/sonofmagic/icestack/commit/e89ae02b3d0a826a365e97956923b02429fc74ad)]:
+  - @icestack/types@0.6.1
+
 ## 0.2.16
 
 ### Patch Changes

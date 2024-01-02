@@ -2,7 +2,7 @@
   "name": "@icestack/unocss",
   "description": "The Unocss plugin of @icestack/ui",
   "private": true,
-  "version": "0.5.5",
+  "version": "0.6.0",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

@@ -2,9 +2,11 @@ import type { Config } from 'tailwindcss'
 import { components as defaultComponents } from '@icestack/preset-default/components'
 import { defaultVarPrefix } from '@/constants'
 import { presetPrimaryColors, generateColors, sharedExtraColors, sharedExtraVars } from '@/base/colors'
-import type { CodegenOptions, CodegenMode, BaseOptions, ComponentsOptions, ComponentsValue } from '@/types'
+import type { CodegenOptions, BaseOptions, ComponentsOptions, ComponentsValue } from '@/types'
 
-export function getDefaultBase(mode?: CodegenMode) {
+export function getDefaultBase(options?: CodegenOptions) {
+  const { base: baseOptions } = options ?? {}
+  const { themes } = baseOptions ?? {}
   const base: {
     themes: {
       light?: object
@@ -18,32 +20,33 @@ export function getDefaultBase(mode?: CodegenMode) {
     generateColors,
     mediaDarkTheme: false // 'dark'
   }
-
-  if (mode !== 'none') {
-    base.themes = {
-      light: {
-        selector: ':root',
-        extraColors: sharedExtraColors.light,
-        extraVars: sharedExtraVars,
-        types: {
-          primary: generateColors('primary', presetPrimaryColors.blue),
-          success: generateColors('success', presetPrimaryColors.green),
-          warning: generateColors('warning', presetPrimaryColors.gold),
-          error: generateColors('error', presetPrimaryColors.red),
-          neutral: generateColors('neutral', presetPrimaryColors.grey)
-        }
-      },
-      dark: {
-        selector: '[data-mode="dark"]',
-        extraColors: sharedExtraColors.dark,
-        extraVars: sharedExtraVars,
-        types: {
-          primary: generateColors('primary', presetPrimaryColors.blue, true),
-          success: generateColors('success', presetPrimaryColors.green, true),
-          warning: generateColors('warning', presetPrimaryColors.gold, true),
-          error: generateColors('error', presetPrimaryColors.red, true),
-          neutral: generateColors('neutral', presetPrimaryColors.grey, true)
-        }
+  // @ts-ignore
+  if (themes?.light !== false) {
+    base.themes.light = {
+      selector: ':root',
+      extraColors: sharedExtraColors.light,
+      extraVars: sharedExtraVars,
+      types: {
+        primary: generateColors('primary', presetPrimaryColors.blue),
+        success: generateColors('success', presetPrimaryColors.green),
+        warning: generateColors('warning', presetPrimaryColors.gold),
+        error: generateColors('error', presetPrimaryColors.red),
+        neutral: generateColors('neutral', presetPrimaryColors.grey)
+      }
+    }
+  }
+  // @ts-ignore
+  if (themes?.dark !== false) {
+    base.themes.dark = {
+      selector: '[data-mode="dark"]',
+      extraColors: sharedExtraColors.dark,
+      extraVars: sharedExtraVars,
+      types: {
+        primary: generateColors('primary', presetPrimaryColors.blue, true),
+        success: generateColors('success', presetPrimaryColors.green, true),
+        warning: generateColors('warning', presetPrimaryColors.gold, true),
+        error: generateColors('error', presetPrimaryColors.red, true),
+        neutral: generateColors('neutral', presetPrimaryColors.grey, true)
       }
     }
   }
@@ -92,8 +95,7 @@ export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {
 }
 
 export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOptions, 'outdir'> {
-  const { mode } = options ?? {}
-  const base = getDefaultBase(mode)
+  const base = getDefaultBase(options)
   const components = injectSchema(defaultComponents, options)
   return {
     mode: 'preset',

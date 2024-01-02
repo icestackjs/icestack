@@ -66,6 +66,7 @@ export function createContext(opts?: CodegenOptions) {
 
   function createPreset(opts: CreatePresetOptions): Record<string, object> {
     return Object.entries(components).reduce<Record<string, object>>((acc, [name, comOpt]) => {
+      // @ts-ignore
       if (comOpt === false) {
         return acc
       }

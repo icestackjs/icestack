@@ -9,7 +9,7 @@ export function preHandleOptions(options: Partial<CodegenOptions>): Partial<Code
   const { base, utilities, components } = options
   if (isObject(base?.themes)) {
     for (const [theme, opts] of Object.entries(base.themes)) {
-      if (opts?.extraCss) {
+      if (typeof opts !== 'boolean' && opts?.extraCss) {
         set(options, `base.themes.${theme}.extraCss`, mapCss2JsArray(opts?.extraCss))
       }
     }
@@ -50,7 +50,7 @@ export function postHandleOptions(options: Partial<CodegenOptions>): CodegenOpti
   const { base, utilities } = options
   if (isObject(base?.themes)) {
     for (const [theme, opts] of Object.entries(base.themes)) {
-      if (opts?.extraCss) {
+      if (typeof opts !== 'boolean' && opts?.extraCss) {
         const p = `base.themes.${theme}.extraCss`
         const v = get(options, p)
         if (Array.isArray(v)) {

@@ -47,7 +47,13 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
     }
   }
 
-  const presets = Object.entries(themes!).reduce<Record<string, any>>((acc, [theme, { selector, extraColors, extraVars, extraCss, types }]) => {
+  const presets = Object.entries(themes!).reduce<Record<string, any>>((acc, [theme, opts]) => {
+    // @ts-ignore
+    if (opts === false) {
+      return acc
+    }
+    let { selector } = opts
+    const { extraColors, extraVars, extraCss, types } = opts
     if (selector === undefined) {
       selector = themeSelectorTemplate?.(theme) // `[data-mode="${theme}"]`
     }

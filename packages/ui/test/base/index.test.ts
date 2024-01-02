@@ -5,11 +5,12 @@ import { sharedExtraColors } from '@/defaults'
 import { calcBase } from '@/base'
 
 describe('base', () => {
-  let ctx: IContext
-  beforeEach(() => {
-    ctx = createContext(getCodegenOptions())
-  })
+  // let ctx: IContext
+  // beforeEach(() => {
+  //   ctx = createContext(getCodegenOptions())
+  // })
   it('snap', () => {
+    const ctx = createContext()
     const { css } = ctx.compileScss('base.index')
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()
   })
@@ -36,11 +37,20 @@ describe('base', () => {
   })
 
   it('snap case 0', async () => {
-    const opts = getCodegenOptions({
+    const o = {
       mode: 'none',
+      base: {
+        themes: {
+          light: false,
+          dark: false
+        }
+      },
       dryRun: true
+    }
+    const opts = getCodegenOptions({
+      ...o
     })
-    const ctx = createContext(opts)
+    const ctx = createContext(o)
 
     const { css } = await ctx.compileScss('base.index')
     expect(ctx.preprocessCss(css).css).toMatchSnapshot()

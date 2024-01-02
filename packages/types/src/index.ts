@@ -74,7 +74,7 @@ export type ComponentsValue<Params extends Record<string, any> = any> = {
   postcss: PostcssOptions
 }
 
-export type ComponentsOptions = Record<string, Partial<ComponentsValue> | false>
+export type ComponentsOptions = Record<string, Partial<ComponentsValue>>
 
 export type UtilitiesOptions = {
   extraCss: CssValue

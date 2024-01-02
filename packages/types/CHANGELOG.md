@@ -1,5 +1,11 @@
 # @icestack/types
 
+## 0.6.1
+
+### Patch Changes
+
+- [`e89ae02`](https://github.com/sonofmagic/icestack/commit/e89ae02b3d0a826a365e97956923b02429fc74ad) Thanks [@sonofmagic](https://github.com/sonofmagic)! - add cli and fix mode preset issue
+
 ## 0.6.0
 
 ### Minor Changes

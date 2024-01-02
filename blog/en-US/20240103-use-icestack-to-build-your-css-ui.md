@@ -62,7 +62,7 @@ module.exports = config
 npx icestack build
 ```
 
-This command reads the configuration and builds the product in the `'./my-ui'` directory under the current configuration file. Then you can directly import these `css` and `js` files, but give them to `tailwindcss` is more convenient to use.
+This command reads the configuration and builds the product in the `'./my-ui'` directory under the current configuration file. Then you can directly import these `css` and `js` files, but giving them to `tailwindcss` is more convenient to use.
 
 ## Used as tailwindcss plugin
 
@@ -129,7 +129,7 @@ Then we start to refine `html` and extract its styles:
 </a>
 ```
 
-Convert the original long-passed `class` into `@apply`, and wrap it in the selector `.btn`, then convert the last animated `div` element into a pseudo element, and modify the style.
+Convert the original long-passed `class` into `@apply`, and wrap it in the selector `.btn`, then convert the last animated `div` element into a pseudo-element, and modify the style.
 
 ```scss
 .btn {

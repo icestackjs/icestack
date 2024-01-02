@@ -428,6 +428,15 @@ importers:
         specifier: ^3.4.0
         version: 3.4.0(ts-node@10.9.2)
 
+  packages/preset-default:
+    dependencies:
+      '@icestack/shared':
+        specifier: workspace:^
+        version: link:../shared
+      '@icestack/types':
+        specifier: workspace:^
+        version: link:../types
+
   packages/shared:
     dependencies:
       '@icestack/types':

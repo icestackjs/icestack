@@ -38,7 +38,7 @@ export type ModeMergeValue = {
 
 export type ModeMergeOptions = string | ModeMergeValue | ((opts: Partial<GetCssSchemaMethodOptions>) => string | ModeMergeValue)
 
-export type ComponentsValue<Params extends Record<string, any> = Record<string, any>> = {
+export type ComponentsValue<Params extends Record<string, any> = any> = {
   mode: CodegenMode
 
   pick: PickCss

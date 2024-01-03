@@ -1,10 +1,10 @@
 import type { Preset } from '@icestack/types'
 // @ts-ignore
 // import baseCss from 'daisyui/dist/base'
-// @ts-ignore
-import colorObject from 'daisyui/src/theming/index'
-// @ts-ignore
-import utilityClasses from 'daisyui/src/lib/utility-classes'
+
+// import colorObject from 'daisyui/src/theming/index'
+// // @ts-ignore
+// import utilityClasses from 'daisyui/src/lib/utility-classes'
 import { transformCss2Js } from '@icestack/postcss-utils'
 import { trimStart } from 'lodash'
 import themes from './themes'
@@ -48,7 +48,7 @@ const daisyui: (config?: Config) => Preset = (config = {}) => {
       theme: {
         extend: {
           colors: {
-            ...colorObject,
+            // ...colorObject,
             // adding all Tailwind `neutral` shades here so they don't get overridden by daisyUI `neutral` color
             'neutral-50': '#fafafa',
             'neutral-100': '#f5f5f5',
@@ -61,8 +61,8 @@ const daisyui: (config?: Config) => Preset = (config = {}) => {
             'neutral-800': '#262626',
             'neutral-900': '#171717',
             'neutral-950': '#0a0a0a'
-          },
-          ...utilityClasses
+          }
+          // ...utilityClasses
         }
       }
     }

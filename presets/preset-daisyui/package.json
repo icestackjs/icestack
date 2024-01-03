@@ -51,13 +51,12 @@
   },
   "devDependencies": {
     "@icestack/ui": "workspace:^",
-    "@types/culori": "^2.0.4",
-    "daisyui": "^4.4.24"
+    "@types/culori": "^2.0.4"
   },
   "dependencies": {
     "@icestack/postcss-utils": "workspace:^",
-    "@icestack/types": "workspace:^",
     "@icestack/shared": "workspace:^",
+    "@icestack/types": "workspace:^",
     "culori": "^3.3.0",
     "lodash": "^4.17.21",
     "picocolors": "^1.0.0"

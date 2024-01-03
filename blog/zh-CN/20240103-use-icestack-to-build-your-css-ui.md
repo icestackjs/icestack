@@ -20,7 +20,7 @@
 
 然而遇到项目上的一些场景，需要深度定制 `Css UI` 组件，这时候 `daisyui` 暂时无法解决我的问题。
 
-于是我产生了一些想法，并以 `tailwindcss` 和 `daisyui` 为灵感，编写了 [`icestack`](https://ui.icebreaker.top/)
+于是我产生了一些想法，并以 `tailwindcss` 和 `daisyui` 为灵感，编写了 [`icestack`](https://ui.icebreaker.top/zh-CN/)
 
 这是一个 `Css UI` 框架的生成和管理工具，通过它，你可以很容易的对样式进行扩展，也可以很容易的从0开始构建你自己的 `Css UI` 并结合 `tailwindcss` 来进行使用！
 
@@ -96,7 +96,7 @@ module.exports = {
 
 在默认情况下, `@icestack/ui` 中内置了一套 `Css` 组件预设方案 `@icestack/preset-default`, 它吸收了 `daisyui` 的优秀写法，在很多地方都保持一致。
 
-同时你可以使用配置项，对它原有的样式进行扩展和覆盖，[详见override](https://ui.icebreaker.top/docs/core/override)
+同时你可以使用配置项，对它原有的样式进行扩展和覆盖，[详见override](https://ui.icebreaker.top/zh-CN/docs/core/override)
 
 假如你想要自己从0到1构建你自己的 `UI` 框架的话，你可以在 `icestack.config.cjs` 把 `mode` 设置为 `none`, 此时不会去加载 `@icestack/preset-default` 这个预设。
 
@@ -108,7 +108,7 @@ module.exports = {
 
 ```html
 <a
-  href="https://ui.icebreaker.top/"
+  href="https://ui.icebreaker.top/zh-CN/"
   target="_blank"
   class="group relative overflow-hidden bg-blue-600 focus:ring-4 focus:ring-blue-300 inline-flex items-center px-7 py-2.5 rounded-lg text-white justify-center"
 >
@@ -326,6 +326,6 @@ module.exports = config
 
 我们可以根据不同的参数，渲染出不同的 `Css` 样式代码。
 
-当然你也可以在 [`icestack`](https://ui.icebreaker.top/) 官网上找到更多的示例和用法。
+当然你也可以在 [`icestack`](https://ui.icebreaker.top/zh-CN/) 官网上找到更多的示例和用法。
 
 欢迎大家试用！

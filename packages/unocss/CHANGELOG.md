@@ -1,5 +1,11 @@
 # @icestack/unocss
 
+## 0.1.0
+
+### Minor Changes
+
+- [`9595975`](https://github.com/sonofmagic/icestack/commit/95959753593bd83db45fe31a80d86d010a4c9ac3) Thanks [@sonofmagic](https://github.com/sonofmagic)! - fix misseed keyframes
+
 ## 0.0.1
 
 ### Patch Changes

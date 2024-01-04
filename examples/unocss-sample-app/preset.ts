@@ -8,12 +8,51 @@ import { mergeRClone, defu } from '@icestack/shared'
 // import { tokenize, type ClassToken } from 'parsel-js'
 import parser from 'postcss-selector-parser'
 import type { UnocssPluginOptions } from '@icestack/types'
-const processor = postcss()
+
+const replacePrefix = (css: string) => css.replaceAll('--tw-', '--un-')
+
+const processor = postcss([
+  {
+    postcssPlugin: 'xxx',
+    Declaration(decl) {
+      decl.prop = replacePrefix(decl.prop)
+      decl.value = decl.value.replace(/rgba?\((.*?)\/(.*)\)/, (m, p1, p2) => {
+        return replacePrefix(`rgba(${p1.trim()},${p2.trim()})`)
+      })
+      // rgba(var(--ice-base-400) / var(--un-border-opacity))
+      //
+    }
+  }
+])
 const process = (object: CssInJs) => processor.process(object, { parser: parse })
 // import { createLogger } from '@icestack/logger'
 // import { name as pkgName } from '../package.json'
 // // new RegExp(`^${base}$`)
 // const logger = createLogger(pkgName)
+
+export function groupBy<T, R = T>(arr: T[], cb: (arg: T) => string, mapper?: (arg: T) => R): Record<string, R[]> {
+  if (!Array.isArray(arr)) {
+    throw new TypeError('expected an array for first argument')
+  }
+
+  if (typeof cb !== 'function') {
+    throw new TypeError('expected a function for second argument')
+  }
+
+  const result: Record<string, R[]> = {}
+  for (const item of arr) {
+    const bucketCategory = cb(item)
+    const bucket = result[bucketCategory]
+    const x = mapper ? mapper(item) : (item as unknown as R)
+    if (Array.isArray(bucket)) {
+      result[bucketCategory].push(x)
+    } else {
+      result[bucketCategory] = [x]
+    }
+  }
+
+  return result
+}
 
 function requireLib(id: string, basedir: string) {
   return require(path.resolve(basedir, id))
@@ -23,7 +62,6 @@ const defaultOptions: Partial<UnocssPluginOptions> = {
   loadConfig: false
 }
 
-// const replacePrefix = (css: string) => css.replaceAll('--tw-', '--un-')
 const defaultParser = parser()
 
 export function getPreflightCss(loadDirectory: string) {
@@ -39,33 +77,41 @@ export function getRules(loadDirectory: string) {
       utils: Record<string, object>
     }
   >
-  const rules: Rule<object>[] = [
-    [
-      /^x{5}$/,
-      () => {
-        return `.xxxxx{color:red;}
-        .xxxxx>div{color:blue;}`
-      }
-    ]
-  ]
+  const rules: [string, string][] = []
   for (const { base, styled, utils } of Object.values(components)) {
     const v = process(mergeRClone(base, styled, utils)).root.nodes
-    // console.log(v)
-    // for (const [key, value] of Object.entries(v)) {
-    //   const ast = defaultParser.astSync(key)
-    //   if (ast.nodes.length === 1) {
-    //     ast.walkClasses((s) => {
-    //       // @ts-ignore
-    //       rules.push([new RegExp(`^${s.value}$`), () => value, {}])
-    //     })
-    //   }
-    // }
 
-    // rules.push([new RegExp(`^${}$`), () => {
-    //   return
-    // }])
+    for (const r of v) {
+      if (r.type === 'atrule') {
+      } else if (r.type === 'rule') {
+        const ast = defaultParser.astSync(r.selector)
+        // console.log(ast)
+        const s = new Set<string>()
+        ast.walkClasses((rule) => {
+          if (!s.has(rule.value)) {
+            s.add(rule.value)
+            rules.push([rule.value, r.toString()])
+          }
+        })
+      }
+    }
   }
-  return rules
+
+  const res = groupBy(
+    rules,
+    ([key]) => {
+      return key
+    },
+    (x) => {
+      return x[1]
+    }
+  )
+  const rrr = Object.entries(res).map(([key, css]) => {
+    return [key, css.join('\n')]
+  })
+  // console.log(res)
+
+  return rrr
 }
 
 export function getConfig(loadDirectory: string) {
@@ -84,8 +130,10 @@ export const icestackPreset: (opts: UnocssPluginOptions) => Preset = (opts) => {
   }
   const preflightCss = getPreflightCss(loadDirectory)
   const keyframes = []
-  const theme = getConfig(loadDirectory)
-  const rules: Rule<object>[] = getRules(loadDirectory)
+  const theme = loadConfig ? getConfig(loadDirectory) : {}
+  const rules: Rule<object>[] = getRules(loadDirectory).map(([x, y]) => {
+    return [new RegExp(`^${x}$`), () => y]
+  })
   const preflights: Preflight<object>[] = [
     {
       getCSS() {

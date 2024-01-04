@@ -40,10 +40,11 @@ export default {
   // sidebar: {
   //   defaultMenuCollapseLevel: 1
   // },
+
   docsRepositoryBase: 'https://github.com/sonofmagic/icestack/tree/main/website',
   useNextSeoProps() {
     return {
-      titleTemplate: '%s | @icestack/ui'
+      titleTemplate: '%s | IceStack, Web UI for Mobile, PC, open-source Css component library generator'
     }
   },
   components: {},

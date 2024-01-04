@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "build:ui": "icestack build",
+    "build:ui": "icestack build --clean",
     "test:dev": "vitest"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "@icestack/unocss": "workspace:^",
     "@unocss/reset": "^0.58.3",
     "@vitejs/plugin-vue": "^5.0.2",
+    "postcss-color-functional-notation": "^6.0.4",
     "typescript": "^5.2.2",
     "unocss": "^0.58.3",
     "vite": "^5.0.8",

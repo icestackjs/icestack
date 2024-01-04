@@ -1,5 +1,11 @@
 # @icestack/logger
 
+## 0.6.2
+
+### Patch Changes
+
+- [`854af96`](https://github.com/sonofmagic/icestack/commit/854af960284af72cbf36ebaf6e574c267dea42b1) Thanks [@sonofmagic](https://github.com/sonofmagic)! - add unocss types
+
 ## 0.6.1
 
 ### Patch Changes

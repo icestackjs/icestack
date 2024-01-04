@@ -2,7 +2,7 @@
   "name": "@icestack/preset-unicorn",
   "description": "The unicorn preset of @icestack/ui",
   "private": true,
-  "version": "0.0.10",
+  "version": "0.0.11",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

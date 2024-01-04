@@ -1,0 +1,91 @@
+import { Tabs, Tab ,Callout } from 'nextra/components'
+
+# Tailwindcss plugin
+
+## 安装 
+
+{/* prettier-ignore-start */}
+<Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
+  <Tab>
+```bash 
+pnpm install -D @icestack/tailwindcss
+```
+</Tab>
+  <Tab>
+```bash
+npm install -D @icestack/tailwindcss
+```
+</Tab>
+  <Tab>
+```bash 
+yarn add -D @icestack/tailwindcss
+```
+</Tab>
+  <Tab>
+```bash 
+bun add -D @icestack/tailwindcss
+```
+</Tab>
+</Tabs>
+
+{/* prettier-ignore-end */}
+
+## 配置
+
+在 `tailwind.config.js` 中注册 `icestackPlugin` 插件，并传一个 `loadDirectory` 参数来定位刚刚产物的生成的位置:
+
+```js filename="tailwind.config.js"
+const path = require('node:path')
+const { icestackPlugin } = require('@icestack/tailwindcss')
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  // ...
+  plugins: [
+    icestackPlugin({
+      // 加载目录的绝对路径
+      loadDirectory: path.resolve(__dirname, 'my-ui'),
+      // 是否注入 tailwindcss theme config
+      // 为 true 时，生成器的 primary success warning 这些颜色会进入 tailwindcss.theme.extend 配置
+      // 你才能够使用 bg-primary / text-success
+      // 默认值: false
+      loadConfig: true
+      // ...
+    })
+  ]
+}
+```
+
+接着只要我们正常运行项目，就直接能够使用 `my-ui` 目录下，所有的 `CSS` 组件了！
+
+<Callout type="info">
+你可以直接在这里，找到预设的[所有组件列表]((./components/overview))，并直接复制 `html`
+
+假如你的 `class` 命名与预设方案有冲突，可以设置 [`postcss.prefix`](/config/postcss#postcssprefix) 来添加前缀，以此来避免冲突。
+</Callout>
+
+## 配置项
+
+### loadDirectory
+
+**Type:** `string`
+**Required!**
+
+加载 `@icestack/ui` 产物的路径 
+
+### loadConfig
+
+**Type:** `boolean`
+**Default:** `false`
+
+注入 `tailwindcss` config 到 `tailwind.config.js` 中，只有开启这个选项，你才能使用在 `@icestack/ui` 主题里定义的颜色种类。
+
+## tailwindcss 智能提示
+
+只要我们安装好 IDE 的插件，智能提示就会出现，包括 `@icestack/ui` 默认预设的和你自己生成的所有`CSS`类。
+
+通常每次 `icestack build` 构建后，我们可以去手动保存一下 `tailwind.config.js` 文件，
+
+此时 `tailwindcss` 插件就会去重新读取插件并生成智能提示了。
+
+![IntelliSense](/IntelliSense/tailwindcss.png)

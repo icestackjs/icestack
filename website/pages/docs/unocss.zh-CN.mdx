@@ -1,0 +1,122 @@
+# Unocss plugin
+
+import { Tabs, Tab, Callout } from 'nextra/components'
+
+## 安装
+
+{/* prettier-ignore-start */}
+<Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
+  <Tab>
+```bash 
+pnpm install -D @icestack/unocss
+```
+</Tab>
+  <Tab>
+```bash
+npm install -D @icestack/unocss
+```
+</Tab>
+  <Tab>
+```bash 
+yarn add -D @icestack/unocss
+```
+</Tab>
+  <Tab>
+```bash 
+bun add -D @icestack/unocss
+```
+</Tab>
+</Tabs>
+
+{/* prettier-ignore-end */}
+
+## 配置
+
+在 `uno.config.ts` 中注册 `icestackPreset` 插件，并传一个 `loadDirectory` 参数来定位刚刚产物的生成的位置:
+
+```js filename="uno.config.ts"
+// uno.config.ts
+import path from 'node:path'
+import { defineConfig, presetUno } from 'unocss'
+import { icestackPreset } from '@icestack/unocss'
+
+export default defineConfig({
+  presets: [
+    // ...UnoCSS preset
+    icestackPreset({
+      loadDirectory: path.resolve(__dirname, 'my-ui'),
+      loadConfig: true
+    })
+    // ...UnoCSS preset
+  ]
+  // ...UnoCSS options
+})
+```
+
+接着只要我们正常运行项目，就直接能够使用 `my-ui` 目录下，所有的 `CSS` 组件了！
+
+<Callout type="info">
+你可以直接在这里，找到预设的[所有组件列表]((./components/overview))，并直接复制 `html`
+</Callout>
+
+## 命名冲突
+
+假如你的 `class` 命名与预设方案有冲突，可以设置 [`postcss.prefix`](/config/postcss#postcssprefix) 来添加前缀，以此来避免冲突。
+
+比如 `unocss` 中的 `tab` 和 `css tab`组件冲突，你可以这样设置:
+
+```js
+// icestack.config.cjs
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  outdir: './my-ui',
+  components: {
+    tab: {
+      postcss: {
+        prefix: 'ice-'
+      }
+    }
+  }
+}
+
+module.exports = config
+```
+
+然后就可以这样写:
+
+```html
+<div role="tablist" class="ice-tabs ice-tabs-bordered">
+  <button role="ice-tab" class="ice-tab">Tab 1</button>
+  <button role="ice-tab" class="ice-tab ice-tab-active">Tab 2</button>
+  <button role="ice-tab" class="ice-tab">Tab 3</button>
+</div>
+```
+
+
+## 配置项
+
+### loadDirectory
+
+**Type:** `string`
+**Required!**
+
+加载 `@icestack/ui` 产物的路径
+
+### loadConfig
+
+**Type:** `boolean`
+**Default:** `false`
+
+注入 `unocss` config 到 `uno.config.ts` 中，只有开启这个选项，你才能使用在 `@icestack/ui` 主题里定义的颜色种类。
+
+## unocss 智能提示
+
+只要我们安装好 unocss 的 IDE 插件，智能提示就会出现，包括 `@icestack/ui` 默认预设的和你自己生成的所有`CSS`类。
+
+通常每次 `icestack build` 构建后，我们可以去手动保存一下 `uno.config.ts` 文件，
+
+此时 `unocss` 插件就会去重新读取插件并生成智能提示了。
+
+![IntelliSense](/IntelliSense/unocss.png)

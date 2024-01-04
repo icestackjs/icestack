@@ -1,6 +1,8 @@
 {
   "usage": "Get Started",
   "introduction": "Introduction",
+  "tailwindcss": "Tailwindcss",
+  "unocss": "Unocss",
   "core": "Core",
   "start-from-scratch": "Start From Scratch",
   "contribute": "Contribute",

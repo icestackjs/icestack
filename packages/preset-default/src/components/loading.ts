@@ -28,7 +28,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         .map(([key, value]) => {
           return `
         ${selector}-${key}{
-          mask-image: ${makeMaskImage(loading64Map[value as keyof typeof loading64Map])}
+          mask-image: ${makeMaskImage(value)}
         }
         `
         })

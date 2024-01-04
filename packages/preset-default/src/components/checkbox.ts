@@ -41,8 +41,9 @@ const schema: GetCssSchemaMethod = (opts) => {
             linear-gradient(0deg, var(--chkbg) 43%, var(--chkfg) 43%, var(--chkfg) 57%, var(--chkbg) 57%);
         }
 
-        ${types.map((type) => {
-          return `
+        ${types
+          .map((type) => {
+            return `
           &-${type}{
             --chkbg: theme(colors.${type});
             --chkfg: theme(colors.${type}-content);
@@ -57,7 +58,8 @@ const schema: GetCssSchemaMethod = (opts) => {
             }
           } 
           `
-        })}
+          })
+          .join('\n')}
 
         &:disabled {
           @apply bg-base-content cursor-not-allowed border-transparent opacity-20;

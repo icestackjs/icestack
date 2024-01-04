@@ -17,13 +17,16 @@ const schema: GetCssSchemaMethod = (opts) => {
             @apply bg-neutral text-neutral-content;
           }
           
-          ${types.map((type) => {
-            return `
-            &-${type}{
+          ${types
+            .map((type) => {
+              return `
+            &-${type} {
               @apply bg-${type} text-${type}-content;
             }
             `
-          })}
+            })
+            .join('\n')}
+     
         }
       
         &-start ${selector}-bubble {
@@ -39,7 +42,8 @@ const schema: GetCssSchemaMethod = (opts) => {
             inset-inline-start: 99.9%;
           }
         }
-      }      
+      }
+           
       `,
       base: `
       ${selector} {

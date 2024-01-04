@@ -51,8 +51,9 @@ const schema: GetCssSchemaMethod = (opts) => {
               0 0 0 2px var(--tglbg) inset;
           }
         }
-        ${types.map((type) => {
-          return `
+        ${types
+          .map((type) => {
+            return `
           &-${type} {
             &:focus-visible {
               @apply outline-${type};
@@ -64,7 +65,8 @@ const schema: GetCssSchemaMethod = (opts) => {
             }
           }
           `
-        })}
+          })
+          .join('\n')}
 
         &:disabled {
           @apply border-base-content cursor-not-allowed bg-transparent opacity-30;

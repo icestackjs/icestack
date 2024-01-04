@@ -47,13 +47,15 @@ const schema: GetCssSchemaMethod = (opts) => {
             var(--focus-shadow, 0 0),
             calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size);
         }
-        ${types.map((type) => {
-          return `
+        ${types
+          .map((type) => {
+            return `
           &-${type} {
             --range-shdw: theme(colors.${type});
           }
           `
-        })}
+          })
+          .join('\n')}
       }
       
       `,

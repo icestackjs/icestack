@@ -22,7 +22,7 @@ const process = (object: CssInJs) => processor.process(object, { parser: parse }
 
 const defaultParser = parser()
 
-export function getRules(loadDirectory: string) {
+export function getRules(loadDirectory: string, keyframes: string[] = []) {
   const components = requireLib('js/components/index.cjs', loadDirectory) as Record<
     string,
     {
@@ -39,6 +39,10 @@ export function getRules(loadDirectory: string) {
     if (Array.isArray(nodes)) {
       for (const r of nodes) {
         if (r.type === 'atrule') {
+          if (r.name === 'keyframes') {
+            keyframes.push(r.toString())
+            continue
+          }
           if (Array.isArray(r.nodes)) {
             for (const rr of r.nodes) {
               if (rr.type === 'rule') {

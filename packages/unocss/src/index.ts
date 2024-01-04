@@ -20,10 +20,11 @@ export function loadPresetOptions(opts: UnocssPluginOptions) {
   }
 
   const theme = loadConfig ? getTheme(loadDirectory) : {}
-  const rules: Rule<object>[] = getRules(loadDirectory).map(([x, y]) => {
+  const keyframes: string[] = []
+  const rules: Rule<object>[] = getRules(loadDirectory, keyframes).map(([x, y]) => {
     return [new RegExp(`^${x}$`), () => y]
   })
-  const preflights = getPreflightCss(loadDirectory)
+  const preflights = getPreflightCss(loadDirectory, keyframes)
   return {
     theme,
     rules,

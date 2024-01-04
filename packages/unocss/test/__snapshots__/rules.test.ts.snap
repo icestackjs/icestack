@@ -1,5 +1,63 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`index > getRules default > keyframes 1`] = `
+[
+  "@keyframes checkmark {
+    0% {
+        background-position-y: 5px
+    }
+    50% {
+        background-position-y: -2px
+    }
+    100% {
+        background-position-y: 0
+    }
+}",
+  "@keyframes progress-loading {
+    50% {
+        background-position-x: -115%
+    }
+}",
+  "@keyframes radiomark {
+    0% {
+        box-shadow: 0 0 0 12px rgba(var(--ice-base-400)) inset, 0 0 0 12px rgba(var(--ice-base-400)) inset
+    }
+    50% {
+        box-shadow: 0 0 0 3px rgba(var(--ice-base-400)) inset, 0 0 0 3px rgba(var(--ice-base-400)) inset
+    }
+    100% {
+        box-shadow: 0 0 0 4px rgba(var(--ice-base-400)) inset, 0 0 0 4px rgba(var(--ice-base-400)) inset
+    }
+}",
+  "@keyframes skeleton-blink {
+    50% {
+        opacity: 0.6
+    }
+}",
+  "@keyframes toast-pop {
+    0% {
+        transform: scale(0.9);
+        opacity: 0
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1
+    }
+}",
+  "@keyframes rating-pop {
+    0% {
+        transform: translateY(-0.125em)
+    }
+    40% {
+        transform: translateY(-0.125em)
+    }
+    100% {
+        transform: translateY(0)
+    }
+}",
+]
+`;
+
 exports[`index > getRules default 1`] = `
 [
   [
@@ -8495,6 +8553,64 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
     --ice-tab-radius: 0.5rem
 }",
   ],
+]
+`;
+
+exports[`index > getRules get tab > keyframes 1`] = `
+[
+  "@keyframes checkmark {
+    0% {
+        background-position-y: 5px
+    }
+    50% {
+        background-position-y: -2px
+    }
+    100% {
+        background-position-y: 0
+    }
+}",
+  "@keyframes progress-loading {
+    50% {
+        background-position-x: -115%
+    }
+}",
+  "@keyframes radiomark {
+    0% {
+        box-shadow: 0 0 0 12px rgba(var(--ice-base-400)) inset, 0 0 0 12px rgba(var(--ice-base-400)) inset
+    }
+    50% {
+        box-shadow: 0 0 0 3px rgba(var(--ice-base-400)) inset, 0 0 0 3px rgba(var(--ice-base-400)) inset
+    }
+    100% {
+        box-shadow: 0 0 0 4px rgba(var(--ice-base-400)) inset, 0 0 0 4px rgba(var(--ice-base-400)) inset
+    }
+}",
+  "@keyframes skeleton-blink {
+    50% {
+        opacity: 0.6
+    }
+}",
+  "@keyframes toast-pop {
+    0% {
+        transform: scale(0.9);
+        opacity: 0
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1
+    }
+}",
+  "@keyframes rating-pop {
+    0% {
+        transform: translateY(-0.125em)
+    }
+    40% {
+        transform: translateY(-0.125em)
+    }
+    100% {
+        transform: translateY(0)
+    }
+}",
 ]
 `;
 

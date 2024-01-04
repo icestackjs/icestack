@@ -17,7 +17,7 @@
     "postcss": "^8.4.32",
     "postcss-js": "^4.0.1",
     "postcss-selector-parser": "^6.0.15",
-    "vue": "^3.4.4"
+    "vue": "^3.4.5"
   },
   "devDependencies": {
     "@icestack/ui": "workspace:^",

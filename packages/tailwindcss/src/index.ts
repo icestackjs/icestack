@@ -5,11 +5,15 @@ import { mergeRClone } from '@icestack/shared'
 import type { CssInJs } from 'postcss-js'
 import type { CSSRuleObject, PluginCreator } from 'tailwindcss/types/config'
 
-import type { TailwindcssPluginOptions } from '@icestack/types'
 import { getJsProcess } from '@icestack/postcss'
 import { createLogger } from '@icestack/logger'
 import { Config } from 'tailwindcss'
 import { name as pkgName } from '../package.json'
+
+export type TailwindcssPluginOptions = {
+  loadDirectory: string
+  loadConfig?: boolean | string
+}
 
 const logger = createLogger(pkgName)
 

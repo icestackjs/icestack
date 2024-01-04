@@ -24,6 +24,11 @@
       "import": "./dist/postcss.mjs",
       "require": "./dist/postcss.cjs"
     },
+    "./config": {
+      "types": "./dist/config.d.ts",
+      "import": "./dist/config.mjs",
+      "require": "./dist/config.cjs"
+    },
     "./types": {
       "types": "./dist/types.d.ts",
       "import": "./dist/types.mjs",

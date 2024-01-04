@@ -1,9 +1,13 @@
 import type { Preset, Rule } from '@unocss/core'
 import { defu } from '@icestack/shared'
-import type { UnocssPluginOptions } from '@icestack/types'
 import { getTheme } from './theme'
 import { getRules } from './rules'
 import { getPreflightCss } from './preflights'
+
+export type UnocssPluginOptions = {
+  loadDirectory: string
+  loadConfig?: boolean | string
+}
 
 const defaultOptions: Partial<UnocssPluginOptions> = {
   loadConfig: false

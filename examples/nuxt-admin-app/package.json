@@ -34,7 +34,7 @@
     "prettier-plugin-tailwindcss": "^0.5.10",
     "sass": "^1.69.7",
     "tailwindcss": "^3.4.0",
-    "vue": "^3.4.4",
+    "vue": "^3.4.5",
     "vue-router": "^4.2.5"
   },
   "dependencies": {

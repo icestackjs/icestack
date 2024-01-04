@@ -10,7 +10,7 @@
     "build:ui": "icestack build --clean"
   },
   "dependencies": {
-    "vue": "^3.4.4"
+    "vue": "^3.4.5"
   },
   "devDependencies": {
     "@icestack/tailwindcss": "workspace:^",

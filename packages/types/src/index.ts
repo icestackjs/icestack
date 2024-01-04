@@ -194,16 +194,6 @@ export type CodegenOptions = {
 
 export type Config = CodegenOptions
 
-export type TailwindcssPluginOptions = {
-  loadDirectory: string
-  loadConfig?: boolean | string
-}
-
-export type UnocssPluginOptions = {
-  loadDirectory: string
-  loadConfig?: boolean | string
-}
-
 export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : Partial<T[P]>
 }

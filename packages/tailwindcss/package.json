@@ -32,11 +32,11 @@
   "dependencies": {
     "@icestack/logger": "workspace:^",
     "@icestack/postcss": "workspace:^",
-    "@icestack/shared": "workspace:^",
-    "@icestack/types": "workspace:^"
+    "@icestack/shared": "workspace:^"
   },
   "devDependencies": {
-    "@icestack/ui": "workspace:^"
+    "@icestack/ui": "workspace:^",
+    "@icestack/types": "workspace:^"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",

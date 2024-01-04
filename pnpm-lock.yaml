@@ -348,6 +348,9 @@ importers:
       unocss:
         specifier: ^0.58.3
         version: 0.58.3(postcss@8.4.32)(rollup@3.28.1)(vite@5.0.10)
+      unplugin-vue-components:
+        specifier: ^0.26.0
+        version: 0.26.0(rollup@3.28.1)(vue@3.4.4)
       vite:
         specifier: ^5.0.8
         version: 5.0.10(@types/node@20.10.6)(sass@1.69.7)
@@ -8347,7 +8350,7 @@ packages:
     dependencies:
       '@mapbox/node-pre-gyp': 1.0.11
       '@rollup/pluginutils': 4.2.1
-      acorn: 8.11.2
+      acorn: 8.11.3
       async-sema: 3.1.1
       bindings: 1.5.0
       estree-walker: 2.0.2
@@ -8859,6 +8862,14 @@ packages:
       acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
     dependencies:
       acorn: 8.11.2
+
+  /acorn-jsx@5.3.2(acorn@8.11.3):
+    resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
+    peerDependencies:
+      acorn: ^6.0.0 || ^7.0.0 || ^8.0.0
+    dependencies:
+      acorn: 8.11.3
+    dev: false
 
   /acorn-walk@7.2.0:
     resolution: {integrity: sha512-OPdCF6GsMIP+Az+aWfAAOEt2/+iVDKE7oy6lJ098aoe59oAmK76qV6Gw60SbZ8jHuG2wH058GF4pLFbYamYrVA==}
@@ -15571,8 +15582,8 @@ packages:
   /micromark-extension-mdxjs@1.0.1:
     resolution: {integrity: sha512-7YA7hF6i5eKOfFUzZ+0z6avRG52GpWR8DL+kN47y3f2KhxbBZMhmxe7auOeaTBrW2DenbbZTf1ea9tA2hDpC2Q==}
     dependencies:
-      acorn: 8.11.2
-      acorn-jsx: 5.3.2(acorn@8.11.2)
+      acorn: 8.11.3
+      acorn-jsx: 5.3.2(acorn@8.11.3)
       micromark-extension-mdx-expression: 1.0.8
       micromark-extension-mdx-jsx: 1.0.5
       micromark-extension-mdx-md: 1.0.1
@@ -20033,7 +20044,7 @@ packages:
     hasBin: true
     dependencies:
       '@jridgewell/source-map': 0.3.5
-      acorn: 8.11.2
+      acorn: 8.11.3
       commander: 2.20.3
       source-map-support: 0.5.21
 
@@ -20719,7 +20730,7 @@ packages:
       pkg-types: 1.0.3
       scule: 1.1.1
       strip-literal: 1.3.0
-      unplugin: 1.5.1
+      unplugin: 1.6.0
     transitivePeerDependencies:
       - rollup
 
@@ -20736,7 +20747,7 @@ packages:
       pkg-types: 1.0.3
       scule: 1.1.1
       strip-literal: 1.3.0
-      unplugin: 1.5.1
+      unplugin: 1.6.0
     transitivePeerDependencies:
       - rollup
 
@@ -20763,7 +20774,7 @@ packages:
     resolution: {integrity: sha512-V9HpXYfsZye5bPPYUgs0Otn3ODS1mDUciaBlXljI4C2fTwfFpvFZRywmlOu943puN9sncxROMZhsZCjNXEpzEQ==}
     dependencies:
       '@rollup/pluginutils': 5.1.0(rollup@3.28.1)
-      acorn: 8.11.2
+      acorn: 8.11.3
       escape-string-regexp: 5.0.0
       estree-walker: 3.0.3
       fast-glob: 3.3.2
@@ -21014,6 +21025,35 @@ packages:
       - rollup
     dev: true
 
+  /unplugin-vue-components@0.26.0(rollup@3.28.1)(vue@3.4.4):
+    resolution: {integrity: sha512-s7IdPDlnOvPamjunVxw8kNgKNK8A5KM1YpK5j/p97jEKTjlPNrA0nZBiSfAKKlK1gWZuyWXlKL5dk3EDw874LQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      '@babel/parser': ^7.15.8
+      '@nuxt/kit': ^3.2.2
+      vue: 2 || 3
+    peerDependenciesMeta:
+      '@babel/parser':
+        optional: true
+      '@nuxt/kit':
+        optional: true
+    dependencies:
+      '@antfu/utils': 0.7.7
+      '@rollup/pluginutils': 5.1.0(rollup@3.28.1)
+      chokidar: 3.5.3
+      debug: 4.3.4
+      fast-glob: 3.3.2
+      local-pkg: 0.4.3
+      magic-string: 0.30.5
+      minimatch: 9.0.3
+      resolve: 1.22.8
+      unplugin: 1.6.0
+      vue: 3.4.4(typescript@5.3.3)
+    transitivePeerDependencies:
+      - rollup
+      - supports-color
+    dev: true
+
   /unplugin-vue-router@0.7.0(rollup@3.28.1)(vue-router@4.2.5)(vue@3.4.4):
     resolution: {integrity: sha512-ddRreGq0t5vlSB7OMy4e4cfU1w2AwBQCwmvW3oP/0IHQiokzbx4hd3TpwBu3eIAFVuhX2cwNQwp1U32UybTVCw==}
     peerDependencies:
@@ -21040,18 +21080,10 @@ packages:
       - rollup
       - vue
 
-  /unplugin@1.5.1:
-    resolution: {integrity: sha512-0QkvG13z6RD+1L1FoibQqnvTwVBXvS4XSPwAyinVgoOCl2jAgwzdUKmEj05o4Lt8xwQI85Hb6mSyYkcAGwZPew==}
-    dependencies:
-      acorn: 8.11.2
-      chokidar: 3.5.3
-      webpack-sources: 3.2.3
-      webpack-virtual-modules: 0.6.1
-
   /unplugin@1.6.0:
     resolution: {integrity: sha512-BfJEpWBu3aE/AyHx8VaNE/WgouoQxgH9baAiH82JjX8cqVyi3uJQstqwD5J+SZxIK326SZIhsSZlALXVBCknTQ==}
     dependencies:
-      acorn: 8.11.2
+      acorn: 8.11.3
       chokidar: 3.5.3
       webpack-sources: 3.2.3
       webpack-virtual-modules: 0.6.1

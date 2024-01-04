@@ -1,0 +1,85 @@
+<script setup lang="ts"></script>
+
+<template>
+  <div role="tablist" class="tabs">
+    <button role="tab" class="tab">Tab 1</button>
+    <button role="tab" class="tab tab-active">Tab 2</button>
+    <button role="tab" class="tab">Tab 3</button>
+  </div>
+
+  <div role="tablist" class="tabs tabs-bordered">
+    <button role="tab" class="tab">Tab 1</button>
+    <button role="tab" class="tab tab-active">Tab 2</button>
+    <button role="tab" class="tab">Tab 3</button>
+  </div>
+
+  <div role="tablist" class="tabs tabs-lifted">
+    <button role="tab" class="tab">Tab 1</button>
+    <button role="tab" class="tab tab-active">Tab 2</button>
+    <button role="tab" class="tab">Tab 3</button>
+  </div>
+
+  <div role="tablist" class="tabs tabs-boxed">
+    <button role="tab" class="tab">Tab 1</button>
+    <button role="tab" class="tab tab-active">Tab 2</button>
+    <button role="tab" class="tab">Tab 3</button>
+  </div>
+
+  <div class="flex flex-col items-center gap-6">
+    <div role="tablist" class="tabs tabs-lifted tabs-xs">
+      <button role="tab" class="tab">Tiny</button>
+      <button role="tab" class="tab tab-active">Tiny</button>
+      <button role="tab" class="tab">Tiny</button>
+    </div>
+    <div role="tablist" class="tabs tabs-lifted tabs-sm">
+      <button role="tab" class="tab">Small</button>
+      <button role="tab" class="tab tab-active">Small</button>
+      <button role="tab" class="tab">Small</button>
+    </div>
+    <div role="tablist" class="tabs tabs-lifted">
+      <button role="tab" class="tab">Normal</button>
+      <button role="tab" class="tab tab-active">Normal</button>
+      <button role="tab" class="tab">Normal</button>
+    </div>
+    <div role="tablist" class="tabs tabs-lifted tabs-lg">
+      <button role="tab" class="tab">Large</button>
+      <button role="tab" class="tab tab-active">Large</button>
+      <button role="tab" class="tab">Large</button>
+    </div>
+  </div>
+
+  <div role="tablist" class="tabs tabs-bordered w-full my-10 lg:mx-10">
+    <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Tab 1" />
+    <div role="tabpanel" class="tab-content p-10">Tab content 1</div>
+    <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Tab 2" checked="" />
+    <div role="tabpanel" class="tab-content p-10">Tab content 2</div>
+    <input type="radio" name="my_tabs_1" role="tab" class="tab" aria-label="Tab 3" />
+    <div role="tabpanel" class="tab-content p-10">Tab content 3</div>
+  </div>
+
+  <div role="tablist" class="tabs tabs-lifted w-full my-10 lg:mx-10">
+    <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Tab 1" />
+    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6 pe-32">
+      Tab content 1
+    </div>
+    <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Tab 2" checked="" />
+    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6 pe-32">
+      Tab content 2
+    </div>
+    <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Tab 3" />
+    <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6 pe-32">
+      Tab content 3
+    </div>
+  </div>
+
+  <div role="tablist" class="tabs tabs-lifted">
+    <button role="tab" class="tab">Tab 1</button>
+    <button
+      role="tab"
+      class="tab tab-active [--tab-bg:yellow] [--tab-border-color:orange] text-primary"
+    >
+      Tab 2
+    </button>
+    <button role="tab" class="tab">Tab 3</button>
+  </div>
+</template>

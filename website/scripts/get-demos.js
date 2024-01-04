@@ -5,7 +5,8 @@ const cheerio = require('cheerio')
 const prettier = require('prettier')
 const { default: MagicString } = require('magic-string')
 const walk = require('klaw-sync')
-const { resolveDemo, demosDir } = require('./dirs')
+const { resolveDemo, demosDir, resolveUnocssVueDir } = require('./dirs')
+
 require('dotenv').config({
   path: path.resolve(__dirname, '../.env')
 })
@@ -44,11 +45,11 @@ async function main() {
       const text = daole.find('.component-preview-title').text()
       const dom = daole.find('.preview')
       // dom.children('[data-svelte-h]').removeAttr('data-svelte-h')
-      dom.children('img').attr('src', '/pig.jpg')
+      // dom.children('img').attr('src', '/pig.jpg')
       const html = new MagicString(dom.html())
       html.replaceAll(/data-svelte-h="[\w-]+"/g, '')
       html.replaceAll('daisyUI', 'IceStack')
-
+      html.replaceAll(/src=\/[\w/]*/g, '/pig.jpg')
       result.push({
         title: text,
         html: html.toString()
@@ -72,8 +73,26 @@ ${result.map((x) => makeAAA(x)).join('\n')}
     `,
       'utf8'
     )
+    const vueCode = await prettier.format(
+      `<script setup lang="ts">
+
+    </script>
+    
+    <template>
+    ${result.map((x) => x.html).join('\n')}   
+    </template>
+    `,
+      {
+        parser: 'vue',
+        tabWidth: 2,
+        htmlWhitespaceSensitivity: 'ignore',
+        printWidth: 100
+      }
+    )
+    fs.writeFileSync(resolveUnocssVueDir(name + '.vue'), vueCode, 'utf8')
     console.log(name + ' finished!')
   }
+
   console.log('finished!')
 }
 

@@ -31,6 +31,8 @@ export function getRules(loadDirectory: string) {
       utils: Record<string, object>
     }
   >
+
+  const utilities = requireLib('js/utilities/index.cjs', loadDirectory) as Record<string, Record<string, object>>
   const rules: [string, string][] = []
 
   function expand(nodes: postcss.Root[] | postcss.ChildNode[]) {
@@ -67,7 +69,10 @@ export function getRules(loadDirectory: string) {
 
   for (const { base, styled, utils } of Object.values(components)) {
     const nodes = process(mergeRClone(base, styled, utils)).root.nodes
-
+    expand(nodes)
+  }
+  for (const util of Object.values(utilities)) {
+    const nodes = process(util).root.nodes
     expand(nodes)
   }
 

@@ -7,7 +7,7 @@ const schema: GetCssSchemaMethod = (opts) => {
     defaults: {
       styled: `
       ${selector}{
-        @apply rounded-box border p-4 text-base-content border-base-400;
+        @apply rounded-box border p-4 text-base-content border-base-200;
 
         ${types
           .map((type) => {

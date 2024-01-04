@@ -8,16 +8,16 @@ const schema: GetCssSchemaMethod = (opts) => {
     defaults: {
       styled: `
         ${selector}{
-          @apply border-base-400 bg-base-400 text-base-content outline-base-400 no-underline;
+          @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
           &:focus-visible,&${selector}-focus-visible{
             @apply outline outline-2 outline-offset-2;
           }
           &:hover,&${selector}-hover{
-            @apply border-base-300 bg-base-300;
+            @apply border-ant-neutral-300 bg-ant-neutral-300;
           }
           &:active,&${selector}-hover{
-            @apply border-base-500 bg-base-500;
+            @apply border-ant-neutral-500 bg-ant-neutral-500;
           }
           ${types
             .map((type) => {
@@ -59,10 +59,10 @@ const schema: GetCssSchemaMethod = (opts) => {
           &-outline{
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,&${selector}-hover{
-              @apply border-base-900 bg-base-900 text-base-100;
+              @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
             }
             &:active,&${selector}-active{
-              @apply border-base-1100 bg-base-1100 text-base-100;
+              @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
             }
             ${types
               .map((type) => {

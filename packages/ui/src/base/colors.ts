@@ -43,25 +43,23 @@ export function generateColors(key: string, color: string, opt?: any) {
     [key]: colors[5],
     [`${key}-hover`]: colors[4],
     [`${key}-active`]: colors[6],
-    [`${key}-content`]: gray[1]
+    [`${key}-content`]: gray[1] //  typeof opts === 'object' && opts.theme === 'dark' ? gray[13] : gray[1]
   }
 }
 
 // https://github.com/ant-design/ant-design/blob/5393d9ce36821e64590d3f0d07daa0d393a4c299/.dumi/theme/common/Color/ColorStyle.tsx#L13
 export const sharedExtraColors = {
   light: {
-    ...Object.values(gray).reduce<Record<string, string>>((acc, value, idx) => {
-      acc[`base-${idx + 1}00`] = value
-      return acc
-    }, {}),
-    'base-content': '#000000'
+    'base-100': '#ffffff',
+    'base-200': '#f2f2f2',
+    'base-300': '#e5e6e6',
+    'base-content': '#1f2937'
   },
   dark: {
-    ...Object.values(gray).reduce<Record<string, string>>((acc, value, idx) => {
-      acc[`base-${13 - idx}00`] = value
-      return acc
-    }, {}),
-    'base-content': '#ffffff'
+    'base-100': '#1d232a',
+    'base-200': '#191e24',
+    'base-300': '#15191e',
+    'base-content': '#697280'
   }
 }
 

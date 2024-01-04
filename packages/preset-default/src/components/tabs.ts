@@ -12,8 +12,8 @@ const schema: GetCssSchemaMethod = (opts) => {
       styled: `${selector} {
         @apply text-opacity-50 [@media(hover:hover)]:hover:text-opacity-100;
         --tab-color: rgba(var(--base-content) / var(--tw-text-opacity, 1));
-        --tab-bg: rgba(var(--base-400) / var(--tw-bg-opacity, 1));
-        --tab-border-color: rgba(var(--base-500) / var(--tw-bg-opacity, 1));
+        --tab-bg: rgba(var(--base-200) / var(--tw-bg-opacity, 1));
+        --tab-border-color: rgba(var(--base-300) / var(--tw-bg-opacity, 1));
         color: var(--tab-color);
         padding-left: var(--tab-padding, 1rem);
         padding-right: var(--tab-padding, 1rem);

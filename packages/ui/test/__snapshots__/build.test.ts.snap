@@ -25,19 +25,9 @@ exports[`build > build base 1`] = `
   --neutral-active: 64 64 64;
   --neutral-content: 255 255 255;
   --base-100: 255 255 255;
-  --base-200: 250 250 250;
-  --base-300: 245 245 245;
-  --base-400: 240 240 240;
-  --base-500: 217 217 217;
-  --base-600: 191 191 191;
-  --base-700: 140 140 140;
-  --base-800: 89 89 89;
-  --base-900: 67 67 67;
-  --base-1000: 38 38 38;
-  --base-1100: 31 31 31;
-  --base-1200: 20 20 20;
-  --base-1300: 0 0 0;
-  --base-content: 0 0 0;
+  --base-200: 242 242 242;
+  --base-300: 229 230 230;
+  --base-content: 31 41 55;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -70,20 +60,10 @@ exports[`build > build base 1`] = `
   --neutral-hover: 73 73 73;
   --neutral-active: 106 106 106;
   --neutral-content: 255 255 255;
-  --base-1300: 255 255 255;
-  --base-1200: 250 250 250;
-  --base-1100: 245 245 245;
-  --base-1000: 240 240 240;
-  --base-900: 217 217 217;
-  --base-800: 191 191 191;
-  --base-700: 140 140 140;
-  --base-600: 89 89 89;
-  --base-500: 67 67 67;
-  --base-400: 38 38 38;
-  --base-300: 31 31 31;
-  --base-200: 20 20 20;
-  --base-100: 0 0 0;
-  --base-content: 255 255 255;
+  --base-100: 29 35 42;
+  --base-200: 25 30 36;
+  --base-300: 21 25 30;
+  --base-content: 105 114 128;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -99,19 +79,9 @@ exports[`build > build base 1`] = `
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-base-100": "255 255 255",
-        "--ice-base-1000": "38 38 38",
-        "--ice-base-1100": "31 31 31",
-        "--ice-base-1200": "20 20 20",
-        "--ice-base-1300": "0 0 0",
-        "--ice-base-200": "250 250 250",
-        "--ice-base-300": "245 245 245",
-        "--ice-base-400": "240 240 240",
-        "--ice-base-500": "217 217 217",
-        "--ice-base-600": "191 191 191",
-        "--ice-base-700": "140 140 140",
-        "--ice-base-800": "89 89 89",
-        "--ice-base-900": "67 67 67",
-        "--ice-base-content": "0 0 0",
+        "--ice-base-200": "242 242 242",
+        "--ice-base-300": "229 230 230",
+        "--ice-base-content": "31 41 55",
         "--ice-border-btn": "1px",
         "--ice-error": "245 34 45",
         "--ice-error-active": "207 19 34",
@@ -143,20 +113,10 @@ exports[`build > build base 1`] = `
       "[data-mode=dark]": {
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
-        "--ice-base-100": "0 0 0",
-        "--ice-base-1000": "240 240 240",
-        "--ice-base-1100": "245 245 245",
-        "--ice-base-1200": "250 250 250",
-        "--ice-base-1300": "255 255 255",
-        "--ice-base-200": "20 20 20",
-        "--ice-base-300": "31 31 31",
-        "--ice-base-400": "38 38 38",
-        "--ice-base-500": "67 67 67",
-        "--ice-base-600": "89 89 89",
-        "--ice-base-700": "140 140 140",
-        "--ice-base-800": "191 191 191",
-        "--ice-base-900": "217 217 217",
-        "--ice-base-content": "255 255 255",
+        "--ice-base-100": "29 35 42",
+        "--ice-base-200": "25 30 36",
+        "--ice-base-300": "21 25 30",
+        "--ice-base-content": "105 114 128",
         "--ice-border-btn": "1px",
         "--ice-error": "211 32 41",
         "--ice-error-active": "232 71 73",
@@ -208,19 +168,9 @@ exports[`build > build base 1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -253,20 +203,10 @@ exports[`build > build base 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -301,19 +241,9 @@ exports[`build > build base 1`] = `
   --neutral-active: 64,64,64;
   --neutral-content: 255,255,255;
   --base-100: 255,255,255;
-  --base-200: 250,250,250;
-  --base-300: 245,245,245;
-  --base-400: 240,240,240;
-  --base-500: 217,217,217;
-  --base-600: 191,191,191;
-  --base-700: 140,140,140;
-  --base-800: 89,89,89;
-  --base-900: 67,67,67;
-  --base-1000: 38,38,38;
-  --base-1100: 31,31,31;
-  --base-1200: 20,20,20;
-  --base-1300: 0,0,0;
-  --base-content: 0,0,0;
+  --base-200: 242,242,242;
+  --base-300: 229,230,230;
+  --base-content: 31,41,55;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -346,20 +276,10 @@ exports[`build > build base 1`] = `
   --neutral-hover: 73,73,73;
   --neutral-active: 106,106,106;
   --neutral-content: 255,255,255;
-  --base-1300: 255,255,255;
-  --base-1200: 250,250,250;
-  --base-1100: 245,245,245;
-  --base-1000: 240,240,240;
-  --base-900: 217,217,217;
-  --base-800: 191,191,191;
-  --base-700: 140,140,140;
-  --base-600: 89,89,89;
-  --base-500: 67,67,67;
-  --base-400: 38,38,38;
-  --base-300: 31,31,31;
-  --base-200: 20,20,20;
-  --base-100: 0,0,0;
-  --base-content: 255,255,255;
+  --base-100: 29,35,42;
+  --base-200: 25,30,36;
+  --base-300: 21,25,30;
+  --base-content: 105,114,128;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -375,19 +295,9 @@ exports[`build > build base 1`] = `
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-base-100": "255,255,255",
-        "--ice-base-1000": "38,38,38",
-        "--ice-base-1100": "31,31,31",
-        "--ice-base-1200": "20,20,20",
-        "--ice-base-1300": "0,0,0",
-        "--ice-base-200": "250,250,250",
-        "--ice-base-300": "245,245,245",
-        "--ice-base-400": "240,240,240",
-        "--ice-base-500": "217,217,217",
-        "--ice-base-600": "191,191,191",
-        "--ice-base-700": "140,140,140",
-        "--ice-base-800": "89,89,89",
-        "--ice-base-900": "67,67,67",
-        "--ice-base-content": "0,0,0",
+        "--ice-base-200": "242,242,242",
+        "--ice-base-300": "229,230,230",
+        "--ice-base-content": "31,41,55",
         "--ice-border-btn": "1px",
         "--ice-error": "245,34,45",
         "--ice-error-active": "207,19,34",
@@ -419,20 +329,10 @@ exports[`build > build base 1`] = `
       "[data-mode=dark]": {
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
-        "--ice-base-100": "0,0,0",
-        "--ice-base-1000": "240,240,240",
-        "--ice-base-1100": "245,245,245",
-        "--ice-base-1200": "250,250,250",
-        "--ice-base-1300": "255,255,255",
-        "--ice-base-200": "20,20,20",
-        "--ice-base-300": "31,31,31",
-        "--ice-base-400": "38,38,38",
-        "--ice-base-500": "67,67,67",
-        "--ice-base-600": "89,89,89",
-        "--ice-base-700": "140,140,140",
-        "--ice-base-800": "191,191,191",
-        "--ice-base-900": "217,217,217",
-        "--ice-base-content": "255,255,255",
+        "--ice-base-100": "29,35,42",
+        "--ice-base-200": "25,30,36",
+        "--ice-base-300": "21,25,30",
+        "--ice-base-content": "105,114,128",
         "--ice-border-btn": "1px",
         "--ice-error": "211,32,41",
         "--ice-error-active": "232,71,73",
@@ -484,19 +384,9 @@ exports[`build > build base 1`] = `
   --ice-neutral-active: 64,64,64;
   --ice-neutral-content: 255,255,255;
   --ice-base-100: 255,255,255;
-  --ice-base-200: 250,250,250;
-  --ice-base-300: 245,245,245;
-  --ice-base-400: 240,240,240;
-  --ice-base-500: 217,217,217;
-  --ice-base-600: 191,191,191;
-  --ice-base-700: 140,140,140;
-  --ice-base-800: 89,89,89;
-  --ice-base-900: 67,67,67;
-  --ice-base-1000: 38,38,38;
-  --ice-base-1100: 31,31,31;
-  --ice-base-1200: 20,20,20;
-  --ice-base-1300: 0,0,0;
-  --ice-base-content: 0,0,0;
+  --ice-base-200: 242,242,242;
+  --ice-base-300: 229,230,230;
+  --ice-base-content: 31,41,55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -529,20 +419,10 @@ exports[`build > build base 1`] = `
   --ice-neutral-hover: 73,73,73;
   --ice-neutral-active: 106,106,106;
   --ice-neutral-content: 255,255,255;
-  --ice-base-1300: 255,255,255;
-  --ice-base-1200: 250,250,250;
-  --ice-base-1100: 245,245,245;
-  --ice-base-1000: 240,240,240;
-  --ice-base-900: 217,217,217;
-  --ice-base-800: 191,191,191;
-  --ice-base-700: 140,140,140;
-  --ice-base-600: 89,89,89;
-  --ice-base-500: 67,67,67;
-  --ice-base-400: 38,38,38;
-  --ice-base-300: 31,31,31;
-  --ice-base-200: 20,20,20;
-  --ice-base-100: 0,0,0;
-  --ice-base-content: 255,255,255;
+  --ice-base-100: 29,35,42;
+  --ice-base-200: 25,30,36;
+  --ice-base-300: 21,25,30;
+  --ice-base-content: 105,114,128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -582,19 +462,9 @@ exports[`build > build base change default selector case  1`] = `
   --neutral-active: 64 64 64;
   --neutral-content: 255 255 255;
   --base-100: 255 255 255;
-  --base-200: 250 250 250;
-  --base-300: 245 245 245;
-  --base-400: 240 240 240;
-  --base-500: 217 217 217;
-  --base-600: 191 191 191;
-  --base-700: 140 140 140;
-  --base-800: 89 89 89;
-  --base-900: 67 67 67;
-  --base-1000: 38 38 38;
-  --base-1100: 31 31 31;
-  --base-1200: 20 20 20;
-  --base-1300: 0 0 0;
-  --base-content: 0 0 0;
+  --base-200: 242 242 242;
+  --base-300: 229 230 230;
+  --base-content: 31 41 55;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -627,20 +497,10 @@ exports[`build > build base change default selector case  1`] = `
   --neutral-hover: 73 73 73;
   --neutral-active: 106 106 106;
   --neutral-content: 255 255 255;
-  --base-1300: 255 255 255;
-  --base-1200: 250 250 250;
-  --base-1100: 245 245 245;
-  --base-1000: 240 240 240;
-  --base-900: 217 217 217;
-  --base-800: 191 191 191;
-  --base-700: 140 140 140;
-  --base-600: 89 89 89;
-  --base-500: 67 67 67;
-  --base-400: 38 38 38;
-  --base-300: 31 31 31;
-  --base-200: 20 20 20;
-  --base-100: 0 0 0;
-  --base-content: 255 255 255;
+  --base-100: 29 35 42;
+  --base-200: 25 30 36;
+  --base-300: 21 25 30;
+  --base-content: 105 114 128;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -655,20 +515,10 @@ exports[`build > build base change default selector case  1`] = `
       ".dark": {
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
-        "--ice-base-100": "0 0 0",
-        "--ice-base-1000": "240 240 240",
-        "--ice-base-1100": "245 245 245",
-        "--ice-base-1200": "250 250 250",
-        "--ice-base-1300": "255 255 255",
-        "--ice-base-200": "20 20 20",
-        "--ice-base-300": "31 31 31",
-        "--ice-base-400": "38 38 38",
-        "--ice-base-500": "67 67 67",
-        "--ice-base-600": "89 89 89",
-        "--ice-base-700": "140 140 140",
-        "--ice-base-800": "191 191 191",
-        "--ice-base-900": "217 217 217",
-        "--ice-base-content": "255 255 255",
+        "--ice-base-100": "29 35 42",
+        "--ice-base-200": "25 30 36",
+        "--ice-base-300": "21 25 30",
+        "--ice-base-content": "105 114 128",
         "--ice-border-btn": "1px",
         "--ice-error": "211 32 41",
         "--ice-error-active": "232 71 73",
@@ -701,19 +551,9 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-base-100": "255 255 255",
-        "--ice-base-1000": "38 38 38",
-        "--ice-base-1100": "31 31 31",
-        "--ice-base-1200": "20 20 20",
-        "--ice-base-1300": "0 0 0",
-        "--ice-base-200": "250 250 250",
-        "--ice-base-300": "245 245 245",
-        "--ice-base-400": "240 240 240",
-        "--ice-base-500": "217 217 217",
-        "--ice-base-600": "191 191 191",
-        "--ice-base-700": "140 140 140",
-        "--ice-base-800": "89 89 89",
-        "--ice-base-900": "67 67 67",
-        "--ice-base-content": "0 0 0",
+        "--ice-base-200": "242 242 242",
+        "--ice-base-300": "229 230 230",
+        "--ice-base-content": "31 41 55",
         "--ice-border-btn": "1px",
         "--ice-error": "245 34 45",
         "--ice-error-active": "207 19 34",
@@ -765,19 +605,9 @@ exports[`build > build base change default selector case  1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -810,20 +640,10 @@ exports[`build > build base change default selector case  1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -858,19 +678,9 @@ exports[`build > build base change default selector case  1`] = `
   --neutral-active: 64,64,64;
   --neutral-content: 255,255,255;
   --base-100: 255,255,255;
-  --base-200: 250,250,250;
-  --base-300: 245,245,245;
-  --base-400: 240,240,240;
-  --base-500: 217,217,217;
-  --base-600: 191,191,191;
-  --base-700: 140,140,140;
-  --base-800: 89,89,89;
-  --base-900: 67,67,67;
-  --base-1000: 38,38,38;
-  --base-1100: 31,31,31;
-  --base-1200: 20,20,20;
-  --base-1300: 0,0,0;
-  --base-content: 0,0,0;
+  --base-200: 242,242,242;
+  --base-300: 229,230,230;
+  --base-content: 31,41,55;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -903,20 +713,10 @@ exports[`build > build base change default selector case  1`] = `
   --neutral-hover: 73,73,73;
   --neutral-active: 106,106,106;
   --neutral-content: 255,255,255;
-  --base-1300: 255,255,255;
-  --base-1200: 250,250,250;
-  --base-1100: 245,245,245;
-  --base-1000: 240,240,240;
-  --base-900: 217,217,217;
-  --base-800: 191,191,191;
-  --base-700: 140,140,140;
-  --base-600: 89,89,89;
-  --base-500: 67,67,67;
-  --base-400: 38,38,38;
-  --base-300: 31,31,31;
-  --base-200: 20,20,20;
-  --base-100: 0,0,0;
-  --base-content: 255,255,255;
+  --base-100: 29,35,42;
+  --base-200: 25,30,36;
+  --base-300: 21,25,30;
+  --base-content: 105,114,128;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -931,20 +731,10 @@ exports[`build > build base change default selector case  1`] = `
       ".dark": {
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
-        "--ice-base-100": "0,0,0",
-        "--ice-base-1000": "240,240,240",
-        "--ice-base-1100": "245,245,245",
-        "--ice-base-1200": "250,250,250",
-        "--ice-base-1300": "255,255,255",
-        "--ice-base-200": "20,20,20",
-        "--ice-base-300": "31,31,31",
-        "--ice-base-400": "38,38,38",
-        "--ice-base-500": "67,67,67",
-        "--ice-base-600": "89,89,89",
-        "--ice-base-700": "140,140,140",
-        "--ice-base-800": "191,191,191",
-        "--ice-base-900": "217,217,217",
-        "--ice-base-content": "255,255,255",
+        "--ice-base-100": "29,35,42",
+        "--ice-base-200": "25,30,36",
+        "--ice-base-300": "21,25,30",
+        "--ice-base-content": "105,114,128",
         "--ice-border-btn": "1px",
         "--ice-error": "211,32,41",
         "--ice-error-active": "232,71,73",
@@ -977,19 +767,9 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-base-100": "255,255,255",
-        "--ice-base-1000": "38,38,38",
-        "--ice-base-1100": "31,31,31",
-        "--ice-base-1200": "20,20,20",
-        "--ice-base-1300": "0,0,0",
-        "--ice-base-200": "250,250,250",
-        "--ice-base-300": "245,245,245",
-        "--ice-base-400": "240,240,240",
-        "--ice-base-500": "217,217,217",
-        "--ice-base-600": "191,191,191",
-        "--ice-base-700": "140,140,140",
-        "--ice-base-800": "89,89,89",
-        "--ice-base-900": "67,67,67",
-        "--ice-base-content": "0,0,0",
+        "--ice-base-200": "242,242,242",
+        "--ice-base-300": "229,230,230",
+        "--ice-base-content": "31,41,55",
         "--ice-border-btn": "1px",
         "--ice-error": "245,34,45",
         "--ice-error-active": "207,19,34",
@@ -1041,19 +821,9 @@ exports[`build > build base change default selector case  1`] = `
   --ice-neutral-active: 64,64,64;
   --ice-neutral-content: 255,255,255;
   --ice-base-100: 255,255,255;
-  --ice-base-200: 250,250,250;
-  --ice-base-300: 245,245,245;
-  --ice-base-400: 240,240,240;
-  --ice-base-500: 217,217,217;
-  --ice-base-600: 191,191,191;
-  --ice-base-700: 140,140,140;
-  --ice-base-800: 89,89,89;
-  --ice-base-900: 67,67,67;
-  --ice-base-1000: 38,38,38;
-  --ice-base-1100: 31,31,31;
-  --ice-base-1200: 20,20,20;
-  --ice-base-1300: 0,0,0;
-  --ice-base-content: 0,0,0;
+  --ice-base-200: 242,242,242;
+  --ice-base-300: 229,230,230;
+  --ice-base-content: 31,41,55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -1086,20 +856,10 @@ exports[`build > build base change default selector case  1`] = `
   --ice-neutral-hover: 73,73,73;
   --ice-neutral-active: 106,106,106;
   --ice-neutral-content: 255,255,255;
-  --ice-base-1300: 255,255,255;
-  --ice-base-1200: 250,250,250;
-  --ice-base-1100: 245,245,245;
-  --ice-base-1000: 240,240,240;
-  --ice-base-900: 217,217,217;
-  --ice-base-800: 191,191,191;
-  --ice-base-700: 140,140,140;
-  --ice-base-600: 89,89,89;
-  --ice-base-500: 67,67,67;
-  --ice-base-400: 38,38,38;
-  --ice-base-300: 31,31,31;
-  --ice-base-200: 20,20,20;
-  --ice-base-100: 0,0,0;
-  --ice-base-content: 255,255,255;
+  --ice-base-100: 29,35,42;
+  --ice-base-200: 25,30,36;
+  --ice-base-300: 21,25,30;
+  --ice-base-content: 105,114,128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -1139,19 +899,9 @@ exports[`build > build base with custom types 1`] = `
   --neutral-active: 64 64 64;
   --neutral-content: 255 255 255;
   --base-100: 255 255 255;
-  --base-200: 250 250 250;
-  --base-300: 245 245 245;
-  --base-400: 240 240 240;
-  --base-500: 217 217 217;
-  --base-600: 191 191 191;
-  --base-700: 140 140 140;
-  --base-800: 89 89 89;
-  --base-900: 67 67 67;
-  --base-1000: 38 38 38;
-  --base-1100: 31 31 31;
-  --base-1200: 20 20 20;
-  --base-1300: 0 0 0;
-  --base-content: 0 0 0;
+  --base-200: 242 242 242;
+  --base-300: 229 230 230;
+  --base-content: 31 41 55;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -1184,20 +934,10 @@ exports[`build > build base with custom types 1`] = `
   --neutral-hover: 73 73 73;
   --neutral-active: 106 106 106;
   --neutral-content: 255 255 255;
-  --base-1300: 255 255 255;
-  --base-1200: 250 250 250;
-  --base-1100: 245 245 245;
-  --base-1000: 240 240 240;
-  --base-900: 217 217 217;
-  --base-800: 191 191 191;
-  --base-700: 140 140 140;
-  --base-600: 89 89 89;
-  --base-500: 67 67 67;
-  --base-400: 38 38 38;
-  --base-300: 31 31 31;
-  --base-200: 20 20 20;
-  --base-100: 0 0 0;
-  --base-content: 255 255 255;
+  --base-100: 29 35 42;
+  --base-200: 25 30 36;
+  --base-300: 21 25 30;
+  --base-content: 105 114 128;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -1213,19 +953,9 @@ exports[`build > build base with custom types 1`] = `
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-base-100": "255 255 255",
-        "--ice-base-1000": "38 38 38",
-        "--ice-base-1100": "31 31 31",
-        "--ice-base-1200": "20 20 20",
-        "--ice-base-1300": "0 0 0",
-        "--ice-base-200": "250 250 250",
-        "--ice-base-300": "245 245 245",
-        "--ice-base-400": "240 240 240",
-        "--ice-base-500": "217 217 217",
-        "--ice-base-600": "191 191 191",
-        "--ice-base-700": "140 140 140",
-        "--ice-base-800": "89 89 89",
-        "--ice-base-900": "67 67 67",
-        "--ice-base-content": "0 0 0",
+        "--ice-base-200": "242 242 242",
+        "--ice-base-300": "229 230 230",
+        "--ice-base-content": "31 41 55",
         "--ice-border-btn": "1px",
         "--ice-error": "245 34 45",
         "--ice-error-active": "207 19 34",
@@ -1257,20 +987,10 @@ exports[`build > build base with custom types 1`] = `
       "[data-mode=dark]": {
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
-        "--ice-base-100": "0 0 0",
-        "--ice-base-1000": "240 240 240",
-        "--ice-base-1100": "245 245 245",
-        "--ice-base-1200": "250 250 250",
-        "--ice-base-1300": "255 255 255",
-        "--ice-base-200": "20 20 20",
-        "--ice-base-300": "31 31 31",
-        "--ice-base-400": "38 38 38",
-        "--ice-base-500": "67 67 67",
-        "--ice-base-600": "89 89 89",
-        "--ice-base-700": "140 140 140",
-        "--ice-base-800": "191 191 191",
-        "--ice-base-900": "217 217 217",
-        "--ice-base-content": "255 255 255",
+        "--ice-base-100": "29 35 42",
+        "--ice-base-200": "25 30 36",
+        "--ice-base-300": "21 25 30",
+        "--ice-base-content": "105 114 128",
         "--ice-border-btn": "1px",
         "--ice-error": "211 32 41",
         "--ice-error-active": "232 71 73",
@@ -1322,19 +1042,9 @@ exports[`build > build base with custom types 1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -1367,20 +1077,10 @@ exports[`build > build base with custom types 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -1415,19 +1115,9 @@ exports[`build > build base with custom types 1`] = `
   --neutral-active: 64,64,64;
   --neutral-content: 255,255,255;
   --base-100: 255,255,255;
-  --base-200: 250,250,250;
-  --base-300: 245,245,245;
-  --base-400: 240,240,240;
-  --base-500: 217,217,217;
-  --base-600: 191,191,191;
-  --base-700: 140,140,140;
-  --base-800: 89,89,89;
-  --base-900: 67,67,67;
-  --base-1000: 38,38,38;
-  --base-1100: 31,31,31;
-  --base-1200: 20,20,20;
-  --base-1300: 0,0,0;
-  --base-content: 0,0,0;
+  --base-200: 242,242,242;
+  --base-300: 229,230,230;
+  --base-content: 31,41,55;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -1460,20 +1150,10 @@ exports[`build > build base with custom types 1`] = `
   --neutral-hover: 73,73,73;
   --neutral-active: 106,106,106;
   --neutral-content: 255,255,255;
-  --base-1300: 255,255,255;
-  --base-1200: 250,250,250;
-  --base-1100: 245,245,245;
-  --base-1000: 240,240,240;
-  --base-900: 217,217,217;
-  --base-800: 191,191,191;
-  --base-700: 140,140,140;
-  --base-600: 89,89,89;
-  --base-500: 67,67,67;
-  --base-400: 38,38,38;
-  --base-300: 31,31,31;
-  --base-200: 20,20,20;
-  --base-100: 0,0,0;
-  --base-content: 255,255,255;
+  --base-100: 29,35,42;
+  --base-200: 25,30,36;
+  --base-300: 21,25,30;
+  --base-content: 105,114,128;
   --rounded-box: 1rem;
   --rounded-btn: 0.5rem;
   --rounded-badge: 1.9rem;
@@ -1489,19 +1169,9 @@ exports[`build > build base with custom types 1`] = `
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-base-100": "255,255,255",
-        "--ice-base-1000": "38,38,38",
-        "--ice-base-1100": "31,31,31",
-        "--ice-base-1200": "20,20,20",
-        "--ice-base-1300": "0,0,0",
-        "--ice-base-200": "250,250,250",
-        "--ice-base-300": "245,245,245",
-        "--ice-base-400": "240,240,240",
-        "--ice-base-500": "217,217,217",
-        "--ice-base-600": "191,191,191",
-        "--ice-base-700": "140,140,140",
-        "--ice-base-800": "89,89,89",
-        "--ice-base-900": "67,67,67",
-        "--ice-base-content": "0,0,0",
+        "--ice-base-200": "242,242,242",
+        "--ice-base-300": "229,230,230",
+        "--ice-base-content": "31,41,55",
         "--ice-border-btn": "1px",
         "--ice-error": "245,34,45",
         "--ice-error-active": "207,19,34",
@@ -1533,20 +1203,10 @@ exports[`build > build base with custom types 1`] = `
       "[data-mode=dark]": {
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
-        "--ice-base-100": "0,0,0",
-        "--ice-base-1000": "240,240,240",
-        "--ice-base-1100": "245,245,245",
-        "--ice-base-1200": "250,250,250",
-        "--ice-base-1300": "255,255,255",
-        "--ice-base-200": "20,20,20",
-        "--ice-base-300": "31,31,31",
-        "--ice-base-400": "38,38,38",
-        "--ice-base-500": "67,67,67",
-        "--ice-base-600": "89,89,89",
-        "--ice-base-700": "140,140,140",
-        "--ice-base-800": "191,191,191",
-        "--ice-base-900": "217,217,217",
-        "--ice-base-content": "255,255,255",
+        "--ice-base-100": "29,35,42",
+        "--ice-base-200": "25,30,36",
+        "--ice-base-300": "21,25,30",
+        "--ice-base-content": "105,114,128",
         "--ice-border-btn": "1px",
         "--ice-error": "211,32,41",
         "--ice-error-active": "232,71,73",
@@ -1598,19 +1258,9 @@ exports[`build > build base with custom types 1`] = `
   --ice-neutral-active: 64,64,64;
   --ice-neutral-content: 255,255,255;
   --ice-base-100: 255,255,255;
-  --ice-base-200: 250,250,250;
-  --ice-base-300: 245,245,245;
-  --ice-base-400: 240,240,240;
-  --ice-base-500: 217,217,217;
-  --ice-base-600: 191,191,191;
-  --ice-base-700: 140,140,140;
-  --ice-base-800: 89,89,89;
-  --ice-base-900: 67,67,67;
-  --ice-base-1000: 38,38,38;
-  --ice-base-1100: 31,31,31;
-  --ice-base-1200: 20,20,20;
-  --ice-base-1300: 0,0,0;
-  --ice-base-content: 0,0,0;
+  --ice-base-200: 242,242,242;
+  --ice-base-300: 229,230,230;
+  --ice-base-content: 31,41,55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -1643,20 +1293,10 @@ exports[`build > build base with custom types 1`] = `
   --ice-neutral-hover: 73,73,73;
   --ice-neutral-active: 106,106,106;
   --ice-neutral-content: 255,255,255;
-  --ice-base-1300: 255,255,255;
-  --ice-base-1200: 250,250,250;
-  --ice-base-1100: 245,245,245;
-  --ice-base-1000: 240,240,240;
-  --ice-base-900: 217,217,217;
-  --ice-base-800: 191,191,191;
-  --ice-base-700: 140,140,140;
-  --ice-base-600: 89,89,89;
-  --ice-base-500: 67,67,67;
-  --ice-base-400: 38,38,38;
-  --ice-base-300: 31,31,31;
-  --ice-base-200: 20,20,20;
-  --ice-base-100: 0,0,0;
-  --ice-base-content: 255,255,255;
+  --ice-base-100: 29,35,42;
+  --ice-base-200: 25,30,36;
+  --ice-base-300: 21,25,30;
+  --ice-base-content: 105,114,128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;

@@ -8,7 +8,7 @@ exports[`'alert' > base 1`] = `
 
 exports[`'alert' > styled 1`] = `
 ".alert {
-  @apply rounded-box border p-4 text-base-content border-base-400;
+  @apply rounded-box border p-4 text-base-content border-base-200;
 }
 .alert-primary {
   @apply text-primary-content border-primary/20 bg-primary;
@@ -275,17 +275,17 @@ exports[`'button' > base 1`] = `
 exports[`'button' > styled 1`] = `
 "@charset "UTF-8";
 .btn {
-  @apply border-base-400 bg-base-400 text-base-content outline-base-400 no-underline;
+  @apply border-neutral bg-neutral text-neutral-content outline-neutral no-underline;
   border-width: var(--ice-border-btn, 1px);
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
 .btn:hover, .btn.btn-hover {
-  @apply border-base-300 bg-base-300;
+  @apply border-neutral-hover bg-neutral-hover;
 }
-.btn:active, .btn.btn-hover {
-  @apply border-base-500 bg-base-500;
+.btn:active, .btn.btn-active {
+  @apply border-neutral-active bg-neutral-active;
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -354,10 +354,10 @@ exports[`'button' > styled 1`] = `
   @apply border-current bg-transparent shadow-none text-base-content;
 }
 .btn-outline:hover, .btn-outline.btn-hover {
-  @apply border-base-900 bg-base-900 text-base-100;
+  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
 }
 .btn-outline:active, .btn-outline.btn-active {
-  @apply border-base-1100 bg-base-1100 text-base-100;
+  @apply border-neutral-active bg-neutral-active text-neutral-content;
 }
 .btn-outline.btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -3877,17 +3877,17 @@ exports[`bug fixed > button prefix base 1`] = `
 exports[`bug fixed > button prefix styled 1`] = `
 "@charset "UTF-8";
 .ice-btn {
-  @apply border-base-400 bg-base-400 text-base-content outline-base-400 no-underline;
+  @apply border-neutral bg-neutral text-neutral-content outline-neutral no-underline;
   border-width: var(--ice-border-btn, 1px);
 }
 .ice-btn:focus-visible, .ice-btn.ice-btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
 .ice-btn:hover, .ice-btn.ice-btn-hover {
-  @apply border-base-300 bg-base-300;
+  @apply border-neutral-hover bg-neutral-hover;
 }
-.ice-btn:active, .ice-btn.ice-btn-hover {
-  @apply border-base-500 bg-base-500;
+.ice-btn:active, .ice-btn.ice-btn-active {
+  @apply border-neutral-active bg-neutral-active;
 }
 .ice-btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -3956,10 +3956,10 @@ exports[`bug fixed > button prefix styled 1`] = `
   @apply border-current bg-transparent shadow-none text-base-content;
 }
 .ice-btn-outline:hover, .ice-btn-outline.ice-btn-hover {
-  @apply border-base-900 bg-base-900 text-base-100;
+  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
 }
 .ice-btn-outline:active, .ice-btn-outline.ice-btn-active {
-  @apply border-base-1100 bg-base-1100 text-base-100;
+  @apply border-neutral-active bg-neutral-active text-neutral-content;
 }
 .ice-btn-outline.ice-btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;

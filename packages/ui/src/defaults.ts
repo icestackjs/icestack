@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss'
 import { components as defaultComponents } from '@icestack/preset-default/components'
 import { defaultVarPrefix } from '@/constants'
-import { presetPrimaryColors, generateColors, sharedExtraColors, sharedExtraVars } from '@/base/colors'
+import { presetPrimaryColors, generateColors, sharedExtraColors, sharedExtraVars, gray } from '@/base/colors'
 import type { CodegenOptions, BaseOptions, ComponentsOptions, ComponentsValue } from '@/types'
 
 export function getDefaultBase(options?: CodegenOptions) {
@@ -32,6 +32,7 @@ export function getDefaultBase(options?: CodegenOptions) {
         warning: generateColors('warning', presetPrimaryColors.gold),
         error: generateColors('error', presetPrimaryColors.red),
         neutral: generateColors('neutral', presetPrimaryColors.grey)
+        // default: generateColors('default', presetPrimaryColors.grey)
       }
     }
   }
@@ -47,6 +48,7 @@ export function getDefaultBase(options?: CodegenOptions) {
         warning: generateColors('warning', presetPrimaryColors.gold, true),
         error: generateColors('error', presetPrimaryColors.red, true),
         neutral: generateColors('neutral', presetPrimaryColors.grey, true)
+        // default: generateColors('default', presetPrimaryColors.grey, true)
       }
     }
   }

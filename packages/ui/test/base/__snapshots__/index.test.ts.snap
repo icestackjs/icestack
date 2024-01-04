@@ -7,19 +7,22 @@ exports[`base > add custom theme case 0 > calcBase 1`] = `
     "accent-active": "rgba(var(--ice-accent-active) / <alpha-value>)",
     "accent-content": "rgba(var(--ice-accent-content) / <alpha-value>)",
     "accent-hover": "rgba(var(--ice-accent-hover) / <alpha-value>)",
+    "ant-neutral-100": "#ffffff",
+    "ant-neutral-1000": "#262626",
+    "ant-neutral-1100": "#1f1f1f",
+    "ant-neutral-1200": "#141414",
+    "ant-neutral-1300": "#000000",
+    "ant-neutral-200": "#fafafa",
+    "ant-neutral-300": "#f5f5f5",
+    "ant-neutral-400": "#f0f0f0",
+    "ant-neutral-500": "#d9d9d9",
+    "ant-neutral-600": "#bfbfbf",
+    "ant-neutral-700": "#8c8c8c",
+    "ant-neutral-800": "#595959",
+    "ant-neutral-900": "#434343",
     "base-100": "rgba(var(--ice-base-100) / <alpha-value>)",
-    "base-1000": "rgba(var(--ice-base-1000) / <alpha-value>)",
-    "base-1100": "rgba(var(--ice-base-1100) / <alpha-value>)",
-    "base-1200": "rgba(var(--ice-base-1200) / <alpha-value>)",
-    "base-1300": "rgba(var(--ice-base-1300) / <alpha-value>)",
     "base-200": "rgba(var(--ice-base-200) / <alpha-value>)",
     "base-300": "rgba(var(--ice-base-300) / <alpha-value>)",
-    "base-400": "rgba(var(--ice-base-400) / <alpha-value>)",
-    "base-500": "rgba(var(--ice-base-500) / <alpha-value>)",
-    "base-600": "rgba(var(--ice-base-600) / <alpha-value>)",
-    "base-700": "rgba(var(--ice-base-700) / <alpha-value>)",
-    "base-800": "rgba(var(--ice-base-800) / <alpha-value>)",
-    "base-900": "rgba(var(--ice-base-900) / <alpha-value>)",
     "base-content": "rgba(var(--ice-base-content) / <alpha-value>)",
     "current": "currentColor",
     "error": "rgba(var(--ice-error) / <alpha-value>)",
@@ -58,18 +61,8 @@ exports[`base > add custom theme case 0 > calcBase 1`] = `
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
         "--base-100": "250 247 245",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
         "--base-200": "239 234 230",
         "--base-300": "231 226 223",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
         "--base-content": "41 19 52",
         "--border-btn": "1px",
         "--neutral": "41 19 52",
@@ -97,19 +90,9 @@ exports[`base > add custom theme case 0 > calcBase 1`] = `
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
         "--border-btn": "1px",
         "--error": "245 34 45",
         "--error-active": "207 19 34",
@@ -143,20 +126,10 @@ exports[`base > add custom theme case 0 > calcBase 1`] = `
       "css": {
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
-        "--base-100": "0 0 0",
-        "--base-1000": "240 240 240",
-        "--base-1100": "245 245 245",
-        "--base-1200": "250 250 250",
-        "--base-1300": "255 255 255",
-        "--base-200": "20 20 20",
-        "--base-300": "31 31 31",
-        "--base-400": "38 38 38",
-        "--base-500": "67 67 67",
-        "--base-600": "89 89 89",
-        "--base-700": "140 140 140",
-        "--base-800": "191 191 191",
-        "--base-900": "217 217 217",
-        "--base-content": "255 255 255",
+        "--base-100": "29 35 42",
+        "--base-200": "25 30 36",
+        "--base-300": "21 25 30",
+        "--base-content": "105 114 128",
         "--border-btn": "1px",
         "--error": "211 32 41",
         "--error-active": "232 71 73",
@@ -222,19 +195,9 @@ exports[`base > add custom theme case 0 1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -267,20 +230,10 @@ exports[`base > add custom theme case 0 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -312,16 +265,6 @@ exports[`base > add custom theme case 0 1`] = `
   --ice-base-100: 250 247 245;
   --ice-base-200: 239 234 230;
   --ice-base-300: 231 226 223;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
   --ice-base-content: 41 19 52;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
@@ -342,19 +285,22 @@ exports[`base > add custom theme case without selecor 0 > calcBase 1`] = `
     "accent-active": "rgba(var(--ice-accent-active) / <alpha-value>)",
     "accent-content": "rgba(var(--ice-accent-content) / <alpha-value>)",
     "accent-hover": "rgba(var(--ice-accent-hover) / <alpha-value>)",
+    "ant-neutral-100": "#ffffff",
+    "ant-neutral-1000": "#262626",
+    "ant-neutral-1100": "#1f1f1f",
+    "ant-neutral-1200": "#141414",
+    "ant-neutral-1300": "#000000",
+    "ant-neutral-200": "#fafafa",
+    "ant-neutral-300": "#f5f5f5",
+    "ant-neutral-400": "#f0f0f0",
+    "ant-neutral-500": "#d9d9d9",
+    "ant-neutral-600": "#bfbfbf",
+    "ant-neutral-700": "#8c8c8c",
+    "ant-neutral-800": "#595959",
+    "ant-neutral-900": "#434343",
     "base-100": "rgba(var(--ice-base-100) / <alpha-value>)",
-    "base-1000": "rgba(var(--ice-base-1000) / <alpha-value>)",
-    "base-1100": "rgba(var(--ice-base-1100) / <alpha-value>)",
-    "base-1200": "rgba(var(--ice-base-1200) / <alpha-value>)",
-    "base-1300": "rgba(var(--ice-base-1300) / <alpha-value>)",
     "base-200": "rgba(var(--ice-base-200) / <alpha-value>)",
     "base-300": "rgba(var(--ice-base-300) / <alpha-value>)",
-    "base-400": "rgba(var(--ice-base-400) / <alpha-value>)",
-    "base-500": "rgba(var(--ice-base-500) / <alpha-value>)",
-    "base-600": "rgba(var(--ice-base-600) / <alpha-value>)",
-    "base-700": "rgba(var(--ice-base-700) / <alpha-value>)",
-    "base-800": "rgba(var(--ice-base-800) / <alpha-value>)",
-    "base-900": "rgba(var(--ice-base-900) / <alpha-value>)",
     "base-content": "rgba(var(--ice-base-content) / <alpha-value>)",
     "current": "currentColor",
     "error": "rgba(var(--ice-error) / <alpha-value>)",
@@ -389,19 +335,9 @@ exports[`base > add custom theme case without selecor 0 > calcBase 1`] = `
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
         "--border-btn": "1px",
         "--error": "245 34 45",
         "--error-active": "207 19 34",
@@ -440,18 +376,8 @@ exports[`base > add custom theme case without selecor 0 > calcBase 1`] = `
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
         "--base-100": "250 247 245",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
         "--base-200": "239 234 230",
         "--base-300": "231 226 223",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
         "--base-content": "41 19 52",
         "--border-btn": "1px",
         "--neutral": "41 19 52",
@@ -478,20 +404,10 @@ exports[`base > add custom theme case without selecor 0 > calcBase 1`] = `
       "css": {
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
-        "--base-100": "0 0 0",
-        "--base-1000": "240 240 240",
-        "--base-1100": "245 245 245",
-        "--base-1200": "250 250 250",
-        "--base-1300": "255 255 255",
-        "--base-200": "20 20 20",
-        "--base-300": "31 31 31",
-        "--base-400": "38 38 38",
-        "--base-500": "67 67 67",
-        "--base-600": "89 89 89",
-        "--base-700": "140 140 140",
-        "--base-800": "191 191 191",
-        "--base-900": "217 217 217",
-        "--base-content": "255 255 255",
+        "--base-100": "29 35 42",
+        "--base-200": "25 30 36",
+        "--base-300": "21 25 30",
+        "--base-content": "105 114 128",
         "--border-btn": "1px",
         "--error": "211 32 41",
         "--error-active": "232 71 73",
@@ -557,19 +473,9 @@ exports[`base > add custom theme case without selecor 0 1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -602,20 +508,10 @@ exports[`base > add custom theme case without selecor 0 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -647,16 +543,6 @@ exports[`base > add custom theme case without selecor 0 1`] = `
   --ice-base-100: 250 247 245;
   --ice-base-200: 239 234 230;
   --ice-base-300: 231 226 223;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
   --ice-base-content: 41 19 52;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
@@ -673,19 +559,22 @@ exports[`base > add custom theme case without selecor 0 1`] = `
 exports[`base > add extra css options > calcBase 1`] = `
 {
   "colors": {
+    "ant-neutral-100": "#ffffff",
+    "ant-neutral-1000": "#262626",
+    "ant-neutral-1100": "#1f1f1f",
+    "ant-neutral-1200": "#141414",
+    "ant-neutral-1300": "#000000",
+    "ant-neutral-200": "#fafafa",
+    "ant-neutral-300": "#f5f5f5",
+    "ant-neutral-400": "#f0f0f0",
+    "ant-neutral-500": "#d9d9d9",
+    "ant-neutral-600": "#bfbfbf",
+    "ant-neutral-700": "#8c8c8c",
+    "ant-neutral-800": "#595959",
+    "ant-neutral-900": "#434343",
     "base-100": "rgba(var(--ice-base-100) / <alpha-value>)",
-    "base-1000": "rgba(var(--ice-base-1000) / <alpha-value>)",
-    "base-1100": "rgba(var(--ice-base-1100) / <alpha-value>)",
-    "base-1200": "rgba(var(--ice-base-1200) / <alpha-value>)",
-    "base-1300": "rgba(var(--ice-base-1300) / <alpha-value>)",
     "base-200": "rgba(var(--ice-base-200) / <alpha-value>)",
     "base-300": "rgba(var(--ice-base-300) / <alpha-value>)",
-    "base-400": "rgba(var(--ice-base-400) / <alpha-value>)",
-    "base-500": "rgba(var(--ice-base-500) / <alpha-value>)",
-    "base-600": "rgba(var(--ice-base-600) / <alpha-value>)",
-    "base-700": "rgba(var(--ice-base-700) / <alpha-value>)",
-    "base-800": "rgba(var(--ice-base-800) / <alpha-value>)",
-    "base-900": "rgba(var(--ice-base-900) / <alpha-value>)",
     "base-content": "rgba(var(--ice-base-content) / <alpha-value>)",
     "current": "currentColor",
     "error": "rgba(var(--ice-error) / <alpha-value>)",
@@ -716,19 +605,9 @@ exports[`base > add extra css options > calcBase 1`] = `
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
         "--border-btn": "1px",
         "--error": "245 34 45",
         "--error-active": "207 19 34",
@@ -822,20 +701,10 @@ exports[`base > add extra css options > calcBase 1`] = `
       "css": {
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
-        "--base-100": "0 0 0",
-        "--base-1000": "240 240 240",
-        "--base-1100": "245 245 245",
-        "--base-1200": "250 250 250",
-        "--base-1300": "255 255 255",
-        "--base-200": "20 20 20",
-        "--base-300": "31 31 31",
-        "--base-400": "38 38 38",
-        "--base-500": "67 67 67",
-        "--base-600": "89 89 89",
-        "--base-700": "140 140 140",
-        "--base-800": "191 191 191",
-        "--base-900": "217 217 217",
-        "--base-content": "255 255 255",
+        "--base-100": "29 35 42",
+        "--base-200": "25 30 36",
+        "--base-300": "21 25 30",
+        "--base-content": "105 114 128",
         "--border-btn": "1px",
         "--error": "211 32 41",
         "--error-active": "232 71 73",
@@ -899,19 +768,9 @@ exports[`base > add extra css options 1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -944,20 +803,10 @@ exports[`base > add extra css options 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -1029,19 +878,22 @@ exports[`base > add extra css options 1`] = `
 exports[`base > add extra css options case 0 > calcBase 1`] = `
 {
   "colors": {
+    "ant-neutral-100": "#ffffff",
+    "ant-neutral-1000": "#262626",
+    "ant-neutral-1100": "#1f1f1f",
+    "ant-neutral-1200": "#141414",
+    "ant-neutral-1300": "#000000",
+    "ant-neutral-200": "#fafafa",
+    "ant-neutral-300": "#f5f5f5",
+    "ant-neutral-400": "#f0f0f0",
+    "ant-neutral-500": "#d9d9d9",
+    "ant-neutral-600": "#bfbfbf",
+    "ant-neutral-700": "#8c8c8c",
+    "ant-neutral-800": "#595959",
+    "ant-neutral-900": "#434343",
     "base-100": "rgba(var(--ice-base-100) / <alpha-value>)",
-    "base-1000": "rgba(var(--ice-base-1000) / <alpha-value>)",
-    "base-1100": "rgba(var(--ice-base-1100) / <alpha-value>)",
-    "base-1200": "rgba(var(--ice-base-1200) / <alpha-value>)",
-    "base-1300": "rgba(var(--ice-base-1300) / <alpha-value>)",
     "base-200": "rgba(var(--ice-base-200) / <alpha-value>)",
     "base-300": "rgba(var(--ice-base-300) / <alpha-value>)",
-    "base-400": "rgba(var(--ice-base-400) / <alpha-value>)",
-    "base-500": "rgba(var(--ice-base-500) / <alpha-value>)",
-    "base-600": "rgba(var(--ice-base-600) / <alpha-value>)",
-    "base-700": "rgba(var(--ice-base-700) / <alpha-value>)",
-    "base-800": "rgba(var(--ice-base-800) / <alpha-value>)",
-    "base-900": "rgba(var(--ice-base-900) / <alpha-value>)",
     "base-content": "rgba(var(--ice-base-content) / <alpha-value>)",
     "current": "currentColor",
     "error": "rgba(var(--ice-error) / <alpha-value>)",
@@ -1072,19 +924,9 @@ exports[`base > add extra css options case 0 > calcBase 1`] = `
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
         "--border-btn": "1px",
         "--error": "245 34 45",
         "--error-active": "207 19 34",
@@ -1178,20 +1020,10 @@ exports[`base > add extra css options case 0 > calcBase 1`] = `
       "css": {
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
-        "--base-100": "0 0 0",
-        "--base-1000": "240 240 240",
-        "--base-1100": "245 245 245",
-        "--base-1200": "250 250 250",
-        "--base-1300": "255 255 255",
-        "--base-200": "20 20 20",
-        "--base-300": "31 31 31",
-        "--base-400": "38 38 38",
-        "--base-500": "67 67 67",
-        "--base-600": "89 89 89",
-        "--base-700": "140 140 140",
-        "--base-800": "191 191 191",
-        "--base-900": "217 217 217",
-        "--base-content": "255 255 255",
+        "--base-100": "29 35 42",
+        "--base-200": "25 30 36",
+        "--base-300": "21 25 30",
+        "--base-content": "105 114 128",
         "--border-btn": "1px",
         "--error": "211 32 41",
         "--error-active": "232 71 73",
@@ -1255,19 +1087,9 @@ exports[`base > add extra css options case 0 1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -1300,20 +1122,10 @@ exports[`base > add extra css options case 0 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -1385,19 +1197,22 @@ exports[`base > add extra css options case 0 1`] = `
 exports[`base > add extra css options case 1 > calcBase 1`] = `
 {
   "colors": {
+    "ant-neutral-100": "#ffffff",
+    "ant-neutral-1000": "#262626",
+    "ant-neutral-1100": "#1f1f1f",
+    "ant-neutral-1200": "#141414",
+    "ant-neutral-1300": "#000000",
+    "ant-neutral-200": "#fafafa",
+    "ant-neutral-300": "#f5f5f5",
+    "ant-neutral-400": "#f0f0f0",
+    "ant-neutral-500": "#d9d9d9",
+    "ant-neutral-600": "#bfbfbf",
+    "ant-neutral-700": "#8c8c8c",
+    "ant-neutral-800": "#595959",
+    "ant-neutral-900": "#434343",
     "base-100": "rgba(var(--ice-base-100) / <alpha-value>)",
-    "base-1000": "rgba(var(--ice-base-1000) / <alpha-value>)",
-    "base-1100": "rgba(var(--ice-base-1100) / <alpha-value>)",
-    "base-1200": "rgba(var(--ice-base-1200) / <alpha-value>)",
-    "base-1300": "rgba(var(--ice-base-1300) / <alpha-value>)",
     "base-200": "rgba(var(--ice-base-200) / <alpha-value>)",
     "base-300": "rgba(var(--ice-base-300) / <alpha-value>)",
-    "base-400": "rgba(var(--ice-base-400) / <alpha-value>)",
-    "base-500": "rgba(var(--ice-base-500) / <alpha-value>)",
-    "base-600": "rgba(var(--ice-base-600) / <alpha-value>)",
-    "base-700": "rgba(var(--ice-base-700) / <alpha-value>)",
-    "base-800": "rgba(var(--ice-base-800) / <alpha-value>)",
-    "base-900": "rgba(var(--ice-base-900) / <alpha-value>)",
     "base-content": "rgba(var(--ice-base-content) / <alpha-value>)",
     "current": "currentColor",
     "error": "rgba(var(--ice-error) / <alpha-value>)",
@@ -1433,19 +1248,9 @@ exports[`base > add extra css options case 1 > calcBase 1`] = `
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
         "--border-btn": "1px",
         "--error": "245 34 45",
         "--error-active": "207 19 34",
@@ -1480,20 +1285,10 @@ exports[`base > add extra css options case 1 > calcBase 1`] = `
       "css": {
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
-        "--base-100": "0 0 0",
-        "--base-1000": "240 240 240",
-        "--base-1100": "245 245 245",
-        "--base-1200": "250 250 250",
-        "--base-1300": "255 255 255",
-        "--base-200": "20 20 20",
-        "--base-300": "31 31 31",
-        "--base-400": "38 38 38",
-        "--base-500": "67 67 67",
-        "--base-600": "89 89 89",
-        "--base-700": "140 140 140",
-        "--base-800": "191 191 191",
-        "--base-900": "217 217 217",
-        "--base-content": "255 255 255",
+        "--base-100": "29 35 42",
+        "--base-200": "25 30 36",
+        "--base-300": "21 25 30",
+        "--base-content": "105 114 128",
         "--border-btn": "1px",
         "--error": "211 32 41",
         "--error-active": "232 71 73",
@@ -1557,19 +1352,9 @@ exports[`base > add extra css options case 1 1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -1603,20 +1388,10 @@ exports[`base > add extra css options case 1 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -1636,19 +1411,22 @@ exports[`base > add extra css options case 1 1`] = `
 exports[`base > add new theme case 0 > calcBase 1`] = `
 {
   "colors": {
+    "ant-neutral-100": "#ffffff",
+    "ant-neutral-1000": "#262626",
+    "ant-neutral-1100": "#1f1f1f",
+    "ant-neutral-1200": "#141414",
+    "ant-neutral-1300": "#000000",
+    "ant-neutral-200": "#fafafa",
+    "ant-neutral-300": "#f5f5f5",
+    "ant-neutral-400": "#f0f0f0",
+    "ant-neutral-500": "#d9d9d9",
+    "ant-neutral-600": "#bfbfbf",
+    "ant-neutral-700": "#8c8c8c",
+    "ant-neutral-800": "#595959",
+    "ant-neutral-900": "#434343",
     "base-100": "rgba(var(--ice-base-100) / <alpha-value>)",
-    "base-1000": "rgba(var(--ice-base-1000) / <alpha-value>)",
-    "base-1100": "rgba(var(--ice-base-1100) / <alpha-value>)",
-    "base-1200": "rgba(var(--ice-base-1200) / <alpha-value>)",
-    "base-1300": "rgba(var(--ice-base-1300) / <alpha-value>)",
     "base-200": "rgba(var(--ice-base-200) / <alpha-value>)",
     "base-300": "rgba(var(--ice-base-300) / <alpha-value>)",
-    "base-400": "rgba(var(--ice-base-400) / <alpha-value>)",
-    "base-500": "rgba(var(--ice-base-500) / <alpha-value>)",
-    "base-600": "rgba(var(--ice-base-600) / <alpha-value>)",
-    "base-700": "rgba(var(--ice-base-700) / <alpha-value>)",
-    "base-800": "rgba(var(--ice-base-800) / <alpha-value>)",
-    "base-900": "rgba(var(--ice-base-900) / <alpha-value>)",
     "base-content": "rgba(var(--ice-base-content) / <alpha-value>)",
     "current": "currentColor",
     "error": "rgba(var(--ice-error) / <alpha-value>)",
@@ -1678,20 +1456,10 @@ exports[`base > add new theme case 0 > calcBase 1`] = `
       "css": {
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
-        "--base-100": "0 0 0",
-        "--base-1000": "240 240 240",
-        "--base-1100": "245 245 245",
-        "--base-1200": "250 250 250",
-        "--base-1300": "255 255 255",
-        "--base-200": "20 20 20",
-        "--base-300": "31 31 31",
-        "--base-400": "38 38 38",
-        "--base-500": "67 67 67",
-        "--base-600": "89 89 89",
-        "--base-700": "140 140 140",
-        "--base-800": "191 191 191",
-        "--base-900": "217 217 217",
-        "--base-content": "255 255 255",
+        "--base-100": "29 35 42",
+        "--base-200": "25 30 36",
+        "--base-300": "21 25 30",
+        "--base-content": "105 114 128",
         "--border-btn": "1px",
         "--error": "211 32 41",
         "--error-active": "232 71 73",
@@ -1725,19 +1493,9 @@ exports[`base > add new theme case 0 > calcBase 1`] = `
       "css": {
         "--a": "18 52 86",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
       },
     },
     ".light": {
@@ -1745,19 +1503,9 @@ exports[`base > add new theme case 0 > calcBase 1`] = `
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
         "--border-btn": "1px",
         "--error": "245 34 45",
         "--error-active": "207 19 34",
@@ -1791,19 +1539,9 @@ exports[`base > add new theme case 0 > calcBase 1`] = `
       "css": {
         "--b": "101 67 33",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
       },
     },
   },
@@ -1840,19 +1578,9 @@ exports[`base > add new theme case 0 1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -1885,20 +1613,10 @@ exports[`base > add new theme case 0 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -1912,37 +1630,17 @@ exports[`base > add new theme case 0 1`] = `
 
 .fuck {
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-a: 18 52 86;
 }
 
 .shit {
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-b: 101 67 33;
 }"
 `;
@@ -1950,19 +1648,22 @@ exports[`base > add new theme case 0 1`] = `
 exports[`base > add new theme case 1 > calcBase 1`] = `
 {
   "colors": {
+    "ant-neutral-100": "#ffffff",
+    "ant-neutral-1000": "#262626",
+    "ant-neutral-1100": "#1f1f1f",
+    "ant-neutral-1200": "#141414",
+    "ant-neutral-1300": "#000000",
+    "ant-neutral-200": "#fafafa",
+    "ant-neutral-300": "#f5f5f5",
+    "ant-neutral-400": "#f0f0f0",
+    "ant-neutral-500": "#d9d9d9",
+    "ant-neutral-600": "#bfbfbf",
+    "ant-neutral-700": "#8c8c8c",
+    "ant-neutral-800": "#595959",
+    "ant-neutral-900": "#434343",
     "base-100": "rgba(var(--ice-base-100) / <alpha-value>)",
-    "base-1000": "rgba(var(--ice-base-1000) / <alpha-value>)",
-    "base-1100": "rgba(var(--ice-base-1100) / <alpha-value>)",
-    "base-1200": "rgba(var(--ice-base-1200) / <alpha-value>)",
-    "base-1300": "rgba(var(--ice-base-1300) / <alpha-value>)",
     "base-200": "rgba(var(--ice-base-200) / <alpha-value>)",
     "base-300": "rgba(var(--ice-base-300) / <alpha-value>)",
-    "base-400": "rgba(var(--ice-base-400) / <alpha-value>)",
-    "base-500": "rgba(var(--ice-base-500) / <alpha-value>)",
-    "base-600": "rgba(var(--ice-base-600) / <alpha-value>)",
-    "base-700": "rgba(var(--ice-base-700) / <alpha-value>)",
-    "base-800": "rgba(var(--ice-base-800) / <alpha-value>)",
-    "base-900": "rgba(var(--ice-base-900) / <alpha-value>)",
     "base-content": "rgba(var(--ice-base-content) / <alpha-value>)",
     "current": "currentColor",
     "error": "rgba(var(--ice-error) / <alpha-value>)",
@@ -1992,20 +1693,10 @@ exports[`base > add new theme case 1 > calcBase 1`] = `
       "css": {
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
-        "--base-100": "0 0 0",
-        "--base-1000": "240 240 240",
-        "--base-1100": "245 245 245",
-        "--base-1200": "250 250 250",
-        "--base-1300": "255 255 255",
-        "--base-200": "20 20 20",
-        "--base-300": "31 31 31",
-        "--base-400": "38 38 38",
-        "--base-500": "67 67 67",
-        "--base-600": "89 89 89",
-        "--base-700": "140 140 140",
-        "--base-800": "191 191 191",
-        "--base-900": "217 217 217",
-        "--base-content": "255 255 255",
+        "--base-100": "29 35 42",
+        "--base-200": "25 30 36",
+        "--base-300": "21 25 30",
+        "--base-content": "105 114 128",
         "--border-btn": "1px",
         "--error": "211 32 41",
         "--error-active": "232 71 73",
@@ -2039,19 +1730,9 @@ exports[`base > add new theme case 1 > calcBase 1`] = `
       "css": {
         "--a": "18 52 86",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
         "backgroud-color": "red",
       },
     },
@@ -2060,19 +1741,9 @@ exports[`base > add new theme case 1 > calcBase 1`] = `
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
         "--border-btn": "1px",
         "--error": "245 34 45",
         "--error-active": "207 19 34",
@@ -2106,19 +1777,9 @@ exports[`base > add new theme case 1 > calcBase 1`] = `
       "css": {
         "--b": "101 67 33",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
         "backgroud-color": "yellow",
       },
     },
@@ -2156,19 +1817,9 @@ exports[`base > add new theme case 1 1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -2201,20 +1852,10 @@ exports[`base > add new theme case 1 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -2228,38 +1869,18 @@ exports[`base > add new theme case 1 1`] = `
 
 .fuck {
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-a: 18 52 86;
   backgroud-color: red;
 }
 
 .shit {
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-b: 101 67 33;
   backgroud-color: yellow;
 }"
@@ -2268,19 +1889,22 @@ exports[`base > add new theme case 1 1`] = `
 exports[`base > mediaDarkTheme case 0 > calcBase 1`] = `
 {
   "colors": {
+    "ant-neutral-100": "#ffffff",
+    "ant-neutral-1000": "#262626",
+    "ant-neutral-1100": "#1f1f1f",
+    "ant-neutral-1200": "#141414",
+    "ant-neutral-1300": "#000000",
+    "ant-neutral-200": "#fafafa",
+    "ant-neutral-300": "#f5f5f5",
+    "ant-neutral-400": "#f0f0f0",
+    "ant-neutral-500": "#d9d9d9",
+    "ant-neutral-600": "#bfbfbf",
+    "ant-neutral-700": "#8c8c8c",
+    "ant-neutral-800": "#595959",
+    "ant-neutral-900": "#434343",
     "base-100": "rgba(var(--ice-base-100) / <alpha-value>)",
-    "base-1000": "rgba(var(--ice-base-1000) / <alpha-value>)",
-    "base-1100": "rgba(var(--ice-base-1100) / <alpha-value>)",
-    "base-1200": "rgba(var(--ice-base-1200) / <alpha-value>)",
-    "base-1300": "rgba(var(--ice-base-1300) / <alpha-value>)",
     "base-200": "rgba(var(--ice-base-200) / <alpha-value>)",
     "base-300": "rgba(var(--ice-base-300) / <alpha-value>)",
-    "base-400": "rgba(var(--ice-base-400) / <alpha-value>)",
-    "base-500": "rgba(var(--ice-base-500) / <alpha-value>)",
-    "base-600": "rgba(var(--ice-base-600) / <alpha-value>)",
-    "base-700": "rgba(var(--ice-base-700) / <alpha-value>)",
-    "base-800": "rgba(var(--ice-base-800) / <alpha-value>)",
-    "base-900": "rgba(var(--ice-base-900) / <alpha-value>)",
     "base-content": "rgba(var(--ice-base-content) / <alpha-value>)",
     "current": "currentColor",
     "error": "rgba(var(--ice-error) / <alpha-value>)",
@@ -2311,19 +1935,9 @@ exports[`base > mediaDarkTheme case 0 > calcBase 1`] = `
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
         "--border-btn": "1px",
         "--error": "245 34 45",
         "--error-active": "207 19 34",
@@ -2358,20 +1972,10 @@ exports[`base > mediaDarkTheme case 0 > calcBase 1`] = `
         "css": {
           "--animation-btn": "0.25s",
           "--animation-input": "0.2s",
-          "--base-100": "0 0 0",
-          "--base-1000": "240 240 240",
-          "--base-1100": "245 245 245",
-          "--base-1200": "250 250 250",
-          "--base-1300": "255 255 255",
-          "--base-200": "20 20 20",
-          "--base-300": "31 31 31",
-          "--base-400": "38 38 38",
-          "--base-500": "67 67 67",
-          "--base-600": "89 89 89",
-          "--base-700": "140 140 140",
-          "--base-800": "191 191 191",
-          "--base-900": "217 217 217",
-          "--base-content": "255 255 255",
+          "--base-100": "29 35 42",
+          "--base-200": "25 30 36",
+          "--base-300": "21 25 30",
+          "--base-content": "105 114 128",
           "--border-btn": "1px",
           "--error": "211 32 41",
           "--error-active": "232 71 73",
@@ -2406,20 +2010,10 @@ exports[`base > mediaDarkTheme case 0 > calcBase 1`] = `
       "css": {
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
-        "--base-100": "0 0 0",
-        "--base-1000": "240 240 240",
-        "--base-1100": "245 245 245",
-        "--base-1200": "250 250 250",
-        "--base-1300": "255 255 255",
-        "--base-200": "20 20 20",
-        "--base-300": "31 31 31",
-        "--base-400": "38 38 38",
-        "--base-500": "67 67 67",
-        "--base-600": "89 89 89",
-        "--base-700": "140 140 140",
-        "--base-800": "191 191 191",
-        "--base-900": "217 217 217",
-        "--base-content": "255 255 255",
+        "--base-100": "29 35 42",
+        "--base-200": "25 30 36",
+        "--base-300": "21 25 30",
+        "--base-content": "105 114 128",
         "--border-btn": "1px",
         "--error": "211 32 41",
         "--error-active": "232 71 73",
@@ -2483,19 +2077,9 @@ exports[`base > mediaDarkTheme case 0 1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -2528,20 +2112,10 @@ exports[`base > mediaDarkTheme case 0 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -2575,20 +2149,10 @@ exports[`base > mediaDarkTheme case 0 1`] = `
     --ice-neutral-hover: 73 73 73;
     --ice-neutral-active: 106 106 106;
     --ice-neutral-content: 255 255 255;
-    --ice-base-1300: 255 255 255;
-    --ice-base-1200: 250 250 250;
-    --ice-base-1100: 245 245 245;
-    --ice-base-1000: 240 240 240;
-    --ice-base-900: 217 217 217;
-    --ice-base-800: 191 191 191;
-    --ice-base-700: 140 140 140;
-    --ice-base-600: 89 89 89;
-    --ice-base-500: 67 67 67;
-    --ice-base-400: 38 38 38;
-    --ice-base-300: 31 31 31;
-    --ice-base-200: 20 20 20;
-    --ice-base-100: 0 0 0;
-    --ice-base-content: 255 255 255;
+    --ice-base-100: 29 35 42;
+    --ice-base-200: 25 30 36;
+    --ice-base-300: 21 25 30;
+    --ice-base-content: 105 114 128;
     --ice-rounded-box: 1rem;
     --ice-rounded-btn: 0.5rem;
     --ice-rounded-badge: 1.9rem;
@@ -2625,19 +2189,9 @@ exports[`base > snap 1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -2670,20 +2224,10 @@ exports[`base > snap 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -2699,6 +2243,19 @@ exports[`base > snap 1`] = `
 exports[`base > snap case 0 > calcBase 1`] = `
 {
   "colors": {
+    "ant-neutral-100": "#ffffff",
+    "ant-neutral-1000": "#262626",
+    "ant-neutral-1100": "#1f1f1f",
+    "ant-neutral-1200": "#141414",
+    "ant-neutral-1300": "#000000",
+    "ant-neutral-200": "#fafafa",
+    "ant-neutral-300": "#f5f5f5",
+    "ant-neutral-400": "#f0f0f0",
+    "ant-neutral-500": "#d9d9d9",
+    "ant-neutral-600": "#bfbfbf",
+    "ant-neutral-700": "#8c8c8c",
+    "ant-neutral-800": "#595959",
+    "ant-neutral-900": "#434343",
     "current": "currentColor",
     "transparent": "transparent",
   },
@@ -2712,19 +2269,22 @@ exports[`base > snap case 0 1`] = `""`;
 exports[`base > snap case 1 > calcBase 1`] = `
 {
   "colors": {
+    "ant-neutral-100": "#ffffff",
+    "ant-neutral-1000": "#262626",
+    "ant-neutral-1100": "#1f1f1f",
+    "ant-neutral-1200": "#141414",
+    "ant-neutral-1300": "#000000",
+    "ant-neutral-200": "#fafafa",
+    "ant-neutral-300": "#f5f5f5",
+    "ant-neutral-400": "#f0f0f0",
+    "ant-neutral-500": "#d9d9d9",
+    "ant-neutral-600": "#bfbfbf",
+    "ant-neutral-700": "#8c8c8c",
+    "ant-neutral-800": "#595959",
+    "ant-neutral-900": "#434343",
     "base-100": "rgba(var(--ice-base-100) / <alpha-value>)",
-    "base-1000": "rgba(var(--ice-base-1000) / <alpha-value>)",
-    "base-1100": "rgba(var(--ice-base-1100) / <alpha-value>)",
-    "base-1200": "rgba(var(--ice-base-1200) / <alpha-value>)",
-    "base-1300": "rgba(var(--ice-base-1300) / <alpha-value>)",
     "base-200": "rgba(var(--ice-base-200) / <alpha-value>)",
     "base-300": "rgba(var(--ice-base-300) / <alpha-value>)",
-    "base-400": "rgba(var(--ice-base-400) / <alpha-value>)",
-    "base-500": "rgba(var(--ice-base-500) / <alpha-value>)",
-    "base-600": "rgba(var(--ice-base-600) / <alpha-value>)",
-    "base-700": "rgba(var(--ice-base-700) / <alpha-value>)",
-    "base-800": "rgba(var(--ice-base-800) / <alpha-value>)",
-    "base-900": "rgba(var(--ice-base-900) / <alpha-value>)",
     "base-content": "rgba(var(--ice-base-content) / <alpha-value>)",
     "current": "currentColor",
     "error": "rgba(var(--ice-error) / <alpha-value>)",
@@ -2754,20 +2314,10 @@ exports[`base > snap case 1 > calcBase 1`] = `
       "css": {
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
-        "--base-100": "0 0 0",
-        "--base-1000": "240 240 240",
-        "--base-1100": "245 245 245",
-        "--base-1200": "250 250 250",
-        "--base-1300": "255 255 255",
-        "--base-200": "20 20 20",
-        "--base-300": "31 31 31",
-        "--base-400": "38 38 38",
-        "--base-500": "67 67 67",
-        "--base-600": "89 89 89",
-        "--base-700": "140 140 140",
-        "--base-800": "191 191 191",
-        "--base-900": "217 217 217",
-        "--base-content": "255 255 255",
+        "--base-100": "29 35 42",
+        "--base-200": "25 30 36",
+        "--base-300": "21 25 30",
+        "--base-content": "105 114 128",
         "--border-btn": "1px",
         "--error": "211 32 41",
         "--error-active": "232 71 73",
@@ -2802,19 +2352,9 @@ exports[`base > snap case 1 > calcBase 1`] = `
         "--animation-btn": "0.25s",
         "--animation-input": "0.2s",
         "--base-100": "255 255 255",
-        "--base-1000": "38 38 38",
-        "--base-1100": "31 31 31",
-        "--base-1200": "20 20 20",
-        "--base-1300": "0 0 0",
-        "--base-200": "250 250 250",
-        "--base-300": "245 245 245",
-        "--base-400": "240 240 240",
-        "--base-500": "217 217 217",
-        "--base-600": "191 191 191",
-        "--base-700": "140 140 140",
-        "--base-800": "89 89 89",
-        "--base-900": "67 67 67",
-        "--base-content": "0 0 0",
+        "--base-200": "242 242 242",
+        "--base-300": "229 230 230",
+        "--base-content": "31 41 55",
         "--border-btn": "1px",
         "--error": "245 34 45",
         "--error-active": "207 19 34",
@@ -2878,19 +2418,9 @@ exports[`base > snap case 1 1`] = `
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
   --ice-base-100: 255 255 255;
-  --ice-base-200: 250 250 250;
-  --ice-base-300: 245 245 245;
-  --ice-base-400: 240 240 240;
-  --ice-base-500: 217 217 217;
-  --ice-base-600: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-800: 89 89 89;
-  --ice-base-900: 67 67 67;
-  --ice-base-1000: 38 38 38;
-  --ice-base-1100: 31 31 31;
-  --ice-base-1200: 20 20 20;
-  --ice-base-1300: 0 0 0;
-  --ice-base-content: 0 0 0;
+  --ice-base-200: 242 242 242;
+  --ice-base-300: 229 230 230;
+  --ice-base-content: 31 41 55;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;
@@ -2923,20 +2453,10 @@ exports[`base > snap case 1 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
-  --ice-base-1300: 255 255 255;
-  --ice-base-1200: 250 250 250;
-  --ice-base-1100: 245 245 245;
-  --ice-base-1000: 240 240 240;
-  --ice-base-900: 217 217 217;
-  --ice-base-800: 191 191 191;
-  --ice-base-700: 140 140 140;
-  --ice-base-600: 89 89 89;
-  --ice-base-500: 67 67 67;
-  --ice-base-400: 38 38 38;
-  --ice-base-300: 31 31 31;
-  --ice-base-200: 20 20 20;
-  --ice-base-100: 0 0 0;
-  --ice-base-content: 255 255 255;
+  --ice-base-100: 29 35 42;
+  --ice-base-200: 25 30 36;
+  --ice-base-300: 21 25 30;
+  --ice-base-content: 105 114 128;
   --ice-rounded-box: 1rem;
   --ice-rounded-btn: 0.5rem;
   --ice-rounded-badge: 1.9rem;

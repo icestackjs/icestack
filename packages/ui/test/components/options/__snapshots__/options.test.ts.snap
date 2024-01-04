@@ -10,7 +10,7 @@ exports[`'alert' options > raw snap 1`] = `
       ",
     "styled": "
       .alert{
-        @apply rounded-box border p-4 text-base-content border-base-400;
+        @apply rounded-box border p-4 text-base-content border-base-200;
 
         
       }
@@ -331,16 +331,16 @@ exports[`'button' options > raw snap 1`] = `
       ",
     "styled": "
         .btn{
-          @apply border-base-400 bg-base-400 text-base-content outline-base-400 no-underline;
+          @apply border-neutral bg-neutral text-neutral-content outline-neutral no-underline;
           border-width: var(--border-btn, 1px);
           &:focus-visible,&.btn-focus-visible{
             @apply outline outline-2 outline-offset-2;
           }
           &:hover,&.btn-hover{
-            @apply border-base-300 bg-base-300;
+            @apply border-neutral-hover bg-neutral-hover;
           }
-          &:active,&.btn-hover{
-            @apply border-base-500 bg-base-500;
+          &:active,&.btn-active{
+            @apply border-neutral-active bg-neutral-active;
           }
           
 
@@ -368,10 +368,10 @@ exports[`'button' options > raw snap 1`] = `
           &-outline{
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,&.btn-hover{
-              @apply border-base-900 bg-base-900 text-base-100;
+              @apply border-neutral-hover bg-neutral-hover text-neutral-content;
             }
             &:active,&.btn-active{
-              @apply border-base-1100 bg-base-1100 text-base-100;
+              @apply border-neutral-active bg-neutral-active text-neutral-content;
             }
             
           }

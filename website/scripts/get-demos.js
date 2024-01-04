@@ -45,11 +45,13 @@ async function main() {
       const text = daole.find('.component-preview-title').text()
       const dom = daole.find('.preview')
       // dom.children('[data-svelte-h]').removeAttr('data-svelte-h')
-      // dom.children('img').attr('src', '/pig.jpg')
+      dom.find('img').attr('src', '/pig.jpg')
+
       const html = new MagicString(dom.html())
       html.replaceAll(/data-svelte-h="[\w-]+"/g, '')
-      html.replaceAll('daisyUI', 'IceStack')
-      html.replaceAll(/src=\/[\w/]*/g, '/pig.jpg')
+      html.replaceAll(/daisyu?i?/gi, 'IceStack')
+
+      // html.replaceAll(/src="\/[\w/]*"/g, 'src="/pig.jpg"')
       result.push({
         title: text,
         html: html.toString()
@@ -79,7 +81,9 @@ ${result.map((x) => makeAAA(x)).join('\n')}
     </script>
     
     <template>
-    ${result.map((x) => x.html).join('\n')}   
+    <div>
+    ${result.map((x) => x.html).join('\n')}
+    </div>   
     </template>
     `,
       {

@@ -1,51 +1,53 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="flex flex-col w-full">
-    <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
-    <div class="divider">OR</div>
-    <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
-  </div>
+  <div>
+    <div class="flex flex-col w-full">
+      <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
+      <div class="divider">OR</div>
+      <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
+    </div>
 
-  <div class="flex w-full">
-    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
-    <div class="divider divider-horizontal">OR</div>
-    <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
-  </div>
+    <div class="flex w-full">
+      <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
+      <div class="divider divider-horizontal">OR</div>
+      <div class="grid h-20 flex-grow card bg-base-300 rounded-box place-items-center">content</div>
+    </div>
 
-  <div class="flex flex-col w-full">
-    <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
-    <div class="divider"></div>
-    <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
-  </div>
+    <div class="flex flex-col w-full">
+      <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
+      <div class="divider"></div>
+      <div class="grid h-20 card bg-base-300 rounded-box place-items-center">content</div>
+    </div>
 
-  <div class="flex flex-col w-full lg:flex-row">
-    <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">content</div>
-    <div class="divider lg:divider-horizontal">OR</div>
-    <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">content</div>
-  </div>
+    <div class="flex flex-col w-full lg:flex-row">
+      <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">content</div>
+      <div class="divider lg:divider-horizontal">OR</div>
+      <div class="grid flex-grow h-32 card bg-base-300 rounded-box place-items-center">content</div>
+    </div>
 
-  <div class="flex flex-col w-full">
-    <div class="divider">Default</div>
-    <div class="divider divider-neutral">Neutral</div>
-    <div class="divider divider-primary">Primary</div>
-    <div class="divider divider-secondary">Secondary</div>
-    <div class="divider divider-accent">Accent</div>
-    <div class="divider divider-success">Success</div>
-    <div class="divider divider-warning">Warning</div>
-    <div class="divider divider-info">Info</div>
-    <div class="divider divider-error">Error</div>
-  </div>
+    <div class="flex flex-col w-full">
+      <div class="divider">Default</div>
+      <div class="divider divider-neutral">Neutral</div>
+      <div class="divider divider-primary">Primary</div>
+      <div class="divider divider-secondary">Secondary</div>
+      <div class="divider divider-accent">Accent</div>
+      <div class="divider divider-success">Success</div>
+      <div class="divider divider-warning">Warning</div>
+      <div class="divider divider-info">Info</div>
+      <div class="divider divider-error">Error</div>
+    </div>
 
-  <div class="flex flex-col w-full">
-    <div class="divider divider-start">Start</div>
-    <div class="divider">Default</div>
-    <div class="divider divider-end">End</div>
-  </div>
+    <div class="flex flex-col w-full">
+      <div class="divider divider-start">Start</div>
+      <div class="divider">Default</div>
+      <div class="divider divider-end">End</div>
+    </div>
 
-  <div class="flex w-full justify-center h-52">
-    <div class="divider divider-horizontal divider-start">Start</div>
-    <div class="divider divider-horizontal">Default</div>
-    <div class="divider divider-horizontal divider-end">End</div>
+    <div class="flex w-full justify-center h-52">
+      <div class="divider divider-horizontal divider-start">Start</div>
+      <div class="divider divider-horizontal">Default</div>
+      <div class="divider divider-horizontal divider-end">End</div>
+    </div>
   </div>
 </template>

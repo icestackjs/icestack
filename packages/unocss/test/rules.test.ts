@@ -6,4 +6,9 @@ describe('index', () => {
     const options = getRules(loadDirectory)
     expect(options).toMatchSnapshot()
   })
+
+  it('getRules get tab', () => {
+    const options = getRules(loadDirectory)
+    expect(options.find((x) => x[0] === 'tab')).toMatchSnapshot()
+  })
 })

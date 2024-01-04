@@ -8497,3 +8497,174 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   ],
 ]
 `;
+
+exports[`index > getRules get tab 1`] = `
+[
+  "tab",
+  ".tabs-lifted:has(.tab-content[class^=rounded-]) .tab:first-child:not(.tab-active),.tabs-lifted:has(.tab-content[class*=" rounded-"]) .tab:first-child:not(.tab-active) {
+    border-bottom-color: transparent
+}
+.tab {
+    position: relative;
+    grid-row-start: 1;
+    display: inline-flex;
+    height: 2rem;
+    cursor: pointer;
+    user-select: none;
+    appearance: none;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    line-height: 2;
+    --ice-tab-padding: 1rem;
+    --un-text-opacity: 0.5;
+    --ice-tab-color: rgba(var(--ice-base-content),1);
+    --ice-tab-bg: rgba(var(--ice-base-100),1);
+    --ice-tab-border-color: rgba(var(--ice-base-300),1);
+    color: var(--ice-tab-color);
+    padding-inline-start: var(--ice-tab-padding, 1rem);
+    padding-inline-end: var(--ice-tab-padding, 1rem)
+}
+.tab:is(input[type=radio]) {
+    width: auto;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px
+}
+.tab:is(input[type=radio]):after {
+    --un-content: attr(aria-label);
+    content: var(--tw-content)
+}
+.tab:not(input):empty {
+    cursor: default;
+    grid-column-start: span 9999
+}
+input.tab:checked+.tab-content,.tab-active+.tab-content {
+    display: block
+}
+.tabs-lifted>.tab:focus-visible {
+    border-end-end-radius: 0;
+    border-end-start-radius: 0
+}
+.tab:hover {
+    --un-text-opacity: 1
+}
+.tab.tab-active:not(.tab-disabled):not([disabled]),.tab:is(input:checked) {
+    border-color: rgba(var(--ice-base-content),var(--un-border-opacity));
+    --un-border-opacity: 1;
+    --un-text-opacity: 1
+}
+.tab:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px
+}
+.tab:focus-visible {
+    outline: 2px solid currentColor;
+    outline-offset: -5px
+}
+.tab-disabled,.tab[disabled] {
+    cursor: not-allowed;
+    color: rgba(var(--ice-base-content),var(--un-text-opacity));
+    --un-text-opacity: 0.2
+}
+.tab[disabled],.tab[disabled]:hover {
+    cursor: not-allowed;
+    color: rgba(var(--ice-base-content),var(--un-text-opacity));
+    --un-text-opacity: 0.2
+}
+.tabs-bordered>.tab {
+    border-color: rgba(var(--ice-base-content),var(--un-border-opacity));
+    --un-border-opacity: 0.2;
+    border-style: solid;
+    border-bottom-width: calc(var(--ice-tab-border, 1px) + 1px)
+}
+.tabs-lifted>.tab {
+    border: var(--ice-tab-border, 1px) solid transparent;
+    border-width: 0 0 var(--ice-tab-border, 1px) 0;
+    border-start-start-radius: var(--ice-tab-radius, 0.5rem);
+    border-start-end-radius: var(--ice-tab-radius, 0.5rem);
+    border-bottom-color: var(--ice-tab-border-color);
+    padding-inline-start: var(--ice-tab-padding, 1rem);
+    padding-inline-end: var(--ice-tab-padding, 1rem);
+    padding-top: var(--ice-tab-border, 1px)
+}
+.tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]),.tabs-lifted>.tab:is(input:checked) {
+    background-color: var(--ice-tab-bg);
+    border-width: var(--ice-tab-border, 1px) var(--ice-tab-border, 1px) 0 var(--ice-tab-border, 1px);
+    border-inline-start-color: var(--ice-tab-border-color);
+    border-inline-end-color: var(--ice-tab-border-color);
+    border-top-color: var(--ice-tab-border-color);
+    padding-inline-start: calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px));
+    padding-inline-end: calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px));
+    padding-bottom: var(--ice-tab-border, 1px);
+    padding-top: 0
+}
+.tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]):before,.tabs-lifted>.tab:is(input:checked):before {
+    z-index: 1;
+    content: "";
+    display: block;
+    position: absolute;
+    width: calc(100% + var(--ice-tab-radius, 0.5rem) * 2);
+    height: var(--ice-tab-radius, 0.5rem);
+    bottom: 0;
+    background-size: var(--ice-tab-radius, 0.5rem);
+    background-position: top left, top right;
+    background-repeat: no-repeat;
+    --ice-tab-grad: calc(69% - var(--ice-tab-border, 1px));
+    --ice-radius-start: radial-gradient( circle at top left, transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px) );
+    --ice-radius-end: radial-gradient( circle at top right, transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px) );
+    background-image: var(--ice-radius-start), var(--ice-radius-end)
+}
+.tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before,.tabs-lifted>.tab:is(input:checked):first-child:before {
+    background-image: var(--ice-radius-end);
+    background-position: top right
+}
+[dir=rtl] .tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before,[dir=rtl] .tabs-lifted>.tab:is(input:checked):first-child:before {
+    background-image: var(--ice-radius-start);
+    background-position: top left
+}
+.tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]):last-child:before,.tabs-lifted>.tab:is(input:checked):last-child:before {
+    background-image: var(--ice-radius-start);
+    background-position: top left
+}
+[dir=rtl] .tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]):last-child:before,[dir=rtl] .tabs-lifted>.tab:is(input:checked):last-child:before {
+    background-image: var(--ice-radius-end);
+    background-position: top right
+}
+.tabs-lifted>.tab-active:not(.tab-disabled):not([disabled])+.tabs-lifted .tab-active:not(.tab-disabled):not([disabled]):before,.tabs-lifted>.tab:is(input:checked)+.tabs-lifted .tab:is(input:checked):before {
+    background-image: var(--ice-radius-end);
+    background-position: top right
+}
+.tabs-boxed .tab {
+    border-radius: var(--ice-rounded-btn, 0.5rem)
+}
+.tabs-md :where(.tab) {
+    height: 2rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    line-height: 2;
+    --ice-tab-padding: 1rem
+}
+.tabs-lg :where(.tab) {
+    height: 3rem;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    line-height: 2;
+    --ice-tab-padding: 1.25rem
+}
+.tabs-sm :where(.tab) {
+    height: 1.5rem;
+    font-size: 0.875rem;
+    line-height: .75rem;
+    --ice-tab-padding: 0.75rem
+}
+.tabs-xs :where(.tab) {
+    height: 1.25rem;
+    font-size: 0.75rem;
+    line-height: .75rem;
+    --ice-tab-padding: 0.5rem
+}",
+]
+`;

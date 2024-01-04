@@ -46,6 +46,7 @@
   "devDependencies": {
     "@egoist/tailwindcss-icons": "^1.7.1",
     "@icestack/preset-mockup": "workspace:^",
+    "@icestack/preset-unicorn": "workspace:^",
     "@icestack/tailwindcss": "workspace:^",
     "@icestack/ui": "workspace:^",
     "@iconify-json/mdi": "^1.1.64",

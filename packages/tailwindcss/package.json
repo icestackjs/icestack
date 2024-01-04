@@ -12,6 +12,11 @@
   "keywords": [
     "tailwindcss",
     "plugin",
+    "css",
+    "component",
+    "generate",
+    "generator",
+    "unocss",
     "icestack",
     "ui"
   ],

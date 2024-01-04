@@ -168,6 +168,13 @@
       "request": "launch",
       "type": "node-terminal",
       "cwd": "${workspaceFolder}/examples/unocss-sample-app"
+    },
+    {
+      "command": "npm run cpmd",
+      "name": "[md] render",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}"
     }
   ]
 }

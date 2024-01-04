@@ -12,4 +12,4 @@
 
 [Documentation](https://ui.icebreaker.top/) | [中文文档](https://ui.icebreaker.top/zh-CN)
 
-
+{{replace}}

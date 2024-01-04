@@ -10,6 +10,7 @@ describe.each(
 )('$name options', ({ name, value }) => {
   it('snap', () => {
     const xx = value?.schema({
+      selector: value.selector,
       types
     })
     expect(xx).toMatchSnapshot()
@@ -18,6 +19,7 @@ describe.each(
   it('raw snap', () => {
     expect(
       value?.schema({
+        selector: value.selector,
         types: []
       })
     ).toMatchSnapshot()

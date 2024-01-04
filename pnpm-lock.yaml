@@ -568,10 +568,28 @@ importers:
       '@icestack/logger':
         specifier: workspace:^
         version: link:../logger
+      '@icestack/shared':
+        specifier: workspace:^
+        version: link:../shared
       '@icestack/types':
         specifier: workspace:^
         version: link:../types
+      postcss:
+        specifier: ^8.4.32
+        version: 8.4.32
+      postcss-js:
+        specifier: ^4.0.1
+        version: 4.0.1(postcss@8.4.32)
+      postcss-selector-parser:
+        specifier: ^6.0.15
+        version: 6.0.15
     devDependencies:
+      '@icestack/ui':
+        specifier: workspace:^
+        version: link:../ui
+      '@unocss/core':
+        specifier: ^0.58.3
+        version: 0.58.3
       unocss:
         specifier: ^0.58.3
         version: 0.58.3(postcss@8.4.32)(rollup@3.28.1)(vite@5.0.10)

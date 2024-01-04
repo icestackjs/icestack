@@ -8,6 +8,7 @@
     "test": "vitest run",
     "test:dev": "vitest",
     "release": "pnpm publish",
+    "build:ui": "icestack build",
     "sync": "cnpm sync @icestack/unocss"
   },
   "keywords": [
@@ -50,10 +51,16 @@
     "url": "https://github.com/sonofmagic/icestack"
   },
   "devDependencies": {
+    "@icestack/ui": "workspace:^",
+    "@unocss/core": "^0.58.3",
     "unocss": "^0.58.3"
   },
   "dependencies": {
     "@icestack/logger": "workspace:^",
-    "@icestack/types": "workspace:^"
+    "@icestack/shared": "workspace:^",
+    "@icestack/types": "workspace:^",
+    "postcss": "^8.4.32",
+    "postcss-js": "^4.0.1",
+    "postcss-selector-parser": "^6.0.15"
   }
 }

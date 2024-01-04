@@ -19,16 +19,10 @@ const processor = postcss([
       decl.value = decl.value.replace(/rgba?\((.*?)\/(.*)\)/, (m, p1, p2) => {
         return replacePrefix(`rgba(${p1.trim()},${p2.trim()})`)
       })
-      // rgba(var(--ice-base-400) / var(--un-border-opacity))
-      //
     }
   }
 ])
 const process = (object: CssInJs) => processor.process(object, { parser: parse })
-// import { createLogger } from '@icestack/logger'
-// import { name as pkgName } from '../package.json'
-// // new RegExp(`^${base}$`)
-// const logger = createLogger(pkgName)
 
 export function groupBy<T, R = T>(arr: T[], cb: (arg: T) => string, mapper?: (arg: T) => R): Record<string, R[]> {
   if (!Array.isArray(arr)) {
@@ -82,11 +76,11 @@ export function getRules(loadDirectory: string) {
     const v = process(mergeRClone(base, styled, utils)).root.nodes
 
     for (const r of v) {
+      const s = new Set<string>()
       if (r.type === 'atrule') {
       } else if (r.type === 'rule') {
         const ast = defaultParser.astSync(r.selector)
         // console.log(ast)
-        const s = new Set<string>()
         ast.walkClasses((rule) => {
           if (!s.has(rule.value)) {
             s.add(rule.value)

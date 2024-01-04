@@ -64,9 +64,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         @media (hover: hover) {
           &:not(.active):hover {
             @apply cursor-pointer outline-none;
-            @supports (color: oklch(0 0 0)) {
-              @apply bg-base-content/10;
-            }
+            @apply bg-base-content/10;
           }
         }
       }

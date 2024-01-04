@@ -24,13 +24,13 @@ IceStack UI, Web UI for Mobile and PC , open-source Css Headless component libra
 
 - [@icestack/ui](./packages/ui/) - IceStack UI, Web UI for Mobile and PC , open-source Css Headless component library generator
 - [@icestack/tailwindcss](./packages/tailwindcss/) - IceStack UI For Tailwindcss plugin
+- [@icestack/unocss](./packages/unocss/) - IceStack UI For Unocss plugin
 - [@icestack/postcss](./packages/postcss/) - Postcss plugins hub
 - [@icestack/postcss-utils](./packages/postcss-utils/) - Postcss utils hub
 - [@icestack/preset-default](./packages/preset-default/) - The default preset of @icestack/ui
 - [@icestack/types](./packages/types/) - Typescript types
 - [@icestack/shared](./packages/shared/) - Shared utils
 - [@icestack/logger](./packages/logger/) - Logger
-- (WIP) [@icestack/unocss](./packages/unocss/) - IceStack UI For Unocss plugin
 - (WIP) [@icestack/cva](./packages/cva/) - The class-variance-authority function collection of IceStack UI
 
 ### Presets

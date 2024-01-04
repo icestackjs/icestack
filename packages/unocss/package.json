@@ -4,7 +4,7 @@
   "private": true,
   "version": "0.6.1",
   "scripts": {
-    "build": "unbuild",
+    "build": "pnpm build:ui && unbuild",
     "test": "vitest run",
     "test:dev": "vitest",
     "release": "pnpm publish",

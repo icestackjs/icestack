@@ -3468,12 +3468,8 @@ exports[`index > getRules default 1`] = `
 :where(.menu li:not(.menu-title):not(.disabled)>*:not(ul):not(details):not(.menu-title)):not(.active):hover,:where(.menu li:not(.menu-title):not(.disabled)>details>summary:not(.menu-title)):not(.active):hover {
     cursor: pointer;
     outline: 2px solid transparent;
-    outline-offset: 2px
-}
-@supports (color: oklch(0 0 0)) {
-    :where(.menu li:not(.menu-title):not(.disabled)>*:not(ul):not(details):not(.menu-title)):not(.active):hover,:where(.menu li:not(.menu-title):not(.disabled)>details>summary:not(.menu-title)):not(.active):hover {
-        background-color: rgba(var(--ice-base-content),0.1)
-    }
+    outline-offset: 2px;
+    background-color: rgba(var(--ice-base-content),0.1)
 }
 .menu li>*:not(ul):not(.menu-title):not(details):active,.menu li>*:not(ul):not(.menu-title):not(details).active,.menu li>details>summary:active {
     --un-bg-opacity: 1;
@@ -7155,12 +7151,8 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 :where(.menu li:not(.menu-title):not(.disabled)>*:not(ul):not(details):not(.menu-title)):not(.active):hover,:where(.menu li:not(.menu-title):not(.disabled)>details>summary:not(.menu-title)):not(.active):hover {
     cursor: pointer;
     outline: 2px solid transparent;
-    outline-offset: 2px
-}
-@supports (color: oklch(0 0 0)) {
-    :where(.menu li:not(.menu-title):not(.disabled)>*:not(ul):not(details):not(.menu-title)):not(.active):hover,:where(.menu li:not(.menu-title):not(.disabled)>details>summary:not(.menu-title)):not(.active):hover {
-        background-color: rgba(var(--ice-base-content),0.1)
-    }
+    outline-offset: 2px;
+    background-color: rgba(var(--ice-base-content),0.1)
 }",
   ],
   [
@@ -7318,12 +7310,8 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 :where(.menu li:not(.menu-title):not(.disabled)>*:not(ul):not(details):not(.menu-title)):not(.active):hover,:where(.menu li:not(.menu-title):not(.disabled)>details>summary:not(.menu-title)):not(.active):hover {
     cursor: pointer;
     outline: 2px solid transparent;
-    outline-offset: 2px
-}
-@supports (color: oklch(0 0 0)) {
-    :where(.menu li:not(.menu-title):not(.disabled)>*:not(ul):not(details):not(.menu-title)):not(.active):hover,:where(.menu li:not(.menu-title):not(.disabled)>details>summary:not(.menu-title)):not(.active):hover {
-        background-color: rgba(var(--ice-base-content),0.1)
-    }
+    outline-offset: 2px;
+    background-color: rgba(var(--ice-base-content),0.1)
 }
 .menu li>*:not(ul):not(.menu-title):not(details):active,.menu li>*:not(ul):not(.menu-title):not(details).active,.menu li>details>summary:active {
     --un-bg-opacity: 1;
@@ -7387,12 +7375,8 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 :where(.menu li:not(.menu-title):not(.disabled)>*:not(ul):not(details):not(.menu-title)):not(.active):hover,:where(.menu li:not(.menu-title):not(.disabled)>details>summary:not(.menu-title)):not(.active):hover {
     cursor: pointer;
     outline: 2px solid transparent;
-    outline-offset: 2px
-}
-@supports (color: oklch(0 0 0)) {
-    :where(.menu li:not(.menu-title):not(.disabled)>*:not(ul):not(details):not(.menu-title)):not(.active):hover,:where(.menu li:not(.menu-title):not(.disabled)>details>summary:not(.menu-title)):not(.active):hover {
-        background-color: rgba(var(--ice-base-content),0.1)
-    }
+    outline-offset: 2px;
+    background-color: rgba(var(--ice-base-content),0.1)
 }
 .menu li>*:not(ul):not(.menu-title):not(details):active,.menu li>*:not(ul):not(.menu-title):not(details).active,.menu li>details>summary:active {
     --un-bg-opacity: 1;

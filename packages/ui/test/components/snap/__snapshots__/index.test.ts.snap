@@ -2074,11 +2074,7 @@ exports[`'menu' > styled 1`] = `
 @media (hover: hover) {
   :where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(.active):hover, :where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):not(.active):hover {
     @apply cursor-pointer outline-none;
-  }
-  @supports (color: oklch(0 0 0)) {
-    :where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(.active):hover, :where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):not(.active):hover {
-      @apply bg-base-content/10;
-    }
+    @apply bg-base-content/10;
   }
 }
 

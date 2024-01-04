@@ -8200,11 +8200,7 @@ details.collapse summary{
 @media (hover: hover) {
   :where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(.active):hover, :where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):not(.active):hover {
     @apply cursor-pointer outline-none;
-  }
-  @supports (color: oklch(0 0 0)) {
-    :where(.menu li:not(.menu-title):not(.disabled) > *:not(ul):not(details):not(.menu-title)):not(.active):hover, :where(.menu li:not(.menu-title):not(.disabled) > details > summary:not(.menu-title)):not(.active):hover {
-      @apply bg-base-content/10;
-    }
+    @apply bg-base-content/10;
   }
 }
 
@@ -8327,6 +8323,7 @@ details.collapse summary{
           "opacity": 0.1,
         },
         ":where(.menu li:not(.menu-title):not(.disabled)>*:not(ul):not(details):not(.menu-title)):not(.active):hover,:where(.menu li:not(.menu-title):not(.disabled)>details>summary:not(.menu-title)):not(.active):hover": {
+          "backgroundColor": "rgba(var(--ice-base-content) / 0.1)",
           "cursor": "pointer",
           "outline": "2px solid transparent",
           "outlineOffset": "2px",
@@ -8338,11 +8335,6 @@ details.collapse summary{
           "cursor": "pointer",
           "outline": "2px solid transparent",
           "outlineOffset": "2px",
-        },
-        "@supports (color: oklch(0 0 0))": {
-          ":where(.menu li:not(.menu-title):not(.disabled)>*:not(ul):not(details):not(.menu-title)):not(.active):hover,:where(.menu li:not(.menu-title):not(.disabled)>details>summary:not(.menu-title)):not(.active):hover": {
-            "backgroundColor": "rgba(var(--ice-base-content) / 0.1)",
-          },
         },
       },
       "resolvedCss": ".menu {
@@ -8399,12 +8391,8 @@ details.collapse summary{
   cursor: pointer;
   outline: 2px solid transparent;
   outline-offset: 2px;
+  background-color: rgba(var(--ice-base-content) / 0.1);
 }
-@supports (color: oklch(0 0 0)) {
-    :where(.menu li:not(.menu-title):not(.disabled)>*:not(ul):not(details):not(.menu-title)):not(.active):hover,:where(.menu li:not(.menu-title):not(.disabled)>details>summary:not(.menu-title)):not(.active):hover {
-    background-color: rgba(var(--ice-base-content) / 0.1);
-  }
-  }
 
 .menu li>*:not(ul):not(.menu-title):not(details):active,.menu li>*:not(ul):not(.menu-title):not(details).active,.menu li>details>summary:active {
   --tw-bg-opacity: 1;

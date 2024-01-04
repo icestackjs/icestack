@@ -1,5 +1,12 @@
 # @icestack/ui
 
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies [[`07cbabc`](https://github.com/sonofmagic/icestack/commit/07cbabc159237c1ee18e66f8af054b6fb69d6fdc)]:
+  - @icestack/preset-default@0.1.2
+
 ## 0.6.1
 
 ### Patch Changes

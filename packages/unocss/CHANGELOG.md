@@ -1,5 +1,11 @@
 # @icestack/unocss
 
+## 0.0.1
+
+### Patch Changes
+
+- [`07cbabc`](https://github.com/sonofmagic/icestack/commit/07cbabc159237c1ee18e66f8af054b6fb69d6fdc) Thanks [@sonofmagic](https://github.com/sonofmagic)! - change support media and release unocss plugin
+
 ## 0.6.1
 
 ### Patch Changes

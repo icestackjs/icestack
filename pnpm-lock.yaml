@@ -436,6 +436,9 @@ importers:
       postcss:
         specifier: ^8.4.31
         version: 8.4.32
+      postcss-scss:
+        specifier: ^4.0.9
+        version: 4.0.9(postcss@8.4.32)
       tailwindcss:
         specifier: ^3.4.0
         version: 3.4.0(ts-node@10.9.2)
@@ -565,6 +568,9 @@ importers:
       '@types/lodash':
         specifier: ^4.14.202
         version: 4.14.202
+      postcss-scss:
+        specifier: ^4.0.9
+        version: 4.0.9(postcss@8.4.32)
 
   packages/unocss:
     dependencies:
@@ -17784,6 +17790,14 @@ packages:
     dependencies:
       postcss: 8.4.32
       postcss-value-parser: 4.2.0
+
+  /postcss-scss@4.0.9(postcss@8.4.32):
+    resolution: {integrity: sha512-AjKOeiwAitL/MXxQW2DliT28EKukvvbEWx3LBmJIRN8KfBGZbRTxNYW0kSqi1COiTZ57nZ9NW06S6ux//N1c9A==}
+    engines: {node: '>=12.0'}
+    peerDependencies:
+      postcss: ^8.4.29
+    dependencies:
+      postcss: 8.4.32
 
   /postcss-selector-parser@6.0.10:
     resolution: {integrity: sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==}

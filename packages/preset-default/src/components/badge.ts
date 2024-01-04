@@ -1,41 +1,4 @@
-import { expandTypes, getSelector, defuBaseDefault } from '@/shared'
 import type { GetCssSchemaMethod } from '@/types'
-function generateDefault(typeName: string) {
-  return `border-${typeName} bg-${typeName} text-${typeName}-content`
-}
-
-function generateOutline(typeName: string) {
-  return `text-${typeName}`
-}
-
-const xs = {
-  apply: 'h-3 text-xs leading-3',
-  css: {
-    'padding-left': '0.313rem',
-    'padding-right': '0.313rem'
-  }
-}
-const sm = {
-  apply: 'h-4 text-xs leading-4',
-  css: {
-    'padding-left': '0.438rem',
-    'padding-right': '0.438rem'
-  }
-}
-const md = {
-  apply: 'h-5 text-sm leading-5',
-  css: {
-    'padding-left': '0.563rem',
-    'padding-right': '0.563rem'
-  }
-}
-const lg = {
-  apply: 'h-6 text-base leading-6',
-  css: {
-    'padding-left': '0.688rem',
-    'padding-right': '0.688rem'
-  }
-}
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
@@ -43,46 +6,74 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      styled: {
-        [selector]: {
-          apply: 'rounded-badge border border-base-400 bg-base-100 text-base-content',
-          ...expandTypes(types, (type) => {
-            return {
-              key: `&${getSelector(type)}`,
-              value: {
-                apply: generateDefault(type)
-              }
-            }
-          }),
-          '&-ghost': {
-            apply: 'border-base-400 bg-base-400 text-base-content'
-          },
-          '&-outline': {
-            apply: 'border-current border-opacity-50 bg-transparent text-current',
-            ...expandTypes(types, (type) => {
-              return {
-                key: `&${getSelector(type, '.badge-')}`,
-                value: {
-                  apply: generateOutline(type)
-                }
-              }
-            })
+      styled: `
+      ${selector} {
+        @apply border-base-200 bg-base-100 text-base-content rounded-badge border;
+
+        ${types
+          .map((type) => {
+            return `
+          &-${type} {
+            @apply border-${type} bg-${type} text-${type}-content;
           }
+          `
+          })
+          .join('\n')}
+
+        &-ghost {
+          @apply border-base-200 bg-base-200 text-base-content;
         }
-      },
-      base: {
-        [selector]: defuBaseDefault<any, any[]>(md, {
-          apply: 'inline-flex items-center justify-center transition duration-200 ease-out w-[fit-content]'
-        })
-      },
-      utils: {
-        [selector]: {
-          [`&${getSelector('xs')}`]: xs,
-          [`&${getSelector('sm')}`]: sm,
-          [`&${getSelector('md')}`]: md,
-          [`&${getSelector('lg')}`]: lg
+      
+        &-outline {
+          @apply border-current border-opacity-50 bg-transparent text-current;
+
+          ${types
+            .map((type) => {
+              return `
+              &.badge-${type} {
+              @apply text-${type};
+            }
+            `
+            })
+            .join('\n')}
         }
       }
+      
+      `,
+      base: `
+      ${selector} {
+        @apply inline-flex items-center justify-center transition duration-200 ease-out;
+        @apply h-5 text-sm leading-5;
+        width: fit-content;
+        padding-left: 0.563rem;
+        padding-right: 0.563rem;
+      }
+      
+      `,
+      utils: `
+        ${selector}{
+          &-xs {
+            @apply h-3 text-xs leading-3;
+            padding-left: 0.313rem;
+            padding-right: 0.313rem;
+          }
+          &-sm {
+            @apply h-4 text-xs leading-4;
+            padding-left: 0.438rem;
+            padding-right: 0.438rem;
+          }
+          &-md {
+            @apply h-5 text-sm leading-5;
+            padding-left: 0.563rem;
+            padding-right: 0.563rem;
+          }
+          &-lg {
+            @apply h-6 text-base leading-6;
+            padding-left: 0.688rem;
+            padding-right: 0.688rem;
+          }
+        }
+      `
     }
   }
 }

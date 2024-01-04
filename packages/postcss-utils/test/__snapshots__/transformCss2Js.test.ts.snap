@@ -1,0 +1,221 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`transformCss2Js > does not parse comments inside brackets 1`] = `
+{
+  "a": {
+    "css": {
+      "cursor": "url(http://ya.ru)",
+    },
+  },
+}
+`;
+
+exports[`transformCss2Js > parsers prefixed pseudo in rules 1`] = `
+{
+  "input:-moz-focusring": {
+    "css": {
+      "left": "1px",
+    },
+  },
+}
+`;
+
+exports[`transformCss2Js > parses at-rules inside rules 1`] = `
+{
+  "a": {
+    "@media ": {},
+  },
+}
+`;
+
+exports[`transformCss2Js > parses comment inside comment 1`] = `
+{
+  "a": {},
+}
+`;
+
+exports[`transformCss2Js > parses complex interpolation 1`] = `
+{
+  "css": {
+    "content": "#{fn("\\"}")}",
+  },
+}
+`;
+
+exports[`transformCss2Js > parses empty inline comments 1`] = `{}`;
+
+exports[`transformCss2Js > parses inline comments 1`] = `{}`;
+
+exports[`transformCss2Js > parses inline comments inside selector 1`] = `
+{
+  "a b": {},
+}
+`;
+
+exports[`transformCss2Js > parses interpolation 1`] = `
+{
+  "#{$selector}:hover": {
+    "css": {
+      "#{$prop}-size": "#{$color}",
+    },
+  },
+}
+`;
+
+exports[`transformCss2Js > parses interpolation at the beginning of at-rule 1`] = `
+{
+  "@#{$var}suffix param": {},
+}
+`;
+
+exports[`transformCss2Js > parses interpolation in at-rule value 1`] = `
+{
+  "@media #{$var}": {},
+}
+`;
+
+exports[`transformCss2Js > parses interpolation in url() 1`] = `
+{
+  "css": {
+    "image": "url(#{get(path)}.png)",
+  },
+}
+`;
+
+exports[`transformCss2Js > parses interpolation inside interpolation 1`] = `
+{
+  "css": {
+    "$column": "#{"#{&}__column"}",
+  },
+}
+`;
+
+exports[`transformCss2Js > parses interpolation inside string 1`] = `
+{
+  "css": {
+    "content": ""#{fn("\\"}")}"",
+  },
+}
+`;
+
+exports[`transformCss2Js > parses interpolation inside word 1`] = `
+{
+  ".#{class}": {},
+}
+`;
+
+exports[`transformCss2Js > parses interpolation right after at-rule 1`] = `
+{
+  "@media#{$var} ": {},
+}
+`;
+
+exports[`transformCss2Js > parses interpolation that's the entire at-rule 1`] = `
+{
+  "@#{$var} param": {},
+}
+`;
+
+exports[`transformCss2Js > parses interpolation with variable 1`] = `
+{
+  "&:#{$var}": {},
+}
+`;
+
+exports[`transformCss2Js > parses interpolation within at-rule 1`] = `
+{
+  "@before#{$var}after param": {},
+}
+`;
+
+exports[`transformCss2Js > parses nested props with important 1`] = `
+{
+  "a": {
+    "css": {
+      "margin": "0 !important",
+    },
+  },
+}
+`;
+
+exports[`transformCss2Js > parses nested props with new line as rule 1`] = `
+{
+  "a": {
+    "margin :0": {
+      "css": {
+        "left": "10px",
+      },
+    },
+  },
+}
+`;
+
+exports[`transformCss2Js > parses nested props with space-less digit 1`] = `
+{
+  "a": {
+    "css": {
+      "margin": "0",
+    },
+  },
+}
+`;
+
+exports[`transformCss2Js > parses nested props with value 1`] = `
+{
+  "a": {
+    "css": {
+      "margin": "0",
+    },
+  },
+}
+`;
+
+exports[`transformCss2Js > parses nested rules 1`] = `
+{
+  "a": {
+    "b": {},
+  },
+}
+`;
+
+exports[`transformCss2Js > parses non-interpolation 1`] = `
+{
+  "\\#": {
+    "css": {
+      "color": "black",
+    },
+  },
+}
+`;
+
+exports[`transformCss2Js > parses semicolon in rules 1`] = `
+{
+  "a": {
+    "test(a: 1)": {
+      "css": {
+        "left": "10px",
+      },
+    },
+  },
+}
+`;
+
+exports[`transformCss2Js > parses text in rules 1`] = `
+{
+  "a": {
+    "margin:text": {
+      "css": {
+        "left": "10px",
+      },
+    },
+  },
+}
+`;
+
+exports[`transformCss2Js > parses variables 1`] = `
+{
+  "css": {
+    "$var": "1",
+  },
+}
+`;

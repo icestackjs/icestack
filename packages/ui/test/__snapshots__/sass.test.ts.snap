@@ -1,0 +1,150 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`sass > compileString case > output css 1`] = `
+"ul:nth-child(3n+1) {
+  background-color: #004080;
+}
+
+ul:nth-child(3n+2) {
+  background-color: #004d99;
+}
+
+ul:nth-child(3n+3) {
+  background-color: #0059b3;
+}"
+`;
+
+exports[`sass > compileString case 1`] = `
+[
+  {
+    "inputs": [
+      {
+        "css": "$base-color: #036;
+
+    @for $i from 1 through 3 {
+      ul:nth-child(3n + #{$i}) {
+        background-color: lighten($base-color, $i * 5%);
+      }
+    }
+    ",
+        "hasBOM": false,
+        "id": "<input css K3YvG5>",
+      },
+    ],
+    "prop": "$base-color",
+    "raws": {
+      "before": "",
+      "between": ": ",
+    },
+    "source": {
+      "end": {
+        "column": 18,
+        "line": 1,
+        "offset": 18,
+      },
+      "inputId": 0,
+      "start": {
+        "column": 1,
+        "line": 1,
+        "offset": 0,
+      },
+    },
+    "type": "decl",
+    "value": "#036",
+  },
+  {
+    "inputs": [
+      {
+        "css": "$base-color: #036;
+
+    @for $i from 1 through 3 {
+      ul:nth-child(3n + #{$i}) {
+        background-color: lighten($base-color, $i * 5%);
+      }
+    }
+    ",
+        "hasBOM": false,
+        "id": "<input css K3YvG5>",
+      },
+    ],
+    "name": "for",
+    "nodes": [
+      {
+        "nodes": [
+          {
+            "prop": "background-color",
+            "raws": {
+              "before": "
+        ",
+              "between": ": ",
+            },
+            "source": {
+              "end": {
+                "column": 56,
+                "line": 5,
+                "offset": 140,
+              },
+              "inputId": 0,
+              "start": {
+                "column": 9,
+                "line": 5,
+                "offset": 92,
+              },
+            },
+            "type": "decl",
+            "value": "lighten($base-color, $i * 5%)",
+          },
+        ],
+        "raws": {
+          "after": "
+      ",
+          "before": "
+      ",
+          "between": " ",
+          "semicolon": true,
+        },
+        "selector": "ul:nth-child(3n + #{$i})",
+        "source": {
+          "end": {
+            "column": 7,
+            "line": 6,
+            "offset": 148,
+          },
+          "inputId": 0,
+          "start": {
+            "column": 7,
+            "line": 4,
+            "offset": 57,
+          },
+        },
+        "type": "rule",
+      },
+    ],
+    "params": "$i from 1 through 3",
+    "raws": {
+      "after": "
+    ",
+      "afterName": " ",
+      "before": "
+
+    ",
+      "between": " ",
+      "semicolon": false,
+    },
+    "source": {
+      "end": {
+        "column": 5,
+        "line": 7,
+        "offset": 154,
+      },
+      "inputId": 0,
+      "start": {
+        "column": 5,
+        "line": 3,
+        "offset": 24,
+      },
+    },
+    "type": "atrule",
+  },
+]
+`;

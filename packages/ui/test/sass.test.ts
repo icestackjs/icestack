@@ -1,6 +1,7 @@
 import path from 'node:path'
 import sassTrue from 'sass-true'
 import * as sass from 'sass'
+import scssParser from 'postcss-scss'
 import { transformJsToSass } from '@/sass'
 // https://sass-lang.com/documentation/at-rules/mixin/#content-blocks
 
@@ -29,6 +30,25 @@ describe('sass', () => {
         }
       }
     })
+  })
+
+  it('compileString case', () => {
+    const testCase = `$base-color: #036;
+
+    @for $i from 1 through 3 {
+      ul:nth-child(3n + #{$i}) {
+        background-color: lighten($base-color, $i * 5%);
+      }
+    }
+    `
+    const root = scssParser.parse(testCase)
+    expect(root.nodes).toMatchSnapshot()
+    let result = ''
+    scssParser.stringify(root, (i) => {
+      result += i
+    })
+    expect(result).toEqual(testCase)
+    expect(sass.compileString(result).css).toMatchSnapshot('output css')
   })
 
   describe('transformJsToSass', () => {

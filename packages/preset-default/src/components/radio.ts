@@ -1,4 +1,3 @@
-import { getSelector, expandTypes } from '@/shared'
 import type { GetCssSchemaMethod } from '@/types'
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
@@ -6,82 +5,94 @@ const schema: GetCssSchemaMethod = (opts) => {
     selector,
 
     defaults: {
-      styled: {
-        [selector]: {
-          apply: 'border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20',
-          '&:focus-visible': {
-            apply: 'outline-base-content outline outline-2 outline-offset-2'
-          },
-          [`&:checked,
-          &[aria-checked="true"]`]: {
-            apply: 'bg-base-content',
-            css: {
-              animation: 'radiomark var(--animation-input, 0.2s) ease-out',
-              'box-shadow': `0 0 0 4px rgba(var(--base-400)) inset,
-            0 0 0 4px rgba(var(--base-400)) inset`
-            }
-          },
-          ...expandTypes(types, (type) => {
-            return {
-              key: `&${getSelector(type)}`,
-              value: {
-                apply: `border-${type} hover:border-${type}`,
-                '&:focus-visible': {
-                  apply: `outline-${type}`
-                },
-                [`&:checked,
-                &[aria-checked="true"]`]: {
-                  apply: `border-${type} bg-${type} text-${type}-content`
-                }
+      styled: `
+      ${selector} {
+        --chkbg: var(--bc);
+        @apply border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20;
+        &:focus {
+          box-shadow: none;
+        }
+        &:focus-visible {
+          @apply outline-base-content outline outline-2 outline-offset-2;
+        }
+        &:checked,
+        &[aria-checked="true"] {
+          @apply bg-base-content;
+          background-image: none;
+          animation: radiomark var(--animation-input, 0.2s) ease-out;
+          box-shadow:
+            0 0 0 4px theme(colors.base-100) inset,
+            0 0 0 4px theme(colors.base-100) inset;
+        }
+        ${types
+          .map((type) => {
+            return `
+            &-${type} {
+              --chkbg: var(--${type});
+              @apply border-${type} [@media(hover:hover)]:hover:border-${type};
+              &:focus-visible {
+                @apply outline-${type};
+              }
+              &:checked,
+              &[aria-checked="true"] {
+                @apply border-${type} bg-${type} text-${type}-content;
               }
             }
-          }),
-          '&:disabled': {
-            apply: 'cursor-not-allowed opacity-20'
-          }
-        },
-        '@keyframes radiomark': {
-          '0%': {
-            css: {
-              'box-shadow': `0 0 0 12px rgba(var(--base-400)) inset,
-              0 0 0 12px rgba(var(--base-400)) inset`
-            }
-          },
-          '50%': {
-            css: {
-              'box-shadow': `0 0 0 3px rgba(var(--base-400)) inset,
-              0 0 0 3px rgba(var(--base-400)) inset`
-            }
-          },
-          '100%': {
-            css: {
-              'box-shadow': `0 0 0 4px rgba(var(--base-400)) inset,
-              0 0 0 4px rgba(var(--base-400)) inset`
-            }
-          }
-        }
-      },
-      base: {
-        [selector]: {
-          apply: 'shrink-0'
-        }
-      },
-      utils: {
-        [selector]: {
-          [`&${getSelector('xs')}`]: {
-            apply: 'h-4 w-4'
-          },
-          [`&${getSelector('sm')}`]: {
-            apply: 'h-5 w-5'
-          },
-          [`&${getSelector('md')}`]: {
-            apply: 'h-6 w-6'
-          },
-          [`&${getSelector('lg')}`]: {
-            apply: 'h-8 w-8'
-          }
+          `
+          })
+          .join('\n')}
+        &:disabled {
+          @apply cursor-not-allowed opacity-20;
         }
       }
+      
+      @keyframes radiomark {
+        0% {
+          box-shadow:
+            0 0 0 12px theme(colors.base-100) inset,
+            0 0 0 12px theme(colors.base-100) inset;
+        }
+        50% {
+          box-shadow:
+            0 0 0 3px theme(colors.base-100) inset,
+            0 0 0 3px theme(colors.base-100) inset;
+        }
+        100% {
+          box-shadow:
+            0 0 0 4px theme(colors.base-100) inset,
+            0 0 0 4px theme(colors.base-100) inset;
+        }
+      }
+      
+      /* backward compatibility */
+      ${selector}-mark {
+        @apply hidden;
+      }
+      
+      `,
+      base: `
+      ${selector} {
+        @apply shrink-0;
+      }
+      
+      `,
+      utils: `
+      [type="radio"]${selector} {
+        &-xs {
+          @apply h-4 w-4;
+        }
+        &-sm {
+          @apply h-5 w-5;
+        }
+        &-md {
+          @apply h-6 w-6;
+        }
+        &-lg {
+          @apply h-8 w-8;
+        }
+      }
+      
+      `
     }
   }
 }

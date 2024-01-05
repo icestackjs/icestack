@@ -1,10 +1,9 @@
-export type { CssInJs } from 'postcss-js'
-export type { VarPrefixerOptions, PrefixerOptions } from '@icestack/types'
+export type { VarPrefixerOptions, PrefixerOptions, CssInJs } from '@icestack/types'
 
 export * from './js'
 
 export * from './plugins'
 
-export * from '@icestack/postcss-utils'
-
 export * from './scss'
+
+export * from '@icestack/postcss-utils'

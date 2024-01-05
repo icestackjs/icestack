@@ -1,0 +1,53 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`scss > parse case 0 1`] = `
+" .avatar{
+      @apply relative inline-flex;
+      @apply bg-xx;
+    }"
+`;
+
+exports[`scss > parse case 1 1`] = `
+" .avatar{
+      @apply relative inline-flex;
+    } .avatar1{
+      @apply bg-xx;
+    }"
+`;
+
+exports[`scss > parse case 2 1`] = `
+" .avatar{
+      @apply relative inline-flex;
+      color: blue;
+      @apply bg-xx;
+      color: red;
+    }"
+`;
+
+exports[`scss > parse case 10 1`] = `
+" .avatar{
+      @apply relative inline-flex;
+      >div {
+        @apply block aspect-square overflow-hidden;
+        @apply mt-2;
+        color:red;
+      }
+      img {
+        @apply h-full w-full object-cover;
+      }
+      &.placeholder{
+        >div{
+          @apply flex items-center justify-center;
+          @apply text-xs;
+          @apply text-lg;
+
+          bg: red;
+        }
+        color:blue;
+        >span{
+          @apply flex items-center justify-center;
+        }
+      }
+      @apply bg-xx
+    }"
+`;

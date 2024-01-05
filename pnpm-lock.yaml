@@ -418,6 +418,9 @@ importers:
       postcss-js:
         specifier: ^4.0.1
         version: 4.0.1(postcss@8.4.32)
+      postcss-scss:
+        specifier: ^4.0.9
+        version: 4.0.9(postcss@8.4.32)
       postcss-selector-parser:
         specifier: ^6.0.15
         version: 6.0.15
@@ -561,9 +564,6 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
-      postcss-scss:
-        specifier: ^4.0.9
-        version: 4.0.9(postcss@8.4.32)
       sass:
         specifier: ^1.69.7
         version: 1.69.7

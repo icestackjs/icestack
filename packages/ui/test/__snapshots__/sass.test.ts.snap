@@ -13,3 +13,17 @@ ul:nth-child(3n+3) {
   background-color: #0059b3;
 }"
 `;
+
+exports[`sass > compileString mergeRoot case > output css 1`] = `
+"ul:nth-child(3n+1) {
+  background-color: #004080;
+}
+
+ul:nth-child(3n+2) {
+  background-color: #004d99;
+}
+
+ul:nth-child(3n+3) {
+  background-color: #0059b3;
+}"
+`;

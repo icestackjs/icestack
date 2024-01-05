@@ -15,10 +15,21 @@ import { defu } from '@/shared'
 import { getCodegenOptions } from '@/options'
 import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, scssTemplate } from '@/dirs'
 import { stages } from '@/constants'
+import {
+  merge,
+  parse,
+  getPrefixerPlugin,
+  getCssVarsPrefixerPlugin,
+  resolveTailwindcss,
+  initTailwindcssConfig,
+  objectify,
+  process,
+  resolvePrefixOption,
+  resolveVarPrefixOption
+} from '@/postcss'
 import { handleOptions } from '@/components/utils'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import { calcBase } from '@/base'
-import { getPrefixerPlugin, getCssVarsPrefixerPlugin, resolveTailwindcss, initTailwindcssConfig, objectify, process, resolvePrefixOption, resolveVarPrefixOption } from '@/postcss'
 function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
   return `${layer}.${suffixes.join('.')}`
 }

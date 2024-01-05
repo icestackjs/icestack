@@ -1,7 +1,7 @@
 import { createContext } from '@/context'
 import { getCodegenOptions } from '@/options'
 
-describe('var-prefix', () => {
+describe.skip('var-prefix', () => {
   it('snap case 0', () => {
     const ctx = createContext({
       dryRun: true

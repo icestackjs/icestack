@@ -2,7 +2,7 @@ import path from 'node:path'
 import sassTrue from 'sass-true'
 import * as sass from 'sass'
 import scssParser from 'postcss-scss'
-import { transformJsToSass } from '@/sass'
+import { transformJsToSass, compileScssString, mergeRoot } from '@/sass'
 // https://sass-lang.com/documentation/at-rules/mixin/#content-blocks
 
 // const cc = "dsadsa($a,$b)"
@@ -48,6 +48,21 @@ describe('sass', () => {
       result += i
     })
     expect(result).toEqual(testCase)
+    expect(sass.compileString(result).css).toMatchSnapshot('output css')
+  })
+
+  it('compileString mergeRoot case', () => {
+    const testCase = `$base-color: #036;
+
+    @for $i from 1 through 3 {
+      ul:nth-child(3n + #{$i}) {
+        background-color: lighten($base-color, $i * 5%);
+      }
+    }
+    `
+    const root = mergeRoot([testCase])
+    const result = root.toString()
+    // expect(result).toEqual(testCase)
     expect(sass.compileString(result).css).toMatchSnapshot('output css')
   })
 

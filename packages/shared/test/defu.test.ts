@@ -1,4 +1,4 @@
-import { defuOverrideArray, defuOverrideApplyCss } from '@/utils'
+import { defuOverrideArray, defuOverrideApplyCss, defu, defuArrayRight } from '@/utils'
 
 describe('defu', () => {
   it('defuOverrideArray case 0', () => {
@@ -60,5 +60,15 @@ describe('defu', () => {
     }
 
     expect(defuOverrideApplyCss(b, a)).toEqual(b)
+  })
+
+  it('defu array', () => {
+    const arr = defu({ array: ['b', 'c'] }, { array: ['a'] })
+    expect(arr).toMatchSnapshot()
+  })
+
+  it('defuArrayRight ', () => {
+    const arr = defuArrayRight({ array: ['b', 'c'] }, { array: ['a'] })
+    expect(arr).toMatchSnapshot()
   })
 })

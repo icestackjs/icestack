@@ -1,20 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`extra > extra btn > css 1`] = `""`;
-
-exports[`extra > extra btn > schema 1`] = `
+exports[`index new > case 0 1`] = `
 {
-  "base": {
+  "index": {
     "css": "",
     "cssInJs": {},
     "resolvedCss": "",
   },
-  "styled": {
-    "css": "",
-    "cssInJs": {},
-    "resolvedCss": "",
-  },
-  "utils": {
+  "unocss": {
     "css": "",
     "cssInJs": {},
     "resolvedCss": "",

@@ -3,58 +3,43 @@
 exports[`createPreset options > add custom component raw override case 0 1`] = `
 {
   "defaults": {
-    "base": {
-      ".my-xxx": {
-        "apply": [
-          [
-            "grid",
-            "w-full",
-            "grid-flow-row",
-            "content-start",
-            "items-center",
-            "justify-items-center",
-            "gap-4",
-            "text-center",
-            "sm:grid-flow-col",
-            "sm:grid-cols-[auto_minmax(auto,1fr)]",
-            "sm:justify-items-start",
-            "sm:text-left",
-          ],
-        ],
-      },
-    },
-    "styled": {
-      ".my-xxx": {
-        "apply": [
-          [
-            "rounded-box",
-            "border",
-            "p-4",
-            "text-base-content",
-            "border-base-200",
-          ],
-        ],
-      },
-    },
-    "utils": {
-      ".alert": {
-        ".my-xxx": {
-          "&:hover": {
-            "css": {
-              "color": "blue",
+    "base": [
+      "
+      .my-xxx{
+        @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
+      }
+      ",
+      undefined,
+    ],
+    "styled": [
+      "
+      .my-xxx{
+        @apply rounded-box border p-4 text-base-content border-base-200;
+
+        
+      }
+      ",
+      undefined,
+    ],
+    "utils": [
+      {
+        ".alert": {
+          ".my-xxx": {
+            "&:hover": {
+              "css": {
+                "color": "blue",
+              },
             },
-          },
-          "apply": [
-            [
+            "apply": [
               "bg-blue-500",
             ],
-          ],
-          "css": {
-            "color": "red",
+            "css": {
+              "color": "red",
+            },
           },
         },
       },
-    },
+    ],
   },
   "selector": ".my-xxx",
 }
@@ -63,85 +48,47 @@ exports[`createPreset options > add custom component raw override case 0 1`] = `
 exports[`createPreset options > alert case 0 1`] = `
 {
   "defaults": {
-    "base": {
-      ".alert": {
-        "apply": [
-          [
-            "grid",
-            "w-full",
-            "grid-flow-row",
-            "content-start",
-            "items-center",
-            "justify-items-center",
-            "gap-4",
-            "text-center",
-            "sm:grid-flow-col",
-            "sm:grid-cols-[auto_minmax(auto,1fr)]",
-            "sm:justify-items-start",
-            "sm:text-left",
-          ],
-        ],
-      },
-    },
-    "styled": {
-      ".alert": {
-        "&-error": {
-          "apply": [
-            [
-              "text-error-content",
-              "border-error/20",
-              "bg-error",
-            ],
-          ],
-        },
-        "&-neutral": {
-          "apply": [
-            [
-              "text-neutral-content",
-              "border-neutral/20",
-              "bg-neutral",
-            ],
-          ],
-        },
-        "&-primary": {
-          "apply": [
-            [
-              "text-primary-content",
-              "border-primary/20",
-              "bg-primary",
-            ],
-          ],
-        },
-        "&-success": {
-          "apply": [
-            [
-              "text-success-content",
-              "border-success/20",
-              "bg-success",
-            ],
-          ],
-        },
-        "&-warning": {
-          "apply": [
-            [
-              "text-warning-content",
-              "border-warning/20",
-              "bg-warning",
-            ],
-          ],
-        },
-        "apply": [
-          [
-            "rounded-box",
-            "border",
-            "p-4",
-            "text-base-content",
-            "border-base-200",
-          ],
-        ],
-      },
-    },
-    "utils": {},
+    "base": [
+      "
+      .alert{
+        @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
+      }
+      ",
+    ],
+    "styled": [
+      "
+      .alert{
+        @apply rounded-box border p-4 text-base-content border-base-200;
+
+        
+          &-primary{
+            @apply text-primary-content border-primary/20 bg-primary;
+          }
+          
+
+          &-success{
+            @apply text-success-content border-success/20 bg-success;
+          }
+          
+
+          &-warning{
+            @apply text-warning-content border-warning/20 bg-warning;
+          }
+          
+
+          &-error{
+            @apply text-error-content border-error/20 bg-error;
+          }
+          
+
+          &-neutral{
+            @apply text-neutral-content border-neutral/20 bg-neutral;
+          }
+          
+      }
+      ",
+    ],
+    "utils": [],
   },
   "selector": ".alert",
 }
@@ -150,40 +97,23 @@ exports[`createPreset options > alert case 0 1`] = `
 exports[`createPreset options > alert case 1 1`] = `
 {
   "defaults": {
-    "base": {
-      ".alert": {
-        "apply": [
-          [
-            "grid",
-            "w-full",
-            "grid-flow-row",
-            "content-start",
-            "items-center",
-            "justify-items-center",
-            "gap-4",
-            "text-center",
-            "sm:grid-flow-col",
-            "sm:grid-cols-[auto_minmax(auto,1fr)]",
-            "sm:justify-items-start",
-            "sm:text-left",
-          ],
-        ],
-      },
-    },
-    "styled": {
-      ".alert": {
-        "apply": [
-          [
-            "rounded-box",
-            "border",
-            "p-4",
-            "text-base-content",
-            "border-base-200",
-          ],
-        ],
-      },
-    },
-    "utils": {},
+    "base": [
+      "
+      .alert{
+        @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
+      }
+      ",
+    ],
+    "styled": [
+      "
+      .alert{
+        @apply rounded-box border p-4 text-base-content border-base-200;
+
+        
+      }
+      ",
+    ],
+    "utils": [],
   },
   "selector": ".alert",
 }
@@ -192,40 +122,23 @@ exports[`createPreset options > alert case 1 1`] = `
 exports[`createPreset options > alert raw case 1 1`] = `
 {
   "defaults": {
-    "base": {
-      ".alert": {
-        "apply": [
-          [
-            "grid",
-            "w-full",
-            "grid-flow-row",
-            "content-start",
-            "items-center",
-            "justify-items-center",
-            "gap-4",
-            "text-center",
-            "sm:grid-flow-col",
-            "sm:grid-cols-[auto_minmax(auto,1fr)]",
-            "sm:justify-items-start",
-            "sm:text-left",
-          ],
-        ],
-      },
-    },
-    "styled": {
-      ".alert": {
-        "apply": [
-          [
-            "rounded-box",
-            "border",
-            "p-4",
-            "text-base-content",
-            "border-base-200",
-          ],
-        ],
-      },
-    },
-    "utils": {},
+    "base": [
+      "
+      .alert{
+        @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
+      }
+      ",
+    ],
+    "styled": [
+      "
+      .alert{
+        @apply rounded-box border p-4 text-base-content border-base-200;
+
+        
+      }
+      ",
+    ],
+    "utils": [],
   },
   "selector": ".alert",
 }
@@ -234,42 +147,41 @@ exports[`createPreset options > alert raw case 1 1`] = `
 exports[`createPreset options > alert raw override case 0 1`] = `
 {
   "defaults": {
-    "base": {
-      ".ccc": {
-        "apply": [
-          [
+    "base": [
+      "
+      .xxx{
+        @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
+      }
+      ",
+      {
+        ".ccc": {
+          "apply": [
             "bg-blue-500",
           ],
-        ],
-        "css": {
-          "color": "red",
+          "css": {
+            "color": "red",
+          },
         },
-      },
-      ".xxx": {
-        "apply": [
-          [
+        ".xxx": {
+          "apply": [
             "bg-red-800",
           ],
-          [
-            "bg-red-900",
-          ],
-        ],
+        },
       },
-    },
-    "styled": {
-      ".xxx": {
-        "apply": [
-          [
-            "rounded-box",
-            "border",
-            "p-4",
-            "text-base-content",
-            "border-base-200",
-          ],
-        ],
-      },
-    },
-    "utils": {},
+    ],
+    "styled": [
+      "
+      .xxx{
+        @apply rounded-box border p-4 text-base-content border-base-200;
+
+        
+      }
+      ",
+      undefined,
+    ],
+    "utils": [
+      undefined,
+    ],
   },
   "selector": ".xxx",
 }

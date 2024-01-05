@@ -1,0 +1,21 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`defu > defu array 1`] = `
+{
+  "array": [
+    "b",
+    "c",
+    "a",
+  ],
+}
+`;
+
+exports[`defu > defuArrayRight  1`] = `
+{
+  "array": [
+    "a",
+    "b",
+    "c",
+  ],
+}
+`;

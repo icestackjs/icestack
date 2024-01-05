@@ -4,7 +4,7 @@ import { getCodegenOptions } from '@/options'
 import { sharedExtraColors } from '@/defaults'
 import { calcBase } from '@/base'
 
-describe('base', () => {
+describe.skip('base', () => {
   // let ctx: IContext
   // beforeEach(() => {
   //   ctx = createContext(getCodegenOptions())

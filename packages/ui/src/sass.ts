@@ -1,6 +1,7 @@
 import { OrderedMap } from 'immutable'
 import * as sass from 'sass'
 import defu from 'defu'
+import { merge, parse } from '@icestack/postcss'
 
 export interface TransformJsToSassOptions {
   quotes?: boolean
@@ -50,4 +51,13 @@ export function transformJsToSass(raw: any, options?: TransformJsToSassOptions):
   } else {
     return sass.sassNull
   }
+}
+
+export function mergeRoot(arr: string[]) {
+  return merge(...arr.map((x) => parse(x)))
+}
+
+export function compileScssString(arr: string[]) {
+  const root = mergeRoot(arr)
+  return sass.compileString(root.toString())
 }

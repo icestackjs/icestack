@@ -38,8 +38,16 @@ const defuExtendApplyCss = createDefu((obj, key, value) => {
     return true
   }
 })
+
+const defuArrayRight = createDefu((obj, key, value) => {
+  if (Array.isArray(obj[key]) && Array.isArray(value)) {
+    // @ts-ignore
+    obj[key] = [...obj[key], ...value]
+    return true
+  }
+})
 // defuExtendApplyCss
-export { defuOverrideArray, defuOverrideApplyCss, defuOptions, defuBaseDefault, defuExtendApplyCss }
+export { defuOverrideArray, defuOverrideApplyCss, defuOptions, defuBaseDefault, defuExtendApplyCss, defuArrayRight }
 
 export function expandTypes(types: string[], fn: (typeName: string) => { key: string; value: object }) {
   return types.reduce<Record<string, object>>((acc, cur) => {

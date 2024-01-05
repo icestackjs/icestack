@@ -4,18 +4,9 @@ exports[`custom components > custom component base 1`] = `""`;
 
 exports[`custom components > custom component styled 1`] = `""`;
 
-exports[`custom components > custom component utils 1`] = `
-".custom {
-  color: red;
-  @apply bg-blue-500;
-}"
-`;
+exports[`custom components > custom component utils 1`] = `""`;
 
-exports[`cutsom > custom component case 0 1`] = `
-".ice-subtitle {
-  @apply text-gray-600 text-sm pt-5 pb-4;
-}"
-`;
+exports[`cutsom > custom component case 0 1`] = `""`;
 
 exports[`cutsom > custom component case 1 1`] = `
 {
@@ -31,27 +22,9 @@ exports[`cutsom > custom component case 1 1`] = `
       "resolvedCss": "",
     },
     "utils": {
-      "css": ".subtitle {
-  @apply text-gray-600 text-sm pt-5 pb-4;
-}",
-      "cssInJs": {
-        ".ice-subtitle": {
-          "--tw-text-opacity": "1",
-          "color": "rgb(75 85 99 / var(--tw-text-opacity))",
-          "fontSize": "0.875rem",
-          "lineHeight": "1.25rem",
-          "paddingBottom": "1rem",
-          "paddingTop": "1.25rem",
-        },
-      },
-      "resolvedCss": ".ice-subtitle {
-    padding-top: 1.25rem;
-    padding-bottom: 1rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    --tw-text-opacity: 1;
-    color: rgb(75 85 99 / var(--tw-text-opacity))
-}",
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
     },
   },
   "tips": {
@@ -66,27 +39,9 @@ exports[`cutsom > custom component case 1 1`] = `
       "resolvedCss": "",
     },
     "utils": {
-      "css": ".tips {
-  @apply text-gray-500 text-xs pt-3 pb-2;
-}",
-      "cssInJs": {
-        ".som-tips": {
-          "--tw-text-opacity": "1",
-          "color": "rgb(107 114 128 / var(--tw-text-opacity))",
-          "fontSize": "0.75rem",
-          "lineHeight": "1rem",
-          "paddingBottom": "0.5rem",
-          "paddingTop": "0.75rem",
-        },
-      },
-      "resolvedCss": ".som-tips {
-    padding-top: 0.75rem;
-    padding-bottom: 0.5rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    --tw-text-opacity: 1;
-    color: rgb(107 114 128 / var(--tw-text-opacity))
-}",
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
     },
   },
 }
@@ -191,26 +146,9 @@ exports[`cutsom > custom component case 3 1`] = `
       "resolvedCss": "",
     },
     "utils": {
-      "css": ".xxx {
-  @apply bg-red-300 text-sm;
-  color: red;
-}",
-      "cssInJs": {
-        ".xxx": {
-          "--tw-bg-opacity": "1",
-          "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity))",
-          "color": "red",
-          "fontSize": "0.875rem",
-          "lineHeight": "1.25rem",
-        },
-      },
-      "resolvedCss": ".xxx {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: red
-}",
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
     },
   },
 }
@@ -230,27 +168,9 @@ exports[`cutsom > custom component case 4 !important 1`] = `
       "resolvedCss": "",
     },
     "utils": {
-      "css": ".xxx {
-  @apply bg-red-300 text-sm;
-  @apply leading-4 !important;
-  color: red;
-}",
-      "cssInJs": {
-        ".xxx": {
-          "--tw-bg-opacity": "1",
-          "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity))",
-          "color": "red",
-          "fontSize": "0.875rem",
-          "lineHeight": "1rem !important",
-        },
-      },
-      "resolvedCss": ".xxx {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  font-size: 0.875rem;
-  line-height: 1rem !important;
-  color: red
-}",
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
     },
   },
 }
@@ -270,26 +190,9 @@ exports[`cutsom > custom component case 5 !important 1`] = `
       "resolvedCss": "",
     },
     "utils": {
-      "css": ".xxx {
-  @apply bg-red-300 text-sm leading-4 !important;
-  color: red !important;
-}",
-      "cssInJs": {
-        ".xxx": {
-          "--tw-bg-opacity": "1 !important",
-          "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity)) !important",
-          "color": "red !important",
-          "fontSize": "0.875rem !important",
-          "lineHeight": "1rem !important",
-        },
-      },
-      "resolvedCss": ".xxx {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity)) !important;
-  font-size: 0.875rem !important;
-  line-height: 1rem !important;
-  color: red !important
-}",
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
     },
   },
 }
@@ -299,26 +202,9 @@ exports[`cutsom > custom component case 6 1`] = `
 {
   "xxx": {
     "base": {
-      "css": ".xxx {
-  @apply bg-red-300 text-sm leading-4 !important;
-  color: red;
-}",
-      "cssInJs": {
-        ".xxx": {
-          "--tw-bg-opacity": "1 !important",
-          "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity)) !important",
-          "color": "red",
-          "fontSize": "0.875rem !important",
-          "lineHeight": "1rem !important",
-        },
-      },
-      "resolvedCss": ".xxx {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity)) !important;
-  font-size: 0.875rem !important;
-  line-height: 1rem !important;
-  color: red
-}",
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
     },
     "styled": {
       "css": "",
@@ -338,26 +224,9 @@ exports[`cutsom > custom component case 7 1`] = `
 {
   "xxx": {
     "base": {
-      "css": ".xxx {
-  @apply bg-red-300 text-sm leading-4 !important;
-  color: red;
-}",
-      "cssInJs": {
-        ".xxx": {
-          "--tw-bg-opacity": "1 !important",
-          "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity)) !important",
-          "color": "red",
-          "fontSize": "0.875rem !important",
-          "lineHeight": "1rem !important",
-        },
-      },
-      "resolvedCss": ".xxx {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity)) !important;
-  font-size: 0.875rem !important;
-  line-height: 1rem !important;
-  color: red
-}",
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
     },
     "styled": {
       "css": "",

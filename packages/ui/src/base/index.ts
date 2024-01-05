@@ -1,8 +1,11 @@
 import { TinyColor } from '@ctrl/tinycolor'
+import { AtRule, Declaration, Root, Rule } from 'postcss'
 import { makeRgbaValue, sharedExtraColors, sharedExtraVars } from './colors'
 import { CodegenOptions, VarPrefixerOptions } from '@/types'
 import { mergeR, mergeRClone } from '@/shared'
-import { mapCss2JsArray } from '@/postcss'
+import { mapCss2JsArray, merge, parse } from '@/postcss'
+import { mergeRoot } from '@/sass'
+import { makeArray } from '@/utils'
 
 export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, slash: boolean = true) => {
   return Object.entries({
@@ -34,11 +37,6 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
   }
   const { themes, extraCss: globalExtraCss, themeSelectorTemplate, mediaDarkTheme, generateColors } = base ?? {}
 
-  // @media (prefers-color-scheme: dark)
-  // ??
-  //   ((theme: string) => {
-  //     return `[data-mode="${theme}"]`
-  //   })
   const typesSet = new Set<string>()
   function addColors(obj: Record<string, string>) {
     for (const x of Object.keys(obj)) {
@@ -81,21 +79,14 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
           ...(obj as Record<string, string>)
         }
       }, {})
-      const css = mergeRClone(
-        composeVarsObject(typesColors, { ...(extraColors ?? sharedExtraColors.light), ...(extraVars ?? sharedExtraVars) }, slash),
-        ...mapCss2JsArray(extraCss)
-      )
-      acc[selector] = {
-        css
-      }
+      const css = mergeRClone(composeVarsObject(typesColors, { ...(extraColors ?? sharedExtraColors.light), ...(extraVars ?? sharedExtraVars) }, slash), extraCss)
+      acc[selector] = css
       if (mediaDarkTheme === theme) {
         // default selector
         const defaultSelector = themes?.light.selector
         if (defaultSelector) {
           acc['@media (prefers-color-scheme: dark)'] = {
-            [defaultSelector]: {
-              css
-            }
+            [defaultSelector]: css
           }
         }
       }
@@ -110,13 +101,57 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
 
     return acc
   }, {})
+
+  const root = new Root()
+
+  for (const [selector, obj] of Object.entries(presets)) {
+    if (selector.startsWith('@media')) {
+      root.append(
+        new AtRule({
+          name: 'media',
+          params: '(prefers-color-scheme: dark)',
+          nodes: Object.entries(obj).map(([s, o]) => {
+            return new Rule({
+              selector: s,
+              nodes:
+                typeof o === 'object'
+                  ? Object.entries(o).map(([p, v]) => {
+                      return new Declaration({
+                        prop: p,
+                        value: v
+                      })
+                    })
+                  : []
+            })
+          })
+        })
+      )
+    } else {
+      root.append(
+        new Rule({
+          selector,
+          nodes:
+            typeof obj === 'object'
+              ? Object.entries(obj).map(([p, v]) => {
+                  return new Declaration({
+                    prop: p,
+                    value: v
+                  })
+                })
+              : []
+        })
+      )
+    }
+  }
+
   if (globalExtraCss) {
-    mergeR(presets, ...mapCss2JsArray(globalExtraCss))
+    merge(root, ...makeArray(globalExtraCss).map((x) => parse(x)))
   }
 
   return {
     presets,
     types: [...typesSet],
-    colors
+    colors,
+    root
   }
 }

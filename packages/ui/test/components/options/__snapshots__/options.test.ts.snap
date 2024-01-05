@@ -331,16 +331,16 @@ exports[`'button' options > raw snap 1`] = `
       ",
     "styled": "
         .btn{
-          @apply border-neutral bg-neutral text-neutral-content outline-neutral no-underline;
+          @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
           &:focus-visible,&.btn-focus-visible{
             @apply outline outline-2 outline-offset-2;
           }
           &:hover,&.btn-hover{
-            @apply border-neutral-hover bg-neutral-hover;
+            @apply border-ant-neutral-300 bg-ant-neutral-300;
           }
-          &:active,&.btn-active{
-            @apply border-neutral-active bg-neutral-active;
+          &:active,&.btn-hover{
+            @apply border-ant-neutral-500 bg-ant-neutral-500;
           }
           
 
@@ -368,10 +368,10 @@ exports[`'button' options > raw snap 1`] = `
           &-outline{
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,&.btn-hover{
-              @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+              @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
             }
             &:active,&.btn-active{
-              @apply border-neutral-active bg-neutral-active text-neutral-content;
+              @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
             }
             
           }

@@ -1,5 +1,5 @@
 import { TinyColor } from '@ctrl/tinycolor'
-import { makeRgbaValue, sharedExtraColors, sharedExtraVars, gray } from './colors'
+import { makeRgbaValue, sharedExtraColors, sharedExtraVars } from './colors'
 import { CodegenOptions, VarPrefixerOptions } from '@/types'
 import { mergeR, mergeRClone } from '@/shared'
 import { mapCss2JsArray } from '@/postcss'
@@ -30,11 +30,7 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
   const { varPrefix } = varPrefixOptions as Partial<VarPrefixerOptions>
   const colors: Record<string, string> = {
     transparent: 'transparent',
-    current: 'currentColor',
-    ...Object.values(gray).reduce<Record<string, string>>((acc, value, idx) => {
-      acc[`ant-neutral-${idx + 1}00`] = value
-      return acc
-    }, {})
+    current: 'currentColor'
   }
   const { themes, extraCss: globalExtraCss, themeSelectorTemplate, mediaDarkTheme, generateColors } = base ?? {}
 

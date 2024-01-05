@@ -153,17 +153,17 @@ exports[`options merge > merge case 1 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  @apply border-neutral bg-neutral text-neutral-content outline-neutral no-underline;
+  @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
 .btn:hover, .btn.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover;
+  @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-active {
-  @apply border-neutral-active bg-neutral-active;
+.btn:active, .btn.btn-hover {
+  @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -232,10 +232,10 @@ exports[`options merge > merge case 1 1`] = `
   @apply border-current bg-transparent shadow-none text-base-content;
 }
 .btn-outline:hover, .btn-outline.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+  @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
 }
 .btn-outline:active, .btn-outline.btn-active {
-  @apply border-neutral-active bg-neutral-active text-neutral-content;
+  @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
 }
 .btn-outline.btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -290,11 +290,11 @@ exports[`options merge > merge case 1 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity))",
           "borderWidth": "var(--ice-border-btn, 1px)",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-neutral) / 1)",
+          "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
+          "outlineColor": "rgba(var(--ice-ant-neutral-400) / 1)",
           "textDecorationLine": "none",
         },
         ".btn-error": {
@@ -508,17 +508,17 @@ exports[`options merge > merge case 1 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-outline:hover,.btn-outline.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-primary": {
           "--tw-bg-opacity": "1",
@@ -599,11 +599,11 @@ exports[`options merge > merge case 1 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%； ",
         },
-        ".btn:active,.btn.btn-active": {
+        ".btn:active,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity))",
         },
         ".btn:focus-visible,.btn.btn-focus-visible": {
           "outlineOffset": "2px",
@@ -613,21 +613,21 @@ exports[`options merge > merge case 1 1`] = `
         ".btn:hover,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity))",
         },
         "@charset "UTF-8"": true,
       },
       "resolvedCss": "@charset "UTF-8";
 .btn{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   text-decoration-line: none;
-  outline-color: rgba(var(--ice-neutral) / 1);
+  outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
 }
 .btn:focus-visible,.btn.btn-focus-visible{
@@ -637,15 +637,15 @@ exports[`options merge > merge case 1 1`] = `
 }
 .btn:hover,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-active{
+.btn:active,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity));
 }
 .btn-primary{
   --tw-border-opacity: 1;
@@ -803,19 +803,19 @@ exports[`options merge > merge case 1 1`] = `
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline:active,.btn-outline.btn-active{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline.btn-primary{
   --tw-border-opacity: 1;
@@ -1294,17 +1294,17 @@ exports[`options merge > merge case 2 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  @apply border-neutral bg-neutral text-neutral-content outline-neutral no-underline;
+  @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
 .btn:hover, .btn.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover;
+  @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-active {
-  @apply border-neutral-active bg-neutral-active;
+.btn:active, .btn.btn-hover {
+  @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -1373,10 +1373,10 @@ exports[`options merge > merge case 2 1`] = `
   @apply border-current bg-transparent shadow-none text-base-content;
 }
 .btn-outline:hover, .btn-outline.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+  @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
 }
 .btn-outline:active, .btn-outline.btn-active {
-  @apply border-neutral-active bg-neutral-active text-neutral-content;
+  @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
 }
 .btn-outline.btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -1431,11 +1431,11 @@ exports[`options merge > merge case 2 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity))",
           "borderWidth": "var(--ice-border-btn, 1px)",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-neutral) / 1)",
+          "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
+          "outlineColor": "rgba(var(--ice-ant-neutral-400) / 1)",
           "textDecorationLine": "none",
         },
         ".btn-error": {
@@ -1649,17 +1649,17 @@ exports[`options merge > merge case 2 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-outline:hover,.btn-outline.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-primary": {
           "--tw-bg-opacity": "1",
@@ -1740,11 +1740,11 @@ exports[`options merge > merge case 2 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%； ",
         },
-        ".btn:active,.btn.btn-active": {
+        ".btn:active,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity))",
         },
         ".btn:focus-visible,.btn.btn-focus-visible": {
           "outlineOffset": "2px",
@@ -1754,21 +1754,21 @@ exports[`options merge > merge case 2 1`] = `
         ".btn:hover,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity))",
         },
         "@charset "UTF-8"": true,
       },
       "resolvedCss": "@charset "UTF-8";
 .btn{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   text-decoration-line: none;
-  outline-color: rgba(var(--ice-neutral) / 1);
+  outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
 }
 .btn:focus-visible,.btn.btn-focus-visible{
@@ -1778,15 +1778,15 @@ exports[`options merge > merge case 2 1`] = `
 }
 .btn:hover,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-active{
+.btn:active,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity));
 }
 .btn-primary{
   --tw-border-opacity: 1;
@@ -1944,19 +1944,19 @@ exports[`options merge > merge case 2 1`] = `
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline:active,.btn-outline.btn-active{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline.btn-primary{
   --tw-border-opacity: 1;
@@ -2435,17 +2435,17 @@ exports[`options merge > merge case 3 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  @apply border-neutral bg-neutral text-neutral-content outline-neutral no-underline;
+  @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
 .btn:hover, .btn.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover;
+  @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-active {
-  @apply border-neutral-active bg-neutral-active;
+.btn:active, .btn.btn-hover {
+  @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -2514,10 +2514,10 @@ exports[`options merge > merge case 3 1`] = `
   @apply border-current bg-transparent shadow-none text-base-content;
 }
 .btn-outline:hover, .btn-outline.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+  @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
 }
 .btn-outline:active, .btn-outline.btn-active {
-  @apply border-neutral-active bg-neutral-active text-neutral-content;
+  @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
 }
 .btn-outline.btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -2572,11 +2572,11 @@ exports[`options merge > merge case 3 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity))",
           "borderWidth": "var(--ice-border-btn, 1px)",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-neutral) / 1)",
+          "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
+          "outlineColor": "rgba(var(--ice-ant-neutral-400) / 1)",
           "textDecorationLine": "none",
         },
         ".btn-error": {
@@ -2790,17 +2790,17 @@ exports[`options merge > merge case 3 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-outline:hover,.btn-outline.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-primary": {
           "--tw-bg-opacity": "1",
@@ -2881,11 +2881,11 @@ exports[`options merge > merge case 3 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%； ",
         },
-        ".btn:active,.btn.btn-active": {
+        ".btn:active,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity))",
         },
         ".btn:focus-visible,.btn.btn-focus-visible": {
           "outlineOffset": "2px",
@@ -2895,21 +2895,21 @@ exports[`options merge > merge case 3 1`] = `
         ".btn:hover,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity))",
         },
         "@charset "UTF-8"": true,
       },
       "resolvedCss": "@charset "UTF-8";
 .btn{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   text-decoration-line: none;
-  outline-color: rgba(var(--ice-neutral) / 1);
+  outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
 }
 .btn:focus-visible,.btn.btn-focus-visible{
@@ -2919,15 +2919,15 @@ exports[`options merge > merge case 3 1`] = `
 }
 .btn:hover,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-active{
+.btn:active,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity));
 }
 .btn-primary{
   --tw-border-opacity: 1;
@@ -3085,19 +3085,19 @@ exports[`options merge > merge case 3 1`] = `
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline:active,.btn-outline.btn-active{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline.btn-primary{
   --tw-border-opacity: 1;
@@ -3576,17 +3576,17 @@ exports[`options merge > merge case 4 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  @apply border-neutral bg-neutral text-neutral-content outline-neutral no-underline;
+  @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
 .btn:hover, .btn.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover;
+  @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-active {
-  @apply border-neutral-active bg-neutral-active;
+.btn:active, .btn.btn-hover {
+  @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -3655,10 +3655,10 @@ exports[`options merge > merge case 4 1`] = `
   @apply border-current bg-transparent shadow-none text-base-content;
 }
 .btn-outline:hover, .btn-outline.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+  @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
 }
 .btn-outline:active, .btn-outline.btn-active {
-  @apply border-neutral-active bg-neutral-active text-neutral-content;
+  @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
 }
 .btn-outline.btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -3713,11 +3713,11 @@ exports[`options merge > merge case 4 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity))",
           "borderWidth": "var(--ice-border-btn, 1px)",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-neutral) / 1)",
+          "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
+          "outlineColor": "rgba(var(--ice-ant-neutral-400) / 1)",
           "textDecorationLine": "none",
         },
         ".btn-error": {
@@ -3931,17 +3931,17 @@ exports[`options merge > merge case 4 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-outline:hover,.btn-outline.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-primary": {
           "--tw-bg-opacity": "1",
@@ -4022,11 +4022,11 @@ exports[`options merge > merge case 4 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%； ",
         },
-        ".btn:active,.btn.btn-active": {
+        ".btn:active,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity))",
         },
         ".btn:focus-visible,.btn.btn-focus-visible": {
           "outlineOffset": "2px",
@@ -4036,21 +4036,21 @@ exports[`options merge > merge case 4 1`] = `
         ".btn:hover,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity))",
         },
         "@charset "UTF-8"": true,
       },
       "resolvedCss": "@charset "UTF-8";
 .btn{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   text-decoration-line: none;
-  outline-color: rgba(var(--ice-neutral) / 1);
+  outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
 }
 .btn:focus-visible,.btn.btn-focus-visible{
@@ -4060,15 +4060,15 @@ exports[`options merge > merge case 4 1`] = `
 }
 .btn:hover,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-active{
+.btn:active,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity));
 }
 .btn-primary{
   --tw-border-opacity: 1;
@@ -4226,19 +4226,19 @@ exports[`options merge > merge case 4 1`] = `
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline:active,.btn-outline.btn-active{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline.btn-primary{
   --tw-border-opacity: 1;
@@ -4717,17 +4717,17 @@ exports[`options merge > merge case 5 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  @apply border-neutral bg-neutral text-neutral-content outline-neutral no-underline;
+  @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
 .btn:hover, .btn.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover;
+  @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-active {
-  @apply border-neutral-active bg-neutral-active;
+.btn:active, .btn.btn-hover {
+  @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -4796,10 +4796,10 @@ exports[`options merge > merge case 5 1`] = `
   @apply border-current bg-transparent shadow-none text-base-content;
 }
 .btn-outline:hover, .btn-outline.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+  @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
 }
 .btn-outline:active, .btn-outline.btn-active {
-  @apply border-neutral-active bg-neutral-active text-neutral-content;
+  @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
 }
 .btn-outline.btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -4854,11 +4854,11 @@ exports[`options merge > merge case 5 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity))",
           "borderWidth": "var(--ice-border-btn, 1px)",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-neutral) / 1)",
+          "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
+          "outlineColor": "rgba(var(--ice-ant-neutral-400) / 1)",
           "textDecorationLine": "none",
         },
         ".btn-error": {
@@ -5072,17 +5072,17 @@ exports[`options merge > merge case 5 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-outline:hover,.btn-outline.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-primary": {
           "--tw-bg-opacity": "1",
@@ -5163,11 +5163,11 @@ exports[`options merge > merge case 5 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%； ",
         },
-        ".btn:active,.btn.btn-active": {
+        ".btn:active,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity))",
         },
         ".btn:focus-visible,.btn.btn-focus-visible": {
           "outlineOffset": "2px",
@@ -5177,21 +5177,21 @@ exports[`options merge > merge case 5 1`] = `
         ".btn:hover,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity))",
         },
         "@charset "UTF-8"": true,
       },
       "resolvedCss": "@charset "UTF-8";
 .btn{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   text-decoration-line: none;
-  outline-color: rgba(var(--ice-neutral) / 1);
+  outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
 }
 .btn:focus-visible,.btn.btn-focus-visible{
@@ -5201,15 +5201,15 @@ exports[`options merge > merge case 5 1`] = `
 }
 .btn:hover,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-active{
+.btn:active,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity));
 }
 .btn-primary{
   --tw-border-opacity: 1;
@@ -5367,19 +5367,19 @@ exports[`options merge > merge case 5 1`] = `
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline:active,.btn-outline.btn-active{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline.btn-primary{
   --tw-border-opacity: 1;
@@ -5858,17 +5858,17 @@ exports[`options merge > merge case 6 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  @apply border-neutral bg-neutral text-neutral-content outline-neutral no-underline;
+  @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
 .btn:hover, .btn.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover;
+  @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-active {
-  @apply border-neutral-active bg-neutral-active;
+.btn:active, .btn.btn-hover {
+  @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -5937,10 +5937,10 @@ exports[`options merge > merge case 6 1`] = `
   @apply border-current bg-transparent shadow-none text-base-content;
 }
 .btn-outline:hover, .btn-outline.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+  @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
 }
 .btn-outline:active, .btn-outline.btn-active {
-  @apply border-neutral-active bg-neutral-active text-neutral-content;
+  @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
 }
 .btn-outline.btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -5995,11 +5995,11 @@ exports[`options merge > merge case 6 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity))",
           "borderWidth": "var(--ice-border-btn, 1px)",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-neutral) / 1)",
+          "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
+          "outlineColor": "rgba(var(--ice-ant-neutral-400) / 1)",
           "textDecorationLine": "none",
         },
         ".btn-error": {
@@ -6213,17 +6213,17 @@ exports[`options merge > merge case 6 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-outline:hover,.btn-outline.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-primary": {
           "--tw-bg-opacity": "1",
@@ -6304,11 +6304,11 @@ exports[`options merge > merge case 6 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%； ",
         },
-        ".btn:active,.btn.btn-active": {
+        ".btn:active,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity))",
         },
         ".btn:focus-visible,.btn.btn-focus-visible": {
           "outlineOffset": "2px",
@@ -6318,21 +6318,21 @@ exports[`options merge > merge case 6 1`] = `
         ".btn:hover,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity))",
         },
         "@charset "UTF-8"": true,
       },
       "resolvedCss": "@charset "UTF-8";
 .btn{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   text-decoration-line: none;
-  outline-color: rgba(var(--ice-neutral) / 1);
+  outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
 }
 .btn:focus-visible,.btn.btn-focus-visible{
@@ -6342,15 +6342,15 @@ exports[`options merge > merge case 6 1`] = `
 }
 .btn:hover,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-active{
+.btn:active,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity));
 }
 .btn-primary{
   --tw-border-opacity: 1;
@@ -6508,19 +6508,19 @@ exports[`options merge > merge case 6 1`] = `
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline:active,.btn-outline.btn-active{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline.btn-primary{
   --tw-border-opacity: 1;
@@ -6999,17 +6999,17 @@ exports[`options merge > merge case 7 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  @apply border-neutral bg-neutral text-neutral-content outline-neutral no-underline;
+  @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
 .btn:hover, .btn.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover;
+  @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-active {
-  @apply border-neutral-active bg-neutral-active;
+.btn:active, .btn.btn-hover {
+  @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -7078,10 +7078,10 @@ exports[`options merge > merge case 7 1`] = `
   @apply border-current bg-transparent shadow-none text-base-content;
 }
 .btn-outline:hover, .btn-outline.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+  @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
 }
 .btn-outline:active, .btn-outline.btn-active {
-  @apply border-neutral-active bg-neutral-active text-neutral-content;
+  @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
 }
 .btn-outline.btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -7136,11 +7136,11 @@ exports[`options merge > merge case 7 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity))",
           "borderWidth": "var(--ice-border-btn, 1px)",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-neutral) / 1)",
+          "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
+          "outlineColor": "rgba(var(--ice-ant-neutral-400) / 1)",
           "textDecorationLine": "none",
         },
         ".btn-error": {
@@ -7354,17 +7354,17 @@ exports[`options merge > merge case 7 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-outline:hover,.btn-outline.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-primary": {
           "--tw-bg-opacity": "1",
@@ -7445,11 +7445,11 @@ exports[`options merge > merge case 7 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%； ",
         },
-        ".btn:active,.btn.btn-active": {
+        ".btn:active,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity))",
         },
         ".btn:focus-visible,.btn.btn-focus-visible": {
           "outlineOffset": "2px",
@@ -7459,21 +7459,21 @@ exports[`options merge > merge case 7 1`] = `
         ".btn:hover,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity))",
         },
         "@charset "UTF-8"": true,
       },
       "resolvedCss": "@charset "UTF-8";
 .btn{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   text-decoration-line: none;
-  outline-color: rgba(var(--ice-neutral) / 1);
+  outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
 }
 .btn:focus-visible,.btn.btn-focus-visible{
@@ -7483,15 +7483,15 @@ exports[`options merge > merge case 7 1`] = `
 }
 .btn:hover,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-active{
+.btn:active,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity));
 }
 .btn-primary{
   --tw-border-opacity: 1;
@@ -7649,19 +7649,19 @@ exports[`options merge > merge case 7 1`] = `
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline:active,.btn-outline.btn-active{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline.btn-primary{
   --tw-border-opacity: 1;
@@ -8140,17 +8140,17 @@ exports[`options merge > merge case 8 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  @apply border-neutral bg-neutral text-neutral-content outline-neutral no-underline;
+  @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
 }
 .btn:hover, .btn.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover;
+  @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-active {
-  @apply border-neutral-active bg-neutral-active;
+.btn:active, .btn.btn-hover {
+  @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -8219,10 +8219,10 @@ exports[`options merge > merge case 8 1`] = `
   @apply border-current bg-transparent shadow-none text-base-content;
 }
 .btn-outline:hover, .btn-outline.btn-hover {
-  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+  @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
 }
 .btn-outline:active, .btn-outline.btn-active {
-  @apply border-neutral-active bg-neutral-active text-neutral-content;
+  @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
 }
 .btn-outline.btn-primary {
   @apply border-primary bg-primary text-primary-content outline-primary;
@@ -8277,11 +8277,11 @@ exports[`options merge > merge case 8 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity))",
           "borderWidth": "var(--ice-border-btn, 1px)",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-neutral) / 1)",
+          "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
+          "outlineColor": "rgba(var(--ice-ant-neutral-400) / 1)",
           "textDecorationLine": "none",
         },
         ".btn-error": {
@@ -8495,17 +8495,17 @@ exports[`options merge > merge case 8 1`] = `
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-outline:hover,.btn-outline.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity))",
+          "color": "rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity))",
         },
         ".btn-primary": {
           "--tw-bg-opacity": "1",
@@ -8586,11 +8586,11 @@ exports[`options merge > merge case 8 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%； ",
         },
-        ".btn:active,.btn.btn-active": {
+        ".btn:active,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-active) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-active) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity))",
         },
         ".btn:focus-visible,.btn.btn-focus-visible": {
           "outlineOffset": "2px",
@@ -8600,21 +8600,21 @@ exports[`options merge > merge case 8 1`] = `
         ".btn:hover,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral-hover) / var(--tw-border-opacity))",
+          "backgroundColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity))",
+          "borderColor": "rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity))",
         },
         "@charset "UTF-8"": true,
       },
       "resolvedCss": "@charset "UTF-8";
 .btn{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-400) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   text-decoration-line: none;
-  outline-color: rgba(var(--ice-neutral) / 1);
+  outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
 }
 .btn:focus-visible,.btn.btn-focus-visible{
@@ -8624,15 +8624,15 @@ exports[`options merge > merge case 8 1`] = `
 }
 .btn:hover,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-active{
+.btn:active,.btn.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity));
 }
 .btn-primary{
   --tw-border-opacity: 1;
@@ -8790,19 +8790,19 @@ exports[`options merge > merge case 8 1`] = `
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-hover) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-900) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-hover) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-900) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline:active,.btn-outline.btn-active{
   --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral-active) / var(--tw-border-opacity));
+  border-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral-active) / var(--tw-bg-opacity));
+  background-color: rgba(var(--ice-ant-neutral-1100) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+  color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline.btn-primary{
   --tw-border-opacity: 1;

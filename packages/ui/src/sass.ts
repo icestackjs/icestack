@@ -1,6 +1,20 @@
 import { OrderedMap } from 'immutable'
 import * as sass from 'sass'
 import defu from 'defu'
+import { parse as scssParse, stringify as scssStringify } from 'postcss-scss'
+import { Root } from 'postcss'
+
+export function parse(css: string) {
+  return scssParse(css)
+}
+
+export function stringify(root: Root) {
+  let result = ''
+  scssStringify(root, (i) => {
+    result += i
+  })
+  return result
+}
 
 export interface TransformJsToSassOptions {
   quotes?: boolean

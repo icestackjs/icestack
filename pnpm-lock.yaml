@@ -561,6 +561,9 @@ importers:
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
+      postcss-scss:
+        specifier: ^4.0.9
+        version: 4.0.9(postcss@8.4.32)
       sass:
         specifier: ^1.69.7
         version: 1.69.7
@@ -568,9 +571,6 @@ importers:
       '@types/lodash':
         specifier: ^4.14.202
         version: 4.14.202
-      postcss-scss:
-        specifier: ^4.0.9
-        version: 4.0.9(postcss@8.4.32)
 
   packages/unocss:
     dependencies:
@@ -17798,6 +17798,7 @@ packages:
       postcss: ^8.4.29
     dependencies:
       postcss: 8.4.32
+    dev: false
 
   /postcss-selector-parser@6.0.10:
     resolution: {integrity: sha512-IQ7TZdoaqbT+LCpShg46jnZVlhWD2w6iQYAcYXfHARZ7X1t/UGhhceQDs5X0cGqKvYlHNOuv7Oa1xmb0oQuA3w==}

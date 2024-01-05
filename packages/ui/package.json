@@ -95,11 +95,11 @@
     "immutable": "^4.0.0",
     "kleur": "^4.1.5",
     "lodash": "^4.17.21",
-    "sass": "^1.69.7"
+    "sass": "^1.69.7",
+    "postcss-scss": "^4.0.9"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.202",
-    "postcss-scss": "^4.0.9"
+    "@types/lodash": "^4.14.202"
   },
   "publishConfig": {
     "access": "public",

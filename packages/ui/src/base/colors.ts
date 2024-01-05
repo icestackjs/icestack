@@ -53,13 +53,21 @@ export const sharedExtraColors = {
     'base-100': '#ffffff',
     'base-200': '#f2f2f2',
     'base-300': '#e5e6e6',
-    'base-content': '#1f2937'
+    'base-content': '#1f2937',
+    ...Object.values(gray).reduce<Record<string, string>>((acc, value, idx) => {
+      acc[`ant-neutral-${idx + 1}00`] = value
+      return acc
+    }, {})
   },
   dark: {
     'base-100': '#1d232a',
     'base-200': '#191e24',
     'base-300': '#15191e',
-    'base-content': '#697280'
+    'base-content': '#697280',
+    ...Object.values(gray).reduce<Record<string, string>>((acc, value, idx) => {
+      acc[`ant-neutral-${13 - idx}00`] = value
+      return acc
+    }, {})
   }
 }
 

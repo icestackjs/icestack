@@ -1,6 +1,6 @@
 import postcssJs from 'postcss-js'
 import postcss, { Root, AcceptedPlugin, LazyResult, Document } from 'postcss'
-import type { VarPrefixerOptions, PrefixerOptions } from '@icestack/types'
+import type { VarPrefixerOptions, PrefixerOptions, CssInJs } from '@icestack/types'
 import prefixer from './prefixer'
 
 export type { CssInJs } from 'postcss-js'
@@ -45,6 +45,10 @@ export function getPrefixerPlugin(prefix?: false | string | PrefixerOptions) {
 
 export function objectify(root: Root) {
   return postcssJs.objectify(root as Root)
+}
+
+export function stringify(cssInJs: CssInJs) {
+  return postcssJs.parse(cssInJs).toString()
 }
 
 export function process(plugins: AcceptedPlugin[], css: string): LazyResult<Document | Root> {

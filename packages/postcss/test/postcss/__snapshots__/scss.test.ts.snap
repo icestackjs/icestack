@@ -18,10 +18,35 @@ exports[`scss > parse case 1 1`] = `
 exports[`scss > parse case 2 1`] = `
 " .avatar{
       @apply relative inline-flex;
-      color: blue;
-      @apply bg-xx;
       color: red;
+      @apply bg-xx;
     }"
+`;
+
+exports[`scss > parse case 3 1`] = `
+"
+    @media xx{
+      .avatar{
+        @apply relative inline-flex;
+        color: red;
+        @apply bg-xx;
+      }
+    }
+"
+`;
+
+exports[`scss > parse case 4 1`] = `
+"
+    @media xx{
+      .avatar{
+        @apply relative inline-flex;
+        color: pp;
+        @apply bg-xx;
+        @apply bg-ccav;
+        basd:fdsa;
+      }
+    }
+"
 `;
 
 exports[`scss > parse case 10 1`] = `

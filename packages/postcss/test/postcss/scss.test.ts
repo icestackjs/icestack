@@ -1,5 +1,5 @@
 import type { Node, Rule, ChildNode, Root, AtRule, Declaration, Comment } from 'postcss'
-import { parse, stringify } from '@/scss'
+import { parse, merge as mergeArray } from '@/scss'
 import { compressCssSelector } from '@/index'
 
 function getKey(node: AtRule | Rule | Root | Comment | Declaration) {
@@ -29,31 +29,6 @@ function calcPath(node: AtRule | Rule): string[] {
   return paths
 }
 
-// 从右到左
-function merge(leftNode: AtRule | Rule | Root, rightNode: AtRule | Rule | Root) {
-  // leftNode
-  for (const right of rightNode.nodes) {
-    let insertFlag = true
-    for (const left of leftNode.nodes) {
-      if (left.type === 'rule' && right.type === 'rule' && compressCssSelector(left.selector) === compressCssSelector(right.selector)) {
-        merge(left, right)
-        insertFlag = false
-      } else if (left.type === 'atrule' && right.type === 'atrule' && left.params === right.params && left.name === right.name) {
-        if (left.name === 'apply' && right.name === 'apply') {
-          left.after(right)
-        } else {
-          merge(left, right)
-        }
-        insertFlag = false
-      }
-      // else if(left.type === 'decl' && right.type === 'decl'){
-      //   if(left.prop === )
-      // }
-    }
-    insertFlag && leftNode.push(right)
-  }
-}
-
 describe('scss', () => {
   it('parse case 0', () => {
     const root = parse(` .avatar{
@@ -63,7 +38,7 @@ describe('scss', () => {
     const mergeItem = parse(` .avatar{
       @apply bg-xx;
     }`)
-    merge(root, mergeItem)
+    mergeArray(root, mergeItem)
 
     expect(root.toString()).toMatchSnapshot()
   })
@@ -76,7 +51,7 @@ describe('scss', () => {
     const mergeItem = parse(` .avatar1{
       @apply bg-xx;
     }`)
-    merge(root, mergeItem)
+    mergeArray(root, mergeItem)
 
     expect(root.toString()).toMatchSnapshot()
   })
@@ -91,7 +66,60 @@ describe('scss', () => {
       @apply bg-xx;
       color: red;
     }`)
-    merge(root, mergeItem)
+    mergeArray(root, mergeItem)
+
+    expect(root.toString()).toMatchSnapshot()
+  })
+
+  it('parse case 3', () => {
+    const root = parse(`
+    @media xx{
+      .avatar{
+        @apply relative inline-flex;
+        color: blue;
+      }
+    }
+`)
+
+    const mergeItem = parse(`@media xx{
+      .avatar{
+        @apply bg-xx;
+        color: red;
+      }
+    }`)
+    mergeArray(root, mergeItem)
+
+    expect(root.toString()).toMatchSnapshot()
+  })
+
+  it('parse case 4', () => {
+    const root = parse(`
+    @media xx{
+      .avatar{
+        @apply relative inline-flex;
+        color: blue;
+      }
+    }
+`)
+
+    const mergeItem = parse(`@media xx{
+      .avatar{
+        @apply bg-xx;
+        color: red;
+      }
+    }`)
+
+    mergeArray(
+      root,
+      mergeItem,
+      parse(`@media xx{
+      .avatar{
+        @apply bg-ccav;
+        color: pp;
+        basd:fdsa;
+      }
+    }`)
+    )
 
     expect(root.toString()).toMatchSnapshot()
   })
@@ -132,7 +160,7 @@ describe('scss', () => {
         }
       }
     }`)
-    merge(root, mergeItem)
+    mergeArray(root, mergeItem)
     // const mkm = new Map()
 
     // root.walkAtRules((atRule) => {

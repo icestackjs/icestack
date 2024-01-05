@@ -1,4 +1,4 @@
-import { parse as scssParse, stringify as scssStringify } from 'postcss-scss'
+import { parse as scssParse } from 'postcss-scss'
 import type { AtRule, Root, Rule } from 'postcss'
 import { compressCssSelector } from '@icestack/postcss-utils'
 
@@ -9,14 +9,14 @@ export function parse(css: string) {
   })
   return root
 }
-
-export function stringify(root: Root) {
-  let result = ''
-  scssStringify(root, (i) => {
-    result += i
-  })
-  return result
-}
+// , stringify as scssStringify
+// export function stringify(root: Root) {
+//   let result = ''
+//   scssStringify(root, (i) => {
+//     result += i
+//   })
+//   return result
+// }
 
 // 从右到左
 export function mergeLeftRight(leftNode: AtRule | Rule | Root, rightNode: AtRule | Rule | Root) {

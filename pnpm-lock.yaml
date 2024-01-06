@@ -454,6 +454,9 @@ importers:
       '@icestack/shared':
         specifier: workspace:^
         version: link:../shared
+      '@icestack/theme-algorithm':
+        specifier: workspace:^
+        version: link:../theme-algorithm
       '@icestack/types':
         specifier: workspace:^
         version: link:../types

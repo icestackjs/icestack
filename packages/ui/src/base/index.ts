@@ -1,5 +1,6 @@
 import { TinyColor } from '@ctrl/tinycolor'
-import { makeRgbaValue, sharedExtraColors, sharedExtraVars } from './colors'
+import { sharedExtraColors, sharedExtraVars } from '@icestack/preset-default/base'
+import { makeRgbaValue } from './colors'
 import { CodegenOptions, VarPrefixerOptions } from '@/types'
 import { mergeRClone } from '@/shared'
 import { merge, parse, parseJs } from '@/postcss'

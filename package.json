@@ -5,7 +5,7 @@
   "scripts": {
     "build": "turbo run build --filter=./packages/* --filter=./plugins/* --filter=./presets/*",
     "build:plugins": "turbo run build --filter=./plugins/*",
-    "build:all": "turbo run build",
+    "build:all": "turbo run build --filter=!./examples/*",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",

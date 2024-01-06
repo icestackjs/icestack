@@ -1,5 +1,13 @@
 # @icestack/presets
 
+## 0.2.19
+
+### Patch Changes
+
+- Updated dependencies [[`b7f2ee4`](https://github.com/sonofmagic/icestack/commit/b7f2ee41c516b63f6093f5c92fc2375817438347)]:
+  - @icestack/preset-mockup@1.0.0
+  - @icestack/preset-weapp@1.0.0
+
 ## 0.2.18
 
 ### Patch Changes

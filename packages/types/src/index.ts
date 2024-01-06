@@ -1,5 +1,6 @@
 import type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 import type { AcceptedPlugin } from 'postcss'
+import type { StringOptions } from 'sass'
 import type { GetCssSchemaMethod, GetCssSchemaMethodOptions, CssValue } from './shared'
 import type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 
@@ -180,6 +181,8 @@ export type CodegenOptions = {
    * @description Whether to clean the output directory before generating the css.
    */
   clean?: boolean
+
+  sassOptions?: StringOptions<'sync'>
 } & (
   | {
       /**

@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { set, get, pick } from 'lodash'
+import { set, get, pick, isError } from 'lodash'
 import { Root, AcceptedPlugin, Rule, AtRule } from 'postcss'
 import kleur from 'kleur'
 import { compileScssString } from '@/sass'
@@ -11,7 +11,7 @@ import { generateIndexCode } from '@/generate'
 import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@/types'
 import { defu } from '@/shared'
 import { getCodegenOptions } from '@/options'
-import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath } from '@/dirs'
+import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath } from '@/dirs'
 import { stages } from '@/constants'
 import {
   merge,
@@ -39,7 +39,7 @@ export interface BuildOptions {
 
 export function createContext(opts?: CodegenOptions) {
   const options = getCodegenOptions(opts)
-  const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities } = options
+  const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities, sassOptions } = options
   const { prefix: _globalPrefix, varPrefix: _globalVarPrefix, plugins: globalPostcssPlugins } = postcss!
 
   const globalPrefix = resolvePrefixOption(_globalPrefix)
@@ -66,11 +66,13 @@ export function createContext(opts?: CodegenOptions) {
     const cssPath = getCssPath(relPath, outdir)
     const jsPath = getJsPath(relPath, outdir)
     const cssResolvedPath = getCssResolvedPath(relPath, outdir)
+    const scssPath = getScssPath(relPath, outdir)
 
     return {
       cssPath,
       jsPath,
-      cssResolvedPath
+      cssResolvedPath,
+      scssPath
     }
   }
 
@@ -150,10 +152,13 @@ export function createContext(opts?: CodegenOptions) {
 
   async function internalBuild(opts: { root?: AtRule | Root | Rule; layer: ILayer; suffixes: string[]; relPath: string }) {
     const { layer, suffixes, relPath, root = new Root() } = opts
+    const { cssPath, cssResolvedPath, jsPath, scssPath } = getPaths(relPath)
+    const scss = root.toString()
 
-    const { css } = compileScssString(root.toString())
+    writeFile(scssPath, scss)
+
+    const { css } = compileScssString(scss, sassOptions)
     const { css: cssOutput } = preprocessCss(css, layer, suffixes[0])
-    const { cssPath, cssResolvedPath, jsPath } = getPaths(relPath)
 
     // scss -> css
     writeFile(cssPath, cssOutput)
@@ -173,6 +178,7 @@ export function createContext(opts?: CodegenOptions) {
     writeFile(jsPath, data)
 
     return {
+      scss,
       // root,
       css: cssOutput,
       // resolvedRoot,
@@ -240,14 +246,25 @@ export function createContext(opts?: CodegenOptions) {
         const p = suffixes.join('.')
         const cssArray = get(presets, p, []) as string[]
         const root = merge(...(mapCssStringToAst(cssArray) as Root[]))
-        const result = await internalBuild({
-          root,
-          layer,
-          suffixes,
-          relPath: `${layer}/${componentName}/${stage}.scss`
-        })
 
-        set(res, `${componentName}.${stage}`, result)
+        try {
+          const result = await internalBuild({
+            root,
+            layer,
+            suffixes,
+            relPath: `${layer}/${componentName}/${stage}.scss`
+          })
+
+          set(res, `${componentName}.${stage}`, result)
+        } catch (error) {
+          if (isError(error)) {
+            throw new Error(error.message, {
+              cause: p
+            })
+          }
+          throw error
+        }
+
         // res[componentName][stage] = cssJsObj
       }
       b1.update(++idx, {

@@ -57,6 +57,6 @@ export function mergeRoot(arr: string[]) {
   return merge(...arr.map((x) => parse(x)))
 }
 
-export function compileScssString(str: string) {
-  return sass.compileString(str)
+export function compileScssString(str: string, sassOptions?: sass.StringOptions<'sync'>) {
+  return sass.compileString(str, sassOptions)
 }

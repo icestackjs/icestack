@@ -7,11 +7,13 @@ exports[`cutsom > custom component case 1 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".ice-subtitle {
@@ -35,6 +37,9 @@ exports[`cutsom > custom component case 1 1`] = `
     --tw-text-opacity: 1;
     color: rgb(75 85 99 / var(--tw-text-opacity))
 }",
+      "scss": ".subtitle {
+            @apply text-gray-600 text-sm pt-5 pb-4;
+          }",
     },
   },
   "tips": {
@@ -42,11 +47,13 @@ exports[`cutsom > custom component case 1 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".som-tips {
@@ -70,6 +77,9 @@ exports[`cutsom > custom component case 1 1`] = `
     --tw-text-opacity: 1;
     color: rgb(107 114 128 / var(--tw-text-opacity))
 }",
+      "scss": ".tips {
+            @apply text-gray-500 text-xs pt-3 pb-2;
+          }",
     },
   },
 }
@@ -152,16 +162,41 @@ exports[`cutsom > custom component case 2 1`] = `
   transform: translate(-50%, -50%) scale(1);
   -webkit-transform: translate(-50%, -50%) scale(1);
 }",
+      "scss": ".checkbox .wx-checkbox-input {
+                  width: 34rpx;
+                  height: 34rpx;
+                  border-radius: 50%;
+                }
+                /*checkbox选中后样式  */
+                .checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+                  background: #0394f0;
+                  border-color: #0394f0;
+                }
+                /*checkbox选中后图标样式  */
+                .checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+                  width: 20rpx;
+                  height: 20rpx;
+                  line-height: 20rpx;
+                  text-align: center;
+                  font-size: 22rpx;
+                  color: #fff;
+                  background: transparent;
+                  transform: translate(-50%, -50%) scale(1);
+                  -webkit-transform: translate(-50%, -50%) scale(1);
+                }
+                ",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
   },
 }
@@ -174,11 +209,13 @@ exports[`cutsom > custom component case 3 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".xxx {
@@ -201,6 +238,12 @@ exports[`cutsom > custom component case 3 1`] = `
   line-height: 1.25rem;
   color: red
 }",
+      "scss": "
+            .xxx{
+              @apply bg-red-300 text-sm;
+              color: red;
+            }
+            ",
     },
   },
 }
@@ -213,11 +256,13 @@ exports[`cutsom > custom component case 4 !important 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".xxx {
@@ -241,6 +286,13 @@ exports[`cutsom > custom component case 4 !important 1`] = `
   line-height: 1rem !important;
   color: red
 }",
+      "scss": "
+            .xxx{
+              @apply bg-red-300 text-sm;
+              @apply leading-4 #{!important};
+              color: red;
+            }
+            ",
     },
   },
 }
@@ -253,11 +305,13 @@ exports[`cutsom > custom component case 5 !important 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".xxx {
@@ -280,6 +334,12 @@ exports[`cutsom > custom component case 5 !important 1`] = `
   line-height: 1rem !important;
   color: red !important
 }",
+      "scss": "
+            .xxx{
+              @apply bg-red-300 text-sm leading-4 #{!important};
+              color: red !important;
+            }
+            ",
     },
   },
 }

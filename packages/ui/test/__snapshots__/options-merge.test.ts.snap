@@ -24,16 +24,22 @@ exports[`options merge > merge case 0 1`] = `
   line-height: 1rem !important;
   color: red
 }",
+      "scss": ".xxx{
+                @apply bg-red-300 text-sm leading-4 #{!important};
+                color: red;
+              }",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
   },
 }
@@ -155,6 +161,32 @@ exports[`options merge > merge case 1 1`] = `
   --tw-content: attr(aria-label);
   content: var(--tw-content)
 }",
+      "scss": ".btn {
+        @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
+        font-size: 0.875rem;
+        line-height: 1em;
+        /* disabled */
+        &-disabled,&[disabled],&:disabled {
+          @apply pointer-events-none;
+        }
+      
+        /* shapes */
+        &-square {
+          @apply h-12 w-12 p-0;
+        }
+        &-circle {
+          @apply h-12 w-12 rounded-full p-0;
+        }
+      }
+      
+      /* radio input and checkbox as button */
+      :where(.btn:is(input[type="checkbox"])),:where(.btn:is(input[type="radio"])) {
+        @apply w-auto appearance-none;
+      }
+      .btn:is(input[type="checkbox"]):after,.btn:is(input[type="radio"]):after {
+        @apply content-[attr(aria-label)];
+      }
+      ",
     },
     "styled": {
       "css": "@charset "UTF-8";
@@ -958,6 +990,166 @@ exports[`options merge > merge case 1 1`] = `
   color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
 }",
+      "scss": "
+        .btn{
+          @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
+          border-width: var(--border-btn, 1px);
+          &:focus-visible,&.btn-focus-visible{
+            @apply outline outline-2 outline-offset-2;
+          }
+          &:hover,&.btn-hover{
+            @apply border-ant-neutral-300 bg-ant-neutral-300;
+          }
+          &:active,&.btn-hover{
+            @apply border-ant-neutral-500 bg-ant-neutral-500;
+          }
+          
+            &-primary{
+              @apply border-primary bg-primary text-primary-content outline-primary;
+              &:hover,&.btn-hover{
+                @apply border-primary-hover bg-primary-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-primary-active bg-primary-active;
+              }
+            }
+            
+
+            &-success{
+              @apply border-success bg-success text-success-content outline-success;
+              &:hover,&.btn-hover{
+                @apply border-success-hover bg-success-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-success-active bg-success-active;
+              }
+            }
+            
+
+            &-warning{
+              @apply border-warning bg-warning text-warning-content outline-warning;
+              &:hover,&.btn-hover{
+                @apply border-warning-hover bg-warning-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-warning-active bg-warning-active;
+              }
+            }
+            
+
+            &-error{
+              @apply border-error bg-error text-error-content outline-error;
+              &:hover,&.btn-hover{
+                @apply border-error-hover bg-error-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-error-active bg-error-active;
+              }
+            }
+            
+
+            &-neutral{
+              @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+              &:hover,&.btn-hover{
+                @apply border-neutral-hover bg-neutral-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-neutral-active bg-neutral-active;
+              }
+            }
+            
+
+          &.glass{
+            @apply shadow-none outline-current;
+            &:active,&.btn-active{
+              --glass-opacity: 25%；
+              --glass-border-opacity: 15%；
+            }
+          }
+
+          &-ghost{
+            @apply border border-transparent bg-transparent text-current shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-opacity-0 bg-base-content bg-opacity-20;
+            }
+          }
+
+          &-link{
+            @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-transparent bg-transparent underline;
+            }
+          }
+          &-outline{
+            @apply border-current bg-transparent shadow-none text-base-content;
+            &:hover,&.btn-hover{
+              @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
+            }
+            &:active,&.btn-active{
+              @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
+            }
+            
+              &.btn-primary{
+                @apply border-primary bg-primary text-primary-content outline-primary;
+                &:hover,&.btn-hover{
+                  @apply border-primary-hover bg-primary-hover text-primary-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-primary-active bg-primary-active text-primary-content;
+                }
+              }
+              
+
+              &.btn-success{
+                @apply border-success bg-success text-success-content outline-success;
+                &:hover,&.btn-hover{
+                  @apply border-success-hover bg-success-hover text-success-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-success-active bg-success-active text-success-content;
+                }
+              }
+              
+
+              &.btn-warning{
+                @apply border-warning bg-warning text-warning-content outline-warning;
+                &:hover,&.btn-hover{
+                  @apply border-warning-hover bg-warning-hover text-warning-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-warning-active bg-warning-active text-warning-content;
+                }
+              }
+              
+
+              &.btn-error{
+                @apply border-error bg-error text-error-content outline-error;
+                &:hover,&.btn-hover{
+                  @apply border-error-hover bg-error-hover text-error-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-error-active bg-error-active text-error-content;
+                }
+              }
+              
+
+              &.btn-neutral{
+                @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+                &:hover,&.btn-hover{
+                  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-neutral-active bg-neutral-active text-neutral-content;
+                }
+              }
+              
+          }
+
+          &.btn-disabled,&[disabled],&:disabled{
+            @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+          }
+        }
+      ",
     },
     "utils": {
       "css": ".btn {
@@ -1184,6 +1376,65 @@ exports[`options merge > merge case 1 1`] = `
 .btn::after {
   border: none;
 }",
+      "scss": "
+      .btn {
+        &-xs {
+          @apply h-6 min-h-[1.5rem] px-2;
+          font-size: 0.75rem;
+        }
+        &-sm {
+          @apply h-8 min-h-[2rem] px-3;
+          font-size: 0.875rem;
+        }
+        &-md {
+          @apply h-12 min-h-[3rem] px-4;
+          font-size: 0.875rem;
+        }
+        &-lg {
+          @apply h-16 min-h-[4rem] px-6;
+          font-size: 1.125rem;
+        }
+        &-wide {
+          @apply w-64;
+        }
+        &-block {
+          @apply w-full;
+        }
+        &-square {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 p-0;
+          }
+        }
+        &-circle {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 rounded-full p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 rounded-full p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 rounded-full p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 rounded-full p-0;
+          }
+        }
+                border-style: solid
+      }
+              .btn::after{
+                border: none;
+              }
+      
+      ",
     },
   },
 }
@@ -1305,6 +1556,32 @@ exports[`options merge > merge case 2 1`] = `
   --tw-content: attr(aria-label);
   content: var(--tw-content)
 }",
+      "scss": ".btn {
+        @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
+        font-size: 0.875rem;
+        line-height: 1em;
+        /* disabled */
+        &-disabled,&[disabled],&:disabled {
+          @apply pointer-events-none;
+        }
+      
+        /* shapes */
+        &-square {
+          @apply h-12 w-12 p-0;
+        }
+        &-circle {
+          @apply h-12 w-12 rounded-full p-0;
+        }
+      }
+      
+      /* radio input and checkbox as button */
+      :where(.btn:is(input[type="checkbox"])),:where(.btn:is(input[type="radio"])) {
+        @apply w-auto appearance-none;
+      }
+      .btn:is(input[type="checkbox"]):after,.btn:is(input[type="radio"]):after {
+        @apply content-[attr(aria-label)];
+      }
+      ",
     },
     "styled": {
       "css": "@charset "UTF-8";
@@ -2108,6 +2385,166 @@ exports[`options merge > merge case 2 1`] = `
   color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
 }",
+      "scss": "
+        .btn{
+          @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
+          border-width: var(--border-btn, 1px);
+          &:focus-visible,&.btn-focus-visible{
+            @apply outline outline-2 outline-offset-2;
+          }
+          &:hover,&.btn-hover{
+            @apply border-ant-neutral-300 bg-ant-neutral-300;
+          }
+          &:active,&.btn-hover{
+            @apply border-ant-neutral-500 bg-ant-neutral-500;
+          }
+          
+            &-primary{
+              @apply border-primary bg-primary text-primary-content outline-primary;
+              &:hover,&.btn-hover{
+                @apply border-primary-hover bg-primary-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-primary-active bg-primary-active;
+              }
+            }
+            
+
+            &-success{
+              @apply border-success bg-success text-success-content outline-success;
+              &:hover,&.btn-hover{
+                @apply border-success-hover bg-success-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-success-active bg-success-active;
+              }
+            }
+            
+
+            &-warning{
+              @apply border-warning bg-warning text-warning-content outline-warning;
+              &:hover,&.btn-hover{
+                @apply border-warning-hover bg-warning-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-warning-active bg-warning-active;
+              }
+            }
+            
+
+            &-error{
+              @apply border-error bg-error text-error-content outline-error;
+              &:hover,&.btn-hover{
+                @apply border-error-hover bg-error-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-error-active bg-error-active;
+              }
+            }
+            
+
+            &-neutral{
+              @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+              &:hover,&.btn-hover{
+                @apply border-neutral-hover bg-neutral-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-neutral-active bg-neutral-active;
+              }
+            }
+            
+
+          &.glass{
+            @apply shadow-none outline-current;
+            &:active,&.btn-active{
+              --glass-opacity: 25%；
+              --glass-border-opacity: 15%；
+            }
+          }
+
+          &-ghost{
+            @apply border border-transparent bg-transparent text-current shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-opacity-0 bg-base-content bg-opacity-20;
+            }
+          }
+
+          &-link{
+            @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-transparent bg-transparent underline;
+            }
+          }
+          &-outline{
+            @apply border-current bg-transparent shadow-none text-base-content;
+            &:hover,&.btn-hover{
+              @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
+            }
+            &:active,&.btn-active{
+              @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
+            }
+            
+              &.btn-primary{
+                @apply border-primary bg-primary text-primary-content outline-primary;
+                &:hover,&.btn-hover{
+                  @apply border-primary-hover bg-primary-hover text-primary-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-primary-active bg-primary-active text-primary-content;
+                }
+              }
+              
+
+              &.btn-success{
+                @apply border-success bg-success text-success-content outline-success;
+                &:hover,&.btn-hover{
+                  @apply border-success-hover bg-success-hover text-success-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-success-active bg-success-active text-success-content;
+                }
+              }
+              
+
+              &.btn-warning{
+                @apply border-warning bg-warning text-warning-content outline-warning;
+                &:hover,&.btn-hover{
+                  @apply border-warning-hover bg-warning-hover text-warning-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-warning-active bg-warning-active text-warning-content;
+                }
+              }
+              
+
+              &.btn-error{
+                @apply border-error bg-error text-error-content outline-error;
+                &:hover,&.btn-hover{
+                  @apply border-error-hover bg-error-hover text-error-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-error-active bg-error-active text-error-content;
+                }
+              }
+              
+
+              &.btn-neutral{
+                @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+                &:hover,&.btn-hover{
+                  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-neutral-active bg-neutral-active text-neutral-content;
+                }
+              }
+              
+          }
+
+          &.btn-disabled,&[disabled],&:disabled{
+            @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+          }
+        }
+      ",
     },
     "utils": {
       "css": ".btn {
@@ -2334,6 +2771,65 @@ exports[`options merge > merge case 2 1`] = `
 .btn::after {
   border: none;
 }",
+      "scss": "
+      .btn {
+        &-xs {
+          @apply h-6 min-h-[1.5rem] px-2;
+          font-size: 0.75rem;
+        }
+        &-sm {
+          @apply h-8 min-h-[2rem] px-3;
+          font-size: 0.875rem;
+        }
+        &-md {
+          @apply h-12 min-h-[3rem] px-4;
+          font-size: 0.875rem;
+        }
+        &-lg {
+          @apply h-16 min-h-[4rem] px-6;
+          font-size: 1.125rem;
+        }
+        &-wide {
+          @apply w-64;
+        }
+        &-block {
+          @apply w-full;
+        }
+        &-square {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 p-0;
+          }
+        }
+        &-circle {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 rounded-full p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 rounded-full p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 rounded-full p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 rounded-full p-0;
+          }
+        }
+                  border-style: solid
+      }
+                .btn::after{
+                  border: none;
+                }
+      
+      ",
     },
   },
 }
@@ -2455,6 +2951,32 @@ exports[`options merge > merge case 3 1`] = `
   --tw-content: attr(aria-label);
   content: var(--tw-content)
 }",
+      "scss": ".btn {
+        @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
+        font-size: 0.875rem;
+        line-height: 1em;
+        /* disabled */
+        &-disabled,&[disabled],&:disabled {
+          @apply pointer-events-none;
+        }
+      
+        /* shapes */
+        &-square {
+          @apply h-12 w-12 p-0;
+        }
+        &-circle {
+          @apply h-12 w-12 rounded-full p-0;
+        }
+      }
+      
+      /* radio input and checkbox as button */
+      :where(.btn:is(input[type="checkbox"])),:where(.btn:is(input[type="radio"])) {
+        @apply w-auto appearance-none;
+      }
+      .btn:is(input[type="checkbox"]):after,.btn:is(input[type="radio"]):after {
+        @apply content-[attr(aria-label)];
+      }
+      ",
     },
     "styled": {
       "css": "@charset "UTF-8";
@@ -3258,6 +3780,166 @@ exports[`options merge > merge case 3 1`] = `
   color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
 }",
+      "scss": "
+        .btn{
+          @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
+          border-width: var(--border-btn, 1px);
+          &:focus-visible,&.btn-focus-visible{
+            @apply outline outline-2 outline-offset-2;
+          }
+          &:hover,&.btn-hover{
+            @apply border-ant-neutral-300 bg-ant-neutral-300;
+          }
+          &:active,&.btn-hover{
+            @apply border-ant-neutral-500 bg-ant-neutral-500;
+          }
+          
+            &-primary{
+              @apply border-primary bg-primary text-primary-content outline-primary;
+              &:hover,&.btn-hover{
+                @apply border-primary-hover bg-primary-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-primary-active bg-primary-active;
+              }
+            }
+            
+
+            &-success{
+              @apply border-success bg-success text-success-content outline-success;
+              &:hover,&.btn-hover{
+                @apply border-success-hover bg-success-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-success-active bg-success-active;
+              }
+            }
+            
+
+            &-warning{
+              @apply border-warning bg-warning text-warning-content outline-warning;
+              &:hover,&.btn-hover{
+                @apply border-warning-hover bg-warning-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-warning-active bg-warning-active;
+              }
+            }
+            
+
+            &-error{
+              @apply border-error bg-error text-error-content outline-error;
+              &:hover,&.btn-hover{
+                @apply border-error-hover bg-error-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-error-active bg-error-active;
+              }
+            }
+            
+
+            &-neutral{
+              @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+              &:hover,&.btn-hover{
+                @apply border-neutral-hover bg-neutral-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-neutral-active bg-neutral-active;
+              }
+            }
+            
+
+          &.glass{
+            @apply shadow-none outline-current;
+            &:active,&.btn-active{
+              --glass-opacity: 25%；
+              --glass-border-opacity: 15%；
+            }
+          }
+
+          &-ghost{
+            @apply border border-transparent bg-transparent text-current shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-opacity-0 bg-base-content bg-opacity-20;
+            }
+          }
+
+          &-link{
+            @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-transparent bg-transparent underline;
+            }
+          }
+          &-outline{
+            @apply border-current bg-transparent shadow-none text-base-content;
+            &:hover,&.btn-hover{
+              @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
+            }
+            &:active,&.btn-active{
+              @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
+            }
+            
+              &.btn-primary{
+                @apply border-primary bg-primary text-primary-content outline-primary;
+                &:hover,&.btn-hover{
+                  @apply border-primary-hover bg-primary-hover text-primary-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-primary-active bg-primary-active text-primary-content;
+                }
+              }
+              
+
+              &.btn-success{
+                @apply border-success bg-success text-success-content outline-success;
+                &:hover,&.btn-hover{
+                  @apply border-success-hover bg-success-hover text-success-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-success-active bg-success-active text-success-content;
+                }
+              }
+              
+
+              &.btn-warning{
+                @apply border-warning bg-warning text-warning-content outline-warning;
+                &:hover,&.btn-hover{
+                  @apply border-warning-hover bg-warning-hover text-warning-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-warning-active bg-warning-active text-warning-content;
+                }
+              }
+              
+
+              &.btn-error{
+                @apply border-error bg-error text-error-content outline-error;
+                &:hover,&.btn-hover{
+                  @apply border-error-hover bg-error-hover text-error-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-error-active bg-error-active text-error-content;
+                }
+              }
+              
+
+              &.btn-neutral{
+                @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+                &:hover,&.btn-hover{
+                  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-neutral-active bg-neutral-active text-neutral-content;
+                }
+              }
+              
+          }
+
+          &.btn-disabled,&[disabled],&:disabled{
+            @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+          }
+        }
+      ",
     },
     "utils": {
       "css": ".btn {
@@ -3484,6 +4166,65 @@ exports[`options merge > merge case 3 1`] = `
 .btn::after {
   border: none;
 }",
+      "scss": "
+      .btn {
+        &-xs {
+          @apply h-6 min-h-[1.5rem] px-2;
+          font-size: 0.75rem;
+        }
+        &-sm {
+          @apply h-8 min-h-[2rem] px-3;
+          font-size: 0.875rem;
+        }
+        &-md {
+          @apply h-12 min-h-[3rem] px-4;
+          font-size: 0.875rem;
+        }
+        &-lg {
+          @apply h-16 min-h-[4rem] px-6;
+          font-size: 1.125rem;
+        }
+        &-wide {
+          @apply w-64;
+        }
+        &-block {
+          @apply w-full;
+        }
+        &-square {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 p-0;
+          }
+        }
+        &-circle {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 rounded-full p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 rounded-full p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 rounded-full p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 rounded-full p-0;
+          }
+        }
+                border-style: solid
+      }
+              .btn::after{
+                border: none;
+              }
+      
+      ",
     },
   },
 }
@@ -3605,6 +4346,32 @@ exports[`options merge > merge case 4 1`] = `
   --tw-content: attr(aria-label);
   content: var(--tw-content)
 }",
+      "scss": ".btn {
+        @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
+        font-size: 0.875rem;
+        line-height: 1em;
+        /* disabled */
+        &-disabled,&[disabled],&:disabled {
+          @apply pointer-events-none;
+        }
+      
+        /* shapes */
+        &-square {
+          @apply h-12 w-12 p-0;
+        }
+        &-circle {
+          @apply h-12 w-12 rounded-full p-0;
+        }
+      }
+      
+      /* radio input and checkbox as button */
+      :where(.btn:is(input[type="checkbox"])),:where(.btn:is(input[type="radio"])) {
+        @apply w-auto appearance-none;
+      }
+      .btn:is(input[type="checkbox"]):after,.btn:is(input[type="radio"]):after {
+        @apply content-[attr(aria-label)];
+      }
+      ",
     },
     "styled": {
       "css": "@charset "UTF-8";
@@ -4408,6 +5175,166 @@ exports[`options merge > merge case 4 1`] = `
   color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
 }",
+      "scss": "
+        .btn{
+          @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
+          border-width: var(--border-btn, 1px);
+          &:focus-visible,&.btn-focus-visible{
+            @apply outline outline-2 outline-offset-2;
+          }
+          &:hover,&.btn-hover{
+            @apply border-ant-neutral-300 bg-ant-neutral-300;
+          }
+          &:active,&.btn-hover{
+            @apply border-ant-neutral-500 bg-ant-neutral-500;
+          }
+          
+            &-primary{
+              @apply border-primary bg-primary text-primary-content outline-primary;
+              &:hover,&.btn-hover{
+                @apply border-primary-hover bg-primary-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-primary-active bg-primary-active;
+              }
+            }
+            
+
+            &-success{
+              @apply border-success bg-success text-success-content outline-success;
+              &:hover,&.btn-hover{
+                @apply border-success-hover bg-success-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-success-active bg-success-active;
+              }
+            }
+            
+
+            &-warning{
+              @apply border-warning bg-warning text-warning-content outline-warning;
+              &:hover,&.btn-hover{
+                @apply border-warning-hover bg-warning-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-warning-active bg-warning-active;
+              }
+            }
+            
+
+            &-error{
+              @apply border-error bg-error text-error-content outline-error;
+              &:hover,&.btn-hover{
+                @apply border-error-hover bg-error-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-error-active bg-error-active;
+              }
+            }
+            
+
+            &-neutral{
+              @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+              &:hover,&.btn-hover{
+                @apply border-neutral-hover bg-neutral-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-neutral-active bg-neutral-active;
+              }
+            }
+            
+
+          &.glass{
+            @apply shadow-none outline-current;
+            &:active,&.btn-active{
+              --glass-opacity: 25%；
+              --glass-border-opacity: 15%；
+            }
+          }
+
+          &-ghost{
+            @apply border border-transparent bg-transparent text-current shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-opacity-0 bg-base-content bg-opacity-20;
+            }
+          }
+
+          &-link{
+            @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-transparent bg-transparent underline;
+            }
+          }
+          &-outline{
+            @apply border-current bg-transparent shadow-none text-base-content;
+            &:hover,&.btn-hover{
+              @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
+            }
+            &:active,&.btn-active{
+              @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
+            }
+            
+              &.btn-primary{
+                @apply border-primary bg-primary text-primary-content outline-primary;
+                &:hover,&.btn-hover{
+                  @apply border-primary-hover bg-primary-hover text-primary-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-primary-active bg-primary-active text-primary-content;
+                }
+              }
+              
+
+              &.btn-success{
+                @apply border-success bg-success text-success-content outline-success;
+                &:hover,&.btn-hover{
+                  @apply border-success-hover bg-success-hover text-success-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-success-active bg-success-active text-success-content;
+                }
+              }
+              
+
+              &.btn-warning{
+                @apply border-warning bg-warning text-warning-content outline-warning;
+                &:hover,&.btn-hover{
+                  @apply border-warning-hover bg-warning-hover text-warning-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-warning-active bg-warning-active text-warning-content;
+                }
+              }
+              
+
+              &.btn-error{
+                @apply border-error bg-error text-error-content outline-error;
+                &:hover,&.btn-hover{
+                  @apply border-error-hover bg-error-hover text-error-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-error-active bg-error-active text-error-content;
+                }
+              }
+              
+
+              &.btn-neutral{
+                @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+                &:hover,&.btn-hover{
+                  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-neutral-active bg-neutral-active text-neutral-content;
+                }
+              }
+              
+          }
+
+          &.btn-disabled,&[disabled],&:disabled{
+            @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+          }
+        }
+      ",
     },
     "utils": {
       "css": ".btn {
@@ -4634,6 +5561,65 @@ exports[`options merge > merge case 4 1`] = `
 .btn::after {
   border: none;
 }",
+      "scss": "
+      .btn {
+        &-xs {
+          @apply h-6 min-h-[1.5rem] px-2;
+          font-size: 0.75rem;
+        }
+        &-sm {
+          @apply h-8 min-h-[2rem] px-3;
+          font-size: 0.875rem;
+        }
+        &-md {
+          @apply h-12 min-h-[3rem] px-4;
+          font-size: 0.875rem;
+        }
+        &-lg {
+          @apply h-16 min-h-[4rem] px-6;
+          font-size: 1.125rem;
+        }
+        &-wide {
+          @apply w-64;
+        }
+        &-block {
+          @apply w-full;
+        }
+        &-square {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 p-0;
+          }
+        }
+        &-circle {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 rounded-full p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 rounded-full p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 rounded-full p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 rounded-full p-0;
+          }
+        }
+            border-style:solid
+      }
+          .btn::after{
+            border:none;
+          }
+      
+      ",
     },
   },
 }
@@ -4755,6 +5741,32 @@ exports[`options merge > merge case 5 1`] = `
   --tw-content: attr(aria-label);
   content: var(--tw-content)
 }",
+      "scss": ".btn {
+        @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
+        font-size: 0.875rem;
+        line-height: 1em;
+        /* disabled */
+        &-disabled,&[disabled],&:disabled {
+          @apply pointer-events-none;
+        }
+      
+        /* shapes */
+        &-square {
+          @apply h-12 w-12 p-0;
+        }
+        &-circle {
+          @apply h-12 w-12 rounded-full p-0;
+        }
+      }
+      
+      /* radio input and checkbox as button */
+      :where(.btn:is(input[type="checkbox"])),:where(.btn:is(input[type="radio"])) {
+        @apply w-auto appearance-none;
+      }
+      .btn:is(input[type="checkbox"]):after,.btn:is(input[type="radio"]):after {
+        @apply content-[attr(aria-label)];
+      }
+      ",
     },
     "styled": {
       "css": "@charset "UTF-8";
@@ -5558,6 +6570,166 @@ exports[`options merge > merge case 5 1`] = `
   color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
 }",
+      "scss": "
+        .btn{
+          @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
+          border-width: var(--border-btn, 1px);
+          &:focus-visible,&.btn-focus-visible{
+            @apply outline outline-2 outline-offset-2;
+          }
+          &:hover,&.btn-hover{
+            @apply border-ant-neutral-300 bg-ant-neutral-300;
+          }
+          &:active,&.btn-hover{
+            @apply border-ant-neutral-500 bg-ant-neutral-500;
+          }
+          
+            &-primary{
+              @apply border-primary bg-primary text-primary-content outline-primary;
+              &:hover,&.btn-hover{
+                @apply border-primary-hover bg-primary-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-primary-active bg-primary-active;
+              }
+            }
+            
+
+            &-success{
+              @apply border-success bg-success text-success-content outline-success;
+              &:hover,&.btn-hover{
+                @apply border-success-hover bg-success-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-success-active bg-success-active;
+              }
+            }
+            
+
+            &-warning{
+              @apply border-warning bg-warning text-warning-content outline-warning;
+              &:hover,&.btn-hover{
+                @apply border-warning-hover bg-warning-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-warning-active bg-warning-active;
+              }
+            }
+            
+
+            &-error{
+              @apply border-error bg-error text-error-content outline-error;
+              &:hover,&.btn-hover{
+                @apply border-error-hover bg-error-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-error-active bg-error-active;
+              }
+            }
+            
+
+            &-neutral{
+              @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+              &:hover,&.btn-hover{
+                @apply border-neutral-hover bg-neutral-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-neutral-active bg-neutral-active;
+              }
+            }
+            
+
+          &.glass{
+            @apply shadow-none outline-current;
+            &:active,&.btn-active{
+              --glass-opacity: 25%；
+              --glass-border-opacity: 15%；
+            }
+          }
+
+          &-ghost{
+            @apply border border-transparent bg-transparent text-current shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-opacity-0 bg-base-content bg-opacity-20;
+            }
+          }
+
+          &-link{
+            @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-transparent bg-transparent underline;
+            }
+          }
+          &-outline{
+            @apply border-current bg-transparent shadow-none text-base-content;
+            &:hover,&.btn-hover{
+              @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
+            }
+            &:active,&.btn-active{
+              @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
+            }
+            
+              &.btn-primary{
+                @apply border-primary bg-primary text-primary-content outline-primary;
+                &:hover,&.btn-hover{
+                  @apply border-primary-hover bg-primary-hover text-primary-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-primary-active bg-primary-active text-primary-content;
+                }
+              }
+              
+
+              &.btn-success{
+                @apply border-success bg-success text-success-content outline-success;
+                &:hover,&.btn-hover{
+                  @apply border-success-hover bg-success-hover text-success-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-success-active bg-success-active text-success-content;
+                }
+              }
+              
+
+              &.btn-warning{
+                @apply border-warning bg-warning text-warning-content outline-warning;
+                &:hover,&.btn-hover{
+                  @apply border-warning-hover bg-warning-hover text-warning-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-warning-active bg-warning-active text-warning-content;
+                }
+              }
+              
+
+              &.btn-error{
+                @apply border-error bg-error text-error-content outline-error;
+                &:hover,&.btn-hover{
+                  @apply border-error-hover bg-error-hover text-error-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-error-active bg-error-active text-error-content;
+                }
+              }
+              
+
+              &.btn-neutral{
+                @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+                &:hover,&.btn-hover{
+                  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-neutral-active bg-neutral-active text-neutral-content;
+                }
+              }
+              
+          }
+
+          &.btn-disabled,&[disabled],&:disabled{
+            @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+          }
+        }
+      ",
     },
     "utils": {
       "css": ".btn {
@@ -5784,6 +6956,65 @@ exports[`options merge > merge case 5 1`] = `
 .btn::after {
   border: none;
 }",
+      "scss": "
+      .btn {
+        &-xs {
+          @apply h-6 min-h-[1.5rem] px-2;
+          font-size: 0.75rem;
+        }
+        &-sm {
+          @apply h-8 min-h-[2rem] px-3;
+          font-size: 0.875rem;
+        }
+        &-md {
+          @apply h-12 min-h-[3rem] px-4;
+          font-size: 0.875rem;
+        }
+        &-lg {
+          @apply h-16 min-h-[4rem] px-6;
+          font-size: 1.125rem;
+        }
+        &-wide {
+          @apply w-64;
+        }
+        &-block {
+          @apply w-full;
+        }
+        &-square {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 p-0;
+          }
+        }
+        &-circle {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 rounded-full p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 rounded-full p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 rounded-full p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 rounded-full p-0;
+          }
+        }
+            border-style:solid
+      }
+          .btn::after{
+            border:none;
+          }
+      
+      ",
     },
   },
 }
@@ -5905,6 +7136,32 @@ exports[`options merge > merge case 6 1`] = `
   --tw-content: attr(aria-label);
   content: var(--tw-content)
 }",
+      "scss": ".btn {
+        @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
+        font-size: 0.875rem;
+        line-height: 1em;
+        /* disabled */
+        &-disabled,&[disabled],&:disabled {
+          @apply pointer-events-none;
+        }
+      
+        /* shapes */
+        &-square {
+          @apply h-12 w-12 p-0;
+        }
+        &-circle {
+          @apply h-12 w-12 rounded-full p-0;
+        }
+      }
+      
+      /* radio input and checkbox as button */
+      :where(.btn:is(input[type="checkbox"])),:where(.btn:is(input[type="radio"])) {
+        @apply w-auto appearance-none;
+      }
+      .btn:is(input[type="checkbox"]):after,.btn:is(input[type="radio"]):after {
+        @apply content-[attr(aria-label)];
+      }
+      ",
     },
     "styled": {
       "css": "@charset "UTF-8";
@@ -6708,6 +7965,166 @@ exports[`options merge > merge case 6 1`] = `
   color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
 }",
+      "scss": "
+        .btn{
+          @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
+          border-width: var(--border-btn, 1px);
+          &:focus-visible,&.btn-focus-visible{
+            @apply outline outline-2 outline-offset-2;
+          }
+          &:hover,&.btn-hover{
+            @apply border-ant-neutral-300 bg-ant-neutral-300;
+          }
+          &:active,&.btn-hover{
+            @apply border-ant-neutral-500 bg-ant-neutral-500;
+          }
+          
+            &-primary{
+              @apply border-primary bg-primary text-primary-content outline-primary;
+              &:hover,&.btn-hover{
+                @apply border-primary-hover bg-primary-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-primary-active bg-primary-active;
+              }
+            }
+            
+
+            &-success{
+              @apply border-success bg-success text-success-content outline-success;
+              &:hover,&.btn-hover{
+                @apply border-success-hover bg-success-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-success-active bg-success-active;
+              }
+            }
+            
+
+            &-warning{
+              @apply border-warning bg-warning text-warning-content outline-warning;
+              &:hover,&.btn-hover{
+                @apply border-warning-hover bg-warning-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-warning-active bg-warning-active;
+              }
+            }
+            
+
+            &-error{
+              @apply border-error bg-error text-error-content outline-error;
+              &:hover,&.btn-hover{
+                @apply border-error-hover bg-error-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-error-active bg-error-active;
+              }
+            }
+            
+
+            &-neutral{
+              @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+              &:hover,&.btn-hover{
+                @apply border-neutral-hover bg-neutral-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-neutral-active bg-neutral-active;
+              }
+            }
+            
+
+          &.glass{
+            @apply shadow-none outline-current;
+            &:active,&.btn-active{
+              --glass-opacity: 25%；
+              --glass-border-opacity: 15%；
+            }
+          }
+
+          &-ghost{
+            @apply border border-transparent bg-transparent text-current shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-opacity-0 bg-base-content bg-opacity-20;
+            }
+          }
+
+          &-link{
+            @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-transparent bg-transparent underline;
+            }
+          }
+          &-outline{
+            @apply border-current bg-transparent shadow-none text-base-content;
+            &:hover,&.btn-hover{
+              @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
+            }
+            &:active,&.btn-active{
+              @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
+            }
+            
+              &.btn-primary{
+                @apply border-primary bg-primary text-primary-content outline-primary;
+                &:hover,&.btn-hover{
+                  @apply border-primary-hover bg-primary-hover text-primary-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-primary-active bg-primary-active text-primary-content;
+                }
+              }
+              
+
+              &.btn-success{
+                @apply border-success bg-success text-success-content outline-success;
+                &:hover,&.btn-hover{
+                  @apply border-success-hover bg-success-hover text-success-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-success-active bg-success-active text-success-content;
+                }
+              }
+              
+
+              &.btn-warning{
+                @apply border-warning bg-warning text-warning-content outline-warning;
+                &:hover,&.btn-hover{
+                  @apply border-warning-hover bg-warning-hover text-warning-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-warning-active bg-warning-active text-warning-content;
+                }
+              }
+              
+
+              &.btn-error{
+                @apply border-error bg-error text-error-content outline-error;
+                &:hover,&.btn-hover{
+                  @apply border-error-hover bg-error-hover text-error-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-error-active bg-error-active text-error-content;
+                }
+              }
+              
+
+              &.btn-neutral{
+                @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+                &:hover,&.btn-hover{
+                  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-neutral-active bg-neutral-active text-neutral-content;
+                }
+              }
+              
+          }
+
+          &.btn-disabled,&[disabled],&:disabled{
+            @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+          }
+        }
+      ",
     },
     "utils": {
       "css": ".btn {
@@ -6934,6 +8351,65 @@ exports[`options merge > merge case 6 1`] = `
 .btn::after {
   border: none;
 }",
+      "scss": "
+      .btn {
+        &-xs {
+          @apply h-6 min-h-[1.5rem] px-2;
+          font-size: 0.75rem;
+        }
+        &-sm {
+          @apply h-8 min-h-[2rem] px-3;
+          font-size: 0.875rem;
+        }
+        &-md {
+          @apply h-12 min-h-[3rem] px-4;
+          font-size: 0.875rem;
+        }
+        &-lg {
+          @apply h-16 min-h-[4rem] px-6;
+          font-size: 1.125rem;
+        }
+        &-wide {
+          @apply w-64;
+        }
+        &-block {
+          @apply w-full;
+        }
+        &-square {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 p-0;
+          }
+        }
+        &-circle {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 rounded-full p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 rounded-full p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 rounded-full p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 rounded-full p-0;
+          }
+        }
+                border-style: solid
+      }
+          .btn::after{
+            border:none;
+          }
+      
+      ",
     },
   },
 }
@@ -7055,6 +8531,32 @@ exports[`options merge > merge case 7 1`] = `
   --tw-content: attr(aria-label);
   content: var(--tw-content)
 }",
+      "scss": ".btn {
+        @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
+        font-size: 0.875rem;
+        line-height: 1em;
+        /* disabled */
+        &-disabled,&[disabled],&:disabled {
+          @apply pointer-events-none;
+        }
+      
+        /* shapes */
+        &-square {
+          @apply h-12 w-12 p-0;
+        }
+        &-circle {
+          @apply h-12 w-12 rounded-full p-0;
+        }
+      }
+      
+      /* radio input and checkbox as button */
+      :where(.btn:is(input[type="checkbox"])),:where(.btn:is(input[type="radio"])) {
+        @apply w-auto appearance-none;
+      }
+      .btn:is(input[type="checkbox"]):after,.btn:is(input[type="radio"]):after {
+        @apply content-[attr(aria-label)];
+      }
+      ",
     },
     "styled": {
       "css": "@charset "UTF-8";
@@ -7858,6 +9360,166 @@ exports[`options merge > merge case 7 1`] = `
   color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
 }",
+      "scss": "
+        .btn{
+          @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
+          border-width: var(--border-btn, 1px);
+          &:focus-visible,&.btn-focus-visible{
+            @apply outline outline-2 outline-offset-2;
+          }
+          &:hover,&.btn-hover{
+            @apply border-ant-neutral-300 bg-ant-neutral-300;
+          }
+          &:active,&.btn-hover{
+            @apply border-ant-neutral-500 bg-ant-neutral-500;
+          }
+          
+            &-primary{
+              @apply border-primary bg-primary text-primary-content outline-primary;
+              &:hover,&.btn-hover{
+                @apply border-primary-hover bg-primary-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-primary-active bg-primary-active;
+              }
+            }
+            
+
+            &-success{
+              @apply border-success bg-success text-success-content outline-success;
+              &:hover,&.btn-hover{
+                @apply border-success-hover bg-success-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-success-active bg-success-active;
+              }
+            }
+            
+
+            &-warning{
+              @apply border-warning bg-warning text-warning-content outline-warning;
+              &:hover,&.btn-hover{
+                @apply border-warning-hover bg-warning-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-warning-active bg-warning-active;
+              }
+            }
+            
+
+            &-error{
+              @apply border-error bg-error text-error-content outline-error;
+              &:hover,&.btn-hover{
+                @apply border-error-hover bg-error-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-error-active bg-error-active;
+              }
+            }
+            
+
+            &-neutral{
+              @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+              &:hover,&.btn-hover{
+                @apply border-neutral-hover bg-neutral-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-neutral-active bg-neutral-active;
+              }
+            }
+            
+
+          &.glass{
+            @apply shadow-none outline-current;
+            &:active,&.btn-active{
+              --glass-opacity: 25%；
+              --glass-border-opacity: 15%；
+            }
+          }
+
+          &-ghost{
+            @apply border border-transparent bg-transparent text-current shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-opacity-0 bg-base-content bg-opacity-20;
+            }
+          }
+
+          &-link{
+            @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-transparent bg-transparent underline;
+            }
+          }
+          &-outline{
+            @apply border-current bg-transparent shadow-none text-base-content;
+            &:hover,&.btn-hover{
+              @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
+            }
+            &:active,&.btn-active{
+              @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
+            }
+            
+              &.btn-primary{
+                @apply border-primary bg-primary text-primary-content outline-primary;
+                &:hover,&.btn-hover{
+                  @apply border-primary-hover bg-primary-hover text-primary-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-primary-active bg-primary-active text-primary-content;
+                }
+              }
+              
+
+              &.btn-success{
+                @apply border-success bg-success text-success-content outline-success;
+                &:hover,&.btn-hover{
+                  @apply border-success-hover bg-success-hover text-success-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-success-active bg-success-active text-success-content;
+                }
+              }
+              
+
+              &.btn-warning{
+                @apply border-warning bg-warning text-warning-content outline-warning;
+                &:hover,&.btn-hover{
+                  @apply border-warning-hover bg-warning-hover text-warning-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-warning-active bg-warning-active text-warning-content;
+                }
+              }
+              
+
+              &.btn-error{
+                @apply border-error bg-error text-error-content outline-error;
+                &:hover,&.btn-hover{
+                  @apply border-error-hover bg-error-hover text-error-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-error-active bg-error-active text-error-content;
+                }
+              }
+              
+
+              &.btn-neutral{
+                @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+                &:hover,&.btn-hover{
+                  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-neutral-active bg-neutral-active text-neutral-content;
+                }
+              }
+              
+          }
+
+          &.btn-disabled,&[disabled],&:disabled{
+            @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+          }
+        }
+      ",
     },
     "utils": {
       "css": ".btn {
@@ -8084,6 +9746,65 @@ exports[`options merge > merge case 7 1`] = `
 .btn::after {
   border: none;
 }",
+      "scss": "
+      .btn {
+        &-xs {
+          @apply h-6 min-h-[1.5rem] px-2;
+          font-size: 0.75rem;
+        }
+        &-sm {
+          @apply h-8 min-h-[2rem] px-3;
+          font-size: 0.875rem;
+        }
+        &-md {
+          @apply h-12 min-h-[3rem] px-4;
+          font-size: 0.875rem;
+        }
+        &-lg {
+          @apply h-16 min-h-[4rem] px-6;
+          font-size: 1.125rem;
+        }
+        &-wide {
+          @apply w-64;
+        }
+        &-block {
+          @apply w-full;
+        }
+        &-square {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 p-0;
+          }
+        }
+        &-circle {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 rounded-full p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 rounded-full p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 rounded-full p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 rounded-full p-0;
+          }
+        }
+            border-style:solid
+      }
+          .btn::after{
+            border:none;
+          }
+      
+      ",
     },
   },
 }
@@ -8205,6 +9926,32 @@ exports[`options merge > merge case 8 1`] = `
   --tw-content: attr(aria-label);
   content: var(--tw-content)
 }",
+      "scss": ".btn {
+        @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
+        font-size: 0.875rem;
+        line-height: 1em;
+        /* disabled */
+        &-disabled,&[disabled],&:disabled {
+          @apply pointer-events-none;
+        }
+      
+        /* shapes */
+        &-square {
+          @apply h-12 w-12 p-0;
+        }
+        &-circle {
+          @apply h-12 w-12 rounded-full p-0;
+        }
+      }
+      
+      /* radio input and checkbox as button */
+      :where(.btn:is(input[type="checkbox"])),:where(.btn:is(input[type="radio"])) {
+        @apply w-auto appearance-none;
+      }
+      .btn:is(input[type="checkbox"]):after,.btn:is(input[type="radio"]):after {
+        @apply content-[attr(aria-label)];
+      }
+      ",
     },
     "styled": {
       "css": "@charset "UTF-8";
@@ -9008,6 +10755,166 @@ exports[`options merge > merge case 8 1`] = `
   color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
   --tw-text-opacity: 0.2;
 }",
+      "scss": "
+        .btn{
+          @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
+          border-width: var(--border-btn, 1px);
+          &:focus-visible,&.btn-focus-visible{
+            @apply outline outline-2 outline-offset-2;
+          }
+          &:hover,&.btn-hover{
+            @apply border-ant-neutral-300 bg-ant-neutral-300;
+          }
+          &:active,&.btn-hover{
+            @apply border-ant-neutral-500 bg-ant-neutral-500;
+          }
+          
+            &-primary{
+              @apply border-primary bg-primary text-primary-content outline-primary;
+              &:hover,&.btn-hover{
+                @apply border-primary-hover bg-primary-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-primary-active bg-primary-active;
+              }
+            }
+            
+
+            &-success{
+              @apply border-success bg-success text-success-content outline-success;
+              &:hover,&.btn-hover{
+                @apply border-success-hover bg-success-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-success-active bg-success-active;
+              }
+            }
+            
+
+            &-warning{
+              @apply border-warning bg-warning text-warning-content outline-warning;
+              &:hover,&.btn-hover{
+                @apply border-warning-hover bg-warning-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-warning-active bg-warning-active;
+              }
+            }
+            
+
+            &-error{
+              @apply border-error bg-error text-error-content outline-error;
+              &:hover,&.btn-hover{
+                @apply border-error-hover bg-error-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-error-active bg-error-active;
+              }
+            }
+            
+
+            &-neutral{
+              @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+              &:hover,&.btn-hover{
+                @apply border-neutral-hover bg-neutral-hover;
+              }
+              &:active,&.btn-active{
+                @apply border-neutral-active bg-neutral-active;
+              }
+            }
+            
+
+          &.glass{
+            @apply shadow-none outline-current;
+            &:active,&.btn-active{
+              --glass-opacity: 25%；
+              --glass-border-opacity: 15%；
+            }
+          }
+
+          &-ghost{
+            @apply border border-transparent bg-transparent text-current shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-opacity-0 bg-base-content bg-opacity-20;
+            }
+          }
+
+          &-link{
+            @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
+            &:active,&.btn-active{
+              @apply border-transparent bg-transparent underline;
+            }
+          }
+          &-outline{
+            @apply border-current bg-transparent shadow-none text-base-content;
+            &:hover,&.btn-hover{
+              @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
+            }
+            &:active,&.btn-active{
+              @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
+            }
+            
+              &.btn-primary{
+                @apply border-primary bg-primary text-primary-content outline-primary;
+                &:hover,&.btn-hover{
+                  @apply border-primary-hover bg-primary-hover text-primary-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-primary-active bg-primary-active text-primary-content;
+                }
+              }
+              
+
+              &.btn-success{
+                @apply border-success bg-success text-success-content outline-success;
+                &:hover,&.btn-hover{
+                  @apply border-success-hover bg-success-hover text-success-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-success-active bg-success-active text-success-content;
+                }
+              }
+              
+
+              &.btn-warning{
+                @apply border-warning bg-warning text-warning-content outline-warning;
+                &:hover,&.btn-hover{
+                  @apply border-warning-hover bg-warning-hover text-warning-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-warning-active bg-warning-active text-warning-content;
+                }
+              }
+              
+
+              &.btn-error{
+                @apply border-error bg-error text-error-content outline-error;
+                &:hover,&.btn-hover{
+                  @apply border-error-hover bg-error-hover text-error-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-error-active bg-error-active text-error-content;
+                }
+              }
+              
+
+              &.btn-neutral{
+                @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+                &:hover,&.btn-hover{
+                  @apply border-neutral-hover bg-neutral-hover text-neutral-content;
+                }
+                &:active,&.btn-active{
+                  @apply border-neutral-active bg-neutral-active text-neutral-content;
+                }
+              }
+              
+          }
+
+          &.btn-disabled,&[disabled],&:disabled{
+            @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
+          }
+        }
+      ",
     },
     "utils": {
       "css": ".btn {
@@ -9234,6 +11141,65 @@ exports[`options merge > merge case 8 1`] = `
 .btn::after {
   border: none;
 }",
+      "scss": "
+      .btn {
+        &-xs {
+          @apply h-6 min-h-[1.5rem] px-2;
+          font-size: 0.75rem;
+        }
+        &-sm {
+          @apply h-8 min-h-[2rem] px-3;
+          font-size: 0.875rem;
+        }
+        &-md {
+          @apply h-12 min-h-[3rem] px-4;
+          font-size: 0.875rem;
+        }
+        &-lg {
+          @apply h-16 min-h-[4rem] px-6;
+          font-size: 1.125rem;
+        }
+        &-wide {
+          @apply w-64;
+        }
+        &-block {
+          @apply w-full;
+        }
+        &-square {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 p-0;
+          }
+        }
+        &-circle {
+          &:where(.btn-xs) {
+            @apply h-6 w-6 rounded-full p-0;
+          }
+          &:where(.btn-sm) {
+            @apply h-8 w-8 rounded-full p-0;
+          }
+          &:where(.btn-md) {
+            @apply h-12 w-12 rounded-full p-0;
+          }
+          &:where(.btn-lg) {
+            @apply h-16 w-16 rounded-full p-0;
+          }
+        }
+                  border-style: solid
+      }
+          .btn::after{
+            border:none;
+          }
+      
+      ",
     },
   },
 }
@@ -9246,11 +11212,13 @@ exports[`options merge > merge case 9 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".xxx {
@@ -9275,6 +11243,14 @@ exports[`options merge > merge case 9 1`] = `
 .btn::after {
   border: none;
 }",
+      "scss": "
+                .xxx{
+                  border-style: solid;
+                }
+          .btn::after{
+            border:none;
+          }
+                ",
     },
   },
 }
@@ -9287,11 +11263,13 @@ exports[`options merge > merge case 10 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".btn::after {
@@ -9316,6 +11294,15 @@ exports[`options merge > merge case 10 1`] = `
 .xxx {
   border-style: solid;
 }",
+      "scss": "
+            .btn::after{
+              border:none;
+            }
+                .xxx{
+                  border-style: solid;
+                }
+            
+            ",
     },
   },
 }
@@ -9328,11 +11315,13 @@ exports[`options merge > merge case 11 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".btn::after {
@@ -9357,6 +11346,16 @@ exports[`options merge > merge case 11 1`] = `
 .btn {
   border-style: solid;
 }",
+      "scss": "
+                .btn::after{
+                  border:none;
+                }
+
+                .btn{
+                  border-style:solid;
+                }
+                
+                ",
     },
   },
 }
@@ -9369,11 +11368,13 @@ exports[`options merge > merge case 12 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".btn::after {
@@ -9398,6 +11399,16 @@ exports[`options merge > merge case 12 1`] = `
 .btn {
   border-style: solid;
 }",
+      "scss": "
+              .btn::after{
+                border:none;
+              }
+
+              .btn{
+                border-style:solid;
+              }
+              
+              ",
     },
   },
 }
@@ -9410,11 +11421,13 @@ exports[`options merge > merge case 13 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".content-area {
@@ -9428,6 +11441,9 @@ exports[`options merge > merge case 13 1`] = `
       "resolvedCss": ".content-area {
   height: calc(100vh - 3rem);
 }",
+      "scss": ".content-area {
+              height: calc(100vh - theme("spacing.12"));
+            }",
     },
   },
 }
@@ -9440,11 +11456,13 @@ exports[`options merge > merge case 14 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".content-area {
@@ -9458,6 +11476,9 @@ exports[`options merge > merge case 14 1`] = `
       "resolvedCss": ".content-area {
   height: calc(100vh - 0.625rem);
 }",
+      "scss": ".content-area {
+              height: calc(100vh - theme("spacing[2.5]"));
+            }",
     },
   },
 }
@@ -9470,11 +11491,13 @@ exports[`options merge > merge case 15 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".btn-blue {
@@ -9488,6 +11511,9 @@ exports[`options merge > merge case 15 1`] = `
       "resolvedCss": ".btn-blue {
   background-color: #3b82f6;
 }",
+      "scss": ".btn-blue {
+              background-color: theme("colors.blue.500");
+            }",
     },
   },
 }
@@ -9500,11 +11526,13 @@ exports[`options merge > merge case 16 1`] = `
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
       "resolvedCss": "",
+      "scss": "",
     },
     "utils": {
       "css": ".btn-blue {
@@ -9518,6 +11546,9 @@ exports[`options merge > merge case 16 1`] = `
       "resolvedCss": ".btn-blue {
   background-color: rgb(59 130 246 / 75%);
 }",
+      "scss": ".btn-blue {
+              background-color: theme("colors.blue.500 / 75%");
+            }",
     },
   },
 }

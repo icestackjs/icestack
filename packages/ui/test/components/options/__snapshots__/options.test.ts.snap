@@ -4405,16 +4405,32 @@ exports[`no schema > should button have schema 1`] = `
   --tw-translate-x: 50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }",
+    "scss": "
+                .btn {
+                  @apply relative overflow-hidden bg-blue-600 focus:ring-4 focus:ring-blue-300 inline-flex items-center px-7 py-2.5 rounded-lg text-white justify-center;
+                
+                  &::after {
+                    content: '';
+                    @apply absolute inset-0 h-[200%] w-[200%] rotate-45 translate-x-[-70%] transition-all group-hover:scale-100 bg-white/30 z-20 duration-1000;
+                  }
+                
+                  &:hover::after {
+                    @apply translate-x-[50%];
+                  }
+                }
+                ",
   },
   "styled": {
     "css": "",
     "cssInJs": {},
     "resolvedCss": "",
+    "scss": "",
   },
   "utils": {
     "css": "",
     "cssInJs": {},
     "resolvedCss": "",
+    "scss": "",
   },
 }
 `;
@@ -4528,16 +4544,32 @@ exports[`no schema > should button have schema case 0 1`] = `
   --tw-translate-x: 50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }",
+    "scss": "
+                .btn {
+                  @apply relative overflow-hidden bg-blue-600 focus:ring-4 focus:ring-blue-300 inline-flex items-center px-7 py-2.5 rounded-lg text-white justify-center;
+                
+                  &::after {
+                    content: '';
+                    @apply absolute inset-0 h-[200%] w-[200%] rotate-45 translate-x-[-70%] transition-all group-hover:scale-100 bg-white/30 z-20 duration-1000;
+                  }
+                
+                  &:hover::after {
+                    @apply translate-x-[50%];
+                  }
+                }
+                ",
   },
   "styled": {
     "css": "",
     "cssInJs": {},
     "resolvedCss": "",
+    "scss": "",
   },
   "utils": {
     "css": "",
     "cssInJs": {},
     "resolvedCss": "",
+    "scss": "",
   },
 }
 `;

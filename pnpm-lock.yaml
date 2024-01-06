@@ -458,6 +458,8 @@ importers:
         specifier: workspace:^
         version: link:../types
 
+  packages/scss: {}
+
   packages/shared:
     dependencies:
       '@icestack/types':
@@ -498,6 +500,9 @@ importers:
 
   packages/theme-algorithm:
     dependencies:
+      '@ant-design/colors':
+        specifier: ^7.0.2
+        version: 7.0.2
       '@ctrl/tinycolor':
         specifier: ^4.0.2
         version: 4.0.2
@@ -540,6 +545,9 @@ importers:
       '@icestack/shared':
         specifier: workspace:^
         version: link:../shared
+      '@icestack/theme-algorithm':
+        specifier: workspace:^
+        version: link:../theme-algorithm
       '@icestack/types':
         specifier: workspace:^
         version: link:../types

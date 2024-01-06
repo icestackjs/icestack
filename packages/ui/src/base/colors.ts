@@ -1,10 +1,4 @@
-import { generate } from '@ant-design/colors'
-
-export { generate, presetPrimaryColors } from '@ant-design/colors'
-
-export function makeRgbaValue(key: string, slash: boolean = true) {
-  return slash ? `rgba(var(${key}) / <alpha-value>)` : `rgba(var(${key}),<alpha-value>)`
-}
+export * from '@icestack/theme-algorithm'
 
 export const gray: { [key: number]: string } = {
   1: '#ffffff',
@@ -20,31 +14,6 @@ export const gray: { [key: number]: string } = {
   11: '#1f1f1f',
   12: '#141414',
   13: '#000000'
-}
-
-interface ColorGenerateOptions {
-  theme?: 'dark' | 'default'
-  backgroundColor?: string
-}
-// type GenerateOptions = Parameters<typeof generate>[1]
-export function generateColors(key: string, color: string, dark?: boolean): Record<string, string>
-export function generateColors(key: string, color: string, opts: true | ColorGenerateOptions): Record<string, string>
-export function generateColors(key: string, color: string, opt?: any) {
-  let opts = opt
-  if (opts === true) {
-    opts = {
-      theme: 'dark',
-      backgroundColor: '#141414'
-    }
-  }
-
-  const colors = generate(color, opts)
-  return {
-    [key]: colors[5],
-    [`${key}-hover`]: colors[4],
-    [`${key}-active`]: colors[6],
-    [`${key}-content`]: gray[1] //  typeof opts === 'object' && opts.theme === 'dark' ? gray[13] : gray[1]
-  }
 }
 
 // https://github.com/ant-design/ant-design/blob/5393d9ce36821e64590d3f0d07daa0d393a4c299/.dumi/theme/common/Color/ColorStyle.tsx#L13

@@ -85,6 +85,7 @@
     "@icestack/postcss": "workspace:^",
     "@icestack/preset-default": "workspace:^",
     "@icestack/shared": "workspace:^",
+    "@icestack/theme-algorithm": "workspace:^",
     "@icestack/types": "workspace:^",
     "c12": "^1.6.1",
     "chokidar": "^3.5.3",

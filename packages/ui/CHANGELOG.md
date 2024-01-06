@@ -1,5 +1,11 @@
 # @icestack/ui
 
+## 1.0.1
+
+### Patch Changes
+
+- [`53ad0bf`](https://github.com/sonofmagic/icestack/commit/53ad0bfb8aec4c3901e0f403715d54e2d3784c6d) Thanks [@sonofmagic](https://github.com/sonofmagic)! - fix: custom.js ref error
+
 ## 1.0.0
 
 ### Major Changes

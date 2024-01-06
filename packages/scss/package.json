@@ -32,7 +32,11 @@
   "files": [
     "dist"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "@icestack/shared": "workspace:^",
+    "immutable": "^4.0.0",
+    "sass": "^1.69.7"
+  },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
   "bugs": {

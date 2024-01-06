@@ -1,30 +1,9 @@
-import { TinyColor } from '@ctrl/tinycolor'
 import { sharedExtraColors, sharedExtraVars } from '@icestack/preset-default/base'
-import { makeRgbaValue } from './colors'
+import { makeRgbaValue, composeVarsObject } from './colors'
 import { CodegenOptions, VarPrefixerOptions } from '@/types'
 import { mergeRClone } from '@/shared'
 import { merge, parse, parseJs } from '@/postcss'
 import { makeArray } from '@/utils'
-
-export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, slash: boolean = true) => {
-  return Object.entries({
-    ...colorsMap,
-    ...shareVars
-  }).reduce<Record<string, string>>((acc, [key, value]) => {
-    const k = '--' + key
-    const color = new TinyColor(value)
-    let str = value
-    if (color.isValid) {
-      if (slash) {
-        str = color.a < 1 && color.a > 0 ? `${color.r} ${color.g} ${color.b} / ${color.a}` : `${color.r} ${color.g} ${color.b}`
-      } else {
-        str = color.a < 1 && color.a > 0 ? `${color.r},${color.g},${color.b},${color.a}` : `${color.r},${color.g},${color.b}`
-      }
-    }
-    acc[k] = str
-    return acc
-  }, {})
-}
 
 export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } = { slash: true }) => {
   const { base, postcss } = options

@@ -7,3 +7,5 @@ export * from './plugins'
 export * from './scss'
 
 export * from '@icestack/postcss-utils'
+
+export { Root, AtRule, Rule, Declaration, Comment } from 'postcss'

@@ -7,7 +7,7 @@ import { removeDefaultComponents } from '@/components'
 describe('cutsom', () => {
   it('custom component case 0', async () => {
     const outdir = path.resolve(__dirname, './outdir')
-    const options = getCodegenOptions({
+    const options = {
       postcss: {
         prefix: 'ice-'
       },
@@ -21,11 +21,9 @@ describe('cutsom', () => {
         }
       },
       outdir
-    })
+    }
     const ctx = createContext(options)
     expect(ctx.presets.subtitle).toBeTruthy()
-    // @ts-ignore
-    expect('undefined' in ctx.presets.subtitle.defaults.base).toBeFalsy()
 
     await ctx.buildComponents()
     expect(fs.existsSync(path.resolve(outdir, 'js/components/subtitle/utils.cjs'))).toBe(true)

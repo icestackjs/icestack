@@ -77,13 +77,12 @@
     "watch": "node scripts/watch.js"
   },
   "dependencies": {
-    "@ant-design/colors": "^7.0.2",
     "@babel/generator": "^7.23.6",
     "@babel/types": "^7.23.6",
-    "@ctrl/tinycolor": "^4.0.2",
     "@icestack/logger": "workspace:^",
     "@icestack/postcss": "workspace:^",
     "@icestack/preset-default": "workspace:^",
+    "@icestack/scss": "workspace:^",
     "@icestack/shared": "workspace:^",
     "@icestack/theme-algorithm": "workspace:^",
     "@icestack/types": "workspace:^",
@@ -92,10 +91,8 @@
     "commander": "^11.1.0",
     "dedent": "^1.5.1",
     "del": "^7.1.0",
-    "immutable": "^4.0.0",
     "kleur": "^4.1.5",
-    "lodash": "^4.17.21",
-    "sass": "^1.69.7"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.202"

@@ -1,6 +1,6 @@
-import { pick, reverse } from 'lodash'
-import { defuExtendApplyCss, defuArrayRight } from '@/shared'
-import type { ComponentsValue, GetCssSchemaMethodOptions, CssValue, CreatePresetOptions, CssSchema, ModeMergeOptions, PickCss, CssSchemaDefaults } from '@/types'
+import { pick } from 'lodash'
+import { defuArrayRight } from '@/shared'
+import type { ComponentsValue, GetCssSchemaMethodOptions, CreatePresetOptions, CssSchema, ModeMergeOptions, PickCss, CssSchemaDefaults } from '@/types'
 import { isModeMergeValue, makeArray } from '@/utils'
 
 function getPickedProps(pickCss?: PickCss) {
@@ -19,42 +19,39 @@ function resolvedFunctionArray<T>(arr: T | T[], opts: Partial<GetCssSchemaMethod
   if (!Array.isArray(arr)) {
     arr = [arr]
   }
-  return arr.map((x) => {
-    return typeof x === 'function' ? x(opts) : x
-  })
+  return arr
+    .map((x) => {
+      return typeof x === 'function' ? x(opts) : x
+    })
+    .filter(Boolean)
 }
 
-export function mergeAllOptions(input: ModeMergeOptions[], opts: Partial<GetCssSchemaMethodOptions>): Record<string, CssValue> {
+export function mergeAllOptions(input: ModeMergeOptions[], opts: Partial<GetCssSchemaMethodOptions>): Record<string, string[]> {
   if (!input) {
     return input
   }
-  const obj = resolvedFunctionArray(input, opts).map((x) => {
-    if (isModeMergeValue(x)) {
-      return {
-        base: resolvedFunctionArray(x.base, opts),
-        styled: resolvedFunctionArray(x.styled, opts),
-        utils: resolvedFunctionArray(x.utils, opts)
+  return defuArrayRight(
+    ...resolvedFunctionArray(input, opts).map((x) => {
+      if (isModeMergeValue(x)) {
+        return {
+          base: resolvedFunctionArray(x.base, opts),
+          styled: resolvedFunctionArray(x.styled, opts),
+          utils: resolvedFunctionArray(x.utils, opts)
+        }
       }
-    }
 
-    return {
-      utils: makeArray(x),
-      base: [],
-      styled: []
-    }
-  })
-  // override or extend?
-  // @ts-ignore
-  return defuExtendApplyCss(...reverse(obj), {
-    base: {},
-    styled: {},
-    utils: {}
-  })
+      return {
+        utils: makeArray(x),
+        base: [],
+        styled: []
+      }
+    })
+  )
 }
 
 export function preprocessDefaults(de?: Partial<CssSchemaDefaults>) {
   if (de === undefined) {
-    return {}
+    de = {}
   }
   if (typeof de.base === 'string') {
     de.base = [de.base] // transformCss2Js(de.base)
@@ -92,6 +89,5 @@ export function handleOptions({ extend, selector, schema, params, pick: pickCss 
     selector,
     defaults: mergeAllOptions(extend as ModeMergeOptions[], schemaOpts)
   }
-  const res = defuArrayRight(extendDefaults, de)
-  return res
+  return defuArrayRight(extendDefaults, de)
 }

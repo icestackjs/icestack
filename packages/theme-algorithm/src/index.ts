@@ -1,5 +1,5 @@
 import { generate } from '@ant-design/colors'
-
+import { TinyColor } from '@ctrl/tinycolor'
 export { generate, presetPrimaryColors } from '@ant-design/colors'
 
 export function makeRgbaValue(key: string, slash: boolean = true) {
@@ -46,3 +46,25 @@ export function generateColors(key: string, color: string, opt?: any) {
     [`${key}-content`]: gray[1] //  typeof opts === 'object' && opts.theme === 'dark' ? gray[13] : gray[1]
   }
 }
+
+export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, slash: boolean = true) => {
+  return Object.entries({
+    ...colorsMap,
+    ...shareVars
+  }).reduce<Record<string, string>>((acc, [key, value]) => {
+    const k = '--' + key
+    const color = new TinyColor(value)
+    let str = value
+    if (color.isValid) {
+      if (slash) {
+        str = color.a < 1 && color.a > 0 ? `${color.r} ${color.g} ${color.b} / ${color.a}` : `${color.r} ${color.g} ${color.b}`
+      } else {
+        str = color.a < 1 && color.a > 0 ? `${color.r},${color.g},${color.b},${color.a}` : `${color.r},${color.g},${color.b}`
+      }
+    }
+    acc[k] = str
+    return acc
+  }, {})
+}
+
+export { TinyColor } from '@ctrl/tinycolor'

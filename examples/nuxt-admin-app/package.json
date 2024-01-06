@@ -17,7 +17,7 @@
     "@icestack/ui": "workspace:^",
     "@iconify-json/logos": "^1.1.42",
     "@iconify-json/mdi": "^1.1.64",
-    "@intlify/shared": "^9.8.0",
+    "@intlify/shared": "^9.9.0",
     "@nuxt/devtools": "latest",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/color-mode": "^3.3.2",

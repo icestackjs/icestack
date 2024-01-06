@@ -205,6 +205,7 @@ export function createContext(opts?: CodegenOptions) {
   async function buildUtilities() {
     const layer: ILayer = 'utilities'
     const res: Record<string, Record<string, CssInJs>> = {}
+    const refs: string[] = []
     for (const utilityName of utilitiesNames) {
       const suffixes = [utilityName]
       const suffix = suffixes.join('.')
@@ -219,14 +220,14 @@ export function createContext(opts?: CodegenOptions) {
           suffixes,
           relPath: `${layer}/${utilityName}.scss`
         })
-
+        refs.push(utilityName)
         set(res, utilityName, result)
       }
     }
 
     if (!dryRun) {
       const outputPath = path.resolve(resolveJsDir(outdir), 'utilities')
-      const code = generateIndexCode(utilitiesNames, 'utilities')
+      const code = generateIndexCode(refs, 'utilities')
       writeFile(path.resolve(outputPath, 'index.cjs'), code)
     }
 

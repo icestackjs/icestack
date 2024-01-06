@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "npm run build:ui && vite",
-    "build": "vue-tsc && vite build",
+    "build": "npm run build:ui && vite build",
+    "_build": "vue-tsc && vite build",
     "preview": "vite preview",
     "build:ui": "icestack build --clean",
     "test:dev": "vitest"

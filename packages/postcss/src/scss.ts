@@ -1,11 +1,35 @@
 import { parse as scssParse } from 'postcss-scss'
-import type { AtRule, Root, Rule } from 'postcss'
+import { rule, type AtRule, type Root, type Rule } from 'postcss'
+import valueParser from 'postcss-value-parser'
 import { compressCssSelector } from '@icestack/postcss-utils'
 
 export function parse(css: string) {
   const root = scssParse(css)
   root.walkRules((rule) => {
     rule.selector = compressCssSelector(rule.selector)
+  })
+  root.walkDecls((decl) => {
+    const valueRoot = valueParser(decl.value)
+    valueRoot.walk((node) => {
+      if (node.type === 'function' && node.value === 'theme') {
+        const first = node.nodes[0]
+        const last = node.nodes.at(-1)
+        if (first && last) {
+          // @ts-ignore
+          const fc = first.quote ?? first.value[0]
+          // @ts-ignore
+          const lc = last.quote ?? last.value.at(-1)
+          if (fc !== '"' && lc !== '"' && fc !== "'" && lc !== "'") {
+            node.after = '"'
+            node.before = '"'
+          }
+        }
+
+        // node.nodes[0]
+      }
+    })
+
+    decl.value = valueRoot.toString()
   })
   return root
 }
@@ -45,9 +69,24 @@ export function mergeLeftRight(leftNode: AtRule | Rule | Root, rightNode: AtRule
 }
 
 export function merge(...nodes: (AtRule | Rule | Root)[]) {
+  if (nodes.length === 0) {
+    return
+  }
   nodes.reduce((acc, cur) => {
     mergeLeftRight(acc, cur)
     return acc
   })
   return nodes[0]
+}
+
+export function mapCssStringToAst(arr: unknown[]) {
+  if (Array.isArray(arr)) {
+    return arr.filter(Boolean).map((x) => {
+      if (typeof x === 'string') {
+        return parse(x)
+      }
+      return x
+    })
+  }
+  return []
 }

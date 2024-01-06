@@ -11,37 +11,47 @@ exports[`cutsom > custom component case 0 1`] = `""`;
 exports[`cutsom > custom component case 1 1`] = `
 {
   "subtitle": {
-    "base": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
-    "styled": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
+    "base": undefined,
+    "styled": undefined,
     "utils": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
+      "css": ".ice-subtitle {
+  @apply text-gray-600 text-sm pt-5 pb-4;
+}",
+      "cssInJs": {
+        ".subtitle": {
+          "@apply text-gray-600 text-sm pt-5 pb-4": true,
+        },
+      },
+      "resolvedCss": ".ice-subtitle {
+    padding-top: 1.25rem;
+    padding-bottom: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity))
+}",
     },
   },
   "tips": {
-    "base": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
-    "styled": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
+    "base": undefined,
+    "styled": undefined,
     "utils": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
+      "css": ".som-tips {
+  @apply text-gray-500 text-xs pt-3 pb-2;
+}",
+      "cssInJs": {
+        ".tips": {
+          "@apply text-gray-500 text-xs pt-3 pb-2": true,
+        },
+      },
+      "resolvedCss": ".som-tips {
+    padding-top: 0.75rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-text-opacity))
+}",
     },
   },
 }
@@ -51,18 +61,21 @@ exports[`cutsom > custom component case 2 1`] = `
 {
   "checkbox": {
     "base": {
-      "css": ".checkbox .wx-checkbox-input {
+      "css": "@charset "UTF-8";
+.ice-checkbox .wx-checkbox-input {
   width: 34rpx;
   height: 34rpx;
   border-radius: 50%;
 }
 
-.checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+/*checkbox选中后样式  */
+.ice-checkbox .wx-checkbox-input.wx-checkbox-input-checked {
   background: #0394f0;
   border-color: #0394f0;
 }
 
-.checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+/*checkbox选中后图标样式  */
+.ice-checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   width: 20rpx;
   height: 20rpx;
   line-height: 20rpx;
@@ -74,16 +87,16 @@ exports[`cutsom > custom component case 2 1`] = `
   -webkit-transform: translate(-50%, -50%) scale(1);
 }",
       "cssInJs": {
-        ".ice-checkbox .wx-checkbox-input": {
+        ".checkbox .wx-checkbox-input": {
           "borderRadius": "50%",
           "height": "34rpx",
           "width": "34rpx",
         },
-        ".ice-checkbox .wx-checkbox-input.wx-checkbox-input-checked": {
+        ".checkbox .wx-checkbox-input.wx-checkbox-input-checked": {
           "background": "#0394f0",
           "borderColor": "#0394f0",
         },
-        ".ice-checkbox .wx-checkbox-input.wx-checkbox-input-checked::before": {
+        ".checkbox .wx-checkbox-input.wx-checkbox-input-checked::before": {
           "WebkitTransform": "translate(-50%, -50%) scale(1)",
           "background": "transparent",
           "color": "#fff",
@@ -95,17 +108,20 @@ exports[`cutsom > custom component case 2 1`] = `
           "width": "20rpx",
         },
       },
-      "resolvedCss": ".ice-checkbox .wx-checkbox-input {
+      "resolvedCss": "@charset "UTF-8";
+.ice-checkbox .wx-checkbox-input {
   width: 34rpx;
   height: 34rpx;
   border-radius: 50%;
 }
 
+/*checkbox选中后样式  */
 .ice-checkbox .wx-checkbox-input.wx-checkbox-input-checked {
   background: #0394f0;
   border-color: #0394f0;
 }
 
+/*checkbox选中后图标样式  */
 .ice-checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
   width: 20rpx;
   height: 20rpx;
@@ -118,16 +134,8 @@ exports[`cutsom > custom component case 2 1`] = `
   -webkit-transform: translate(-50%, -50%) scale(1);
 }",
     },
-    "styled": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
-    "utils": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
+    "styled": undefined,
+    "utils": undefined,
   },
 }
 `;
@@ -135,20 +143,26 @@ exports[`cutsom > custom component case 2 1`] = `
 exports[`cutsom > custom component case 3 1`] = `
 {
   "xxx": {
-    "base": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
-    "styled": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
+    "base": undefined,
+    "styled": undefined,
     "utils": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
+      "css": ".xxx {
+  @apply bg-red-300 text-sm;
+  color: red;
+}",
+      "cssInJs": {
+        ".xxx": {
+          "@apply bg-red-300 text-sm": true,
+          "color": "red",
+        },
+      },
+      "resolvedCss": ".xxx {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: red
+}",
     },
   },
 }
@@ -157,20 +171,28 @@ exports[`cutsom > custom component case 3 1`] = `
 exports[`cutsom > custom component case 4 !important 1`] = `
 {
   "xxx": {
-    "base": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
-    "styled": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
+    "base": undefined,
+    "styled": undefined,
     "utils": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
+      "css": ".xxx {
+  @apply bg-red-300 text-sm;
+  @apply leading-4 !important;
+  color: red;
+}",
+      "cssInJs": {
+        ".xxx": {
+          "@apply bg-red-300 text-sm": true,
+          "@apply leading-4 #{!important}": true,
+          "color": "red",
+        },
+      },
+      "resolvedCss": ".xxx {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+  font-size: 0.875rem;
+  line-height: 1rem !important;
+  color: red
+}",
     },
   },
 }
@@ -179,20 +201,26 @@ exports[`cutsom > custom component case 4 !important 1`] = `
 exports[`cutsom > custom component case 5 !important 1`] = `
 {
   "xxx": {
-    "base": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
-    "styled": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
+    "base": undefined,
+    "styled": undefined,
     "utils": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
+      "css": ".xxx {
+  @apply bg-red-300 text-sm leading-4 !important;
+  color: red !important;
+}",
+      "cssInJs": {
+        ".xxx": {
+          "@apply bg-red-300 text-sm leading-4 #{!important}": true,
+          "color": "red !important",
+        },
+      },
+      "resolvedCss": ".xxx {
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity)) !important;
+  font-size: 0.875rem !important;
+  line-height: 1rem !important;
+  color: red !important
+}",
     },
   },
 }
@@ -201,21 +229,9 @@ exports[`cutsom > custom component case 5 !important 1`] = `
 exports[`cutsom > custom component case 6 1`] = `
 {
   "xxx": {
-    "base": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
-    "styled": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
-    "utils": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
+    "base": undefined,
+    "styled": undefined,
+    "utils": undefined,
   },
 }
 `;
@@ -223,21 +239,9 @@ exports[`cutsom > custom component case 6 1`] = `
 exports[`cutsom > custom component case 7 1`] = `
 {
   "xxx": {
-    "base": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
-    "styled": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
-    "utils": {
-      "css": "",
-      "cssInJs": {},
-      "resolvedCss": "",
-    },
+    "base": undefined,
+    "styled": undefined,
+    "utils": undefined,
   },
 }
 `;

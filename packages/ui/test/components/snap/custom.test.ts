@@ -88,7 +88,7 @@ describe('cutsom', () => {
             return {
               selector,
               defaults: {
-                base: transformCss2Js(`.checkbox .wx-checkbox-input {
+                base: `.checkbox .wx-checkbox-input {
                   width: 34rpx;
                   height: 34rpx;
                   border-radius: 50%;
@@ -110,7 +110,7 @@ describe('cutsom', () => {
                   transform: translate(-50%, -50%) scale(1);
                   -webkit-transform: translate(-50%, -50%) scale(1);
                 }
-                `)
+                `
               }
             }
           }
@@ -132,14 +132,12 @@ describe('cutsom', () => {
         ...removeDefaultComponents,
         xxx: {
           extend: {
-            utils: {
-              '.xxx': {
-                apply: ['bg-red-300 text-sm'],
-                css: {
-                  color: 'red'
-                }
-              }
+            utils: `
+            .xxx{
+              @apply bg-red-300 text-sm;
+              color: red;
             }
+            `
           }
         }
       },
@@ -159,14 +157,13 @@ describe('cutsom', () => {
         ...removeDefaultComponents,
         xxx: {
           extend: {
-            utils: {
-              '.xxx': {
-                apply: ['bg-red-300 text-sm', 'leading-4 !important'],
-                css: {
-                  color: 'red'
-                }
-              }
+            utils: `
+            .xxx{
+              @apply bg-red-300 text-sm;
+              @apply leading-4 #{!important};
+              color: red;
             }
+            `
           }
         }
       },
@@ -186,14 +183,12 @@ describe('cutsom', () => {
         ...removeDefaultComponents,
         xxx: {
           extend: {
-            utils: {
-              '.xxx': {
-                apply: 'bg-red-300 text-sm leading-4 !important',
-                css: {
-                  color: 'red !important'
-                }
-              }
+            utils: `
+            .xxx{
+              @apply bg-red-300 text-sm leading-4 #{!important};
+              color: red !important;
             }
+            `
           }
         }
       },

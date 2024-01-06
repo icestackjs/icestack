@@ -1,10 +1,8 @@
 import { TinyColor } from '@ctrl/tinycolor'
-import { AtRule, Declaration, Root, Rule } from 'postcss'
 import { makeRgbaValue, sharedExtraColors, sharedExtraVars } from './colors'
 import { CodegenOptions, VarPrefixerOptions } from '@/types'
-import { mergeR, mergeRClone } from '@/shared'
-import { mapCss2JsArray, merge, parse } from '@/postcss'
-import { mergeRoot } from '@/sass'
+import { mergeRClone } from '@/shared'
+import { merge, parse, parseJs } from '@/postcss'
 import { makeArray } from '@/utils'
 
 export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, slash: boolean = true) => {
@@ -101,48 +99,7 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
 
     return acc
   }, {})
-
-  const root = new Root()
-
-  for (const [selector, obj] of Object.entries(presets)) {
-    if (selector.startsWith('@media')) {
-      root.append(
-        new AtRule({
-          name: 'media',
-          params: '(prefers-color-scheme: dark)',
-          nodes: Object.entries(obj).map(([s, o]) => {
-            return new Rule({
-              selector: s,
-              nodes:
-                typeof o === 'object'
-                  ? Object.entries(o).map(([p, v]) => {
-                      return new Declaration({
-                        prop: p,
-                        value: v
-                      })
-                    })
-                  : []
-            })
-          })
-        })
-      )
-    } else {
-      root.append(
-        new Rule({
-          selector,
-          nodes:
-            typeof obj === 'object'
-              ? Object.entries(obj).map(([p, v]) => {
-                  return new Declaration({
-                    prop: p,
-                    value: v
-                  })
-                })
-              : []
-        })
-      )
-    }
-  }
+  const root = parseJs(presets)
 
   if (globalExtraCss) {
     merge(root, ...makeArray(globalExtraCss).map((x) => parse(x)))

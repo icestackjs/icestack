@@ -76,3 +76,35 @@ exports[`scss > parse case 10 1`] = `
       @apply bg-xx
     }"
 `;
+
+exports[`scss > scss parse error 0 1`] = `
+"
+    .s{
+      box-shadow: 0 0 0 4px theme("colors.base-100") inset
+    }
+    "
+`;
+
+exports[`scss > scss parse error 1 1`] = `
+"
+    .s{
+      box-shadow: 0 0 0 4px theme("colors.base-100 / 75%") inset
+    }
+    "
+`;
+
+exports[`scss > scss parse error 2 1`] = `
+"
+    .s{
+      box-shadow: 0 0 0 4px theme("colors.base-100") inset
+    }
+    "
+`;
+
+exports[`scss > scss parse error 3 1`] = `
+"
+    .s{
+      box-shadow: 0 0 0 4px theme("colors.base-100" / 75%) inset
+    }
+    "
+`;

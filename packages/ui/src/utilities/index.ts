@@ -1,13 +1,14 @@
 import glass from './glass'
 import variables from './variables'
-import type { CssInJs } from '@/types'
-import { mergeRClone } from '@/shared'
-import { preprocessCssInJs, mapCss2JsArray, transformCss2Js } from '@/postcss'
+import type { CssInJs, CssValue } from '@/types'
 const _utilitiesMap = {
   glass,
   variables,
-  custom: (value: any) => {
-    return mergeRClone(...mapCss2JsArray(value))
+  custom: (value: CssValue) => {
+    if (Array.isArray(value)) {
+      return value.join('\n')
+    }
+    return value
   }
 } as unknown as Record<string, () => CssInJs>
 
@@ -15,7 +16,7 @@ const utilitiesMap = {} as Record<string, () => CssInJs>
 for (const componentName of Object.keys(_utilitiesMap)) {
   const o = _utilitiesMap[componentName]
   utilitiesMap[componentName] = (...args) => {
-    return preprocessCssInJs(transformCss2Js(o(...args)))
+    return o(...args)
   }
 }
 

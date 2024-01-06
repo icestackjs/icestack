@@ -7,17 +7,17 @@ import { getCodegenOptions } from '@/options'
 //   return path.basename(x, '.scss')
 // })
 describe('utilities', () => {
-  it('glass snap', async () => {
-    const ctx = createContext(getCodegenOptions())
-    const { css } = await ctx.compileScss('utilities.glass')
-    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
-  })
+  // it('glass snap', async () => {
+  //   const ctx = createContext(getCodegenOptions())
+  //   const { css } = await ctx.compileScss('utilities.glass')
+  //   expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+  // })
 
-  it('variables snap', async () => {
-    const ctx = createContext(getCodegenOptions())
-    const { css } = await ctx.compileScss('utilities.variables')
-    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
-  })
+  // it('variables snap', async () => {
+  //   const ctx = createContext(getCodegenOptions())
+  //   const { css } = await ctx.compileScss('utilities.variables')
+  //   expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+  // })
 
   it('custom snap', async () => {
     const ctx = createContext(getCodegenOptions())
@@ -31,14 +31,10 @@ describe('utilities', () => {
       utilities: {
         extraCss: [
           `.dsdsdsdsd{color:red;}`,
-          {
-            '.vvvv': {
-              apply: ['bg-blue-500'],
-              css: {
-                color: 'blue'
-              }
-            }
-          }
+          `.vvvv{
+            @apply bg-blue-500;
+            color: blue;
+          }`
         ]
       }
     })

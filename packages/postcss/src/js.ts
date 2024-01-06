@@ -14,8 +14,12 @@ export function objectify(root: Root) {
   return postcssJs.objectify(root as Root)
 }
 
+export function parseJs(cssInJs: CssInJs) {
+  return postcssJs.parse(cssInJs)
+}
+
 export function stringify(cssInJs: CssInJs) {
-  return postcssJs.parse(cssInJs).toString()
+  return parseJs(cssInJs).toString()
 }
 
 export function process(plugins: AcceptedPlugin[], css: string): LazyResult<Document | Root> {

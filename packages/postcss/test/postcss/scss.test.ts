@@ -187,4 +187,44 @@ describe('scss', () => {
 
     expect(root.toString()).toMatchSnapshot()
   })
+
+  it('scss parse error 0', () => {
+    const testCase = `
+    .s{
+      box-shadow: 0 0 0 4px theme(colors.base-100) inset
+    }
+    `
+    const root = parse(testCase)
+    expect(root.toString()).toMatchSnapshot()
+  })
+
+  it('scss parse error 1', () => {
+    const testCase = `
+    .s{
+      box-shadow: 0 0 0 4px theme(colors.base-100 / 75%) inset
+    }
+    `
+    const root = parse(testCase)
+    expect(root.toString()).toMatchSnapshot()
+  })
+
+  it('scss parse error 2', () => {
+    const testCase = `
+    .s{
+      box-shadow: 0 0 0 4px theme("colors.base-100") inset
+    }
+    `
+    const root = parse(testCase)
+    expect(root.toString()).toMatchSnapshot()
+  })
+
+  it('scss parse error 3', () => {
+    const testCase = `
+    .s{
+      box-shadow: 0 0 0 4px theme("colors.base-100" / 75%) inset
+    }
+    `
+    const root = parse(testCase)
+    expect(root.toString()).toMatchSnapshot()
+  })
 })

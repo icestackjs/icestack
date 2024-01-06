@@ -57,7 +57,6 @@ export function mergeRoot(arr: string[]) {
   return merge(...arr.map((x) => parse(x)))
 }
 
-export function compileScssString(arr: string[]) {
-  const root = mergeRoot(arr)
-  return sass.compileString(root.toString())
+export function compileScssString(str: string) {
+  return sass.compileString(str)
 }

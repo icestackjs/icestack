@@ -3,8 +3,13 @@
 @import "tailwindcss/utilities";
 @import "./assets/font.scss";
 .float-btn {
-  @apply rounded-full w-12 h-12 flex justify-center items-center pointer-events-auto bg-white shadow-[0px_0px_16px_0px] dark:shadow-[inset_0px_0px_10px_0px_#ffffff] text-3xl dark:bg-slate-900 ;// dark:shadow-gray-700;
+  @apply rounded-full w-12 h-12 flex justify-center items-center pointer-events-auto bg-white shadow-[0px_0px_16px_0px] dark:shadow-[inset_0px_0px_10px_0px_#ffffff] text-3xl dark:bg-slate-900; // dark:shadow-gray-700;
 }
 // :not(not){
 //   color: red !important;
 // }
+
+.sd {
+  background-color: theme(colors.black / 75%);
+  background-color: theme("colors.white / 10%');
+}

@@ -1,32 +1,15 @@
-// import { applyListToString } from '@/components/shared'
+import { createContext } from '@/context'
 
-describe('components', () => {
-  it('should ', () => {})
-  // it('applyListToString case 0', () => {
-  //   expect(
-  //     applyListToString({
-  //       apply: [1, 2, 3, 4]
-  //     })
-  //   ).toEqual({
-  //     apply: '1 2 3 4'
-  //   })
-  // })
-
-  // it('applyListToString case 1', () => {
-  //   expect(
-  //     applyListToString({
-  //       a: {
-  //         b: {
-  //           apply: [1, 2, 3, 4]
-  //         }
-  //       }
-  //     })
-  //   ).toEqual({
-  //     a: {
-  //       b: {
-  //         apply: '1 2 3 4'
-  //       }
-  //     }
-  //   })
-  // })
+describe('components new', () => {
+  it('case 0', async () => {
+    const ctx = createContext({
+      dryRun: true,
+      base: {
+        mediaDarkTheme: 'dark'
+      }
+    })
+    // ['radio']
+    const res = await ctx.buildComponents()
+    expect(res).toMatchSnapshot()
+  })
 })

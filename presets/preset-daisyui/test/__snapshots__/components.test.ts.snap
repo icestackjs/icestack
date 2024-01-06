@@ -655,6 +655,8 @@ exports[`components > daisyui all css obj 1`] = `
 }
 .btm-nav > * {
   @apply border-current;
+  /* active */
+  /* disabled */
 }
 .btm-nav > *:not(.active) {
   @apply pt-0.5;
@@ -713,41 +715,43 @@ exports[`components > daisyui all css obj 1`] = `
         },
       },
       "resolvedCss": ".btm-nav {
-    height: 4rem;
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--ice-base-100) / var(--tw-bg-opacity));
-    color: currentColor
+  height: 4rem;
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--ice-base-100) / var(--tw-bg-opacity));
+  color: currentColor
 }
 .btm-nav>* {
-    border-color: currentColor
+  border-color: currentColor
+  /* active */
+  /* disabled */
 }
 .btm-nav>*:not(.active) {
-    padding-top: 0.125rem
+  padding-top: 0.125rem
 }
 .btm-nav>*:where(.active) {
-    border-top-width: 2px;
-    --tw-bg-opacity: 1;
-    background-color: rgba(var(--ice-base-100) / var(--tw-bg-opacity))
+  border-top-width: 2px;
+  --tw-bg-opacity: 1;
+  background-color: rgba(var(--ice-base-100) / var(--tw-bg-opacity))
 }
 .btm-nav>*.disabled,.btm-nav>*[disabled] {
-    pointer-events: none;
-    --tw-border-opacity: 0;
-    background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
-    --tw-bg-opacity: 0.1;
-    color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
-    --tw-text-opacity: 0.2
+  pointer-events: none;
+  --tw-border-opacity: 0;
+  background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.1;
+  color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
+  --tw-text-opacity: 0.2
 }
 .btm-nav>*.disabled:hover,.btm-nav>*[disabled]:hover {
-    pointer-events: none;
-    --tw-border-opacity: 0;
-    background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
-    --tw-bg-opacity: 0.1;
-    color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
-    --tw-text-opacity: 0.2
+  pointer-events: none;
+  --tw-border-opacity: 0;
+  background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
+  --tw-bg-opacity: 0.1;
+  color: rgba(var(--ice-base-content) / var(--tw-text-opacity));
+  --tw-text-opacity: 0.2
 }
 .btm-nav>* .label {
-    font-size: 1rem;
-    line-height: 1.5rem
+  font-size: 1rem;
+  line-height: 1.5rem
 }",
     },
     "utils": {
@@ -946,10 +950,10 @@ exports[`components > daisyui all css obj 1`] = `
 }
 .breadcrumbs > ul > li + *:before, .breadcrumbs > ol > li + *:before {
   content: "";
+  @apply ml-2 mr-3 block h-1.5 w-1.5 rotate-45 transform opacity-40;
   border-top: 1px solid;
   border-right: 1px solid;
   background-color: transparent;
-  @apply ml-2 mr-3 block h-1.5 w-1.5 rotate-45 transform opacity-40;
 }
 
 [dir=rtl] .breadcrumbs > ul > li + *:before, [dir=rtl] .breadcrumbs > ol > li + *:before {
@@ -1000,9 +1004,6 @@ exports[`components > daisyui all css obj 1`] = `
 }
 .breadcrumbs>ul>li+*:before,.breadcrumbs>ol>li+*:before {
   content: "";
-  border-top: 1px solid;
-  border-right: 1px solid;
-  background-color: transparent;
   margin-left: 0.5rem;
   margin-right: 0.75rem;
   display: block;
@@ -1011,6 +1012,9 @@ exports[`components > daisyui all css obj 1`] = `
   --tw-rotate: 45deg;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   opacity: 0.4;
+  border-top: 1px solid;
+  border-right: 1px solid;
+  background-color: transparent;
 }
 
 [dir=rtl] .breadcrumbs>ul>li+*:before,[dir=rtl] .breadcrumbs>ol>li+*:before {
@@ -1029,6 +1033,8 @@ exports[`components > daisyui all css obj 1`] = `
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
+  /* disabled */
+  /* shapes */
 }
 .btn-disabled, .btn[disabled], .btn:disabled {
   @apply pointer-events-none;
@@ -1040,6 +1046,7 @@ exports[`components > daisyui all css obj 1`] = `
   @apply h-12 w-12 rounded-full p-0;
 }
 
+/* radio input and checkbox as button */
 :where(.btn:is(input[type=checkbox])), :where(.btn:is(input[type=radio])) {
   @apply w-auto appearance-none;
 }
@@ -1106,6 +1113,8 @@ exports[`components > daisyui all css obj 1`] = `
   text-align: center;
   font-size: 0.875rem;
   line-height: 1em
+  /* disabled */
+  /* shapes */
 }
 .btn-disabled,.btn[disabled],.btn:disabled {
   pointer-events: none
@@ -1122,6 +1131,7 @@ exports[`components > daisyui all css obj 1`] = `
   padding: 0px
 }
 
+/* radio input and checkbox as button */
 :where(.btn:is(input[type=checkbox])),:where(.btn:is(input[type=radio])) {
   width: auto;
   appearance: none
@@ -1136,7 +1146,7 @@ exports[`components > daisyui all css obj 1`] = `
       "css": "@charset "UTF-8";
 .btn {
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
-  border-width: var(--border-btn, 1px);
+  border-width: var(--ice-border-btn, 1px);
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
@@ -1196,7 +1206,8 @@ exports[`components > daisyui all css obj 1`] = `
   @apply shadow-none outline-current;
 }
 .btn.glass:active, .btn.glass.btn-active {
-  --glass-opacity: 25%； --glass-border-opacity: 15%； ;
+  --ice-glass-opacity: 25%；
+  --glass-border-opacity: 15%； ;
 }
 .btn-ghost {
   @apply border border-transparent bg-transparent text-current shadow-none outline-current;
@@ -1579,7 +1590,8 @@ exports[`components > daisyui all css obj 1`] = `
           "outlineColor": "currentColor",
         },
         ".btn.glass:active,.btn.glass.btn-active": {
-          "--ice-glass-opacity": "25%； --glass-border-opacity: 15%； ",
+          "--ice-glass-opacity": "25%；
+  --glass-border-opacity: 15%； ",
         },
         ".btn:active,.btn.btn-hover": {
           "--tw-bg-opacity": "1",
@@ -1741,7 +1753,8 @@ exports[`components > daisyui all css obj 1`] = `
   outline-color: currentColor;
 }
 .btn.glass:active,.btn.glass.btn-active {
-  --ice-glass-opacity: 25%； --glass-border-opacity: 15%； ;
+  --ice-glass-opacity: 25%；
+  --glass-border-opacity: 15%； ;
 }
 .btn-ghost{
   border-width: 1px;
@@ -2302,7 +2315,7 @@ exports[`components > daisyui all css obj 1`] = `
   @apply p-4 text-sm;
 }
 .card-body {
-  padding: var(--padding-card, 2rem);
+  padding: var(--ice-padding-card, 2rem);
   @apply flex flex-col gap-2;
 }
 .card-title {
@@ -2311,12 +2324,12 @@ exports[`components > daisyui all css obj 1`] = `
 .card.image-full:before {
   @apply bg-neutral rounded-box z-10 opacity-75;
 }
+.card.image-full > .card-body {
+  @apply text-neutral-content z-20;
+}
 .card.image-full :where(figure) {
   @apply overflow-hidden;
   border-radius: inherit;
-}
-.card.image-full > .card-body {
-  @apply text-neutral-content z-20;
 }",
       "cssInJs": {
         ".card": {
@@ -2443,14 +2456,14 @@ exports[`components > daisyui all css obj 1`] = `
   background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
   opacity: 0.75;
 }
-.card.image-full :where(figure) {
-  overflow: hidden;
-  border-radius: inherit;
-}
 .card.image-full>.card-body {
   z-index: 20;
   --tw-text-opacity: 1;
   color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
+}
+.card.image-full :where(figure) {
+  overflow: hidden;
+  border-radius: inherit;
 }",
     },
     "utils": {
@@ -2490,7 +2503,7 @@ exports[`components > daisyui all css obj 1`] = `
 }
 
 .card-normal .card-body {
-  padding: var(--padding-card, 2rem);
+  padding: var(--ice-padding-card, 2rem);
   @apply text-base;
 }
 .card-normal .card-title {
@@ -2938,6 +2951,7 @@ exports[`components > daisyui all css obj 1`] = `
   @apply rounded-box;
   min-height: 2.75rem;
   min-width: 2.75rem;
+  /* default */
 }
 .chat-bubble {
   @apply bg-neutral text-neutral-content;
@@ -3026,6 +3040,7 @@ exports[`components > daisyui all css obj 1`] = `
   border-radius: var(--ice-rounded-box, 1rem);
   min-height: 2.75rem;
   min-width: 2.75rem;
+  /* default */
   --tw-bg-opacity: 1;
   background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
@@ -3096,8 +3111,8 @@ exports[`components > daisyui all css obj 1`] = `
     },
     "styled": {
       "css": ".checkbox {
-  --chkbg: theme(colors.base-content);
-  --chkfg: theme(colors.base-100);
+  --ice-chkbg: theme("colors.base-content");
+  --ice-chkfg: theme("colors.base-100");
   @apply border-base-content rounded-btn h-6 w-6 cursor-pointer appearance-none border border-opacity-20;
 }
 .checkbox:focus {
@@ -3108,18 +3123,18 @@ exports[`components > daisyui all css obj 1`] = `
 }
 .checkbox:checked, .checkbox[checked=true], .checkbox[aria-checked=true] {
   @apply bg-no-repeat;
-  animation: checkmark var(--animation-input, 0.2s) ease-out;
-  background-color: var(--chkbg);
-  background-image: linear-gradient(-45deg, transparent 65%, var(--chkbg) 65.99%), linear-gradient(45deg, transparent 75%, var(--chkbg) 75.99%), linear-gradient(-45deg, var(--chkbg) 40%, transparent 40.99%), linear-gradient( 45deg, var(--chkbg) 30%, var(--chkfg) 30.99%, var(--chkfg) 40%, transparent 40.99% ), linear-gradient(-45deg, var(--chkfg) 50%, var(--chkbg) 50.99%);
+  animation: checkmark var(--ice-animation-input, 0.2s) ease-out;
+  background-color: var(--ice-chkbg);
+  background-image: linear-gradient(-45deg, transparent 65%, var(--ice-chkbg) 65.99%), linear-gradient(45deg, transparent 75%, var(--ice-chkbg) 75.99%), linear-gradient(-45deg, var(--ice-chkbg) 40%, transparent 40.99%), linear-gradient(45deg, var(--ice-chkbg) 30%, var(--ice-chkfg) 30.99%, var(--ice-chkfg) 40%, transparent 40.99%), linear-gradient(-45deg, var(--ice-chkfg) 50%, var(--ice-chkbg) 50.99%);
 }
 .checkbox:indeterminate {
   @apply bg-base-content bg-no-repeat;
-  animation: checkmark var(--animation-input, 0.2s) ease-out;
-  background-image: linear-gradient(90deg, transparent 80%, var(--chkbg) 80%), linear-gradient(-90deg, transparent 80%, var(--chkbg) 80%), linear-gradient(0deg, var(--chkbg) 43%, var(--chkfg) 43%, var(--chkfg) 57%, var(--chkbg) 57%);
+  animation: checkmark var(--ice-animation-input, 0.2s) ease-out;
+  background-image: linear-gradient(90deg, transparent 80%, var(--ice-chkbg) 80%), linear-gradient(-90deg, transparent 80%, var(--ice-chkbg) 80%), linear-gradient(0deg, var(--ice-chkbg) 43%, var(--ice-chkfg) 43%, var(--ice-chkfg) 57%, var(--ice-chkbg) 57%);
 }
 .checkbox-primary {
-  --chkbg: theme(colors.primary);
-  --chkfg: theme(colors.primary-content);
+  --ice-chkbg: theme("colors.primary");
+  --ice-chkfg: theme("colors.primary-content");
   @apply border-primary [@media(hover:hover)]:hover:border-primary;
 }
 .checkbox-primary:focus-visible {
@@ -3129,8 +3144,8 @@ exports[`components > daisyui all css obj 1`] = `
   @apply border-primary bg-primary text-primary-content;
 }
 .checkbox-success {
-  --chkbg: theme(colors.success);
-  --chkfg: theme(colors.success-content);
+  --ice-chkbg: theme("colors.success");
+  --ice-chkfg: theme("colors.success-content");
   @apply border-success [@media(hover:hover)]:hover:border-success;
 }
 .checkbox-success:focus-visible {
@@ -3140,8 +3155,8 @@ exports[`components > daisyui all css obj 1`] = `
   @apply border-success bg-success text-success-content;
 }
 .checkbox-warning {
-  --chkbg: theme(colors.warning);
-  --chkfg: theme(colors.warning-content);
+  --ice-chkbg: theme("colors.warning");
+  --ice-chkfg: theme("colors.warning-content");
   @apply border-warning [@media(hover:hover)]:hover:border-warning;
 }
 .checkbox-warning:focus-visible {
@@ -3151,8 +3166,8 @@ exports[`components > daisyui all css obj 1`] = `
   @apply border-warning bg-warning text-warning-content;
 }
 .checkbox-error {
-  --chkbg: theme(colors.error);
-  --chkfg: theme(colors.error-content);
+  --ice-chkbg: theme("colors.error");
+  --ice-chkfg: theme("colors.error-content");
   @apply border-error [@media(hover:hover)]:hover:border-error;
 }
 .checkbox-error:focus-visible {
@@ -3162,8 +3177,8 @@ exports[`components > daisyui all css obj 1`] = `
   @apply border-error bg-error text-error-content;
 }
 .checkbox-neutral {
-  --chkbg: theme(colors.neutral);
-  --chkfg: theme(colors.neutral-content);
+  --ice-chkbg: theme("colors.neutral");
+  --ice-chkfg: theme("colors.neutral-content");
   @apply border-neutral [@media(hover:hover)]:hover:border-neutral;
 }
 .checkbox-neutral:focus-visible {
@@ -3187,6 +3202,7 @@ exports[`components > daisyui all css obj 1`] = `
     background-position-y: 0;
   }
 }
+/* backward compatibility */
 .checkbox-mark {
   @apply hidden;
 }",
@@ -3314,7 +3330,7 @@ exports[`components > daisyui all css obj 1`] = `
         ".checkbox:checked,.checkbox[checked=true],.checkbox[aria-checked=true]": {
           "animation": "checkmark var(--ice-animation-input, 0.2s) ease-out",
           "backgroundColor": "var(--ice-chkbg)",
-          "backgroundImage": "linear-gradient(-45deg, transparent 65%, var(--ice-chkbg) 65.99%), linear-gradient(45deg, transparent 75%, var(--ice-chkbg) 75.99%), linear-gradient(-45deg, var(--ice-chkbg) 40%, transparent 40.99%), linear-gradient( 45deg, var(--ice-chkbg) 30%, var(--ice-chkfg) 30.99%, var(--ice-chkfg) 40%, transparent 40.99% ), linear-gradient(-45deg, var(--ice-chkfg) 50%, var(--ice-chkbg) 50.99%)",
+          "backgroundImage": "linear-gradient(-45deg, transparent 65%, var(--ice-chkbg) 65.99%), linear-gradient(45deg, transparent 75%, var(--ice-chkbg) 75.99%), linear-gradient(-45deg, var(--ice-chkbg) 40%, transparent 40.99%), linear-gradient(45deg, var(--ice-chkbg) 30%, var(--ice-chkfg) 30.99%, var(--ice-chkfg) 40%, transparent 40.99%), linear-gradient(-45deg, var(--ice-chkfg) 50%, var(--ice-chkbg) 50.99%)",
           "backgroundRepeat": "no-repeat",
         },
         ".checkbox:disabled": {
@@ -3377,7 +3393,7 @@ exports[`components > daisyui all css obj 1`] = `
   background-repeat: no-repeat;
   animation: checkmark var(--ice-animation-input, 0.2s) ease-out;
   background-color: var(--ice-chkbg);
-  background-image: linear-gradient(-45deg, transparent 65%, var(--ice-chkbg) 65.99%), linear-gradient(45deg, transparent 75%, var(--ice-chkbg) 75.99%), linear-gradient(-45deg, var(--ice-chkbg) 40%, transparent 40.99%), linear-gradient( 45deg, var(--ice-chkbg) 30%, var(--ice-chkfg) 30.99%, var(--ice-chkfg) 40%, transparent 40.99% ), linear-gradient(-45deg, var(--ice-chkfg) 50%, var(--ice-chkbg) 50.99%);
+  background-image: linear-gradient(-45deg, transparent 65%, var(--ice-chkbg) 65.99%), linear-gradient(45deg, transparent 75%, var(--ice-chkbg) 75.99%), linear-gradient(-45deg, var(--ice-chkbg) 40%, transparent 40.99%), linear-gradient(45deg, var(--ice-chkbg) 30%, var(--ice-chkfg) 30.99%, var(--ice-chkfg) 40%, transparent 40.99%), linear-gradient(-45deg, var(--ice-chkfg) 50%, var(--ice-chkbg) 50.99%);
 }
 .checkbox:indeterminate {
   --tw-bg-opacity: 1;
@@ -3510,6 +3526,7 @@ exports[`components > daisyui all css obj 1`] = `
     background-position-y: 0;
   }
 }
+/* backward compatibility */
 .checkbox-mark {
   display: none;
 }",
@@ -4013,7 +4030,7 @@ details.collapse summary{
 }
 .countdown > *:before {
   position: relative;
-  content: "00\\A 01\\A 02\\A 03\\A 04\\A 05\\A 06\\A 07\\A 08\\A 09\\A 10\\A 11\\A 12\\A 13\\A 14\\A 15\\A 16\\A 17\\A 18\\A 19\\A 20\\A 21\\A 22\\A 23\\A 24\\A 25\\A 26\\A 27\\A 28\\A 29\\A 30\\A 31\\A 32\\A 33\\A 34\\A 35\\A 36\\A 37\\A 38\\A 39\\A 40\\A 41\\A 42\\A 43\\A 44\\A 45\\A 46\\A 47\\A 48\\A 49\\A 50\\A 51\\A 52\\A 53\\A 54\\A 55\\A 56\\A 57\\A 58\\A 59\\A 60\\A 61\\A 62\\A 63\\A 64\\A 65\\A 66\\A 67\\A 68\\A 69\\A 70\\A 71\\A 72\\A 73\\A 74\\A 75\\A 76\\A 77\\A 78\\A 79\\A 80\\A 81\\A 82\\A 83\\A 84\\A 85\\A 86\\A 87\\A 88\\A 89\\A 90\\A 91\\A 92\\A 93\\A 94\\A 95\\A 96\\A 97\\A 98\\A 99\\A";
+  content: "00\\a 01\\a 02\\a 03\\a 04\\a 05\\a 06\\a 07\\a 08\\a 09\\a 10\\a 11\\a 12\\a 13\\a 14\\a 15\\a 16\\a 17\\a 18\\a 19\\a 20\\a 21\\a 22\\a 23\\a 24\\a 25\\a 26\\a 27\\a 28\\a 29\\a 30\\a 31\\a 32\\a 33\\a 34\\a 35\\a 36\\a 37\\a 38\\a 39\\a 40\\a 41\\a 42\\a 43\\a 44\\a 45\\a 46\\a 47\\a 48\\a 49\\a 50\\a 51\\a 52\\a 53\\a 54\\a 55\\a 56\\a 57\\a 58\\a 59\\a 60\\a 61\\a 62\\a 63\\a 64\\a 65\\a 66\\a 67\\a 68\\a 69\\a 70\\a 71\\a 72\\a 73\\a 74\\a 75\\a 76\\a 77\\a 78\\a 79\\a 80\\a 81\\a 82\\a 83\\a 84\\a 85\\a 86\\a 87\\a 88\\a 89\\a 90\\a 91\\a 92\\a 93\\a 94\\a 95\\a 96\\a 97\\a 98\\a 99\\a";
   white-space: pre;
   top: calc(var(--value) * -1em);
 }",
@@ -4027,7 +4044,7 @@ details.collapse summary{
           "overflowY": "hidden",
         },
         ".countdown>*:before": {
-          "content": ""00\\A 01\\A 02\\A 03\\A 04\\A 05\\A 06\\A 07\\A 08\\A 09\\A 10\\A 11\\A 12\\A 13\\A 14\\A 15\\A 16\\A 17\\A 18\\A 19\\A 20\\A 21\\A 22\\A 23\\A 24\\A 25\\A 26\\A 27\\A 28\\A 29\\A 30\\A 31\\A 32\\A 33\\A 34\\A 35\\A 36\\A 37\\A 38\\A 39\\A 40\\A 41\\A 42\\A 43\\A 44\\A 45\\A 46\\A 47\\A 48\\A 49\\A 50\\A 51\\A 52\\A 53\\A 54\\A 55\\A 56\\A 57\\A 58\\A 59\\A 60\\A 61\\A 62\\A 63\\A 64\\A 65\\A 66\\A 67\\A 68\\A 69\\A 70\\A 71\\A 72\\A 73\\A 74\\A 75\\A 76\\A 77\\A 78\\A 79\\A 80\\A 81\\A 82\\A 83\\A 84\\A 85\\A 86\\A 87\\A 88\\A 89\\A 90\\A 91\\A 92\\A 93\\A 94\\A 95\\A 96\\A 97\\A 98\\A 99\\A"",
+          "content": ""00\\a 01\\a 02\\a 03\\a 04\\a 05\\a 06\\a 07\\a 08\\a 09\\a 10\\a 11\\a 12\\a 13\\a 14\\a 15\\a 16\\a 17\\a 18\\a 19\\a 20\\a 21\\a 22\\a 23\\a 24\\a 25\\a 26\\a 27\\a 28\\a 29\\a 30\\a 31\\a 32\\a 33\\a 34\\a 35\\a 36\\a 37\\a 38\\a 39\\a 40\\a 41\\a 42\\a 43\\a 44\\a 45\\a 46\\a 47\\a 48\\a 49\\a 50\\a 51\\a 52\\a 53\\a 54\\a 55\\a 56\\a 57\\a 58\\a 59\\a 60\\a 61\\a 62\\a 63\\a 64\\a 65\\a 66\\a 67\\a 68\\a 69\\a 70\\a 71\\a 72\\a 73\\a 74\\a 75\\a 76\\a 77\\a 78\\a 79\\a 80\\a 81\\a 82\\a 83\\a 84\\a 85\\a 86\\a 87\\a 88\\a 89\\a 90\\a 91\\a 92\\a 93\\a 94\\a 95\\a 96\\a 97\\a 98\\a 99\\a"",
           "position": "relative",
           "top": "calc(var(--value) * -1em)",
           "whiteSpace": "pre",
@@ -4050,7 +4067,7 @@ details.collapse summary{
 }
 .countdown>*:before {
   position: relative;
-  content: "00\\A 01\\A 02\\A 03\\A 04\\A 05\\A 06\\A 07\\A 08\\A 09\\A 10\\A 11\\A 12\\A 13\\A 14\\A 15\\A 16\\A 17\\A 18\\A 19\\A 20\\A 21\\A 22\\A 23\\A 24\\A 25\\A 26\\A 27\\A 28\\A 29\\A 30\\A 31\\A 32\\A 33\\A 34\\A 35\\A 36\\A 37\\A 38\\A 39\\A 40\\A 41\\A 42\\A 43\\A 44\\A 45\\A 46\\A 47\\A 48\\A 49\\A 50\\A 51\\A 52\\A 53\\A 54\\A 55\\A 56\\A 57\\A 58\\A 59\\A 60\\A 61\\A 62\\A 63\\A 64\\A 65\\A 66\\A 67\\A 68\\A 69\\A 70\\A 71\\A 72\\A 73\\A 74\\A 75\\A 76\\A 77\\A 78\\A 79\\A 80\\A 81\\A 82\\A 83\\A 84\\A 85\\A 86\\A 87\\A 88\\A 89\\A 90\\A 91\\A 92\\A 93\\A 94\\A 95\\A 96\\A 97\\A 98\\A 99\\A";
+  content: "00\\a 01\\a 02\\a 03\\a 04\\a 05\\a 06\\a 07\\a 08\\a 09\\a 10\\a 11\\a 12\\a 13\\a 14\\a 15\\a 16\\a 17\\a 18\\a 19\\a 20\\a 21\\a 22\\a 23\\a 24\\a 25\\a 26\\a 27\\a 28\\a 29\\a 30\\a 31\\a 32\\a 33\\a 34\\a 35\\a 36\\a 37\\a 38\\a 39\\a 40\\a 41\\a 42\\a 43\\a 44\\a 45\\a 46\\a 47\\a 48\\a 49\\a 50\\a 51\\a 52\\a 53\\a 54\\a 55\\a 56\\a 57\\a 58\\a 59\\a 60\\a 61\\a 62\\a 63\\a 64\\a 65\\a 66\\a 67\\a 68\\a 69\\a 70\\a 71\\a 72\\a 73\\a 74\\a 75\\a 76\\a 77\\a 78\\a 79\\a 80\\a 81\\a 82\\a 83\\a 84\\a 85\\a 86\\a 87\\a 88\\a 89\\a 90\\a 91\\a 92\\a 93\\a 94\\a 95\\a 96\\a 97\\a 98\\a 99\\a";
   white-space: pre;
   top: calc(var(--value) * -1em);
 }",
@@ -4098,7 +4115,7 @@ details.collapse summary{
 }
 
 .diff-item-1:after {
-  @apply pointer-events-none absolute bottom-0 right-px top-1/2 z-[1] h-8 w-8 content-[''];
+  @apply pointer-events-none absolute bottom-0 right-px top-1/2 z-[1] h-8 w-8 content-[""];
   translate: 50% -50%;
 }
 
@@ -4119,7 +4136,7 @@ details.collapse summary{
           "width": "100%",
         },
         ".diff-item-1:after": {
-          "--tw-content": "''",
+          "--tw-content": """",
           "bottom": "0px",
           "content": "var(--tw-content)",
           "height": "2rem",
@@ -4209,7 +4226,7 @@ details.collapse summary{
   z-index: 1;
   height: 2rem;
   width: 2rem;
-  --tw-content: '';
+  --tw-content: "";
   content: var(--tw-content);
   translate: 50% -50%
 }
@@ -4298,7 +4315,7 @@ details.collapse summary{
   @apply flex flex-row items-center self-stretch;
 }
 .divider:before, .divider:after {
-  @apply h-0.5 w-full flex-grow content-[''];
+  @apply h-0.5 w-full flex-grow content-[""];
 }
 .divider-start:before {
   @apply hidden;
@@ -4320,7 +4337,7 @@ details.collapse summary{
           "display": "none",
         },
         ".divider:before,.divider:after": {
-          "--tw-content": "''",
+          "--tw-content": """",
           "content": "var(--tw-content)",
           "flexGrow": 1,
           "height": "0.125rem",
@@ -4337,7 +4354,7 @@ details.collapse summary{
     height: 0.125rem;
     width: 100%;
     flex-grow: 1;
-    --tw-content: '';
+    --tw-content: "";
     content: var(--tw-content)
 }
 .divider-start:before {
@@ -4442,7 +4459,6 @@ details.collapse summary{
     "utils": {
       "css": ".divider-horizontal {
   @apply flex-col;
-  @apply mx-4 my-0 h-auto w-4;
 }
 .divider-horizontal:before {
   @apply h-full w-0.5;
@@ -4453,13 +4469,20 @@ details.collapse summary{
 
 .divider-vertical {
   @apply flex-row;
-  @apply mx-0 my-4 h-4 w-auto;
 }
 .divider-vertical:before {
   @apply h-0.5 w-full;
 }
 .divider-vertical:after {
   @apply h-0.5 w-full;
+}
+
+.divider-horizontal {
+  @apply mx-4 my-0 h-auto w-4;
+}
+
+.divider-vertical {
+  @apply mx-0 my-4 h-4 w-auto;
 }",
       "cssInJs": {
         ".divider-horizontal": {
@@ -4498,13 +4521,7 @@ details.collapse summary{
         },
       },
       "resolvedCss": ".divider-horizontal {
-    flex-direction: column;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    margin-top: 0px;
-    margin-bottom: 0px;
-    height: auto;
-    width: 1rem
+    flex-direction: column
 }
 .divider-horizontal:before {
     height: 100%;
@@ -4516,13 +4533,7 @@ details.collapse summary{
 }
 
 .divider-vertical {
-    flex-direction: row;
-    margin-left: 0px;
-    margin-right: 0px;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    height: 1rem;
-    width: auto
+    flex-direction: row
 }
 .divider-vertical:before {
     height: 0.125rem;
@@ -4531,6 +4542,24 @@ details.collapse summary{
 .divider-vertical:after {
     height: 0.125rem;
     width: 100%
+}
+
+.divider-horizontal {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    height: auto;
+    width: 1rem
+}
+
+.divider-vertical {
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    height: 1rem;
+    width: auto
 }",
     },
   },
@@ -4545,6 +4574,7 @@ details.collapse summary{
 }
 .drawer-side {
   @apply pointer-events-none fixed start-0 top-0 col-start-1 row-start-1 grid w-full grid-cols-1 grid-rows-1 items-start justify-items-start overflow-y-auto overscroll-contain;
+  height: 100vh;
   height: 100dvh;
 }
 .drawer-side > .drawer-overlay {
@@ -4621,7 +4651,10 @@ details.collapse summary{
           "gridRowStart": "1",
           "gridTemplateColumns": "repeat(1, minmax(0, 1fr))",
           "gridTemplateRows": "repeat(1, minmax(0, 1fr))",
-          "height": "100dvh",
+          "height": [
+            "100vh",
+            "100dvh",
+          ],
           "insetInlineStart": "0px",
           "justifyItems": "start",
           "overflowY": "auto",
@@ -4696,6 +4729,7 @@ details.collapse summary{
   justify-items: start;
   overflow-y: auto;
   overscroll-behavior: contain;
+  height: 100vh;
   height: 100dvh;
 }
 .drawer-side>.drawer-overlay {
@@ -4760,7 +4794,7 @@ details.collapse summary{
   @apply cursor-pointer bg-transparent transition-colors duration-200 ease-out;
 }
 .drawer-toggle:checked ~ .drawer-side > .drawer-overlay {
-  background-color: #0006;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .drawer-toggle:focus-visible ~ .drawer-content label.drawer-button {
   @apply outline outline-2 outline-offset-2;
@@ -4780,7 +4814,7 @@ details.collapse summary{
           ],
         },
         ".drawer-toggle:checked~.drawer-side>.drawer-overlay": {
-          "backgroundColor": "#0006",
+          "backgroundColor": "rgba(0, 0, 0, 0.4)",
         },
         ".drawer-toggle:focus-visible~.drawer-content label.drawer-button": {
           "outlineOffset": "2px",
@@ -4800,7 +4834,7 @@ details.collapse summary{
   transition-timing-function: cubic-bezier(0, 0, 0.2, 1);
 }
 .drawer-toggle:checked~.drawer-side>.drawer-overlay {
-  background-color: #0006;
+  background-color: rgba(0, 0, 0, 0.4);
 }
 .drawer-toggle:focus-visible~.drawer-content label.drawer-button {
   outline-style: solid;
@@ -4821,11 +4855,12 @@ details.collapse summary{
 [dir=rtl] .drawer-open > .drawer-toggle ~ .drawer-side > *:not(.drawer-overlay) {
   transform: translateX(0%);
 }
-.drawer-open > .drawer-toggle ~ .drawer-side > .drawer-overlay {
-  @apply cursor-default bg-transparent;
-}
 .drawer-open > .drawer-toggle:checked ~ .drawer-side {
   @apply pointer-events-auto visible;
+}
+
+.drawer-open > .drawer-toggle ~ .drawer-side > .drawer-overlay {
+  @apply cursor-default bg-transparent;
 }",
       "cssInJs": {
         ".drawer-open>.drawer-toggle": {
@@ -4871,13 +4906,14 @@ details.collapse summary{
 [dir=rtl] .drawer-open>.drawer-toggle~.drawer-side>*:not(.drawer-overlay) {
   transform: translateX(0%);
 }
-.drawer-open>.drawer-toggle~.drawer-side>.drawer-overlay {
-  cursor: default;
-  background-color: transparent;
-}
 .drawer-open>.drawer-toggle:checked~.drawer-side {
   pointer-events: auto;
   visibility: visible;
+}
+
+.drawer-open>.drawer-toggle~.drawer-side>.drawer-overlay {
+  cursor: default;
+  background-color: transparent;
 }",
     },
   },
@@ -5302,9 +5338,9 @@ details.collapse summary{
 }
 .file-input::file-selector-button {
   border-style: solid;
-  border-width: var(--border-btn, 1px);
-  animation: button-pop var(--animation-btn, 0.25s) ease-out;
   @apply border-neutral bg-neutral text-neutral-content font-semibold uppercase no-underline;
+  border-width: var(--ice-border-btn, 1px);
+  animation: button-pop var(--ice-animation-btn, 0.25s) ease-out;
 }
 .file-input-bordered {
   @apply border-opacity-20;
@@ -5531,8 +5567,6 @@ details.collapse summary{
 }
 .file-input::file-selector-button {
   border-style: solid;
-  border-width: var(--ice-border-btn, 1px);
-  animation: button-pop var(--ice-animation-btn, 0.25s) ease-out;
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-neutral) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -5542,6 +5576,8 @@ details.collapse summary{
   --tw-text-opacity: 1;
   color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
   text-decoration-line: none;
+  border-width: var(--ice-border-btn, 1px);
+  animation: button-pop var(--ice-animation-btn, 0.25s) ease-out;
 }
 .file-input-bordered {
   --tw-border-opacity: 0.2;
@@ -6186,6 +6222,10 @@ details.collapse summary{
           "top": "0px",
           "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
         },
+        ".indicator :where(.indicator-item):where([dir="rtl"],[dir="rtl"] *)": {
+          "--tw-translate-x": "-50%",
+          "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+        },
         ".indicator :where(.indicator-item.indicator-bottom)": {
           "--tw-translate-y": "50%",
           "bottom": "0px",
@@ -6198,10 +6238,18 @@ details.collapse summary{
           "insetInlineStart": "50%",
           "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
         },
+        ".indicator :where(.indicator-item.indicator-center):where([dir="rtl"],[dir="rtl"] *)": {
+          "--tw-translate-x": "50%",
+          "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+        },
         ".indicator :where(.indicator-item.indicator-end)": {
           "--tw-translate-x": "50%",
           "insetInlineEnd": "0px",
           "insetInlineStart": "auto",
+          "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+        },
+        ".indicator :where(.indicator-item.indicator-end):where([dir="rtl"],[dir="rtl"] *)": {
+          "--tw-translate-x": "-50%",
           "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
         },
         ".indicator :where(.indicator-item.indicator-middle)": {
@@ -6216,26 +6264,14 @@ details.collapse summary{
           "insetInlineStart": "0px",
           "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
         },
+        ".indicator :where(.indicator-item.indicator-start):where([dir="rtl"],[dir="rtl"] *)": {
+          "--tw-translate-x": "50%",
+          "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+        },
         ".indicator :where(.indicator-item.indicator-top)": {
           "--tw-translate-y": "-50%",
           "bottom": "auto",
           "top": "0px",
-          "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
-        },
-        ":is(:where([dir="rtl"]) .indicator :where(.indicator-item))": {
-          "--tw-translate-x": "-50%",
-          "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
-        },
-        ":is(:where([dir="rtl"]) .indicator :where(.indicator-item.indicator-center))": {
-          "--tw-translate-x": "50%",
-          "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
-        },
-        ":is(:where([dir="rtl"]) .indicator :where(.indicator-item.indicator-end))": {
-          "--tw-translate-x": "-50%",
-          "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
-        },
-        ":is(:where([dir="rtl"]) .indicator :where(.indicator-item.indicator-start))": {
-          "--tw-translate-x": "50%",
           "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
         },
       },
@@ -6248,7 +6284,7 @@ details.collapse summary{
     --tw-translate-x: 50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
 }
-:is(:where([dir="rtl"]) .indicator :where(.indicator-item)) {
+.indicator :where(.indicator-item):where([dir="rtl"],[dir="rtl"] *) {
     --tw-translate-x: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
 }
@@ -6258,7 +6294,7 @@ details.collapse summary{
     --tw-translate-x: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
 }
-:is(:where([dir="rtl"]) .indicator :where(.indicator-item.indicator-start)) {
+.indicator :where(.indicator-item.indicator-start):where([dir="rtl"],[dir="rtl"] *) {
     --tw-translate-x: 50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
 }
@@ -6268,7 +6304,7 @@ details.collapse summary{
     --tw-translate-x: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
 }
-:is(:where([dir="rtl"]) .indicator :where(.indicator-item.indicator-center)) {
+.indicator :where(.indicator-item.indicator-center):where([dir="rtl"],[dir="rtl"] *) {
     --tw-translate-x: 50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
 }
@@ -6278,7 +6314,7 @@ details.collapse summary{
     --tw-translate-x: 50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
 }
-:is(:where([dir="rtl"]) .indicator :where(.indicator-item.indicator-end)) {
+.indicator :where(.indicator-item.indicator-end):where([dir="rtl"],[dir="rtl"] *) {
     --tw-translate-x: -50%;
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
 }
@@ -6341,6 +6377,9 @@ details.collapse summary{
     "styled": {
       "css": ".input {
   @apply bg-base-100 rounded-btn border border-transparent text-base;
+  /* &::-webkit-calendar-picker-indicator {
+    display: none;
+  } */
 }
 .input input:focus {
   @apply outline-none;
@@ -6504,6 +6543,9 @@ details.collapse summary{
   background-color: rgba(var(--ice-base-100) / var(--tw-bg-opacity));
   font-size: 1rem;
   line-height: 1.5rem;
+  /* &::-webkit-calendar-picker-indicator {
+    display: none;
+  } */
 }
 .input input:focus {
   outline: 2px solid transparent;
@@ -6864,12 +6906,16 @@ details.collapse summary{
 .join.join-vertical .join-item:first-child:not(:last-child), .join.join-vertical *:first-child:not(:last-child) .join-item {
   border-end-start-radius: 0;
   border-end-end-radius: 0;
+}
+.join.join-vertical .join-item:first-child:not(:last-child), .join.join-vertical *:first-child:not(:last-child) .join-item {
   border-start-start-radius: inherit;
   border-start-end-radius: inherit;
 }
 .join.join-vertical .join-item:last-child:not(:first-child), .join.join-vertical *:last-child:not(:first-child) .join-item {
   border-start-start-radius: 0;
   border-start-end-radius: 0;
+}
+.join.join-vertical .join-item:last-child:not(:first-child), .join.join-vertical *:last-child:not(:first-child) .join-item {
   border-end-start-radius: inherit;
   border-end-end-radius: inherit;
 }
@@ -6880,12 +6926,16 @@ details.collapse summary{
 .join.join-horizontal .join-item:first-child:not(:last-child), .join.join-horizontal *:first-child:not(:last-child) .join-item {
   border-end-end-radius: 0;
   border-start-end-radius: 0;
+}
+.join.join-horizontal .join-item:first-child:not(:last-child), .join.join-horizontal *:first-child:not(:last-child) .join-item {
   border-end-start-radius: inherit;
   border-start-start-radius: inherit;
 }
 .join.join-horizontal .join-item:last-child:not(:first-child), .join.join-horizontal *:last-child:not(:first-child) .join-item {
   border-end-start-radius: 0;
   border-start-start-radius: 0;
+}
+.join.join-horizontal .join-item:last-child:not(:first-child), .join.join-horizontal *:last-child:not(:first-child) .join-item {
   border-end-end-radius: inherit;
   border-start-end-radius: inherit;
 }
@@ -7534,14 +7584,14 @@ details.collapse summary{
           "maskPosition": "left",
           "maskSize": "200%",
         },
+        ".mask-half-1:where([dir="rtl"],[dir="rtl"] *)": {
+          "maskPosition": "right",
+        },
         ".mask-half-2": {
           "maskPosition": "right",
           "maskSize": "200%",
         },
-        ":is(:where([dir="rtl"]) .mask-half-1)": {
-          "maskPosition": "right",
-        },
-        ":is(:where([dir="rtl"]) .mask-half-2)": {
+        ".mask-half-2:where([dir="rtl"],[dir="rtl"] *)": {
           "maskPosition": "left",
         },
       },
@@ -7556,7 +7606,7 @@ details.collapse summary{
   mask-position: left;
 }
 
-:is(:where([dir="rtl"]) .mask-half-1) {
+.mask-half-1:where([dir="rtl"],[dir="rtl"] *) {
   mask-position: right;
 }
 
@@ -7565,7 +7615,7 @@ details.collapse summary{
   mask-position: right;
 }
 
-:is(:where([dir="rtl"]) .mask-half-2) {
+.mask-half-2:where([dir="rtl"],[dir="rtl"] *) {
   mask-position: left;
 }",
     },
@@ -8140,10 +8190,6 @@ details.collapse summary{
 }
 .menu-horizontal > li:not(.menu-title) > details > ul {
   @apply absolute;
-  @apply ms-0 mt-4 py-2 pe-2;
-}
-.menu-horizontal > li > details > ul:before {
-  content: none;
 }
 
 .menu-vertical {
@@ -8151,11 +8197,21 @@ details.collapse summary{
 }
 .menu-vertical > li:not(.menu-title) > details > ul {
   @apply relative;
-  @apply ms-4 mt-0 py-0 pe-0;
+}
+
+.menu-horizontal > li:not(.menu-title) > details > ul {
+  @apply ms-0 mt-4 py-2 pe-2;
+}
+.menu-horizontal > li > details > ul:before {
+  content: none;
 }
 
 :where(.menu-horizontal > li:not(.menu-title) > details > ul) {
   @apply bg-base-100 rounded-box shadow-xl;
+}
+
+.menu-vertical > li:not(.menu-title) > details > ul {
+  @apply ms-4 mt-0 py-0 pe-0;
 }
 
 .menu-xs :where(li:not(.menu-title) > *:not(ul):not(details):not(.menu-title)), .menu-xs :where(li:not(.menu-title) > details > summary:not(.menu-title)) {
@@ -8288,6 +8344,17 @@ details.collapse summary{
 }
 .menu-horizontal>li:not(.menu-title)>details>ul {
   position: absolute;
+}
+
+.menu-vertical {
+  display: flex;
+  flex-direction: column;
+}
+.menu-vertical>li:not(.menu-title)>details>ul {
+  position: relative;
+}
+
+.menu-horizontal>li:not(.menu-title)>details>ul {
   margin-inline-start: 0px;
   margin-top: 1rem;
   padding-top: 0.5rem;
@@ -8298,19 +8365,6 @@ details.collapse summary{
   content: none;
 }
 
-.menu-vertical {
-  display: flex;
-  flex-direction: column;
-}
-.menu-vertical>li:not(.menu-title)>details>ul {
-  position: relative;
-  margin-inline-start: 1rem;
-  margin-top: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  padding-inline-end: 0px;
-}
-
 :where(.menu-horizontal>li:not(.menu-title)>details>ul) {
   border-radius: var(--ice-rounded-box, 1rem);
   --tw-bg-opacity: 1;
@@ -8318,6 +8372,14 @@ details.collapse summary{
   --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
+.menu-vertical>li:not(.menu-title)>details>ul {
+  margin-inline-start: 1rem;
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  padding-inline-end: 0px;
 }
 
 .menu-xs :where(li:not(.menu-title)>*:not(ul):not(details):not(.menu-title)),.menu-xs :where(li:not(.menu-title)>details>summary:not(.menu-title)) {
@@ -8455,7 +8517,7 @@ details.collapse summary{
     },
     "styled": {
       "css": ".navbar {
-  padding: var(--navbar-padding, 0.5rem);
+  padding: var(--ice-navbar-padding, 0.5rem);
   min-height: 4rem;
   @apply w-full;
 }",
@@ -8521,22 +8583,22 @@ details.collapse summary{
   @apply bg-neutral rounded-box;
 }
 .progress:indeterminate {
-  --progress-color: theme(colors.base-content);
+  --ice-progress-color: theme("colors.base-content");
 }
 .progress-primary:indeterminate {
-  --progress-color: theme(colors.primary);
+  --ice-progress-color: theme("colors.primary");
 }
 .progress-success:indeterminate {
-  --progress-color: theme(colors.success);
+  --ice-progress-color: theme("colors.success");
 }
 .progress-warning:indeterminate {
-  --progress-color: theme(colors.warning);
+  --ice-progress-color: theme("colors.warning");
 }
 .progress-error:indeterminate {
-  --progress-color: theme(colors.error);
+  --ice-progress-color: theme("colors.error");
 }
 .progress-neutral:indeterminate {
-  --progress-color: theme(colors.neutral);
+  --ice-progress-color: theme("colors.neutral");
 }
 .progress::-webkit-progress-bar {
   @apply rounded-box bg-transparent;
@@ -8561,7 +8623,7 @@ details.collapse summary{
 }
 
 .progress:indeterminate {
-  background-image: repeating-linear-gradient( 90deg, var(--progress-color) -1%, var(--progress-color) 10%, transparent 10%, transparent 90% );
+  background-image: repeating-linear-gradient(90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90%);
   background-size: 200%;
   background-position-x: 15%;
   animation: progress-loading 5s ease-in-out infinite;
@@ -8569,7 +8631,7 @@ details.collapse summary{
 
 .progress:indeterminate::-moz-progress-bar {
   @apply bg-transparent;
-  background-image: repeating-linear-gradient( 90deg, var(--progress-color) -1%, var(--progress-color) 10%, transparent 10%, transparent 90% );
+  background-image: repeating-linear-gradient(90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90%);
   background-size: 200%;
   background-position-x: 15%;
   animation: progress-loading 5s ease-in-out infinite;
@@ -8663,14 +8725,14 @@ details.collapse summary{
         ".progress:indeterminate": {
           "--ice-progress-color": "rgba(var(--ice-base-content) / 1)",
           "animation": "progress-loading 5s ease-in-out infinite",
-          "backgroundImage": "repeating-linear-gradient( 90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90% )",
+          "backgroundImage": "repeating-linear-gradient(90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90%)",
           "backgroundPositionX": "15%",
           "backgroundSize": "200%",
         },
         ".progress:indeterminate::-moz-progress-bar": {
           "animation": "progress-loading 5s ease-in-out infinite",
           "backgroundColor": "transparent",
-          "backgroundImage": "repeating-linear-gradient( 90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90% )",
+          "backgroundImage": "repeating-linear-gradient(90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90%)",
           "backgroundPositionX": "15%",
           "backgroundSize": "200%",
         },
@@ -8764,7 +8826,7 @@ details.collapse summary{
 }
 
 .progress:indeterminate {
-  background-image: repeating-linear-gradient( 90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90% );
+  background-image: repeating-linear-gradient(90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90%);
   background-size: 200%;
   background-position-x: 15%;
   animation: progress-loading 5s ease-in-out infinite;
@@ -8772,7 +8834,7 @@ details.collapse summary{
 
 .progress:indeterminate::-moz-progress-bar {
   background-color: transparent;
-  background-image: repeating-linear-gradient( 90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90% );
+  background-image: repeating-linear-gradient(90deg, var(--ice-progress-color) -1%, var(--ice-progress-color) 10%, transparent 10%, transparent 90%);
   background-size: 200%;
   background-position-x: 15%;
   animation: progress-loading 5s ease-in-out infinite;
@@ -8796,15 +8858,16 @@ details.collapse summary{
   --value: 0;
   --size: 5rem;
   --thickness: calc(var(--size) / 10);
-  vertical-align: middle;
-  box-sizing: content-box;
-  @apply relative inline-grid h-[var(--size)] w-[var(--size)] place-content-center rounded-full bg-transparent;
 }
 
 .radial-progress:after {
   @apply bg-current;
-  inset: calc(50% - var(--thickness) / 2);
-  transform: rotate(calc(var(--value) * 3.6deg - 90deg)) translate(calc(var(--size) / 2 - 50%));
+}
+
+.radial-progress {
+  @apply relative inline-grid h-[var(--size)] w-[var(--size)] place-content-center rounded-full bg-transparent;
+  vertical-align: middle;
+  box-sizing: content-box;
 }
 
 .radial-progress::-moz-progress-bar {
@@ -8826,9 +8889,14 @@ details.collapse summary{
 
 .radial-progress:before {
   @apply inset-0;
-  background: radial-gradient(farthest-side, currentColor 98%, #0000) top/var(--thickness) var(--thickness) no-repeat, conic-gradient(currentColor calc(var(--value) * 1%), #0000 0);
-  -webkit-mask: radial-gradient( farthest-side, #0000 calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)) );
-  mask: radial-gradient( farthest-side, #0000 calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)) );
+  background: radial-gradient(farthest-side, currentColor 98%, rgba(0, 0, 0, 0)) top/var(--thickness) var(--thickness) no-repeat, conic-gradient(currentColor calc(var(--value) * 1%), rgba(0, 0, 0, 0) 0);
+  -webkit-mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)));
+  mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)));
+}
+
+.radial-progress:after {
+  inset: calc(50% - var(--thickness) / 2);
+  transform: rotate(calc(var(--value) * 3.6deg - 90deg)) translate(calc(var(--size) / 2 - 50%));
 }",
       "cssInJs": {
         ".radial-progress": {
@@ -8863,10 +8931,10 @@ details.collapse summary{
           "transform": "rotate(calc(var(--value) * 3.6deg - 90deg)) translate(calc(var(--size) / 2 - 50%))",
         },
         ".radial-progress:before": {
-          "WebkitMask": "radial-gradient( farthest-side, #0000 calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)) )",
-          "background": "radial-gradient(farthest-side, currentColor 98%, #0000) top/var(--thickness) var(--thickness) no-repeat, conic-gradient(currentColor calc(var(--value) * 1%), #0000 0)",
+          "WebkitMask": "radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)))",
+          "background": "radial-gradient(farthest-side, currentColor 98%, rgba(0, 0, 0, 0)) top/var(--thickness) var(--thickness) no-repeat, conic-gradient(currentColor calc(var(--value) * 1%), rgba(0, 0, 0, 0) 0)",
           "inset": "0px",
-          "mask": "radial-gradient( farthest-side, #0000 calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)) )",
+          "mask": "radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)))",
         },
         ".radial-progress:before,.radial-progress:after": {
           "borderRadius": "9999px",
@@ -8878,8 +8946,13 @@ details.collapse summary{
   --value: 0;
   --size: 5rem;
   --thickness: calc(var(--size) / 10);
-  vertical-align: middle;
-  box-sizing: content-box;
+}
+
+.radial-progress:after {
+  background-color: currentColor;
+}
+
+.radial-progress {
   position: relative;
   display: inline-grid;
   height: var(--size);
@@ -8887,12 +8960,8 @@ details.collapse summary{
   place-content: center;
   border-radius: 9999px;
   background-color: transparent;
-}
-
-.radial-progress:after {
-  background-color: currentColor;
-  inset: calc(50% - var(--thickness) / 2);
-  transform: rotate(calc(var(--value) * 3.6deg - 90deg)) translate(calc(var(--size) / 2 - 50%));
+  vertical-align: middle;
+  box-sizing: content-box;
 }
 
 .radial-progress::-moz-progress-bar {
@@ -8918,9 +8987,14 @@ details.collapse summary{
 
 .radial-progress:before {
   inset: 0px;
-  background: radial-gradient(farthest-side, currentColor 98%, #0000) top/var(--thickness) var(--thickness) no-repeat, conic-gradient(currentColor calc(var(--value) * 1%), #0000 0);
-  -webkit-mask: radial-gradient( farthest-side, #0000 calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)) );
-  mask: radial-gradient( farthest-side, #0000 calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)) );
+  background: radial-gradient(farthest-side, currentColor 98%, rgba(0, 0, 0, 0)) top/var(--thickness) var(--thickness) no-repeat, conic-gradient(currentColor calc(var(--value) * 1%), rgba(0, 0, 0, 0) 0);
+  -webkit-mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)));
+  mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--thickness)), #000 calc(100% - var(--thickness)));
+}
+
+.radial-progress:after {
+  inset: calc(50% - var(--thickness) / 2);
+  transform: rotate(calc(var(--value) * 3.6deg - 90deg)) translate(calc(var(--size) / 2 - 50%));
 }",
     },
     "styled": {
@@ -8950,7 +9024,7 @@ details.collapse summary{
     },
     "styled": {
       "css": ".radio {
-  --chkbg: var(--bc);
+  --ice-chkbg: var(--ice-bc);
   @apply border-base-content h-6 w-6 cursor-pointer appearance-none rounded-full border border-opacity-20;
 }
 .radio:focus {
@@ -8962,11 +9036,11 @@ details.collapse summary{
 .radio:checked, .radio[aria-checked=true] {
   @apply bg-base-content;
   background-image: none;
-  animation: radiomark var(--animation-input, 0.2s) ease-out;
-  box-shadow: 0 0 0 4px theme(colors.base-100) inset, 0 0 0 4px theme(colors.base-100) inset;
+  animation: radiomark var(--ice-animation-input, 0.2s) ease-out;
+  box-shadow: 0 0 0 4px theme("colors.base-100") inset, 0 0 0 4px theme("colors.base-100") inset;
 }
 .radio-primary {
-  --chkbg: var(--primary);
+  --ice-chkbg: var(--ice-primary);
   @apply border-primary [@media(hover:hover)]:hover:border-primary;
 }
 .radio-primary:focus-visible {
@@ -8976,7 +9050,7 @@ details.collapse summary{
   @apply border-primary bg-primary text-primary-content;
 }
 .radio-success {
-  --chkbg: var(--success);
+  --ice-chkbg: var(--ice-success);
   @apply border-success [@media(hover:hover)]:hover:border-success;
 }
 .radio-success:focus-visible {
@@ -8986,7 +9060,7 @@ details.collapse summary{
   @apply border-success bg-success text-success-content;
 }
 .radio-warning {
-  --chkbg: var(--warning);
+  --ice-chkbg: var(--ice-warning);
   @apply border-warning [@media(hover:hover)]:hover:border-warning;
 }
 .radio-warning:focus-visible {
@@ -8996,7 +9070,7 @@ details.collapse summary{
   @apply border-warning bg-warning text-warning-content;
 }
 .radio-error {
-  --chkbg: var(--error);
+  --ice-chkbg: var(--ice-error);
   @apply border-error [@media(hover:hover)]:hover:border-error;
 }
 .radio-error:focus-visible {
@@ -9006,7 +9080,7 @@ details.collapse summary{
   @apply border-error bg-error text-error-content;
 }
 .radio-neutral {
-  --chkbg: var(--neutral);
+  --ice-chkbg: var(--ice-neutral);
   @apply border-neutral [@media(hover:hover)]:hover:border-neutral;
 }
 .radio-neutral:focus-visible {
@@ -9021,15 +9095,16 @@ details.collapse summary{
 
 @keyframes radiomark {
   0% {
-    box-shadow: 0 0 0 12px theme(colors.base-100) inset, 0 0 0 12px theme(colors.base-100) inset;
+    box-shadow: 0 0 0 12px theme("colors.base-100") inset, 0 0 0 12px theme("colors.base-100") inset;
   }
   50% {
-    box-shadow: 0 0 0 3px theme(colors.base-100) inset, 0 0 0 3px theme(colors.base-100) inset;
+    box-shadow: 0 0 0 3px theme("colors.base-100") inset, 0 0 0 3px theme("colors.base-100") inset;
   }
   100% {
-    box-shadow: 0 0 0 4px theme(colors.base-100) inset, 0 0 0 4px theme(colors.base-100) inset;
+    box-shadow: 0 0 0 4px theme("colors.base-100") inset, 0 0 0 4px theme("colors.base-100") inset;
   }
 }
+/* backward compatibility */
 .radio-mark {
   @apply hidden;
 }",
@@ -9323,6 +9398,7 @@ details.collapse summary{
     box-shadow: 0 0 0 4px rgba(var(--ice-base-100) / 1) inset, 0 0 0 4px rgba(var(--ice-base-100) / 1) inset;
   }
 }
+/* backward compatibility */
 .radio-mark {
   display: none;
 }",
@@ -9407,14 +9483,14 @@ details.collapse summary{
       "css": ".range {
   appearance: none;
   -webkit-appearance: none;
-  --range-shdw: theme(colors.base-content);
+  --ice-range-shdw: theme("colors.base-content");
   @apply rounded-box overflow-hidden bg-transparent;
 }
 .range:focus-visible::-webkit-slider-thumb {
-  --focus-shadow: 0 0 0 6px theme(colors.base-100) inset, 0 0 0 2rem var(--range-shdw) inset;
+  --ice-focus-shadow: 0 0 0 6px theme("colors.base-100") inset, 0 0 0 2rem var(--ice-range-shdw) inset;
 }
 .range:focus-visible::-moz-range-thumb {
-  --focus-shadow: 0 0 0 6px theme(colors.base-100) inset, 0 0 0 2rem var(--range-shdw) inset;
+  --ice-focus-shadow: 0 0 0 6px theme("colors.base-100") inset, 0 0 0 2rem var(--ice-range-shdw) inset;
 }
 .range::-webkit-slider-runnable-track {
   @apply rounded-box bg-base-content/10 h-2 w-full;
@@ -9427,34 +9503,34 @@ details.collapse summary{
   appearance: none;
   -webkit-appearance: none;
   top: 50%;
-  color: var(--range-shdw);
+  color: var(--ice-range-shdw);
   transform: translateY(-50%);
-  --filler-size: 100rem;
-  --filler-offset: 0.6rem;
-  box-shadow: 0 0 0 3px var(--range-shdw) inset, var(--focus-shadow, 0 0), calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size);
+  --ice-filler-size: 100rem;
+  --ice-filler-offset: 0.6rem;
+  box-shadow: 0 0 0 3px var(--ice-range-shdw) inset, var(--ice-focus-shadow, 0 0), calc(var(--ice-filler-size) * -1 - var(--ice-filler-offset)) 0 0 var(--ice-filler-size);
 }
 .range::-moz-range-thumb {
   @apply rounded-box bg-base-100 relative h-6 w-6 border-none;
   top: 50%;
-  color: var(--range-shdw);
-  --filler-size: 100rem;
-  --filler-offset: 0.5rem;
-  box-shadow: 0 0 0 3px var(--range-shdw) inset, var(--focus-shadow, 0 0), calc(var(--filler-size) * -1 - var(--filler-offset)) 0 0 var(--filler-size);
+  color: var(--ice-range-shdw);
+  --ice-filler-size: 100rem;
+  --ice-filler-offset: 0.5rem;
+  box-shadow: 0 0 0 3px var(--ice-range-shdw) inset, var(--ice-focus-shadow, 0 0), calc(var(--ice-filler-size) * -1 - var(--ice-filler-offset)) 0 0 var(--ice-filler-size);
 }
 .range-primary {
-  --range-shdw: theme(colors.primary);
+  --ice-range-shdw: theme("colors.primary");
 }
 .range-success {
-  --range-shdw: theme(colors.success);
+  --ice-range-shdw: theme("colors.success");
 }
 .range-warning {
-  --range-shdw: theme(colors.warning);
+  --ice-range-shdw: theme("colors.warning");
 }
 .range-error {
-  --range-shdw: theme(colors.error);
+  --ice-range-shdw: theme("colors.error");
 }
 .range-neutral {
-  --range-shdw: theme(colors.neutral);
+  --ice-range-shdw: theme("colors.neutral");
 }",
       "cssInJs": {
         ".range": {
@@ -9615,11 +9691,11 @@ details.collapse summary{
 }
 .range-xs::-webkit-slider-thumb {
   @apply h-4 w-4;
-  --filler-offset: 0.4rem;
+  --ice-filler-offset: 0.4rem;
 }
 .range-xs::-moz-range-thumb {
   @apply h-4 w-4;
-  --filler-offset: 0.4rem;
+  --ice-filler-offset: 0.4rem;
 }
 .range-sm {
   @apply h-5;
@@ -9632,11 +9708,11 @@ details.collapse summary{
 }
 .range-sm::-webkit-slider-thumb {
   @apply h-5 w-5;
-  --filler-offset: 0.5rem;
+  --ice-filler-offset: 0.5rem;
 }
 .range-sm::-moz-range-thumb {
   @apply h-5 w-5;
-  --filler-offset: 0.5rem;
+  --ice-filler-offset: 0.5rem;
 }
 .range-md {
   @apply h-6;
@@ -9649,11 +9725,11 @@ details.collapse summary{
 }
 .range-md::-webkit-slider-thumb {
   @apply h-6 w-6;
-  --filler-offset: 0.6rem;
+  --ice-filler-offset: 0.6rem;
 }
 .range-md::-moz-range-thumb {
   @apply h-6 w-6;
-  --filler-offset: 0.6rem;
+  --ice-filler-offset: 0.6rem;
 }
 .range-lg {
   @apply h-8;
@@ -9666,11 +9742,11 @@ details.collapse summary{
 }
 .range-lg::-webkit-slider-thumb {
   @apply h-8 w-8;
-  --filler-offset: 1rem;
+  --ice-filler-offset: 1rem;
 }
 .range-lg::-moz-range-thumb {
   @apply h-8 w-8;
-  --filler-offset: 1rem;
+  --ice-filler-offset: 1rem;
 }",
       "cssInJs": {
         ".range-lg": {
@@ -9861,7 +9937,7 @@ details.collapse summary{
   -webkit-appearance: none;
 }
 .rating :where(input) {
-  animation: rating-pop var(--animation-input, 0.25s) ease-out;
+  animation: rating-pop var(--ice-animation-input, 0.25s) ease-out;
   @apply bg-base-content h-6 w-6 bg-opacity-100;
 }
 .rating .rating-hidden {
@@ -9879,6 +9955,8 @@ details.collapse summary{
 }
 .rating input:active:focus {
   animation: none;
+}
+.rating input:active:focus {
   transform: translateY(-0.125em);
 }
 
@@ -10542,7 +10620,7 @@ details.collapse summary{
   "skeleton": {
     "base": {
       "css": ".skeleton {
-  animation: skeleton-blink var(--skeleton-duration) ease-in-out infinite;
+  animation: skeleton-blink var(--ice-skeleton-duration) ease-in-out infinite;
 }
 
 @keyframes skeleton-blink {
@@ -10643,6 +10721,8 @@ details.collapse summary{
 }
 .stack > * {
   @apply col-start-1 row-start-1;
+}
+.stack > * {
   transform: translateY(10%) scale(0.9);
   z-index: 1;
 }
@@ -10697,6 +10777,8 @@ details.collapse summary{
 }
 .stack > * {
   @apply w-full;
+}
+.stack > * {
   @apply opacity-60;
 }
 .stack > *:nth-child(2) {
@@ -10974,17 +11056,26 @@ details.collapse summary{
     "utils": {
       "css": ".stats-horizontal {
   @apply grid-flow-col;
-  @apply divide-x divide-y-0 overflow-x-auto rtl:[--tw-divide-x-reverse:1];
 }
 
 .stats-vertical {
   @apply grid-flow-row;
+}
+
+.stats-horizontal {
+  @apply divide-x divide-y-0 overflow-x-auto rtl:[--tw-divide-x-reverse:1];
+}
+
+.stats-vertical {
   @apply divide-x-0 divide-y overflow-y-auto;
 }",
       "cssInJs": {
         ".stats-horizontal": {
           "gridAutoFlow": "column",
           "overflowX": "auto",
+        },
+        ".stats-horizontal:where([dir="rtl"],[dir="rtl"] *)": {
+          "--tw-divide-x-reverse": "1",
         },
         ".stats-horizontal>:not([hidden])~:not([hidden])": {
           "--tw-divide-x-reverse": "0",
@@ -11006,23 +11097,60 @@ details.collapse summary{
           "borderRightWidth": "calc(0px * var(--tw-divide-x-reverse))",
           "borderTopWidth": "calc(1px * calc(1 - var(--tw-divide-y-reverse)))",
         },
-        ":is(:where([dir="rtl"]) .stats-horizontal)": {
-          "--tw-divide-x-reverse": "1",
-        },
       },
-      "resolvedCss": ".stats-horizontal {grid-auto-flow: column
-}.stats-horizontal>:not([hidden])~:not([hidden]) {--tw-divide-x-reverse: 0;border-right-width: calc(1px * var(--tw-divide-x-reverse));border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));--tw-divide-y-reverse: 0;border-top-width: calc(0px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width: calc(0px * var(--tw-divide-y-reverse))
-}.stats-horizontal {overflow-x: auto
-}:is(:where([dir="rtl"]) .stats-horizontal) {--tw-divide-x-reverse: 1
+      "resolvedCss": ".stats-horizontal {
+
+    grid-auto-flow: column
 }
 
-.stats-vertical {grid-auto-flow: row
+.stats-vertical {
+
+    grid-auto-flow: row
 }
 
-.stats-vertical>:not([hidden])~:not([hidden]) {--tw-divide-x-reverse: 0;border-right-width: calc(0px * var(--tw-divide-x-reverse));border-left-width: calc(0px * calc(1 - var(--tw-divide-x-reverse)));--tw-divide-y-reverse: 0;border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));border-bottom-width: calc(1px * var(--tw-divide-y-reverse))
+.stats-horizontal>:not([hidden])~:not([hidden]) {
+
+    --tw-divide-x-reverse: 0;
+
+    border-right-width: calc(1px * var(--tw-divide-x-reverse));
+
+    border-left-width: calc(1px * calc(1 - var(--tw-divide-x-reverse)));
+
+    --tw-divide-y-reverse: 0;
+
+    border-top-width: calc(0px * calc(1 - var(--tw-divide-y-reverse)));
+
+    border-bottom-width: calc(0px * var(--tw-divide-y-reverse))
 }
 
-.stats-vertical {overflow-y: auto
+.stats-horizontal {
+
+    overflow-x: auto
+}
+
+.stats-horizontal:where([dir="rtl"],[dir="rtl"] *) {
+
+    --tw-divide-x-reverse: 1
+}
+
+.stats-vertical>:not([hidden])~:not([hidden]) {
+
+    --tw-divide-x-reverse: 0;
+
+    border-right-width: calc(0px * var(--tw-divide-x-reverse));
+
+    border-left-width: calc(0px * calc(1 - var(--tw-divide-x-reverse)));
+
+    --tw-divide-y-reverse: 0;
+
+    border-top-width: calc(1px * calc(1 - var(--tw-divide-y-reverse)));
+
+    border-bottom-width: calc(1px * var(--tw-divide-y-reverse))
+}
+
+.stats-vertical {
+
+    overflow-y: auto
 }",
     },
   },
@@ -11094,22 +11222,32 @@ details.collapse summary{
 }
 .steps .step-primary + .step-primary:before, .steps .step-primary:after {
   @apply bg-primary text-primary-content;
+}
+.steps .step-primary + .step-primary:before, .steps .step-primary:after {
   @apply bg-primary text-primary-content;
 }
 .steps .step-success + .step-success:before, .steps .step-success:after {
   @apply bg-success text-success-content;
+}
+.steps .step-success + .step-success:before, .steps .step-success:after {
   @apply bg-success text-success-content;
 }
 .steps .step-warning + .step-warning:before, .steps .step-warning:after {
   @apply bg-warning text-warning-content;
+}
+.steps .step-warning + .step-warning:before, .steps .step-warning:after {
   @apply bg-warning text-warning-content;
 }
 .steps .step-error + .step-error:before, .steps .step-error:after {
   @apply bg-error text-error-content;
+}
+.steps .step-error + .step-error:before, .steps .step-error:after {
   @apply bg-error text-error-content;
 }
 .steps .step-neutral + .step-neutral:before, .steps .step-neutral:after {
   @apply bg-neutral text-neutral-content;
+}
+.steps .step-neutral + .step-neutral:before, .steps .step-neutral:after {
   @apply bg-neutral text-neutral-content;
 }",
       "cssInJs": {
@@ -11262,26 +11400,15 @@ details.collapse summary{
 }",
     },
     "utils": {
-      "css": ".steps-horizontal {
-  grid-auto-columns: 1fr;
-  @apply inline-grid grid-flow-col overflow-hidden overflow-x-auto;
-}
-.steps-horizontal .step {
+      "css": ".steps-horizontal .step {
   grid-template-rows: 2.5rem 1fr;
   grid-template-columns: auto;
   min-width: 4rem;
-  @apply grid grid-cols-1 grid-rows-2 place-items-center text-center;
 }
 .steps-horizontal .step:before {
   @apply h-2 w-full translate-x-0 translate-y-0 rtl:translate-x-0;
-  @apply h-2 w-full translate-x-0 translate-y-0;
   content: "";
   margin-inline-start: -100%;
-  margin-left: -100%;
-}
-.steps-vertical {
-  grid-auto-rows: 1fr;
-  @apply grid-flow-row;
 }
 .steps-vertical .step {
   gap: 0.5rem;
@@ -11289,12 +11416,41 @@ details.collapse summary{
   grid-template-rows: auto;
   min-height: 4rem;
   justify-items: start;
-  @apply grid grid-cols-2 grid-rows-1;
 }
 .steps-vertical .step:before {
   @apply h-full w-2 -translate-x-1/2 -translate-y-1/2 rtl:translate-x-1/2;
-  @apply h-full w-2 -translate-x-1/2 -translate-y-1/2;
   margin-inline-start: 50%;
+}
+
+.steps-horizontal {
+  grid-auto-columns: 1fr;
+  @apply inline-grid grid-flow-col overflow-hidden overflow-x-auto;
+}
+.steps-horizontal .step {
+  @apply grid grid-cols-1 grid-rows-2 place-items-center text-center;
+  grid-template-rows: 2.5rem 1fr;
+  grid-template-columns: auto;
+  min-width: 4rem;
+}
+.steps-horizontal .step:before {
+  @apply h-2 w-full translate-x-0 translate-y-0;
+  content: "";
+  margin-left: -100%;
+}
+.steps-vertical {
+  grid-auto-rows: 1fr;
+  @apply grid-flow-row;
+}
+.steps-vertical .step {
+  @apply grid grid-cols-2 grid-rows-1;
+  gap: 0.5rem;
+  grid-template-columns: 2.5rem 1fr;
+  grid-template-rows: auto;
+  min-height: 4rem;
+  justify-items: start;
+}
+.steps-vertical .step:before {
+  @apply h-full w-2 -translate-x-1/2 -translate-y-1/2;
   margin-left: 50%;
 }
 [dir=rtl] .steps-vertical .step:before {
@@ -11311,12 +11467,12 @@ details.collapse summary{
         ".steps-horizontal .step": {
           "display": "grid",
           "gridTemplateColumns": [
-            "auto",
             "repeat(1, minmax(0, 1fr))",
+            "auto",
           ],
           "gridTemplateRows": [
-            "2.5rem 1fr",
             "repeat(2, minmax(0, 1fr))",
+            "2.5rem 1fr",
           ],
           "minWidth": "4rem",
           "placeItems": "center",
@@ -11332,6 +11488,10 @@ details.collapse summary{
           "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
           "width": "100%",
         },
+        ".steps-horizontal .step:where([dir="rtl"],[dir="rtl"] *):before": {
+          "--tw-translate-x": "0px",
+          "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+        },
         ".steps-vertical": {
           "gridAutoFlow": "row",
           "gridAutoRows": "1fr",
@@ -11340,12 +11500,12 @@ details.collapse summary{
           "display": "grid",
           "gap": "0.5rem",
           "gridTemplateColumns": [
-            "2.5rem 1fr",
             "repeat(2, minmax(0, 1fr))",
+            "2.5rem 1fr",
           ],
           "gridTemplateRows": [
-            "auto",
             "repeat(1, minmax(0, 1fr))",
+            "auto",
           ],
           "justifyItems": "start",
           "minHeight": "4rem",
@@ -11359,11 +11519,7 @@ details.collapse summary{
           "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
           "width": "0.5rem",
         },
-        ":is(:where([dir="rtl"]) .steps-horizontal .step):before": {
-          "--tw-translate-x": "0px",
-          "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
-        },
-        ":is(:where([dir="rtl"]) .steps-vertical .step):before": {
+        ".steps-vertical .step:where([dir="rtl"],[dir="rtl"] *):before": {
           "--tw-translate-x": "50%",
           "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
         },
@@ -11371,22 +11527,10 @@ details.collapse summary{
           "marginRight": "auto",
         },
       },
-      "resolvedCss": ".steps-horizontal {
-  grid-auto-columns: 1fr;
-  display: inline-grid;
-  grid-auto-flow: column;
-  overflow: hidden;
-  overflow-x: auto;
-}
-.steps-horizontal .step {
+      "resolvedCss": ".steps-horizontal .step {
   grid-template-rows: 2.5rem 1fr;
   grid-template-columns: auto;
   min-width: 4rem;
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  place-items: center;
-  text-align: center;
 }
 .steps-horizontal .step:before {
   height: 0.5rem;
@@ -11395,9 +11539,52 @@ details.collapse summary{
   --tw-translate-y: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
-:is(:where([dir="rtl"]) .steps-horizontal .step):before {
+.steps-horizontal .step:where([dir="rtl"],[dir="rtl"] *):before {
   --tw-translate-x: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.steps-horizontal .step:before {
+  content: "";
+  margin-inline-start: -100%;
+}
+.steps-vertical .step {
+  gap: 0.5rem;
+  grid-template-columns: 2.5rem 1fr;
+  grid-template-rows: auto;
+  min-height: 4rem;
+  justify-items: start;
+}
+.steps-vertical .step:before {
+  height: 100%;
+  width: 0.5rem;
+  --tw-translate-x: -50%;
+  --tw-translate-y: -50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.steps-vertical .step:where([dir="rtl"],[dir="rtl"] *):before {
+  --tw-translate-x: 50%;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.steps-vertical .step:before {
+  margin-inline-start: 50%;
+}
+
+.steps-horizontal {
+  grid-auto-columns: 1fr;
+  display: inline-grid;
+  grid-auto-flow: column;
+  overflow: hidden;
+  overflow-x: auto;
+}
+.steps-horizontal .step {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  place-items: center;
+  text-align: center;
+  grid-template-rows: 2.5rem 1fr;
+  grid-template-columns: auto;
+  min-width: 4rem;
 }
 .steps-horizontal .step:before {
   height: 0.5rem;
@@ -11406,7 +11593,6 @@ details.collapse summary{
   --tw-translate-y: 0px;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   content: "";
-  margin-inline-start: -100%;
   margin-left: -100%;
 }
 .steps-vertical {
@@ -11414,14 +11600,14 @@ details.collapse summary{
   grid-auto-flow: row;
 }
 .steps-vertical .step {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(1, minmax(0, 1fr));
   gap: 0.5rem;
   grid-template-columns: 2.5rem 1fr;
   grid-template-rows: auto;
   min-height: 4rem;
   justify-items: start;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: repeat(1, minmax(0, 1fr));
 }
 .steps-vertical .step:before {
   height: 100%;
@@ -11429,18 +11615,6 @@ details.collapse summary{
   --tw-translate-x: -50%;
   --tw-translate-y: -50%;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-:is(:where([dir="rtl"]) .steps-vertical .step):before {
-  --tw-translate-x: 50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.steps-vertical .step:before {
-  height: 100%;
-  width: 0.5rem;
-  --tw-translate-x: -50%;
-  --tw-translate-y: -50%;
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-  margin-inline-start: 50%;
   margin-left: 50%;
 }
 [dir=rtl] .steps-vertical .step:before {
@@ -11680,7 +11854,7 @@ details.collapse summary{
 
 .tab {
   @apply relative row-start-1 inline-flex h-8 cursor-pointer select-none appearance-none flex-wrap items-center justify-center text-center text-sm leading-loose;
-  --tab-padding: 1rem;
+  --ice-tab-padding: 1rem;
 }
 .tab:is(input[type=radio]) {
   @apply w-auto rounded-b-none;
@@ -11696,7 +11870,7 @@ details.collapse summary{
 
 .tab-content {
   @apply col-start-1 col-end-[span_9999] row-start-2 -mt-[--tab-border] hidden border-transparent;
-  border-width: var(--tab-border, 0);
+  border-width: var(--ice-tab-border, 0);
 }
 :checked + .tab-content:nth-child(2), .tab-active + .tab-content:nth-child(2) {
   @apply rounded-ss-none;
@@ -11826,12 +12000,13 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 
 .tab {
   @apply text-opacity-50 [@media(hover:hover)]:hover:text-opacity-100;
-  --tab-color: theme(colors.base-content);
-  --tab-bg: theme(colors.base-100);
-  --tab-border-color: theme(colors.base-300);
-  color: var(--tab-color);
-  padding-inline-start: var(--tab-padding, 1rem);
-  padding-inline-end: var(--tab-padding, 1rem);
+  --ice-tab-color: theme("colors.base-content");
+  --ice-tab-bg: theme("colors.base-100");
+  --ice-tab-border-color: theme("colors.base-300");
+  color: var(--ice-tab-color);
+  padding-inline-start: var(--ice-tab-padding, 1rem);
+  padding-inline-end: var(--ice-tab-padding, 1rem);
+  /* disabled */
 }
 .tab.tab-active:not(.tab-disabled):not([disabled]), .tab:is(input:checked) {
   @apply border-base-content border-opacity-100 text-opacity-100;
@@ -11855,28 +12030,28 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 .tabs-bordered > .tab {
   @apply border-base-content border-opacity-20;
   border-style: solid;
-  border-bottom-width: calc(var(--tab-border, 1px) + 1px);
+  border-bottom-width: calc(var(--ice-tab-border, 1px) + 1px);
 }
 
 .tabs-lifted > .tab {
-  border: var(--tab-border, 1px) solid transparent;
-  border-width: 0 0 var(--tab-border, 1px) 0;
-  border-start-start-radius: var(--tab-radius, 0.5rem);
-  border-start-end-radius: var(--tab-radius, 0.5rem);
-  border-bottom-color: var(--tab-border-color);
-  padding-inline-start: var(--tab-padding, 1rem);
-  padding-inline-end: var(--tab-padding, 1rem);
-  padding-top: var(--tab-border, 1px);
+  border: var(--ice-tab-border, 1px) solid transparent;
+  border-width: 0 0 var(--ice-tab-border, 1px) 0;
+  border-start-start-radius: var(--ice-tab-radius, 0.5rem);
+  border-start-end-radius: var(--ice-tab-radius, 0.5rem);
+  border-bottom-color: var(--ice-tab-border-color);
+  padding-inline-start: var(--ice-tab-padding, 1rem);
+  padding-inline-end: var(--ice-tab-padding, 1rem);
+  padding-top: var(--ice-tab-border, 1px);
 }
 .tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]), .tabs-lifted > .tab:is(input:checked) {
-  background-color: var(--tab-bg);
-  border-width: var(--tab-border, 1px) var(--tab-border, 1px) 0 var(--tab-border, 1px);
-  border-inline-start-color: var(--tab-border-color);
-  border-inline-end-color: var(--tab-border-color);
-  border-top-color: var(--tab-border-color);
-  padding-inline-start: calc(var(--tab-padding, 1rem) - var(--tab-border, 1px));
-  padding-inline-end: calc(var(--tab-padding, 1rem) - var(--tab-border, 1px));
-  padding-bottom: var(--tab-border, 1px);
+  background-color: var(--ice-tab-bg);
+  border-width: var(--ice-tab-border, 1px) var(--ice-tab-border, 1px) 0 var(--ice-tab-border, 1px);
+  border-inline-start-color: var(--ice-tab-border-color);
+  border-inline-end-color: var(--ice-tab-border-color);
+  border-top-color: var(--ice-tab-border-color);
+  padding-inline-start: calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px));
+  padding-inline-end: calc(var(--ice-tab-padding, 1rem) - var(--ice-tab-border, 1px));
+  padding-bottom: var(--ice-tab-border, 1px);
   padding-top: 0;
 }
 .tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):before, .tabs-lifted > .tab:is(input:checked):before {
@@ -11884,36 +12059,48 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   content: "";
   display: block;
   position: absolute;
-  width: calc(100% + var(--tab-radius, 0.5rem) * 2);
-  height: var(--tab-radius, 0.5rem);
+  width: calc(100% + var(--ice-tab-radius, 0.5rem) * 2);
+  height: var(--ice-tab-radius, 0.5rem);
   bottom: 0;
-  background-size: var(--tab-radius, 0.5rem);
+  background-size: var(--ice-tab-radius, 0.5rem);
   background-position: top left, top right;
   background-repeat: no-repeat;
-  --tab-grad: calc(69% - var(--tab-border, 1px));
-  --radius-start: radial-gradient( circle at top left, transparent var(--tab-grad), var(--tab-border-color) calc(var(--tab-grad) + 0.25px), var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)), var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.25px) );
-  --radius-end: radial-gradient( circle at top right, transparent var(--tab-grad), var(--tab-border-color) calc(var(--tab-grad) + 0.25px), var(--tab-border-color) calc(var(--tab-grad) + var(--tab-border, 1px)), var(--tab-bg) calc(var(--tab-grad) + var(--tab-border, 1px) + 0.25px) );
-  background-image: var(--radius-start), var(--radius-end);
+  --ice-tab-grad: calc(69% - var(--ice-tab-border, 1px));
+  --ice-radius-start: radial-gradient(
+    circle at top left,
+    transparent var(--ice-tab-grad),
+    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px),
+    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)),
+    var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px)
+  );
+  --ice-radius-end: radial-gradient(
+    circle at top right,
+    transparent var(--ice-tab-grad),
+    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px),
+    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)),
+    var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px)
+  );
+  background-image: var(--ice-radius-start), var(--ice-radius-end);
 }
 .tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before, .tabs-lifted > .tab:is(input:checked):first-child:before {
-  background-image: var(--radius-end);
+  background-image: var(--ice-radius-end);
   background-position: top right;
 }
 [dir=rtl] .tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before, [dir=rtl] .tabs-lifted > .tab:is(input:checked):first-child:before {
-  background-image: var(--radius-start);
+  background-image: var(--ice-radius-start);
   background-position: top left;
 }
 .tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):last-child:before, .tabs-lifted > .tab:is(input:checked):last-child:before {
-  background-image: var(--radius-start);
+  background-image: var(--ice-radius-start);
   background-position: top left;
 }
 [dir=rtl] .tabs-lifted > .tab.tab-active:not(.tab-disabled):not([disabled]):last-child:before, [dir=rtl] .tabs-lifted > .tab:is(input:checked):last-child:before {
-  background-image: var(--radius-end);
+  background-image: var(--ice-radius-end);
   background-position: top right;
 }
 
 .tabs-lifted > .tab-active:not(.tab-disabled):not([disabled]) + .tabs-lifted .tab-active:not(.tab-disabled):not([disabled]):before, .tabs-lifted > .tab:is(input:checked) + .tabs-lifted .tab:is(input:checked):before {
-  background-image: var(--radius-end);
+  background-image: var(--ice-radius-end);
   background-position: top right;
 }
 
@@ -12013,8 +12200,20 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
           "paddingTop": "0",
         },
         ".tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]):before,.tabs-lifted>.tab:is(input:checked):before": {
-          "--ice-radius-end": "radial-gradient( circle at top right, transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px) )",
-          "--ice-radius-start": "radial-gradient( circle at top left, transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px) )",
+          "--ice-radius-end": "radial-gradient(
+    circle at top right,
+    transparent var(--ice-tab-grad),
+    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px),
+    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)),
+    var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px)
+  )",
+          "--ice-radius-start": "radial-gradient(
+    circle at top left,
+    transparent var(--ice-tab-grad),
+    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px),
+    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)),
+    var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px)
+  )",
           "--ice-tab-grad": "calc(69% - var(--ice-tab-border, 1px))",
           "backgroundImage": "var(--ice-radius-start), var(--ice-radius-end)",
           "backgroundPosition": "top left, top right",
@@ -12069,6 +12268,7 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   color: var(--ice-tab-color);
   padding-inline-start: var(--ice-tab-padding, 1rem);
   padding-inline-end: var(--ice-tab-padding, 1rem);
+  /* disabled */
 }
 .tab.tab-active:not(.tab-disabled):not([disabled]),.tab:is(input:checked) {
   border-color: rgba(var(--ice-base-content) / var(--tw-border-opacity));
@@ -12134,8 +12334,20 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   background-position: top left, top right;
   background-repeat: no-repeat;
   --ice-tab-grad: calc(69% - var(--ice-tab-border, 1px));
-  --ice-radius-start: radial-gradient( circle at top left, transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px) );
-  --ice-radius-end: radial-gradient( circle at top right, transparent var(--ice-tab-grad), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px), var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)), var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px) );
+  --ice-radius-start: radial-gradient(
+    circle at top left,
+    transparent var(--ice-tab-grad),
+    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px),
+    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)),
+    var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px)
+  );
+  --ice-radius-end: radial-gradient(
+    circle at top right,
+    transparent var(--ice-tab-grad),
+    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + 0.25px),
+    var(--ice-tab-border-color) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px)),
+    var(--ice-tab-bg) calc(var(--ice-tab-grad) + var(--ice-tab-border, 1px) + 0.25px)
+  );
   background-image: var(--ice-radius-start), var(--ice-radius-end);
 }
 .tabs-lifted>.tab.tab-active:not(.tab-disabled):not([disabled]):first-child:before,.tabs-lifted>.tab:is(input:checked):first-child:before {
@@ -12183,22 +12395,22 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
     "utils": {
       "css": ".tabs-md :where(.tab) {
   @apply h-8 text-sm leading-loose;
-  --tab-padding: 1rem;
+  --ice-tab-padding: 1rem;
 }
 
 .tabs-lg :where(.tab) {
   @apply h-12 text-lg leading-loose;
-  --tab-padding: 1.25rem;
+  --ice-tab-padding: 1.25rem;
 }
 
 .tabs-sm :where(.tab) {
   @apply h-6 text-sm leading-3;
-  --tab-padding: 0.75rem;
+  --ice-tab-padding: 0.75rem;
 }
 
 .tabs-xs :where(.tab) {
   @apply h-5 text-xs leading-3;
-  --tab-padding: 0.5rem;
+  --ice-tab-padding: 0.5rem;
 }",
       "cssInJs": {
         ".tabs-lg :where(.tab)": {
@@ -12954,8 +13166,8 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 
 :where(.timeline > li) {
   @apply relative grid shrink-0 items-center;
-  grid-template-rows: var(--timeline-row-start, minmax(0, 1fr)) auto var( --timeline-row-end, minmax(0, 1fr) );
-  grid-template-columns: var(--timeline-col-start, minmax(0, 1fr)) auto var( --timeline-col-end, minmax(0, 1fr) );
+  grid-template-rows: var(--ice-timeline-row-start, minmax(0, 1fr)) auto var(--ice-timeline-row-end, minmax(0, 1fr));
+  grid-template-columns: var(--ice-timeline-col-start, minmax(0, 1fr)) auto var(--ice-timeline-col-end, minmax(0, 1fr));
 }
 
 .timeline > li > hr {
@@ -13015,8 +13227,8 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
           "alignItems": "center",
           "display": "grid",
           "flexShrink": 0,
-          "gridTemplateColumns": "var(--ice-timeline-col-start, minmax(0, 1fr)) auto var( --ice-timeline-col-end, minmax(0, 1fr) )",
-          "gridTemplateRows": "var(--ice-timeline-row-start, minmax(0, 1fr)) auto var( --ice-timeline-row-end, minmax(0, 1fr) )",
+          "gridTemplateColumns": "var(--ice-timeline-col-start, minmax(0, 1fr)) auto var(--ice-timeline-col-end, minmax(0, 1fr))",
+          "gridTemplateRows": "var(--ice-timeline-row-start, minmax(0, 1fr)) auto var(--ice-timeline-row-end, minmax(0, 1fr))",
           "position": "relative",
         },
         ":where(.timeline>li>hr):first-child": {
@@ -13040,8 +13252,8 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   display: grid;
   flex-shrink: 0;
   align-items: center;
-  grid-template-rows: var(--ice-timeline-row-start, minmax(0, 1fr)) auto var( --ice-timeline-row-end, minmax(0, 1fr) );
-  grid-template-columns: var(--ice-timeline-col-start, minmax(0, 1fr)) auto var( --ice-timeline-col-end, minmax(0, 1fr) )
+  grid-template-rows: var(--ice-timeline-row-start, minmax(0, 1fr)) auto var(--ice-timeline-row-end, minmax(0, 1fr));
+  grid-template-columns: var(--ice-timeline-col-start, minmax(0, 1fr)) auto var(--ice-timeline-col-end, minmax(0, 1fr))
 }
 
 .timeline>li>hr {
@@ -13250,7 +13462,7 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 }
 
 .timeline-compact, .timeline-horizontal.timeline-compact {
-  --timeline-row-start: 0;
+  --ice-timeline-row-start: 0;
 }
 .timeline-compact .timeline-start, .timeline-horizontal.timeline-compact .timeline-start {
   @apply col-start-1 col-end-4 row-start-3 row-end-4 m-1 self-start justify-self-center;
@@ -13260,7 +13472,7 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 }
 
 .timeline-vertical.timeline-compact > li {
-  --timeline-col-start: 0;
+  --ice-timeline-col-start: 0;
 }
 .timeline-vertical.timeline-compact .timeline-start {
   @apply col-start-3 col-end-4 row-start-1 row-end-4 self-center justify-self-start;
@@ -13270,14 +13482,16 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 }
 
 :where(.timeline-vertical > li) {
-  --timeline-row-start: minmax(0, 1fr);
-  --timeline-row-end: minmax(0, 1fr);
-  @apply justify-items-center;
+  --ice-timeline-row-start: minmax(0, 1fr);
+  --ice-timeline-row-end: minmax(0, 1fr);
 }
 
 .timeline-vertical > li > hr {
   @apply h-full;
-  @apply w-1;
+}
+
+:where(.timeline-vertical > li) {
+  @apply justify-items-center;
 }
 
 :where(.timeline-vertical > li > hr):first-child {
@@ -13296,17 +13510,17 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 }
 
 .timeline-vertical:where(.timeline-snap-icon) > li {
-  --timeline-col-start: minmax(0, 1fr);
-  --timeline-row-start: 0.5rem;
+  --ice-timeline-col-start: minmax(0, 1fr);
+  --ice-timeline-row-start: 0.5rem;
 }
 
+/* horizontal */
 .timeline-horizontal {
   @apply flex-row;
 }
 
 .timeline-horizontal > li > hr {
   @apply w-full;
-  @apply h-1;
 }
 
 :where(.timeline-horizontal > li) {
@@ -13317,7 +13531,7 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   @apply col-start-1 row-start-2;
 }
 :where(.timeline-horizontal > li > hr):last-child {
-  @apply col-start-3 col-end-[none] row-start-2 row-end-auto;
+  @apply col-start-3 col-end-[none] row-start-2  row-end-auto;
 }
 
 .timeline-horizontal .timeline-start {
@@ -13329,8 +13543,12 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 }
 
 :where(.timeline-snap-icon) > li, .timeline-horizontal:where(.timeline-snap-icon) > li {
-  --timeline-col-start: 0.5rem;
-  --timeline-row-start: minmax(0, 1fr);
+  --ice-timeline-col-start: 0.5rem;
+  --ice-timeline-row-start: minmax(0, 1fr);
+}
+
+.timeline-vertical > li > hr {
+  @apply w-1;
 }
 
 :where(.timeline-vertical:has(.timeline-middle) > li > hr):first-child {
@@ -13346,6 +13564,11 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 
 :where(.timeline-vertical:not(:has(.timeline-middle)) :last-child > hr:first-child) {
   @apply rounded-b-badge rounded-t-none;
+}
+
+/* horizontal */
+.timeline-horizontal > li > hr {
+  @apply h-1;
 }
 
 :where(.timeline-horizontal:has(.timeline-middle) > li > hr):first-child {
@@ -13565,12 +13788,14 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 :where(.timeline-vertical>li) {
   --ice-timeline-row-start: minmax(0, 1fr);
   --ice-timeline-row-end: minmax(0, 1fr);
-  justify-items: center;
 }
 
 .timeline-vertical>li>hr {
   height: 100%;
-  width: 0.25rem;
+}
+
+:where(.timeline-vertical>li) {
+  justify-items: center;
 }
 
 :where(.timeline-vertical>li>hr):first-child {
@@ -13607,13 +13832,13 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   --ice-timeline-row-start: 0.5rem;
 }
 
+/* horizontal */
 .timeline-horizontal {
   flex-direction: row;
 }
 
 .timeline-horizontal>li>hr {
   width: 100%;
-  height: 0.25rem;
 }
 
 :where(.timeline-horizontal>li) {
@@ -13654,6 +13879,10 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   --ice-timeline-row-start: minmax(0, 1fr);
 }
 
+.timeline-vertical>li>hr {
+  width: 0.25rem;
+}
+
 :where(.timeline-vertical:has(.timeline-middle)>li>hr):first-child {
   border-bottom-right-radius: var(--ice-rounded-badge, 1.9rem);
   border-bottom-left-radius: var(--ice-rounded-badge, 1.9rem);
@@ -13679,6 +13908,11 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   border-bottom-left-radius: var(--ice-rounded-badge, 1.9rem);
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
+}
+
+/* horizontal */
+.timeline-horizontal>li>hr {
+  height: 0.25rem;
 }
 
 :where(.timeline-horizontal:has(.timeline-middle)>li>hr):first-child {
@@ -13828,6 +14062,10 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
           "insetInlineStart": "50%",
           "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
         },
+        ".toast:where(.toast-center):where([dir="rtl"],[dir="rtl"] *)": {
+          "--tw-translate-x": "50%",
+          "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
+        },
         ".toast:where(.toast-end)": {
           "--tw-translate-x": "0px",
           "insetInlineEnd": "0px",
@@ -13850,10 +14088,6 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
           "--tw-translate-y": "0px",
           "bottom": "auto",
           "top": "0px",
-          "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
-        },
-        ":is(:where([dir="rtl"]) .toast:where(.toast-center))": {
-          "--tw-translate-x": "50%",
           "transform": "translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))",
         },
         ":where(.toast)": {
@@ -13905,7 +14139,7 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))
 }
 
-:is(:where([dir="rtl"]) .toast:where(.toast-center)) {
+.toast:where(.toast-center):where([dir="rtl"],[dir="rtl"] *) {
 
     --tw-translate-x: 50%;
 
@@ -13973,16 +14207,16 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
     },
     "styled": {
       "css": ".toggle {
-  --tglbg: theme(colors.base-100);
-  --handleoffset: 1.5rem;
-  --handleoffsetcalculator: calc(var(--handleoffset) * -1);
-  --togglehandleborder: 0 0;
-  transition: background, box-shadow var(--animation-input, 0.2s) ease-out;
-  box-shadow: var(--handleoffsetcalculator) 0 0 2px var(--tglbg) inset, 0 0 0 2px var(--tglbg) inset, var(--togglehandleborder);
+  --ice-tglbg: theme("colors.base-100");
+  --ice-handleoffset: 1.5rem;
+  --ice-handleoffsetcalculator: calc(var(--ice-handleoffset) * -1);
+  --ice-togglehandleborder: 0 0;
   @apply text-base-content/50 rounded-badge h-6 w-12 cursor-pointer appearance-none border border-current bg-current;
+  transition: background, box-shadow var(--ice-animation-input, 0.2s) ease-out;
+  box-shadow: var(--ice-handleoffsetcalculator) 0 0 2px var(--ice-tglbg) inset, 0 0 0 2px var(--ice-tglbg) inset, var(--ice-togglehandleborder);
 }
 [dir=rtl] .toggle {
-  --handleoffsetcalculator: calc(var(--handleoffset) * 1);
+  --ice-handleoffsetcalculator: calc(var(--ice-handleoffset) * 1);
 }
 .toggle:focus-visible {
   @apply outline-base-content/20 outline outline-2 outline-offset-2;
@@ -13992,18 +14226,18 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 }
 .toggle:checked, .toggle[checked=true], .toggle[aria-checked=true] {
   background-image: none;
-  --handleoffsetcalculator: var(--handleoffset);
+  --ice-handleoffsetcalculator: var(--ice-handleoffset);
   @apply text-base-content;
 }
 [dir=rtl] .toggle:checked, [dir=rtl] .toggle[checked=true], [dir=rtl] .toggle[aria-checked=true] {
-  --handleoffsetcalculator: calc(var(--handleoffset) * -1);
+  --ice-handleoffsetcalculator: calc(var(--ice-handleoffset) * -1);
 }
 .toggle:indeterminate {
   @apply text-base-content;
-  box-shadow: calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset, calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset, 0 0 0 2px var(--tglbg) inset;
+  box-shadow: calc(var(--ice-handleoffset) / 2) 0 0 2px var(--ice-tglbg) inset, calc(var(--ice-handleoffset) / -2) 0 0 2px var(--ice-tglbg) inset, 0 0 0 2px var(--ice-tglbg) inset;
 }
 [dir=rtl] .toggle:indeterminate {
-  box-shadow: calc(var(--handleoffset) / 2) 0 0 2px var(--tglbg) inset, calc(var(--handleoffset) / -2) 0 0 2px var(--tglbg) inset, 0 0 0 2px var(--tglbg) inset;
+  box-shadow: calc(var(--ice-handleoffset) / 2) 0 0 2px var(--ice-tglbg) inset, calc(var(--ice-handleoffset) / -2) 0 0 2px var(--ice-tglbg) inset, 0 0 0 2px var(--ice-tglbg) inset;
 }
 .toggle-primary:focus-visible {
   @apply outline-primary;
@@ -14037,9 +14271,11 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 }
 .toggle:disabled {
   @apply border-base-content cursor-not-allowed bg-transparent opacity-30;
-  --togglehandleborder: 0 0 0 3px theme(colors.base-content) inset, var(--handleoffsetcalculator) 0 0 3px theme(colors.base-content) inset;
+  --ice-togglehandleborder: 0 0 0 3px theme("colors.base-content") inset,
+    var(--ice-handleoffsetcalculator) 0 0 3px theme("colors.base-content") inset;
 }
 
+/* backward compatibility */
 .toggle-mark {
   @apply hidden;
 }",
@@ -14126,7 +14362,8 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
           "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
         },
         ".toggle:disabled": {
-          "--ice-togglehandleborder": "0 0 0 3px rgba(var(--ice-base-content) / 1) inset, var(--ice-handleoffsetcalculator) 0 0 3px rgba(var(--ice-base-content) / 1) inset",
+          "--ice-togglehandleborder": "0 0 0 3px rgba(var(--ice-base-content) / 1) inset,
+    var(--ice-handleoffsetcalculator) 0 0 3px rgba(var(--ice-base-content) / 1) inset",
           "--tw-border-opacity": "1",
           "backgroundColor": "transparent",
           "borderColor": "rgba(var(--ice-base-content) / var(--tw-border-opacity))",
@@ -14162,8 +14399,6 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   --ice-handleoffset: 1.5rem;
   --ice-handleoffsetcalculator: calc(var(--ice-handleoffset) * -1);
   --ice-togglehandleborder: 0 0;
-  transition: background, box-shadow var(--ice-animation-input, 0.2s) ease-out;
-  box-shadow: var(--ice-handleoffsetcalculator) 0 0 2px var(--ice-tglbg) inset, 0 0 0 2px var(--ice-tglbg) inset, var(--ice-togglehandleborder);
   height: 1.5rem;
   width: 3rem;
   cursor: pointer;
@@ -14173,6 +14408,8 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   border-color: currentColor;
   background-color: currentColor;
   color: rgba(var(--ice-base-content) / 0.5);
+  transition: background, box-shadow var(--ice-animation-input, 0.2s) ease-out;
+  box-shadow: var(--ice-handleoffsetcalculator) 0 0 2px var(--ice-tglbg) inset, 0 0 0 2px var(--ice-tglbg) inset, var(--ice-togglehandleborder);
 }
 [dir=rtl] .toggle {
   --ice-handleoffsetcalculator: calc(var(--ice-handleoffset) * 1);
@@ -14264,28 +14501,30 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   border-color: rgba(var(--ice-base-content) / var(--tw-border-opacity));
   background-color: transparent;
   opacity: 0.3;
-  --ice-togglehandleborder: 0 0 0 3px rgba(var(--ice-base-content) / 1) inset, var(--ice-handleoffsetcalculator) 0 0 3px rgba(var(--ice-base-content) / 1) inset;
+  --ice-togglehandleborder: 0 0 0 3px rgba(var(--ice-base-content) / 1) inset,
+    var(--ice-handleoffsetcalculator) 0 0 3px rgba(var(--ice-base-content) / 1) inset;
 }
 
+/* backward compatibility */
 .toggle-mark {
   display: none;
 }",
     },
     "utils": {
       "css": "[type=checkbox].toggle-xs {
-  --handleoffset: 0.5rem;
+  --ice-handleoffset: 0.5rem;
   @apply h-4 w-6;
 }
 [type=checkbox].toggle-sm {
-  --handleoffset: 0.75rem;
+  --ice-handleoffset: 0.75rem;
   @apply h-5 w-8;
 }
 [type=checkbox].toggle-md {
-  --handleoffset: 1.5rem;
+  --ice-handleoffset: 1.5rem;
   @apply h-6 w-12;
 }
 [type=checkbox].toggle-lg {
-  --handleoffset: 2rem;
+  --ice-handleoffset: 2rem;
   @apply h-8 w-16;
 }",
       "cssInJs": {
@@ -14336,13 +14575,16 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
     "base": {
       "css": ".tooltip {
   @apply relative inline-block;
-  --tooltip-offset: calc(100% + 1px + var(--tooltip-tail, 0px));
+  --ice-tooltip-offset: calc(100% + 1px + var(--tooltip-tail, 0px));
 }
 
 .tooltip:before {
   @apply absolute;
   pointer-events: none;
   z-index: 1;
+}
+
+.tooltip:before {
   content: var(--tw-content);
   --tw-content: attr(data-tip);
 }
@@ -14352,12 +14594,12 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   top: auto;
   left: 50%;
   right: auto;
-  bottom: var(--tooltip-offset);
+  bottom: var(--ice-tooltip-offset);
 }
 
 .tooltip-bottom:before {
   transform: translateX(-50%);
-  top: var(--tooltip-offset);
+  top: var(--ice-tooltip-offset);
   left: 50%;
   right: auto;
   bottom: auto;
@@ -14367,14 +14609,14 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   transform: translateY(-50%);
   top: 50%;
   left: auto;
-  right: var(--tooltip-offset);
+  right: var(--ice-tooltip-offset);
   bottom: auto;
 }
 
 .tooltip-right:before {
   transform: translateY(-50%);
   top: 50%;
-  left: var(--tooltip-offset);
+  left: var(--ice-tooltip-offset);
   right: auto;
   bottom: auto;
 }",
@@ -14470,29 +14712,9 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
       "css": ".tooltip {
   @apply relative inline-block text-center;
   --tooltip-tail: 0.1875rem;
-  --tooltip-color: theme(colors.neutral);
-  --tooltip-text-color: theme(colors.neutral-content);
+  --tooltip-color: theme("colors.neutral");
+  --tooltip-text-color: theme("colors.neutral-content");
   --tooltip-tail-offset: calc(100% + 0.0625rem - var(--tooltip-tail));
-}
-.tooltip-primary {
-  --tooltip-color: theme(colors.primary);
-  --tooltip-text-color: theme(colors.primary-content);
-}
-.tooltip-success {
-  --tooltip-color: theme(colors.success);
-  --tooltip-text-color: theme(colors.success-content);
-}
-.tooltip-warning {
-  --tooltip-color: theme(colors.warning);
-  --tooltip-text-color: theme(colors.warning-content);
-}
-.tooltip-error {
-  --tooltip-color: theme(colors.error);
-  --tooltip-text-color: theme(colors.error-content);
-}
-.tooltip-neutral {
-  --tooltip-color: theme(colors.neutral);
-  --tooltip-text-color: theme(colors.neutral-content);
 }
 
 .tooltip:before, .tooltip:after {
@@ -14501,13 +14723,6 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 
 .tooltip:after {
   @apply absolute;
-  content: "";
-  border-style: solid;
-  border-width: var(--tooltip-tail, 0);
-  width: 0;
-  height: 0;
-  display: block;
-  position: absolute;
 }
 
 .tooltip:before {
@@ -14528,6 +14743,16 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 .tooltip:not([data-tip]):hover:before, .tooltip:not([data-tip]):hover:after {
   visibility: hidden;
   opacity: 0;
+}
+
+.tooltip:after {
+  content: "";
+  border-style: solid;
+  border-width: var(--tooltip-tail, 0);
+  width: 0;
+  height: 0;
+  display: block;
+  position: absolute;
 }
 
 .tooltip:after, .tooltip-top:after {
@@ -14564,6 +14789,27 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   left: calc(var(--tooltip-tail-offset) + 0.0625rem);
   right: auto;
   bottom: auto;
+}
+
+.tooltip-primary {
+  --tooltip-color: theme("colors.primary");
+  --tooltip-text-color: theme("colors.primary-content");
+}
+.tooltip-success {
+  --tooltip-color: theme("colors.success");
+  --tooltip-text-color: theme("colors.success-content");
+}
+.tooltip-warning {
+  --tooltip-color: theme("colors.warning");
+  --tooltip-text-color: theme("colors.warning-content");
+}
+.tooltip-error {
+  --tooltip-color: theme("colors.error");
+  --tooltip-text-color: theme("colors.error-content");
+}
+.tooltip-neutral {
+  --tooltip-color: theme("colors.neutral");
+  --tooltip-text-color: theme("colors.neutral-content");
 }",
       "cssInJs": {
         ".tooltip": {
@@ -14678,26 +14924,6 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   --tooltip-text-color: rgba(var(--ice-neutral-content) / 1);
   --tooltip-tail-offset: calc(100% + 0.0625rem - var(--tooltip-tail));
 }
-.tooltip-primary {
-  --tooltip-color: rgba(var(--ice-primary) / 1);
-  --tooltip-text-color: rgba(var(--ice-primary-content) / 1);
-}
-.tooltip-success {
-  --tooltip-color: rgba(var(--ice-success) / 1);
-  --tooltip-text-color: rgba(var(--ice-success-content) / 1);
-}
-.tooltip-warning {
-  --tooltip-color: rgba(var(--ice-warning) / 1);
-  --tooltip-text-color: rgba(var(--ice-warning-content) / 1);
-}
-.tooltip-error {
-  --tooltip-color: rgba(var(--ice-error) / 1);
-  --tooltip-text-color: rgba(var(--ice-error-content) / 1);
-}
-.tooltip-neutral {
-  --tooltip-color: rgba(var(--ice-neutral) / 1);
-  --tooltip-text-color: rgba(var(--ice-neutral-content) / 1);
-}
 
 .tooltip:before,.tooltip:after {
   opacity: 0;
@@ -14708,12 +14934,6 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 }
 
 .tooltip:after {
-  content: "";
-  border-style: solid;
-  border-width: var(--tooltip-tail, 0);
-  width: 0;
-  height: 0;
-  display: block;
   position: absolute;
 }
 
@@ -14744,6 +14964,16 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
 .tooltip:not([data-tip]):hover:before,.tooltip:not([data-tip]):hover:after {
   visibility: hidden;
   opacity: 0;
+}
+
+.tooltip:after {
+  content: "";
+  border-style: solid;
+  border-width: var(--tooltip-tail, 0);
+  width: 0;
+  height: 0;
+  display: block;
+  position: absolute;
 }
 
 .tooltip:after,.tooltip-top:after {
@@ -14780,6 +15010,27 @@ input.tab:checked+.tab-content,.tab-active+.tab-content {
   left: calc(var(--tooltip-tail-offset) + 0.0625rem);
   right: auto;
   bottom: auto;
+}
+
+.tooltip-primary {
+  --tooltip-color: rgba(var(--ice-primary) / 1);
+  --tooltip-text-color: rgba(var(--ice-primary-content) / 1);
+}
+.tooltip-success {
+  --tooltip-color: rgba(var(--ice-success) / 1);
+  --tooltip-text-color: rgba(var(--ice-success-content) / 1);
+}
+.tooltip-warning {
+  --tooltip-color: rgba(var(--ice-warning) / 1);
+  --tooltip-text-color: rgba(var(--ice-warning-content) / 1);
+}
+.tooltip-error {
+  --tooltip-color: rgba(var(--ice-error) / 1);
+  --tooltip-text-color: rgba(var(--ice-error-content) / 1);
+}
+.tooltip-neutral {
+  --tooltip-color: rgba(var(--ice-neutral) / 1);
+  --tooltip-text-color: rgba(var(--ice-neutral-content) / 1);
 }",
     },
     "utils": {

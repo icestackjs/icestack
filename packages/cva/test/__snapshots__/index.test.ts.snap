@@ -228,12 +228,12 @@ tooltip-top
 tooltip-bottom
 tooltip-left
 tooltip-right
+tooltip-open
 tooltip-primary
 tooltip-success
 tooltip-warning
 tooltip-error
 tooltip-neutral
-tooltip-open
 toast
 toast
 toast-start

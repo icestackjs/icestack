@@ -14,11 +14,17 @@ exports[`presets merge > extend case 0 1`] = `
 }",
       "cssInJs": {
         ".xxx": {
-          "@apply bg-green-500": true,
-          "@apply bg-red-500": true,
-          "@apply text-blue-500 #{!important}": true,
-          "@apply text-sky-500 #{!important}": true,
-          "borderWidth": "var(--ee-bw)",
+          "--tw-bg-opacity": "1",
+          "--tw-text-opacity": "1 !important",
+          "backgroundColor": [
+            "rgb(239 68 68 / var(--tw-bg-opacity))",
+            "rgb(34 197 94 / var(--tw-bg-opacity))",
+          ],
+          "borderWidth": "var(--ice-ee-bw)",
+          "color": [
+            "rgb(59 130 246 / var(--tw-text-opacity)) !important",
+            "rgb(14 165 233 / var(--tw-text-opacity)) !important",
+          ],
           "fontSize": "12px",
         },
       },
@@ -33,8 +39,16 @@ exports[`presets merge > extend case 0 1`] = `
   font-size: 12px
 }",
     },
-    "styled": undefined,
-    "utils": undefined,
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
   },
 }
 `;
@@ -55,14 +69,21 @@ exports[`presets merge > extend case 1 1`] = `
 }",
       "cssInJs": {
         ".xxx": {
-          "@apply bg-green-500 m-1": true,
-          "@apply bg-green-900 m-2": true,
-          "@apply bg-red-500": true,
-          "@apply text-blue-500 #{!important}": true,
-          "@apply text-sky-500 #{!important}": true,
-          "@apply text-sky-900 #{!important}": true,
-          "borderWidth": "var(--ee-bw)",
+          "--tw-bg-opacity": "1",
+          "--tw-text-opacity": "1 !important",
+          "backgroundColor": [
+            "rgb(239 68 68 / var(--tw-bg-opacity))",
+            "rgb(20 83 45 / var(--tw-bg-opacity))",
+            "rgb(34 197 94 / var(--tw-bg-opacity))",
+          ],
+          "borderWidth": "var(--ice-ee-bw)",
+          "color": [
+            "rgb(59 130 246 / var(--tw-text-opacity)) !important",
+            "rgb(12 74 110 / var(--tw-text-opacity)) !important",
+            "rgb(14 165 233 / var(--tw-text-opacity)) !important",
+          ],
           "fontSize": "12px",
+          "margin": "0.25rem",
         },
       },
       "resolvedCss": ".xxx {
@@ -79,8 +100,16 @@ exports[`presets merge > extend case 1 1`] = `
   color: rgb(14 165 233 / var(--tw-text-opacity)) !important
 }",
     },
-    "styled": undefined,
-    "utils": undefined,
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
   },
 }
 `;
@@ -96,9 +125,11 @@ exports[`presets merge > merge case 0 1`] = `
 }",
       "cssInJs": {
         ".xxx": {
-          "@apply bg-red-500": true,
-          "@apply text-blue-500 #{!important}": true,
-          "borderWidth": "var(--bw)",
+          "--tw-bg-opacity": "1",
+          "--tw-text-opacity": "1 !important",
+          "backgroundColor": "rgb(239 68 68 / var(--tw-bg-opacity))",
+          "borderWidth": "var(--ice-bw)",
+          "color": "rgb(59 130 246 / var(--tw-text-opacity)) !important",
         },
       },
       "resolvedCss": ".xxx {
@@ -109,7 +140,11 @@ exports[`presets merge > merge case 0 1`] = `
   border-width: var(--ice-bw)
 }",
     },
-    "styled": undefined,
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
     "utils": {
       "css": ".xxx {
   @apply bg-green-500;
@@ -119,9 +154,11 @@ exports[`presets merge > merge case 0 1`] = `
 }",
       "cssInJs": {
         ".xxx": {
-          "@apply bg-green-500": true,
-          "@apply text-sky-500 #{!important}": true,
-          "borderWidth": "var(--ee-bw)",
+          "--tw-bg-opacity": "1",
+          "--tw-text-opacity": "1 !important",
+          "backgroundColor": "rgb(34 197 94 / var(--tw-bg-opacity))",
+          "borderWidth": "var(--ice-ee-bw)",
+          "color": "rgb(14 165 233 / var(--tw-text-opacity)) !important",
           "fontSize": "12px",
         },
       },
@@ -149,9 +186,11 @@ exports[`presets merge > override case 0 1`] = `
 }",
       "cssInJs": {
         ".xxx": {
-          "@apply bg-red-500": true,
-          "@apply text-blue-500 #{!important}": true,
-          "borderWidth": "var(--bw)",
+          "--tw-bg-opacity": "1",
+          "--tw-text-opacity": "1 !important",
+          "backgroundColor": "rgb(239 68 68 / var(--tw-bg-opacity))",
+          "borderWidth": "var(--ice-bw)",
+          "color": "rgb(59 130 246 / var(--tw-text-opacity)) !important",
         },
       },
       "resolvedCss": ".xxx {
@@ -162,8 +201,16 @@ exports[`presets merge > override case 0 1`] = `
   border-width: var(--ice-bw)
 }",
     },
-    "styled": undefined,
-    "utils": undefined,
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
   },
 }
 `;
@@ -179,9 +226,11 @@ exports[`presets merge > override case 1 1`] = `
 }",
       "cssInJs": {
         ".xxx": {
-          "@apply bg-red-500": true,
-          "@apply text-blue-500 #{!important}": true,
-          "borderWidth": "var(--bw)",
+          "--tw-bg-opacity": "1",
+          "--tw-text-opacity": "1 !important",
+          "backgroundColor": "rgb(239 68 68 / var(--tw-bg-opacity))",
+          "borderWidth": "var(--ice-bw)",
+          "color": "rgb(59 130 246 / var(--tw-text-opacity)) !important",
         },
       },
       "resolvedCss": ".xxx {
@@ -192,8 +241,16 @@ exports[`presets merge > override case 1 1`] = `
   border-width: var(--ice-bw)
 }",
     },
-    "styled": undefined,
-    "utils": undefined,
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
   },
 }
 `;

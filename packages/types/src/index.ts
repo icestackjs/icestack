@@ -3,7 +3,7 @@ import type { AcceptedPlugin } from 'postcss'
 import type { GetCssSchemaMethod, GetCssSchemaMethodOptions, CssValue } from './shared'
 import type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 
-export type { CreatePresetOptions, GetCssSchemaMethod, CssSchemaDefaults, CssSchema, CssSchemaValue, GetCssSchemaMethodOptions, CssValue, CssInJs } from './shared'
+export type { CreatePresetOptions, GetCssSchemaMethod, CssSchemaDefaults, CssSchema, GetCssSchemaMethodOptions, CssValue, CssInJs } from './shared'
 export type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 export type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 

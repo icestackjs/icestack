@@ -3,18 +3,14 @@ import { ComponentsValue } from '@/types'
 const options: Partial<ComponentsValue> = {
   extend: ({ selector }) => {
     return {
-      utils: {
-        [`${selector}::after`]: {
-          css: {
-            border: 'none'
-          }
-        },
-        [selector]: {
-          css: {
-            'border-style': 'solid'
-          }
-        }
+      utils: `
+      ${selector}::after{
+        border: none;
       }
+      ${selector}{
+        border-style: solid;
+      }
+      `
     }
   }
 }

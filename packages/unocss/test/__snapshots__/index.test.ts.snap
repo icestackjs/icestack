@@ -912,6 +912,10 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^tooltip-open\\$/,
+      [Function],
+    ],
+    [
       /\\^tooltip-primary\\$/,
       [Function],
     ],
@@ -929,10 +933,6 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^tooltip-neutral\\$/,
-      [Function],
-    ],
-    [
-      /\\^tooltip-open\\$/,
       [Function],
     ],
     [

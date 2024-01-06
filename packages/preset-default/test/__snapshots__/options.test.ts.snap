@@ -3195,29 +3195,30 @@ exports[`'footer' options > snap 1`] = `
 exports[`'form' options > raw snap 1`] = `
 {
   "defaults": {
-    "base": {
-      ".form-control": {
-        "apply": "flex flex-col",
-      },
-      ".label": {
-        "apply": "flex select-none items-center justify-between",
-      },
-    },
-    "styled": {
-      ".label": {
-        "&-text": {
-          "apply": "text-base-content text-sm",
-        },
-        "&-text-alt": {
-          "apply": "text-base-content text-xs",
-        },
-        "a": {
-          "apply": "[@media(hover:hover)]:hover:text-base-content",
-        },
-        "apply": "px-1 py-2",
-      },
-    },
-    "utils": {},
+    "base": "
+      .form-control {
+        @apply flex flex-col;
+      }
+      .label {
+        @apply flex select-none items-center justify-between;
+      }
+      
+      ",
+    "styled": "
+      .label {
+        @apply px-1 py-2;
+        &-text {
+          @apply text-base-content text-sm;
+        }
+        &-text-alt {
+          @apply text-base-content text-xs;
+        }
+        a {
+          @apply [@media(hover:hover)]:hover:text-base-content;
+        }
+      }
+      
+      ",
   },
   "selector": undefined,
 }
@@ -3226,29 +3227,30 @@ exports[`'form' options > raw snap 1`] = `
 exports[`'form' options > snap 1`] = `
 {
   "defaults": {
-    "base": {
-      ".form-control": {
-        "apply": "flex flex-col",
-      },
-      ".label": {
-        "apply": "flex select-none items-center justify-between",
-      },
-    },
-    "styled": {
-      ".label": {
-        "&-text": {
-          "apply": "text-base-content text-sm",
-        },
-        "&-text-alt": {
-          "apply": "text-base-content text-xs",
-        },
-        "a": {
-          "apply": "[@media(hover:hover)]:hover:text-base-content",
-        },
-        "apply": "px-1 py-2",
-      },
-    },
-    "utils": {},
+    "base": "
+      .form-control {
+        @apply flex flex-col;
+      }
+      .label {
+        @apply flex select-none items-center justify-between;
+      }
+      
+      ",
+    "styled": "
+      .label {
+        @apply px-1 py-2;
+        &-text {
+          @apply text-base-content text-sm;
+        }
+        &-text-alt {
+          @apply text-base-content text-xs;
+        }
+        a {
+          @apply [@media(hover:hover)]:hover:text-base-content;
+        }
+      }
+      
+      ",
   },
   "selector": undefined,
 }

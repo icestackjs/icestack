@@ -398,12 +398,12 @@ module.exports = {
       "tooltip-right"
     ],
     "styled": [
+      "tooltip-open",
       "tooltip-primary",
       "tooltip-success",
       "tooltip-warning",
       "tooltip-error",
-      "tooltip-neutral",
-      "tooltip-open"
+      "tooltip-neutral"
     ],
     "utils": []
   },

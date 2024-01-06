@@ -3,15 +3,28 @@
 exports[`cutsom > custom component case 1 1`] = `
 {
   "subtitle": {
-    "base": undefined,
-    "styled": undefined,
+    "base": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
     "utils": {
       "css": ".ice-subtitle {
   @apply text-gray-600 text-sm pt-5 pb-4;
 }",
       "cssInJs": {
-        ".subtitle": {
-          "@apply text-gray-600 text-sm pt-5 pb-4": true,
+        ".ice-subtitle": {
+          "--tw-text-opacity": "1",
+          "color": "rgb(75 85 99 / var(--tw-text-opacity))",
+          "fontSize": "0.875rem",
+          "lineHeight": "1.25rem",
+          "paddingBottom": "1rem",
+          "paddingTop": "1.25rem",
         },
       },
       "resolvedCss": ".ice-subtitle {
@@ -25,15 +38,28 @@ exports[`cutsom > custom component case 1 1`] = `
     },
   },
   "tips": {
-    "base": undefined,
-    "styled": undefined,
+    "base": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
     "utils": {
       "css": ".som-tips {
   @apply text-gray-500 text-xs pt-3 pb-2;
 }",
       "cssInJs": {
-        ".tips": {
-          "@apply text-gray-500 text-xs pt-3 pb-2": true,
+        ".som-tips": {
+          "--tw-text-opacity": "1",
+          "color": "rgb(107 114 128 / var(--tw-text-opacity))",
+          "fontSize": "0.75rem",
+          "lineHeight": "1rem",
+          "paddingBottom": "0.5rem",
+          "paddingTop": "0.75rem",
         },
       },
       "resolvedCss": ".som-tips {
@@ -79,16 +105,16 @@ exports[`cutsom > custom component case 2 1`] = `
   -webkit-transform: translate(-50%, -50%) scale(1);
 }",
       "cssInJs": {
-        ".checkbox .wx-checkbox-input": {
+        ".ice-checkbox .wx-checkbox-input": {
           "borderRadius": "50%",
           "height": "34rpx",
           "width": "34rpx",
         },
-        ".checkbox .wx-checkbox-input.wx-checkbox-input-checked": {
+        ".ice-checkbox .wx-checkbox-input.wx-checkbox-input-checked": {
           "background": "#0394f0",
           "borderColor": "#0394f0",
         },
-        ".checkbox .wx-checkbox-input.wx-checkbox-input-checked::before": {
+        ".ice-checkbox .wx-checkbox-input.wx-checkbox-input-checked::before": {
           "WebkitTransform": "translate(-50%, -50%) scale(1)",
           "background": "transparent",
           "color": "#fff",
@@ -99,6 +125,7 @@ exports[`cutsom > custom component case 2 1`] = `
           "transform": "translate(-50%, -50%) scale(1)",
           "width": "20rpx",
         },
+        "@charset "UTF-8"": true,
       },
       "resolvedCss": "@charset "UTF-8";
 .ice-checkbox .wx-checkbox-input {
@@ -126,8 +153,16 @@ exports[`cutsom > custom component case 2 1`] = `
   -webkit-transform: translate(-50%, -50%) scale(1);
 }",
     },
-    "styled": undefined,
-    "utils": undefined,
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "utils": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
   },
 }
 `;
@@ -135,8 +170,16 @@ exports[`cutsom > custom component case 2 1`] = `
 exports[`cutsom > custom component case 3 1`] = `
 {
   "xxx": {
-    "base": undefined,
-    "styled": undefined,
+    "base": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
     "utils": {
       "css": ".xxx {
   @apply bg-red-300 text-sm;
@@ -144,8 +187,11 @@ exports[`cutsom > custom component case 3 1`] = `
 }",
       "cssInJs": {
         ".xxx": {
-          "@apply bg-red-300 text-sm": true,
+          "--tw-bg-opacity": "1",
+          "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity))",
           "color": "red",
+          "fontSize": "0.875rem",
+          "lineHeight": "1.25rem",
         },
       },
       "resolvedCss": ".xxx {
@@ -163,8 +209,16 @@ exports[`cutsom > custom component case 3 1`] = `
 exports[`cutsom > custom component case 4 !important 1`] = `
 {
   "xxx": {
-    "base": undefined,
-    "styled": undefined,
+    "base": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
     "utils": {
       "css": ".xxx {
   @apply bg-red-300 text-sm;
@@ -173,9 +227,11 @@ exports[`cutsom > custom component case 4 !important 1`] = `
 }",
       "cssInJs": {
         ".xxx": {
-          "@apply bg-red-300 text-sm": true,
-          "@apply leading-4 #{!important}": true,
+          "--tw-bg-opacity": "1",
+          "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity))",
           "color": "red",
+          "fontSize": "0.875rem",
+          "lineHeight": "1rem !important",
         },
       },
       "resolvedCss": ".xxx {
@@ -193,8 +249,16 @@ exports[`cutsom > custom component case 4 !important 1`] = `
 exports[`cutsom > custom component case 5 !important 1`] = `
 {
   "xxx": {
-    "base": undefined,
-    "styled": undefined,
+    "base": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
+    "styled": {
+      "css": "",
+      "cssInJs": {},
+      "resolvedCss": "",
+    },
     "utils": {
       "css": ".xxx {
   @apply bg-red-300 text-sm leading-4 !important;
@@ -202,8 +266,11 @@ exports[`cutsom > custom component case 5 !important 1`] = `
 }",
       "cssInJs": {
         ".xxx": {
-          "@apply bg-red-300 text-sm leading-4 #{!important}": true,
+          "--tw-bg-opacity": "1 !important",
+          "backgroundColor": "rgb(252 165 165 / var(--tw-bg-opacity)) !important",
           "color": "red !important",
+          "fontSize": "0.875rem !important",
+          "lineHeight": "1rem !important",
         },
       },
       "resolvedCss": ".xxx {

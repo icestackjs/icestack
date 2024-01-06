@@ -229,12 +229,12 @@ ice-tooltip-top
 ice-tooltip-bottom
 ice-tooltip-left
 ice-tooltip-right
+ice-tooltip-open
 ice-tooltip-primary
 ice-tooltip-success
 ice-tooltip-warning
 ice-tooltip-error
 ice-tooltip-neutral
-ice-tooltip-open
 ice-toast
 ice-toast
 ice-toast-start
@@ -656,12 +656,12 @@ tooltip-top
 tooltip-bottom
 tooltip-left
 tooltip-right
+tooltip-open
 tooltip-primary
 tooltip-success
 tooltip-warning
 tooltip-error
 tooltip-neutral
-tooltip-open
 toast
 toast
 toast-start
@@ -861,12 +861,12 @@ tooltip-top
 tooltip-bottom
 tooltip-left
 tooltip-right
+tooltip-open
 tooltip-primary
 tooltip-success
 tooltip-warning
 tooltip-error
-tooltip-neutral
-tooltip-open",
+tooltip-neutral",
 }
 `;
 
@@ -877,11 +877,11 @@ ice-tooltip-top
 ice-tooltip-bottom
 ice-tooltip-left
 ice-tooltip-right
+ice-tooltip-open
 ice-tooltip-primary
 ice-tooltip-success
 ice-tooltip-warning
 ice-tooltip-error
-ice-tooltip-neutral
-ice-tooltip-open",
+ice-tooltip-neutral",
 }
 `;

@@ -1,8 +1,8 @@
 import { loadConfig, LoadConfigOptions } from 'c12'
-import { flattenDeep, get, set, isObject } from 'lodash'
+import { flattenDeep, set, isObject } from 'lodash'
 import { getCodegenDefaults } from './defaults'
 import type { CodegenOptions, Preset } from '@/types'
-import { defuOptions, mergeRClone } from '@/shared'
+import { defuOptions } from '@/shared'
 import { makeArray } from '@/utils'
 
 export function preHandleOptions(options: Partial<CodegenOptions>): Partial<CodegenOptions> {
@@ -27,10 +27,10 @@ export function preHandleOptions(options: Partial<CodegenOptions>): Partial<Code
     for (const [componentName, opts] of Object.entries(components)) {
       if (opts) {
         // make array for merge and array concat
-        const { override, extend } = opts
-        if (override && !Array.isArray(override)) {
-          set(options, `components.${componentName}.override`, [override])
-        }
+        const { extend } = opts
+        // if (override && !Array.isArray(override)) {
+        //   set(options, `components.${componentName}.override`, [override])
+        // }
 
         if (extend && !Array.isArray(extend)) {
           set(options, `components.${componentName}.extend`, [extend])

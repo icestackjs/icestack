@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { set, get, pick } from 'lodash'
-import type { Root, AcceptedPlugin, Rule, AtRule } from 'postcss'
+import { Root, AcceptedPlugin, Rule, AtRule } from 'postcss'
 import kleur from 'kleur'
 import { compileScssString } from '@/sass'
 import { createDefaultTailwindcssExtends } from '@/defaults'
@@ -149,10 +149,8 @@ export function createContext(opts?: CodegenOptions) {
   }
 
   async function internalBuild(opts: { root?: AtRule | Root | Rule; layer: ILayer; suffixes: string[]; relPath: string }) {
-    const { layer, suffixes, relPath, root } = opts
-    if (!root) {
-      return
-    }
+    const { layer, suffixes, relPath, root = new Root() } = opts
+
     const { css } = compileScssString(root.toString())
     const { css: cssOutput } = preprocessCss(css, layer, suffixes[0])
     const { cssPath, cssResolvedPath, jsPath } = getPaths(relPath)
@@ -160,7 +158,7 @@ export function createContext(opts?: CodegenOptions) {
     // scss -> css
     writeFile(cssPath, cssOutput)
 
-    const { css: resolvedCss } = await resolveTailwindcss({
+    const { css: resolvedCss, root: resolvedRoot } = await resolveTailwindcss({
       css: cssOutput,
       config: twConfig,
       options
@@ -168,7 +166,7 @@ export function createContext(opts?: CodegenOptions) {
 
     writeFile(cssResolvedPath, resolvedCss)
 
-    const cssInJs = objectify(root as Root)
+    const cssInJs = objectify(resolvedRoot as Root)
 
     const data = 'module.exports = ' + JSONStringify(cssInJs)
     // css -> js

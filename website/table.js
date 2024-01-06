@@ -45,13 +45,15 @@ module.exports = {
   "button": {
     "base": [
       "btn",
-      "btn-disabled"
+      "btn-disabled",
+      "btn-square",
+      "btn-circle"
     ],
     "styled": [
       "btn-focus-visible",
       "btn-hover",
-      "btn-active",
       "btn-primary",
+      "btn-active",
       "btn-success",
       "btn-warning",
       "btn-error",
@@ -100,7 +102,8 @@ module.exports = {
       "checkbox-success",
       "checkbox-warning",
       "checkbox-error",
-      "checkbox-neutral"
+      "checkbox-neutral",
+      "checkbox-mark"
     ],
     "utils": [
       "checkbox-xs",
@@ -125,9 +128,9 @@ module.exports = {
     ],
     "utils": [
       "input-xs",
-      "input-sm",
       "input-md",
-      "input-lg"
+      "input-lg",
+      "input-sm"
     ]
   },
   "link": {
@@ -166,7 +169,8 @@ module.exports = {
       "radio-success",
       "radio-warning",
       "radio-error",
-      "radio-neutral"
+      "radio-neutral",
+      "radio-mark"
     ],
     "utils": [
       "radio-xs",
@@ -245,7 +249,8 @@ module.exports = {
       "toggle-success",
       "toggle-warning",
       "toggle-error",
-      "toggle-neutral"
+      "toggle-neutral",
+      "toggle-mark"
     ],
     "utils": [
       "toggle-xs",
@@ -260,10 +265,6 @@ module.exports = {
     ],
     "styled": [],
     "utils": [
-      "loading-xs",
-      "loading-sm",
-      "loading-md",
-      "loading-lg",
       "loading-audio",
       "loading-ball-triangle",
       "loading-bars",
@@ -275,7 +276,11 @@ module.exports = {
       "loading-rings",
       "loading-spinning-circles",
       "loading-tail-spin",
-      "loading-three-dots"
+      "loading-three-dots",
+      "loading-xs",
+      "loading-sm",
+      "loading-md",
+      "loading-lg"
     ]
   },
   "mask": {
@@ -393,12 +398,12 @@ module.exports = {
       "tooltip-right"
     ],
     "styled": [
+      "tooltip-open",
       "tooltip-primary",
       "tooltip-success",
       "tooltip-warning",
       "tooltip-error",
-      "tooltip-neutral",
-      "tooltip-open"
+      "tooltip-neutral"
     ],
     "utils": []
   },

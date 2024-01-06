@@ -1,0 +1,50 @@
+{
+  "name": "@icestack/scss",
+  "description": "The scss utils of @icestack/ui",
+  "version": "0.0.0",
+  "scripts": {
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "sync": "cnpm sync @icestack/scss"
+  },
+  "keywords": [
+    "scss",
+    "component",
+    "generate",
+    "generator",
+    "tailwindcss",
+    "unocss",
+    "icestack",
+    "ui"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@icestack/shared": "workspace:^",
+    "immutable": "^4.0.0",
+    "sass": "^1.69.7"
+  },
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "homepage": "https://ui.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  }
+}

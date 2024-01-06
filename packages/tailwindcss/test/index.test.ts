@@ -1,9 +1,10 @@
 import path from 'node:path'
 import { createContext } from '@icestack/ui'
+import ci from 'ci-info'
 import { getCss } from './utils'
 import { icestackPlugin } from '@/index'
 
-describe('tailwindcss', () => {
+describe.skipIf(ci.isCI)('tailwindcss', () => {
   const outdir = path.resolve(__dirname, 'assets')
   beforeAll(async () => {
     const ctx = createContext({

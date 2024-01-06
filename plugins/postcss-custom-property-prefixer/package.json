@@ -41,9 +41,8 @@
     "test:dev": "vitest --coverage.enabled",
     "sync": "cnpm sync postcss-custom-property-prefixer"
   },
-  "dependencies": {},
   "devDependencies": {
-    "postcss": "^8.4.31"
+    "postcss": "^8.4.33"
   },
   "publishConfig": {
     "access": "public",

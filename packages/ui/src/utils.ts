@@ -81,3 +81,10 @@ export function arrMatch(matchArr?: (string | RegExp)[], str?: string) {
 export function isModeMergeValue(input: any): input is ModeMergeValue {
   return typeof input === 'object' && (Reflect.has(input, 'base') || Reflect.has(input, 'styled') || Reflect.has(input, 'utils'))
 }
+
+export function makeArray<T>(value?: T) {
+  if (value) {
+    return Array.isArray(value) ? value : [value]
+  }
+  return []
+}

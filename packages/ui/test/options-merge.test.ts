@@ -8,16 +8,12 @@ describe('options merge', () => {
       components: {
         ...removeDefaultComponents,
         xxx: {
-          override: () => {
+          extend: () => {
             return {
-              base: {
-                '.xxx': {
-                  apply: 'bg-red-300 text-sm leading-4 !important',
-                  css: {
-                    color: 'red'
-                  }
-                }
-              }
+              base: `.xxx{
+                @apply bg-red-300 text-sm leading-4 #{!important};
+                color: red;
+              }`
             }
           }
         }
@@ -38,18 +34,15 @@ describe('options merge', () => {
         button: {
           extend: ({ selector }) => {
             return {
-              utils: {
-                [`${selector}::after`]: {
-                  css: {
-                    border: 'none'
-                  }
-                },
-                [selector]: {
-                  css: {
-                    'border-style': 'solid'
-                  }
-                }
+              utils: `
+              ${selector}::after{
+                border: none;
               }
+
+              ${selector}{
+                border-style: solid;
+              }
+              `
             }
           }
         }
@@ -71,18 +64,15 @@ describe('options merge', () => {
           extend: [
             ({ selector }) => {
               return {
-                utils: {
-                  [`${selector}::after`]: {
-                    css: {
-                      border: 'none'
-                    }
-                  },
-                  [selector]: {
-                    css: {
-                      'border-style': 'solid'
-                    }
-                  }
+                utils: `
+                ${selector}::after{
+                  border: none;
                 }
+  
+                ${selector}{
+                  border-style: solid;
+                }
+                `
               }
             }
           ]
@@ -105,18 +95,15 @@ describe('options merge', () => {
         button: {
           extend: [
             {
-              utils: {
-                [`${selector}::after`]: {
-                  css: {
-                    border: 'none'
-                  }
-                },
-                [selector]: {
-                  css: {
-                    'border-style': 'solid'
-                  }
-                }
+              utils: `
+              ${selector}::after{
+                border: none;
               }
+
+              ${selector}{
+                border-style: solid;
+              }
+              `
             }
           ]
         }
@@ -190,13 +177,11 @@ describe('options merge', () => {
           
           `,
             {
-              utils: {
-                '.btn': {
-                  css: {
-                    'border-style': 'solid'
-                  }
-                }
+              utils: `
+             .btn{
+                border-style: solid;
               }
+              `
             }
           ]
         }
@@ -249,13 +234,11 @@ describe('options merge', () => {
           `,
             ({ selector }) => {
               return {
-                utils: {
-                  [selector]: {
-                    css: {
-                      'border-style': 'solid'
-                    }
-                  }
+                utils: `
+                ${selector}{
+                  border-style: solid;
                 }
+                `
               }
             }
           ]
@@ -284,13 +267,11 @@ describe('options merge', () => {
           `,
             ({ selector }) => {
               return {
-                utils: {
-                  [selector]: {
-                    css: {
-                      'border-style': 'solid'
-                    }
-                  }
+                utils: `
+                ${selector}{
+                  border-style: solid;
                 }
+                `
               }
             }
           ]
@@ -319,13 +300,11 @@ describe('options merge', () => {
             
             `,
               ({ selector }) => {
-                return {
-                  [selector]: {
-                    css: {
-                      'border-style': 'solid'
-                    }
-                  }
+                return `
+                ${selector}{
+                  border-style: solid;
                 }
+                `
               }
             ]
           }
@@ -348,18 +327,16 @@ describe('options merge', () => {
           extend: {
             utils: [
               ({ selector }) => {
-                return {
-                  [selector]: {
-                    '&::after': {
-                      css: {
-                        border: 'none'
-                      }
-                    },
-                    css: {
-                      'border-style': 'solid'
-                    }
-                  }
+                return `
+                .btn::after{
+                  border:none;
                 }
+
+                .btn{
+                  border-style:solid;
+                }
+                
+                `
               }
             ]
           }
@@ -381,18 +358,16 @@ describe('options merge', () => {
           selector: '.xxx',
           extend: {
             utils: ({ selector }) => {
-              return {
-                [selector]: {
-                  '&::after': {
-                    css: {
-                      border: 'none'
-                    }
-                  },
-                  css: {
-                    'border-style': 'solid'
-                  }
-                }
+              return `
+              .btn::after{
+                border:none;
               }
+
+              .btn{
+                border-style:solid;
+              }
+              
+              `
             }
           }
         }

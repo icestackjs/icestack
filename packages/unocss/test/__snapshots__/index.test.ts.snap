@@ -104,6 +104,14 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^btn-square\\$/,
+      [Function],
+    ],
+    [
+      /\\^btn-circle\\$/,
+      [Function],
+    ],
+    [
       /\\^btn-focus-visible\\$/,
       [Function],
     ],
@@ -112,11 +120,11 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
-      /\\^btn-active\\$/,
+      /\\^btn-primary\\$/,
       [Function],
     ],
     [
-      /\\^btn-primary\\$/,
+      /\\^btn-active\\$/,
       [Function],
     ],
     [
@@ -173,14 +181,6 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^btn-block\\$/,
-      [Function],
-    ],
-    [
-      /\\^btn-square\\$/,
-      [Function],
-    ],
-    [
-      /\\^btn-circle\\$/,
       [Function],
     ],
     [
@@ -256,6 +256,10 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^checkbox-mark\\$/,
+      [Function],
+    ],
+    [
       /\\^checkbox-xs\\$/,
       [Function],
     ],
@@ -312,15 +316,15 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
-      /\\^input-sm\\$/,
-      [Function],
-    ],
-    [
       /\\^input-md\\$/,
       [Function],
     ],
     [
       /\\^input-lg\\$/,
+      [Function],
+    ],
+    [
+      /\\^input-sm\\$/,
       [Function],
     ],
     [
@@ -397,6 +401,10 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^radio-neutral\\$/,
+      [Function],
+    ],
+    [
+      /\\^radio-mark\\$/,
       [Function],
     ],
     [
@@ -588,6 +596,10 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^toggle-mark\\$/,
+      [Function],
+    ],
+    [
       /\\^toggle-xs\\$/,
       [Function],
     ],
@@ -605,22 +617,6 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^loading\\$/,
-      [Function],
-    ],
-    [
-      /\\^loading-xs\\$/,
-      [Function],
-    ],
-    [
-      /\\^loading-sm\\$/,
-      [Function],
-    ],
-    [
-      /\\^loading-md\\$/,
-      [Function],
-    ],
-    [
-      /\\^loading-lg\\$/,
       [Function],
     ],
     [
@@ -669,6 +665,22 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^loading-three-dots\\$/,
+      [Function],
+    ],
+    [
+      /\\^loading-xs\\$/,
+      [Function],
+    ],
+    [
+      /\\^loading-sm\\$/,
+      [Function],
+    ],
+    [
+      /\\^loading-md\\$/,
+      [Function],
+    ],
+    [
+      /\\^loading-lg\\$/,
       [Function],
     ],
     [
@@ -900,6 +912,10 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^tooltip-open\\$/,
+      [Function],
+    ],
+    [
       /\\^tooltip-primary\\$/,
       [Function],
     ],
@@ -917,10 +933,6 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^tooltip-neutral\\$/,
-      [Function],
-    ],
-    [
-      /\\^tooltip-open\\$/,
       [Function],
     ],
     [
@@ -1618,19 +1630,22 @@ exports[`index > loadPresetOptions default 1`] = `
   ],
   "theme": {
     "colors": {
+      "ant-neutral-100": "rgba(var(--ice-ant-neutral-100),<alpha-value>)",
+      "ant-neutral-1000": "rgba(var(--ice-ant-neutral-1000),<alpha-value>)",
+      "ant-neutral-1100": "rgba(var(--ice-ant-neutral-1100),<alpha-value>)",
+      "ant-neutral-1200": "rgba(var(--ice-ant-neutral-1200),<alpha-value>)",
+      "ant-neutral-1300": "rgba(var(--ice-ant-neutral-1300),<alpha-value>)",
+      "ant-neutral-200": "rgba(var(--ice-ant-neutral-200),<alpha-value>)",
+      "ant-neutral-300": "rgba(var(--ice-ant-neutral-300),<alpha-value>)",
+      "ant-neutral-400": "rgba(var(--ice-ant-neutral-400),<alpha-value>)",
+      "ant-neutral-500": "rgba(var(--ice-ant-neutral-500),<alpha-value>)",
+      "ant-neutral-600": "rgba(var(--ice-ant-neutral-600),<alpha-value>)",
+      "ant-neutral-700": "rgba(var(--ice-ant-neutral-700),<alpha-value>)",
+      "ant-neutral-800": "rgba(var(--ice-ant-neutral-800),<alpha-value>)",
+      "ant-neutral-900": "rgba(var(--ice-ant-neutral-900),<alpha-value>)",
       "base-100": "rgba(var(--ice-base-100),<alpha-value>)",
-      "base-1000": "rgba(var(--ice-base-1000),<alpha-value>)",
-      "base-1100": "rgba(var(--ice-base-1100),<alpha-value>)",
-      "base-1200": "rgba(var(--ice-base-1200),<alpha-value>)",
-      "base-1300": "rgba(var(--ice-base-1300),<alpha-value>)",
       "base-200": "rgba(var(--ice-base-200),<alpha-value>)",
       "base-300": "rgba(var(--ice-base-300),<alpha-value>)",
-      "base-400": "rgba(var(--ice-base-400),<alpha-value>)",
-      "base-500": "rgba(var(--ice-base-500),<alpha-value>)",
-      "base-600": "rgba(var(--ice-base-600),<alpha-value>)",
-      "base-700": "rgba(var(--ice-base-700),<alpha-value>)",
-      "base-800": "rgba(var(--ice-base-800),<alpha-value>)",
-      "base-900": "rgba(var(--ice-base-900),<alpha-value>)",
       "base-content": "rgba(var(--ice-base-content),<alpha-value>)",
       "current": "currentColor",
       "error": "rgba(var(--ice-error),<alpha-value>)",

@@ -1,9 +1,10 @@
 import type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 import type { AcceptedPlugin } from 'postcss'
+import type { StringOptions } from 'sass'
 import type { GetCssSchemaMethod, GetCssSchemaMethodOptions, CssValue } from './shared'
 import type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 
-export type { CreatePresetOptions, GetCssSchemaMethod, CssSchemaDefaults, CssSchema, CssSchemaValue, GetCssSchemaMethodOptions, CssValue, CssInJs } from './shared'
+export type { CreatePresetOptions, GetCssSchemaMethod, CssSchemaDefaults, CssSchema, GetCssSchemaMethodOptions, CssValue, CssInJs } from './shared'
 export type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 export type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 
@@ -55,7 +56,7 @@ export type ComponentsValue<Params extends Record<string, any> = any> = {
   /**
    * @description senior
    */
-  override: ModeMergeOptions | ModeMergeOptions[]
+  // override: ModeMergeOptions | ModeMergeOptions[]
   /**
    * @description senior
    */
@@ -180,6 +181,8 @@ export type CodegenOptions = {
    * @description Whether to clean the output directory before generating the css.
    */
   clean?: boolean
+
+  sassOptions?: StringOptions<'sync'>
 } & (
   | {
       /**

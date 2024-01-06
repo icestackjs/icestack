@@ -1,7 +1,8 @@
 import type { Config } from 'tailwindcss'
 import { components as defaultComponents } from '@icestack/preset-default/components'
+import { base as defaultBase } from '@icestack/preset-default/base'
 import { defaultVarPrefix } from '@/constants'
-import { presetPrimaryColors, generateColors, sharedExtraColors, sharedExtraVars } from '@/base/colors'
+import { generateColors } from '@/base/colors'
 import type { CodegenOptions, BaseOptions, ComponentsOptions, ComponentsValue } from '@/types'
 
 export function getDefaultBase(options?: CodegenOptions) {
@@ -22,33 +23,11 @@ export function getDefaultBase(options?: CodegenOptions) {
   }
   // @ts-ignore
   if (themes?.light !== false) {
-    base.themes.light = {
-      selector: ':root',
-      extraColors: sharedExtraColors.light,
-      extraVars: sharedExtraVars,
-      types: {
-        primary: generateColors('primary', presetPrimaryColors.blue),
-        success: generateColors('success', presetPrimaryColors.green),
-        warning: generateColors('warning', presetPrimaryColors.gold),
-        error: generateColors('error', presetPrimaryColors.red),
-        neutral: generateColors('neutral', presetPrimaryColors.grey)
-      }
-    }
+    base.themes.light = defaultBase.themes?.light
   }
   // @ts-ignore
   if (themes?.dark !== false) {
-    base.themes.dark = {
-      selector: '[data-mode="dark"]',
-      extraColors: sharedExtraColors.dark,
-      extraVars: sharedExtraVars,
-      types: {
-        primary: generateColors('primary', presetPrimaryColors.blue, true),
-        success: generateColors('success', presetPrimaryColors.green, true),
-        warning: generateColors('warning', presetPrimaryColors.gold, true),
-        error: generateColors('error', presetPrimaryColors.red, true),
-        neutral: generateColors('neutral', presetPrimaryColors.grey, true)
-      }
-    }
+    base.themes.dark = defaultBase.themes?.dark
   }
 
   return base as Partial<BaseOptions>
@@ -118,4 +97,5 @@ export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOption
   }
 }
 
-export { sharedExtraColors, sharedExtraVars, generate, generateColors, gray, makeRgbaValue, presetPrimaryColors } from './base/colors'
+export { generate, generateColors, gray, makeRgbaValue, presetPrimaryColors } from './base/colors'
+export { sharedExtraColors, sharedExtraVars } from '@icestack/preset-default/base'

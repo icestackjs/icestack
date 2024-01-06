@@ -33,6 +33,11 @@
       "import": "./dist/components.mjs",
       "require": "./dist/components.cjs"
     },
+    "./base": {
+      "types": "./dist/base.d.ts",
+      "import": "./dist/base.mjs",
+      "require": "./dist/base.cjs"
+    },
     "./*": "./*"
   },
   "main": "./dist/index.cjs",
@@ -59,9 +64,9 @@
     "type": "git",
     "url": "https://github.com/sonofmagic/icestack"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@icestack/types": "workspace:^",
-    "@icestack/shared": "workspace:^"
+    "@icestack/shared": "workspace:^",
+    "@icestack/theme-algorithm": "workspace:^",
+    "@icestack/types": "workspace:^"
   }
 }

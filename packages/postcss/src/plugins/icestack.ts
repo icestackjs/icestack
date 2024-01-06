@@ -23,7 +23,7 @@ const creator: PluginCreator<CodegenOptions> = (options) => {
     })
   })
   return {
-    postcssPlugin: 'postcss-global-option-handler-plugin',
+    postcssPlugin: 'postcss-icestack-option-handler-plugin',
     plugins: [
       {
         postcssPlugin: 'deep-dark-fantastic',

@@ -3,16 +3,19 @@ import { pkgName } from './constants'
 
 const rootDir = path.dirname(require.resolve(`${pkgName}/package.json`))
 const assetsDir = path.resolve(rootDir, 'assets')
-const scssDir = path.resolve(rootDir, 'scss')
+const scssDir = path.resolve(assetsDir, 'scss')
 const jsDir = path.resolve(assetsDir, 'js')
 const cssDir = path.resolve(assetsDir, 'css')
 const cssResolvedDir = path.resolve(assetsDir, 'css-resolved')
 const pluginsDir = path.resolve(assetsDir, 'plugins')
 
-const scssTemplate = path.resolve(scssDir, 't.scss')
+// const scssTemplate = path.resolve(scssDir, 't.scss')
 
 function resolveCssDir(dir?: string) {
   return dir ? path.resolve(dir, 'css') : cssDir
+}
+function resolveScssDir(dir?: string) {
+  return dir ? path.resolve(dir, 'scss') : cssDir
 }
 
 function resolveCssResolvedDir(dir?: string) {
@@ -27,6 +30,12 @@ function getCssPath(relPath: string, dir?: string) {
   const targetCssDir = resolveCssDir(dir)
   const cssPath = path.resolve(targetCssDir, relPath)
   return cssPath.replace(/scss$/, 'css')
+}
+
+function getScssPath(relPath: string, dir?: string) {
+  const targetCssDir = resolveScssDir(dir)
+  const cssPath = path.resolve(targetCssDir, relPath)
+  return cssPath
 }
 
 function getCssResolvedPath(relPath: string, dir?: string) {
@@ -61,5 +70,6 @@ export {
   resolveCssDir,
   resolveCssResolvedDir,
   resolveJsDir,
-  scssTemplate
+  getScssPath
+  // scssTemplate
 }

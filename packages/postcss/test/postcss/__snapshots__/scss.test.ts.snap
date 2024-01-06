@@ -1,0 +1,110 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`scss > parse case 0 1`] = `
+" .avatar{
+      @apply relative inline-flex;
+      @apply bg-xx;
+    }"
+`;
+
+exports[`scss > parse case 1 1`] = `
+" .avatar{
+      @apply relative inline-flex;
+    } .avatar1{
+      @apply bg-xx;
+    }"
+`;
+
+exports[`scss > parse case 2 1`] = `
+" .avatar{
+      @apply relative inline-flex;
+      color: red;
+      @apply bg-xx;
+    }"
+`;
+
+exports[`scss > parse case 3 1`] = `
+"
+    @media xx{
+      .avatar{
+        @apply relative inline-flex;
+        color: red;
+        @apply bg-xx;
+      }
+    }
+"
+`;
+
+exports[`scss > parse case 4 1`] = `
+"
+    @media xx{
+      .avatar{
+        @apply relative inline-flex;
+        color: pp;
+        @apply bg-xx;
+        @apply bg-ccav;
+        basd:fdsa;
+      }
+    }
+"
+`;
+
+exports[`scss > parse case 10 1`] = `
+" .avatar{
+      @apply relative inline-flex;
+      >div {
+        @apply block aspect-square overflow-hidden;
+        @apply mt-2;
+        color:red;
+      }
+      img {
+        @apply h-full w-full object-cover;
+      }
+      &.placeholder{
+        >div{
+          @apply flex items-center justify-center;
+          @apply text-xs;
+          @apply text-lg;
+
+          bg: red;
+        }
+        color:blue;
+        >span{
+          @apply flex items-center justify-center;
+        }
+      }
+      @apply bg-xx
+    }"
+`;
+
+exports[`scss > scss parse error 0 1`] = `
+"
+    .s{
+      box-shadow: 0 0 0 4px theme("colors.base-100") inset
+    }
+    "
+`;
+
+exports[`scss > scss parse error 1 1`] = `
+"
+    .s{
+      box-shadow: 0 0 0 4px theme("colors.base-100 / 75%") inset
+    }
+    "
+`;
+
+exports[`scss > scss parse error 2 1`] = `
+"
+    .s{
+      box-shadow: 0 0 0 4px theme("colors.base-100") inset
+    }
+    "
+`;
+
+exports[`scss > scss parse error 3 1`] = `
+"
+    .s{
+      box-shadow: 0 0 0 4px theme("colors.base-100" / 75%) inset
+    }
+    "
+`;

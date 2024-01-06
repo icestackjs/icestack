@@ -1,0 +1,35 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`postcss > objectify case 0 1`] = `
+{
+  ".btn": {
+    "@apply a f g": true,
+    "bg": "red",
+  },
+}
+`;
+
+exports[`postcss > objectify case 1 1`] = `
+{
+  ".btn": {
+    "@apply a f g": {
+      "x": "x",
+    },
+    "bg": "red",
+  },
+}
+`;
+
+exports[`postcss > objectify nested case 0 1`] = `
+{
+  ".btn": {
+    ".xx": {
+      "fs": "fd",
+    },
+    "@apply a f g": {
+      "x": "x",
+    },
+    "bg": "red",
+  },
+}
+`;

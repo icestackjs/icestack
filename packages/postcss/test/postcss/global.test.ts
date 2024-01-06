@@ -1,5 +1,5 @@
 import postcss from 'postcss'
-import gloablPostcss from '@/global'
+import gloablPostcss from '@/plugins/icestack'
 describe('global', () => {
   it('at media hover', () => {
     const { css } = postcss([gloablPostcss]).process(`@media (hover: hover) {

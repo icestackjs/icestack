@@ -1,4 +1,3 @@
-import dedent from 'dedent'
 import type { GetCssSchemaMethod } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -33,7 +32,7 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
         ${types
           .map((type) => {
-            return dedent`
+            return `
             ${selector}-${type} + ${selector}-${type}:before,
         ${selector}-${type}:after {
           @apply bg-${type} text-${type}-content;

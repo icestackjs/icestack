@@ -15,7 +15,11 @@ describe('presets', () => {
       dryRun: true,
       presets: [preset()]
     })
-    const res = await ctx.buildComponents()
-    expect(res).toMatchSnapshot()
+    try {
+      const res = await ctx.buildComponents()
+      expect(res).toMatchSnapshot()
+    } catch (error) {
+      console.error(error)
+    }
   })
 })

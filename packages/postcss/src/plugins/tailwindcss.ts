@@ -3,7 +3,7 @@ import tailwindcss from 'tailwindcss'
 import type { Config } from 'tailwindcss/types/config'
 import type { CodegenOptions, DeepPartial } from '@icestack/types'
 import { defuOverrideArray } from '@icestack/shared'
-import gloablPostcss from './global'
+import gloablPostcss from './icestack'
 
 export function resolveTailwindcss(opts: { css: string; config: Config; options: CodegenOptions }) {
   const { config, css, options } = opts

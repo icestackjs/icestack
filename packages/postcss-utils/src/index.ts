@@ -1,4 +1,5 @@
-import postcss from 'postcss'
+import type { ChildNode } from 'postcss'
+import sassParser from 'postcss-scss'
 import selectorParser from 'postcss-selector-parser'
 import { set, get, isObject } from 'lodash'
 import type { CssValue, CssInJs } from '@icestack/types'
@@ -9,7 +10,7 @@ export function compressCssSelector(selectors: string) {
   return defaultSelectorParser.processSync(selectors, { lossless: false })
 }
 
-export function recursiveNodes(nodes: postcss.ChildNode[], result: Record<string, any> = {}) {
+export function recursiveNodes(nodes: ChildNode[], result: Record<string, any> = {}) {
   for (const node of nodes) {
     switch (node.type) {
       case 'atrule': {
@@ -50,7 +51,7 @@ export function transformCss2Js(css: string): Record<string, any>
 export function transformCss2Js(css: string | CssInJs): Record<string, any>
 export function transformCss2Js<T>(css: T) {
   if (typeof css === 'string') {
-    const root = postcss.parse(css)
+    const root = sassParser.parse(css)
     const result = recursiveNodes(root.nodes)
     return result
   }

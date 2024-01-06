@@ -1,28 +1,9 @@
-import { TinyColor } from '@ctrl/tinycolor'
-import { makeRgbaValue, sharedExtraColors, sharedExtraVars } from './colors'
+import { sharedExtraColors, sharedExtraVars } from '@icestack/preset-default/base'
+import { makeRgbaValue, composeVarsObject } from './colors'
 import { CodegenOptions, VarPrefixerOptions } from '@/types'
-import { mergeR, mergeRClone } from '@/shared'
-import { mapCss2JsArray } from '@/postcss'
-
-export const composeVarsObject = (colorsMap: Record<string, string>, shareVars: Record<string, string>, slash: boolean = true) => {
-  return Object.entries({
-    ...colorsMap,
-    ...shareVars
-  }).reduce<Record<string, string>>((acc, [key, value]) => {
-    const k = '--' + key
-    const color = new TinyColor(value)
-    let str = value
-    if (color.isValid) {
-      if (slash) {
-        str = color.a < 1 && color.a > 0 ? `${color.r} ${color.g} ${color.b} / ${color.a}` : `${color.r} ${color.g} ${color.b}`
-      } else {
-        str = color.a < 1 && color.a > 0 ? `${color.r},${color.g},${color.b},${color.a}` : `${color.r},${color.g},${color.b}`
-      }
-    }
-    acc[k] = str
-    return acc
-  }, {})
-}
+import { mergeRClone } from '@/shared'
+import { merge, parse, parseJs } from '@/postcss'
+import { makeArray } from '@/utils'
 
 export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } = { slash: true }) => {
   const { base, postcss } = options
@@ -34,11 +15,6 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
   }
   const { themes, extraCss: globalExtraCss, themeSelectorTemplate, mediaDarkTheme, generateColors } = base ?? {}
 
-  // @media (prefers-color-scheme: dark)
-  // ??
-  //   ((theme: string) => {
-  //     return `[data-mode="${theme}"]`
-  //   })
   const typesSet = new Set<string>()
   function addColors(obj: Record<string, string>) {
     for (const x of Object.keys(obj)) {
@@ -81,21 +57,14 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
           ...(obj as Record<string, string>)
         }
       }, {})
-      const css = mergeRClone(
-        composeVarsObject(typesColors, { ...(extraColors ?? sharedExtraColors.light), ...(extraVars ?? sharedExtraVars) }, slash),
-        ...mapCss2JsArray(extraCss)
-      )
-      acc[selector] = {
-        css
-      }
+      const css = mergeRClone(composeVarsObject(typesColors, { ...(extraColors ?? sharedExtraColors.light), ...(extraVars ?? sharedExtraVars) }, slash), extraCss)
+      acc[selector] = css
       if (mediaDarkTheme === theme) {
         // default selector
         const defaultSelector = themes?.light.selector
         if (defaultSelector) {
           acc['@media (prefers-color-scheme: dark)'] = {
-            [defaultSelector]: {
-              css
-            }
+            [defaultSelector]: css
           }
         }
       }
@@ -110,13 +79,16 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
 
     return acc
   }, {})
+  const root = parseJs(presets)
+
   if (globalExtraCss) {
-    mergeR(presets, ...mapCss2JsArray(globalExtraCss))
+    merge(root, ...makeArray(globalExtraCss).map((x) => parse(x)))
   }
 
   return {
     presets,
     types: [...typesSet],
-    colors
+    colors,
+    root
   }
 }

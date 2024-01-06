@@ -79,7 +79,7 @@
     "cac": "^6.7.14",
     "compose-tailwindcss-plugins": "workspace:^",
     "md5": "^2.3.0",
-    "postcss": "^8.4.31",
+    "postcss": "^8.4.33",
     "postcss-import": "^16.0.0"
   },
   "devDependencies": {
@@ -93,6 +93,6 @@
     "del": "^7.1.0",
     "object-hash": "^3.0.0",
     "sass": "^1.69.7",
-    "tailwindcss": "^3.4.0"
+    "tailwindcss": "^3.4.1"
   }
 }

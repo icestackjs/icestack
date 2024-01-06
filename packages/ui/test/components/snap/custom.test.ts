@@ -3,13 +3,11 @@ import fs from 'node:fs'
 import { createContext } from '@/context'
 import { getCodegenOptions } from '@/options'
 import { removeDefaultComponents } from '@/components'
-import { transformCss2Js } from '@/postcss'
-import { stages } from '@/constants'
 
 describe('cutsom', () => {
   it('custom component case 0', async () => {
     const outdir = path.resolve(__dirname, './outdir')
-    const options = getCodegenOptions({
+    const options = {
       postcss: {
         prefix: 'ice-'
       },
@@ -23,13 +21,10 @@ describe('cutsom', () => {
         }
       },
       outdir
-    })
+    }
     const ctx = createContext(options)
     expect(ctx.presets.subtitle).toBeTruthy()
-    // @ts-ignore
-    expect('undefined' in ctx.presets.subtitle.defaults.base).toBeFalsy()
-    const { css } = ctx.compileScss(`components.subtitle.defaults.utils`)
-    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+
     await ctx.buildComponents()
     expect(fs.existsSync(path.resolve(outdir, 'js/components/subtitle/utils.cjs'))).toBe(true)
   })
@@ -88,7 +83,7 @@ describe('cutsom', () => {
             return {
               selector,
               defaults: {
-                base: transformCss2Js(`.checkbox .wx-checkbox-input {
+                base: `.checkbox .wx-checkbox-input {
                   width: 34rpx;
                   height: 34rpx;
                   border-radius: 50%;
@@ -110,7 +105,7 @@ describe('cutsom', () => {
                   transform: translate(-50%, -50%) scale(1);
                   -webkit-transform: translate(-50%, -50%) scale(1);
                 }
-                `)
+                `
               }
             }
           }
@@ -132,14 +127,12 @@ describe('cutsom', () => {
         ...removeDefaultComponents,
         xxx: {
           extend: {
-            utils: {
-              '.xxx': {
-                apply: ['bg-red-300 text-sm'],
-                css: {
-                  color: 'red'
-                }
-              }
+            utils: `
+            .xxx{
+              @apply bg-red-300 text-sm;
+              color: red;
             }
+            `
           }
         }
       },
@@ -159,14 +152,13 @@ describe('cutsom', () => {
         ...removeDefaultComponents,
         xxx: {
           extend: {
-            utils: {
-              '.xxx': {
-                apply: ['bg-red-300 text-sm', 'leading-4 !important'],
-                css: {
-                  color: 'red'
-                }
-              }
+            utils: `
+            .xxx{
+              @apply bg-red-300 text-sm;
+              @apply leading-4 #{!important};
+              color: red;
             }
+            `
           }
         }
       },
@@ -186,14 +178,12 @@ describe('cutsom', () => {
         ...removeDefaultComponents,
         xxx: {
           extend: {
-            utils: {
-              '.xxx': {
-                apply: 'bg-red-300 text-sm leading-4 !important',
-                css: {
-                  color: 'red !important'
-                }
-              }
+            utils: `
+            .xxx{
+              @apply bg-red-300 text-sm leading-4 #{!important};
+              color: red !important;
             }
+            `
           }
         }
       },
@@ -205,88 +195,4 @@ describe('cutsom', () => {
     const cssObj = await ctx.buildComponents()
     expect(cssObj).toMatchSnapshot()
   })
-
-  it('custom component case 6', async () => {
-    // const outdir = path.resolve(__dirname, './outdir')
-    const options = getCodegenOptions({
-      components: {
-        ...removeDefaultComponents,
-        xxx: {
-          override: {
-            base: {
-              '.xxx': {
-                apply: 'bg-red-300 text-sm leading-4 !important',
-                css: {
-                  color: 'red'
-                }
-              }
-            }
-          }
-        }
-      },
-      dryRun: true
-      // outdir
-    })
-    const ctx = createContext(options)
-
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
-  })
-
-  it('custom component case 7', async () => {
-    // const outdir = path.resolve(__dirname, './outdir')
-    const options = {
-      components: {
-        ...removeDefaultComponents,
-        xxx: {
-          override: () => {
-            return {
-              base: {
-                '.xxx': {
-                  apply: 'bg-red-300 text-sm leading-4 !important',
-                  css: {
-                    color: 'red'
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      dryRun: true
-      // outdir
-    }
-    const ctx = createContext(options)
-
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
-  })
-})
-
-describe('custom components', () => {
-  const ctx = createContext({
-    dryRun: true,
-    components: {
-      custom: {
-        extend: {
-          utils: {
-            '.custom': {
-              css: {
-                color: 'red'
-              },
-              apply: ['bg-blue-500']
-            }
-          }
-        },
-        selector: '.custom'
-      }
-    }
-  })
-
-  for (const stage of stages) {
-    it('custom component ' + stage, () => {
-      const { css } = ctx.compileScss(`components.${'custom'}.defaults.${stage}`)
-      expect(css).toMatchSnapshot()
-    })
-  }
 })

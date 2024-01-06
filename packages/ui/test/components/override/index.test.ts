@@ -7,21 +7,17 @@ describe('override', () => {
       ...removeDefaultComponents,
       button: {
         override: {
-          base: {
-            '.btn': {
-              apply:
-                'rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out',
-              css: {
-                // 'font-size': '0.5rem',
-                // 'line-height': '1em'
-              },
-              [`&-disabled,
+          base: `
+          .btn{
+            @apply rounded-btn inline-flex flex-shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent text-center transition duration-200 ease-out;
+
+            &-disabled,
                 &[disabled],
-                &:disabled`]: {
-                apply: 'bg-gray-100'
-              }
-            }
+                &:disabled{
+                  @apply bg-gray-100;
+                }
           }
+          `
         }
       }
     }

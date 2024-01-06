@@ -1,6 +1,6 @@
-import type { CssInJs } from 'postcss-js'
+// import type { CssInJs } from 'postcss-js'
 
-export type CssValue = string | CssInJs | (CssInJs | string)[]
+export type CssValue = string | string[] // | CssInJs | (CssInJs | string)[]
 
 export interface CreatePresetOptions {
   types: string[]
@@ -11,17 +11,6 @@ export type CssSchemaDefaults = {
   base: CssValue
   utils: CssValue
 }
-
-export type CssSchemaValue =
-  | string
-  | {
-      apply: string | string[]
-    }
-  | { css: Record<string, string> }
-  | {
-      apply: string | string[]
-      css: Record<string, string>
-    }
 
 export type CssSchema = {
   selector?: string

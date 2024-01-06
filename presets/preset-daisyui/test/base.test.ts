@@ -7,7 +7,7 @@ describe('base', () => {
       dryRun: true,
       presets: [preset()]
     })
-    const { css } = ctx.compileScss('base.index')
-    expect(ctx.preprocessCss(css).css).toMatchSnapshot()
+    const res = ctx.buildBase()
+    expect(res).toMatchSnapshot()
   })
 })

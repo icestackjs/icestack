@@ -5,7 +5,7 @@ import type { Preset } from '@icestack/types'
 // import colorObject from 'daisyui/src/theming/index'
 // // @ts-ignore
 // import utilityClasses from 'daisyui/src/lib/utility-classes'
-import { transformCss2Js } from '@icestack/postcss-utils'
+// import { transformCss2Js } from '@icestack/postcss-utils'
 import { trimStart } from 'lodash'
 import themes from './themes'
 import colorFunctions from './functions'
@@ -17,7 +17,7 @@ const daisyui: (config?: Config) => Preset = (config = {}) => {
   const components = {} // schemaMap
   const extraCss = []
   if (config.base !== false) {
-    extraCss.push(transformCss2Js([colors, general].join('\n')))
+    extraCss.push([colors, general].join('\n'))
   }
   const themeInjector = colorFunctions.injectThemes(config, themes)
 

@@ -1,11 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { set, get, pick } from 'lodash'
-import * as sass from 'sass'
-import type { Value } from 'sass'
-import type { Root, AcceptedPlugin } from 'postcss'
+import { set, get, pick, isError } from 'lodash'
+import { Root, AcceptedPlugin, Rule, AtRule } from 'postcss'
 import kleur from 'kleur'
-import { transformJsToSass } from '@/sass'
+import { compileScssString } from '@/sass'
 import { createDefaultTailwindcssExtends } from '@/defaults'
 import { logger } from '@/log'
 import { JSONStringify, ensureDirSync } from '@/utils'
@@ -13,15 +11,24 @@ import { generateIndexCode } from '@/generate'
 import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@/types'
 import { defu } from '@/shared'
 import { getCodegenOptions } from '@/options'
-import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, scssTemplate } from '@/dirs'
+import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath } from '@/dirs'
 import { stages } from '@/constants'
+import {
+  merge,
+  mapCssStringToAst,
+  getPrefixerPlugin,
+  getCssVarsPrefixerPlugin,
+  resolveTailwindcss,
+  initTailwindcssConfig,
+  objectify,
+  process,
+  resolvePrefixOption,
+  resolveVarPrefixOption,
+  parse
+} from '@/postcss'
 import { handleOptions } from '@/components/utils'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import { calcBase } from '@/base'
-import { getPrefixerPlugin, getCssVarsPrefixerPlugin, resolveTailwindcss, initTailwindcssConfig, objectify, process, resolvePrefixOption, resolveVarPrefixOption } from '@/postcss'
-function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
-  return `${layer}.${suffixes.join('.')}`
-}
 
 export interface BuildOptions {
   base?: boolean
@@ -32,7 +39,7 @@ export interface BuildOptions {
 
 export function createContext(opts?: CodegenOptions) {
   const options = getCodegenOptions(opts)
-  const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities } = options
+  const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities, sassOptions } = options
   const { prefix: _globalPrefix, varPrefix: _globalVarPrefix, plugins: globalPostcssPlugins } = postcss!
 
   const globalPrefix = resolvePrefixOption(_globalPrefix)
@@ -40,10 +47,13 @@ export function createContext(opts?: CodegenOptions) {
   if (typeof log === 'boolean') {
     logger.logFlag = log
   }
+  const bases = {
+    index: calcBase(options),
+    legacy: calcBase(options, { slash: false })
+  }
+  const { types, colors: tailwindcssColors } = bases.index
 
-  const { types, presets: tailwindcssPresets, colors: tailwindcssColors } = calcBase(options)
-
-  const { presets: unocssPresets, colors: unocssColors } = calcBase(options, { slash: false })
+  const { colors: unocssColors } = bases.legacy
 
   function writeFile(file: string, data: string) {
     if (!dryRun) {
@@ -56,11 +66,13 @@ export function createContext(opts?: CodegenOptions) {
     const cssPath = getCssPath(relPath, outdir)
     const jsPath = getJsPath(relPath, outdir)
     const cssResolvedPath = getCssResolvedPath(relPath, outdir)
+    const scssPath = getScssPath(relPath, outdir)
 
     return {
       cssPath,
       jsPath,
-      cssResolvedPath
+      cssResolvedPath,
+      scssPath
     }
   }
 
@@ -101,49 +113,6 @@ export function createContext(opts?: CodegenOptions) {
     }
   })
 
-  function compileScss(defaultPath?: string) {
-    const sassOptions: sass.Options<'sync'> = {
-      functions: {
-        "inject($path:'')": (args: Value[]) => {
-          const p = (args[0].assertString().text || defaultPath) ?? ''
-          const idx = p.indexOf('.')
-          const layer = p.slice(0, Math.max(0, idx))
-          const suffix = p.slice(Math.max(0, idx + 1))
-          let res = null
-          switch (layer) {
-            case 'components': {
-              res = get(presets, suffix, {})
-              break
-            }
-            case 'base': {
-              res = get(
-                {
-                  index: tailwindcssPresets,
-                  unocss: unocssPresets
-                },
-                suffix,
-                {}
-              )
-
-              break
-            }
-            case 'utilities': {
-              const fn = get(utilitiesMap, suffix, () => {})
-              // @ts-ignore
-              res = suffix === 'custom' ? fn?.(utilities?.extraCss) : fn?.()
-
-              break
-            }
-            default:
-          }
-          return transformJsToSass(res)
-        }
-      }
-    }
-
-    return sass.compile(scssTemplate, sassOptions)
-  }
-
   function preprocessCss(css: string, layer?: ILayer, name?: string) {
     let plugins: AcceptedPlugin[] = []
 
@@ -181,17 +150,20 @@ export function createContext(opts?: CodegenOptions) {
     return process(plugins, css)
   }
 
-  async function internalBuild(opts: { layer: ILayer; suffixes: string[]; relPath: string }) {
-    const { layer, suffixes, relPath } = opts
-    const defaultPath = makeDefaultPath(layer, ...suffixes)
-    const { css } = compileScss(defaultPath)
+  async function internalBuild(opts: { root?: AtRule | Root | Rule; layer: ILayer; suffixes: string[]; relPath: string }) {
+    const { layer, suffixes, relPath, root = new Root() } = opts
+    const { cssPath, cssResolvedPath, jsPath, scssPath } = getPaths(relPath)
+    const scss = root.toString()
+
+    writeFile(scssPath, scss)
+
+    const { css } = compileScssString(scss, sassOptions)
     const { css: cssOutput } = preprocessCss(css, layer, suffixes[0])
-    const { cssPath, cssResolvedPath, jsPath } = getPaths(relPath)
 
     // scss -> css
     writeFile(cssPath, cssOutput)
 
-    const { root, css: resolvedCss } = await resolveTailwindcss({
+    const { css: resolvedCss, root: resolvedRoot } = await resolveTailwindcss({
       css: cssOutput,
       config: twConfig,
       options
@@ -199,14 +171,17 @@ export function createContext(opts?: CodegenOptions) {
 
     writeFile(cssResolvedPath, resolvedCss)
 
-    const cssInJs = objectify(root as Root)
+    const cssInJs = objectify(resolvedRoot as Root)
 
     const data = 'module.exports = ' + JSONStringify(cssInJs)
     // css -> js
     writeFile(jsPath, data)
 
     return {
-      css,
+      scss,
+      // root,
+      css: cssOutput,
+      // resolvedRoot,
       resolvedCss,
       cssInJs
     }
@@ -215,8 +190,9 @@ export function createContext(opts?: CodegenOptions) {
   async function buildBase() {
     const layer: ILayer = 'base'
     const res: Record<string, any> = {}
-    for (const x of ['index', 'unocss']) {
+    for (const x of Object.keys(bases)) {
       res[x] = await internalBuild({
+        root: bases[x as keyof typeof bases].root,
         layer,
         suffixes: [x],
         relPath: `${layer}/${x}.scss`
@@ -230,13 +206,22 @@ export function createContext(opts?: CodegenOptions) {
     const layer: ILayer = 'utilities'
     const res: Record<string, Record<string, CssInJs>> = {}
     for (const utilityName of utilitiesNames) {
-      const result = await internalBuild({
-        layer,
-        suffixes: [utilityName],
-        relPath: `${layer}/${utilityName}.scss`
-      })
+      const suffixes = [utilityName]
+      const suffix = suffixes.join('.')
+      const fn = get(utilitiesMap, suffix, () => {})
+      // @ts-ignore
+      const xxx = suffix === 'custom' ? fn?.(utilities?.extraCss) : fn?.()
+      if (xxx) {
+        const root = parse(xxx)
+        const result = await internalBuild({
+          root,
+          layer,
+          suffixes,
+          relPath: `${layer}/${utilityName}.scss`
+        })
 
-      set(res, utilityName, result)
+        set(res, utilityName, result)
+      }
     }
 
     if (!dryRun) {
@@ -248,22 +233,38 @@ export function createContext(opts?: CodegenOptions) {
     return res
   }
 
-  async function buildComponents() {
+  async function buildComponents(componentsNames: string[] = allComponentsNames) {
     const b1 = logger.createComponentsProgressBar()
-    b1.start(allComponentsNames.length, 0)
+    b1.start(componentsNames.length, 0)
     const layer: ILayer = 'components'
     const res: Record<string, Record<string, CssInJs>> = {}
     let idx = 0
-    for (const componentName of allComponentsNames) {
+    for (const componentName of componentsNames) {
       // const start = performance.now()
       for (const stage of stages) {
-        const result = await internalBuild({
-          layer,
-          suffixes: [componentName, 'defaults', stage],
-          relPath: `${layer}/${componentName}/${stage}.scss`
-        })
+        const suffixes = [componentName, 'defaults', stage]
+        const p = suffixes.join('.')
+        const cssArray = get(presets, p, []) as string[]
+        const root = merge(...(mapCssStringToAst(cssArray) as Root[]))
 
-        set(res, `${componentName}.${stage}`, result)
+        try {
+          const result = await internalBuild({
+            root,
+            layer,
+            suffixes,
+            relPath: `${layer}/${componentName}/${stage}.scss`
+          })
+
+          set(res, `${componentName}.${stage}`, result)
+        } catch (error) {
+          if (isError(error)) {
+            throw new Error(error.message, {
+              cause: p
+            })
+          }
+          throw error
+        }
+
         // res[componentName][stage] = cssJsObj
       }
       b1.update(++idx, {
@@ -384,7 +385,6 @@ export function createContext(opts?: CodegenOptions) {
     presets,
     options,
     build,
-    compileScss,
     createPreset,
     preprocessCss
   }

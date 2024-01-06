@@ -1,7 +1,7 @@
 import { createContext, Config } from '@/index'
 import { removeDefaultComponents } from '@/components'
 import { DeepPartial } from '@/types'
-import { transformCss2Js } from '@/postcss'
+
 describe('presets merge', () => {
   it('merge case 0', async () => {
     const options: Config = {
@@ -19,7 +19,7 @@ describe('presets merge', () => {
               extend: ({ selector }) => {
                 return `${selector}{
                   @apply bg-green-500;
-                  @apply text-sky-500 !important;
+                  @apply text-sky-500 #{!important};
                   border-width:var(--ee-bw);
                   font-size: 12px;
                 }`
@@ -28,11 +28,11 @@ describe('presets merge', () => {
                 return {
                   selector,
                   defaults: {
-                    base: transformCss2Js(`${selector}{
+                    base: `${selector}{
                       @apply bg-red-500;
-                      @apply text-blue-500 !important;
+                      @apply text-blue-500 #{!important};
                       border-width:var(--bw);
-                    }`)
+                    }`
                   }
                 }
               }
@@ -65,7 +65,7 @@ describe('presets merge', () => {
                 return {
                   base: `${selector}{
                     @apply bg-green-500;
-                    @apply text-sky-500 !important;
+                    @apply text-sky-500 #{!important};
                     border-width:var(--ee-bw);
                     font-size: 12px;
                   }`
@@ -75,11 +75,11 @@ describe('presets merge', () => {
                 return {
                   selector,
                   defaults: {
-                    base: transformCss2Js(`${selector}{
+                    base: `${selector}{
                       @apply bg-red-500;
-                      @apply text-blue-500 !important;
+                      @apply text-blue-500 #{!important};
                       border-width:var(--bw);
-                    }`)
+                    }`
                   }
                 }
               }
@@ -112,7 +112,7 @@ describe('presets merge', () => {
                 return {
                   base: `${selector}{
                     @apply bg-green-500;
-                    @apply text-sky-500 !important;
+                    @apply text-sky-500 #{!important};
                     border-width:var(--ee-bw);
                     font-size: 12px;
                   }`
@@ -122,11 +122,11 @@ describe('presets merge', () => {
                 return {
                   selector,
                   defaults: {
-                    base: transformCss2Js(`${selector}{
+                    base: `${selector}{
                       @apply bg-red-500;
-                      @apply text-blue-500 !important;
+                      @apply text-blue-500 #{!important};
                       border-width:var(--bw);
-                    }`)
+                    }`
                   }
                 }
               }
@@ -153,7 +153,7 @@ describe('presets merge', () => {
               return {
                 base: `${selector}{
                 @apply bg-green-900 m-2;
-                @apply text-sky-900 !important;
+                @apply text-sky-900 #{!important};
                 border-width:var(--xx-ee-bw);
                 font-size: 16px;
               }`
@@ -172,7 +172,7 @@ describe('presets merge', () => {
                 return {
                   base: `${selector}{
                     @apply bg-green-500 m-1;
-                    @apply text-sky-500 !important;
+                    @apply text-sky-500 #{!important};
                     border-width:var(--ee-bw);
                     font-size: 12px;
                   }`
@@ -182,11 +182,11 @@ describe('presets merge', () => {
                 return {
                   selector,
                   defaults: {
-                    base: transformCss2Js(`${selector}{
+                    base: `${selector}{
                       @apply bg-red-500;
-                      @apply text-blue-500 !important;
+                      @apply text-blue-500 #{!important};
                       border-width:var(--bw);
-                    }`)
+                    }`
                   }
                 }
               }
@@ -213,7 +213,7 @@ describe('presets merge', () => {
               return {
                 base: `${selector}{
                 @apply bg-green-900;
-                @apply text-sky-900 !important;
+                @apply text-sky-900 #{!important};
                 border-width:var(--xx-ee-bw);
                 font-size: 16px;
               }`
@@ -232,7 +232,7 @@ describe('presets merge', () => {
                 return {
                   base: `${selector}{
                     @apply bg-green-500;
-                    @apply text-sky-500 !important;
+                    @apply text-sky-500 #{!important};
                     border-width:var(--ee-bw);
                     font-size: 12px;
                   }`
@@ -242,11 +242,11 @@ describe('presets merge', () => {
                 return {
                   selector,
                   defaults: {
-                    base: transformCss2Js(`${selector}{
+                    base: `${selector}{
                       @apply bg-red-500;
-                      @apply text-blue-500 !important;
+                      @apply text-blue-500 #{!important};
                       border-width:var(--bw);
-                    }`)
+                    }`
                   }
                 }
               }

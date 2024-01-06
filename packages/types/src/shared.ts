@@ -12,17 +12,6 @@ export type CssSchemaDefaults = {
   utils: CssValue
 }
 
-export type CssSchemaValue =
-  | string
-  | {
-      apply: string | string[]
-    }
-  | { css: Record<string, string> }
-  | {
-      apply: string | string[]
-      css: Record<string, string>
-    }
-
 export type CssSchema = {
   selector?: string
   defaults: Partial<CssSchemaDefaults>

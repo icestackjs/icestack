@@ -1,6 +1,6 @@
 import glass from './glass'
 import variables from './variables'
-import type { CssInJs, CssValue } from '@/types'
+import type { CssValue } from '@/types'
 const _utilitiesMap = {
   glass,
   variables,
@@ -10,9 +10,9 @@ const _utilitiesMap = {
     }
     return value
   }
-} as unknown as Record<string, () => CssInJs>
+} as unknown as Record<string, () => string>
 
-const utilitiesMap = {} as Record<string, () => CssInJs>
+const utilitiesMap = {} as Record<string, () => string>
 for (const componentName of Object.keys(_utilitiesMap)) {
   const o = _utilitiesMap[componentName]
   utilitiesMap[componentName] = (...args) => {

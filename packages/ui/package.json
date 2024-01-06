@@ -49,8 +49,7 @@
   "types": "./dist/index.d.ts",
   "files": [
     "bin",
-    "dist",
-    "scss"
+    "dist"
   ],
   "bin": {
     "icestack": "bin/icestack.js"

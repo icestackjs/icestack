@@ -1,6 +1,5 @@
 import { pick, reverse } from 'lodash'
-import { defu, defuOverrideApplyCss, mergeRClone, defuExtendApplyCss, defuArrayRight } from '@/shared'
-import { preprocessCssInJs, mapCss2JsArray, transformCss2Js } from '@/postcss'
+import { defuExtendApplyCss, defuArrayRight } from '@/shared'
 import type { ComponentsValue, GetCssSchemaMethodOptions, CssValue, CreatePresetOptions, CssSchema, ModeMergeOptions, PickCss, CssSchemaDefaults } from '@/types'
 import { isModeMergeValue, makeArray } from '@/utils'
 
@@ -88,13 +87,7 @@ export function handleOptions({ extend, selector, schema, params, pick: pickCss 
   const de: Partial<CssSchema> = d ?? {}
   // mode: none , no default
   de.defaults = pick(preprocessDefaults(de.defaults), getPickedProps(pickCss))
-  // if (override) {
-  //   const overrideDefaults = {
-  //     selector,
-  //     defaults: preprocessCssInJs(mergeAllOptions(override as ModeMergeOptions[], schemaOpts))
-  //   }
-  //   de = defuOverrideApplyCss(overrideDefaults, de)
-  // }
+
   const extendDefaults = {
     selector,
     defaults: mergeAllOptions(extend as ModeMergeOptions[], schemaOpts)

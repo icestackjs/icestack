@@ -1,16 +1,17 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`utilities > custom snap 1`] = `""`;
-
-exports[`utilities > custom snap case 0 1`] = `
-".dsdsdsdsd {
-  color: red;
+exports[`utilities > custom snap case 1 1`] = `
+{
+  "css": ".custom {
+  @apply font-display;
+}",
+  "cssInJs": {
+    ".custom": {
+      "@apply font-display": true,
+    },
+  },
+  "resolvedCss": ".custom {
+    font-family: Oswald, ui-serif
+}",
 }
-
-.vvvv {
-  @apply bg-blue-500;
-  color: blue;
-}"
 `;
-
-exports[`utilities > custom snap case 1 1`] = `undefined`;

@@ -389,18 +389,10 @@ exports[`options > getCodegenOptions snap 1`] = `
 exports[`options > getCodegenOptions snap merge case 0 1`] = `
 {
   "base": {
-    "extraCss": {
-      ".aaa": {
-        "css": {
-          "color": "blue",
-        },
-      },
-      ":host": {
-        "css": {
-          "color": "red",
-        },
-      },
-    },
+    "extraCss": [
+      ".aaa{color:blue;}",
+      ":host{color:red;}",
+    ],
     "generateColors": [Function],
     "mediaDarkTheme": false,
     "themeSelectorTemplate": [Function],
@@ -557,13 +549,7 @@ exports[`options > getCodegenOptions snap merge case 0 1`] = `
     {
       "base": {
         "extraCss": [
-          {
-            ".aaa": {
-              "css": {
-                "color": "blue",
-              },
-            },
-          },
+          ".aaa{color:blue;}",
         ],
       },
     },
@@ -574,13 +560,10 @@ exports[`options > getCodegenOptions snap merge case 0 1`] = `
 exports[`options > getCodegenOptions snap merge case 1 1`] = `
 {
   "base": {
-    "extraCss": {
-      ":host": {
-        "css": {
-          "color": "red",
-        },
-      },
-    },
+    "extraCss": [
+      ":host{color:blue;}",
+      ":host{color:red;}",
+    ],
     "generateColors": [Function],
     "mediaDarkTheme": false,
     "themeSelectorTemplate": [Function],
@@ -737,13 +720,7 @@ exports[`options > getCodegenOptions snap merge case 1 1`] = `
     {
       "base": {
         "extraCss": [
-          {
-            ":host": {
-              "css": {
-                "color": "blue",
-              },
-            },
-          },
+          ":host{color:blue;}",
         ],
       },
     },
@@ -752,18 +729,12 @@ exports[`options > getCodegenOptions snap merge case 1 1`] = `
 `;
 
 exports[`options > getCodegenOptions snap merge case 2 1`] = `
-{
-  ".d": {
-    "css": {
-      "color": "red",
-    },
-  },
-  ":host": {
-    "css": {
-      "color": "red",
-    },
-  },
-}
+[
+  ":host{color:blue;}
+            
+            .d{color:red;}",
+  ":host{color:red;}",
+]
 `;
 
 exports[`options > getCodegenOptions snap merge case 3 1`] = `
@@ -899,18 +870,10 @@ exports[`options > getCodegenOptions snap merge case 3 1`] = `
     },
   },
   "xxx": {
-    "extraCss": {
-      ".a": {
-        "css": {
-          "color": "red",
-        },
-      },
-      ".b": {
-        "css": {
-          "color": "blue",
-        },
-      },
-    },
+    "extraCss": [
+      ".a{color:yellow} .b{color:blue}",
+      ".a{color:red}",
+    ],
   },
 }
 `;

@@ -1,11 +1,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { set, get, pick } from 'lodash'
-import * as sass from 'sass'
-import type { Value } from 'sass'
 import type { Root, AcceptedPlugin, Rule, AtRule } from 'postcss'
 import kleur from 'kleur'
-import { transformJsToSass, compileScssString } from '@/sass'
+import { compileScssString } from '@/sass'
 import { createDefaultTailwindcssExtends } from '@/defaults'
 import { logger } from '@/log'
 import { JSONStringify, ensureDirSync } from '@/utils'
@@ -13,7 +11,7 @@ import { generateIndexCode } from '@/generate'
 import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@/types'
 import { defu } from '@/shared'
 import { getCodegenOptions } from '@/options'
-import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, scssTemplate } from '@/dirs'
+import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath } from '@/dirs'
 import { stages } from '@/constants'
 import {
   merge,
@@ -31,9 +29,6 @@ import {
 import { handleOptions } from '@/components/utils'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import { calcBase } from '@/base'
-function makeDefaultPath(layer: ILayer, ...suffixes: string[]) {
-  return `${layer}.${suffixes.join('.')}`
-}
 
 export interface BuildOptions {
   base?: boolean
@@ -56,9 +51,9 @@ export function createContext(opts?: CodegenOptions) {
     index: calcBase(options),
     legacy: calcBase(options, { slash: false })
   }
-  const { types, presets: tailwindcssPresets, colors: tailwindcssColors } = bases.index
+  const { types, colors: tailwindcssColors } = bases.index
 
-  const { presets: unocssPresets, colors: unocssColors } = bases.legacy
+  const { colors: unocssColors } = bases.legacy
 
   function writeFile(file: string, data: string) {
     if (!dryRun) {
@@ -116,49 +111,6 @@ export function createContext(opts?: CodegenOptions) {
     }
   })
 
-  function compileScss(defaultPath?: string) {
-    const sassOptions: sass.Options<'sync'> = {
-      functions: {
-        "inject($path:'')": (args: Value[]) => {
-          const p = (args[0].assertString().text || defaultPath) ?? ''
-          const idx = p.indexOf('.')
-          const layer = p.slice(0, Math.max(0, idx))
-          const suffix = p.slice(Math.max(0, idx + 1))
-          let res = null
-          switch (layer) {
-            case 'components': {
-              res = get(presets, suffix, {})
-              break
-            }
-            case 'base': {
-              res = get(
-                {
-                  index: tailwindcssPresets,
-                  legacy: unocssPresets
-                },
-                suffix,
-                {}
-              )
-
-              break
-            }
-            case 'utilities': {
-              const fn = get(utilitiesMap, suffix, () => {})
-              // @ts-ignore
-              res = suffix === 'custom' ? fn?.(utilities?.extraCss) : fn?.()
-
-              break
-            }
-            default:
-          }
-          return transformJsToSass(res)
-        }
-      }
-    }
-
-    return sass.compile(scssTemplate, sassOptions)
-  }
-
   function preprocessCss(css: string, layer?: ILayer, name?: string) {
     let plugins: AcceptedPlugin[] = []
 
@@ -196,38 +148,7 @@ export function createContext(opts?: CodegenOptions) {
     return process(plugins, css)
   }
 
-  async function internalBuild(opts: { layer: ILayer; suffixes: string[]; relPath: string }) {
-    const { layer, suffixes, relPath } = opts
-    const defaultPath = makeDefaultPath(layer, ...suffixes)
-    const { css } = compileScss(defaultPath)
-    const { css: cssOutput } = preprocessCss(css, layer, suffixes[0])
-    const { cssPath, cssResolvedPath, jsPath } = getPaths(relPath)
-
-    // scss -> css
-    writeFile(cssPath, cssOutput)
-
-    const { root, css: resolvedCss } = await resolveTailwindcss({
-      css: cssOutput,
-      config: twConfig,
-      options
-    })
-
-    writeFile(cssResolvedPath, resolvedCss)
-
-    const cssInJs = objectify(root as Root)
-
-    const data = 'module.exports = ' + JSONStringify(cssInJs)
-    // css -> js
-    writeFile(jsPath, data)
-
-    return {
-      css,
-      resolvedCss,
-      cssInJs
-    }
-  }
-
-  async function internalBuild2(opts: { root?: AtRule | Root | Rule; layer: ILayer; suffixes: string[]; relPath: string }) {
+  async function internalBuild(opts: { root?: AtRule | Root | Rule; layer: ILayer; suffixes: string[]; relPath: string }) {
     const { layer, suffixes, relPath, root } = opts
     if (!root) {
       return
@@ -266,7 +187,7 @@ export function createContext(opts?: CodegenOptions) {
     const layer: ILayer = 'base'
     const res: Record<string, any> = {}
     for (const x of Object.keys(bases)) {
-      res[x] = await internalBuild2({
+      res[x] = await internalBuild({
         root: bases[x as keyof typeof bases].root,
         layer,
         suffixes: [x],
@@ -284,17 +205,19 @@ export function createContext(opts?: CodegenOptions) {
       const suffixes = [utilityName]
       const suffix = suffixes.join('.')
       const fn = get(utilitiesMap, suffix, () => {})
+      // @ts-ignore
+      const xxx = suffix === 'custom' ? fn?.(utilities?.extraCss) : fn?.()
+      if (xxx) {
+        const root = parse(xxx)
+        const result = await internalBuild({
+          root,
+          layer,
+          suffixes,
+          relPath: `${layer}/${utilityName}.scss`
+        })
 
-      const res = suffix === 'custom' ? fn?.(utilities?.extraCss) : fn?.()
-      const root = parse(res)
-      const result = await internalBuild2({
-        root,
-        layer,
-        suffixes,
-        relPath: `${layer}/${utilityName}.scss`
-      })
-
-      set(res, utilityName, result)
+        set(res, utilityName, result)
+      }
     }
 
     if (!dryRun) {
@@ -319,7 +242,7 @@ export function createContext(opts?: CodegenOptions) {
         const p = suffixes.join('.')
         const cssArray = get(presets, p, []) as string[]
         const root = merge(...(mapCssStringToAst(cssArray) as Root[]))
-        const result = await internalBuild2({
+        const result = await internalBuild({
           root,
           layer,
           suffixes,
@@ -447,7 +370,6 @@ export function createContext(opts?: CodegenOptions) {
     presets,
     options,
     build,
-    compileScss,
     createPreset,
     preprocessCss
   }

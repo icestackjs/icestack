@@ -55,7 +55,7 @@ export type ComponentsValue<Params extends Record<string, any> = any> = {
   /**
    * @description senior
    */
-  override: ModeMergeOptions | ModeMergeOptions[]
+  // override: ModeMergeOptions | ModeMergeOptions[]
   /**
    * @description senior
    */

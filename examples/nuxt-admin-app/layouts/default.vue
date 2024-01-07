@@ -1,14 +1,14 @@
 <template>
   <div>
-    <div class="navbar container mx-auto flex justify-between">
+    <div class="container navbar mx-auto flex justify-between">
       <div class="flex-1 px-2 lg:flex-none">
         <a class="text-lg font-bold">IceStack</a>
       </div>
-      <div class="dropdown-bottom dropdown-end dropdown">
+      <div class="dropdown dropdown-end dropdown-bottom">
         <div tabindex="0" class="btn btn-primary m-1">Toggle Themes</div>
         <ul
           tabindex="0"
-          class="menu dropdown-content z-[1] w-52 space-y-1 shadow"
+          class="dropdown-content menu z-[1] w-52 space-y-1 shadow"
         >
           <li
             v-for="(k, i) in keys"

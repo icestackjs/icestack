@@ -1,6 +1,6 @@
 import { sharedExtraColors, sharedExtraVars } from '@icestack/preset-default/base'
 import { makeRgbaValue, composeVarsObject } from './colors'
-import { CodegenOptions, VarPrefixerOptions } from '@/types'
+import { CodegenOptions, CssInJs, VarPrefixerOptions } from '@/types'
 import { mergeRClone } from '@/shared'
 import { merge, parse, parseJs } from '@/postcss'
 import { makeArray } from '@/utils'
@@ -22,7 +22,7 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
       colors[x] = makeRgbaValue(key, slash)
     }
   }
-
+  const prependNodes: CssInJs[] = []
   const presets = Object.entries(themes!).reduce<Record<string, any>>((acc, [theme, opts]) => {
     // @ts-ignore
     if (opts === false) {
@@ -33,6 +33,7 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
     if (selector === undefined) {
       selector = themeSelectorTemplate?.(theme) // `[data-mode="${theme}"]`
     }
+
     if (typeof selector === 'string' && selector) {
       const entries = Object.entries(types ?? {})
       const typesColors = entries.reduce<Record<string, string>>((acc, [type, value]) => {
@@ -58,16 +59,21 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
         }
       }, {})
       const css = mergeRClone(composeVarsObject(typesColors, { ...(extraColors ?? sharedExtraColors.light), ...(extraVars ?? sharedExtraVars) }, slash), extraCss)
-      acc[selector] = css
       if (mediaDarkTheme === theme) {
         // default selector
         const defaultSelector = themes?.light.selector
         if (defaultSelector) {
-          acc['@media (prefers-color-scheme: dark)'] = {
-            [defaultSelector]: css
-          }
+          prependNodes.push({
+            '@media (prefers-color-scheme: dark)': {
+              [defaultSelector]: css
+            }
+          })
+          // acc['@media (prefers-color-scheme: dark)'] = {
+          //   [defaultSelector]: css
+          // }
         }
       }
+      acc[selector] = css
     }
 
     if (extraColors) {
@@ -79,8 +85,12 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
 
     return acc
   }, {})
-  const root = parseJs(presets)
 
+  const root = parseJs(presets)
+  for (const node of prependNodes) {
+    root.insertAfter(0, parseJs(node))
+    // root.prepend(parseJs(node))
+  }
   if (globalExtraCss) {
     merge(root, ...makeArray(globalExtraCss).map((x) => parse(x)))
   }

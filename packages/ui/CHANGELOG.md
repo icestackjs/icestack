@@ -1,5 +1,11 @@
 # @icestack/ui
 
+## 1.0.2
+
+### Patch Changes
+
+- [`1f01400`](https://github.com/sonofmagic/icestack/commit/1f0140087d23d993511a36f189920ed6db519f04) Thanks [@sonofmagic](https://github.com/sonofmagic)! - fix mediaDarkTheme issue
+
 ## 1.0.1
 
 ### Patch Changes

@@ -89,7 +89,6 @@ export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } 
   const root = parseJs(presets)
   for (const node of prependNodes) {
     root.insertAfter(0, parseJs(node))
-    // root.prepend(parseJs(node))
   }
   if (globalExtraCss) {
     merge(root, ...makeArray(globalExtraCss).map((x) => parse(x)))

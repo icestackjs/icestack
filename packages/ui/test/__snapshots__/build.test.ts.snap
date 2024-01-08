@@ -24,6 +24,18 @@ exports[`build > build base 1`] = `
   --ice-neutral-hover: 115 115 115;
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
+  --ice-secondary: 235 47 150;
+  --ice-secondary-hover: 247 89 171;
+  --ice-secondary-active: 196 29 127;
+  --ice-secondary-content: 255 255 255;
+  --ice-accent: 19 194 194;
+  --ice-accent-hover: 54 207 201;
+  --ice-accent-active: 8 151 156;
+  --ice-accent-content: 255 255 255;
+  --ice-info: 47 84 235;
+  --ice-info-hover: 89 126 247;
+  --ice-info-active: 29 57 196;
+  --ice-info-content: 255 255 255;
   --ice-base-100: 255 255 255;
   --ice-base-200: 242 242 242;
   --ice-base-300: 229 230 230;
@@ -73,6 +85,18 @@ exports[`build > build base 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
+  --ice-secondary: 203 43 131;
+  --ice-secondary-hover: 160 38 105;
+  --ice-secondary-active: 224 82 156;
+  --ice-secondary-content: 255 255 255;
+  --ice-accent: 19 168 168;
+  --ice-accent-hover: 19 133 133;
+  --ice-accent-active: 51 188 183;
+  --ice-accent-content: 255 255 255;
+  --ice-info: 43 74 203;
+  --ice-info-hover: 38 62 160;
+  --ice-info-active: 82 115 224;
+  --ice-info-content: 255 255 255;
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
@@ -102,6 +126,10 @@ exports[`build > build base 1`] = `
 }",
     "cssInJs": {
       ":root": {
+        "--ice-accent": "19 194 194",
+        "--ice-accent-active": "8 151 156",
+        "--ice-accent-content": "255 255 255",
+        "--ice-accent-hover": "54 207 201",
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-ant-neutral-100": "255 255 255",
@@ -126,6 +154,10 @@ exports[`build > build base 1`] = `
         "--ice-error-active": "207 19 34",
         "--ice-error-content": "255 255 255",
         "--ice-error-hover": "255 77 79",
+        "--ice-info": "47 84 235",
+        "--ice-info-active": "29 57 196",
+        "--ice-info-content": "255 255 255",
+        "--ice-info-hover": "89 126 247",
         "--ice-neutral": "102 102 102",
         "--ice-neutral-active": "64 64 64",
         "--ice-neutral-content": "255 255 255",
@@ -137,6 +169,10 @@ exports[`build > build base 1`] = `
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
+        "--ice-secondary": "235 47 150",
+        "--ice-secondary-active": "196 29 127",
+        "--ice-secondary-content": "255 255 255",
+        "--ice-secondary-hover": "247 89 171",
         "--ice-skeleton-duration": "1.2s",
         "--ice-success": "82 196 26",
         "--ice-success-active": "56 158 13",
@@ -150,6 +186,10 @@ exports[`build > build base 1`] = `
         "--ice-warning-hover": "255 197 61",
       },
       "[data-mode=dark]": {
+        "--ice-accent": "19 168 168",
+        "--ice-accent-active": "51 188 183",
+        "--ice-accent-content": "255 255 255",
+        "--ice-accent-hover": "19 133 133",
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-ant-neutral-100": "0 0 0",
@@ -174,6 +214,10 @@ exports[`build > build base 1`] = `
         "--ice-error-active": "232 71 73",
         "--ice-error-content": "255 255 255",
         "--ice-error-hover": "166 29 36",
+        "--ice-info": "43 74 203",
+        "--ice-info-active": "82 115 224",
+        "--ice-info-content": "255 255 255",
+        "--ice-info-hover": "38 62 160",
         "--ice-neutral": "90 90 90",
         "--ice-neutral-active": "106 106 106",
         "--ice-neutral-content": "255 255 255",
@@ -185,6 +229,10 @@ exports[`build > build base 1`] = `
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
+        "--ice-secondary": "203 43 131",
+        "--ice-secondary-active": "224 82 156",
+        "--ice-secondary-content": "255 255 255",
+        "--ice-secondary-hover": "160 38 105",
         "--ice-skeleton-duration": "1.2s",
         "--ice-success": "73 170 25",
         "--ice-success-active": "106 190 57",
@@ -219,6 +267,18 @@ exports[`build > build base 1`] = `
   --ice-neutral-hover: 115 115 115;
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
+  --ice-secondary: 235 47 150;
+  --ice-secondary-hover: 247 89 171;
+  --ice-secondary-active: 196 29 127;
+  --ice-secondary-content: 255 255 255;
+  --ice-accent: 19 194 194;
+  --ice-accent-hover: 54 207 201;
+  --ice-accent-active: 8 151 156;
+  --ice-accent-content: 255 255 255;
+  --ice-info: 47 84 235;
+  --ice-info-hover: 89 126 247;
+  --ice-info-active: 29 57 196;
+  --ice-info-content: 255 255 255;
   --ice-base-100: 255 255 255;
   --ice-base-200: 242 242 242;
   --ice-base-300: 229 230 230;
@@ -268,6 +328,18 @@ exports[`build > build base 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
+  --ice-secondary: 203 43 131;
+  --ice-secondary-hover: 160 38 105;
+  --ice-secondary-active: 224 82 156;
+  --ice-secondary-content: 255 255 255;
+  --ice-accent: 19 168 168;
+  --ice-accent-hover: 19 133 133;
+  --ice-accent-active: 51 188 183;
+  --ice-accent-content: 255 255 255;
+  --ice-info: 43 74 203;
+  --ice-info-hover: 38 62 160;
+  --ice-info-active: 82 115 224;
+  --ice-info-content: 255 255 255;
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
@@ -316,6 +388,18 @@ exports[`build > build base 1`] = `
     --neutral-hover: 115 115 115;
     --neutral-active: 64 64 64;
     --neutral-content: 255 255 255;
+    --secondary: 235 47 150;
+    --secondary-hover: 247 89 171;
+    --secondary-active: 196 29 127;
+    --secondary-content: 255 255 255;
+    --accent: 19 194 194;
+    --accent-hover: 54 207 201;
+    --accent-active: 8 151 156;
+    --accent-content: 255 255 255;
+    --info: 47 84 235;
+    --info-hover: 89 126 247;
+    --info-active: 29 57 196;
+    --info-content: 255 255 255;
     --base-100: 255 255 255;
     --base-200: 242 242 242;
     --base-300: 229 230 230;
@@ -364,6 +448,18 @@ exports[`build > build base 1`] = `
     --neutral-hover: 73 73 73;
     --neutral-active: 106 106 106;
     --neutral-content: 255 255 255;
+    --secondary: 203 43 131;
+    --secondary-hover: 160 38 105;
+    --secondary-active: 224 82 156;
+    --secondary-content: 255 255 255;
+    --accent: 19 168 168;
+    --accent-hover: 19 133 133;
+    --accent-active: 51 188 183;
+    --accent-content: 255 255 255;
+    --info: 43 74 203;
+    --info-hover: 38 62 160;
+    --info-active: 82 115 224;
+    --info-content: 255 255 255;
     --base-100: 29 35 42;
     --base-200: 25 30 36;
     --base-300: 21 25 30;
@@ -414,6 +510,18 @@ exports[`build > build base 1`] = `
   --ice-neutral-hover: 115,115,115;
   --ice-neutral-active: 64,64,64;
   --ice-neutral-content: 255,255,255;
+  --ice-secondary: 235,47,150;
+  --ice-secondary-hover: 247,89,171;
+  --ice-secondary-active: 196,29,127;
+  --ice-secondary-content: 255,255,255;
+  --ice-accent: 19,194,194;
+  --ice-accent-hover: 54,207,201;
+  --ice-accent-active: 8,151,156;
+  --ice-accent-content: 255,255,255;
+  --ice-info: 47,84,235;
+  --ice-info-hover: 89,126,247;
+  --ice-info-active: 29,57,196;
+  --ice-info-content: 255,255,255;
   --ice-base-100: 255,255,255;
   --ice-base-200: 242,242,242;
   --ice-base-300: 229,230,230;
@@ -463,6 +571,18 @@ exports[`build > build base 1`] = `
   --ice-neutral-hover: 73,73,73;
   --ice-neutral-active: 106,106,106;
   --ice-neutral-content: 255,255,255;
+  --ice-secondary: 203,43,131;
+  --ice-secondary-hover: 160,38,105;
+  --ice-secondary-active: 224,82,156;
+  --ice-secondary-content: 255,255,255;
+  --ice-accent: 19,168,168;
+  --ice-accent-hover: 19,133,133;
+  --ice-accent-active: 51,188,183;
+  --ice-accent-content: 255,255,255;
+  --ice-info: 43,74,203;
+  --ice-info-hover: 38,62,160;
+  --ice-info-active: 82,115,224;
+  --ice-info-content: 255,255,255;
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
@@ -492,6 +612,10 @@ exports[`build > build base 1`] = `
 }",
     "cssInJs": {
       ":root": {
+        "--ice-accent": "19,194,194",
+        "--ice-accent-active": "8,151,156",
+        "--ice-accent-content": "255,255,255",
+        "--ice-accent-hover": "54,207,201",
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-ant-neutral-100": "255,255,255",
@@ -516,6 +640,10 @@ exports[`build > build base 1`] = `
         "--ice-error-active": "207,19,34",
         "--ice-error-content": "255,255,255",
         "--ice-error-hover": "255,77,79",
+        "--ice-info": "47,84,235",
+        "--ice-info-active": "29,57,196",
+        "--ice-info-content": "255,255,255",
+        "--ice-info-hover": "89,126,247",
         "--ice-neutral": "102,102,102",
         "--ice-neutral-active": "64,64,64",
         "--ice-neutral-content": "255,255,255",
@@ -527,6 +655,10 @@ exports[`build > build base 1`] = `
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
+        "--ice-secondary": "235,47,150",
+        "--ice-secondary-active": "196,29,127",
+        "--ice-secondary-content": "255,255,255",
+        "--ice-secondary-hover": "247,89,171",
         "--ice-skeleton-duration": "1.2s",
         "--ice-success": "82,196,26",
         "--ice-success-active": "56,158,13",
@@ -540,6 +672,10 @@ exports[`build > build base 1`] = `
         "--ice-warning-hover": "255,197,61",
       },
       "[data-mode=dark]": {
+        "--ice-accent": "19,168,168",
+        "--ice-accent-active": "51,188,183",
+        "--ice-accent-content": "255,255,255",
+        "--ice-accent-hover": "19,133,133",
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-ant-neutral-100": "0,0,0",
@@ -564,6 +700,10 @@ exports[`build > build base 1`] = `
         "--ice-error-active": "232,71,73",
         "--ice-error-content": "255,255,255",
         "--ice-error-hover": "166,29,36",
+        "--ice-info": "43,74,203",
+        "--ice-info-active": "82,115,224",
+        "--ice-info-content": "255,255,255",
+        "--ice-info-hover": "38,62,160",
         "--ice-neutral": "90,90,90",
         "--ice-neutral-active": "106,106,106",
         "--ice-neutral-content": "255,255,255",
@@ -575,6 +715,10 @@ exports[`build > build base 1`] = `
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
+        "--ice-secondary": "203,43,131",
+        "--ice-secondary-active": "224,82,156",
+        "--ice-secondary-content": "255,255,255",
+        "--ice-secondary-hover": "160,38,105",
         "--ice-skeleton-duration": "1.2s",
         "--ice-success": "73,170,25",
         "--ice-success-active": "106,190,57",
@@ -609,6 +753,18 @@ exports[`build > build base 1`] = `
   --ice-neutral-hover: 115,115,115;
   --ice-neutral-active: 64,64,64;
   --ice-neutral-content: 255,255,255;
+  --ice-secondary: 235,47,150;
+  --ice-secondary-hover: 247,89,171;
+  --ice-secondary-active: 196,29,127;
+  --ice-secondary-content: 255,255,255;
+  --ice-accent: 19,194,194;
+  --ice-accent-hover: 54,207,201;
+  --ice-accent-active: 8,151,156;
+  --ice-accent-content: 255,255,255;
+  --ice-info: 47,84,235;
+  --ice-info-hover: 89,126,247;
+  --ice-info-active: 29,57,196;
+  --ice-info-content: 255,255,255;
   --ice-base-100: 255,255,255;
   --ice-base-200: 242,242,242;
   --ice-base-300: 229,230,230;
@@ -658,6 +814,18 @@ exports[`build > build base 1`] = `
   --ice-neutral-hover: 73,73,73;
   --ice-neutral-active: 106,106,106;
   --ice-neutral-content: 255,255,255;
+  --ice-secondary: 203,43,131;
+  --ice-secondary-hover: 160,38,105;
+  --ice-secondary-active: 224,82,156;
+  --ice-secondary-content: 255,255,255;
+  --ice-accent: 19,168,168;
+  --ice-accent-hover: 19,133,133;
+  --ice-accent-active: 51,188,183;
+  --ice-accent-content: 255,255,255;
+  --ice-info: 43,74,203;
+  --ice-info-hover: 38,62,160;
+  --ice-info-active: 82,115,224;
+  --ice-info-content: 255,255,255;
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
@@ -706,6 +874,18 @@ exports[`build > build base 1`] = `
     --neutral-hover: 115,115,115;
     --neutral-active: 64,64,64;
     --neutral-content: 255,255,255;
+    --secondary: 235,47,150;
+    --secondary-hover: 247,89,171;
+    --secondary-active: 196,29,127;
+    --secondary-content: 255,255,255;
+    --accent: 19,194,194;
+    --accent-hover: 54,207,201;
+    --accent-active: 8,151,156;
+    --accent-content: 255,255,255;
+    --info: 47,84,235;
+    --info-hover: 89,126,247;
+    --info-active: 29,57,196;
+    --info-content: 255,255,255;
     --base-100: 255,255,255;
     --base-200: 242,242,242;
     --base-300: 229,230,230;
@@ -754,6 +934,18 @@ exports[`build > build base 1`] = `
     --neutral-hover: 73,73,73;
     --neutral-active: 106,106,106;
     --neutral-content: 255,255,255;
+    --secondary: 203,43,131;
+    --secondary-hover: 160,38,105;
+    --secondary-active: 224,82,156;
+    --secondary-content: 255,255,255;
+    --accent: 19,168,168;
+    --accent-hover: 19,133,133;
+    --accent-active: 51,188,183;
+    --accent-content: 255,255,255;
+    --info: 43,74,203;
+    --info-hover: 38,62,160;
+    --info-active: 82,115,224;
+    --info-content: 255,255,255;
     --base-100: 29,35,42;
     --base-200: 25,30,36;
     --base-300: 21,25,30;
@@ -809,6 +1001,18 @@ exports[`build > build base change default selector case  1`] = `
   --ice-neutral-hover: 115 115 115;
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
+  --ice-secondary: 235 47 150;
+  --ice-secondary-hover: 247 89 171;
+  --ice-secondary-active: 196 29 127;
+  --ice-secondary-content: 255 255 255;
+  --ice-accent: 19 194 194;
+  --ice-accent-hover: 54 207 201;
+  --ice-accent-active: 8 151 156;
+  --ice-accent-content: 255 255 255;
+  --ice-info: 47 84 235;
+  --ice-info-hover: 89 126 247;
+  --ice-info-active: 29 57 196;
+  --ice-info-content: 255 255 255;
   --ice-base-100: 255 255 255;
   --ice-base-200: 242 242 242;
   --ice-base-300: 229 230 230;
@@ -858,6 +1062,18 @@ exports[`build > build base change default selector case  1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
+  --ice-secondary: 203 43 131;
+  --ice-secondary-hover: 160 38 105;
+  --ice-secondary-active: 224 82 156;
+  --ice-secondary-content: 255 255 255;
+  --ice-accent: 19 168 168;
+  --ice-accent-hover: 19 133 133;
+  --ice-accent-active: 51 188 183;
+  --ice-accent-content: 255 255 255;
+  --ice-info: 43 74 203;
+  --ice-info-hover: 38 62 160;
+  --ice-info-active: 82 115 224;
+  --ice-info-content: 255 255 255;
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
@@ -887,6 +1103,10 @@ exports[`build > build base change default selector case  1`] = `
 }",
     "cssInJs": {
       ".dark": {
+        "--ice-accent": "19 168 168",
+        "--ice-accent-active": "51 188 183",
+        "--ice-accent-content": "255 255 255",
+        "--ice-accent-hover": "19 133 133",
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-ant-neutral-100": "0 0 0",
@@ -911,6 +1131,10 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-error-active": "232 71 73",
         "--ice-error-content": "255 255 255",
         "--ice-error-hover": "166 29 36",
+        "--ice-info": "43 74 203",
+        "--ice-info-active": "82 115 224",
+        "--ice-info-content": "255 255 255",
+        "--ice-info-hover": "38 62 160",
         "--ice-neutral": "90 90 90",
         "--ice-neutral-active": "106 106 106",
         "--ice-neutral-content": "255 255 255",
@@ -922,6 +1146,10 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
+        "--ice-secondary": "203 43 131",
+        "--ice-secondary-active": "224 82 156",
+        "--ice-secondary-content": "255 255 255",
+        "--ice-secondary-hover": "160 38 105",
         "--ice-skeleton-duration": "1.2s",
         "--ice-success": "73 170 25",
         "--ice-success-active": "106 190 57",
@@ -935,6 +1163,10 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-warning-hover": "170 119 20",
       },
       "page": {
+        "--ice-accent": "19 194 194",
+        "--ice-accent-active": "8 151 156",
+        "--ice-accent-content": "255 255 255",
+        "--ice-accent-hover": "54 207 201",
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-ant-neutral-100": "255 255 255",
@@ -959,6 +1191,10 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-error-active": "207 19 34",
         "--ice-error-content": "255 255 255",
         "--ice-error-hover": "255 77 79",
+        "--ice-info": "47 84 235",
+        "--ice-info-active": "29 57 196",
+        "--ice-info-content": "255 255 255",
+        "--ice-info-hover": "89 126 247",
         "--ice-neutral": "102 102 102",
         "--ice-neutral-active": "64 64 64",
         "--ice-neutral-content": "255 255 255",
@@ -970,6 +1206,10 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
+        "--ice-secondary": "235 47 150",
+        "--ice-secondary-active": "196 29 127",
+        "--ice-secondary-content": "255 255 255",
+        "--ice-secondary-hover": "247 89 171",
         "--ice-skeleton-duration": "1.2s",
         "--ice-success": "82 196 26",
         "--ice-success-active": "56 158 13",
@@ -1004,6 +1244,18 @@ exports[`build > build base change default selector case  1`] = `
   --ice-neutral-hover: 115 115 115;
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
+  --ice-secondary: 235 47 150;
+  --ice-secondary-hover: 247 89 171;
+  --ice-secondary-active: 196 29 127;
+  --ice-secondary-content: 255 255 255;
+  --ice-accent: 19 194 194;
+  --ice-accent-hover: 54 207 201;
+  --ice-accent-active: 8 151 156;
+  --ice-accent-content: 255 255 255;
+  --ice-info: 47 84 235;
+  --ice-info-hover: 89 126 247;
+  --ice-info-active: 29 57 196;
+  --ice-info-content: 255 255 255;
   --ice-base-100: 255 255 255;
   --ice-base-200: 242 242 242;
   --ice-base-300: 229 230 230;
@@ -1053,6 +1305,18 @@ exports[`build > build base change default selector case  1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
+  --ice-secondary: 203 43 131;
+  --ice-secondary-hover: 160 38 105;
+  --ice-secondary-active: 224 82 156;
+  --ice-secondary-content: 255 255 255;
+  --ice-accent: 19 168 168;
+  --ice-accent-hover: 19 133 133;
+  --ice-accent-active: 51 188 183;
+  --ice-accent-content: 255 255 255;
+  --ice-info: 43 74 203;
+  --ice-info-hover: 38 62 160;
+  --ice-info-active: 82 115 224;
+  --ice-info-content: 255 255 255;
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
@@ -1101,6 +1365,18 @@ exports[`build > build base change default selector case  1`] = `
     --neutral-hover: 115 115 115;
     --neutral-active: 64 64 64;
     --neutral-content: 255 255 255;
+    --secondary: 235 47 150;
+    --secondary-hover: 247 89 171;
+    --secondary-active: 196 29 127;
+    --secondary-content: 255 255 255;
+    --accent: 19 194 194;
+    --accent-hover: 54 207 201;
+    --accent-active: 8 151 156;
+    --accent-content: 255 255 255;
+    --info: 47 84 235;
+    --info-hover: 89 126 247;
+    --info-active: 29 57 196;
+    --info-content: 255 255 255;
     --base-100: 255 255 255;
     --base-200: 242 242 242;
     --base-300: 229 230 230;
@@ -1149,6 +1425,18 @@ exports[`build > build base change default selector case  1`] = `
     --neutral-hover: 73 73 73;
     --neutral-active: 106 106 106;
     --neutral-content: 255 255 255;
+    --secondary: 203 43 131;
+    --secondary-hover: 160 38 105;
+    --secondary-active: 224 82 156;
+    --secondary-content: 255 255 255;
+    --accent: 19 168 168;
+    --accent-hover: 19 133 133;
+    --accent-active: 51 188 183;
+    --accent-content: 255 255 255;
+    --info: 43 74 203;
+    --info-hover: 38 62 160;
+    --info-active: 82 115 224;
+    --info-content: 255 255 255;
     --base-100: 29 35 42;
     --base-200: 25 30 36;
     --base-300: 21 25 30;
@@ -1199,6 +1487,18 @@ exports[`build > build base change default selector case  1`] = `
   --ice-neutral-hover: 115,115,115;
   --ice-neutral-active: 64,64,64;
   --ice-neutral-content: 255,255,255;
+  --ice-secondary: 235,47,150;
+  --ice-secondary-hover: 247,89,171;
+  --ice-secondary-active: 196,29,127;
+  --ice-secondary-content: 255,255,255;
+  --ice-accent: 19,194,194;
+  --ice-accent-hover: 54,207,201;
+  --ice-accent-active: 8,151,156;
+  --ice-accent-content: 255,255,255;
+  --ice-info: 47,84,235;
+  --ice-info-hover: 89,126,247;
+  --ice-info-active: 29,57,196;
+  --ice-info-content: 255,255,255;
   --ice-base-100: 255,255,255;
   --ice-base-200: 242,242,242;
   --ice-base-300: 229,230,230;
@@ -1248,6 +1548,18 @@ exports[`build > build base change default selector case  1`] = `
   --ice-neutral-hover: 73,73,73;
   --ice-neutral-active: 106,106,106;
   --ice-neutral-content: 255,255,255;
+  --ice-secondary: 203,43,131;
+  --ice-secondary-hover: 160,38,105;
+  --ice-secondary-active: 224,82,156;
+  --ice-secondary-content: 255,255,255;
+  --ice-accent: 19,168,168;
+  --ice-accent-hover: 19,133,133;
+  --ice-accent-active: 51,188,183;
+  --ice-accent-content: 255,255,255;
+  --ice-info: 43,74,203;
+  --ice-info-hover: 38,62,160;
+  --ice-info-active: 82,115,224;
+  --ice-info-content: 255,255,255;
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
@@ -1277,6 +1589,10 @@ exports[`build > build base change default selector case  1`] = `
 }",
     "cssInJs": {
       ".dark": {
+        "--ice-accent": "19,168,168",
+        "--ice-accent-active": "51,188,183",
+        "--ice-accent-content": "255,255,255",
+        "--ice-accent-hover": "19,133,133",
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-ant-neutral-100": "0,0,0",
@@ -1301,6 +1617,10 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-error-active": "232,71,73",
         "--ice-error-content": "255,255,255",
         "--ice-error-hover": "166,29,36",
+        "--ice-info": "43,74,203",
+        "--ice-info-active": "82,115,224",
+        "--ice-info-content": "255,255,255",
+        "--ice-info-hover": "38,62,160",
         "--ice-neutral": "90,90,90",
         "--ice-neutral-active": "106,106,106",
         "--ice-neutral-content": "255,255,255",
@@ -1312,6 +1632,10 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
+        "--ice-secondary": "203,43,131",
+        "--ice-secondary-active": "224,82,156",
+        "--ice-secondary-content": "255,255,255",
+        "--ice-secondary-hover": "160,38,105",
         "--ice-skeleton-duration": "1.2s",
         "--ice-success": "73,170,25",
         "--ice-success-active": "106,190,57",
@@ -1325,6 +1649,10 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-warning-hover": "170,119,20",
       },
       "page": {
+        "--ice-accent": "19,194,194",
+        "--ice-accent-active": "8,151,156",
+        "--ice-accent-content": "255,255,255",
+        "--ice-accent-hover": "54,207,201",
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-ant-neutral-100": "255,255,255",
@@ -1349,6 +1677,10 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-error-active": "207,19,34",
         "--ice-error-content": "255,255,255",
         "--ice-error-hover": "255,77,79",
+        "--ice-info": "47,84,235",
+        "--ice-info-active": "29,57,196",
+        "--ice-info-content": "255,255,255",
+        "--ice-info-hover": "89,126,247",
         "--ice-neutral": "102,102,102",
         "--ice-neutral-active": "64,64,64",
         "--ice-neutral-content": "255,255,255",
@@ -1360,6 +1692,10 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
+        "--ice-secondary": "235,47,150",
+        "--ice-secondary-active": "196,29,127",
+        "--ice-secondary-content": "255,255,255",
+        "--ice-secondary-hover": "247,89,171",
         "--ice-skeleton-duration": "1.2s",
         "--ice-success": "82,196,26",
         "--ice-success-active": "56,158,13",
@@ -1394,6 +1730,18 @@ exports[`build > build base change default selector case  1`] = `
   --ice-neutral-hover: 115,115,115;
   --ice-neutral-active: 64,64,64;
   --ice-neutral-content: 255,255,255;
+  --ice-secondary: 235,47,150;
+  --ice-secondary-hover: 247,89,171;
+  --ice-secondary-active: 196,29,127;
+  --ice-secondary-content: 255,255,255;
+  --ice-accent: 19,194,194;
+  --ice-accent-hover: 54,207,201;
+  --ice-accent-active: 8,151,156;
+  --ice-accent-content: 255,255,255;
+  --ice-info: 47,84,235;
+  --ice-info-hover: 89,126,247;
+  --ice-info-active: 29,57,196;
+  --ice-info-content: 255,255,255;
   --ice-base-100: 255,255,255;
   --ice-base-200: 242,242,242;
   --ice-base-300: 229,230,230;
@@ -1443,6 +1791,18 @@ exports[`build > build base change default selector case  1`] = `
   --ice-neutral-hover: 73,73,73;
   --ice-neutral-active: 106,106,106;
   --ice-neutral-content: 255,255,255;
+  --ice-secondary: 203,43,131;
+  --ice-secondary-hover: 160,38,105;
+  --ice-secondary-active: 224,82,156;
+  --ice-secondary-content: 255,255,255;
+  --ice-accent: 19,168,168;
+  --ice-accent-hover: 19,133,133;
+  --ice-accent-active: 51,188,183;
+  --ice-accent-content: 255,255,255;
+  --ice-info: 43,74,203;
+  --ice-info-hover: 38,62,160;
+  --ice-info-active: 82,115,224;
+  --ice-info-content: 255,255,255;
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
@@ -1491,6 +1851,18 @@ exports[`build > build base change default selector case  1`] = `
     --neutral-hover: 115,115,115;
     --neutral-active: 64,64,64;
     --neutral-content: 255,255,255;
+    --secondary: 235,47,150;
+    --secondary-hover: 247,89,171;
+    --secondary-active: 196,29,127;
+    --secondary-content: 255,255,255;
+    --accent: 19,194,194;
+    --accent-hover: 54,207,201;
+    --accent-active: 8,151,156;
+    --accent-content: 255,255,255;
+    --info: 47,84,235;
+    --info-hover: 89,126,247;
+    --info-active: 29,57,196;
+    --info-content: 255,255,255;
     --base-100: 255,255,255;
     --base-200: 242,242,242;
     --base-300: 229,230,230;
@@ -1539,6 +1911,18 @@ exports[`build > build base change default selector case  1`] = `
     --neutral-hover: 73,73,73;
     --neutral-active: 106,106,106;
     --neutral-content: 255,255,255;
+    --secondary: 203,43,131;
+    --secondary-hover: 160,38,105;
+    --secondary-active: 224,82,156;
+    --secondary-content: 255,255,255;
+    --accent: 19,168,168;
+    --accent-hover: 19,133,133;
+    --accent-active: 51,188,183;
+    --accent-content: 255,255,255;
+    --info: 43,74,203;
+    --info-hover: 38,62,160;
+    --info-active: 82,115,224;
+    --info-content: 255,255,255;
     --base-100: 29,35,42;
     --base-200: 25,30,36;
     --base-300: 21,25,30;
@@ -1594,6 +1978,18 @@ exports[`build > build base with custom types 1`] = `
   --ice-neutral-hover: 115 115 115;
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
+  --ice-secondary: 235 47 150;
+  --ice-secondary-hover: 247 89 171;
+  --ice-secondary-active: 196 29 127;
+  --ice-secondary-content: 255 255 255;
+  --ice-accent: 19 194 194;
+  --ice-accent-hover: 54 207 201;
+  --ice-accent-active: 8 151 156;
+  --ice-accent-content: 255 255 255;
+  --ice-info: 47 84 235;
+  --ice-info-hover: 89 126 247;
+  --ice-info-active: 29 57 196;
+  --ice-info-content: 255 255 255;
   --ice-base-100: 255 255 255;
   --ice-base-200: 242 242 242;
   --ice-base-300: 229 230 230;
@@ -1643,6 +2039,18 @@ exports[`build > build base with custom types 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
+  --ice-secondary: 203 43 131;
+  --ice-secondary-hover: 160 38 105;
+  --ice-secondary-active: 224 82 156;
+  --ice-secondary-content: 255 255 255;
+  --ice-accent: 19 168 168;
+  --ice-accent-hover: 19 133 133;
+  --ice-accent-active: 51 188 183;
+  --ice-accent-content: 255 255 255;
+  --ice-info: 43 74 203;
+  --ice-info-hover: 38 62 160;
+  --ice-info-active: 82 115 224;
+  --ice-info-content: 255 255 255;
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
@@ -1672,6 +2080,10 @@ exports[`build > build base with custom types 1`] = `
 }",
     "cssInJs": {
       ":root": {
+        "--ice-accent": "19 194 194",
+        "--ice-accent-active": "8 151 156",
+        "--ice-accent-content": "255 255 255",
+        "--ice-accent-hover": "54 207 201",
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-ant-neutral-100": "255 255 255",
@@ -1696,6 +2108,10 @@ exports[`build > build base with custom types 1`] = `
         "--ice-error-active": "207 19 34",
         "--ice-error-content": "255 255 255",
         "--ice-error-hover": "255 77 79",
+        "--ice-info": "47 84 235",
+        "--ice-info-active": "29 57 196",
+        "--ice-info-content": "255 255 255",
+        "--ice-info-hover": "89 126 247",
         "--ice-neutral": "102 102 102",
         "--ice-neutral-active": "64 64 64",
         "--ice-neutral-content": "255 255 255",
@@ -1707,6 +2123,10 @@ exports[`build > build base with custom types 1`] = `
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
+        "--ice-secondary": "235 47 150",
+        "--ice-secondary-active": "196 29 127",
+        "--ice-secondary-content": "255 255 255",
+        "--ice-secondary-hover": "247 89 171",
         "--ice-skeleton-duration": "1.2s",
         "--ice-success": "82 196 26",
         "--ice-success-active": "56 158 13",
@@ -1720,6 +2140,10 @@ exports[`build > build base with custom types 1`] = `
         "--ice-warning-hover": "255 197 61",
       },
       "[data-mode=dark]": {
+        "--ice-accent": "19 168 168",
+        "--ice-accent-active": "51 188 183",
+        "--ice-accent-content": "255 255 255",
+        "--ice-accent-hover": "19 133 133",
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-ant-neutral-100": "0 0 0",
@@ -1744,6 +2168,10 @@ exports[`build > build base with custom types 1`] = `
         "--ice-error-active": "232 71 73",
         "--ice-error-content": "255 255 255",
         "--ice-error-hover": "166 29 36",
+        "--ice-info": "43 74 203",
+        "--ice-info-active": "82 115 224",
+        "--ice-info-content": "255 255 255",
+        "--ice-info-hover": "38 62 160",
         "--ice-neutral": "90 90 90",
         "--ice-neutral-active": "106 106 106",
         "--ice-neutral-content": "255 255 255",
@@ -1755,6 +2183,10 @@ exports[`build > build base with custom types 1`] = `
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
+        "--ice-secondary": "203 43 131",
+        "--ice-secondary-active": "224 82 156",
+        "--ice-secondary-content": "255 255 255",
+        "--ice-secondary-hover": "160 38 105",
         "--ice-skeleton-duration": "1.2s",
         "--ice-success": "73 170 25",
         "--ice-success-active": "106 190 57",
@@ -1789,6 +2221,18 @@ exports[`build > build base with custom types 1`] = `
   --ice-neutral-hover: 115 115 115;
   --ice-neutral-active: 64 64 64;
   --ice-neutral-content: 255 255 255;
+  --ice-secondary: 235 47 150;
+  --ice-secondary-hover: 247 89 171;
+  --ice-secondary-active: 196 29 127;
+  --ice-secondary-content: 255 255 255;
+  --ice-accent: 19 194 194;
+  --ice-accent-hover: 54 207 201;
+  --ice-accent-active: 8 151 156;
+  --ice-accent-content: 255 255 255;
+  --ice-info: 47 84 235;
+  --ice-info-hover: 89 126 247;
+  --ice-info-active: 29 57 196;
+  --ice-info-content: 255 255 255;
   --ice-base-100: 255 255 255;
   --ice-base-200: 242 242 242;
   --ice-base-300: 229 230 230;
@@ -1838,6 +2282,18 @@ exports[`build > build base with custom types 1`] = `
   --ice-neutral-hover: 73 73 73;
   --ice-neutral-active: 106 106 106;
   --ice-neutral-content: 255 255 255;
+  --ice-secondary: 203 43 131;
+  --ice-secondary-hover: 160 38 105;
+  --ice-secondary-active: 224 82 156;
+  --ice-secondary-content: 255 255 255;
+  --ice-accent: 19 168 168;
+  --ice-accent-hover: 19 133 133;
+  --ice-accent-active: 51 188 183;
+  --ice-accent-content: 255 255 255;
+  --ice-info: 43 74 203;
+  --ice-info-hover: 38 62 160;
+  --ice-info-active: 82 115 224;
+  --ice-info-content: 255 255 255;
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
@@ -1886,6 +2342,18 @@ exports[`build > build base with custom types 1`] = `
     --neutral-hover: 115 115 115;
     --neutral-active: 64 64 64;
     --neutral-content: 255 255 255;
+    --secondary: 235 47 150;
+    --secondary-hover: 247 89 171;
+    --secondary-active: 196 29 127;
+    --secondary-content: 255 255 255;
+    --accent: 19 194 194;
+    --accent-hover: 54 207 201;
+    --accent-active: 8 151 156;
+    --accent-content: 255 255 255;
+    --info: 47 84 235;
+    --info-hover: 89 126 247;
+    --info-active: 29 57 196;
+    --info-content: 255 255 255;
     --base-100: 255 255 255;
     --base-200: 242 242 242;
     --base-300: 229 230 230;
@@ -1934,6 +2402,18 @@ exports[`build > build base with custom types 1`] = `
     --neutral-hover: 73 73 73;
     --neutral-active: 106 106 106;
     --neutral-content: 255 255 255;
+    --secondary: 203 43 131;
+    --secondary-hover: 160 38 105;
+    --secondary-active: 224 82 156;
+    --secondary-content: 255 255 255;
+    --accent: 19 168 168;
+    --accent-hover: 19 133 133;
+    --accent-active: 51 188 183;
+    --accent-content: 255 255 255;
+    --info: 43 74 203;
+    --info-hover: 38 62 160;
+    --info-active: 82 115 224;
+    --info-content: 255 255 255;
     --base-100: 29 35 42;
     --base-200: 25 30 36;
     --base-300: 21 25 30;
@@ -1984,6 +2464,18 @@ exports[`build > build base with custom types 1`] = `
   --ice-neutral-hover: 115,115,115;
   --ice-neutral-active: 64,64,64;
   --ice-neutral-content: 255,255,255;
+  --ice-secondary: 235,47,150;
+  --ice-secondary-hover: 247,89,171;
+  --ice-secondary-active: 196,29,127;
+  --ice-secondary-content: 255,255,255;
+  --ice-accent: 19,194,194;
+  --ice-accent-hover: 54,207,201;
+  --ice-accent-active: 8,151,156;
+  --ice-accent-content: 255,255,255;
+  --ice-info: 47,84,235;
+  --ice-info-hover: 89,126,247;
+  --ice-info-active: 29,57,196;
+  --ice-info-content: 255,255,255;
   --ice-base-100: 255,255,255;
   --ice-base-200: 242,242,242;
   --ice-base-300: 229,230,230;
@@ -2033,6 +2525,18 @@ exports[`build > build base with custom types 1`] = `
   --ice-neutral-hover: 73,73,73;
   --ice-neutral-active: 106,106,106;
   --ice-neutral-content: 255,255,255;
+  --ice-secondary: 203,43,131;
+  --ice-secondary-hover: 160,38,105;
+  --ice-secondary-active: 224,82,156;
+  --ice-secondary-content: 255,255,255;
+  --ice-accent: 19,168,168;
+  --ice-accent-hover: 19,133,133;
+  --ice-accent-active: 51,188,183;
+  --ice-accent-content: 255,255,255;
+  --ice-info: 43,74,203;
+  --ice-info-hover: 38,62,160;
+  --ice-info-active: 82,115,224;
+  --ice-info-content: 255,255,255;
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
@@ -2062,6 +2566,10 @@ exports[`build > build base with custom types 1`] = `
 }",
     "cssInJs": {
       ":root": {
+        "--ice-accent": "19,194,194",
+        "--ice-accent-active": "8,151,156",
+        "--ice-accent-content": "255,255,255",
+        "--ice-accent-hover": "54,207,201",
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-ant-neutral-100": "255,255,255",
@@ -2086,6 +2594,10 @@ exports[`build > build base with custom types 1`] = `
         "--ice-error-active": "207,19,34",
         "--ice-error-content": "255,255,255",
         "--ice-error-hover": "255,77,79",
+        "--ice-info": "47,84,235",
+        "--ice-info-active": "29,57,196",
+        "--ice-info-content": "255,255,255",
+        "--ice-info-hover": "89,126,247",
         "--ice-neutral": "102,102,102",
         "--ice-neutral-active": "64,64,64",
         "--ice-neutral-content": "255,255,255",
@@ -2097,6 +2609,10 @@ exports[`build > build base with custom types 1`] = `
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
+        "--ice-secondary": "235,47,150",
+        "--ice-secondary-active": "196,29,127",
+        "--ice-secondary-content": "255,255,255",
+        "--ice-secondary-hover": "247,89,171",
         "--ice-skeleton-duration": "1.2s",
         "--ice-success": "82,196,26",
         "--ice-success-active": "56,158,13",
@@ -2110,6 +2626,10 @@ exports[`build > build base with custom types 1`] = `
         "--ice-warning-hover": "255,197,61",
       },
       "[data-mode=dark]": {
+        "--ice-accent": "19,168,168",
+        "--ice-accent-active": "51,188,183",
+        "--ice-accent-content": "255,255,255",
+        "--ice-accent-hover": "19,133,133",
         "--ice-animation-btn": "0.25s",
         "--ice-animation-input": "0.2s",
         "--ice-ant-neutral-100": "0,0,0",
@@ -2134,6 +2654,10 @@ exports[`build > build base with custom types 1`] = `
         "--ice-error-active": "232,71,73",
         "--ice-error-content": "255,255,255",
         "--ice-error-hover": "166,29,36",
+        "--ice-info": "43,74,203",
+        "--ice-info-active": "82,115,224",
+        "--ice-info-content": "255,255,255",
+        "--ice-info-hover": "38,62,160",
         "--ice-neutral": "90,90,90",
         "--ice-neutral-active": "106,106,106",
         "--ice-neutral-content": "255,255,255",
@@ -2145,6 +2669,10 @@ exports[`build > build base with custom types 1`] = `
         "--ice-rounded-badge": "1.9rem",
         "--ice-rounded-box": "1rem",
         "--ice-rounded-btn": "0.5rem",
+        "--ice-secondary": "203,43,131",
+        "--ice-secondary-active": "224,82,156",
+        "--ice-secondary-content": "255,255,255",
+        "--ice-secondary-hover": "160,38,105",
         "--ice-skeleton-duration": "1.2s",
         "--ice-success": "73,170,25",
         "--ice-success-active": "106,190,57",
@@ -2179,6 +2707,18 @@ exports[`build > build base with custom types 1`] = `
   --ice-neutral-hover: 115,115,115;
   --ice-neutral-active: 64,64,64;
   --ice-neutral-content: 255,255,255;
+  --ice-secondary: 235,47,150;
+  --ice-secondary-hover: 247,89,171;
+  --ice-secondary-active: 196,29,127;
+  --ice-secondary-content: 255,255,255;
+  --ice-accent: 19,194,194;
+  --ice-accent-hover: 54,207,201;
+  --ice-accent-active: 8,151,156;
+  --ice-accent-content: 255,255,255;
+  --ice-info: 47,84,235;
+  --ice-info-hover: 89,126,247;
+  --ice-info-active: 29,57,196;
+  --ice-info-content: 255,255,255;
   --ice-base-100: 255,255,255;
   --ice-base-200: 242,242,242;
   --ice-base-300: 229,230,230;
@@ -2228,6 +2768,18 @@ exports[`build > build base with custom types 1`] = `
   --ice-neutral-hover: 73,73,73;
   --ice-neutral-active: 106,106,106;
   --ice-neutral-content: 255,255,255;
+  --ice-secondary: 203,43,131;
+  --ice-secondary-hover: 160,38,105;
+  --ice-secondary-active: 224,82,156;
+  --ice-secondary-content: 255,255,255;
+  --ice-accent: 19,168,168;
+  --ice-accent-hover: 19,133,133;
+  --ice-accent-active: 51,188,183;
+  --ice-accent-content: 255,255,255;
+  --ice-info: 43,74,203;
+  --ice-info-hover: 38,62,160;
+  --ice-info-active: 82,115,224;
+  --ice-info-content: 255,255,255;
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
@@ -2276,6 +2828,18 @@ exports[`build > build base with custom types 1`] = `
     --neutral-hover: 115,115,115;
     --neutral-active: 64,64,64;
     --neutral-content: 255,255,255;
+    --secondary: 235,47,150;
+    --secondary-hover: 247,89,171;
+    --secondary-active: 196,29,127;
+    --secondary-content: 255,255,255;
+    --accent: 19,194,194;
+    --accent-hover: 54,207,201;
+    --accent-active: 8,151,156;
+    --accent-content: 255,255,255;
+    --info: 47,84,235;
+    --info-hover: 89,126,247;
+    --info-active: 29,57,196;
+    --info-content: 255,255,255;
     --base-100: 255,255,255;
     --base-200: 242,242,242;
     --base-300: 229,230,230;
@@ -2324,6 +2888,18 @@ exports[`build > build base with custom types 1`] = `
     --neutral-hover: 73,73,73;
     --neutral-active: 106,106,106;
     --neutral-content: 255,255,255;
+    --secondary: 203,43,131;
+    --secondary-hover: 160,38,105;
+    --secondary-active: 224,82,156;
+    --secondary-content: 255,255,255;
+    --accent: 19,168,168;
+    --accent-hover: 19,133,133;
+    --accent-active: 51,188,183;
+    --accent-content: 255,255,255;
+    --info: 43,74,203;
+    --info-hover: 38,62,160;
+    --info-active: 82,115,224;
+    --info-content: 255,255,255;
     --base-100: 29,35,42;
     --base-200: 25,30,36;
     --base-300: 21,25,30;

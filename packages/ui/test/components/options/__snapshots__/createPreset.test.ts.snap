@@ -83,6 +83,21 @@ exports[`createPreset options > alert case 0 1`] = `
             @apply text-neutral-content border-neutral/20 bg-neutral;
           }
           
+
+          &-secondary{
+            @apply text-secondary-content border-secondary/20 bg-secondary;
+          }
+          
+
+          &-accent{
+            @apply text-accent-content border-accent/20 bg-accent;
+          }
+          
+
+          &-info{
+            @apply text-info-content border-info/20 bg-info;
+          }
+          
       }
       ",
     ],

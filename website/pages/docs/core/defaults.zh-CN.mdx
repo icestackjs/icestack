@@ -4,7 +4,7 @@
 
 ## 全局颜色种类
 
-全局默认的颜色类型，主要有五种分别为 `primary`,`success`,`warning`,`error`,`neutral`
+全局默认的颜色类型，主要有8种。分别为 `primary`,`secondary`,`accent`,`info`,`success`,`warning`,`error`,`neutral` 就像 `daisyui` 一样
 
 于是各个组件的 `css` 产物中就生成出了这样的类:
 
@@ -23,9 +23,15 @@
 
 ```js
 // btn
-'btn-xs', 'btn-sm', 'btn-md', 'btn-lg',
-// badge
-'badge-xs', 'badge-sm', 'badge-md', 'badge-lg'
+'btn-xs',
+  'btn-sm',
+  'btn-md',
+  'btn-lg',
+  // badge
+  'badge-xs',
+  'badge-sm',
+  'badge-md',
+  'badge-lg'
 ```
 
 这类的css产物，组件大小是每个组件特有的，可以使用 `CSS Schema` 的方式自由修改扩展

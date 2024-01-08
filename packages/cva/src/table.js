@@ -8,7 +8,10 @@ module.exports = {
       "alert-success",
       "alert-warning",
       "alert-error",
-      "alert-neutral"
+      "alert-neutral",
+      "alert-secondary",
+      "alert-accent",
+      "alert-info"
     ],
     "utils": []
   },
@@ -32,6 +35,9 @@ module.exports = {
       "badge-warning",
       "badge-error",
       "badge-neutral",
+      "badge-secondary",
+      "badge-accent",
+      "badge-info",
       "badge-ghost",
       "badge-outline"
     ],
@@ -58,6 +64,9 @@ module.exports = {
       "btn-warning",
       "btn-error",
       "btn-neutral",
+      "btn-secondary",
+      "btn-accent",
+      "btn-info",
       "glass",
       "btn-ghost",
       "btn-link",
@@ -89,7 +98,10 @@ module.exports = {
       "chat-bubble-success",
       "chat-bubble-warning",
       "chat-bubble-error",
-      "chat-bubble-neutral"
+      "chat-bubble-neutral",
+      "chat-bubble-secondary",
+      "chat-bubble-accent",
+      "chat-bubble-info"
     ],
     "utils": []
   },
@@ -103,6 +115,9 @@ module.exports = {
       "checkbox-warning",
       "checkbox-error",
       "checkbox-neutral",
+      "checkbox-secondary",
+      "checkbox-accent",
+      "checkbox-info",
       "checkbox-mark"
     ],
     "utils": [
@@ -124,6 +139,9 @@ module.exports = {
       "input-warning",
       "input-error",
       "input-neutral",
+      "input-secondary",
+      "input-accent",
+      "input-info",
       "input-disabled"
     ],
     "utils": [
@@ -143,7 +161,10 @@ module.exports = {
       "link-success",
       "link-warning",
       "link-error",
-      "link-neutral"
+      "link-neutral",
+      "link-secondary",
+      "link-accent",
+      "link-info"
     ],
     "utils": []
   },
@@ -156,7 +177,10 @@ module.exports = {
       "progress-success",
       "progress-warning",
       "progress-error",
-      "progress-neutral"
+      "progress-neutral",
+      "progress-secondary",
+      "progress-accent",
+      "progress-info"
     ],
     "utils": []
   },
@@ -170,6 +194,9 @@ module.exports = {
       "radio-warning",
       "radio-error",
       "radio-neutral",
+      "radio-secondary",
+      "radio-accent",
+      "radio-info",
       "radio-mark"
     ],
     "utils": [
@@ -188,7 +215,10 @@ module.exports = {
       "range-success",
       "range-warning",
       "range-error",
-      "range-neutral"
+      "range-neutral",
+      "range-secondary",
+      "range-accent",
+      "range-info"
     ],
     "utils": [
       "range-xs",
@@ -209,6 +239,9 @@ module.exports = {
       "select-warning",
       "select-error",
       "select-neutral",
+      "select-secondary",
+      "select-accent",
+      "select-info",
       "select-disabled",
       "select-multiple"
     ],
@@ -231,6 +264,9 @@ module.exports = {
       "textarea-warning",
       "textarea-error",
       "textarea-neutral",
+      "textarea-secondary",
+      "textarea-accent",
+      "textarea-info",
       "textarea-disabled"
     ],
     "utils": [
@@ -250,6 +286,9 @@ module.exports = {
       "toggle-warning",
       "toggle-error",
       "toggle-neutral",
+      "toggle-secondary",
+      "toggle-accent",
+      "toggle-info",
       "toggle-mark"
     ],
     "utils": [
@@ -403,7 +442,10 @@ module.exports = {
       "tooltip-success",
       "tooltip-warning",
       "tooltip-error",
-      "tooltip-neutral"
+      "tooltip-neutral",
+      "tooltip-secondary",
+      "tooltip-accent",
+      "tooltip-info"
     ],
     "utils": []
   },
@@ -432,7 +474,10 @@ module.exports = {
       "step-success",
       "step-warning",
       "step-error",
-      "step-neutral"
+      "step-neutral",
+      "step-secondary",
+      "step-accent",
+      "step-info"
     ],
     "utils": [
       "steps-horizontal",
@@ -494,7 +539,10 @@ module.exports = {
       "divider-success",
       "divider-warning",
       "divider-error",
-      "divider-neutral"
+      "divider-neutral",
+      "divider-secondary",
+      "divider-accent",
+      "divider-info"
     ],
     "utils": [
       "divider-horizontal",
@@ -697,6 +745,9 @@ module.exports = {
       "file-input-warning",
       "file-input-error",
       "file-input-neutral",
+      "file-input-secondary",
+      "file-input-accent",
+      "file-input-info",
       "file-input-disabled"
     ],
     "utils": [

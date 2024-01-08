@@ -36,6 +36,18 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^alert-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^alert-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^alert-info\\$/,
+      [Function],
+    ],
+    [
       /\\^avatar\\$/,
       [Function],
     ],
@@ -69,6 +81,18 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^badge-neutral\\$/,
+      [Function],
+    ],
+    [
+      /\\^badge-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^badge-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^badge-info\\$/,
       [Function],
     ],
     [
@@ -141,6 +165,18 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^btn-neutral\\$/,
+      [Function],
+    ],
+    [
+      /\\^btn-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^btn-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^btn-info\\$/,
       [Function],
     ],
     [
@@ -232,6 +268,18 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^chat-bubble-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^chat-bubble-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^chat-bubble-info\\$/,
+      [Function],
+    ],
+    [
       /\\^checkbox\\$/,
       [Function],
     ],
@@ -253,6 +301,18 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^checkbox-neutral\\$/,
+      [Function],
+    ],
+    [
+      /\\^checkbox-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^checkbox-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^checkbox-info\\$/,
       [Function],
     ],
     [
@@ -308,6 +368,18 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^input-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^input-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^input-info\\$/,
+      [Function],
+    ],
+    [
       /\\^input-disabled\\$/,
       [Function],
     ],
@@ -356,6 +428,18 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^link-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^link-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^link-info\\$/,
+      [Function],
+    ],
+    [
       /\\^progress\\$/,
       [Function],
     ],
@@ -380,6 +464,18 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^progress-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^progress-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^progress-info\\$/,
+      [Function],
+    ],
+    [
       /\\^radio\\$/,
       [Function],
     ],
@@ -401,6 +497,18 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^radio-neutral\\$/,
+      [Function],
+    ],
+    [
+      /\\^radio-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^radio-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^radio-info\\$/,
       [Function],
     ],
     [
@@ -445,6 +553,18 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^range-neutral\\$/,
+      [Function],
+    ],
+    [
+      /\\^range-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^range-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^range-info\\$/,
       [Function],
     ],
     [
@@ -493,6 +613,18 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^select-neutral\\$/,
+      [Function],
+    ],
+    [
+      /\\^select-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^select-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^select-info\\$/,
       [Function],
     ],
     [
@@ -552,6 +684,18 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^textarea-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^textarea-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^textarea-info\\$/,
+      [Function],
+    ],
+    [
       /\\^textarea-disabled\\$/,
       [Function],
     ],
@@ -593,6 +737,18 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^toggle-neutral\\$/,
+      [Function],
+    ],
+    [
+      /\\^toggle-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^toggle-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^toggle-info\\$/,
       [Function],
     ],
     [
@@ -936,6 +1092,18 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^tooltip-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^tooltip-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^tooltip-info\\$/,
+      [Function],
+    ],
+    [
       /\\^toast\\$/,
       [Function],
     ],
@@ -989,6 +1157,18 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^step-neutral\\$/,
+      [Function],
+    ],
+    [
+      /\\^step-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^step-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^step-info\\$/,
       [Function],
     ],
     [
@@ -1109,6 +1289,18 @@ exports[`index > loadPresetOptions default 1`] = `
     ],
     [
       /\\^divider-neutral\\$/,
+      [Function],
+    ],
+    [
+      /\\^divider-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^divider-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^divider-info\\$/,
       [Function],
     ],
     [
@@ -1496,6 +1688,18 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
+      /\\^file-input-secondary\\$/,
+      [Function],
+    ],
+    [
+      /\\^file-input-accent\\$/,
+      [Function],
+    ],
+    [
+      /\\^file-input-info\\$/,
+      [Function],
+    ],
+    [
       /\\^file-input-disabled\\$/,
       [Function],
     ],
@@ -1630,6 +1834,10 @@ exports[`index > loadPresetOptions default 1`] = `
   ],
   "theme": {
     "colors": {
+      "accent": "rgba(var(--ice-accent),<alpha-value>)",
+      "accent-active": "rgba(var(--ice-accent-active),<alpha-value>)",
+      "accent-content": "rgba(var(--ice-accent-content),<alpha-value>)",
+      "accent-hover": "rgba(var(--ice-accent-hover),<alpha-value>)",
       "ant-neutral-100": "rgba(var(--ice-ant-neutral-100),<alpha-value>)",
       "ant-neutral-1000": "rgba(var(--ice-ant-neutral-1000),<alpha-value>)",
       "ant-neutral-1100": "rgba(var(--ice-ant-neutral-1100),<alpha-value>)",
@@ -1652,6 +1860,10 @@ exports[`index > loadPresetOptions default 1`] = `
       "error-active": "rgba(var(--ice-error-active),<alpha-value>)",
       "error-content": "rgba(var(--ice-error-content),<alpha-value>)",
       "error-hover": "rgba(var(--ice-error-hover),<alpha-value>)",
+      "info": "rgba(var(--ice-info),<alpha-value>)",
+      "info-active": "rgba(var(--ice-info-active),<alpha-value>)",
+      "info-content": "rgba(var(--ice-info-content),<alpha-value>)",
+      "info-hover": "rgba(var(--ice-info-hover),<alpha-value>)",
       "neutral": "rgba(var(--ice-neutral),<alpha-value>)",
       "neutral-active": "rgba(var(--ice-neutral-active),<alpha-value>)",
       "neutral-content": "rgba(var(--ice-neutral-content),<alpha-value>)",
@@ -1660,6 +1872,10 @@ exports[`index > loadPresetOptions default 1`] = `
       "primary-active": "rgba(var(--ice-primary-active),<alpha-value>)",
       "primary-content": "rgba(var(--ice-primary-content),<alpha-value>)",
       "primary-hover": "rgba(var(--ice-primary-hover),<alpha-value>)",
+      "secondary": "rgba(var(--ice-secondary),<alpha-value>)",
+      "secondary-active": "rgba(var(--ice-secondary-active),<alpha-value>)",
+      "secondary-content": "rgba(var(--ice-secondary-content),<alpha-value>)",
+      "secondary-hover": "rgba(var(--ice-secondary-hover),<alpha-value>)",
       "success": "rgba(var(--ice-success),<alpha-value>)",
       "success-active": "rgba(var(--ice-success-active),<alpha-value>)",
       "success-content": "rgba(var(--ice-success-content),<alpha-value>)",

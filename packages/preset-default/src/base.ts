@@ -48,7 +48,11 @@ export const base: Partial<BaseOptions> = {
         success: generateColors('success', presetPrimaryColors.green),
         warning: generateColors('warning', presetPrimaryColors.gold),
         error: generateColors('error', presetPrimaryColors.red),
-        neutral: generateColors('neutral', presetPrimaryColors.grey)
+        neutral: generateColors('neutral', presetPrimaryColors.grey),
+        // add secondary accent info like daisyui
+        secondary: generateColors('secondary', presetPrimaryColors.magenta),
+        accent: generateColors('accent', presetPrimaryColors.cyan),
+        info: generateColors('info', presetPrimaryColors.geekblue)
         // default: generateColors('default', presetPrimaryColors.grey)
       }
     },
@@ -61,7 +65,12 @@ export const base: Partial<BaseOptions> = {
         success: generateColors('success', presetPrimaryColors.green, true),
         warning: generateColors('warning', presetPrimaryColors.gold, true),
         error: generateColors('error', presetPrimaryColors.red, true),
-        neutral: generateColors('neutral', presetPrimaryColors.grey, true)
+        neutral: generateColors('neutral', presetPrimaryColors.grey, true),
+        // add secondary accent info like daisyui
+        secondary: generateColors('secondary', presetPrimaryColors.magenta, true),
+        accent: generateColors('accent', presetPrimaryColors.cyan, true),
+        info: generateColors('info', presetPrimaryColors.geekblue, true)
+
         // default: generateColors('default', presetPrimaryColors.grey, true)
       }
     }

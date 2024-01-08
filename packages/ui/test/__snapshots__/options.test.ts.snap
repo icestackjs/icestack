@@ -40,11 +40,23 @@ exports[`options > getCodegenOptions snap 1`] = `
         },
         "selector": "[data-mode="dark"]",
         "types": {
+          "accent": {
+            "accent": "#13a8a8",
+            "accent-active": "#33bcb7",
+            "accent-content": "#ffffff",
+            "accent-hover": "#138585",
+          },
           "error": {
             "error": "#d32029",
             "error-active": "#e84749",
             "error-content": "#ffffff",
             "error-hover": "#a61d24",
+          },
+          "info": {
+            "info": "#2b4acb",
+            "info-active": "#5273e0",
+            "info-content": "#ffffff",
+            "info-hover": "#263ea0",
           },
           "neutral": {
             "neutral": "#5a5a5a",
@@ -57,6 +69,12 @@ exports[`options > getCodegenOptions snap 1`] = `
             "primary-active": "#3c89e8",
             "primary-content": "#ffffff",
             "primary-hover": "#1554ad",
+          },
+          "secondary": {
+            "secondary": "#cb2b83",
+            "secondary-active": "#e0529c",
+            "secondary-content": "#ffffff",
+            "secondary-hover": "#a02669",
           },
           "success": {
             "success": "#49aa19",
@@ -105,11 +123,23 @@ exports[`options > getCodegenOptions snap 1`] = `
         },
         "selector": ":root",
         "types": {
+          "accent": {
+            "accent": "#13c2c2",
+            "accent-active": "#08979c",
+            "accent-content": "#ffffff",
+            "accent-hover": "#36cfc9",
+          },
           "error": {
             "error": "#f5222d",
             "error-active": "#cf1322",
             "error-content": "#ffffff",
             "error-hover": "#ff4d4f",
+          },
+          "info": {
+            "info": "#2f54eb",
+            "info-active": "#1d39c4",
+            "info-content": "#ffffff",
+            "info-hover": "#597ef7",
           },
           "neutral": {
             "neutral": "#666666",
@@ -122,6 +152,12 @@ exports[`options > getCodegenOptions snap 1`] = `
             "primary-active": "#0958d9",
             "primary-content": "#ffffff",
             "primary-hover": "#4096ff",
+          },
+          "secondary": {
+            "secondary": "#eb2f96",
+            "secondary-active": "#c41d7f",
+            "secondary-content": "#ffffff",
+            "secondary-hover": "#f759ab",
           },
           "success": {
             "success": "#52c41a",
@@ -430,11 +466,23 @@ exports[`options > getCodegenOptions snap merge case 0 1`] = `
         },
         "selector": "[data-mode="dark"]",
         "types": {
+          "accent": {
+            "accent": "#13a8a8",
+            "accent-active": "#33bcb7",
+            "accent-content": "#ffffff",
+            "accent-hover": "#138585",
+          },
           "error": {
             "error": "#d32029",
             "error-active": "#e84749",
             "error-content": "#ffffff",
             "error-hover": "#a61d24",
+          },
+          "info": {
+            "info": "#2b4acb",
+            "info-active": "#5273e0",
+            "info-content": "#ffffff",
+            "info-hover": "#263ea0",
           },
           "neutral": {
             "neutral": "#5a5a5a",
@@ -447,6 +495,12 @@ exports[`options > getCodegenOptions snap merge case 0 1`] = `
             "primary-active": "#3c89e8",
             "primary-content": "#ffffff",
             "primary-hover": "#1554ad",
+          },
+          "secondary": {
+            "secondary": "#cb2b83",
+            "secondary-active": "#e0529c",
+            "secondary-content": "#ffffff",
+            "secondary-hover": "#a02669",
           },
           "success": {
             "success": "#49aa19",
@@ -495,11 +549,23 @@ exports[`options > getCodegenOptions snap merge case 0 1`] = `
         },
         "selector": ":root",
         "types": {
+          "accent": {
+            "accent": "#13c2c2",
+            "accent-active": "#08979c",
+            "accent-content": "#ffffff",
+            "accent-hover": "#36cfc9",
+          },
           "error": {
             "error": "#f5222d",
             "error-active": "#cf1322",
             "error-content": "#ffffff",
             "error-hover": "#ff4d4f",
+          },
+          "info": {
+            "info": "#2f54eb",
+            "info-active": "#1d39c4",
+            "info-content": "#ffffff",
+            "info-hover": "#597ef7",
           },
           "neutral": {
             "neutral": "#666666",
@@ -512,6 +578,12 @@ exports[`options > getCodegenOptions snap merge case 0 1`] = `
             "primary-active": "#0958d9",
             "primary-content": "#ffffff",
             "primary-hover": "#4096ff",
+          },
+          "secondary": {
+            "secondary": "#eb2f96",
+            "secondary-active": "#c41d7f",
+            "secondary-content": "#ffffff",
+            "secondary-hover": "#f759ab",
           },
           "success": {
             "success": "#52c41a",
@@ -601,11 +673,23 @@ exports[`options > getCodegenOptions snap merge case 1 1`] = `
         },
         "selector": "[data-mode="dark"]",
         "types": {
+          "accent": {
+            "accent": "#13a8a8",
+            "accent-active": "#33bcb7",
+            "accent-content": "#ffffff",
+            "accent-hover": "#138585",
+          },
           "error": {
             "error": "#d32029",
             "error-active": "#e84749",
             "error-content": "#ffffff",
             "error-hover": "#a61d24",
+          },
+          "info": {
+            "info": "#2b4acb",
+            "info-active": "#5273e0",
+            "info-content": "#ffffff",
+            "info-hover": "#263ea0",
           },
           "neutral": {
             "neutral": "#5a5a5a",
@@ -618,6 +702,12 @@ exports[`options > getCodegenOptions snap merge case 1 1`] = `
             "primary-active": "#3c89e8",
             "primary-content": "#ffffff",
             "primary-hover": "#1554ad",
+          },
+          "secondary": {
+            "secondary": "#cb2b83",
+            "secondary-active": "#e0529c",
+            "secondary-content": "#ffffff",
+            "secondary-hover": "#a02669",
           },
           "success": {
             "success": "#49aa19",
@@ -666,11 +756,23 @@ exports[`options > getCodegenOptions snap merge case 1 1`] = `
         },
         "selector": ":root",
         "types": {
+          "accent": {
+            "accent": "#13c2c2",
+            "accent-active": "#08979c",
+            "accent-content": "#ffffff",
+            "accent-hover": "#36cfc9",
+          },
           "error": {
             "error": "#f5222d",
             "error-active": "#cf1322",
             "error-content": "#ffffff",
             "error-hover": "#ff4d4f",
+          },
+          "info": {
+            "info": "#2f54eb",
+            "info-active": "#1d39c4",
+            "info-content": "#ffffff",
+            "info-hover": "#597ef7",
           },
           "neutral": {
             "neutral": "#666666",
@@ -683,6 +785,12 @@ exports[`options > getCodegenOptions snap merge case 1 1`] = `
             "primary-active": "#0958d9",
             "primary-content": "#ffffff",
             "primary-hover": "#4096ff",
+          },
+          "secondary": {
+            "secondary": "#eb2f96",
+            "secondary-active": "#c41d7f",
+            "secondary-content": "#ffffff",
+            "secondary-hover": "#f759ab",
           },
           "success": {
             "success": "#52c41a",
@@ -772,11 +880,23 @@ exports[`options > getCodegenOptions snap merge case 3 1`] = `
     },
     "selector": "[data-mode="dark"]",
     "types": {
+      "accent": {
+        "accent": "#13a8a8",
+        "accent-active": "#33bcb7",
+        "accent-content": "#ffffff",
+        "accent-hover": "#138585",
+      },
       "error": {
         "error": "#d32029",
         "error-active": "#e84749",
         "error-content": "#ffffff",
         "error-hover": "#a61d24",
+      },
+      "info": {
+        "info": "#2b4acb",
+        "info-active": "#5273e0",
+        "info-content": "#ffffff",
+        "info-hover": "#263ea0",
       },
       "neutral": {
         "neutral": "#5a5a5a",
@@ -789,6 +909,12 @@ exports[`options > getCodegenOptions snap merge case 3 1`] = `
         "primary-active": "#3c89e8",
         "primary-content": "#ffffff",
         "primary-hover": "#1554ad",
+      },
+      "secondary": {
+        "secondary": "#cb2b83",
+        "secondary-active": "#e0529c",
+        "secondary-content": "#ffffff",
+        "secondary-hover": "#a02669",
       },
       "success": {
         "success": "#49aa19",
@@ -837,11 +963,23 @@ exports[`options > getCodegenOptions snap merge case 3 1`] = `
     },
     "selector": ":root",
     "types": {
+      "accent": {
+        "accent": "#13c2c2",
+        "accent-active": "#08979c",
+        "accent-content": "#ffffff",
+        "accent-hover": "#36cfc9",
+      },
       "error": {
         "error": "#f5222d",
         "error-active": "#cf1322",
         "error-content": "#ffffff",
         "error-hover": "#ff4d4f",
+      },
+      "info": {
+        "info": "#2f54eb",
+        "info-active": "#1d39c4",
+        "info-content": "#ffffff",
+        "info-hover": "#597ef7",
       },
       "neutral": {
         "neutral": "#666666",
@@ -854,6 +992,12 @@ exports[`options > getCodegenOptions snap merge case 3 1`] = `
         "primary-active": "#0958d9",
         "primary-content": "#ffffff",
         "primary-hover": "#4096ff",
+      },
+      "secondary": {
+        "secondary": "#eb2f96",
+        "secondary-active": "#c41d7f",
+        "secondary-content": "#ffffff",
+        "secondary-hover": "#f759ab",
       },
       "success": {
         "success": "#52c41a",

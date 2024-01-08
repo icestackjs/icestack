@@ -24,7 +24,7 @@ import kbd from './kbd'
 import toast from './toast'
 import tooltip from './tooltip'
 import { UserDefinedOptions } from '@/types'
-import { getOptions } from '@/options'
+import { getOptions } from '@icestack/config'
 
 export function createCvaWithAddition(opts: UserDefinedOptions = {}) {
   const options = getOptions(opts)

@@ -1,10 +1,10 @@
 import { sharedExtraColors, sharedExtraVars } from '@icestack/preset-default/base'
-import { makeRgbaValue, composeVarsObject } from './colors'
+import { makeRgbaValue, composeVarsObject } from '@icestack/theme-algorithm'
 import { CodegenOptions, CssInJs, VarPrefixerOptions } from '@/types'
 import { mergeRClone, makeArray } from '@/shared'
 import { merge, parse, parseJs } from '@/postcss'
 
-export const calcBase = (options: CodegenOptions, { slash }: { slash: boolean } = { slash: true }) => {
+export const calcBase = (options: Partial<CodegenOptions>, { slash }: { slash: boolean } = { slash: true }) => {
   const { base, postcss } = options
   const { varPrefix: varPrefixOptions } = postcss!
   const { varPrefix } = varPrefixOptions as Partial<VarPrefixerOptions>

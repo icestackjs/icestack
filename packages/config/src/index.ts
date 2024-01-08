@@ -65,9 +65,7 @@ export function getCodegenOptions(options?: CodegenOptions) {
     return preHandleOptions(x as Partial<CodegenOptions>)
   })
   // @ts-ignore
-  const opts = defuOptions(...arr)
-
-  return opts
+  return defuOptions(...arr) as CodegenOptions
 }
 
 export async function load(options?: LoadConfigOptions<CodegenOptions>) {

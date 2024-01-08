@@ -1,6 +1,6 @@
 import path from 'node:path'
 import ci from 'ci-info'
-import { load } from '@/options'
+import { load } from '@icestack/config'
 describe.skipIf(ci.isCI)('load config', () => {
   it('load ts config', async () => {
     const config = await load({

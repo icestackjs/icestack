@@ -2,7 +2,7 @@ import path from 'node:path'
 import fg from 'fast-glob'
 import { scssDir } from '@/dirs'
 // import { compileScss } from '@/sass'
-// import { getCodegenOptions } from '@/options'
+// import { getCodegenOptions } from '@icestack/config'
 
 // const baseDir = path.resolve(scssDir, 'components')
 

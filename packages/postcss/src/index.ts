@@ -9,3 +9,5 @@ export * from './scss'
 export * from '@icestack/postcss-utils'
 
 export { Root, AtRule, Rule, Declaration, Comment } from 'postcss'
+
+export type { AcceptedPlugin } from 'postcss'

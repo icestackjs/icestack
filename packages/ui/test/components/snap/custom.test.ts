@@ -1,7 +1,7 @@
 import path from 'node:path'
 import fs from 'node:fs'
 import { createContext } from '@/context'
-import { getCodegenOptions } from '@/options'
+import { getCodegenOptions } from '@icestack/config'
 import { removeDefaultComponents } from '@/components'
 
 describe('cutsom', () => {

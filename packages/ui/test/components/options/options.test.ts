@@ -1,7 +1,7 @@
 // @ts-nocheck
+import { getCodegenOptions } from '@icestack/config'
 import { schemaMap as componentsMap } from '@/components'
 import { createContext } from '@/index'
-import { getCodegenOptions } from '@/options'
 import { preprocessCssInJs } from '@/postcss'
 
 describe.each(

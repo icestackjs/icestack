@@ -1,5 +1,5 @@
 import { createContext } from '@/context'
-import { getCodegenOptions } from '@/options'
+import { getCodegenOptions } from '@icestack/config'
 
 describe('build', () => {
   it('build base', async () => {

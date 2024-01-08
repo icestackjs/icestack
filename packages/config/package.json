@@ -10,8 +10,8 @@
     "sync": "cnpm sync icestack"
   },
   "keywords": [
-    "css",
-    "component",
+    "config",
+    "load",
     "generate",
     "generator",
     "tailwindcss",
@@ -25,6 +25,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
+    },
+    "./defaults": {
+      "types": "./dist/defaults.d.ts",
+      "import": "./dist/defaults.mjs",
+      "require": "./dist/defaults.cjs"
     },
     "./*": "./*"
   },

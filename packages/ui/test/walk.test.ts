@@ -1,7 +1,6 @@
 import path from 'node:path'
 import klawSync from 'klaw-sync'
 import { scssDir } from '@/dirs'
-import { walkScssSync } from '@/utils'
 
 describe.skip('walk', () => {
   it('should ', () => {
@@ -20,15 +19,6 @@ describe.skip('walk', () => {
     expect(result.length > 0).toBe(true)
   })
 
-  it('should 0', () => {
-    const fromDir = path.resolve(scssDir, 'components')
-    const result = []
-    for (const file of walkScssSync(fromDir)) {
-      result.push(file)
-    }
-    expect(result.length > 0).toBe(true)
-  })
-
   it('should 1', () => {
     const fromDir = path.resolve(scssDir, 'base')
     const result = []
@@ -38,15 +28,6 @@ describe.skip('walk', () => {
         return /\.scss$/.test(item.path)
       }
     })) {
-      result.push(file)
-    }
-    expect(result.length > 0).toBe(true)
-  })
-
-  it('should 2', () => {
-    const fromDir = path.resolve(scssDir, 'base')
-    const result = []
-    for (const file of walkScssSync(fromDir)) {
       result.push(file)
     }
     expect(result.length > 0).toBe(true)

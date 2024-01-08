@@ -1,4 +1,4 @@
-import { getCodegenOptions } from '@/options'
+import { getCodegenOptions } from '@icestack/config'
 
 describe('options', () => {
   it('getCodegenOptions snap', () => {

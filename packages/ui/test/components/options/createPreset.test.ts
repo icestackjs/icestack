@@ -1,5 +1,5 @@
 import { createContext } from '@/context'
-import { getCodegenOptions } from '@/options'
+import { getCodegenOptions } from '@icestack/config'
 import { calcBase } from '@/base'
 describe('createPreset options', () => {
   it.skip('case 0', () => {

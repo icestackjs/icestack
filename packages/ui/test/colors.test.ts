@@ -1,6 +1,6 @@
 import { blue, gray, presetDarkPalettes, presetPalettes } from '@ant-design/colors'
-// import { getColors } from '@/base/colors'
-// import { getCodegenOptions } from '@/options'
+
+// import { getCodegenOptions } from '@icestack/config'
 describe('colors', () => {
   // it('snap', () => {
   //   expect(colors).toMatchSnapshot()

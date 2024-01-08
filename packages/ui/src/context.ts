@@ -1,18 +1,17 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { set, get, pick, isError } from 'lodash'
-import { Root, AcceptedPlugin, Rule, AtRule } from 'postcss'
 import kleur from 'kleur'
+import { createDefaultTailwindcssExtends } from '@icestack/config/defaults'
+import { getCodegenOptions } from '@icestack/config'
 import { compileScssString } from '@/sass'
-import { createDefaultTailwindcssExtends } from '@/defaults'
 import { logger } from '@/log'
-import { ensureDirSync } from '@/utils'
 import { generateIndexCode } from '@/generate'
 import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@/types'
 import { defu, JSONStringify } from '@/shared'
-import { getCodegenOptions } from '@/options'
 import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath } from '@/dirs'
 import { stages } from '@/constants'
+
 import {
   merge,
   mapCssStringToAst,
@@ -24,11 +23,23 @@ import {
   process,
   resolvePrefixOption,
   resolveVarPrefixOption,
-  parse
+  parse,
+  Root,
+  AcceptedPlugin,
+  Rule,
+  AtRule
 } from '@/postcss'
 import { handleOptions } from '@/components/utils'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import { calcBase } from '@/base'
+
+export function ensureDirSync(p: string) {
+  if (!fs.existsSync(p)) {
+    fs.mkdirSync(p, {
+      recursive: true
+    })
+  }
+}
 
 export interface BuildOptions {
   base?: boolean

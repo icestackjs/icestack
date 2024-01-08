@@ -3,7 +3,7 @@ import postcss from 'postcss'
 // import baseJsObj from '../../assets/js/base'
 // import countdownJsObj from '../../assets/js/components/styled/countdown'
 // import globalPostcss from '@/postcss/global'
-// import { getCodegenOptions } from '@/options'
+// import { getCodegenOptions } from '@icestack/config'
 describe('postcss-js', () => {
   it('should ', () => {
     const root = postcss.parse(`radio .wx-radio-input.wx-radio-input-checked {

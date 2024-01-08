@@ -9,7 +9,7 @@ import { extractLayerPlugin, markLayerPlugin, atRulesRenamePlugin } from './extr
 import { isExtSassFile, sassCompile, sassCompileSync, sassCompileString } from './sass'
 import { BaseContext } from './base-context'
 import { IProcessOptions } from '@/types'
-import { getOptions } from '@/options'
+import { getOptions } from '@icestack/config'
 
 export function createContext(opts?: IProcessOptions) {
   const ctx = new BaseContext()

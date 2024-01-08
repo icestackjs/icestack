@@ -1,4 +1,4 @@
-const { defu } = require('@icestack/ui')
+const { defu } = require('@icestack/ui/shared')
 
 /**
  * @type {import('@icestack/ui/types').Themes}

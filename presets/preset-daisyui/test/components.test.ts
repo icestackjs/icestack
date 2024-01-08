@@ -1,6 +1,6 @@
 import path from 'node:path'
 import fs from 'node:fs'
-import { createContext, getCodegenOptions } from '@icestack/ui'
+import { createContext } from '@icestack/ui'
 
 import { stages } from '@icestack/shared/constants'
 import preset from '@/index'

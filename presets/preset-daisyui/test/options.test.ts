@@ -1,4 +1,4 @@
-import { getCodegenOptions } from '@icestack/ui'
+import { getCodegenOptions } from '@icestack/config'
 
 import preset from '@/index'
 

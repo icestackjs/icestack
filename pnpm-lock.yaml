@@ -471,9 +471,9 @@ importers:
       postcss-scss:
         specifier: ^4.0.9
         version: 4.0.9(postcss@8.4.33)
-      tailwindcss:
-        specifier: ^3.4.1
-        version: 3.4.1(ts-node@10.9.2)
+      postcss-selector-parser:
+        specifier: ^6.0.15
+        version: 6.0.15
 
   packages/preset-default:
     dependencies:
@@ -759,6 +759,9 @@ importers:
         specifier: ^1.0.0
         version: 1.0.0
     devDependencies:
+      '@icestack/config':
+        specifier: workspace:^
+        version: link:../../packages/config
       '@icestack/ui':
         specifier: workspace:^
         version: link:../../packages/ui

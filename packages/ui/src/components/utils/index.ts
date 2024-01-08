@@ -1,7 +1,6 @@
 import { pick } from 'lodash'
-import { defuArrayRight } from '@/shared'
+import { defuArrayRight, isModeMergeValue, makeArray } from '@/shared'
 import type { ComponentsValue, GetCssSchemaMethodOptions, CreatePresetOptions, CssSchema, ModeMergeOptions, PickCss, CssSchemaDefaults } from '@/types'
-import { isModeMergeValue, makeArray } from '@/utils'
 
 function getPickedProps(pickCss?: PickCss) {
   if (pickCss === undefined) {

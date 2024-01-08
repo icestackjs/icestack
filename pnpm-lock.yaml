@@ -370,6 +370,27 @@ importers:
         specifier: workspace:^
         version: link:../../packages/ui
 
+  packages/config:
+    dependencies:
+      '@icestack/preset-default':
+        specifier: workspace:^
+        version: link:../preset-default
+      '@icestack/shared':
+        specifier: workspace:^
+        version: link:../shared
+      '@icestack/theme-algorithm':
+        specifier: workspace:^
+        version: link:../theme-algorithm
+      '@icestack/types':
+        specifier: workspace:^
+        version: link:../types
+      c12:
+        specifier: ^1.6.1
+        version: 1.6.1
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
+
   packages/cva:
     dependencies:
       class-variance-authority:
@@ -20796,7 +20817,7 @@ packages:
       consola: 3.2.3
       defu: 6.1.4
       mime: 3.0.0
-      node-fetch-native: 1.4.1
+      node-fetch-native: 1.6.1
       pathe: 1.1.1
 
   /unenv@1.9.0:

@@ -45,38 +45,6 @@ export function preHandleOptions(options: Partial<CodegenOptions>): Partial<Code
   return options
 }
 
-export function postHandleOptions(options: Partial<CodegenOptions>): CodegenOptions {
-  // const { base, utilities } = options
-  // if (isObject(base?.themes)) {
-  //   for (const [theme, opts] of Object.entries(base.themes)) {
-  //     if (typeof opts !== 'boolean' && opts?.extraCss) {
-  //       const p = `base.themes.${theme}.extraCss`
-  //       const v = get(options, p)
-  //       if (Array.isArray(v)) {
-  //         set(options, p, mergeRClone(...v))
-  //       }
-  //     }
-  //   }
-  // }
-
-  // if (isObject(base) && base.extraCss) {
-  //   const p = `base.extraCss`
-  //   const v = get(options, p)
-  //   if (Array.isArray(v)) {
-  //     set(options, p, mergeRClone(...v))
-  //   }
-  // }
-  // if (isObject(utilities) && utilities.extraCss && utilities.extraCss) {
-  //   const p = `utilities.extraCss`
-  //   const v = get(options, p)
-  //   if (Array.isArray(v)) {
-  //     set(options, p, mergeRClone(...v))
-  //   }
-  // }
-
-  return options as CodegenOptions
-}
-
 export function getCodegenOptions(options?: CodegenOptions) {
   const { presets } = options ?? {}
   let expandPresets: Preset[] = []
@@ -99,7 +67,7 @@ export function getCodegenOptions(options?: CodegenOptions) {
   // @ts-ignore
   const opts = defuOptions(...arr)
 
-  return postHandleOptions(opts)
+  return opts
 }
 
 export async function load(options?: LoadConfigOptions<CodegenOptions>) {

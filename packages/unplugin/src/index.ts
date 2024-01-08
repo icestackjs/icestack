@@ -6,9 +6,7 @@ export const unplugin = createUnplugin((options: UserOptions) => {
   return {
     name: 'icestack:unplugin',
 
-    transformInclude(id) {
-      return id.endsWith('.vue')
-    },
+    resolveId(id) {},
     transform(code) {}
   }
 })

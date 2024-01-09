@@ -1,7 +1,15 @@
-import { createContext } from '@/context'
 import { getCodegenOptions } from '@icestack/config'
+import { createContext } from '@/context'
 
 describe('build', () => {
+  it('build all', async () => {
+    const ctx = createContext({
+      dryRun: true
+    })
+    const res = await ctx.build()
+    expect(res).toMatchSnapshot()
+  })
+
   it('build base', async () => {
     const ctx = createContext({
       dryRun: true

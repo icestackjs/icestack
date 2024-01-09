@@ -4,12 +4,13 @@ import { set, get, pick, isError } from 'lodash'
 import kleur from 'kleur'
 import { createDefaultTailwindcssExtends } from '@icestack/config/defaults'
 import { getCodegenOptions } from '@icestack/config'
+import { name } from '../package.json'
 import { compileScssString } from '@/sass'
 import { logger } from '@/log'
 import { generateIndexCode } from '@/generate'
 import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@/types'
 import { defu, JSONStringify } from '@/shared'
-import { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath } from '@/dirs'
+import { createResolveDir } from '@/dirs'
 import { stages } from '@/constants'
 
 import {
@@ -33,6 +34,8 @@ import { handleOptions } from '@/components/utils'
 import { utilitiesNames, utilitiesMap } from '@/utilities'
 import { calcBase } from '@/base'
 
+const { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath } = createResolveDir(name)
+
 export function ensureDirSync(p: string) {
   if (!fs.existsSync(p)) {
     fs.mkdirSync(p, {
@@ -46,6 +49,20 @@ export interface BuildOptions {
   utilities?: boolean
   config?: boolean
   components?: boolean
+}
+
+function getPaths(relPath: string, outdir?: string) {
+  const cssPath = getCssPath(relPath, outdir)
+  const jsPath = getJsPath(relPath, outdir)
+  const cssResolvedPath = getCssResolvedPath(relPath, outdir)
+  const scssPath = getScssPath(relPath, outdir)
+
+  return {
+    cssPath,
+    jsPath,
+    cssResolvedPath,
+    scssPath
+  }
 }
 
 export function createContext(opts?: CodegenOptions) {
@@ -70,20 +87,6 @@ export function createContext(opts?: CodegenOptions) {
     if (!dryRun) {
       ensureDirSync(path.dirname(file))
       fs.writeFileSync(file, data, 'utf8')
-    }
-  }
-
-  function getPaths(relPath: string) {
-    const cssPath = getCssPath(relPath, outdir)
-    const jsPath = getJsPath(relPath, outdir)
-    const cssResolvedPath = getCssResolvedPath(relPath, outdir)
-    const scssPath = getScssPath(relPath, outdir)
-
-    return {
-      cssPath,
-      jsPath,
-      cssResolvedPath,
-      scssPath
     }
   }
 
@@ -163,7 +166,7 @@ export function createContext(opts?: CodegenOptions) {
 
   async function internalBuild(opts: { root?: AtRule | Root | Rule; layer: ILayer; suffixes: string[]; relPath: string }) {
     const { layer, suffixes, relPath, root = new Root() } = opts
-    const { cssPath, cssResolvedPath, jsPath, scssPath } = getPaths(relPath)
+    const { cssPath, cssResolvedPath, jsPath, scssPath } = getPaths(relPath, outdir)
     const scss = root.toString()
 
     writeFile(scssPath, scss)
@@ -206,7 +209,7 @@ export function createContext(opts?: CodegenOptions) {
         root: bases[x as keyof typeof bases].root,
         layer,
         suffixes: [x],
-        relPath: `${layer}/${x}.scss`
+        relPath: `${layer}/${x}`
       })
     }
 
@@ -229,7 +232,7 @@ export function createContext(opts?: CodegenOptions) {
           root,
           layer,
           suffixes,
-          relPath: `${layer}/${utilityName}.scss`
+          relPath: `${layer}/${utilityName}`
         })
         refs.push(utilityName)
         set(res, utilityName, result)
@@ -264,7 +267,7 @@ export function createContext(opts?: CodegenOptions) {
             root,
             layer,
             suffixes,
-            relPath: `${layer}/${componentName}/${stage}.scss`
+            relPath: `${layer}/${componentName}/${stage}`
           })
 
           set(res, `${componentName}.${stage}`, result)
@@ -301,7 +304,6 @@ export function createContext(opts?: CodegenOptions) {
     if (!dryRun) {
       const code = 'module.exports = ' + JSONStringify(pick(twConfig, ['theme']))
       const outputDir = path.resolve(resolveJsDir(outdir), 'tailwindcss')
-
       const outputPath = path.resolve(outputDir, 'config.cjs')
       writeFile(outputPath, code)
     }

@@ -4,6 +4,7 @@ packages:
   - "packages/*"
   - "presets/*"
   - "examples/*"
+  - "frameworks/*"
   - "!playground/*"
   - "website"
   - "storybook"

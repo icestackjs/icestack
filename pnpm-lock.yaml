@@ -370,6 +370,21 @@ importers:
         specifier: workspace:^
         version: link:../../packages/ui
 
+  packages/cli:
+    dependencies:
+      '@icestack/config':
+        specifier: workspace:^
+        version: link:../config
+      chokidar:
+        specifier: ^3.5.3
+        version: 3.5.3
+      commander:
+        specifier: ^11.1.0
+        version: 11.1.0
+      dedent:
+        specifier: ^1.5.1
+        version: 1.5.1
+
   packages/config:
     dependencies:
       '@icestack/preset-default':
@@ -387,6 +402,33 @@ importers:
       c12:
         specifier: ^1.6.1
         version: 1.6.1
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
+
+  packages/core:
+    dependencies:
+      '@icestack/config':
+        specifier: workspace:^
+        version: link:../config
+      '@icestack/logger':
+        specifier: workspace:^
+        version: link:../logger
+      '@icestack/postcss':
+        specifier: workspace:^
+        version: link:../postcss
+      '@icestack/scss':
+        specifier: workspace:^
+        version: link:../scss
+      '@icestack/shared':
+        specifier: workspace:^
+        version: link:../shared
+      '@icestack/types':
+        specifier: workspace:^
+        version: link:../types
+      kleur:
+        specifier: ^4.1.5
+        version: 4.1.5
       lodash:
         specifier: ^4.17.21
         version: 4.17.21
@@ -7491,7 +7533,7 @@ packages:
   /@types/cli-progress@3.11.5:
     resolution: {integrity: sha512-D4PbNRbviKyppS5ivBGyFO29POlySLmA2HyUFE4p5QGazAMM3CwkKWcvTl8gvElSuxRh6FPKL8XmidX873ou4g==}
     dependencies:
-      '@types/node': 20.10.5
+      '@types/node': 20.10.6
     dev: false
 
   /@types/connect@3.4.38:
@@ -7798,14 +7840,14 @@ packages:
   /@types/node-fetch@2.6.10:
     resolution: {integrity: sha512-PPpPK6F9ALFTn59Ka3BaL+qGuipRfxNE8qVgkp0bVixeiR2c2/L+IVOiBdu9JhhT22sWnQEp6YyHGI2b2+CMcA==}
     dependencies:
-      '@types/node': 18.19.4
+      '@types/node': 20.10.6
       form-data: 4.0.0
     dev: true
 
   /@types/node-fetch@2.6.9:
     resolution: {integrity: sha512-bQVlnMLFJ2d35DkPNjEPmd9ueO/rh5EiaZt2bhqiSarPjZIuIV6bPQVqcrEyvNo+AfTrRGVazle1tl597w3gfA==}
     dependencies:
-      '@types/node': 18.19.4
+      '@types/node': 20.10.6
       form-data: 4.0.0
     dev: true
 
@@ -7818,12 +7860,6 @@ packages:
     dependencies:
       undici-types: 5.26.5
     dev: true
-
-  /@types/node@20.10.5:
-    resolution: {integrity: sha512-nNPsNE65wjMxEKI93yOP+NPGGBJz/PoN3kZsVLee0XMiJolxSekEVD8wRwBUBqkwc7UWop0edW50yrCQW4CyRw==}
-    dependencies:
-      undici-types: 5.26.5
-    dev: false
 
   /@types/node@20.10.6:
     resolution: {integrity: sha512-Vac8H+NlRNNlAmDfGUP7b5h/KA+AtWIzuXy0E6OyP8f1tCLYAtPvKRRDJjAPqhpCb0t6U2j7/xqAuLEebW2kiw==}

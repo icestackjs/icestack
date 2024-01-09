@@ -24,6 +24,7 @@ const defuArrayRight = createDefu((obj, key, value) => {
     return true
   }
 })
+type defuArrayRight<T> = (...args: T[]) => T
 
 export { defuOverrideArray, defuOptions, defuArrayRight }
 

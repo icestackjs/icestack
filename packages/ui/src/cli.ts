@@ -5,7 +5,7 @@ import { Command } from 'commander'
 import chokidar from 'chokidar'
 import dedent from 'dedent'
 import { load } from '@icestack/config'
-import pkg from '../package.json'
+import { version } from '../package.json'
 import { logger } from '@/log'
 import { createContext } from '@/context'
 // import { JSONStringify } from '@/utils'
@@ -138,5 +138,5 @@ cli
 //     }
 //   })
 
-cli.version(pkg.version)
+cli.version(version)
 cli.parse()

@@ -83,7 +83,7 @@ export type UtilitiesOptions = {
 
 export type CodegenMode = 'preset' | 'none'
 
-export type Preset = Partial<Pick<CodegenOptions, 'base' | 'components' | 'postcss' | 'tailwindcssConfig'>>
+export type Preset = Partial<Pick<CodegenOptions, 'base' | 'components' | 'utilities' | 'postcss' | 'tailwindcssConfig'>>
 
 export type PostcssOptions = {
   /**

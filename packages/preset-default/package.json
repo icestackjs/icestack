@@ -38,6 +38,11 @@
       "import": "./dist/base.mjs",
       "require": "./dist/base.cjs"
     },
+    "./utilities": {
+      "types": "./dist/utilities.d.ts",
+      "import": "./dist/utilities.mjs",
+      "require": "./dist/utilities.cjs"
+    },
     "./*": "./*"
   },
   "main": "./dist/index.cjs",

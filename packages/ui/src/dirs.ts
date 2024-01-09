@@ -13,7 +13,7 @@ export function createResolveDir(base: string) {
     return dir ? path.resolve(dir, 'css') : cssDir
   }
   function resolveScssDir(dir?: string) {
-    return dir ? path.resolve(dir, 'scss') : cssDir
+    return dir ? path.resolve(dir, 'scss') : scssDir
   }
 
   function resolveCssResolvedDir(dir?: string) {
@@ -25,21 +25,21 @@ export function createResolveDir(base: string) {
   }
 
   function getCssPath(relPath: string, dir?: string) {
-    const targetCssDir = resolveCssDir(dir)
-    const cssPath = path.resolve(targetCssDir, relPath)
+    const cssDir = resolveCssDir(dir)
+    const cssPath = path.resolve(cssDir, relPath)
     return cssPath + '.css'
   }
 
   function getScssPath(relPath: string, dir?: string) {
-    const targetCssDir = resolveScssDir(dir)
-    const cssPath = path.resolve(targetCssDir, relPath)
+    const scssDir = resolveScssDir(dir)
+    const cssPath = path.resolve(scssDir, relPath)
     return cssPath + '.scss'
   }
 
   function getCssResolvedPath(relPath: string, dir?: string) {
-    const targetCssDir = resolveCssResolvedDir(dir)
-    const p = path.resolve(targetCssDir, relPath)
-    return p + '.css'
+    const cssDir = resolveCssResolvedDir(dir)
+    const cssPath = path.resolve(cssDir, relPath)
+    return cssPath + '.css'
   }
 
   function getJsPath(relPath: string, dir?: string) {

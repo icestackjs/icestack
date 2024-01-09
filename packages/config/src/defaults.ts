@@ -1,6 +1,7 @@
 import type { Config } from 'tailwindcss'
 import { components as defaultComponents } from '@icestack/preset-default/components'
 import { base as defaultBase } from '@icestack/preset-default/base'
+import { utilities as defaultUtilities } from '@icestack/preset-default/utilities'
 import { defaultVarPrefix } from '@icestack/shared/constants'
 import { generateColors } from '@icestack/theme-algorithm'
 import type { CodegenOptions, BaseOptions, ComponentsOptions, ComponentsValue } from '@icestack/types'
@@ -76,6 +77,7 @@ export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {
 export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOptions, 'outdir'> {
   const base = getDefaultBase(options)
   const components = injectSchema(defaultComponents, options)
+  const utilities = defaultUtilities
   return {
     mode: 'preset',
     pick: {
@@ -87,6 +89,7 @@ export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOption
     dryRun: false,
     base,
     components,
+    utilities,
     postcss: {
       varPrefix: {
         varPrefix: defaultVarPrefix

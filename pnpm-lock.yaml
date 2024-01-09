@@ -408,6 +408,12 @@ importers:
 
   packages/core:
     dependencies:
+      '@babel/generator':
+        specifier: ^7.23.6
+        version: 7.23.6
+      '@babel/types':
+        specifier: ^7.23.6
+        version: 7.23.6
       '@icestack/config':
         specifier: workspace:^
         version: link:../config
@@ -417,12 +423,18 @@ importers:
       '@icestack/postcss':
         specifier: workspace:^
         version: link:../postcss
+      '@icestack/preset-default':
+        specifier: workspace:^
+        version: link:../preset-default
       '@icestack/scss':
         specifier: workspace:^
         version: link:../scss
       '@icestack/shared':
         specifier: workspace:^
         version: link:../shared
+      '@icestack/theme-algorithm':
+        specifier: workspace:^
+        version: link:../theme-algorithm
       '@icestack/types':
         specifier: workspace:^
         version: link:../types

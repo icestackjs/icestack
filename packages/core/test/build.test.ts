@@ -1,4 +1,4 @@
-import { createContext } from '@/context'
+import { createContext } from '@/index'
 
 describe('build', () => {
   it('build all', async () => {

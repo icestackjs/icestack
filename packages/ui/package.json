@@ -84,6 +84,7 @@
   "dependencies": {
     "@babel/generator": "^7.23.6",
     "@babel/types": "^7.23.6",
+    "@icestack/core": "workspace:^",
     "@icestack/config": "workspace:^",
     "@icestack/logger": "workspace:^",
     "@icestack/postcss": "workspace:^",

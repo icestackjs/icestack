@@ -1,6 +1,6 @@
-import { defineConfig } from '@icestack/ui'
+// import { defineConfig } from '@icestack/ui'
 
-export default defineConfig({
+export default {
   log: false,
   base: {
     themes: {
@@ -12,4 +12,4 @@ export default defineConfig({
       }
     }
   }
-})
+} // defineConfig()

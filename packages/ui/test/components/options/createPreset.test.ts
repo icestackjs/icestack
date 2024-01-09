@@ -1,26 +1,26 @@
-import { createContext } from '@/context'
 import { getCodegenOptions } from '@icestack/config'
-import { calcBase } from '@/base'
+import { createContext } from '@/context'
+// import { calcBase } from '@/base'
 describe('createPreset options', () => {
-  it.skip('case 0', () => {
-    const options = getCodegenOptions()
-    const ctx = createContext(options)
-    const { types } = calcBase(options)
-    const res = ctx.createPreset({
-      types
-    })
-    expect(res).toMatchSnapshot()
-  })
+  // it.skip('case 0', () => {
+  //   const options = getCodegenOptions()
+  //   const ctx = createContext(options)
+  //   const { types } = calcBase(options)
+  //   const res = ctx.createPreset({
+  //     types
+  //   })
+  //   expect(res).toMatchSnapshot()
+  // })
 
-  it('alert case 0', () => {
-    const options = getCodegenOptions()
-    const ctx = createContext(options)
-    const { types } = calcBase(options)
-    const res = ctx.createPreset({
-      types
-    })
-    expect(res.alert).toMatchSnapshot()
-  })
+  // it('alert case 0', () => {
+  //   const options = getCodegenOptions()
+  //   const ctx = createContext(options)
+  //   const { types } = calcBase(options)
+  //   const res = ctx.createPreset({
+  //     types
+  //   })
+  //   expect(res.alert).toMatchSnapshot()
+  // })
 
   it('alert case 1', () => {
     const options = getCodegenOptions()

@@ -623,6 +623,9 @@ importers:
       '@icestack/config':
         specifier: workspace:^
         version: link:../config
+      '@icestack/core':
+        specifier: workspace:^
+        version: link:../core
       '@icestack/logger':
         specifier: workspace:^
         version: link:../logger

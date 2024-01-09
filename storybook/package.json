@@ -18,7 +18,7 @@
   "license": "ISC",
   "devDependencies": {
     "@a110/storybook-expand-all": "^1.1.1",
-    "@egoist/tailwindcss-icons": "^1.7.1",
+    "@egoist/tailwindcss-icons": "^1.7.2",
     "@icestack/tailwindcss": "workspace:^",
     "@iconify-json/mdi": "^1.1.64",
     "@storybook/addon-a11y": "^7.6.7",

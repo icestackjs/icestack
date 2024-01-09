@@ -82,8 +82,6 @@
     "watch": "node scripts/watch.js"
   },
   "dependencies": {
-    "@babel/generator": "^7.23.6",
-    "@babel/types": "^7.23.6",
     "@icestack/core": "workspace:^",
     "@icestack/config": "workspace:^",
     "@icestack/logger": "workspace:^",
@@ -93,12 +91,7 @@
     "@icestack/shared": "workspace:^",
     "@icestack/theme-algorithm": "workspace:^",
     "@icestack/types": "workspace:^",
-    "chokidar": "^3.5.3",
-    "commander": "^11.1.0",
-    "dedent": "^1.5.1",
-    "del": "^7.1.0",
-    "kleur": "^4.1.5",
-    "lodash": "^4.17.21"
+    "@icestack/cli": "workspace:^"
   },
   "devDependencies": {
     "@types/lodash": "^4.14.202"

@@ -11,7 +11,7 @@
     "build:ui": "icestack build"
   },
   "devDependencies": {
-    "@egoist/tailwindcss-icons": "^1.7.1",
+    "@egoist/tailwindcss-icons": "^1.7.2",
     "@icestack/cva": "workspace:^",
     "@icestack/tailwindcss": "workspace:^",
     "@icestack/ui": "workspace:^",
@@ -21,7 +21,7 @@
     "@nuxt/devtools": "latest",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/color-mode": "^3.3.2",
-    "@nuxtjs/tailwindcss": "^6.10.3",
+    "@nuxtjs/tailwindcss": "^6.10.4",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.56.0",
     "eslint-config-prettier": "^9.1.0",
@@ -34,7 +34,7 @@
     "prettier-plugin-tailwindcss": "^0.5.11",
     "sass": "^1.69.7",
     "tailwindcss": "^3.4.1",
-    "vue": "^3.4.5",
+    "vue": "^3.4.6",
     "vue-router": "^4.2.5"
   },
   "dependencies": {

@@ -1,7 +1,7 @@
 {
   "name": "@icestack/shared",
   "description": "Shared utils and constants of @icestack/ui",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

@@ -4,7 +4,7 @@ import path from 'node:path'
 import { Command } from 'commander'
 import chokidar from 'chokidar'
 import dedent from 'dedent'
-import { load } from '@icestack/config'
+import { loadSync } from '@icestack/config'
 import { version } from '../package.json'
 import { logger } from '@/log'
 import { createContext } from '@/context'
@@ -18,7 +18,7 @@ async function letUsBuild(options: { clean?: boolean; configFile?: string } = {}
   if (configFile) {
     logger.success(`load config from ${configFile}`)
   }
-  const config = await load({
+  const { config } = await loadSync({
     configFile
   })
   if (config) {
@@ -39,7 +39,7 @@ async function letUsBuild(options: { clean?: boolean; configFile?: string } = {}
 }
 const defaultOutdir = 'my-ui'
 
-function createJsConfig(outdir: string, format: 'cjs' | 'esm' | 'ts' = 'cjs') {
+function createJsConfig(outdir: string, format: 'cjs' | 'ts' = 'cjs') {
   const p = './' + outdir
   if (format === 'ts') {
     return {
@@ -50,10 +50,10 @@ function createJsConfig(outdir: string, format: 'cjs' | 'esm' | 'ts' = 'cjs') {
     }
   }
   return {
-    filename: 'icestack.config.' + (format === 'esm' ? 'mjs' : 'cjs'),
+    filename: 'icestack.config.cjs',
     data: dedent`/**\n * @type {import('@icestack/ui').Config}\n */\nconst config = {
       outdir: '${p}'
-    }\n\n${format === 'esm' ? 'export default config' : 'module.exports = config'}\n`
+    }\n\n${'module.exports = config'}\n`
   }
 }
 

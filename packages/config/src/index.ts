@@ -1,8 +1,13 @@
-import { loadConfig, LoadConfigOptions } from 'c12'
+import { cosmiconfigSync } from 'cosmiconfig'
+import type { CosmiconfigResult } from 'cosmiconfig'
 import { flattenDeep, set, isObject } from 'lodash'
+import type { CodegenOptions, Preset } from '@icestack/types'
+import { defuOptions, makeArray } from '@icestack/shared'
 import { getCodegenDefaults } from './defaults'
-import type { CodegenOptions, Preset } from '@/types'
-import { defuOptions, makeArray } from '@/shared'
+
+export function defineConfig(options?: CodegenOptions) {
+  return options
+}
 
 export function preHandleOptions(options: Partial<CodegenOptions>): Partial<CodegenOptions> {
   const { base, utilities, components } = options
@@ -27,18 +32,11 @@ export function preHandleOptions(options: Partial<CodegenOptions>): Partial<Code
       if (opts) {
         // make array for merge and array concat
         const { extend } = opts
-        // if (override && !Array.isArray(override)) {
-        //   set(options, `components.${componentName}.override`, [override])
-        // }
 
         if (extend && !Array.isArray(extend)) {
           set(options, `components.${componentName}.extend`, [extend])
         }
       }
-
-      // if (opts && opts.baseDefault) {
-      //   set(options, `components.${componentName}.default`, mapCss2JsArray(opts.baseDefault))
-      // }
     }
   }
 
@@ -68,12 +66,13 @@ export function getCodegenOptions(options?: CodegenOptions) {
   return defuOptions(...arr) as CodegenOptions
 }
 
-export async function load(options?: LoadConfigOptions<CodegenOptions>) {
-  const { cwd, configFile } = options ?? {}
-  const { config } = await loadConfig<CodegenOptions>({
-    name: 'icestack',
-    cwd,
-    configFile
-  })
-  return config
+export type LoadConfigResult = CosmiconfigResult & { config: CodegenOptions }
+
+export function loadSync(options?: { cwd?: string; configFile?: string }) {
+  const { configFile, cwd = process.cwd() } = options ?? {}
+  const explorerSync = cosmiconfigSync('icestack')
+  if (configFile) {
+    return explorerSync.load(configFile) as LoadConfigResult
+  }
+  return explorerSync.search(cwd) as LoadConfigResult
 }

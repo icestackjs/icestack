@@ -3,7 +3,7 @@ import { components as defaultComponents } from '@icestack/preset-default/compon
 import { base as defaultBase } from '@icestack/preset-default/base'
 import { defaultVarPrefix } from '@icestack/shared/constants'
 import { generateColors } from '@icestack/theme-algorithm'
-import type { CodegenOptions, BaseOptions, ComponentsOptions, ComponentsValue } from '@/types'
+import type { CodegenOptions, BaseOptions, ComponentsOptions, ComponentsValue } from '@icestack/types'
 
 export function getDefaultBase(options?: CodegenOptions) {
   const { base: baseOptions } = options ?? {}

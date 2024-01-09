@@ -9,6 +9,8 @@ const defuOverrideArray = createDefu((obj, key, value) => {
   }
 })
 
+type defuOverrideArray<T> = (...args: T[]) => T
+
 const defuOptions = createDefu((obj, key, value) => {
   if (Array.isArray(obj[key]) && Array.isArray(value)) {
     // @ts-ignore
@@ -16,6 +18,8 @@ const defuOptions = createDefu((obj, key, value) => {
     return true
   }
 })
+
+type defuOptions<T> = (...args: T[]) => T
 
 const defuArrayRight = createDefu((obj, key, value) => {
   if (Array.isArray(obj[key]) && Array.isArray(value)) {

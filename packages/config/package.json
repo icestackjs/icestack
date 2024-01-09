@@ -52,7 +52,7 @@
     "@icestack/shared": "workspace:^",
     "@icestack/theme-algorithm": "workspace:^",
     "@icestack/types": "workspace:^",
-    "c12": "^1.6.1",
+    "cosmiconfig": "^9.0.0",
     "lodash": "^4.17.21"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",

@@ -1,0 +1,58 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`load config > load cjs config 1`] = `
+{
+  "config": {
+    "base": {
+      "themes": {
+        "dark": {
+          "selector": ".dark",
+        },
+        "light": {
+          "selector": "page",
+        },
+      },
+    },
+    "log": false,
+  },
+  "filepath": "/Users/icebreaker/Documents/GitHub/icestack/packages/config/test/cjs/icestack.config.cjs",
+}
+`;
+
+exports[`load config > load js config 1`] = `
+{
+  "config": {
+    "base": {
+      "themes": {
+        "dark": {
+          "selector": ".dark",
+        },
+        "light": {
+          "selector": "page",
+        },
+      },
+    },
+    "log": false,
+  },
+  "filepath": "/Users/icebreaker/Documents/GitHub/icestack/packages/config/test/js/icestack.config.js",
+}
+`;
+
+exports[`load config > load ts config 1`] = `
+{
+  "config": {
+    "base": {
+      "themes": {
+        "dark": {
+          "selector": ".dark",
+        },
+        "light": {
+          "selector": "page",
+        },
+      },
+    },
+    "log": false,
+  },
+  "filepath": "/Users/icebreaker/Documents/GitHub/icestack/packages/config/test/ts/icestack.config.ts",
+}
+`;

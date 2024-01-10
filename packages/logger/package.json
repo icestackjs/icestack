@@ -1,7 +1,7 @@
 {
   "name": "@icestack/logger",
   "description": "The logger of @icestack/ui",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

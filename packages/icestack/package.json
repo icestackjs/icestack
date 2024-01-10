@@ -1,7 +1,7 @@
 {
   "name": "icestack",
   "description": "@icestack/ui npm pkg plcaeholder",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

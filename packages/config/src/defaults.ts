@@ -7,7 +7,7 @@ import { generateColors } from '@icestack/theme-algorithm'
 import type { CodegenOptions, BaseOptions, ComponentsOptions, ComponentsValue } from '@icestack/types'
 
 export function getDefaultBase(options?: CodegenOptions) {
-  const { base: baseOptions } = options ?? {}
+  const { base: baseOptions, mode: globalMode } = options ?? {}
   const { themes } = baseOptions ?? {}
   const base: {
     themes: {
@@ -22,13 +22,15 @@ export function getDefaultBase(options?: CodegenOptions) {
     generateColors,
     mediaDarkTheme: false // 'dark'
   }
-  // @ts-ignore
-  if (themes?.light !== false) {
-    base.themes.light = defaultBase.themes?.light
-  }
-  // @ts-ignore
-  if (themes?.dark !== false) {
-    base.themes.dark = defaultBase.themes?.dark
+  if (globalMode !== 'none') {
+    // @ts-ignore
+    if (themes?.light !== false) {
+      base.themes.light = defaultBase.themes?.light
+    }
+    // @ts-ignore
+    if (themes?.dark !== false) {
+      base.themes.dark = defaultBase.themes?.dark
+    }
   }
 
   return base as Partial<BaseOptions>
@@ -75,9 +77,10 @@ export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {
 }
 
 export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOptions, 'outdir'> {
+  const { mode: globalMode } = options ?? {}
   const base = getDefaultBase(options)
   const components = injectSchema(defaultComponents, options)
-  const utilities = defaultUtilities
+  const utilities = globalMode === 'none' ? {} : defaultUtilities
   return {
     mode: 'preset',
     pick: {

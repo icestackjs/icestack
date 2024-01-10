@@ -68,7 +68,7 @@ const schema: GetCssSchemaMethod = (opts) => {
               .map((type) => {
                 return `
               &${selector}-${type}{
-                @apply border-${type} bg-${type} text-${type}-content outline-${type};
+                @apply text-${type};
                 &:hover,&${selector}-hover{
                   @apply border-${type}-hover bg-${type}-hover text-${type}-content;
                 }

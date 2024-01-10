@@ -775,13 +775,8 @@ exports[`index > getRules default 1`] = `
     background-color: rgba(var(--ice-primary-active),var(--un-bg-opacity))
 }
 .btn-outline.btn-primary {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-primary),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-primary),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-primary-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-primary),1)
+    color: rgba(var(--ice-primary),var(--un-text-opacity))
 }
 .btn-outline.btn-primary:hover,.btn-outline.btn-primary.btn-hover {
     --un-border-opacity: 1;
@@ -961,13 +956,8 @@ exports[`index > getRules default 1`] = `
     background-color: rgba(var(--ice-success-active),var(--un-bg-opacity))
 }
 .btn-outline.btn-success {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-success),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-success),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-success-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-success),1)
+    color: rgba(var(--ice-success),var(--un-text-opacity))
 }
 .btn-outline.btn-success:hover,.btn-outline.btn-success.btn-hover {
     --un-border-opacity: 1;
@@ -1010,13 +1000,8 @@ exports[`index > getRules default 1`] = `
     background-color: rgba(var(--ice-warning-active),var(--un-bg-opacity))
 }
 .btn-outline.btn-warning {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-warning),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-warning),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-warning-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-warning),1)
+    color: rgba(var(--ice-warning),var(--un-text-opacity))
 }
 .btn-outline.btn-warning:hover,.btn-outline.btn-warning.btn-hover {
     --un-border-opacity: 1;
@@ -1059,13 +1044,8 @@ exports[`index > getRules default 1`] = `
     background-color: rgba(var(--ice-error-active),var(--un-bg-opacity))
 }
 .btn-outline.btn-error {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-error),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-error),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-error-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-error),1)
+    color: rgba(var(--ice-error),var(--un-text-opacity))
 }
 .btn-outline.btn-error:hover,.btn-outline.btn-error.btn-hover {
     --un-border-opacity: 1;
@@ -1108,13 +1088,8 @@ exports[`index > getRules default 1`] = `
     background-color: rgba(var(--ice-neutral-active),var(--un-bg-opacity))
 }
 .btn-outline.btn-neutral {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-neutral),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-neutral),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-neutral-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-neutral),1)
+    color: rgba(var(--ice-neutral),var(--un-text-opacity))
 }
 .btn-outline.btn-neutral:hover,.btn-outline.btn-neutral.btn-hover {
     --un-border-opacity: 1;
@@ -1157,13 +1132,8 @@ exports[`index > getRules default 1`] = `
     background-color: rgba(var(--ice-secondary-active),var(--un-bg-opacity))
 }
 .btn-outline.btn-secondary {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-secondary),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-secondary),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-secondary-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-secondary),1)
+    color: rgba(var(--ice-secondary),var(--un-text-opacity))
 }
 .btn-outline.btn-secondary:hover,.btn-outline.btn-secondary.btn-hover {
     --un-border-opacity: 1;
@@ -1206,13 +1176,8 @@ exports[`index > getRules default 1`] = `
     background-color: rgba(var(--ice-accent-active),var(--un-bg-opacity))
 }
 .btn-outline.btn-accent {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-accent),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-accent),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-accent-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-accent),1)
+    color: rgba(var(--ice-accent),var(--un-text-opacity))
 }
 .btn-outline.btn-accent:hover,.btn-outline.btn-accent.btn-hover {
     --un-border-opacity: 1;
@@ -1255,13 +1220,8 @@ exports[`index > getRules default 1`] = `
     background-color: rgba(var(--ice-info-active),var(--un-bg-opacity))
 }
 .btn-outline.btn-info {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-info),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-info),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-info-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-info),1)
+    color: rgba(var(--ice-info),var(--un-text-opacity))
 }
 .btn-outline.btn-info:hover,.btn-outline.btn-info.btn-hover {
     --un-border-opacity: 1;
@@ -1366,13 +1326,8 @@ exports[`index > getRules default 1`] = `
     color: rgba(var(--ice-ant-neutral-100),var(--un-text-opacity))
 }
 .btn-outline.btn-primary {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-primary),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-primary),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-primary-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-primary),1)
+    color: rgba(var(--ice-primary),var(--un-text-opacity))
 }
 .btn-outline.btn-primary:hover,.btn-outline.btn-primary.btn-hover {
     --un-border-opacity: 1;
@@ -1391,13 +1346,8 @@ exports[`index > getRules default 1`] = `
     color: rgba(var(--ice-primary-content),var(--un-text-opacity))
 }
 .btn-outline.btn-success {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-success),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-success),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-success-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-success),1)
+    color: rgba(var(--ice-success),var(--un-text-opacity))
 }
 .btn-outline.btn-success:hover,.btn-outline.btn-success.btn-hover {
     --un-border-opacity: 1;
@@ -1416,13 +1366,8 @@ exports[`index > getRules default 1`] = `
     color: rgba(var(--ice-success-content),var(--un-text-opacity))
 }
 .btn-outline.btn-warning {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-warning),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-warning),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-warning-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-warning),1)
+    color: rgba(var(--ice-warning),var(--un-text-opacity))
 }
 .btn-outline.btn-warning:hover,.btn-outline.btn-warning.btn-hover {
     --un-border-opacity: 1;
@@ -1441,13 +1386,8 @@ exports[`index > getRules default 1`] = `
     color: rgba(var(--ice-warning-content),var(--un-text-opacity))
 }
 .btn-outline.btn-error {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-error),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-error),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-error-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-error),1)
+    color: rgba(var(--ice-error),var(--un-text-opacity))
 }
 .btn-outline.btn-error:hover,.btn-outline.btn-error.btn-hover {
     --un-border-opacity: 1;
@@ -1466,13 +1406,8 @@ exports[`index > getRules default 1`] = `
     color: rgba(var(--ice-error-content),var(--un-text-opacity))
 }
 .btn-outline.btn-neutral {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-neutral),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-neutral),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-neutral-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-neutral),1)
+    color: rgba(var(--ice-neutral),var(--un-text-opacity))
 }
 .btn-outline.btn-neutral:hover,.btn-outline.btn-neutral.btn-hover {
     --un-border-opacity: 1;
@@ -1491,13 +1426,8 @@ exports[`index > getRules default 1`] = `
     color: rgba(var(--ice-neutral-content),var(--un-text-opacity))
 }
 .btn-outline.btn-secondary {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-secondary),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-secondary),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-secondary-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-secondary),1)
+    color: rgba(var(--ice-secondary),var(--un-text-opacity))
 }
 .btn-outline.btn-secondary:hover,.btn-outline.btn-secondary.btn-hover {
     --un-border-opacity: 1;
@@ -1516,13 +1446,8 @@ exports[`index > getRules default 1`] = `
     color: rgba(var(--ice-secondary-content),var(--un-text-opacity))
 }
 .btn-outline.btn-accent {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-accent),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-accent),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-accent-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-accent),1)
+    color: rgba(var(--ice-accent),var(--un-text-opacity))
 }
 .btn-outline.btn-accent:hover,.btn-outline.btn-accent.btn-hover {
     --un-border-opacity: 1;
@@ -1541,13 +1466,8 @@ exports[`index > getRules default 1`] = `
     color: rgba(var(--ice-accent-content),var(--un-text-opacity))
 }
 .btn-outline.btn-info {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-info),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-info),var(--un-bg-opacity));
     --un-text-opacity: 1;
-    color: rgba(var(--ice-info-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-info),1)
+    color: rgba(var(--ice-info),var(--un-text-opacity))
 }
 .btn-outline.btn-info:hover,.btn-outline.btn-info.btn-hover {
     --un-border-opacity: 1;

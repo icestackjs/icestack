@@ -1786,7 +1786,7 @@ exports[`'button' > button 1`] = `
   @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
 }
 .btn-outline.btn-primary {
-  @apply border-primary bg-primary text-primary-content outline-primary;
+  @apply text-primary;
 }
 .btn-outline.btn-primary:hover, .btn-outline.btn-primary.btn-hover {
   @apply border-primary-hover bg-primary-hover text-primary-content;
@@ -1795,7 +1795,7 @@ exports[`'button' > button 1`] = `
   @apply border-primary-active bg-primary-active text-primary-content;
 }
 .btn-outline.btn-success {
-  @apply border-success bg-success text-success-content outline-success;
+  @apply text-success;
 }
 .btn-outline.btn-success:hover, .btn-outline.btn-success.btn-hover {
   @apply border-success-hover bg-success-hover text-success-content;
@@ -1804,7 +1804,7 @@ exports[`'button' > button 1`] = `
   @apply border-success-active bg-success-active text-success-content;
 }
 .btn-outline.btn-warning {
-  @apply border-warning bg-warning text-warning-content outline-warning;
+  @apply text-warning;
 }
 .btn-outline.btn-warning:hover, .btn-outline.btn-warning.btn-hover {
   @apply border-warning-hover bg-warning-hover text-warning-content;
@@ -1813,7 +1813,7 @@ exports[`'button' > button 1`] = `
   @apply border-warning-active bg-warning-active text-warning-content;
 }
 .btn-outline.btn-error {
-  @apply border-error bg-error text-error-content outline-error;
+  @apply text-error;
 }
 .btn-outline.btn-error:hover, .btn-outline.btn-error.btn-hover {
   @apply border-error-hover bg-error-hover text-error-content;
@@ -1822,7 +1822,7 @@ exports[`'button' > button 1`] = `
   @apply border-error-active bg-error-active text-error-content;
 }
 .btn-outline.btn-neutral {
-  @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+  @apply text-neutral;
 }
 .btn-outline.btn-neutral:hover, .btn-outline.btn-neutral.btn-hover {
   @apply border-neutral-hover bg-neutral-hover text-neutral-content;
@@ -1831,7 +1831,7 @@ exports[`'button' > button 1`] = `
   @apply border-neutral-active bg-neutral-active text-neutral-content;
 }
 .btn-outline.btn-secondary {
-  @apply border-secondary bg-secondary text-secondary-content outline-secondary;
+  @apply text-secondary;
 }
 .btn-outline.btn-secondary:hover, .btn-outline.btn-secondary.btn-hover {
   @apply border-secondary-hover bg-secondary-hover text-secondary-content;
@@ -1840,7 +1840,7 @@ exports[`'button' > button 1`] = `
   @apply border-secondary-active bg-secondary-active text-secondary-content;
 }
 .btn-outline.btn-accent {
-  @apply border-accent bg-accent text-accent-content outline-accent;
+  @apply text-accent;
 }
 .btn-outline.btn-accent:hover, .btn-outline.btn-accent.btn-hover {
   @apply border-accent-hover bg-accent-hover text-accent-content;
@@ -1849,7 +1849,7 @@ exports[`'button' > button 1`] = `
   @apply border-accent-active bg-accent-active text-accent-content;
 }
 .btn-outline.btn-info {
-  @apply border-info bg-info text-info-content outline-info;
+  @apply text-info;
 }
 .btn-outline.btn-info:hover, .btn-outline.btn-info.btn-hover {
   @apply border-info-hover bg-info-hover text-info-content;
@@ -1997,13 +1997,8 @@ exports[`'button' > button 1`] = `
           "color": "rgba(var(--ice-base-content) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-accent": {
-          "--tw-bg-opacity": "1",
-          "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-accent) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-accent) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-accent-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-accent) / 1)",
+          "color": "rgba(var(--ice-accent) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-accent:active,.btn-outline.btn-accent.btn-active": {
           "--tw-bg-opacity": "1",
@@ -2022,13 +2017,8 @@ exports[`'button' > button 1`] = `
           "color": "rgba(var(--ice-accent-content) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-error": {
-          "--tw-bg-opacity": "1",
-          "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-error) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-error) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-error-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-error) / 1)",
+          "color": "rgba(var(--ice-error) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-error:active,.btn-outline.btn-error.btn-active": {
           "--tw-bg-opacity": "1",
@@ -2047,13 +2037,8 @@ exports[`'button' > button 1`] = `
           "color": "rgba(var(--ice-error-content) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-info": {
-          "--tw-bg-opacity": "1",
-          "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-info) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-info) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-info-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-info) / 1)",
+          "color": "rgba(var(--ice-info) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-info:active,.btn-outline.btn-info.btn-active": {
           "--tw-bg-opacity": "1",
@@ -2072,13 +2057,8 @@ exports[`'button' > button 1`] = `
           "color": "rgba(var(--ice-info-content) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-neutral": {
-          "--tw-bg-opacity": "1",
-          "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-neutral) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-neutral) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-neutral) / 1)",
+          "color": "rgba(var(--ice-neutral) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-neutral:active,.btn-outline.btn-neutral.btn-active": {
           "--tw-bg-opacity": "1",
@@ -2097,13 +2077,8 @@ exports[`'button' > button 1`] = `
           "color": "rgba(var(--ice-neutral-content) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-primary": {
-          "--tw-bg-opacity": "1",
-          "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-primary) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-primary) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-primary-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-primary) / 1)",
+          "color": "rgba(var(--ice-primary) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-primary:active,.btn-outline.btn-primary.btn-active": {
           "--tw-bg-opacity": "1",
@@ -2122,13 +2097,8 @@ exports[`'button' > button 1`] = `
           "color": "rgba(var(--ice-primary-content) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-secondary": {
-          "--tw-bg-opacity": "1",
-          "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-secondary) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-secondary) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-secondary-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-secondary) / 1)",
+          "color": "rgba(var(--ice-secondary) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-secondary:active,.btn-outline.btn-secondary.btn-active": {
           "--tw-bg-opacity": "1",
@@ -2147,13 +2117,8 @@ exports[`'button' > button 1`] = `
           "color": "rgba(var(--ice-secondary-content) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-success": {
-          "--tw-bg-opacity": "1",
-          "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-success) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-success) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-success-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-success) / 1)",
+          "color": "rgba(var(--ice-success) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-success:active,.btn-outline.btn-success.btn-active": {
           "--tw-bg-opacity": "1",
@@ -2172,13 +2137,8 @@ exports[`'button' > button 1`] = `
           "color": "rgba(var(--ice-success-content) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-warning": {
-          "--tw-bg-opacity": "1",
-          "--tw-border-opacity": "1",
           "--tw-text-opacity": "1",
-          "backgroundColor": "rgba(var(--ice-warning) / var(--tw-bg-opacity))",
-          "borderColor": "rgba(var(--ice-warning) / var(--tw-border-opacity))",
-          "color": "rgba(var(--ice-warning-content) / var(--tw-text-opacity))",
-          "outlineColor": "rgba(var(--ice-warning) / 1)",
+          "color": "rgba(var(--ice-warning) / var(--tw-text-opacity))",
         },
         ".btn-outline.btn-warning:active,.btn-outline.btn-warning.btn-active": {
           "--tw-bg-opacity": "1",
@@ -2596,13 +2556,8 @@ exports[`'button' > button 1`] = `
   color: rgba(var(--ice-ant-neutral-100) / var(--tw-text-opacity));
 }
 .btn-outline.btn-primary{
-  --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-primary) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-primary) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-primary-content) / var(--tw-text-opacity));
-  outline-color: rgba(var(--ice-primary) / 1);
+  color: rgba(var(--ice-primary) / var(--tw-text-opacity));
 }
 .btn-outline.btn-primary:hover,.btn-outline.btn-primary.btn-hover{
   --tw-border-opacity: 1;
@@ -2621,13 +2576,8 @@ exports[`'button' > button 1`] = `
   color: rgba(var(--ice-primary-content) / var(--tw-text-opacity));
 }
 .btn-outline.btn-success{
-  --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-success) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-success) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-success-content) / var(--tw-text-opacity));
-  outline-color: rgba(var(--ice-success) / 1);
+  color: rgba(var(--ice-success) / var(--tw-text-opacity));
 }
 .btn-outline.btn-success:hover,.btn-outline.btn-success.btn-hover{
   --tw-border-opacity: 1;
@@ -2646,13 +2596,8 @@ exports[`'button' > button 1`] = `
   color: rgba(var(--ice-success-content) / var(--tw-text-opacity));
 }
 .btn-outline.btn-warning{
-  --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-warning) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-warning) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-warning-content) / var(--tw-text-opacity));
-  outline-color: rgba(var(--ice-warning) / 1);
+  color: rgba(var(--ice-warning) / var(--tw-text-opacity));
 }
 .btn-outline.btn-warning:hover,.btn-outline.btn-warning.btn-hover{
   --tw-border-opacity: 1;
@@ -2671,13 +2616,8 @@ exports[`'button' > button 1`] = `
   color: rgba(var(--ice-warning-content) / var(--tw-text-opacity));
 }
 .btn-outline.btn-error{
-  --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-error) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-error) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-error-content) / var(--tw-text-opacity));
-  outline-color: rgba(var(--ice-error) / 1);
+  color: rgba(var(--ice-error) / var(--tw-text-opacity));
 }
 .btn-outline.btn-error:hover,.btn-outline.btn-error.btn-hover{
   --tw-border-opacity: 1;
@@ -2696,13 +2636,8 @@ exports[`'button' > button 1`] = `
   color: rgba(var(--ice-error-content) / var(--tw-text-opacity));
 }
 .btn-outline.btn-neutral{
-  --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-neutral) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
-  outline-color: rgba(var(--ice-neutral) / 1);
+  color: rgba(var(--ice-neutral) / var(--tw-text-opacity));
 }
 .btn-outline.btn-neutral:hover,.btn-outline.btn-neutral.btn-hover{
   --tw-border-opacity: 1;
@@ -2721,13 +2656,8 @@ exports[`'button' > button 1`] = `
   color: rgba(var(--ice-neutral-content) / var(--tw-text-opacity));
 }
 .btn-outline.btn-secondary{
-  --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-secondary) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-secondary) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-secondary-content) / var(--tw-text-opacity));
-  outline-color: rgba(var(--ice-secondary) / 1);
+  color: rgba(var(--ice-secondary) / var(--tw-text-opacity));
 }
 .btn-outline.btn-secondary:hover,.btn-outline.btn-secondary.btn-hover{
   --tw-border-opacity: 1;
@@ -2746,13 +2676,8 @@ exports[`'button' > button 1`] = `
   color: rgba(var(--ice-secondary-content) / var(--tw-text-opacity));
 }
 .btn-outline.btn-accent{
-  --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-accent) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-accent) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-accent-content) / var(--tw-text-opacity));
-  outline-color: rgba(var(--ice-accent) / 1);
+  color: rgba(var(--ice-accent) / var(--tw-text-opacity));
 }
 .btn-outline.btn-accent:hover,.btn-outline.btn-accent.btn-hover{
   --tw-border-opacity: 1;
@@ -2771,13 +2696,8 @@ exports[`'button' > button 1`] = `
   color: rgba(var(--ice-accent-content) / var(--tw-text-opacity));
 }
 .btn-outline.btn-info{
-  --tw-border-opacity: 1;
-  border-color: rgba(var(--ice-info) / var(--tw-border-opacity));
-  --tw-bg-opacity: 1;
-  background-color: rgba(var(--ice-info) / var(--tw-bg-opacity));
   --tw-text-opacity: 1;
-  color: rgba(var(--ice-info-content) / var(--tw-text-opacity));
-  outline-color: rgba(var(--ice-info) / 1);
+  color: rgba(var(--ice-info) / var(--tw-text-opacity));
 }
 .btn-outline.btn-info:hover,.btn-outline.btn-info.btn-hover{
   --tw-border-opacity: 1;
@@ -2935,7 +2855,7 @@ exports[`'button' > button 1`] = `
             }
             
               &.btn-primary{
-                @apply border-primary bg-primary text-primary-content outline-primary;
+                @apply text-primary;
                 &:hover,&.btn-hover{
                   @apply border-primary-hover bg-primary-hover text-primary-content;
                 }
@@ -2946,7 +2866,7 @@ exports[`'button' > button 1`] = `
               
 
               &.btn-success{
-                @apply border-success bg-success text-success-content outline-success;
+                @apply text-success;
                 &:hover,&.btn-hover{
                   @apply border-success-hover bg-success-hover text-success-content;
                 }
@@ -2957,7 +2877,7 @@ exports[`'button' > button 1`] = `
               
 
               &.btn-warning{
-                @apply border-warning bg-warning text-warning-content outline-warning;
+                @apply text-warning;
                 &:hover,&.btn-hover{
                   @apply border-warning-hover bg-warning-hover text-warning-content;
                 }
@@ -2968,7 +2888,7 @@ exports[`'button' > button 1`] = `
               
 
               &.btn-error{
-                @apply border-error bg-error text-error-content outline-error;
+                @apply text-error;
                 &:hover,&.btn-hover{
                   @apply border-error-hover bg-error-hover text-error-content;
                 }
@@ -2979,7 +2899,7 @@ exports[`'button' > button 1`] = `
               
 
               &.btn-neutral{
-                @apply border-neutral bg-neutral text-neutral-content outline-neutral;
+                @apply text-neutral;
                 &:hover,&.btn-hover{
                   @apply border-neutral-hover bg-neutral-hover text-neutral-content;
                 }
@@ -2990,7 +2910,7 @@ exports[`'button' > button 1`] = `
               
 
               &.btn-secondary{
-                @apply border-secondary bg-secondary text-secondary-content outline-secondary;
+                @apply text-secondary;
                 &:hover,&.btn-hover{
                   @apply border-secondary-hover bg-secondary-hover text-secondary-content;
                 }
@@ -3001,7 +2921,7 @@ exports[`'button' > button 1`] = `
               
 
               &.btn-accent{
-                @apply border-accent bg-accent text-accent-content outline-accent;
+                @apply text-accent;
                 &:hover,&.btn-hover{
                   @apply border-accent-hover bg-accent-hover text-accent-content;
                 }
@@ -3012,7 +2932,7 @@ exports[`'button' > button 1`] = `
               
 
               &.btn-info{
-                @apply border-info bg-info text-info-content outline-info;
+                @apply text-info;
                 &:hover,&.btn-hover{
                   @apply border-info-hover bg-info-hover text-info-content;
                 }

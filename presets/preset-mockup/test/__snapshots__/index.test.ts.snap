@@ -25,7 +25,7 @@ exports[`presets > default preset 1`] = `
           "base-100": "#1d232a",
           "base-200": "#191e24",
           "base-300": "#15191e",
-          "base-content": "#697280",
+          "base-content": "#a6adbb",
         },
         "extraVars": {
           "animation-btn": "0.25s",

@@ -101,7 +101,7 @@ exports[`build > build all 1`] = `
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
-  --ice-base-content: 105 114 128;
+  --ice-base-content: 166 173 187;
   --ice-ant-neutral-1300: 255 255 255;
   --ice-ant-neutral-1200: 250 250 250;
   --ice-ant-neutral-1100: 245 245 245;
@@ -209,7 +209,7 @@ exports[`build > build all 1`] = `
           "--ice-base-100": "29 35 42",
           "--ice-base-200": "25 30 36",
           "--ice-base-300": "21 25 30",
-          "--ice-base-content": "105 114 128",
+          "--ice-base-content": "166 173 187",
           "--ice-border-btn": "1px",
           "--ice-error": "211 32 41",
           "--ice-error-active": "232 71 73",
@@ -344,7 +344,7 @@ exports[`build > build all 1`] = `
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
-  --ice-base-content: 105 114 128;
+  --ice-base-content: 166 173 187;
   --ice-ant-neutral-1300: 255 255 255;
   --ice-ant-neutral-1200: 250 250 250;
   --ice-ant-neutral-1100: 245 245 245;
@@ -464,7 +464,7 @@ exports[`build > build all 1`] = `
     --base-100: 29 35 42;
     --base-200: 25 30 36;
     --base-300: 21 25 30;
-    --base-content: 105 114 128;
+    --base-content: 166 173 187;
     --ant-neutral-1300: 255 255 255;
     --ant-neutral-1200: 250 250 250;
     --ant-neutral-1100: 245 245 245;
@@ -587,7 +587,7 @@ exports[`build > build all 1`] = `
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
-  --ice-base-content: 105,114,128;
+  --ice-base-content: 166,173,187;
   --ice-ant-neutral-1300: 255,255,255;
   --ice-ant-neutral-1200: 250,250,250;
   --ice-ant-neutral-1100: 245,245,245;
@@ -695,7 +695,7 @@ exports[`build > build all 1`] = `
           "--ice-base-100": "29,35,42",
           "--ice-base-200": "25,30,36",
           "--ice-base-300": "21,25,30",
-          "--ice-base-content": "105,114,128",
+          "--ice-base-content": "166,173,187",
           "--ice-border-btn": "1px",
           "--ice-error": "211,32,41",
           "--ice-error-active": "232,71,73",
@@ -830,7 +830,7 @@ exports[`build > build all 1`] = `
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
-  --ice-base-content: 105,114,128;
+  --ice-base-content: 166,173,187;
   --ice-ant-neutral-1300: 255,255,255;
   --ice-ant-neutral-1200: 250,250,250;
   --ice-ant-neutral-1100: 245,245,245;
@@ -950,7 +950,7 @@ exports[`build > build all 1`] = `
     --base-100: 29,35,42;
     --base-200: 25,30,36;
     --base-300: 21,25,30;
-    --base-content: 105,114,128;
+    --base-content: 166,173,187;
     --ant-neutral-1300: 255,255,255;
     --ant-neutral-1200: 250,250,250;
     --ant-neutral-1100: 245,245,245;
@@ -22533,7 +22533,7 @@ exports[`build > build base 1`] = `
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
-  --ice-base-content: 105 114 128;
+  --ice-base-content: 166 173 187;
   --ice-ant-neutral-1300: 255 255 255;
   --ice-ant-neutral-1200: 250 250 250;
   --ice-ant-neutral-1100: 245 245 245;
@@ -22641,7 +22641,7 @@ exports[`build > build base 1`] = `
         "--ice-base-100": "29 35 42",
         "--ice-base-200": "25 30 36",
         "--ice-base-300": "21 25 30",
-        "--ice-base-content": "105 114 128",
+        "--ice-base-content": "166 173 187",
         "--ice-border-btn": "1px",
         "--ice-error": "211 32 41",
         "--ice-error-active": "232 71 73",
@@ -22776,7 +22776,7 @@ exports[`build > build base 1`] = `
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
-  --ice-base-content: 105 114 128;
+  --ice-base-content: 166 173 187;
   --ice-ant-neutral-1300: 255 255 255;
   --ice-ant-neutral-1200: 250 250 250;
   --ice-ant-neutral-1100: 245 245 245;
@@ -22896,7 +22896,7 @@ exports[`build > build base 1`] = `
     --base-100: 29 35 42;
     --base-200: 25 30 36;
     --base-300: 21 25 30;
-    --base-content: 105 114 128;
+    --base-content: 166 173 187;
     --ant-neutral-1300: 255 255 255;
     --ant-neutral-1200: 250 250 250;
     --ant-neutral-1100: 245 245 245;
@@ -23019,7 +23019,7 @@ exports[`build > build base 1`] = `
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
-  --ice-base-content: 105,114,128;
+  --ice-base-content: 166,173,187;
   --ice-ant-neutral-1300: 255,255,255;
   --ice-ant-neutral-1200: 250,250,250;
   --ice-ant-neutral-1100: 245,245,245;
@@ -23127,7 +23127,7 @@ exports[`build > build base 1`] = `
         "--ice-base-100": "29,35,42",
         "--ice-base-200": "25,30,36",
         "--ice-base-300": "21,25,30",
-        "--ice-base-content": "105,114,128",
+        "--ice-base-content": "166,173,187",
         "--ice-border-btn": "1px",
         "--ice-error": "211,32,41",
         "--ice-error-active": "232,71,73",
@@ -23262,7 +23262,7 @@ exports[`build > build base 1`] = `
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
-  --ice-base-content: 105,114,128;
+  --ice-base-content: 166,173,187;
   --ice-ant-neutral-1300: 255,255,255;
   --ice-ant-neutral-1200: 250,250,250;
   --ice-ant-neutral-1100: 245,245,245;
@@ -23382,7 +23382,7 @@ exports[`build > build base 1`] = `
     --base-100: 29,35,42;
     --base-200: 25,30,36;
     --base-300: 21,25,30;
-    --base-content: 105,114,128;
+    --base-content: 166,173,187;
     --ant-neutral-1300: 255,255,255;
     --ant-neutral-1200: 250,250,250;
     --ant-neutral-1100: 245,245,245;
@@ -23510,7 +23510,7 @@ exports[`build > build base change default selector case  1`] = `
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
-  --ice-base-content: 105 114 128;
+  --ice-base-content: 166 173 187;
   --ice-ant-neutral-1300: 255 255 255;
   --ice-ant-neutral-1200: 250 250 250;
   --ice-ant-neutral-1100: 245 245 245;
@@ -23558,7 +23558,7 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-base-100": "29 35 42",
         "--ice-base-200": "25 30 36",
         "--ice-base-300": "21 25 30",
-        "--ice-base-content": "105 114 128",
+        "--ice-base-content": "166 173 187",
         "--ice-border-btn": "1px",
         "--ice-error": "211 32 41",
         "--ice-error-active": "232 71 73",
@@ -23753,7 +23753,7 @@ exports[`build > build base change default selector case  1`] = `
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
-  --ice-base-content: 105 114 128;
+  --ice-base-content: 166 173 187;
   --ice-ant-neutral-1300: 255 255 255;
   --ice-ant-neutral-1200: 250 250 250;
   --ice-ant-neutral-1100: 245 245 245;
@@ -23873,7 +23873,7 @@ exports[`build > build base change default selector case  1`] = `
     --base-100: 29 35 42;
     --base-200: 25 30 36;
     --base-300: 21 25 30;
-    --base-content: 105 114 128;
+    --base-content: 166 173 187;
     --ant-neutral-1300: 255 255 255;
     --ant-neutral-1200: 250 250 250;
     --ant-neutral-1100: 245 245 245;
@@ -23996,7 +23996,7 @@ exports[`build > build base change default selector case  1`] = `
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
-  --ice-base-content: 105,114,128;
+  --ice-base-content: 166,173,187;
   --ice-ant-neutral-1300: 255,255,255;
   --ice-ant-neutral-1200: 250,250,250;
   --ice-ant-neutral-1100: 245,245,245;
@@ -24044,7 +24044,7 @@ exports[`build > build base change default selector case  1`] = `
         "--ice-base-100": "29,35,42",
         "--ice-base-200": "25,30,36",
         "--ice-base-300": "21,25,30",
-        "--ice-base-content": "105,114,128",
+        "--ice-base-content": "166,173,187",
         "--ice-border-btn": "1px",
         "--ice-error": "211,32,41",
         "--ice-error-active": "232,71,73",
@@ -24239,7 +24239,7 @@ exports[`build > build base change default selector case  1`] = `
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
-  --ice-base-content: 105,114,128;
+  --ice-base-content: 166,173,187;
   --ice-ant-neutral-1300: 255,255,255;
   --ice-ant-neutral-1200: 250,250,250;
   --ice-ant-neutral-1100: 245,245,245;
@@ -24359,7 +24359,7 @@ exports[`build > build base change default selector case  1`] = `
     --base-100: 29,35,42;
     --base-200: 25,30,36;
     --base-300: 21,25,30;
-    --base-content: 105,114,128;
+    --base-content: 166,173,187;
     --ant-neutral-1300: 255,255,255;
     --ant-neutral-1200: 250,250,250;
     --ant-neutral-1100: 245,245,245;
@@ -24487,7 +24487,7 @@ exports[`build > build base with custom types 1`] = `
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
-  --ice-base-content: 105 114 128;
+  --ice-base-content: 166 173 187;
   --ice-ant-neutral-1300: 255 255 255;
   --ice-ant-neutral-1200: 250 250 250;
   --ice-ant-neutral-1100: 245 245 245;
@@ -24595,7 +24595,7 @@ exports[`build > build base with custom types 1`] = `
         "--ice-base-100": "29 35 42",
         "--ice-base-200": "25 30 36",
         "--ice-base-300": "21 25 30",
-        "--ice-base-content": "105 114 128",
+        "--ice-base-content": "166 173 187",
         "--ice-border-btn": "1px",
         "--ice-error": "211 32 41",
         "--ice-error-active": "232 71 73",
@@ -24730,7 +24730,7 @@ exports[`build > build base with custom types 1`] = `
   --ice-base-100: 29 35 42;
   --ice-base-200: 25 30 36;
   --ice-base-300: 21 25 30;
-  --ice-base-content: 105 114 128;
+  --ice-base-content: 166 173 187;
   --ice-ant-neutral-1300: 255 255 255;
   --ice-ant-neutral-1200: 250 250 250;
   --ice-ant-neutral-1100: 245 245 245;
@@ -24850,7 +24850,7 @@ exports[`build > build base with custom types 1`] = `
     --base-100: 29 35 42;
     --base-200: 25 30 36;
     --base-300: 21 25 30;
-    --base-content: 105 114 128;
+    --base-content: 166 173 187;
     --ant-neutral-1300: 255 255 255;
     --ant-neutral-1200: 250 250 250;
     --ant-neutral-1100: 245 245 245;
@@ -24973,7 +24973,7 @@ exports[`build > build base with custom types 1`] = `
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
-  --ice-base-content: 105,114,128;
+  --ice-base-content: 166,173,187;
   --ice-ant-neutral-1300: 255,255,255;
   --ice-ant-neutral-1200: 250,250,250;
   --ice-ant-neutral-1100: 245,245,245;
@@ -25081,7 +25081,7 @@ exports[`build > build base with custom types 1`] = `
         "--ice-base-100": "29,35,42",
         "--ice-base-200": "25,30,36",
         "--ice-base-300": "21,25,30",
-        "--ice-base-content": "105,114,128",
+        "--ice-base-content": "166,173,187",
         "--ice-border-btn": "1px",
         "--ice-error": "211,32,41",
         "--ice-error-active": "232,71,73",
@@ -25216,7 +25216,7 @@ exports[`build > build base with custom types 1`] = `
   --ice-base-100: 29,35,42;
   --ice-base-200: 25,30,36;
   --ice-base-300: 21,25,30;
-  --ice-base-content: 105,114,128;
+  --ice-base-content: 166,173,187;
   --ice-ant-neutral-1300: 255,255,255;
   --ice-ant-neutral-1200: 250,250,250;
   --ice-ant-neutral-1100: 245,245,245;
@@ -25336,7 +25336,7 @@ exports[`build > build base with custom types 1`] = `
     --base-100: 29,35,42;
     --base-200: 25,30,36;
     --base-300: 21,25,30;
-    --base-content: 105,114,128;
+    --base-content: 166,173,187;
     --ant-neutral-1300: 255,255,255;
     --ant-neutral-1200: 250,250,250;
     --ant-neutral-1100: 245,245,245;

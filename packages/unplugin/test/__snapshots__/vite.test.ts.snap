@@ -1,3 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`vite > should  1`] = `undefined`;
+exports[`vite > import css 1`] = `
+"@icestack base;@icestack components;@icestack utilities;
+"
+`;
+
+exports[`vite > import js 1`] = `
+".xxxxx{color:red;}
+"
+`;

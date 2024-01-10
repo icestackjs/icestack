@@ -1,9 +1,10 @@
 import { createUnplugin } from 'unplugin'
 
-export const VIRTUAL_ENTRY_ALIAS = [/^(?:virtual:)?icestack(?::(.+))?\.css(\?.*)?$/]
+const VIRTUAL_ENTRY_ALIAS = [/^(?:virtual:)?icestack(?::(.+))?\.css(\?.*)?$/]
 
-export const RESOLVED_ID_WITH_QUERY_RE = /[/\\]__icestack(?:(_.*?))?\.css(\?.*)?$/
-export const RESOLVED_ID_RE = /[/\\]__icestack(?:(_.*?))?\.css$/
+const RESOLVED_ID_WITH_QUERY_RE = /[/\\]__icestack(?:(_.*?))?\.css(\?.*)?$/
+const RESOLVED_ID_RE = /[/\\]__icestack(?:(_.*?))?\.css$/
+const REPLACE_SEARCH_VALUE = /(\\?")?#icestack\s*{\s*query\s*:\s*(.+?);?\s*}/
 
 export function resolveId(id: string) {
   if (RESOLVED_ID_WITH_QUERY_RE.test(id)) return id
@@ -46,7 +47,7 @@ export default createUnplugin(() => {
           for (const file of files) {
             const chunk = bundle[file]
             if (chunk.type === 'asset' && typeof chunk.source === 'string') {
-              chunk.source = chunk.source.replaceAll(/(\\?")?#icestack\s*{\s*query\s*:\s*(.+?);?\s*}/g, `.xxxxx{color:red;}`)
+              chunk.source = chunk.source.replace(REPLACE_SEARCH_VALUE, `.xxxxx{color:red;}`)
             } else if (chunk.type === 'chunk' && typeof chunk.code === 'string') {
               // js
             }

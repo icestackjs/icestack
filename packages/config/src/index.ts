@@ -1,6 +1,6 @@
 import { cosmiconfigSync } from 'cosmiconfig'
 import type { CosmiconfigResult } from 'cosmiconfig'
-import { flattenDeep, set, isObject } from 'lodash'
+import { flattenDeep, set, isObject, cloneDeep, omit } from 'lodash'
 import type { CodegenOptions, Preset } from '@icestack/types'
 import { defuOptions, makeArray } from '@icestack/shared'
 import { getCodegenDefaults } from './defaults'
@@ -10,21 +10,22 @@ export function defineConfig(options?: CodegenOptions) {
 }
 
 export function preHandleOptions(options: Partial<CodegenOptions>): Partial<CodegenOptions> {
-  const { base, utilities, components } = options
+  const clone = cloneDeep(options)
+  const { base, utilities, components } = clone
   if (isObject(base?.themes)) {
     for (const [theme, opts] of Object.entries(base.themes)) {
       if (typeof opts !== 'boolean' && opts?.extraCss) {
-        set(options, `base.themes.${theme}.extraCss`, makeArray(opts?.extraCss))
+        set(clone, `base.themes.${theme}.extraCss`, makeArray(opts?.extraCss))
       }
     }
   }
 
   if (isObject(base) && base.extraCss) {
-    set(options, `base.extraCss`, makeArray(base.extraCss))
+    set(clone, `base.extraCss`, makeArray(base.extraCss))
   }
 
   if (isObject(utilities) && utilities.extraCss && utilities.extraCss) {
-    set(options, `utilities.extraCss`, makeArray(utilities.extraCss))
+    set(clone, `utilities.extraCss`, makeArray(utilities.extraCss))
   }
 
   if (isObject(components)) {
@@ -34,13 +35,13 @@ export function preHandleOptions(options: Partial<CodegenOptions>): Partial<Code
         const { extend } = opts
 
         if (extend && !Array.isArray(extend)) {
-          set(options, `components.${componentName}.extend`, [extend])
+          set(clone, `components.${componentName}.extend`, [extend])
         }
       }
     }
   }
 
-  return options
+  return clone
 }
 
 export function getCodegenOptions(options?: CodegenOptions) {
@@ -63,7 +64,7 @@ export function getCodegenOptions(options?: CodegenOptions) {
     return preHandleOptions(x as Partial<CodegenOptions>)
   })
   // @ts-ignore
-  return defuOptions(...arr) as CodegenOptions
+  return omit(defuOptions(...arr), ['presets']) as CodegenOptions
 }
 
 export type LoadConfigResult = CosmiconfigResult & { config: CodegenOptions }

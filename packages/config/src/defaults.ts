@@ -23,12 +23,13 @@ export function getDefaultBase(options?: CodegenOptions) {
     mediaDarkTheme: false // 'dark'
   }
   if (globalMode !== 'none') {
-    // @ts-ignore
     if (themes?.light !== false) {
+      // @ts-ignore
       base.themes.light = defaultBase.themes?.light
     }
-    // @ts-ignore
+
     if (themes?.dark !== false) {
+      // @ts-ignore
       base.themes.dark = defaultBase.themes?.dark
     }
   }
@@ -36,10 +37,10 @@ export function getDefaultBase(options?: CodegenOptions) {
   return base as Partial<BaseOptions>
 }
 
-export function injectSchema(map: ComponentsOptions, options?: CodegenOptions) {
+export function injectSchema(defaultComponents: ComponentsOptions, options?: CodegenOptions) {
   const { components, mode: globalMode } = options ?? {}
   if (globalMode === 'none') {
-    return Object.entries(map).reduce<ComponentsOptions>((acc, [key, opts]) => {
+    return Object.entries(defaultComponents).reduce<ComponentsOptions>((acc, [key, opts]) => {
       const innerPreset = components && components[key] && (components[key] as Partial<ComponentsValue<Record<string, any>>>).mode === 'preset'
       if (innerPreset) {
         acc[key] = opts
@@ -47,7 +48,7 @@ export function injectSchema(map: ComponentsOptions, options?: CodegenOptions) {
       return acc
     }, {})
   }
-  return Object.entries(map).reduce<ComponentsOptions>((acc, [key, opts]) => {
+  return Object.entries(defaultComponents).reduce<ComponentsOptions>((acc, [key, opts]) => {
     const innerNone = components && components[key] && (components[key] as Partial<ComponentsValue<Record<string, any>>>).mode === 'none'
 
     acc[key] = innerNone ? {} : opts

@@ -120,7 +120,7 @@ export function createContext(opts?: CodegenOptions) {
   const twConfig = initTailwindcssConfig(tailwindcssConfig, {
     theme: {
       extend: {
-        ...createDefaultTailwindcssExtends({ varPrefix: globalVarPrefix ? globalVarPrefix.varPrefix : undefined }),
+        ...createDefaultTailwindcssExtends({ varPrefix: globalVarPrefix ? globalVarPrefix.varPrefix : '' }),
         colors: tailwindcssColors
       }
     }

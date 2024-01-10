@@ -17,7 +17,7 @@ export type ThemeOptions = {
   types: Record<string, string | [string, true | ColorGenerateOptions] | Record<string, string>>
 }
 
-export type Themes = Record<string, Partial<ThemeOptions>>
+export type Themes = Record<string, false | Partial<ThemeOptions>>
 
 export type BaseOptions = {
   themes: Themes
@@ -75,7 +75,7 @@ export type ComponentsValue<Params extends Record<string, any> = any> = {
   postcss: PostcssOptions
 }
 
-export type ComponentsOptions = Record<string, Partial<ComponentsValue>>
+export type ComponentsOptions = Record<string, false | Partial<ComponentsValue>>
 
 export type UtilitiesOptions = {
   extraCss: CssValue

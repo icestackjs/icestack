@@ -427,20 +427,6 @@ exports[`presets > default preset 1`] = `
       "varPrefix": "--ice-",
     },
   },
-  "presets": [
-    {
-      "components": {
-        "artboard": {
-          "schema": [Function],
-          "selector": ".artboard",
-        },
-        "mockup": {
-          "schema": [Function],
-          "selector": ".mockup",
-        },
-      },
-    },
-  ],
   "utilities": {
     "extraCss": [
       ".glass {

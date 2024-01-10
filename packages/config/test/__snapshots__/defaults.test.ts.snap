@@ -1,6 +1,46 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`options > getCodegenOptions snap 1`] = `
+exports[`defaults > createDefaultTailwindcssExtends > custom varPrefix 1`] = `
+{
+  "borderRadius": {
+    "badge": "var(--rounded-badge, 1.9rem)",
+    "box": "var(--rounded-box, 1rem)",
+    "btn": "var(--rounded-btn, 0.5rem)",
+  },
+  "lineHeight": {
+    "1": "0.25rem",
+    "2": "0.5rem",
+  },
+  "minHeight": {
+    "12": "3rem",
+    "16": "4rem",
+    "6": "1.5rem",
+    "8": "2rem",
+  },
+}
+`;
+
+exports[`defaults > createDefaultTailwindcssExtends > default 1`] = `
+{
+  "borderRadius": {
+    "badge": "var(--ice-rounded-badge, 1.9rem)",
+    "box": "var(--ice-rounded-box, 1rem)",
+    "btn": "var(--ice-rounded-btn, 0.5rem)",
+  },
+  "lineHeight": {
+    "1": "0.25rem",
+    "2": "0.5rem",
+  },
+  "minHeight": {
+    "12": "3rem",
+    "16": "4rem",
+    "6": "1.5rem",
+    "8": "2rem",
+  },
+}
+`;
+
+exports[`defaults > getCodegenDefaults > default 1`] = `
 {
   "base": {
     "generateColors": [Function],
@@ -465,22 +505,18 @@ exports[`options > getCodegenOptions snap 1`] = `
 }
 `;
 
-exports[`options > getCodegenOptions snap merge case 0 1`] = `
+exports[`defaults > getCodegenDefaults > mode none 1`] = `
 {
   "base": {
-    "extraCss": [
-      ".aaa{color:blue;}",
-      ":host{color:red;}",
-    ],
     "generateColors": [Function],
     "mediaDarkTheme": false,
     "themeSelectorTemplate": [Function],
     "themes": {},
   },
   "components": {},
-  "dryRun": true,
+  "dryRun": false,
   "log": true,
-  "mode": "none",
+  "mode": "preset",
   "pick": {
     "base": true,
     "styled": true,
@@ -497,54 +533,349 @@ exports[`options > getCodegenOptions snap merge case 0 1`] = `
 }
 `;
 
-exports[`options > getCodegenOptions snap merge case 1 1`] = `
+exports[`defaults > getDefaultBase > default 1`] = `
 {
-  "base": {
-    "extraCss": [
-      ":host{color:blue;}",
-      ":host{color:red;}",
-    ],
-    "generateColors": [Function],
-    "mediaDarkTheme": false,
-    "themeSelectorTemplate": [Function],
-    "themes": {},
-  },
-  "components": {},
-  "dryRun": true,
-  "log": true,
-  "mode": "none",
-  "pick": {
-    "base": true,
-    "styled": true,
-    "utils": true,
-  },
-  "postcss": {
-    "atMedia": {},
-    "selector": {},
-    "varPrefix": {
-      "varPrefix": "--ice-",
+  "generateColors": [Function],
+  "mediaDarkTheme": false,
+  "themeSelectorTemplate": [Function],
+  "themes": {
+    "dark": {
+      "extraColors": {
+        "ant-neutral-100": "#000000",
+        "ant-neutral-1000": "#f0f0f0",
+        "ant-neutral-1100": "#f5f5f5",
+        "ant-neutral-1200": "#fafafa",
+        "ant-neutral-1300": "#ffffff",
+        "ant-neutral-200": "#141414",
+        "ant-neutral-300": "#1f1f1f",
+        "ant-neutral-400": "#262626",
+        "ant-neutral-500": "#434343",
+        "ant-neutral-600": "#595959",
+        "ant-neutral-700": "#8c8c8c",
+        "ant-neutral-800": "#bfbfbf",
+        "ant-neutral-900": "#d9d9d9",
+        "base-100": "#1d232a",
+        "base-200": "#191e24",
+        "base-300": "#15191e",
+        "base-content": "#a6adbb",
+      },
+      "extraVars": {
+        "animation-btn": "0.25s",
+        "animation-input": "0.2s",
+        "border-btn": "1px",
+        "rounded-badge": "1.9rem",
+        "rounded-box": "1rem",
+        "rounded-btn": "0.5rem",
+        "skeleton-duration": "1.2s",
+        "tab-border": "1px",
+        "tab-radius": "0.5rem",
+      },
+      "selector": "[data-mode="dark"]",
+      "types": {
+        "accent": {
+          "accent": "#13a8a8",
+          "accent-active": "#33bcb7",
+          "accent-content": "#ffffff",
+          "accent-hover": "#138585",
+        },
+        "error": {
+          "error": "#d32029",
+          "error-active": "#e84749",
+          "error-content": "#ffffff",
+          "error-hover": "#a61d24",
+        },
+        "info": {
+          "info": "#2b4acb",
+          "info-active": "#5273e0",
+          "info-content": "#ffffff",
+          "info-hover": "#263ea0",
+        },
+        "neutral": {
+          "neutral": "#5a5a5a",
+          "neutral-active": "#6a6a6a",
+          "neutral-content": "#ffffff",
+          "neutral-hover": "#494949",
+        },
+        "primary": {
+          "primary": "#1668dc",
+          "primary-active": "#3c89e8",
+          "primary-content": "#ffffff",
+          "primary-hover": "#1554ad",
+        },
+        "secondary": {
+          "secondary": "#cb2b83",
+          "secondary-active": "#e0529c",
+          "secondary-content": "#ffffff",
+          "secondary-hover": "#a02669",
+        },
+        "success": {
+          "success": "#49aa19",
+          "success-active": "#6abe39",
+          "success-content": "#ffffff",
+          "success-hover": "#3c8618",
+        },
+        "warning": {
+          "warning": "#d89614",
+          "warning-active": "#e8b339",
+          "warning-content": "#ffffff",
+          "warning-hover": "#aa7714",
+        },
+      },
+    },
+    "light": {
+      "extraColors": {
+        "ant-neutral-100": "#ffffff",
+        "ant-neutral-1000": "#262626",
+        "ant-neutral-1100": "#1f1f1f",
+        "ant-neutral-1200": "#141414",
+        "ant-neutral-1300": "#000000",
+        "ant-neutral-200": "#fafafa",
+        "ant-neutral-300": "#f5f5f5",
+        "ant-neutral-400": "#f0f0f0",
+        "ant-neutral-500": "#d9d9d9",
+        "ant-neutral-600": "#bfbfbf",
+        "ant-neutral-700": "#8c8c8c",
+        "ant-neutral-800": "#595959",
+        "ant-neutral-900": "#434343",
+        "base-100": "#ffffff",
+        "base-200": "#f2f2f2",
+        "base-300": "#e5e6e6",
+        "base-content": "#1f2937",
+      },
+      "extraVars": {
+        "animation-btn": "0.25s",
+        "animation-input": "0.2s",
+        "border-btn": "1px",
+        "rounded-badge": "1.9rem",
+        "rounded-box": "1rem",
+        "rounded-btn": "0.5rem",
+        "skeleton-duration": "1.2s",
+        "tab-border": "1px",
+        "tab-radius": "0.5rem",
+      },
+      "selector": ":root",
+      "types": {
+        "accent": {
+          "accent": "#13c2c2",
+          "accent-active": "#08979c",
+          "accent-content": "#ffffff",
+          "accent-hover": "#36cfc9",
+        },
+        "error": {
+          "error": "#f5222d",
+          "error-active": "#cf1322",
+          "error-content": "#ffffff",
+          "error-hover": "#ff4d4f",
+        },
+        "info": {
+          "info": "#2f54eb",
+          "info-active": "#1d39c4",
+          "info-content": "#ffffff",
+          "info-hover": "#597ef7",
+        },
+        "neutral": {
+          "neutral": "#666666",
+          "neutral-active": "#404040",
+          "neutral-content": "#ffffff",
+          "neutral-hover": "#737373",
+        },
+        "primary": {
+          "primary": "#1677ff",
+          "primary-active": "#0958d9",
+          "primary-content": "#ffffff",
+          "primary-hover": "#4096ff",
+        },
+        "secondary": {
+          "secondary": "#eb2f96",
+          "secondary-active": "#c41d7f",
+          "secondary-content": "#ffffff",
+          "secondary-hover": "#f759ab",
+        },
+        "success": {
+          "success": "#52c41a",
+          "success-active": "#389e0d",
+          "success-content": "#ffffff",
+          "success-hover": "#73d13d",
+        },
+        "warning": {
+          "warning": "#faad14",
+          "warning-active": "#d48806",
+          "warning-content": "#ffffff",
+          "warning-hover": "#ffc53d",
+        },
+      },
     },
   },
-  "utilities": {},
 }
 `;
 
-exports[`options > getCodegenOptions snap merge case 2 1`] = `
-[
-  ":host{color:blue;}
-            
-            .d{color:red;}",
-  ":host{color:red;}",
-]
+exports[`defaults > getDefaultBase > light theme false 1`] = `
+{
+  "generateColors": [Function],
+  "mediaDarkTheme": false,
+  "themeSelectorTemplate": [Function],
+  "themes": {
+    "dark": {
+      "extraColors": {
+        "ant-neutral-100": "#000000",
+        "ant-neutral-1000": "#f0f0f0",
+        "ant-neutral-1100": "#f5f5f5",
+        "ant-neutral-1200": "#fafafa",
+        "ant-neutral-1300": "#ffffff",
+        "ant-neutral-200": "#141414",
+        "ant-neutral-300": "#1f1f1f",
+        "ant-neutral-400": "#262626",
+        "ant-neutral-500": "#434343",
+        "ant-neutral-600": "#595959",
+        "ant-neutral-700": "#8c8c8c",
+        "ant-neutral-800": "#bfbfbf",
+        "ant-neutral-900": "#d9d9d9",
+        "base-100": "#1d232a",
+        "base-200": "#191e24",
+        "base-300": "#15191e",
+        "base-content": "#a6adbb",
+      },
+      "extraVars": {
+        "animation-btn": "0.25s",
+        "animation-input": "0.2s",
+        "border-btn": "1px",
+        "rounded-badge": "1.9rem",
+        "rounded-box": "1rem",
+        "rounded-btn": "0.5rem",
+        "skeleton-duration": "1.2s",
+        "tab-border": "1px",
+        "tab-radius": "0.5rem",
+      },
+      "selector": "[data-mode="dark"]",
+      "types": {
+        "accent": {
+          "accent": "#13a8a8",
+          "accent-active": "#33bcb7",
+          "accent-content": "#ffffff",
+          "accent-hover": "#138585",
+        },
+        "error": {
+          "error": "#d32029",
+          "error-active": "#e84749",
+          "error-content": "#ffffff",
+          "error-hover": "#a61d24",
+        },
+        "info": {
+          "info": "#2b4acb",
+          "info-active": "#5273e0",
+          "info-content": "#ffffff",
+          "info-hover": "#263ea0",
+        },
+        "neutral": {
+          "neutral": "#5a5a5a",
+          "neutral-active": "#6a6a6a",
+          "neutral-content": "#ffffff",
+          "neutral-hover": "#494949",
+        },
+        "primary": {
+          "primary": "#1668dc",
+          "primary-active": "#3c89e8",
+          "primary-content": "#ffffff",
+          "primary-hover": "#1554ad",
+        },
+        "secondary": {
+          "secondary": "#cb2b83",
+          "secondary-active": "#e0529c",
+          "secondary-content": "#ffffff",
+          "secondary-hover": "#a02669",
+        },
+        "success": {
+          "success": "#49aa19",
+          "success-active": "#6abe39",
+          "success-content": "#ffffff",
+          "success-hover": "#3c8618",
+        },
+        "warning": {
+          "warning": "#d89614",
+          "warning-active": "#e8b339",
+          "warning-content": "#ffffff",
+          "warning-hover": "#aa7714",
+        },
+      },
+    },
+  },
+}
 `;
 
-exports[`options > getCodegenOptions snap merge case 3 1`] = `
+exports[`defaults > getDefaultBase > mode none 1`] = `
 {
-  "xxx": {
-    "extraCss": [
-      ".a{color:yellow} .b{color:blue}",
-      ".a{color:red}",
-    ],
+  "generateColors": [Function],
+  "mediaDarkTheme": false,
+  "themeSelectorTemplate": [Function],
+  "themes": {},
+}
+`;
+
+exports[`defaults > injectSchema > default 1`] = `{}`;
+
+exports[`defaults > injectSchema > injectSchema button 1`] = `
+{
+  "button": {},
+}
+`;
+
+exports[`defaults > injectSchema > injectSchema global mode none 1`] = `{}`;
+
+exports[`defaults > injectSchema > injectSchema global mode none and inner preset 1`] = `{}`;
+
+exports[`defaults > shared vars > sharedExtraColors 1`] = `
+{
+  "dark": {
+    "ant-neutral-100": "#000000",
+    "ant-neutral-1000": "#f0f0f0",
+    "ant-neutral-1100": "#f5f5f5",
+    "ant-neutral-1200": "#fafafa",
+    "ant-neutral-1300": "#ffffff",
+    "ant-neutral-200": "#141414",
+    "ant-neutral-300": "#1f1f1f",
+    "ant-neutral-400": "#262626",
+    "ant-neutral-500": "#434343",
+    "ant-neutral-600": "#595959",
+    "ant-neutral-700": "#8c8c8c",
+    "ant-neutral-800": "#bfbfbf",
+    "ant-neutral-900": "#d9d9d9",
+    "base-100": "#1d232a",
+    "base-200": "#191e24",
+    "base-300": "#15191e",
+    "base-content": "#a6adbb",
   },
+  "light": {
+    "ant-neutral-100": "#ffffff",
+    "ant-neutral-1000": "#262626",
+    "ant-neutral-1100": "#1f1f1f",
+    "ant-neutral-1200": "#141414",
+    "ant-neutral-1300": "#000000",
+    "ant-neutral-200": "#fafafa",
+    "ant-neutral-300": "#f5f5f5",
+    "ant-neutral-400": "#f0f0f0",
+    "ant-neutral-500": "#d9d9d9",
+    "ant-neutral-600": "#bfbfbf",
+    "ant-neutral-700": "#8c8c8c",
+    "ant-neutral-800": "#595959",
+    "ant-neutral-900": "#434343",
+    "base-100": "#ffffff",
+    "base-200": "#f2f2f2",
+    "base-300": "#e5e6e6",
+    "base-content": "#1f2937",
+  },
+}
+`;
+
+exports[`defaults > shared vars > sharedExtraVars 1`] = `
+{
+  "animation-btn": "0.25s",
+  "animation-input": "0.2s",
+  "border-btn": "1px",
+  "rounded-badge": "1.9rem",
+  "rounded-box": "1rem",
+  "rounded-btn": "0.5rem",
+  "skeleton-duration": "1.2s",
+  "tab-border": "1px",
+  "tab-radius": "0.5rem",
 }
 `;

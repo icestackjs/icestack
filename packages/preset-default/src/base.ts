@@ -17,7 +17,7 @@ export const sharedExtraColors = {
     'base-100': '#1d232a',
     'base-200': '#191e24',
     'base-300': '#15191e',
-    'base-content': '#697280',
+    'base-content': '#a6adbb',
     ...Object.values(gray).reduce<Record<string, string>>((acc, value, idx) => {
       acc[`ant-neutral-${13 - idx}00`] = value
       return acc

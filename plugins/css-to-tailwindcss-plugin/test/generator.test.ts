@@ -131,6 +131,13 @@ describe('generator', () => {
     expect(css).toMatchSnapshot('css')
   })
 
+  it('apply case weapp-tailwindcss/issues/271', async () => {
+    const twCtx = getTwCtx()
+    const { css } = await twCtx.process(fixturesResolve('apply2.scss'))
+    expect(twCtx.generate()).toMatchSnapshot('generate')
+    expect(css).toMatchSnapshot('css')
+  })
+
   it('apply case 2', async () => {
     const twCtx = getTwCtx()
     const { css } = await twCtx.process(fixturesResolve('apply-without.scss'))

@@ -375,6 +375,44 @@ const css2TwPlugin = _plugin(function ({
 module.exports = css2TwPlugin;"
 `;
 
+exports[`generator > apply case weapp-tailwindcss/issues/271 > css 1`] = `
+"
+  .center {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}"
+`;
+
+exports[`generator > apply case weapp-tailwindcss/issues/271 > generate 1`] = `
+"const _plugin = require("tailwindcss/plugin");
+const returnSelfNoop = x => x;
+const css2TwPlugin = _plugin(function ({
+  addBase: addBase,
+  addComponents: addComponents,
+  addUtilities: addUtilities,
+  theme: theme,
+  addVariant: addVariant,
+  config: config,
+  corePlugins: corePlugins,
+  e: e,
+  matchComponents: matchComponents,
+  matchUtilities: matchUtilities,
+  matchVariant: matchVariant
+}) {
+  addBase({});
+  addComponents({});
+  addUtilities({
+    ".center": {
+      "display": "flex",
+      "align-items": "center",
+      "justify-content": "center"
+    }
+  });
+});
+module.exports = css2TwPlugin;"
+`;
+
 exports[`generator > double-bug 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;

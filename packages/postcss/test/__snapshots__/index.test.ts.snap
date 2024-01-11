@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`index > plugin 1`] = `
+"
+    @icestack base;
+    @icestack components;
+    @icestack utilities;
+    "
+`;

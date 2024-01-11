@@ -32,7 +32,7 @@
     "clsx": "^2.1.0",
     "css-to-tailwindcss-plugin": "workspace:^",
     "dotenv": "^16.3.1",
-    "html-react-parser": "^5.0.11",
+    "html-react-parser": "^5.1.0",
     "lodash-es": "^4.17.21",
     "next": "^14.0.4",
     "next-international": "^1.2.3",

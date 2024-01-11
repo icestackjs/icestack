@@ -5,7 +5,7 @@ import { mergeRClone } from '@icestack/shared'
 import type { CssInJs } from 'postcss-js'
 import type { CSSRuleObject, PluginCreator } from 'tailwindcss/types/config'
 
-import { getJsProcess } from '@icestack/postcss'
+import { getJsProcess } from '@icestack/postcss/js'
 import { createLogger } from '@icestack/logger'
 import { Config } from 'tailwindcss'
 import { name as pkgName } from '../package.json'

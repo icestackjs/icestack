@@ -23,10 +23,57 @@
   ],
   "sideEffects": false,
   "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./ast": {
+      "types": "./dist/ast.d.ts",
+      "import": "./dist/ast.mjs",
+      "require": "./dist/ast.cjs"
+    },
+    "./js": {
+      "types": "./dist/js.d.ts",
+      "import": "./dist/js.mjs",
+      "require": "./dist/js.cjs"
+    },
+    "./plugins": {
+      "types": "./dist/plugins.d.ts",
+      "import": "./dist/plugins.mjs",
+      "require": "./dist/plugins.cjs"
+    },
+    "./scss": {
+      "types": "./dist/scss.d.ts",
+      "import": "./dist/scss.mjs",
+      "require": "./dist/scss.cjs"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.mjs",
+      "require": "./dist/types.cjs"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.mjs",
+      "require": "./dist/utils.cjs"
+    },
+    "./*": "./*"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
   "dependencies": {
     "@icestack/postcss-utils": "workspace:^",
     "@icestack/shared": "workspace:^",

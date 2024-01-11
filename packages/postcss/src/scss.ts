@@ -1,5 +1,5 @@
 import { parse as scssParse } from 'postcss-scss'
-import { rule, type AtRule, type Root, type Rule } from 'postcss'
+import { type AtRule, type Root, type Rule } from 'postcss'
 import valueParser from 'postcss-value-parser'
 import { compressCssSelector } from '@icestack/postcss-utils'
 

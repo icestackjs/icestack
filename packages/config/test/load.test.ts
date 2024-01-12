@@ -7,7 +7,7 @@ describe.skipIf(ci.isCI)('load config', () => {
       cwd: path.resolve(__dirname, 'ts')
     })
     expect(config?.config.log).toBe(false)
-    expect(config).toMatchSnapshot()
+    expect(config.config).toMatchSnapshot()
   })
 
   it('load js config', () => {
@@ -15,7 +15,7 @@ describe.skipIf(ci.isCI)('load config', () => {
       cwd: path.resolve(__dirname, 'js')
     })
     expect(config?.config.log).toBe(false)
-    expect(config).toMatchSnapshot()
+    expect(config.config).toMatchSnapshot()
   })
   // For the synchronous API, the only difference is that .mjs files are not included. See "Loading JS modules" for more information.
   // https://www.npmjs.com/package/cosmiconfig?activeTab=readme
@@ -24,7 +24,7 @@ describe.skipIf(ci.isCI)('load config', () => {
       cwd: path.resolve(__dirname, 'esm')
     })
     expect(config?.config.log).toBe(false)
-    expect(config).toMatchSnapshot()
+    expect(config.config).toMatchSnapshot()
   })
 
   it('load cjs config', () => {
@@ -32,6 +32,6 @@ describe.skipIf(ci.isCI)('load config', () => {
       cwd: path.resolve(__dirname, 'cjs')
     })
     expect(config?.config.log).toBe(false)
-    expect(config).toMatchSnapshot()
+    expect(config.config).toMatchSnapshot()
   })
 })

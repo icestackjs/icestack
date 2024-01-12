@@ -2,57 +2,48 @@
 
 exports[`load config > load cjs config 1`] = `
 {
-  "config": {
-    "base": {
-      "themes": {
-        "dark": {
-          "selector": ".dark",
-        },
-        "light": {
-          "selector": "page",
-        },
+  "base": {
+    "themes": {
+      "dark": {
+        "selector": ".dark",
+      },
+      "light": {
+        "selector": "page",
       },
     },
-    "log": false,
   },
-  "filepath": "/Users/icebreaker/Documents/GitHub/icestack/packages/config/test/cjs/icestack.config.cjs",
+  "log": false,
 }
 `;
 
 exports[`load config > load js config 1`] = `
 {
-  "config": {
-    "base": {
-      "themes": {
-        "dark": {
-          "selector": ".dark",
-        },
-        "light": {
-          "selector": "page",
-        },
+  "base": {
+    "themes": {
+      "dark": {
+        "selector": ".dark",
+      },
+      "light": {
+        "selector": "page",
       },
     },
-    "log": false,
   },
-  "filepath": "/Users/icebreaker/Documents/GitHub/icestack/packages/config/test/js/icestack.config.cjs",
+  "log": false,
 }
 `;
 
 exports[`load config > load ts config 1`] = `
 {
-  "config": {
-    "base": {
-      "themes": {
-        "dark": {
-          "selector": ".dark",
-        },
-        "light": {
-          "selector": "page",
-        },
+  "base": {
+    "themes": {
+      "dark": {
+        "selector": ".dark",
+      },
+      "light": {
+        "selector": "page",
       },
     },
-    "log": false,
   },
-  "filepath": "/Users/icebreaker/Documents/GitHub/icestack/packages/config/test/ts/icestack.config.ts",
+  "log": false,
 }
 `;

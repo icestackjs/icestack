@@ -34,7 +34,7 @@ exports[`load config > load js config 1`] = `
     },
     "log": false,
   },
-  "filepath": "/Users/icebreaker/Documents/GitHub/icestack/packages/config/test/js/icestack.config.js",
+  "filepath": "/Users/icebreaker/Documents/GitHub/icestack/packages/config/test/js/icestack.config.cjs",
 }
 `;
 

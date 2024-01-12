@@ -85,7 +85,7 @@
     "@icestack/core": "workspace:^",
     "@icestack/config": "workspace:^",
     "@icestack/logger": "workspace:^",
-    "@icestack/postcss": "workspace:^",
+    "@icestack/postcss-utils": "workspace:^",
     "@icestack/preset-default": "workspace:^",
     "@icestack/scss": "workspace:^",
     "@icestack/shared": "workspace:^",

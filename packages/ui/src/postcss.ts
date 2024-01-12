@@ -1,6 +1,1 @@
-export * from '@icestack/postcss/ast'
-export * from '@icestack/postcss/js'
-export * from '@icestack/postcss/plugins'
-export * from '@icestack/postcss/scss'
-export { compressCssSelector, mapCss2JsArray, preprocessCssInJs, recursiveNodes, transformCss2Js } from '@icestack/postcss/utils'
-export { AcceptedPlugin, CssInJs, PrefixerOptions, VarPrefixerOptions } from '@icestack/postcss/types'
+export * from '@icestack/postcss-utils'

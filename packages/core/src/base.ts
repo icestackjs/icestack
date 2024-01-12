@@ -2,8 +2,7 @@ import { sharedExtraColors, sharedExtraVars } from '@icestack/preset-default/bas
 import { makeRgbaValue, composeVarsObject } from '@icestack/theme-algorithm'
 import { CodegenOptions, CssInJs, VarPrefixerOptions } from '@icestack/types'
 import { mergeRClone, makeArray } from '@icestack/shared'
-import { parseJs } from '@icestack/postcss/js'
-import { merge, parse } from '@icestack/postcss/scss'
+import { parseJs, merge, parse } from '@icestack/postcss-utils'
 
 export const calcBase = (options: Partial<CodegenOptions>, { slash }: { slash: boolean } = { slash: true }) => {
   const { base, postcss } = options

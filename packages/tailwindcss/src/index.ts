@@ -5,7 +5,6 @@ import { mergeRClone } from '@icestack/shared'
 import type { CssInJs } from 'postcss-js'
 import type { CSSRuleObject, PluginCreator } from 'tailwindcss/types/config'
 
-import { getJsProcess } from '@icestack/postcss/js'
 import { createLogger } from '@icestack/logger'
 import { Config } from 'tailwindcss'
 import { name as pkgName } from '../package.json'
@@ -45,9 +44,9 @@ export const icestackPlugin = plugin.withOptions(
         if (base && components && utilities) {
           const componentsEntries = Object.entries(components)
           const utilitiesEntries = Object.entries(utilities)
-          const { baseProcess, componentsProcess, utilitiesProcess } = getJsProcess()
+          // const { baseProcess, componentsProcess, utilitiesProcess } = getJsProcess()
 
-          const baseObj = baseProcess(base) as CSSRuleObject | CSSRuleObject[]
+          const baseObj = base as CSSRuleObject | CSSRuleObject[]
 
           return function ({ addBase, addComponents, addUtilities }) {
             addBase(baseObj)
@@ -56,9 +55,7 @@ export const icestackPlugin = plugin.withOptions(
               // 优先级 utils > index > base
               const cssItems: (CssInJs | undefined)[] = [item.base, item.styled, item.utils]
 
-              let cssObj = mergeRClone(...cssItems)
-
-              cssObj = componentsProcess(cssObj)
+              const cssObj = mergeRClone(...cssItems)
 
               addComponents(cssObj)
             }
@@ -66,9 +63,7 @@ export const icestackPlugin = plugin.withOptions(
             for (const [, item] of utilitiesEntries) {
               const cssItems: (CssInJs | undefined)[] = [item]
 
-              let cssObj = mergeRClone(...cssItems)
-
-              cssObj = utilitiesProcess(cssObj)
+              const cssObj = mergeRClone(...cssItems)
 
               addUtilities(cssObj)
             }

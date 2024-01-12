@@ -7,3 +7,11 @@ exports[`index > plugin 1`] = `
     @icestack utilities;
     "
 `;
+
+exports[`index > plugin 2`] = `
+"
+    @icestack base.xxxx;
+    @icestack components.ddsdsdksaljfds;
+    @icestack utilities.dsad.dfsf.ds.fd;
+    "
+`;

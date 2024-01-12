@@ -5,7 +5,7 @@ import type { Preset } from '@icestack/types'
 // import colorObject from 'daisyui/src/theming/index'
 // // @ts-ignore
 // import utilityClasses from 'daisyui/src/lib/utility-classes'
-// import { transformCss2Js } from '@icestack/postcss-utils'
+
 import { trimStart } from 'lodash'
 import themes from './themes'
 import colorFunctions from './functions'

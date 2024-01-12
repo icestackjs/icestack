@@ -34,36 +34,6 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
-    "./ast": {
-      "types": "./dist/ast.d.ts",
-      "import": "./dist/ast.mjs",
-      "require": "./dist/ast.cjs"
-    },
-    "./js": {
-      "types": "./dist/js.d.ts",
-      "import": "./dist/js.mjs",
-      "require": "./dist/js.cjs"
-    },
-    "./plugins": {
-      "types": "./dist/plugins.d.ts",
-      "import": "./dist/plugins.mjs",
-      "require": "./dist/plugins.cjs"
-    },
-    "./scss": {
-      "types": "./dist/scss.d.ts",
-      "import": "./dist/scss.mjs",
-      "require": "./dist/scss.cjs"
-    },
-    "./types": {
-      "types": "./dist/types.d.ts",
-      "import": "./dist/types.mjs",
-      "require": "./dist/types.cjs"
-    },
-    "./utils": {
-      "types": "./dist/utils.d.ts",
-      "import": "./dist/utils.mjs",
-      "require": "./dist/utils.cjs"
-    },
     "./*": "./*"
   },
   "typesVersions": {
@@ -74,21 +44,7 @@
       ]
     }
   },
-  "dependencies": {
-    "@icestack/postcss-utils": "workspace:^",
-    "@icestack/shared": "workspace:^",
-    "@icestack/types": "workspace:^",
-    "css-selector-tokenizer": "^0.8.0",
-    "defu": "^6.1.4",
-    "lodash": "^4.17.21",
-    "postcss": "^8.4.33",
-    "postcss-custom-property-prefixer": "workspace:^",
-    "postcss-js": "^4.0.1",
-    "postcss-scss": "^4.0.9",
-    "postcss-selector-parser": "^6.0.15",
-    "postcss-value-parser": "^4.2.0",
-    "tailwindcss": "^3.4.1"
-  },
+  "dependencies": {},
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
   "bugs": {

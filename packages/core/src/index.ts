@@ -9,11 +9,23 @@ import { compileScssString } from '@icestack/scss'
 import { logger } from '@icestack/logger'
 import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@icestack/types'
 import { defu, JSONStringify } from '@icestack/shared'
-import { getPrefixerPlugin, getCssVarsPrefixerPlugin, resolveTailwindcss, initTailwindcssConfig, resolvePrefixOption, resolveVarPrefixOption } from '@icestack/postcss/plugins'
-import { AcceptedPlugin } from '@icestack/postcss/types'
-import { Root, Rule, AtRule } from '@icestack/postcss/ast'
-import { parse, merge, mapCssStringToAst } from '@icestack/postcss/scss'
-import { objectify, process } from '@icestack/postcss/js'
+import {
+  getPrefixerPlugin,
+  getCssVarsPrefixerPlugin,
+  resolveTailwindcss,
+  initTailwindcssConfig,
+  resolvePrefixOption,
+  resolveVarPrefixOption,
+  AcceptedPlugin,
+  Root,
+  Rule,
+  AtRule,
+  parse,
+  merge,
+  mapCssStringToAst,
+  objectify,
+  process
+} from '@icestack/postcss-utils'
 import { name } from '../package.json'
 import { utilitiesNames, utilitiesMap } from './utilities'
 import { handleOptions } from './components'

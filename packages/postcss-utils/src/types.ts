@@ -1,4 +1,4 @@
-export type { Root, AtRule, Rule, Declaration, Comment } from 'postcss'
+// export type { Root, AtRule, Rule, Declaration, Comment } from 'postcss'
 
 export type { AcceptedPlugin } from 'postcss'
 

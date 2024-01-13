@@ -9,6 +9,7 @@ import { compileScssString } from '@icestack/scss'
 import { logger } from '@icestack/logger'
 import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@icestack/types'
 import { defu, JSONStringify } from '@icestack/shared'
+import hash from 'object-hash'
 import {
   getPrefixerPlugin,
   getCssVarsPrefixerPlugin,
@@ -66,6 +67,7 @@ function getPaths(relPath: string, outdir?: string) {
 
 export function createContext(opts?: CodegenOptions) {
   const options = getCodegenOptions(opts)
+  const configHash = hash(options)
   const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities, sassOptions } = options
   const { prefix: _globalPrefix, varPrefix: _globalVarPrefix, plugins: globalPostcssPlugins } = postcss!
 
@@ -91,7 +93,6 @@ export function createContext(opts?: CodegenOptions) {
 
   function createPreset(opts: CreatePresetOptions): Record<string, object> {
     return Object.entries(components).reduce<Record<string, object>>((acc, [name, comOpt]) => {
-      // @ts-ignore
       if (comOpt === false) {
         return acc
       }
@@ -165,39 +166,62 @@ export function createContext(opts?: CodegenOptions) {
 
   async function internalBuild(opts: { root?: AtRule | Root | Rule; layer: ILayer; suffixes: string[]; relPath: string }) {
     const { layer, suffixes, relPath, root = new Root() } = opts
-    const { cssPath, cssResolvedPath, jsPath, scssPath } = getPaths(relPath, outdir)
+
     const scss = root.toString()
 
-    writeFile(scssPath, scss)
-
     const { css } = compileScssString(scss, sassOptions)
-    const { css: cssOutput } = preprocessCss(css, layer, suffixes[0])
+    const { root: cssRoot } = preprocessCss(css, layer, suffixes[0])
 
-    // scss -> css
-    writeFile(cssPath, cssOutput)
-
-    const { css: resolvedCss, root: resolvedRoot } = await resolveTailwindcss({
-      css: cssOutput,
+    const { root: resolvedCssRoot, css: resolvedCss } = await resolveTailwindcss({
+      css: cssRoot as Root,
       config: twConfig,
       options
     })
 
-    writeFile(cssResolvedPath, resolvedCss)
+    const cssInJs = objectify(resolvedCssRoot as Root)
 
-    const cssInJs = objectify(resolvedRoot as Root)
-
-    const data = 'module.exports = ' + JSONStringify(cssInJs)
-    // css -> js
-    writeFile(jsPath, data)
-
+    internalDump({
+      cssInJs,
+      cssRoot: cssRoot as Root,
+      relPath,
+      resolvedCssRoot: resolvedCssRoot as Root,
+      scss
+    })
     return {
-      scss,
       // root,
-      css: cssOutput,
-      // resolvedRoot,
-      resolvedCss,
+      // scss,
+      // css,
+      // cssRoot,
+      css: resolvedCss,
       cssInJs
     }
+  }
+
+  function internalDump({
+    relPath,
+    cssRoot,
+    resolvedCssRoot,
+    cssInJs,
+    scss
+  }: {
+    relPath: string
+    // scssRoot: Root
+    scss: string
+    cssRoot: Root
+    resolvedCssRoot: Root
+    cssInJs: CssInJs
+  }) {
+    const { cssPath, cssResolvedPath, jsPath, scssPath } = getPaths(relPath, outdir)
+
+    // scss
+    writeFile(scssPath, scss)
+    // scss -> css
+    writeFile(cssPath, cssRoot.toString())
+    // css -> css
+    writeFile(cssResolvedPath, resolvedCssRoot.toString())
+    // css -> js
+    const data = 'module.exports = ' + JSONStringify(cssInJs)
+    writeFile(jsPath, data)
   }
 
   async function buildBase() {
@@ -399,7 +423,8 @@ export function createContext(opts?: CodegenOptions) {
     options,
     build,
     createPreset,
-    preprocessCss
+    preprocessCss,
+    configHash
   }
 }
 

@@ -6,18 +6,19 @@ exports[`cutsom > custom component case 1 1`] = `
     "base": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "utils": {
       "css": ".ice-subtitle {
-  @apply text-gray-600 text-sm pt-5 pb-4;
+    padding-top: 1.25rem;
+    padding-bottom: 1rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    --tw-text-opacity: 1;
+    color: rgb(75 85 99 / var(--tw-text-opacity))
 }",
       "cssInJs": {
         ".ice-subtitle": {
@@ -29,35 +30,25 @@ exports[`cutsom > custom component case 1 1`] = `
           "paddingTop": "1.25rem",
         },
       },
-      "resolvedCss": ".ice-subtitle {
-    padding-top: 1.25rem;
-    padding-bottom: 1rem;
-    font-size: 0.875rem;
-    line-height: 1.25rem;
-    --tw-text-opacity: 1;
-    color: rgb(75 85 99 / var(--tw-text-opacity))
-}",
-      "scss": ".subtitle {
-            @apply text-gray-600 text-sm pt-5 pb-4;
-          }",
     },
   },
   "tips": {
     "base": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "utils": {
       "css": ".som-tips {
-  @apply text-gray-500 text-xs pt-3 pb-2;
+    padding-top: 0.75rem;
+    padding-bottom: 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    --tw-text-opacity: 1;
+    color: rgb(107 114 128 / var(--tw-text-opacity))
 }",
       "cssInJs": {
         ".som-tips": {
@@ -69,17 +60,6 @@ exports[`cutsom > custom component case 1 1`] = `
           "paddingTop": "0.75rem",
         },
       },
-      "resolvedCss": ".som-tips {
-    padding-top: 0.75rem;
-    padding-bottom: 0.5rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
-    --tw-text-opacity: 1;
-    color: rgb(107 114 128 / var(--tw-text-opacity))
-}",
-      "scss": ".tips {
-            @apply text-gray-500 text-xs pt-3 pb-2;
-          }",
     },
   },
 }
@@ -137,66 +117,14 @@ exports[`cutsom > custom component case 2 1`] = `
         },
         "@charset "UTF-8"": true,
       },
-      "resolvedCss": "@charset "UTF-8";
-.ice-checkbox .wx-checkbox-input {
-  width: 34rpx;
-  height: 34rpx;
-  border-radius: 50%;
-}
-
-/*checkbox选中后样式  */
-.ice-checkbox .wx-checkbox-input.wx-checkbox-input-checked {
-  background: #0394f0;
-  border-color: #0394f0;
-}
-
-/*checkbox选中后图标样式  */
-.ice-checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
-  width: 20rpx;
-  height: 20rpx;
-  line-height: 20rpx;
-  text-align: center;
-  font-size: 22rpx;
-  color: #fff;
-  background: transparent;
-  transform: translate(-50%, -50%) scale(1);
-  -webkit-transform: translate(-50%, -50%) scale(1);
-}",
-      "scss": ".checkbox .wx-checkbox-input {
-                  width: 34rpx;
-                  height: 34rpx;
-                  border-radius: 50%;
-                }
-                /*checkbox选中后样式  */
-                .checkbox .wx-checkbox-input.wx-checkbox-input-checked {
-                  background: #0394f0;
-                  border-color: #0394f0;
-                }
-                /*checkbox选中后图标样式  */
-                .checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
-                  width: 20rpx;
-                  height: 20rpx;
-                  line-height: 20rpx;
-                  text-align: center;
-                  font-size: 22rpx;
-                  color: #fff;
-                  background: transparent;
-                  transform: translate(-50%, -50%) scale(1);
-                  -webkit-transform: translate(-50%, -50%) scale(1);
-                }
-                ",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "utils": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
   },
 }
@@ -208,19 +136,18 @@ exports[`cutsom > custom component case 3 1`] = `
     "base": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "utils": {
       "css": ".xxx {
-  @apply bg-red-300 text-sm;
-  color: red;
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: red
 }",
       "cssInJs": {
         ".xxx": {
@@ -231,19 +158,6 @@ exports[`cutsom > custom component case 3 1`] = `
           "lineHeight": "1.25rem",
         },
       },
-      "resolvedCss": ".xxx {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  color: red
-}",
-      "scss": "
-            .xxx{
-              @apply bg-red-300 text-sm;
-              color: red;
-            }
-            ",
     },
   },
 }
@@ -255,20 +169,18 @@ exports[`cutsom > custom component case 4 !important 1`] = `
     "base": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "utils": {
       "css": ".xxx {
-  @apply bg-red-300 text-sm;
-  @apply leading-4 !important;
-  color: red;
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+  font-size: 0.875rem;
+  line-height: 1rem !important;
+  color: red
 }",
       "cssInJs": {
         ".xxx": {
@@ -279,20 +191,6 @@ exports[`cutsom > custom component case 4 !important 1`] = `
           "lineHeight": "1rem !important",
         },
       },
-      "resolvedCss": ".xxx {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-  font-size: 0.875rem;
-  line-height: 1rem !important;
-  color: red
-}",
-      "scss": "
-            .xxx{
-              @apply bg-red-300 text-sm;
-              @apply leading-4 #{!important};
-              color: red;
-            }
-            ",
     },
   },
 }
@@ -304,19 +202,18 @@ exports[`cutsom > custom component case 5 !important 1`] = `
     "base": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "utils": {
       "css": ".xxx {
-  @apply bg-red-300 text-sm leading-4 !important;
-  color: red !important;
+  --tw-bg-opacity: 1 !important;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity)) !important;
+  font-size: 0.875rem !important;
+  line-height: 1rem !important;
+  color: red !important
 }",
       "cssInJs": {
         ".xxx": {
@@ -327,19 +224,6 @@ exports[`cutsom > custom component case 5 !important 1`] = `
           "lineHeight": "1rem !important",
         },
       },
-      "resolvedCss": ".xxx {
-  --tw-bg-opacity: 1 !important;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity)) !important;
-  font-size: 0.875rem !important;
-  line-height: 1rem !important;
-  color: red !important
-}",
-      "scss": "
-            .xxx{
-              @apply bg-red-300 text-sm leading-4 #{!important};
-              color: red !important;
-            }
-            ",
     },
   },
 }

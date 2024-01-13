@@ -1,11 +1,11 @@
-import postcss from 'postcss'
+import postcss, { LazyResult, Result, Root } from 'postcss'
 import tailwindcss from 'tailwindcss'
 import type { Config } from 'tailwindcss/types/config'
 import type { CodegenOptions, DeepPartial } from '@icestack/types'
 import { defuOverrideArray } from '@icestack/shared'
 import gloablPostcss from './icestack'
 
-export function resolveTailwindcss(opts: { css: string; config: Config; options: CodegenOptions }) {
+export function resolveTailwindcss(opts: { css: LazyResult | Result | Root | string; config: Config; options: CodegenOptions }) {
   const { config, css, options } = opts
 
   // process.env.JEST_WORKER_ID = 'mock'

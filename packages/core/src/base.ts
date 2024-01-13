@@ -23,7 +23,6 @@ export const calcBase = (options: Partial<CodegenOptions>, { slash }: { slash: b
   }
   const prependNodes: CssInJs[] = []
   const presets = Object.entries(themes!).reduce<Record<string, any>>((acc, [theme, opts]) => {
-    // @ts-ignore
     if (opts === false) {
       return acc
     }
@@ -60,6 +59,7 @@ export const calcBase = (options: Partial<CodegenOptions>, { slash }: { slash: b
       const css = mergeRClone(composeVarsObject(typesColors, { ...(extraColors ?? sharedExtraColors.light), ...(extraVars ?? sharedExtraVars) }, slash), extraCss)
       if (mediaDarkTheme === theme) {
         // default selector
+        // @ts-ignore
         const defaultSelector = themes?.light.selector
         if (defaultSelector) {
           prependNodes.push({
@@ -67,9 +67,6 @@ export const calcBase = (options: Partial<CodegenOptions>, { slash }: { slash: b
               [defaultSelector]: css
             }
           })
-          // acc['@media (prefers-color-scheme: dark)'] = {
-          //   [defaultSelector]: css
-          // }
         }
       }
       acc[selector] = css

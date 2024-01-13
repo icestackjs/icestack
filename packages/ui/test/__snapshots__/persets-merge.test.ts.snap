@@ -5,12 +5,14 @@ exports[`presets merge > extend case 0 1`] = `
   "xxx": {
     "base": {
       "css": ".xxx {
-  @apply bg-red-500;
-  @apply text-blue-500 !important;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+  color: rgb(59 130 246 / var(--tw-text-opacity)) !important;
   border-width: var(--ice-ee-bw);
-  @apply bg-green-500;
-  @apply text-sky-500 !important;
-  font-size: 12px;
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1 !important;
+  color: rgb(14 165 233 / var(--tw-text-opacity)) !important;
+  font-size: 12px
 }",
       "cssInJs": {
         ".xxx": {
@@ -28,36 +30,14 @@ exports[`presets merge > extend case 0 1`] = `
           "fontSize": "12px",
         },
       },
-      "resolvedCss": ".xxx {
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-  color: rgb(59 130 246 / var(--tw-text-opacity)) !important;
-  border-width: var(--ice-ee-bw);
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1 !important;
-  color: rgb(14 165 233 / var(--tw-text-opacity)) !important;
-  font-size: 12px
-}",
-      "scss": ".xxx{
-                      @apply bg-red-500;
-                      @apply text-blue-500 #{!important};
-                      border-width:var(--ee-bw);
-                    @apply bg-green-500;
-                    @apply text-sky-500 #{!important};
-                    font-size: 12px;
-                    }",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "utils": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
   },
 }
@@ -68,14 +48,17 @@ exports[`presets merge > extend case 1 1`] = `
   "xxx": {
     "base": {
       "css": ".xxx {
-  @apply bg-red-500;
-  @apply text-blue-500 !important;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+  color: rgb(59 130 246 / var(--tw-text-opacity)) !important;
   border-width: var(--ice-ee-bw);
-  @apply bg-green-900 m-2;
-  @apply text-sky-900 !important;
+  background-color: rgb(20 83 45 / var(--tw-bg-opacity));
+  color: rgb(12 74 110 / var(--tw-text-opacity)) !important;
   font-size: 12px;
-  @apply bg-green-500 m-1;
-  @apply text-sky-500 !important;
+  margin: 0.25rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1 !important;
+  color: rgb(14 165 233 / var(--tw-text-opacity)) !important
 }",
       "cssInJs": {
         ".xxx": {
@@ -96,41 +79,14 @@ exports[`presets merge > extend case 1 1`] = `
           "margin": "0.25rem",
         },
       },
-      "resolvedCss": ".xxx {
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-  color: rgb(59 130 246 / var(--tw-text-opacity)) !important;
-  border-width: var(--ice-ee-bw);
-  background-color: rgb(20 83 45 / var(--tw-bg-opacity));
-  color: rgb(12 74 110 / var(--tw-text-opacity)) !important;
-  font-size: 12px;
-  margin: 0.25rem;
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1 !important;
-  color: rgb(14 165 233 / var(--tw-text-opacity)) !important
-}",
-      "scss": ".xxx{
-                      @apply bg-red-500;
-                      @apply text-blue-500 #{!important};
-                      border-width:var(--ee-bw);
-                @apply bg-green-900 m-2;
-                @apply text-sky-900 #{!important};
-                font-size: 12px;
-                    @apply bg-green-500 m-1;
-                    @apply text-sky-500 #{!important};
-                    }",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "utils": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
   },
 }
@@ -141,9 +97,11 @@ exports[`presets merge > merge case 0 1`] = `
   "xxx": {
     "base": {
       "css": ".xxx {
-  @apply bg-red-500;
-  @apply text-blue-500 !important;
-  border-width: var(--ice-bw);
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1 !important;
+  color: rgb(59 130 246 / var(--tw-text-opacity)) !important;
+  border-width: var(--ice-bw)
 }",
       "cssInJs": {
         ".xxx": {
@@ -154,31 +112,19 @@ exports[`presets merge > merge case 0 1`] = `
           "color": "rgb(59 130 246 / var(--tw-text-opacity)) !important",
         },
       },
-      "resolvedCss": ".xxx {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1 !important;
-  color: rgb(59 130 246 / var(--tw-text-opacity)) !important;
-  border-width: var(--ice-bw)
-}",
-      "scss": ".xxx{
-                      @apply bg-red-500;
-                      @apply text-blue-500 #{!important};
-                      border-width:var(--bw);
-                    }",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "utils": {
       "css": ".xxx {
-  @apply bg-green-500;
-  @apply text-sky-500 !important;
+  --tw-bg-opacity: 1;
+  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1 !important;
+  color: rgb(14 165 233 / var(--tw-text-opacity)) !important;
   border-width: var(--ice-ee-bw);
-  font-size: 12px;
+  font-size: 12px
 }",
       "cssInJs": {
         ".xxx": {
@@ -190,20 +136,6 @@ exports[`presets merge > merge case 0 1`] = `
           "fontSize": "12px",
         },
       },
-      "resolvedCss": ".xxx {
-  --tw-bg-opacity: 1;
-  background-color: rgb(34 197 94 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1 !important;
-  color: rgb(14 165 233 / var(--tw-text-opacity)) !important;
-  border-width: var(--ice-ee-bw);
-  font-size: 12px
-}",
-      "scss": ".xxx{
-                  @apply bg-green-500;
-                  @apply text-sky-500 #{!important};
-                  border-width:var(--ee-bw);
-                  font-size: 12px;
-                }",
     },
   },
 }
@@ -214,9 +146,11 @@ exports[`presets merge > override case 0 1`] = `
   "xxx": {
     "base": {
       "css": ".xxx {
-  @apply bg-red-500;
-  @apply text-blue-500 !important;
-  border-width: var(--ice-bw);
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1 !important;
+  color: rgb(59 130 246 / var(--tw-text-opacity)) !important;
+  border-width: var(--ice-bw)
 }",
       "cssInJs": {
         ".xxx": {
@@ -227,30 +161,14 @@ exports[`presets merge > override case 0 1`] = `
           "color": "rgb(59 130 246 / var(--tw-text-opacity)) !important",
         },
       },
-      "resolvedCss": ".xxx {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1 !important;
-  color: rgb(59 130 246 / var(--tw-text-opacity)) !important;
-  border-width: var(--ice-bw)
-}",
-      "scss": ".xxx{
-                      @apply bg-red-500;
-                      @apply text-blue-500 #{!important};
-                      border-width:var(--bw);
-                    }",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "utils": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
   },
 }
@@ -261,9 +179,11 @@ exports[`presets merge > override case 1 1`] = `
   "xxx": {
     "base": {
       "css": ".xxx {
-  @apply bg-red-500;
-  @apply text-blue-500 !important;
-  border-width: var(--ice-bw);
+  --tw-bg-opacity: 1;
+  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
+  --tw-text-opacity: 1 !important;
+  color: rgb(59 130 246 / var(--tw-text-opacity)) !important;
+  border-width: var(--ice-bw)
 }",
       "cssInJs": {
         ".xxx": {
@@ -274,30 +194,14 @@ exports[`presets merge > override case 1 1`] = `
           "color": "rgb(59 130 246 / var(--tw-text-opacity)) !important",
         },
       },
-      "resolvedCss": ".xxx {
-  --tw-bg-opacity: 1;
-  background-color: rgb(239 68 68 / var(--tw-bg-opacity));
-  --tw-text-opacity: 1 !important;
-  color: rgb(59 130 246 / var(--tw-text-opacity)) !important;
-  border-width: var(--ice-bw)
-}",
-      "scss": ".xxx{
-                      @apply bg-red-500;
-                      @apply text-blue-500 #{!important};
-                      border-width:var(--bw);
-                    }",
     },
     "styled": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
     "utils": {
       "css": "",
       "cssInJs": {},
-      "resolvedCss": "",
-      "scss": "",
     },
   },
 }

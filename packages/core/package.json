@@ -54,7 +54,8 @@
     "@icestack/theme-algorithm": "workspace:^",
     "@icestack/types": "workspace:^",
     "kleur": "^4.1.5",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "object-hash": "^3.0.0"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",

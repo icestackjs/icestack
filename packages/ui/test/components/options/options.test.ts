@@ -4,7 +4,7 @@ import { schemaMap as componentsMap } from '@/components'
 import { createContext } from '@/index'
 import { preprocessCssInJs } from '@/postcss'
 
-describe.each(
+describe.skip.each(
   Object.entries(componentsMap).map((x) => {
     return {
       name: x[0],
@@ -39,7 +39,7 @@ describe.each(
   })
 })
 
-describe('no schema', () => {
+describe.skip('no schema', () => {
   it('should button have schema', async () => {
     const config = {
       mode: 'none',

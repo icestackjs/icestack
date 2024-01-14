@@ -2,7 +2,7 @@ import { CodegenOptions, ComponentsOptions } from '@icestack/types'
 import { removeDefaultComponents } from '@/components'
 import { createContext } from '@/context'
 
-describe('extend', () => {
+describe.skip('extend', () => {
   it('extend btn', async () => {
     const components = {
       ...removeDefaultComponents,

@@ -1,6 +1,6 @@
 import type { CssValue } from '@icestack/types'
 const utilitiesMap = {
-  custom: (value: CssValue) => {
+  index: (value: CssValue) => {
     if (Array.isArray(value)) {
       return value.join('\n')
     }

@@ -36,12 +36,20 @@ import { createResolveDir } from '@/dirs'
 
 const { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath } = createResolveDir(name)
 
-export function ensureDirSync(p: string) {
+function ensureDirSync(p: string) {
   if (!fs.existsSync(p)) {
     fs.mkdirSync(p, {
       recursive: true
     })
   }
+}
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+async function calcDuration(fn: Function) {
+  const ts0 = performance.now()
+  await fn()
+  const ts1 = performance.now()
+  return ts1 - ts0
 }
 
 export interface BuildOptions {
@@ -70,7 +78,17 @@ export function createContext(opts?: CodegenOptions) {
   const configHash = hash(options)
   const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities, sassOptions } = options
   const { prefix: _globalPrefix, varPrefix: _globalVarPrefix, plugins: globalPostcssPlugins } = postcss!
-
+  const cache: {
+    base: undefined | Record<string, object>
+    components: undefined | Record<string, object>
+    utilities: undefined | Record<string, object>
+    configHash: string
+  } = {
+    base: undefined,
+    components: undefined,
+    utilities: undefined,
+    configHash
+  }
   const globalPrefix = resolvePrefixOption(_globalPrefix)
   const globalVarPrefix = resolveVarPrefixOption(_globalVarPrefix)
   if (typeof log === 'boolean') {
@@ -188,11 +206,12 @@ export function createContext(opts?: CodegenOptions) {
       scss
     })
     return {
-      // root,
-      // scss,
-      // css,
-      // cssRoot,
-      css: resolvedCss,
+      root,
+      scss,
+      css,
+      cssRoot,
+      resolvedCss,
+      resolvedCssRoot,
       cssInJs
     }
   }
@@ -235,8 +254,7 @@ export function createContext(opts?: CodegenOptions) {
         relPath: `${layer}/${x}`
       })
     }
-
-    return res
+    cache.base = res
   }
 
   async function buildUtilities() {
@@ -248,9 +266,9 @@ export function createContext(opts?: CodegenOptions) {
       const suffix = suffixes.join('.')
       const fn = get(utilitiesMap, suffix, () => {})
       // @ts-ignore
-      const xxx = suffix === 'custom' ? fn?.(utilities?.extraCss) : fn?.()
-      if (xxx) {
-        const root = parse(xxx)
+      const css = suffix === 'index' ? fn?.(utilities?.extraCss) : fn?.()
+      if (css) {
+        const root = parse(css)
         const result = await internalBuild({
           root,
           layer,
@@ -267,8 +285,7 @@ export function createContext(opts?: CodegenOptions) {
       const code = generateIndexCode(refs, 'utilities')
       writeFile(path.resolve(outputPath, 'index.cjs'), code)
     }
-
-    return res
+    cache.utilities = res
   }
 
   async function buildComponents(componentsNames: string[] = allComponentsNames) {
@@ -319,8 +336,7 @@ export function createContext(opts?: CodegenOptions) {
     }
     b1.stop()
     b1.clearLine()
-
-    return res
+    cache.components = res
   }
 
   function buildTailwindcssConfig() {
@@ -371,44 +387,42 @@ export function createContext(opts?: CodegenOptions) {
       unocssConfig?: Awaited<ReturnType<typeof buildUnocssConfig>>
     } = {}
     if (baseFlag) {
-      performance.mark('buildBase-start')
-      const base = await buildBase()
-      result.base = base
-      performance.mark('buildBase-end')
-      const buildBaseMeasure = performance.measure('buildBase', 'buildBase-start', 'buildBase-end')
-      logger.success('build base finished! ' + kleur.green(`${buildBaseMeasure.duration.toFixed(2)}ms`))
+      const duration = await calcDuration(async () => {
+        const base = await buildBase()
+        result.base = base
+      })
+
+      logger.success('build base finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
     }
     if (utilitiesFlag) {
-      performance.mark('buildUtilities-start')
-      const utilities = await buildUtilities()
-      result.utilities = utilities
-      performance.mark('buildUtilities-end')
-      const buildUtilitiesMeasure = performance.measure('buildUtilities', 'buildUtilities-start', 'buildUtilities-end')
-      logger.success('build utilities finished! ' + kleur.green(`${buildUtilitiesMeasure.duration.toFixed(2)}ms`))
+      const duration = await calcDuration(async () => {
+        const utilities = await buildUtilities()
+        result.utilities = utilities
+      })
+
+      logger.success('build utilities finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
     }
 
     if (componentsFlag) {
-      performance.mark('buildComponents-start')
-      const components = await buildComponents()
-      result.components = components
-      performance.mark('buildComponents-end')
-      const buildComponentsMeasure = performance.measure('buildComponents', 'buildComponents-start', 'buildComponents-end')
-      logger.success('build components finished! ' + kleur.green(`${buildComponentsMeasure.duration.toFixed(2)}ms`))
+      const duration = await calcDuration(async () => {
+        const components = await buildComponents()
+        result.components = components
+      })
+
+      logger.success('build components finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
     }
 
     if (configFlag) {
-      performance.mark('buildConfig-start')
-      const tailwindcssConfig = await buildTailwindcssConfig()
-      const unocssConfig = await buildUnocssConfig()
-      result.tailwindcssConfig = tailwindcssConfig
-      result.unocssConfig = unocssConfig
-      performance.mark('buildConfig-end')
-      const buildConfigMeasure = performance.measure('buildConfig', 'buildConfig-start', 'buildConfig-end')
-      logger.success('build config finished! ' + kleur.green(`${buildConfigMeasure.duration.toFixed(2)}ms`))
+      const duration = await calcDuration(async () => {
+        const tailwindcssConfig = await buildTailwindcssConfig()
+        const unocssConfig = await buildUnocssConfig()
+        result.tailwindcssConfig = tailwindcssConfig
+        result.unocssConfig = unocssConfig
+      })
+
+      logger.success('build config finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
     }
 
-    performance.clearMarks()
-    performance.clearMeasures()
     return result
   }
 
@@ -424,7 +438,16 @@ export function createContext(opts?: CodegenOptions) {
     build,
     createPreset,
     preprocessCss,
-    configHash
+    configHash,
+    get base() {
+      return cache.base
+    },
+    get components() {
+      return cache.components
+    },
+    get utilities() {
+      return cache.utilities
+    }
   }
 }
 

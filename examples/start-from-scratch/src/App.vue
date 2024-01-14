@@ -7,7 +7,7 @@
     <a href="https://icebreaker.top/" target="_blank" class="cbtn">
       Hover Me
     </a>
-    <button href="https://icebreaker.top/" target="_blank" class="cbtn">
+    <button href="https://icebreaker.top/" target="_blank" class="cbtn flex">
       <span>Hover Me</span>
     </button>
   </div>
@@ -15,5 +15,9 @@
 </template>
 
 <style lang="scss">
+.x {
+  color: red;
+}
+
 // @apply should not be used with the 'group' utility
 </style>

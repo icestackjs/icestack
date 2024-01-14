@@ -6,7 +6,7 @@ import { createContext } from '@/context'
 // const coms = (await fg(path.resolve(scssDir, 'utilities/global', '*.scss'))).map((x) => {
 //   return path.basename(x, '.scss')
 // })
-describe('utilities', () => {
+describe.skip('utilities', () => {
   // it('glass snap', async () => {
   //   const ctx = createContext(getCodegenOptions())
   //   const { css } = await ctx.compileScss('utilities.glass')

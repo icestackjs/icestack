@@ -7,6 +7,7 @@ describe('build', () => {
     })
     const res = await ctx.build()
     expect(res).toMatchSnapshot()
+    // console.log(ctx.base)
   })
 
   it('build base', async () => {
@@ -53,8 +54,9 @@ describe('build', () => {
         }
       }
     })
-    const base = await ctx.buildBase()
-    expect(base).toMatchSnapshot()
+    await ctx.buildBase()
+    expect(ctx.base.index.resolvedCss).toMatchSnapshot('index')
+    expect(ctx.base.legacy.resolvedCss).toMatchSnapshot('legacy')
   })
 
   it('build nothing', async () => {

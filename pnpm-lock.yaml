@@ -484,7 +484,17 @@ importers:
         specifier: workspace:^
         version: link:../shared
 
-  packages/postcss: {}
+  packages/postcss:
+    dependencies:
+      '@icestack/config':
+        specifier: workspace:^
+        version: link:../config
+      '@icestack/core':
+        specifier: workspace:^
+        version: link:../core
+      lodash:
+        specifier: ^4.17.21
+        version: 4.17.21
 
   packages/postcss-utils:
     dependencies:

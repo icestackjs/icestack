@@ -1803,34 +1803,6 @@ exports[`index > loadPresetOptions default 1`] = `
       /\\^hero-content\\$/,
       [Function],
     ],
-    [
-      /\\^no-animation\\$/,
-      [Function],
-    ],
-    [
-      /\\^tab-border-none\\$/,
-      [Function],
-    ],
-    [
-      /\\^tab-border\\$/,
-      [Function],
-    ],
-    [
-      /\\^tab-border-2\\$/,
-      [Function],
-    ],
-    [
-      /\\^tab-border-3\\$/,
-      [Function],
-    ],
-    [
-      /\\^tab-rounded-none\\$/,
-      [Function],
-    ],
-    [
-      /\\^tab-rounded-lg\\$/,
-      [Function],
-    ],
   ],
   "theme": {
     "colors": {

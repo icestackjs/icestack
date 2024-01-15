@@ -18,7 +18,7 @@
     "@iconify-json/logos": "^1.1.42",
     "@iconify-json/mdi": "^1.1.64",
     "@intlify/shared": "^9.9.0",
-    "@nuxt/devtools": "latest",
+    "@nuxt/devtools": "^1.0.8",
     "@nuxt/eslint-config": "^0.2.0",
     "@nuxtjs/color-mode": "^3.3.2",
     "@nuxtjs/tailwindcss": "^6.10.4",
@@ -30,11 +30,11 @@
     "npm": "^10.3.0",
     "nuxt": "^3.9.1",
     "postcss": "^8.4.33",
-    "prettier": "^3.1.1",
+    "prettier": "^3.2.2",
     "prettier-plugin-tailwindcss": "^0.5.11",
     "sass": "^1.69.7",
     "tailwindcss": "^3.4.1",
-    "vue": "^3.4.8",
+    "vue": "^3.4.13",
     "vue-router": "^4.2.5"
   },
   "dependencies": {

@@ -1,0 +1,30 @@
+{
+  "scopeName": "inline.icestack",
+  "injectionSelector": "L:(meta.embedded.block.javascript | meta.embedded.block.typescript | source.js | source.ts | source.tsx | source.vue | source.svelte) -source.icestack -inline.icestack -string -comment",
+  "patterns": [
+    {
+      "name": "taggedTemplates",
+      "contentName": "meta.embedded.block.icestack",
+      "begin": "(`|'|\")(//scss)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.string.template.begin.js"
+        },
+        "2": {
+          "name": "comment.line.icestack.js"
+        }
+      },
+      "end": "(`|'|\")",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.string.template.end.js"
+        }
+      },
+      "patterns": [
+        {
+          "include": "source.icestack"
+        }
+      ]
+    }
+  ]
+}

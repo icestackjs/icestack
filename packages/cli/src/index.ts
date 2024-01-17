@@ -6,6 +6,7 @@ import dedent from 'dedent'
 import { loadSync } from '@icestack/config'
 import { logger } from '@icestack/logger'
 import { createContext } from '@icestack/core'
+import { getModuleDependencies } from '@icestack/shared'
 
 export const cli = new Command()
 
@@ -90,13 +91,22 @@ cli
   .command('watch')
   .description('watch config file change and build lib')
   .option('-c, --config <path>', 'config path')
-  .action((options) => {
+  .action(async (options) => {
     const { clean, config } = options
     const opts = { clean, configFile: config }
+    const { configFile } = opts
     const cwd = process.cwd()
 
+    const { filepath } = await loadSync({
+      configFile,
+      cwd
+    })
+    if (configFile) {
+      logger.success(`load config from ${configFile}`)
+    }
+    // path.resolve(cwd, 'icestack.config.{js,ts,cjs}')
     chokidar
-      .watch(path.resolve(cwd, 'icestack.config.{js,ts,cjs}'))
+      .watch([...getModuleDependencies(filepath)])
       .on('change', async () => {
         logger.success('some changes happened')
         await letUsBuild(opts)

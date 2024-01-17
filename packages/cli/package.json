@@ -37,6 +37,7 @@
     "@icestack/config": "workspace:^",
     "@icestack/core": "workspace:^",
     "@icestack/logger": "workspace:^",
+    "@icestack/shared": "workspace:^",
     "chokidar": "^3.5.3",
     "commander": "^11.1.0",
     "dedent": "^1.5.1",

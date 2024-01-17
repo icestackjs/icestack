@@ -1,0 +1,72 @@
+{
+  "name": "vscode-icestack-syntax",
+  "version": "0.0.0",
+  "displayName": "Icestack: Syntax Highlighting",
+  "description": "Adds syntax highlighting support for embedded support for javascript, typescript, vue",
+  "publisher": "sonofmagic",
+  "license": "MIT",
+  "private": true,
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "files": [
+    "assets",
+    "grammars",
+    "language",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md",
+    "package.json"
+  ],
+  "icon": "assets/images/logo.png",
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "contributors": [
+    {
+      "name": "SonOfMagic",
+      "url": "https://www.icebreaker.top/"
+    }
+  ],
+  "galleryBanner": {
+    "color": "#032539",
+    "theme": "dark"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "grammars": [
+      {
+        "injectTo": [
+          "source.js",
+          "source.ts",
+          "source.js.jsx",
+          "source.tsx",
+          "source.vue",
+          "source.svelte"
+        ],
+        "scopeName": "inline.icestack",
+        "path": "./grammars/icestack.js.json",
+        "embeddedLanguages": {
+          
+        }
+      }
+    ]
+  },
+  "homepage": "https://ui.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "devDependencies": {
+    "vscode-oniguruma": "^2.0.1",
+    "vscode-textmate": "^9.0.0"
+  },
+  "scripts": {
+    "vsce:package": "vsce package --yarn",
+    "vsce:prepublish": "npm run vsce:package",
+    "vsce:publish": "vsce publish --yarn",
+    "open-vsx:publish": "ovsx publish --yarn -i . --pat $OVSX_PAT",
+    "release": "npm run vsce:publish && npm run open-vsx:publish",
+    "_test": "vitest run"
+  }
+}

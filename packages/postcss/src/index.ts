@@ -28,6 +28,7 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string }>> = ({ 
               }
               const root = get(ctx.base, valuePath)
               if (root) {
+                // @ts-ignore
                 atRule.after(root.resolvedCssRoot)
               }
               break
@@ -35,7 +36,9 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string }>> = ({ 
             case 'components': {
               switch (query.length) {
                 case 0: {
+                  // @ts-ignore
                   for (const arr of Object.values(ctx.components).map((x) => {
+                    // @ts-ignore
                     return [x.base.resolvedCssRoot, x.styled.resolvedCssRoot, x.utils.resolvedCssRoot]
                   })) {
                     atRule.after(arr)
@@ -46,6 +49,7 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string }>> = ({ 
                 case 1: {
                   const component = get(ctx.components, valuePath)
                   if (component) {
+                    // @ts-ignore
                     atRule.after([component.base.resolvedCssRoot, component.styled.resolvedCssRoot, component.utils.resolvedCssRoot])
                   }
 
@@ -54,6 +58,7 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string }>> = ({ 
                 case 2: {
                   const component = get(ctx.components, valuePath)
                   if (component) {
+                    // @ts-ignore
                     atRule.after(component.resolvedCssRoot)
                   }
 

@@ -3,7 +3,7 @@ import path from 'node:path'
 import { set, get, pick, isError } from 'lodash'
 import kleur from 'kleur'
 import { createDefaultTailwindcssExtends } from '@icestack/config/defaults'
-import { getCodegenOptions } from '@icestack/config'
+import { getCodegenOptions, loadSync } from '@icestack/config'
 import { stages } from '@icestack/shared/constants'
 import { compileScssString } from '@icestack/scss'
 import { logger } from '@icestack/logger'
@@ -27,13 +27,13 @@ import {
   objectify,
   process
 } from '@icestack/postcss-utils'
+import { LRUCache } from 'lru-cache'
 import { name } from '../package.json'
 import { utilitiesNames, utilitiesMap } from './utilities'
 import { handleOptions } from './components'
 import { calcBase } from './base'
 import { generateIndexCode } from '@/generate'
 import { createResolveDir } from '@/dirs'
-
 const { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath } = createResolveDir(name)
 
 function ensureDirSync(p: string) {
@@ -44,6 +44,11 @@ function ensureDirSync(p: string) {
   }
 }
 
+const lru = new LRUCache<string, object>({ max: 100 })
+const hashMap: Record<
+  string,
+  Partial<{ index: string; base: string; components: string; componentsMap: Record<string, string>; utilities: string }> // baseThemes: Record<string, string>;
+> = {}
 // eslint-disable-next-line @typescript-eslint/ban-types
 async function calcDuration(fn: Function) {
   const ts0 = performance.now()
@@ -73,9 +78,60 @@ function getPaths(relPath: string, outdir?: string) {
   }
 }
 
-export function createContext(opts?: CodegenOptions) {
-  const options = getCodegenOptions(opts)
+export function createContext(opts?: CodegenOptions | string) {
+  let configFilepath: string | undefined
+  if (typeof opts === 'string') {
+    const { config, filepath } = loadSync({
+      configFile: opts
+    })
+    opts = config
+    configFilepath = filepath
+  }
+
+  function getCache(key: string) {
+    if (configFilepath) {
+      return lru.get(key)
+    }
+  }
+
+  function setCache(key: string, value: object) {
+    if (configFilepath) {
+      return lru.set(key, value)
+    }
+  }
+
+  function setHash(key: string, value: string) {
+    if (configFilepath) {
+      return set(hashMap, key, value)
+    }
+  }
+
+  function getHash(key: string) {
+    if (configFilepath) {
+      return get(hashMap, key)
+    }
+  }
+
+  const options = getCodegenOptions(opts as CodegenOptions)
   const configHash = hash(options)
+  if (configFilepath) {
+    hashMap[configFilepath] = {
+      // base: hash(options.base),
+      // baseThemes: Object.entries(options.base?.themes).reduce<Record<string, string>>((acc, [name, opts]) => {
+      //   acc[name] = hash(opts)
+      //   return acc
+      // }, {}),
+      // components: hash(options.components),
+      componentsMap: {}
+      //  Object.entries(options.components).reduce<Record<string, string>>((acc, [name, opts]) => {
+      //   acc[name] = hash(opts)
+      //   return acc
+      // }, {}),
+      // index: configHash
+      // utilities: hash(options.utilities)
+    }
+  }
+
   const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities, sassOptions } = options
   const { prefix: _globalPrefix, varPrefix: _globalVarPrefix, plugins: globalPostcssPlugins } = postcss!
   const cache: {
@@ -83,10 +139,14 @@ export function createContext(opts?: CodegenOptions) {
     components: undefined | Record<string, object>
     utilities: undefined | Record<string, object>
     configHash: string
+    tailwindcssConfig: undefined | ReturnType<typeof buildTailwindcssConfig>
+    unocssConfig: undefined | ReturnType<typeof buildUnocssConfig>
   } = {
     base: undefined,
     components: undefined,
     utilities: undefined,
+    tailwindcssConfig: undefined,
+    unocssConfig: undefined,
     configHash
   }
   const globalPrefix = resolvePrefixOption(_globalPrefix)
@@ -254,6 +314,7 @@ export function createContext(opts?: CodegenOptions) {
         relPath: `${layer}/${x}`
       })
     }
+
     cache.base = res
   }
 
@@ -285,6 +346,7 @@ export function createContext(opts?: CodegenOptions) {
       const code = generateIndexCode(refs, 'utilities')
       writeFile(path.resolve(outputPath, 'index.cjs'), code)
     }
+
     cache.utilities = res
   }
 
@@ -379,25 +441,17 @@ export function createContext(opts?: CodegenOptions) {
       config: true,
       utilities: true
     })
-    const result: {
-      base?: Awaited<ReturnType<typeof buildBase>>
-      utilities?: Awaited<ReturnType<typeof buildUtilities>>
-      components?: Awaited<ReturnType<typeof buildComponents>>
-      tailwindcssConfig?: Awaited<ReturnType<typeof buildTailwindcssConfig>>
-      unocssConfig?: Awaited<ReturnType<typeof buildUnocssConfig>>
-    } = {}
+
     if (baseFlag) {
       const duration = await calcDuration(async () => {
-        const base = await buildBase()
-        result.base = base
+        await buildBase()
       })
 
       logger.success('build base finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
     }
     if (utilitiesFlag) {
       const duration = await calcDuration(async () => {
-        const utilities = await buildUtilities()
-        result.utilities = utilities
+        await buildUtilities()
       })
 
       logger.success('build utilities finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
@@ -405,25 +459,22 @@ export function createContext(opts?: CodegenOptions) {
 
     if (componentsFlag) {
       const duration = await calcDuration(async () => {
-        const components = await buildComponents()
-        result.components = components
+        await buildComponents()
       })
 
       logger.success('build components finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
     }
 
     if (configFlag) {
-      const duration = await calcDuration(async () => {
-        const tailwindcssConfig = await buildTailwindcssConfig()
-        const unocssConfig = await buildUnocssConfig()
-        result.tailwindcssConfig = tailwindcssConfig
-        result.unocssConfig = unocssConfig
+      const duration = await calcDuration(() => {
+        const tailwindcssConfig = buildTailwindcssConfig()
+        const unocssConfig = buildUnocssConfig()
+        cache.tailwindcssConfig = tailwindcssConfig
+        cache.unocssConfig = unocssConfig
       })
 
       logger.success('build config finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
     }
-
-    return result
   }
 
   return {
@@ -447,7 +498,8 @@ export function createContext(opts?: CodegenOptions) {
     },
     get utilities() {
       return cache.utilities
-    }
+    },
+    hashMap
   }
 }
 

@@ -1,5 +1,5 @@
+import path from 'node:path'
 import { createContext } from '@/index'
-
 describe('build', () => {
   it('build all', async () => {
     const ctx = createContext({
@@ -75,5 +75,12 @@ describe('build', () => {
     })
     const base = await ctx.build({ base: false, components: false, config: false, utilities: false })
     expect(base).toMatchSnapshot()
+  })
+
+  it('hash map init', () => {
+    const ctx = createContext(path.resolve(__dirname, './configs/icestack.config.cjs'))
+    expect(ctx.hashMap).toMatchSnapshot()
+    // const res = await ctx.build()
+    // expect(res).toMatchSnapshot()
   })
 })

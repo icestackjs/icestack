@@ -77,10 +77,63 @@ describe('build', () => {
     expect(base).toMatchSnapshot()
   })
 
-  it('hash map init', () => {
-    const ctx = createContext(path.resolve(__dirname, './configs/icestack.config.cjs'))
-    expect(ctx.hashMap).toMatchSnapshot()
-    // const res = await ctx.build()
-    // expect(res).toMatchSnapshot()
+  it('hash map init buildBase', async () => {
+    let ctx = createContext(path.resolve(__dirname, './configs/icestack.config.cjs'))
+
+    await ctx.buildBase()
+    expect(ctx.hashLru.dump()).toMatchSnapshot()
+    await ctx.buildBase()
+    expect(ctx.hashLru.dump()).toMatchSnapshot()
+    ctx = createContext(path.resolve(__dirname, './configs/icestack.config.cjs'))
+    expect(ctx.hashLru.dump()).toMatchSnapshot()
+    await ctx.buildBase()
+  })
+
+  it('hash map init buildUtilities', async () => {
+    const ctx = createContext(path.resolve(__dirname, './configs/a.config.cjs'))
+
+    // expect(ctx.lru.dump()).toMatchSnapshot()
+    await ctx.buildUtilities()
+    // expect(ctx.hashMap).toMatchSnapshot()
+    await ctx.buildUtilities()
+    expect(ctx.hashLru.dump()).toMatchSnapshot()
+  })
+
+  it('hash map init buildComponents', async () => {
+    let ctx = createContext(path.resolve(__dirname, './configs/buildComponents.cjs'))
+    const x = ctx.configHash
+    // expect(ctx.lru.dump()).toMatchSnapshot()
+    await ctx.buildComponents()
+    // expect(ctx.hashMap).toMatchSnapshot()
+    await ctx.buildComponents()
+    ctx = createContext(path.resolve(__dirname, './configs/buildComponents0.cjs'))
+    expect(x).toBe(ctx.configHash)
+    await ctx.buildComponents()
+    expect(ctx.hashLru.dump()).toMatchSnapshot()
+  })
+
+  it('hash map init buildComponents 2', async () => {
+    let ctx = createContext(path.resolve(__dirname, './configs/buildComponents.cjs'))
+    const x = ctx.configHash
+    // expect(ctx.lru.dump()).toMatchSnapshot()
+    await ctx.buildComponents()
+    // expect(ctx.hashMap).toMatchSnapshot()
+    await ctx.buildComponents()
+    ctx = createContext(path.resolve(__dirname, './configs/buildComponents.cjs'))
+    expect(x).toBe(ctx.configHash)
+    await ctx.buildComponents()
+    expect(ctx.hashLru.dump()).toMatchSnapshot()
+  })
+
+  it('hash map init buildComponents diff', async () => {
+    let ctx = createContext(path.resolve(__dirname, './configs/buildComponents.cjs'))
+    const x = ctx.configHash
+    // expect(ctx.lru.dump()).toMatchSnapshot()
+    await ctx.buildComponents()
+    ctx = createContext(path.resolve(__dirname, './configs/buildComponents1.cjs'))
+
+    await ctx.buildComponents()
+    expect(x).not.toBe(ctx.configHash)
+    expect(ctx.hashLru.dump()).toMatchSnapshot()
   })
 })

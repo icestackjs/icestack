@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`hash > case 0 1`] = `"989db2448f309bfdd99b513f37c84b8f5794d2b5"`;
+
+exports[`hash > case 0 2`] = `"e43fa9aee33b4e11eb4791145a1b70ada8c01cef"`;
+
+exports[`hash > case 0 3`] = `"109085beaaa80ac89858b283a64f7c75d7e5bb12"`;

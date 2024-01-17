@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { set, get, pick, isError } from 'lodash'
+import { set, get, pick, isError, isObject } from 'lodash'
 import kleur from 'kleur'
 import { createDefaultTailwindcssExtends } from '@icestack/config/defaults'
 import { getCodegenOptions, loadSync } from '@icestack/config'
@@ -44,11 +44,10 @@ function ensureDirSync(p: string) {
   }
 }
 
-const lru = new LRUCache<string, object>({ max: 100 })
-const hashMap: Record<
-  string,
-  Partial<{ index: string; base: string; components: string; componentsMap: Record<string, string>; utilities: string }> // baseThemes: Record<string, string>;
-> = {}
+const lru = new LRUCache<string, object>({ max: 50 })
+
+const hashLru = new LRUCache<string, string>({ max: 250 })
+
 // eslint-disable-next-line @typescript-eslint/ban-types
 async function calcDuration(fn: Function) {
   const ts0 = performance.now()
@@ -88,56 +87,39 @@ export function createContext(opts?: CodegenOptions | string) {
     configFilepath = filepath
   }
 
+  const options = getCodegenOptions(opts as CodegenOptions)
+  const configHash = hash(options)
+
   function getCache(key: string) {
     if (configFilepath) {
-      return lru.get(key)
+      return lru.get(configFilepath + '#' + key)
     }
   }
 
   function setCache(key: string, value: object) {
     if (configFilepath) {
-      return lru.set(key, value)
+      return lru.set(configFilepath + '#' + key, value)
     }
   }
 
   function setHash(key: string, value: string) {
     if (configFilepath) {
-      return set(hashMap, key, value)
+      return hashLru.set(configFilepath + '#' + key, value)
     }
   }
 
   function getHash(key: string) {
     if (configFilepath) {
-      return get(hashMap, key)
+      return hashLru.get(configFilepath + '#' + key)
     }
   }
 
-  const options = getCodegenOptions(opts as CodegenOptions)
-  const configHash = hash(options)
-  if (configFilepath) {
-    hashMap[configFilepath] = {
-      // base: hash(options.base),
-      // baseThemes: Object.entries(options.base?.themes).reduce<Record<string, string>>((acc, [name, opts]) => {
-      //   acc[name] = hash(opts)
-      //   return acc
-      // }, {}),
-      // components: hash(options.components),
-      componentsMap: {}
-      //  Object.entries(options.components).reduce<Record<string, string>>((acc, [name, opts]) => {
-      //   acc[name] = hash(opts)
-      //   return acc
-      // }, {}),
-      // index: configHash
-      // utilities: hash(options.utilities)
-    }
-  }
-
-  const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities, sassOptions } = options
+  const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities, sassOptions, base } = options
   const { prefix: _globalPrefix, varPrefix: _globalVarPrefix, plugins: globalPostcssPlugins } = postcss!
   const cache: {
-    base: undefined | Record<string, object>
-    components: undefined | Record<string, object>
-    utilities: undefined | Record<string, object>
+    base: undefined | object
+    components: undefined | object
+    utilities: undefined | object
     configHash: string
     tailwindcssConfig: undefined | ReturnType<typeof buildTailwindcssConfig>
     unocssConfig: undefined | ReturnType<typeof buildUnocssConfig>
@@ -190,7 +172,7 @@ export function createContext(opts?: CodegenOptions | string) {
       return acc
     }, {})
   }
-
+  const typesHash = hash(types)
   const presets = createPreset({
     types
   })
@@ -305,100 +287,139 @@ export function createContext(opts?: CodegenOptions | string) {
 
   async function buildBase() {
     const layer: ILayer = 'base'
-    const res: Record<string, any> = {}
-    for (const x of Object.keys(bases)) {
-      res[x] = await internalBuild({
-        root: bases[x as keyof typeof bases].root,
-        layer,
-        suffixes: [x],
-        relPath: `${layer}/${x}`
-      })
+    const hashCode = hash(base ?? {})
+    const hasChanged = getHash(layer) !== hashCode
+    const hit = getCache(layer)
+    if (hasChanged || !hit) {
+      const res: Record<string, any> = {}
+      for (const x of Object.keys(bases)) {
+        res[x] = await internalBuild({
+          root: bases[x as keyof typeof bases].root,
+          layer,
+          suffixes: [x],
+          relPath: `${layer}/${x}`
+        })
+      }
+
+      cache.base = res
+      setCache(layer, res)
+    } else {
+      cache.base = hit
     }
 
-    cache.base = res
+    setHash(layer, hashCode)
+    setHash('types', typesHash)
   }
 
   async function buildUtilities() {
     const layer: ILayer = 'utilities'
-    const res: Record<string, Record<string, CssInJs>> = {}
-    const refs: string[] = []
-    for (const utilityName of utilitiesNames) {
-      const suffixes = [utilityName]
-      const suffix = suffixes.join('.')
-      const fn = get(utilitiesMap, suffix, () => {})
-      // @ts-ignore
-      const css = suffix === 'index' ? fn?.(utilities?.extraCss) : fn?.()
-      if (css) {
-        const root = parse(css)
-        const result = await internalBuild({
-          root,
-          layer,
-          suffixes,
-          relPath: `${layer}/${utilityName}`
-        })
-        refs.push(utilityName)
-        set(res, utilityName, result)
-      }
-    }
-
-    if (!dryRun) {
-      const outputPath = path.resolve(resolveJsDir(outdir), 'utilities')
-      const code = generateIndexCode(refs, 'utilities')
-      writeFile(path.resolve(outputPath, 'index.cjs'), code)
-    }
-
-    cache.utilities = res
-  }
-
-  async function buildComponents(componentsNames: string[] = allComponentsNames) {
-    const b1 = logger.createComponentsProgressBar()
-    b1.start(componentsNames.length, 0)
-    const layer: ILayer = 'components'
-    const res: Record<string, Record<string, CssInJs>> = {}
-    let idx = 0
-    for (const componentName of componentsNames) {
-      // const start = performance.now()
-      for (const stage of stages) {
-        const suffixes = [componentName, 'defaults', stage]
-        const p = suffixes.join('.')
-        const cssArray = get(presets, p, []) as string[]
-        const root = merge(...(mapCssStringToAst(cssArray) as Root[]))
-
-        try {
+    const hashCode = hash(utilities ?? {})
+    const hasChanged = getHash(layer) !== hashCode
+    const hit = getCache(layer)
+    if (hasChanged || !hit) {
+      const res: Record<string, Record<string, CssInJs>> = {}
+      const refs: string[] = []
+      for (const utilityName of utilitiesNames) {
+        const suffixes = [utilityName]
+        const suffix = suffixes.join('.')
+        const fn = get(utilitiesMap, suffix, () => {})
+        // @ts-ignore
+        const css = suffix === 'index' ? fn?.(utilities?.extraCss) : fn?.()
+        if (css) {
+          const root = parse(css)
           const result = await internalBuild({
             root,
             layer,
             suffixes,
-            relPath: `${layer}/${componentName}/${stage}`
+            relPath: `${layer}/${utilityName}`
           })
+          refs.push(utilityName)
+          set(res, utilityName, result)
+        }
+      }
 
-          set(res, `${componentName}.${stage}`, result)
-        } catch (error) {
-          if (isError(error)) {
-            throw new Error(error.message, {
-              cause: p
-            })
+      if (!dryRun) {
+        const outputPath = path.resolve(resolveJsDir(outdir), 'utilities')
+        const code = generateIndexCode(refs, 'utilities')
+        writeFile(path.resolve(outputPath, 'index.cjs'), code)
+      }
+
+      cache.utilities = res
+      setCache(layer, res)
+    } else {
+      cache.utilities = hit
+    }
+    setHash(layer, hashCode)
+  }
+
+  async function buildComponents(componentsNames: string[] = allComponentsNames) {
+    const layer: ILayer = 'components'
+    const hashCode = hash(components)
+    const hasChanged = hashCode !== getHash(layer)
+    const hit = getCache(layer)
+    if (hasChanged || !hit) {
+      const b1 = logger.createComponentsProgressBar()
+      b1.start(componentsNames.length, 0)
+
+      const res: Record<string, Record<string, CssInJs>> = {}
+      let idx = 0
+      for (const componentName of componentsNames) {
+        const comOpt = components[componentName]
+        const componentHashCode = hash(comOpt)
+        const componentHasChanged = getHash('componentsMap.' + componentName) !== componentHashCode
+        const componentCache = get(hit, componentName)
+        if (componentHasChanged || !componentCache) {
+          // const start = performance.now()
+          for (const stage of stages) {
+            const suffixes = [componentName, 'defaults', stage]
+            const p = suffixes.join('.')
+            const cssArray = get(presets, p, []) as string[]
+            const root = merge(...(mapCssStringToAst(cssArray) as Root[]))
+
+            try {
+              const result = await internalBuild({
+                root,
+                layer,
+                suffixes,
+                relPath: `${layer}/${componentName}/${stage}`
+              })
+
+              set(res, `${componentName}.${stage}`, result)
+            } catch (error) {
+              if (isError(error)) {
+                throw new Error(error.message, {
+                  cause: p
+                })
+              }
+              throw error
+            }
+
+            // res[componentName][stage] = cssJsObj
           }
-          throw error
         }
 
-        // res[componentName][stage] = cssJsObj
+        b1.update(++idx, {
+          componentName
+        })
+        componentHashCode && setHash('componentsMap.' + componentName, componentHashCode)
+        // const end = performance.now()
+        // logger.success(`build component [${componentName}] finished! ` + `${end - start}ms`)
       }
-      b1.update(++idx, {
-        componentName
-      })
-      // const end = performance.now()
-      // logger.success(`build component [${componentName}] finished! ` + `${end - start}ms`)
+
+      if (!dryRun) {
+        const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
+        const code = generateIndexCode(allComponentsNames, 'components')
+        writeFile(path.resolve(componentsJsOutputPath, 'index.cjs'), code)
+      }
+      b1.stop()
+      b1.clearLine()
+      cache.components = res
+      setCache(layer, res)
+    } else {
+      cache.components = hit
     }
 
-    if (!dryRun) {
-      const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
-      const code = generateIndexCode(allComponentsNames, 'components')
-      writeFile(path.resolve(componentsJsOutputPath, 'index.cjs'), code)
-    }
-    b1.stop()
-    b1.clearLine()
-    cache.components = res
+    setHash(layer, hashCode)
   }
 
   function buildTailwindcssConfig() {
@@ -499,7 +520,8 @@ export function createContext(opts?: CodegenOptions | string) {
     get utilities() {
       return cache.utilities
     },
-    hashMap
+    hashLru,
+    lru
   }
 }
 

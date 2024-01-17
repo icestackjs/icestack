@@ -13,6 +13,7 @@
     "test": "vitest run",
     "test:dev": "vitest",
     "build:ui": "icestack build --clean",
+    "watch:ui": "icestack watch",
     "build:coms": "node scripts/generateComponents.js",
     "build:docs": "node scripts/generateDocs.js",
     "get-demos": "node scripts/get-demos.js",

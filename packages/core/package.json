@@ -67,5 +67,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/sonofmagic/icestack"
+  },
+  "devDependencies": {
+    "md5": "^2.3.0",
+    "@types/md5": "^2.3.5"
   }
 }

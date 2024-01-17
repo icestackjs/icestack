@@ -1,6 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
-import { set, get, pick, isError, isObject } from 'lodash'
+import { set, get, pick, isError } from 'lodash'
 import kleur from 'kleur'
 import { createDefaultTailwindcssExtends } from '@icestack/config/defaults'
 import { getCodegenOptions, loadSync } from '@icestack/config'
@@ -28,6 +28,7 @@ import {
   process
 } from '@icestack/postcss-utils'
 import { LRUCache } from 'lru-cache'
+// import md5 from 'md5'
 import { name } from '../package.json'
 import { utilitiesNames, utilitiesMap } from './utilities'
 import { handleOptions } from './components'
@@ -46,7 +47,7 @@ function ensureDirSync(p: string) {
 
 const lru = new LRUCache<string, object>({ max: 50 })
 
-const hashLru = new LRUCache<string, string>({ max: 250 })
+const hashLru = new LRUCache<string, string>({ max: 1000 })
 
 // eslint-disable-next-line @typescript-eslint/ban-types
 async function calcDuration(fn: Function) {
@@ -80,11 +81,14 @@ function getPaths(relPath: string, outdir?: string) {
 export function createContext(opts?: CodegenOptions | string) {
   let configFilepath: string | undefined
   if (typeof opts === 'string') {
-    const { config, filepath } = loadSync({
+    const o = loadSync({
       configFile: opts
     })
-    opts = config
-    configFilepath = filepath
+    if (o) {
+      const { config, filepath } = o
+      opts = config
+      configFilepath = filepath
+    }
   }
 
   const options = getCodegenOptions(opts as CodegenOptions)
@@ -173,6 +177,7 @@ export function createContext(opts?: CodegenOptions | string) {
     }, {})
   }
   const typesHash = hash(types)
+  const isTypesChanged = getHash('types') !== typesHash
   const presets = createPreset({
     types
   })
@@ -308,7 +313,7 @@ export function createContext(opts?: CodegenOptions | string) {
     }
 
     setHash(layer, hashCode)
-    setHash('types', typesHash)
+    // setHash('types', typesHash)
   }
 
   async function buildUtilities() {
@@ -354,22 +359,20 @@ export function createContext(opts?: CodegenOptions | string) {
 
   async function buildComponents(componentsNames: string[] = allComponentsNames) {
     const layer: ILayer = 'components'
-    const hashCode = hash(components)
-    const hasChanged = hashCode !== getHash(layer)
-    const hit = getCache(layer)
-    if (hasChanged || !hit) {
-      const b1 = logger.createComponentsProgressBar()
-      b1.start(componentsNames.length, 0)
 
-      const res: Record<string, Record<string, CssInJs>> = {}
-      let idx = 0
-      for (const componentName of componentsNames) {
-        const comOpt = components[componentName]
+    const b1 = logger.createComponentsProgressBar()
+    b1.start(componentsNames.length, 0)
+    const hit = getCache(layer)
+    const res = hit ?? {}
+    let idx = 0
+    for (const componentName of componentsNames) {
+      const comOpt = components[componentName]
+      if (comOpt) {
         const componentHashCode = hash(comOpt)
-        const componentHasChanged = getHash('componentsMap.' + componentName) !== componentHashCode
+        const hashPath = layer + '.' + componentName
+        const componentHasChanged = getHash(hashPath) !== componentHashCode
         const componentCache = get(hit, componentName)
-        if (componentHasChanged || !componentCache) {
-          // const start = performance.now()
+        if (isTypesChanged || componentHasChanged || !componentCache) {
           for (const stage of stages) {
             const suffixes = [componentName, 'defaults', stage]
             const p = suffixes.join('.')
@@ -393,33 +396,26 @@ export function createContext(opts?: CodegenOptions | string) {
               }
               throw error
             }
-
-            // res[componentName][stage] = cssJsObj
           }
         }
-
-        b1.update(++idx, {
-          componentName
-        })
-        componentHashCode && setHash('componentsMap.' + componentName, componentHashCode)
-        // const end = performance.now()
-        // logger.success(`build component [${componentName}] finished! ` + `${end - start}ms`)
+        setHash(hashPath, componentHashCode)
       }
 
-      if (!dryRun) {
-        const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
-        const code = generateIndexCode(allComponentsNames, 'components')
-        writeFile(path.resolve(componentsJsOutputPath, 'index.cjs'), code)
-      }
-      b1.stop()
-      b1.clearLine()
-      cache.components = res
-      setCache(layer, res)
-    } else {
-      cache.components = hit
+      b1.update(++idx, {
+        componentName
+      })
     }
 
-    setHash(layer, hashCode)
+    if (!dryRun) {
+      const componentsJsOutputPath = path.resolve(resolveJsDir(outdir), 'components')
+      const code = generateIndexCode(allComponentsNames, 'components')
+      writeFile(path.resolve(componentsJsOutputPath, 'index.cjs'), code)
+    }
+    b1.stop()
+    b1.clearLine()
+    cache.components = res
+    setCache(layer, res)
+    setHash('types', typesHash)
   }
 
   function buildTailwindcssConfig() {

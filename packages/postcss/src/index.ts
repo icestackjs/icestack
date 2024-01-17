@@ -4,11 +4,15 @@ import { loadSync } from '@icestack/config'
 import get from 'lodash/get'
 
 const creator: PluginCreator<Partial<{ cwd: string; configFile: string }>> = ({ cwd, configFile } = {}) => {
-  const { config } = loadSync({
+  const o = loadSync({
     configFile,
     cwd
   })
-  const ctx = createContext(config)
+  if (!o) {
+    throw new Error('fail to load config')
+  }
+  const { filepath } = o
+  const ctx = createContext(filepath)
   const plugins: AcceptedPlugin[] = [
     async () => {
       await ctx.build()

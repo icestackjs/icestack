@@ -15,9 +15,14 @@ async function letUsBuild(options: { clean?: boolean; configFile?: string } = {}
   if (configFile) {
     logger.success(`load config from ${configFile}`)
   }
-  const { config } = await loadSync({
+  const o = await loadSync({
     configFile
   })
+  if (!o) {
+    logger.error('load options fail!')
+    return
+  }
+  const { config, filepath } = o
   if (config) {
     if (!config.outdir) {
       logger.error('outdir option must be passed!')
@@ -29,7 +34,7 @@ async function letUsBuild(options: { clean?: boolean; configFile?: string } = {}
       logger.success(`del outdir: ${config.outdir} successfully!`)
     }
 
-    const ctx = createContext(config)
+    const ctx = createContext(filepath)
     await ctx.build()
     logger.success('build successfully!')
   }
@@ -96,11 +101,15 @@ cli
     const opts = { clean, configFile: config }
     const { configFile } = opts
     const cwd = process.cwd()
-
-    const { filepath } = await loadSync({
-      configFile,
-      cwd
+    const o = await loadSync({
+      cwd,
+      configFile
     })
+    if (!o) {
+      logger.error('load options fail!')
+      return
+    }
+    const { filepath } = o
     if (configFile) {
       logger.success(`load config from ${configFile}`)
     }

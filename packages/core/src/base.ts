@@ -6,8 +6,8 @@ import { parseJs, merge, parse } from '@icestack/postcss-utils'
 
 export const calcBase = (options: Partial<CodegenOptions>, { slash }: { slash: boolean } = { slash: true }) => {
   const { base, postcss } = options
-  const { varPrefix: varPrefixOptions } = postcss!
-  const { varPrefix } = varPrefixOptions as Partial<VarPrefixerOptions>
+  const { varPrefix: varPrefixOptions } = postcss ?? {}
+  const { varPrefix } = (varPrefixOptions ?? {}) as Partial<VarPrefixerOptions>
   const colors: Record<string, string> = {
     transparent: 'transparent',
     current: 'currentColor'

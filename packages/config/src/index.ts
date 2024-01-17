@@ -67,7 +67,11 @@ export function getCodegenOptions(options?: CodegenOptions) {
   return omit(defuOptions(...arr), ['presets']) as CodegenOptions
 }
 
-export type LoadConfigResult = CosmiconfigResult & { config: CodegenOptions }
+export type LoadConfigResult = {
+  config: CodegenOptions
+  filepath: string
+  isEmpty?: boolean
+} | null
 
 export function loadSync(options?: { cwd?: string; configFile?: string }) {
   const { configFile, cwd = process.cwd() } = options ?? {}

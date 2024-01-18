@@ -21,3 +21,11 @@ const css = String.raw
 然后使用这个方法包裹一下，就有高亮提示了:
 
 ![](/syntax-highlight/after.png)
+
+### .vscode/settings.json
+
+```json
+{
+  "tailwindCSS.experimental.classRegex": [["@apply([^`;]*)"]]
+}
+```

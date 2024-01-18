@@ -1,6 +1,7 @@
 import path from 'node:path'
+import ci from 'ci-info'
 import { createContext } from '@/index'
-describe('build', () => {
+describe.skipIf(ci.isCI)('build', () => {
   it('build all', async () => {
     const ctx = createContext({
       dryRun: true

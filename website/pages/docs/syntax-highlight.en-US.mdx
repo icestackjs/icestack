@@ -1,0 +1,23 @@
+# IDE Grammar highlight
+
+When writing `css schema` or writing `extend` configuration, it is often suffering from the `js` string without `css` highlight:
+
+![](/syntax-highlight/before.png)
+
+We often need the `CSS/SCSS` intelligent prompts and the code highlight. At this time, we can follow the way.
+
+## vscode
+
+Install the `vscode-styled-components` expansion
+
+Then use
+
+```js
+const { css } = require('@icestack/ui')
+// or
+const css = String.raw
+```
+
+Then use this method to wrap it, and there will be highlight:
+
+![](/syntax-highlight/after.png)

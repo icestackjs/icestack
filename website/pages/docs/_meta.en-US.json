@@ -5,6 +5,7 @@
   "unocss": "Unocss",
   "core": "Core",
   "start-from-scratch": "Start From Scratch",
+  "syntax-highlight": "Syntax Highlight",
   "contribute": "Contribute",
   "--": {
     "type": "separator"

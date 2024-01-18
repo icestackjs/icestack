@@ -5,6 +5,7 @@
   "unocss": "Unocss",
   "core": "扩展是核心",
   "start-from-scratch": "从0开始构建组件库",
+  "syntax-highlight": "IDE语法高亮",
   "mp": "在微信小程序里使用",
   "contribute": "贡献",
   "--": {

@@ -1,4 +1,4 @@
-import hash from 'object-hash'
+import { hash } from '@/hash'
 
 describe('hash', () => {
   it('case 0', () => {

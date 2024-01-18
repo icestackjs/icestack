@@ -9,7 +9,7 @@ import { compileScssString } from '@icestack/scss'
 import { logger } from '@icestack/logger'
 import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@icestack/types'
 import { defu, JSONStringify } from '@icestack/shared'
-import hash from 'object-hash'
+
 import {
   getPrefixerPlugin,
   getCssVarsPrefixerPlugin,
@@ -30,11 +30,13 @@ import {
 import { LRUCache } from 'lru-cache'
 // import md5 from 'md5'
 import { name } from '../package.json'
+import { hash } from './hash'
 import { utilitiesNames, utilitiesMap } from './utilities'
 import { handleOptions } from './components'
 import { calcBase } from './base'
 import { generateIndexCode } from '@/generate'
 import { createResolveDir } from '@/dirs'
+
 const { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath } = createResolveDir(name)
 
 function ensureDirSync(p: string) {

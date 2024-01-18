@@ -9,3 +9,5 @@ export function defineConfig(options?: Config) {
 
 export { createContext } from './context'
 export type { IContext } from './context'
+
+export { css } from '@/shared'

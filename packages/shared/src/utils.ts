@@ -103,3 +103,5 @@ export function makeArray<T>(value?: T) {
   }
   return []
 }
+
+export const css = String.raw

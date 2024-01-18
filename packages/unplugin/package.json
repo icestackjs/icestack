@@ -1,7 +1,7 @@
 {
   "name": "@icestack/unplugin",
   "description": "The unplugin of @icestack/ui",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "private": true,
   "scripts": {
     "build": "unbuild",

@@ -300,289 +300,289 @@ exports[`build > hash map init buildComponents 1`] = `
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/a.config.cjs#utilities",
     {
-      "value": "30aa6dc1f6fa1d88409017e28c41427e7dc0ad17",
+      "value": "63db7ca5b53712b728c1d8ec13e0c242c48247df",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.alert",
     {
-      "value": "65ef82f2ca3287de8ceb21f5e767d9a62f30a79a",
+      "value": "717b4d82b63b9e34469a2acfe201106ae1707050",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.avatar",
     {
-      "value": "861f688a90cf510725213447ff54f7624feb2f86",
+      "value": "fe20bd84da449029ad117c5c8f344bb0b21b1468",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.badge",
     {
-      "value": "8a4d7d22778e9647fe32742c80128aa5d3fd0adf",
+      "value": "ec63487bb0d704776f092661a06a135cbce9e6c1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.button",
     {
-      "value": "8df77c5f2cd1c7402f18a3e1470220305ae10a02",
+      "value": "16b957b4976d47addfda26e1371700c4ea515ffd",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.chat",
     {
-      "value": "cc5c63c5dddb6623d5753ef7f0f6c7ba18c80aa5",
+      "value": "38a1a51e73cd32923abf2697470f13b8fb851f86",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.checkbox",
     {
-      "value": "0cfccd73704548984554ac5019e2c884ac71963d",
+      "value": "906d45e1f70a737c952ed09ded15e3967f6a9a22",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.input",
     {
-      "value": "4453f552f5fefc2624bbf86639294c41c05fa949",
+      "value": "bc390a21d308431fa0a5878ce7558fafa31c1863",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.link",
     {
-      "value": "d5353c68230bab489db664b361cda8cb7cf566b3",
+      "value": "2722aa30908b382e616c5c7acbac80257b64dad9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.progress",
     {
-      "value": "f6c060961d68afb65b2007196d08e8707156943c",
+      "value": "75196d07696b61544e71511f2237740861768812",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.radio",
     {
-      "value": "51133ad112357b3d86dca086e12110528b7f0b97",
+      "value": "3a0252e7ec3694321a8385050728368d9921e85a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.range",
     {
-      "value": "30ce7fb1deda000ac1d550399f9646c0f3d881d7",
+      "value": "2032c04d91386315050811adbdae075079d56170",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.select",
     {
-      "value": "a733ac9e35edbeb70aed95282c994baa774b0047",
+      "value": "90ffe8603ac8cade35bc8fe03d2dca9b55c14bc7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.textarea",
     {
-      "value": "220214c65d5198e91c2b8a7f3ad295858246f8e9",
+      "value": "4e57e7f1b115e3889e8b0f579ed5e6ed907927c3",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.toggle",
     {
-      "value": "59266e2c8ddf4981e37fc6e62db1e735002425ea",
+      "value": "6dbce070366db66dc1ca71a5305e8f4d723ed98b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.loading",
     {
-      "value": "b52f4ae882a2e369c0f108de061445f619ceacb8",
+      "value": "d99e89507dc925a9baedada02f1fdcaf2b0c73d7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.mask",
     {
-      "value": "9d0b9ebb70a3b9962e9422a55d5e26efb38975c9",
+      "value": "8d8a9544759c9798d042a635ca7a67c234935cc0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.table",
     {
-      "value": "745e17df73d34dc10e225c4d6870db50b265b8df",
+      "value": "ff2fd21282f8f2ed5e25ce104818b58280af5b8d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.skeleton",
     {
-      "value": "bf486bfe64a4abe356c111c56dae88ec95849554",
+      "value": "f400c650e9ff920d542a77d6a82ae0265d23dd9c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.form",
     {
-      "value": "0777405a4c977d0d86dfd3249a52468d1bf29d0f",
+      "value": "4eb53977b6d38b92bd97a3add3e603dac89b21da",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.radial-progress",
     {
-      "value": "0efd193c94352131eb534730ccffca8885881081",
+      "value": "7cabee7e3ec68c5c1f6911326f33db06efe02b88",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.countdown",
     {
-      "value": "ace9933e5112cbcf253401a8f845e50967b7d8a3",
+      "value": "f41bb65dd8a51ca8c2a4ae1ae4f2f7456445c525",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.diff",
     {
-      "value": "cf9ea49fb0b3005d549796ce1d7264c6e407270b",
+      "value": "672e39a126e1ccfbf20c3a42ee10f0eac562391d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.kbd",
     {
-      "value": "620cdc40a5519697452e61af89d9025554b0fe35",
+      "value": "fb8bc503e6291a624a756aafd1a65e212bf9fb40",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.tooltip",
     {
-      "value": "dc76b7f66635c975cee902fa9385f5646a82217e",
+      "value": "4c950466ba95d8b8e9013c06ce7d2bfbc32c28f9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.toast",
     {
-      "value": "96f42ae624c28c9c2090ec1181789df6a719d171",
+      "value": "df160c8992b9dca1a861b8f6dc4cd7c7158cbc47",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.steps",
     {
-      "value": "da3bdf1c3590344ea9db6dd809a1c1e01f05dd5e",
+      "value": "e4f5d701ec6bcc9221d8875352720365a5bcdb77",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.collapse",
     {
-      "value": "8dedeb648ac0ddc34706a1a43e384baca234b22c",
+      "value": "b7006df79351680d2afc67ad392f40227fe02dcc",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.join",
     {
-      "value": "f21ceb5069cd31e8b80a4ef2636ed6e223ce8c33",
+      "value": "469e346b1a716738b09af59ac7d7b5de28ba8b7b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.indicator",
     {
-      "value": "60d011a757abdb03bd1dbdc3eba1b2c9d03137ef",
+      "value": "bcd957fd8e24aa98005544e1657bba9cae4e19fb",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.divider",
     {
-      "value": "70c8510ea9714cc940c12d96a5feccc9668eff17",
+      "value": "93b409c6c2857cebbad67bd046fe016f04d99307",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.stack",
     {
-      "value": "27f8ed137f7060c8ffa6ccc1b655c6ebb7c7e4ac",
+      "value": "24cf54b27f889fc1c26773a56e12df804d885830",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.tab",
     {
-      "value": "581076aed45f247d693de1c065a5032ed0a663e5",
+      "value": "b2a47af17fb7eb1acf25d275975382e2efdf0b67",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.dropdown",
     {
-      "value": "7cb3667b2b72f1a38305a9f828870ab4081e761a",
+      "value": "ed977dcb6cdd715bc1b8f4e3c8481fb76533f5a8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.swap",
     {
-      "value": "942fc1c5351d7e4580cec40be58ad896beb3d7ac",
+      "value": "91c561a7f3be1532639c5817136cea682442381a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.card",
     {
-      "value": "da81637aaad73622959736c7bb93719f3c685b40",
+      "value": "d6ec4d930fdfff0e407b9e3c634a5308edbec7a9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.carousel",
     {
-      "value": "f4d7a435a0d6ebc5237992e790897c8f86362dcd",
+      "value": "d73197f497897f947b52284b4734d0804e57c7d0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.stat",
     {
-      "value": "04d834f733220970f014176462b848f548837258",
+      "value": "7121e077f41abad8db32a1f5d57a6174342b2fa1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.timeline",
     {
-      "value": "c3156fb43eeb43369af6d019ba3226ecf6d26de1",
+      "value": "f606e4fc88aff1cfa8d604d675d5e9cd4d0676ae",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.breadcrumbs",
     {
-      "value": "5dd2678aaddd321be00d0bc7b1a0200762040921",
+      "value": "6a7724b405eb66ade35eb209d6fbe5f5a8af8b21",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.bottom-navigation",
     {
-      "value": "42d1fac0c9a23c74b41370aa6a64f7179fbcec30",
+      "value": "d263607b2d24aaf3e42130ed3334695cedd58404",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.menu",
     {
-      "value": "4dd9b50c134fb5dbce505b5c5a36d58b1bce7485",
+      "value": "6a4e851bd7f402a2ba7f199036a980f0be90d6e2",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.navbar",
     {
-      "value": "60a186ff344b9092e4c96cdec663caf13a95d811",
+      "value": "45d14328d1039684023b9cd6205425ba02ca8f91",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.file-input",
     {
-      "value": "c6d3ca0f4d914e5d6cfa98f2a849b501606161eb",
+      "value": "e6e0b1cc001674e0e8d04f7bcbae4ecdb2cc2541",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.rating",
     {
-      "value": "c22938c561e16f6a5141b5c5b054ce80236a7958",
+      "value": "767cdebd43dc6518a53de5ae5315da09222a43e8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.drawer",
     {
-      "value": "01d868b49cbab384a1239d5e721533ca355cb3e5",
+      "value": "1e1d5da7e8e8869eba10278363587f902fe5e7ca",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.footer",
     {
-      "value": "aed2c8743928868587598265ab81c6a3f87ed626",
+      "value": "66ad3ae411fcf9cb60f2c5e79a321f4a98040a7c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.hero",
     {
-      "value": "d27ff8f3a4e9d3344b0aa36ad9d6604d9523c747",
+      "value": "1ea0e917e1876478a3f10fa1900bc5aa3d72bfa0",
     },
   ],
   [
@@ -594,283 +594,283 @@ exports[`build > hash map init buildComponents 1`] = `
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.alert",
     {
-      "value": "65ef82f2ca3287de8ceb21f5e767d9a62f30a79a",
+      "value": "717b4d82b63b9e34469a2acfe201106ae1707050",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.avatar",
     {
-      "value": "861f688a90cf510725213447ff54f7624feb2f86",
+      "value": "fe20bd84da449029ad117c5c8f344bb0b21b1468",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.badge",
     {
-      "value": "8a4d7d22778e9647fe32742c80128aa5d3fd0adf",
+      "value": "ec63487bb0d704776f092661a06a135cbce9e6c1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.button",
     {
-      "value": "8df77c5f2cd1c7402f18a3e1470220305ae10a02",
+      "value": "16b957b4976d47addfda26e1371700c4ea515ffd",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.chat",
     {
-      "value": "cc5c63c5dddb6623d5753ef7f0f6c7ba18c80aa5",
+      "value": "38a1a51e73cd32923abf2697470f13b8fb851f86",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.checkbox",
     {
-      "value": "0cfccd73704548984554ac5019e2c884ac71963d",
+      "value": "906d45e1f70a737c952ed09ded15e3967f6a9a22",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.input",
     {
-      "value": "4453f552f5fefc2624bbf86639294c41c05fa949",
+      "value": "bc390a21d308431fa0a5878ce7558fafa31c1863",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.link",
     {
-      "value": "d5353c68230bab489db664b361cda8cb7cf566b3",
+      "value": "2722aa30908b382e616c5c7acbac80257b64dad9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.progress",
     {
-      "value": "f6c060961d68afb65b2007196d08e8707156943c",
+      "value": "75196d07696b61544e71511f2237740861768812",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.radio",
     {
-      "value": "51133ad112357b3d86dca086e12110528b7f0b97",
+      "value": "3a0252e7ec3694321a8385050728368d9921e85a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.range",
     {
-      "value": "30ce7fb1deda000ac1d550399f9646c0f3d881d7",
+      "value": "2032c04d91386315050811adbdae075079d56170",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.select",
     {
-      "value": "a733ac9e35edbeb70aed95282c994baa774b0047",
+      "value": "90ffe8603ac8cade35bc8fe03d2dca9b55c14bc7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.textarea",
     {
-      "value": "220214c65d5198e91c2b8a7f3ad295858246f8e9",
+      "value": "4e57e7f1b115e3889e8b0f579ed5e6ed907927c3",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.toggle",
     {
-      "value": "59266e2c8ddf4981e37fc6e62db1e735002425ea",
+      "value": "6dbce070366db66dc1ca71a5305e8f4d723ed98b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.loading",
     {
-      "value": "b52f4ae882a2e369c0f108de061445f619ceacb8",
+      "value": "d99e89507dc925a9baedada02f1fdcaf2b0c73d7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.mask",
     {
-      "value": "9d0b9ebb70a3b9962e9422a55d5e26efb38975c9",
+      "value": "8d8a9544759c9798d042a635ca7a67c234935cc0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.table",
     {
-      "value": "745e17df73d34dc10e225c4d6870db50b265b8df",
+      "value": "ff2fd21282f8f2ed5e25ce104818b58280af5b8d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.skeleton",
     {
-      "value": "bf486bfe64a4abe356c111c56dae88ec95849554",
+      "value": "f400c650e9ff920d542a77d6a82ae0265d23dd9c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.form",
     {
-      "value": "0777405a4c977d0d86dfd3249a52468d1bf29d0f",
+      "value": "4eb53977b6d38b92bd97a3add3e603dac89b21da",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.radial-progress",
     {
-      "value": "0efd193c94352131eb534730ccffca8885881081",
+      "value": "7cabee7e3ec68c5c1f6911326f33db06efe02b88",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.countdown",
     {
-      "value": "ace9933e5112cbcf253401a8f845e50967b7d8a3",
+      "value": "f41bb65dd8a51ca8c2a4ae1ae4f2f7456445c525",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.diff",
     {
-      "value": "cf9ea49fb0b3005d549796ce1d7264c6e407270b",
+      "value": "672e39a126e1ccfbf20c3a42ee10f0eac562391d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.kbd",
     {
-      "value": "620cdc40a5519697452e61af89d9025554b0fe35",
+      "value": "fb8bc503e6291a624a756aafd1a65e212bf9fb40",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.tooltip",
     {
-      "value": "dc76b7f66635c975cee902fa9385f5646a82217e",
+      "value": "4c950466ba95d8b8e9013c06ce7d2bfbc32c28f9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.toast",
     {
-      "value": "96f42ae624c28c9c2090ec1181789df6a719d171",
+      "value": "df160c8992b9dca1a861b8f6dc4cd7c7158cbc47",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.steps",
     {
-      "value": "da3bdf1c3590344ea9db6dd809a1c1e01f05dd5e",
+      "value": "e4f5d701ec6bcc9221d8875352720365a5bcdb77",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.collapse",
     {
-      "value": "8dedeb648ac0ddc34706a1a43e384baca234b22c",
+      "value": "b7006df79351680d2afc67ad392f40227fe02dcc",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.join",
     {
-      "value": "f21ceb5069cd31e8b80a4ef2636ed6e223ce8c33",
+      "value": "469e346b1a716738b09af59ac7d7b5de28ba8b7b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.indicator",
     {
-      "value": "60d011a757abdb03bd1dbdc3eba1b2c9d03137ef",
+      "value": "bcd957fd8e24aa98005544e1657bba9cae4e19fb",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.divider",
     {
-      "value": "70c8510ea9714cc940c12d96a5feccc9668eff17",
+      "value": "93b409c6c2857cebbad67bd046fe016f04d99307",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.stack",
     {
-      "value": "27f8ed137f7060c8ffa6ccc1b655c6ebb7c7e4ac",
+      "value": "24cf54b27f889fc1c26773a56e12df804d885830",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.tab",
     {
-      "value": "581076aed45f247d693de1c065a5032ed0a663e5",
+      "value": "b2a47af17fb7eb1acf25d275975382e2efdf0b67",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.dropdown",
     {
-      "value": "7cb3667b2b72f1a38305a9f828870ab4081e761a",
+      "value": "ed977dcb6cdd715bc1b8f4e3c8481fb76533f5a8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.swap",
     {
-      "value": "942fc1c5351d7e4580cec40be58ad896beb3d7ac",
+      "value": "91c561a7f3be1532639c5817136cea682442381a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.card",
     {
-      "value": "da81637aaad73622959736c7bb93719f3c685b40",
+      "value": "d6ec4d930fdfff0e407b9e3c634a5308edbec7a9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.carousel",
     {
-      "value": "f4d7a435a0d6ebc5237992e790897c8f86362dcd",
+      "value": "d73197f497897f947b52284b4734d0804e57c7d0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.stat",
     {
-      "value": "04d834f733220970f014176462b848f548837258",
+      "value": "7121e077f41abad8db32a1f5d57a6174342b2fa1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.timeline",
     {
-      "value": "c3156fb43eeb43369af6d019ba3226ecf6d26de1",
+      "value": "f606e4fc88aff1cfa8d604d675d5e9cd4d0676ae",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.breadcrumbs",
     {
-      "value": "5dd2678aaddd321be00d0bc7b1a0200762040921",
+      "value": "6a7724b405eb66ade35eb209d6fbe5f5a8af8b21",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.bottom-navigation",
     {
-      "value": "42d1fac0c9a23c74b41370aa6a64f7179fbcec30",
+      "value": "d263607b2d24aaf3e42130ed3334695cedd58404",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.menu",
     {
-      "value": "4dd9b50c134fb5dbce505b5c5a36d58b1bce7485",
+      "value": "6a4e851bd7f402a2ba7f199036a980f0be90d6e2",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.navbar",
     {
-      "value": "60a186ff344b9092e4c96cdec663caf13a95d811",
+      "value": "45d14328d1039684023b9cd6205425ba02ca8f91",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.file-input",
     {
-      "value": "c6d3ca0f4d914e5d6cfa98f2a849b501606161eb",
+      "value": "e6e0b1cc001674e0e8d04f7bcbae4ecdb2cc2541",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.rating",
     {
-      "value": "c22938c561e16f6a5141b5c5b054ce80236a7958",
+      "value": "767cdebd43dc6518a53de5ae5315da09222a43e8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.drawer",
     {
-      "value": "01d868b49cbab384a1239d5e721533ca355cb3e5",
+      "value": "1e1d5da7e8e8869eba10278363587f902fe5e7ca",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.footer",
     {
-      "value": "aed2c8743928868587598265ab81c6a3f87ed626",
+      "value": "66ad3ae411fcf9cb60f2c5e79a321f4a98040a7c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.hero",
     {
-      "value": "d27ff8f3a4e9d3344b0aa36ad9d6604d9523c747",
+      "value": "1ea0e917e1876478a3f10fa1900bc5aa3d72bfa0",
     },
   ],
   [
@@ -893,289 +893,289 @@ exports[`build > hash map init buildComponents 2 1`] = `
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/a.config.cjs#utilities",
     {
-      "value": "30aa6dc1f6fa1d88409017e28c41427e7dc0ad17",
+      "value": "63db7ca5b53712b728c1d8ec13e0c242c48247df",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.alert",
     {
-      "value": "65ef82f2ca3287de8ceb21f5e767d9a62f30a79a",
+      "value": "717b4d82b63b9e34469a2acfe201106ae1707050",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.avatar",
     {
-      "value": "861f688a90cf510725213447ff54f7624feb2f86",
+      "value": "fe20bd84da449029ad117c5c8f344bb0b21b1468",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.badge",
     {
-      "value": "8a4d7d22778e9647fe32742c80128aa5d3fd0adf",
+      "value": "ec63487bb0d704776f092661a06a135cbce9e6c1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.button",
     {
-      "value": "8df77c5f2cd1c7402f18a3e1470220305ae10a02",
+      "value": "16b957b4976d47addfda26e1371700c4ea515ffd",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.chat",
     {
-      "value": "cc5c63c5dddb6623d5753ef7f0f6c7ba18c80aa5",
+      "value": "38a1a51e73cd32923abf2697470f13b8fb851f86",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.checkbox",
     {
-      "value": "0cfccd73704548984554ac5019e2c884ac71963d",
+      "value": "906d45e1f70a737c952ed09ded15e3967f6a9a22",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.input",
     {
-      "value": "4453f552f5fefc2624bbf86639294c41c05fa949",
+      "value": "bc390a21d308431fa0a5878ce7558fafa31c1863",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.link",
     {
-      "value": "d5353c68230bab489db664b361cda8cb7cf566b3",
+      "value": "2722aa30908b382e616c5c7acbac80257b64dad9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.progress",
     {
-      "value": "f6c060961d68afb65b2007196d08e8707156943c",
+      "value": "75196d07696b61544e71511f2237740861768812",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.radio",
     {
-      "value": "51133ad112357b3d86dca086e12110528b7f0b97",
+      "value": "3a0252e7ec3694321a8385050728368d9921e85a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.range",
     {
-      "value": "30ce7fb1deda000ac1d550399f9646c0f3d881d7",
+      "value": "2032c04d91386315050811adbdae075079d56170",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.select",
     {
-      "value": "a733ac9e35edbeb70aed95282c994baa774b0047",
+      "value": "90ffe8603ac8cade35bc8fe03d2dca9b55c14bc7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.textarea",
     {
-      "value": "220214c65d5198e91c2b8a7f3ad295858246f8e9",
+      "value": "4e57e7f1b115e3889e8b0f579ed5e6ed907927c3",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.toggle",
     {
-      "value": "59266e2c8ddf4981e37fc6e62db1e735002425ea",
+      "value": "6dbce070366db66dc1ca71a5305e8f4d723ed98b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.loading",
     {
-      "value": "b52f4ae882a2e369c0f108de061445f619ceacb8",
+      "value": "d99e89507dc925a9baedada02f1fdcaf2b0c73d7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.mask",
     {
-      "value": "9d0b9ebb70a3b9962e9422a55d5e26efb38975c9",
+      "value": "8d8a9544759c9798d042a635ca7a67c234935cc0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.table",
     {
-      "value": "745e17df73d34dc10e225c4d6870db50b265b8df",
+      "value": "ff2fd21282f8f2ed5e25ce104818b58280af5b8d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.skeleton",
     {
-      "value": "bf486bfe64a4abe356c111c56dae88ec95849554",
+      "value": "f400c650e9ff920d542a77d6a82ae0265d23dd9c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.form",
     {
-      "value": "0777405a4c977d0d86dfd3249a52468d1bf29d0f",
+      "value": "4eb53977b6d38b92bd97a3add3e603dac89b21da",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.radial-progress",
     {
-      "value": "0efd193c94352131eb534730ccffca8885881081",
+      "value": "7cabee7e3ec68c5c1f6911326f33db06efe02b88",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.countdown",
     {
-      "value": "ace9933e5112cbcf253401a8f845e50967b7d8a3",
+      "value": "f41bb65dd8a51ca8c2a4ae1ae4f2f7456445c525",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.diff",
     {
-      "value": "cf9ea49fb0b3005d549796ce1d7264c6e407270b",
+      "value": "672e39a126e1ccfbf20c3a42ee10f0eac562391d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.kbd",
     {
-      "value": "620cdc40a5519697452e61af89d9025554b0fe35",
+      "value": "fb8bc503e6291a624a756aafd1a65e212bf9fb40",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.tooltip",
     {
-      "value": "dc76b7f66635c975cee902fa9385f5646a82217e",
+      "value": "4c950466ba95d8b8e9013c06ce7d2bfbc32c28f9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.toast",
     {
-      "value": "96f42ae624c28c9c2090ec1181789df6a719d171",
+      "value": "df160c8992b9dca1a861b8f6dc4cd7c7158cbc47",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.steps",
     {
-      "value": "da3bdf1c3590344ea9db6dd809a1c1e01f05dd5e",
+      "value": "e4f5d701ec6bcc9221d8875352720365a5bcdb77",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.collapse",
     {
-      "value": "8dedeb648ac0ddc34706a1a43e384baca234b22c",
+      "value": "b7006df79351680d2afc67ad392f40227fe02dcc",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.join",
     {
-      "value": "f21ceb5069cd31e8b80a4ef2636ed6e223ce8c33",
+      "value": "469e346b1a716738b09af59ac7d7b5de28ba8b7b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.indicator",
     {
-      "value": "60d011a757abdb03bd1dbdc3eba1b2c9d03137ef",
+      "value": "bcd957fd8e24aa98005544e1657bba9cae4e19fb",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.divider",
     {
-      "value": "70c8510ea9714cc940c12d96a5feccc9668eff17",
+      "value": "93b409c6c2857cebbad67bd046fe016f04d99307",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.stack",
     {
-      "value": "27f8ed137f7060c8ffa6ccc1b655c6ebb7c7e4ac",
+      "value": "24cf54b27f889fc1c26773a56e12df804d885830",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.tab",
     {
-      "value": "581076aed45f247d693de1c065a5032ed0a663e5",
+      "value": "b2a47af17fb7eb1acf25d275975382e2efdf0b67",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.dropdown",
     {
-      "value": "7cb3667b2b72f1a38305a9f828870ab4081e761a",
+      "value": "ed977dcb6cdd715bc1b8f4e3c8481fb76533f5a8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.swap",
     {
-      "value": "942fc1c5351d7e4580cec40be58ad896beb3d7ac",
+      "value": "91c561a7f3be1532639c5817136cea682442381a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.card",
     {
-      "value": "da81637aaad73622959736c7bb93719f3c685b40",
+      "value": "d6ec4d930fdfff0e407b9e3c634a5308edbec7a9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.carousel",
     {
-      "value": "f4d7a435a0d6ebc5237992e790897c8f86362dcd",
+      "value": "d73197f497897f947b52284b4734d0804e57c7d0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.stat",
     {
-      "value": "04d834f733220970f014176462b848f548837258",
+      "value": "7121e077f41abad8db32a1f5d57a6174342b2fa1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.timeline",
     {
-      "value": "c3156fb43eeb43369af6d019ba3226ecf6d26de1",
+      "value": "f606e4fc88aff1cfa8d604d675d5e9cd4d0676ae",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.breadcrumbs",
     {
-      "value": "5dd2678aaddd321be00d0bc7b1a0200762040921",
+      "value": "6a7724b405eb66ade35eb209d6fbe5f5a8af8b21",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.bottom-navigation",
     {
-      "value": "42d1fac0c9a23c74b41370aa6a64f7179fbcec30",
+      "value": "d263607b2d24aaf3e42130ed3334695cedd58404",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.menu",
     {
-      "value": "4dd9b50c134fb5dbce505b5c5a36d58b1bce7485",
+      "value": "6a4e851bd7f402a2ba7f199036a980f0be90d6e2",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.navbar",
     {
-      "value": "60a186ff344b9092e4c96cdec663caf13a95d811",
+      "value": "45d14328d1039684023b9cd6205425ba02ca8f91",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.file-input",
     {
-      "value": "c6d3ca0f4d914e5d6cfa98f2a849b501606161eb",
+      "value": "e6e0b1cc001674e0e8d04f7bcbae4ecdb2cc2541",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.rating",
     {
-      "value": "c22938c561e16f6a5141b5c5b054ce80236a7958",
+      "value": "767cdebd43dc6518a53de5ae5315da09222a43e8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.drawer",
     {
-      "value": "01d868b49cbab384a1239d5e721533ca355cb3e5",
+      "value": "1e1d5da7e8e8869eba10278363587f902fe5e7ca",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.footer",
     {
-      "value": "aed2c8743928868587598265ab81c6a3f87ed626",
+      "value": "66ad3ae411fcf9cb60f2c5e79a321f4a98040a7c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.hero",
     {
-      "value": "d27ff8f3a4e9d3344b0aa36ad9d6604d9523c747",
+      "value": "1ea0e917e1876478a3f10fa1900bc5aa3d72bfa0",
     },
   ],
   [
@@ -1187,283 +1187,283 @@ exports[`build > hash map init buildComponents 2 1`] = `
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.alert",
     {
-      "value": "65ef82f2ca3287de8ceb21f5e767d9a62f30a79a",
+      "value": "717b4d82b63b9e34469a2acfe201106ae1707050",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.avatar",
     {
-      "value": "861f688a90cf510725213447ff54f7624feb2f86",
+      "value": "fe20bd84da449029ad117c5c8f344bb0b21b1468",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.badge",
     {
-      "value": "8a4d7d22778e9647fe32742c80128aa5d3fd0adf",
+      "value": "ec63487bb0d704776f092661a06a135cbce9e6c1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.button",
     {
-      "value": "8df77c5f2cd1c7402f18a3e1470220305ae10a02",
+      "value": "16b957b4976d47addfda26e1371700c4ea515ffd",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.chat",
     {
-      "value": "cc5c63c5dddb6623d5753ef7f0f6c7ba18c80aa5",
+      "value": "38a1a51e73cd32923abf2697470f13b8fb851f86",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.checkbox",
     {
-      "value": "0cfccd73704548984554ac5019e2c884ac71963d",
+      "value": "906d45e1f70a737c952ed09ded15e3967f6a9a22",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.input",
     {
-      "value": "4453f552f5fefc2624bbf86639294c41c05fa949",
+      "value": "bc390a21d308431fa0a5878ce7558fafa31c1863",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.link",
     {
-      "value": "d5353c68230bab489db664b361cda8cb7cf566b3",
+      "value": "2722aa30908b382e616c5c7acbac80257b64dad9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.progress",
     {
-      "value": "f6c060961d68afb65b2007196d08e8707156943c",
+      "value": "75196d07696b61544e71511f2237740861768812",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.radio",
     {
-      "value": "51133ad112357b3d86dca086e12110528b7f0b97",
+      "value": "3a0252e7ec3694321a8385050728368d9921e85a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.range",
     {
-      "value": "30ce7fb1deda000ac1d550399f9646c0f3d881d7",
+      "value": "2032c04d91386315050811adbdae075079d56170",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.select",
     {
-      "value": "a733ac9e35edbeb70aed95282c994baa774b0047",
+      "value": "90ffe8603ac8cade35bc8fe03d2dca9b55c14bc7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.textarea",
     {
-      "value": "220214c65d5198e91c2b8a7f3ad295858246f8e9",
+      "value": "4e57e7f1b115e3889e8b0f579ed5e6ed907927c3",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.toggle",
     {
-      "value": "59266e2c8ddf4981e37fc6e62db1e735002425ea",
+      "value": "6dbce070366db66dc1ca71a5305e8f4d723ed98b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.loading",
     {
-      "value": "b52f4ae882a2e369c0f108de061445f619ceacb8",
+      "value": "d99e89507dc925a9baedada02f1fdcaf2b0c73d7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.mask",
     {
-      "value": "9d0b9ebb70a3b9962e9422a55d5e26efb38975c9",
+      "value": "8d8a9544759c9798d042a635ca7a67c234935cc0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.table",
     {
-      "value": "745e17df73d34dc10e225c4d6870db50b265b8df",
+      "value": "ff2fd21282f8f2ed5e25ce104818b58280af5b8d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.skeleton",
     {
-      "value": "bf486bfe64a4abe356c111c56dae88ec95849554",
+      "value": "f400c650e9ff920d542a77d6a82ae0265d23dd9c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.form",
     {
-      "value": "0777405a4c977d0d86dfd3249a52468d1bf29d0f",
+      "value": "4eb53977b6d38b92bd97a3add3e603dac89b21da",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.radial-progress",
     {
-      "value": "0efd193c94352131eb534730ccffca8885881081",
+      "value": "7cabee7e3ec68c5c1f6911326f33db06efe02b88",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.countdown",
     {
-      "value": "ace9933e5112cbcf253401a8f845e50967b7d8a3",
+      "value": "f41bb65dd8a51ca8c2a4ae1ae4f2f7456445c525",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.diff",
     {
-      "value": "cf9ea49fb0b3005d549796ce1d7264c6e407270b",
+      "value": "672e39a126e1ccfbf20c3a42ee10f0eac562391d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.kbd",
     {
-      "value": "620cdc40a5519697452e61af89d9025554b0fe35",
+      "value": "fb8bc503e6291a624a756aafd1a65e212bf9fb40",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.tooltip",
     {
-      "value": "dc76b7f66635c975cee902fa9385f5646a82217e",
+      "value": "4c950466ba95d8b8e9013c06ce7d2bfbc32c28f9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.toast",
     {
-      "value": "96f42ae624c28c9c2090ec1181789df6a719d171",
+      "value": "df160c8992b9dca1a861b8f6dc4cd7c7158cbc47",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.steps",
     {
-      "value": "da3bdf1c3590344ea9db6dd809a1c1e01f05dd5e",
+      "value": "e4f5d701ec6bcc9221d8875352720365a5bcdb77",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.collapse",
     {
-      "value": "8dedeb648ac0ddc34706a1a43e384baca234b22c",
+      "value": "b7006df79351680d2afc67ad392f40227fe02dcc",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.join",
     {
-      "value": "f21ceb5069cd31e8b80a4ef2636ed6e223ce8c33",
+      "value": "469e346b1a716738b09af59ac7d7b5de28ba8b7b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.indicator",
     {
-      "value": "60d011a757abdb03bd1dbdc3eba1b2c9d03137ef",
+      "value": "bcd957fd8e24aa98005544e1657bba9cae4e19fb",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.divider",
     {
-      "value": "70c8510ea9714cc940c12d96a5feccc9668eff17",
+      "value": "93b409c6c2857cebbad67bd046fe016f04d99307",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.stack",
     {
-      "value": "27f8ed137f7060c8ffa6ccc1b655c6ebb7c7e4ac",
+      "value": "24cf54b27f889fc1c26773a56e12df804d885830",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.tab",
     {
-      "value": "581076aed45f247d693de1c065a5032ed0a663e5",
+      "value": "b2a47af17fb7eb1acf25d275975382e2efdf0b67",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.dropdown",
     {
-      "value": "7cb3667b2b72f1a38305a9f828870ab4081e761a",
+      "value": "ed977dcb6cdd715bc1b8f4e3c8481fb76533f5a8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.swap",
     {
-      "value": "942fc1c5351d7e4580cec40be58ad896beb3d7ac",
+      "value": "91c561a7f3be1532639c5817136cea682442381a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.card",
     {
-      "value": "da81637aaad73622959736c7bb93719f3c685b40",
+      "value": "d6ec4d930fdfff0e407b9e3c634a5308edbec7a9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.carousel",
     {
-      "value": "f4d7a435a0d6ebc5237992e790897c8f86362dcd",
+      "value": "d73197f497897f947b52284b4734d0804e57c7d0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.stat",
     {
-      "value": "04d834f733220970f014176462b848f548837258",
+      "value": "7121e077f41abad8db32a1f5d57a6174342b2fa1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.timeline",
     {
-      "value": "c3156fb43eeb43369af6d019ba3226ecf6d26de1",
+      "value": "f606e4fc88aff1cfa8d604d675d5e9cd4d0676ae",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.breadcrumbs",
     {
-      "value": "5dd2678aaddd321be00d0bc7b1a0200762040921",
+      "value": "6a7724b405eb66ade35eb209d6fbe5f5a8af8b21",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.bottom-navigation",
     {
-      "value": "42d1fac0c9a23c74b41370aa6a64f7179fbcec30",
+      "value": "d263607b2d24aaf3e42130ed3334695cedd58404",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.menu",
     {
-      "value": "4dd9b50c134fb5dbce505b5c5a36d58b1bce7485",
+      "value": "6a4e851bd7f402a2ba7f199036a980f0be90d6e2",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.navbar",
     {
-      "value": "60a186ff344b9092e4c96cdec663caf13a95d811",
+      "value": "45d14328d1039684023b9cd6205425ba02ca8f91",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.file-input",
     {
-      "value": "c6d3ca0f4d914e5d6cfa98f2a849b501606161eb",
+      "value": "e6e0b1cc001674e0e8d04f7bcbae4ecdb2cc2541",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.rating",
     {
-      "value": "c22938c561e16f6a5141b5c5b054ce80236a7958",
+      "value": "767cdebd43dc6518a53de5ae5315da09222a43e8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.drawer",
     {
-      "value": "01d868b49cbab384a1239d5e721533ca355cb3e5",
+      "value": "1e1d5da7e8e8869eba10278363587f902fe5e7ca",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.footer",
     {
-      "value": "aed2c8743928868587598265ab81c6a3f87ed626",
+      "value": "66ad3ae411fcf9cb60f2c5e79a321f4a98040a7c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.hero",
     {
-      "value": "d27ff8f3a4e9d3344b0aa36ad9d6604d9523c747",
+      "value": "1ea0e917e1876478a3f10fa1900bc5aa3d72bfa0",
     },
   ],
   [
@@ -1486,289 +1486,289 @@ exports[`build > hash map init buildComponents diff 1`] = `
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/a.config.cjs#utilities",
     {
-      "value": "30aa6dc1f6fa1d88409017e28c41427e7dc0ad17",
+      "value": "63db7ca5b53712b728c1d8ec13e0c242c48247df",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.alert",
     {
-      "value": "65ef82f2ca3287de8ceb21f5e767d9a62f30a79a",
+      "value": "717b4d82b63b9e34469a2acfe201106ae1707050",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.avatar",
     {
-      "value": "861f688a90cf510725213447ff54f7624feb2f86",
+      "value": "fe20bd84da449029ad117c5c8f344bb0b21b1468",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.badge",
     {
-      "value": "8a4d7d22778e9647fe32742c80128aa5d3fd0adf",
+      "value": "ec63487bb0d704776f092661a06a135cbce9e6c1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.button",
     {
-      "value": "8df77c5f2cd1c7402f18a3e1470220305ae10a02",
+      "value": "16b957b4976d47addfda26e1371700c4ea515ffd",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.chat",
     {
-      "value": "cc5c63c5dddb6623d5753ef7f0f6c7ba18c80aa5",
+      "value": "38a1a51e73cd32923abf2697470f13b8fb851f86",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.checkbox",
     {
-      "value": "0cfccd73704548984554ac5019e2c884ac71963d",
+      "value": "906d45e1f70a737c952ed09ded15e3967f6a9a22",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.input",
     {
-      "value": "4453f552f5fefc2624bbf86639294c41c05fa949",
+      "value": "bc390a21d308431fa0a5878ce7558fafa31c1863",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.link",
     {
-      "value": "d5353c68230bab489db664b361cda8cb7cf566b3",
+      "value": "2722aa30908b382e616c5c7acbac80257b64dad9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.progress",
     {
-      "value": "f6c060961d68afb65b2007196d08e8707156943c",
+      "value": "75196d07696b61544e71511f2237740861768812",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.radio",
     {
-      "value": "51133ad112357b3d86dca086e12110528b7f0b97",
+      "value": "3a0252e7ec3694321a8385050728368d9921e85a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.range",
     {
-      "value": "30ce7fb1deda000ac1d550399f9646c0f3d881d7",
+      "value": "2032c04d91386315050811adbdae075079d56170",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.select",
     {
-      "value": "a733ac9e35edbeb70aed95282c994baa774b0047",
+      "value": "90ffe8603ac8cade35bc8fe03d2dca9b55c14bc7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.textarea",
     {
-      "value": "220214c65d5198e91c2b8a7f3ad295858246f8e9",
+      "value": "4e57e7f1b115e3889e8b0f579ed5e6ed907927c3",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.toggle",
     {
-      "value": "59266e2c8ddf4981e37fc6e62db1e735002425ea",
+      "value": "6dbce070366db66dc1ca71a5305e8f4d723ed98b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.loading",
     {
-      "value": "b52f4ae882a2e369c0f108de061445f619ceacb8",
+      "value": "d99e89507dc925a9baedada02f1fdcaf2b0c73d7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.mask",
     {
-      "value": "9d0b9ebb70a3b9962e9422a55d5e26efb38975c9",
+      "value": "8d8a9544759c9798d042a635ca7a67c234935cc0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.table",
     {
-      "value": "745e17df73d34dc10e225c4d6870db50b265b8df",
+      "value": "ff2fd21282f8f2ed5e25ce104818b58280af5b8d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.skeleton",
     {
-      "value": "bf486bfe64a4abe356c111c56dae88ec95849554",
+      "value": "f400c650e9ff920d542a77d6a82ae0265d23dd9c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.form",
     {
-      "value": "0777405a4c977d0d86dfd3249a52468d1bf29d0f",
+      "value": "4eb53977b6d38b92bd97a3add3e603dac89b21da",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.radial-progress",
     {
-      "value": "0efd193c94352131eb534730ccffca8885881081",
+      "value": "7cabee7e3ec68c5c1f6911326f33db06efe02b88",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.countdown",
     {
-      "value": "ace9933e5112cbcf253401a8f845e50967b7d8a3",
+      "value": "f41bb65dd8a51ca8c2a4ae1ae4f2f7456445c525",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.diff",
     {
-      "value": "cf9ea49fb0b3005d549796ce1d7264c6e407270b",
+      "value": "672e39a126e1ccfbf20c3a42ee10f0eac562391d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.kbd",
     {
-      "value": "620cdc40a5519697452e61af89d9025554b0fe35",
+      "value": "fb8bc503e6291a624a756aafd1a65e212bf9fb40",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.tooltip",
     {
-      "value": "dc76b7f66635c975cee902fa9385f5646a82217e",
+      "value": "4c950466ba95d8b8e9013c06ce7d2bfbc32c28f9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.toast",
     {
-      "value": "96f42ae624c28c9c2090ec1181789df6a719d171",
+      "value": "df160c8992b9dca1a861b8f6dc4cd7c7158cbc47",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.steps",
     {
-      "value": "da3bdf1c3590344ea9db6dd809a1c1e01f05dd5e",
+      "value": "e4f5d701ec6bcc9221d8875352720365a5bcdb77",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.collapse",
     {
-      "value": "8dedeb648ac0ddc34706a1a43e384baca234b22c",
+      "value": "b7006df79351680d2afc67ad392f40227fe02dcc",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.join",
     {
-      "value": "f21ceb5069cd31e8b80a4ef2636ed6e223ce8c33",
+      "value": "469e346b1a716738b09af59ac7d7b5de28ba8b7b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.indicator",
     {
-      "value": "60d011a757abdb03bd1dbdc3eba1b2c9d03137ef",
+      "value": "bcd957fd8e24aa98005544e1657bba9cae4e19fb",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.divider",
     {
-      "value": "70c8510ea9714cc940c12d96a5feccc9668eff17",
+      "value": "93b409c6c2857cebbad67bd046fe016f04d99307",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.stack",
     {
-      "value": "27f8ed137f7060c8ffa6ccc1b655c6ebb7c7e4ac",
+      "value": "24cf54b27f889fc1c26773a56e12df804d885830",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.tab",
     {
-      "value": "581076aed45f247d693de1c065a5032ed0a663e5",
+      "value": "b2a47af17fb7eb1acf25d275975382e2efdf0b67",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.dropdown",
     {
-      "value": "7cb3667b2b72f1a38305a9f828870ab4081e761a",
+      "value": "ed977dcb6cdd715bc1b8f4e3c8481fb76533f5a8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.swap",
     {
-      "value": "942fc1c5351d7e4580cec40be58ad896beb3d7ac",
+      "value": "91c561a7f3be1532639c5817136cea682442381a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.card",
     {
-      "value": "da81637aaad73622959736c7bb93719f3c685b40",
+      "value": "d6ec4d930fdfff0e407b9e3c634a5308edbec7a9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.carousel",
     {
-      "value": "f4d7a435a0d6ebc5237992e790897c8f86362dcd",
+      "value": "d73197f497897f947b52284b4734d0804e57c7d0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.stat",
     {
-      "value": "04d834f733220970f014176462b848f548837258",
+      "value": "7121e077f41abad8db32a1f5d57a6174342b2fa1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.timeline",
     {
-      "value": "c3156fb43eeb43369af6d019ba3226ecf6d26de1",
+      "value": "f606e4fc88aff1cfa8d604d675d5e9cd4d0676ae",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.breadcrumbs",
     {
-      "value": "5dd2678aaddd321be00d0bc7b1a0200762040921",
+      "value": "6a7724b405eb66ade35eb209d6fbe5f5a8af8b21",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.bottom-navigation",
     {
-      "value": "42d1fac0c9a23c74b41370aa6a64f7179fbcec30",
+      "value": "d263607b2d24aaf3e42130ed3334695cedd58404",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.menu",
     {
-      "value": "4dd9b50c134fb5dbce505b5c5a36d58b1bce7485",
+      "value": "6a4e851bd7f402a2ba7f199036a980f0be90d6e2",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.navbar",
     {
-      "value": "60a186ff344b9092e4c96cdec663caf13a95d811",
+      "value": "45d14328d1039684023b9cd6205425ba02ca8f91",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.file-input",
     {
-      "value": "c6d3ca0f4d914e5d6cfa98f2a849b501606161eb",
+      "value": "e6e0b1cc001674e0e8d04f7bcbae4ecdb2cc2541",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.rating",
     {
-      "value": "c22938c561e16f6a5141b5c5b054ce80236a7958",
+      "value": "767cdebd43dc6518a53de5ae5315da09222a43e8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.drawer",
     {
-      "value": "01d868b49cbab384a1239d5e721533ca355cb3e5",
+      "value": "1e1d5da7e8e8869eba10278363587f902fe5e7ca",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.footer",
     {
-      "value": "aed2c8743928868587598265ab81c6a3f87ed626",
+      "value": "66ad3ae411fcf9cb60f2c5e79a321f4a98040a7c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents0.cjs#components.hero",
     {
-      "value": "d27ff8f3a4e9d3344b0aa36ad9d6604d9523c747",
+      "value": "1ea0e917e1876478a3f10fa1900bc5aa3d72bfa0",
     },
   ],
   [
@@ -1780,283 +1780,283 @@ exports[`build > hash map init buildComponents diff 1`] = `
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.alert",
     {
-      "value": "65ef82f2ca3287de8ceb21f5e767d9a62f30a79a",
+      "value": "717b4d82b63b9e34469a2acfe201106ae1707050",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.avatar",
     {
-      "value": "861f688a90cf510725213447ff54f7624feb2f86",
+      "value": "fe20bd84da449029ad117c5c8f344bb0b21b1468",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.badge",
     {
-      "value": "8a4d7d22778e9647fe32742c80128aa5d3fd0adf",
+      "value": "ec63487bb0d704776f092661a06a135cbce9e6c1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.button",
     {
-      "value": "8df77c5f2cd1c7402f18a3e1470220305ae10a02",
+      "value": "16b957b4976d47addfda26e1371700c4ea515ffd",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.chat",
     {
-      "value": "cc5c63c5dddb6623d5753ef7f0f6c7ba18c80aa5",
+      "value": "38a1a51e73cd32923abf2697470f13b8fb851f86",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.checkbox",
     {
-      "value": "0cfccd73704548984554ac5019e2c884ac71963d",
+      "value": "906d45e1f70a737c952ed09ded15e3967f6a9a22",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.input",
     {
-      "value": "4453f552f5fefc2624bbf86639294c41c05fa949",
+      "value": "bc390a21d308431fa0a5878ce7558fafa31c1863",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.link",
     {
-      "value": "d5353c68230bab489db664b361cda8cb7cf566b3",
+      "value": "2722aa30908b382e616c5c7acbac80257b64dad9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.progress",
     {
-      "value": "f6c060961d68afb65b2007196d08e8707156943c",
+      "value": "75196d07696b61544e71511f2237740861768812",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.radio",
     {
-      "value": "51133ad112357b3d86dca086e12110528b7f0b97",
+      "value": "3a0252e7ec3694321a8385050728368d9921e85a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.range",
     {
-      "value": "30ce7fb1deda000ac1d550399f9646c0f3d881d7",
+      "value": "2032c04d91386315050811adbdae075079d56170",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.select",
     {
-      "value": "a733ac9e35edbeb70aed95282c994baa774b0047",
+      "value": "90ffe8603ac8cade35bc8fe03d2dca9b55c14bc7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.textarea",
     {
-      "value": "220214c65d5198e91c2b8a7f3ad295858246f8e9",
+      "value": "4e57e7f1b115e3889e8b0f579ed5e6ed907927c3",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.toggle",
     {
-      "value": "59266e2c8ddf4981e37fc6e62db1e735002425ea",
+      "value": "6dbce070366db66dc1ca71a5305e8f4d723ed98b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.loading",
     {
-      "value": "b52f4ae882a2e369c0f108de061445f619ceacb8",
+      "value": "d99e89507dc925a9baedada02f1fdcaf2b0c73d7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.mask",
     {
-      "value": "9d0b9ebb70a3b9962e9422a55d5e26efb38975c9",
+      "value": "8d8a9544759c9798d042a635ca7a67c234935cc0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.table",
     {
-      "value": "745e17df73d34dc10e225c4d6870db50b265b8df",
+      "value": "ff2fd21282f8f2ed5e25ce104818b58280af5b8d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.skeleton",
     {
-      "value": "bf486bfe64a4abe356c111c56dae88ec95849554",
+      "value": "f400c650e9ff920d542a77d6a82ae0265d23dd9c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.form",
     {
-      "value": "0777405a4c977d0d86dfd3249a52468d1bf29d0f",
+      "value": "4eb53977b6d38b92bd97a3add3e603dac89b21da",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.radial-progress",
     {
-      "value": "0efd193c94352131eb534730ccffca8885881081",
+      "value": "7cabee7e3ec68c5c1f6911326f33db06efe02b88",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.countdown",
     {
-      "value": "ace9933e5112cbcf253401a8f845e50967b7d8a3",
+      "value": "f41bb65dd8a51ca8c2a4ae1ae4f2f7456445c525",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.diff",
     {
-      "value": "cf9ea49fb0b3005d549796ce1d7264c6e407270b",
+      "value": "672e39a126e1ccfbf20c3a42ee10f0eac562391d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.kbd",
     {
-      "value": "620cdc40a5519697452e61af89d9025554b0fe35",
+      "value": "fb8bc503e6291a624a756aafd1a65e212bf9fb40",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.tooltip",
     {
-      "value": "dc76b7f66635c975cee902fa9385f5646a82217e",
+      "value": "4c950466ba95d8b8e9013c06ce7d2bfbc32c28f9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.toast",
     {
-      "value": "96f42ae624c28c9c2090ec1181789df6a719d171",
+      "value": "df160c8992b9dca1a861b8f6dc4cd7c7158cbc47",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.steps",
     {
-      "value": "da3bdf1c3590344ea9db6dd809a1c1e01f05dd5e",
+      "value": "e4f5d701ec6bcc9221d8875352720365a5bcdb77",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.collapse",
     {
-      "value": "8dedeb648ac0ddc34706a1a43e384baca234b22c",
+      "value": "b7006df79351680d2afc67ad392f40227fe02dcc",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.join",
     {
-      "value": "f21ceb5069cd31e8b80a4ef2636ed6e223ce8c33",
+      "value": "469e346b1a716738b09af59ac7d7b5de28ba8b7b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.indicator",
     {
-      "value": "60d011a757abdb03bd1dbdc3eba1b2c9d03137ef",
+      "value": "bcd957fd8e24aa98005544e1657bba9cae4e19fb",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.divider",
     {
-      "value": "70c8510ea9714cc940c12d96a5feccc9668eff17",
+      "value": "93b409c6c2857cebbad67bd046fe016f04d99307",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.stack",
     {
-      "value": "27f8ed137f7060c8ffa6ccc1b655c6ebb7c7e4ac",
+      "value": "24cf54b27f889fc1c26773a56e12df804d885830",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.tab",
     {
-      "value": "581076aed45f247d693de1c065a5032ed0a663e5",
+      "value": "b2a47af17fb7eb1acf25d275975382e2efdf0b67",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.dropdown",
     {
-      "value": "7cb3667b2b72f1a38305a9f828870ab4081e761a",
+      "value": "ed977dcb6cdd715bc1b8f4e3c8481fb76533f5a8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.swap",
     {
-      "value": "942fc1c5351d7e4580cec40be58ad896beb3d7ac",
+      "value": "91c561a7f3be1532639c5817136cea682442381a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.card",
     {
-      "value": "da81637aaad73622959736c7bb93719f3c685b40",
+      "value": "d6ec4d930fdfff0e407b9e3c634a5308edbec7a9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.carousel",
     {
-      "value": "f4d7a435a0d6ebc5237992e790897c8f86362dcd",
+      "value": "d73197f497897f947b52284b4734d0804e57c7d0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.stat",
     {
-      "value": "04d834f733220970f014176462b848f548837258",
+      "value": "7121e077f41abad8db32a1f5d57a6174342b2fa1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.timeline",
     {
-      "value": "c3156fb43eeb43369af6d019ba3226ecf6d26de1",
+      "value": "f606e4fc88aff1cfa8d604d675d5e9cd4d0676ae",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.breadcrumbs",
     {
-      "value": "5dd2678aaddd321be00d0bc7b1a0200762040921",
+      "value": "6a7724b405eb66ade35eb209d6fbe5f5a8af8b21",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.bottom-navigation",
     {
-      "value": "42d1fac0c9a23c74b41370aa6a64f7179fbcec30",
+      "value": "d263607b2d24aaf3e42130ed3334695cedd58404",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.menu",
     {
-      "value": "4dd9b50c134fb5dbce505b5c5a36d58b1bce7485",
+      "value": "6a4e851bd7f402a2ba7f199036a980f0be90d6e2",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.navbar",
     {
-      "value": "60a186ff344b9092e4c96cdec663caf13a95d811",
+      "value": "45d14328d1039684023b9cd6205425ba02ca8f91",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.file-input",
     {
-      "value": "c6d3ca0f4d914e5d6cfa98f2a849b501606161eb",
+      "value": "e6e0b1cc001674e0e8d04f7bcbae4ecdb2cc2541",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.rating",
     {
-      "value": "c22938c561e16f6a5141b5c5b054ce80236a7958",
+      "value": "767cdebd43dc6518a53de5ae5315da09222a43e8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.drawer",
     {
-      "value": "01d868b49cbab384a1239d5e721533ca355cb3e5",
+      "value": "1e1d5da7e8e8869eba10278363587f902fe5e7ca",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.footer",
     {
-      "value": "aed2c8743928868587598265ab81c6a3f87ed626",
+      "value": "66ad3ae411fcf9cb60f2c5e79a321f4a98040a7c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents.cjs#components.hero",
     {
-      "value": "d27ff8f3a4e9d3344b0aa36ad9d6604d9523c747",
+      "value": "1ea0e917e1876478a3f10fa1900bc5aa3d72bfa0",
     },
   ],
   [
@@ -2068,283 +2068,283 @@ exports[`build > hash map init buildComponents diff 1`] = `
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.alert",
     {
-      "value": "0efe46defc81358bdd995b91d23ad6ef7696c513",
+      "value": "62e503f070c8eaa45c14a2bc7422098dca77b8d3",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.avatar",
     {
-      "value": "861f688a90cf510725213447ff54f7624feb2f86",
+      "value": "fe20bd84da449029ad117c5c8f344bb0b21b1468",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.badge",
     {
-      "value": "8a4d7d22778e9647fe32742c80128aa5d3fd0adf",
+      "value": "ec63487bb0d704776f092661a06a135cbce9e6c1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.button",
     {
-      "value": "8df77c5f2cd1c7402f18a3e1470220305ae10a02",
+      "value": "16b957b4976d47addfda26e1371700c4ea515ffd",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.chat",
     {
-      "value": "cc5c63c5dddb6623d5753ef7f0f6c7ba18c80aa5",
+      "value": "38a1a51e73cd32923abf2697470f13b8fb851f86",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.checkbox",
     {
-      "value": "0cfccd73704548984554ac5019e2c884ac71963d",
+      "value": "906d45e1f70a737c952ed09ded15e3967f6a9a22",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.input",
     {
-      "value": "4453f552f5fefc2624bbf86639294c41c05fa949",
+      "value": "bc390a21d308431fa0a5878ce7558fafa31c1863",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.link",
     {
-      "value": "d5353c68230bab489db664b361cda8cb7cf566b3",
+      "value": "2722aa30908b382e616c5c7acbac80257b64dad9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.progress",
     {
-      "value": "f6c060961d68afb65b2007196d08e8707156943c",
+      "value": "75196d07696b61544e71511f2237740861768812",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.radio",
     {
-      "value": "51133ad112357b3d86dca086e12110528b7f0b97",
+      "value": "3a0252e7ec3694321a8385050728368d9921e85a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.range",
     {
-      "value": "30ce7fb1deda000ac1d550399f9646c0f3d881d7",
+      "value": "2032c04d91386315050811adbdae075079d56170",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.select",
     {
-      "value": "a733ac9e35edbeb70aed95282c994baa774b0047",
+      "value": "90ffe8603ac8cade35bc8fe03d2dca9b55c14bc7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.textarea",
     {
-      "value": "220214c65d5198e91c2b8a7f3ad295858246f8e9",
+      "value": "4e57e7f1b115e3889e8b0f579ed5e6ed907927c3",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.toggle",
     {
-      "value": "59266e2c8ddf4981e37fc6e62db1e735002425ea",
+      "value": "6dbce070366db66dc1ca71a5305e8f4d723ed98b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.loading",
     {
-      "value": "b52f4ae882a2e369c0f108de061445f619ceacb8",
+      "value": "d99e89507dc925a9baedada02f1fdcaf2b0c73d7",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.mask",
     {
-      "value": "9d0b9ebb70a3b9962e9422a55d5e26efb38975c9",
+      "value": "8d8a9544759c9798d042a635ca7a67c234935cc0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.table",
     {
-      "value": "745e17df73d34dc10e225c4d6870db50b265b8df",
+      "value": "ff2fd21282f8f2ed5e25ce104818b58280af5b8d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.skeleton",
     {
-      "value": "bf486bfe64a4abe356c111c56dae88ec95849554",
+      "value": "f400c650e9ff920d542a77d6a82ae0265d23dd9c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.form",
     {
-      "value": "0777405a4c977d0d86dfd3249a52468d1bf29d0f",
+      "value": "4eb53977b6d38b92bd97a3add3e603dac89b21da",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.radial-progress",
     {
-      "value": "0efd193c94352131eb534730ccffca8885881081",
+      "value": "7cabee7e3ec68c5c1f6911326f33db06efe02b88",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.countdown",
     {
-      "value": "ace9933e5112cbcf253401a8f845e50967b7d8a3",
+      "value": "f41bb65dd8a51ca8c2a4ae1ae4f2f7456445c525",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.diff",
     {
-      "value": "cf9ea49fb0b3005d549796ce1d7264c6e407270b",
+      "value": "672e39a126e1ccfbf20c3a42ee10f0eac562391d",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.kbd",
     {
-      "value": "620cdc40a5519697452e61af89d9025554b0fe35",
+      "value": "fb8bc503e6291a624a756aafd1a65e212bf9fb40",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.tooltip",
     {
-      "value": "dc76b7f66635c975cee902fa9385f5646a82217e",
+      "value": "4c950466ba95d8b8e9013c06ce7d2bfbc32c28f9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.toast",
     {
-      "value": "96f42ae624c28c9c2090ec1181789df6a719d171",
+      "value": "df160c8992b9dca1a861b8f6dc4cd7c7158cbc47",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.steps",
     {
-      "value": "da3bdf1c3590344ea9db6dd809a1c1e01f05dd5e",
+      "value": "e4f5d701ec6bcc9221d8875352720365a5bcdb77",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.collapse",
     {
-      "value": "8dedeb648ac0ddc34706a1a43e384baca234b22c",
+      "value": "b7006df79351680d2afc67ad392f40227fe02dcc",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.join",
     {
-      "value": "f21ceb5069cd31e8b80a4ef2636ed6e223ce8c33",
+      "value": "469e346b1a716738b09af59ac7d7b5de28ba8b7b",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.indicator",
     {
-      "value": "60d011a757abdb03bd1dbdc3eba1b2c9d03137ef",
+      "value": "bcd957fd8e24aa98005544e1657bba9cae4e19fb",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.divider",
     {
-      "value": "70c8510ea9714cc940c12d96a5feccc9668eff17",
+      "value": "93b409c6c2857cebbad67bd046fe016f04d99307",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.stack",
     {
-      "value": "27f8ed137f7060c8ffa6ccc1b655c6ebb7c7e4ac",
+      "value": "24cf54b27f889fc1c26773a56e12df804d885830",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.tab",
     {
-      "value": "581076aed45f247d693de1c065a5032ed0a663e5",
+      "value": "b2a47af17fb7eb1acf25d275975382e2efdf0b67",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.dropdown",
     {
-      "value": "7cb3667b2b72f1a38305a9f828870ab4081e761a",
+      "value": "ed977dcb6cdd715bc1b8f4e3c8481fb76533f5a8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.swap",
     {
-      "value": "942fc1c5351d7e4580cec40be58ad896beb3d7ac",
+      "value": "91c561a7f3be1532639c5817136cea682442381a",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.card",
     {
-      "value": "da81637aaad73622959736c7bb93719f3c685b40",
+      "value": "d6ec4d930fdfff0e407b9e3c634a5308edbec7a9",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.carousel",
     {
-      "value": "f4d7a435a0d6ebc5237992e790897c8f86362dcd",
+      "value": "d73197f497897f947b52284b4734d0804e57c7d0",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.stat",
     {
-      "value": "04d834f733220970f014176462b848f548837258",
+      "value": "7121e077f41abad8db32a1f5d57a6174342b2fa1",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.timeline",
     {
-      "value": "c3156fb43eeb43369af6d019ba3226ecf6d26de1",
+      "value": "f606e4fc88aff1cfa8d604d675d5e9cd4d0676ae",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.breadcrumbs",
     {
-      "value": "5dd2678aaddd321be00d0bc7b1a0200762040921",
+      "value": "6a7724b405eb66ade35eb209d6fbe5f5a8af8b21",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.bottom-navigation",
     {
-      "value": "42d1fac0c9a23c74b41370aa6a64f7179fbcec30",
+      "value": "d263607b2d24aaf3e42130ed3334695cedd58404",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.menu",
     {
-      "value": "4dd9b50c134fb5dbce505b5c5a36d58b1bce7485",
+      "value": "6a4e851bd7f402a2ba7f199036a980f0be90d6e2",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.navbar",
     {
-      "value": "60a186ff344b9092e4c96cdec663caf13a95d811",
+      "value": "45d14328d1039684023b9cd6205425ba02ca8f91",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.file-input",
     {
-      "value": "c6d3ca0f4d914e5d6cfa98f2a849b501606161eb",
+      "value": "e6e0b1cc001674e0e8d04f7bcbae4ecdb2cc2541",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.rating",
     {
-      "value": "c22938c561e16f6a5141b5c5b054ce80236a7958",
+      "value": "767cdebd43dc6518a53de5ae5315da09222a43e8",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.drawer",
     {
-      "value": "01d868b49cbab384a1239d5e721533ca355cb3e5",
+      "value": "1e1d5da7e8e8869eba10278363587f902fe5e7ca",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.footer",
     {
-      "value": "aed2c8743928868587598265ab81c6a3f87ed626",
+      "value": "66ad3ae411fcf9cb60f2c5e79a321f4a98040a7c",
     },
   ],
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/buildComponents1.cjs#components.hero",
     {
-      "value": "d27ff8f3a4e9d3344b0aa36ad9d6604d9523c747",
+      "value": "1ea0e917e1876478a3f10fa1900bc5aa3d72bfa0",
     },
   ],
   [
@@ -2367,7 +2367,7 @@ exports[`build > hash map init buildUtilities 1`] = `
   [
     "/Users/icebreaker/Documents/GitHub/icestack/packages/core/test/configs/a.config.cjs#utilities",
     {
-      "value": "30aa6dc1f6fa1d88409017e28c41427e7dc0ad17",
+      "value": "63db7ca5b53712b728c1d8ec13e0c242c48247df",
     },
   ],
 ]

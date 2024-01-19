@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { GetCssSchemaMethod, css } from '@/types'
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
@@ -36,8 +37,8 @@ const schema: GetCssSchemaMethod = (opts) => {
             .map((type) => {
               return css`
                 &-${type} {
-                  --chkbg: theme(colors. ${type});
-                  --chkfg: theme(colors. ${type}-content);
+                  --chkbg: theme(colors.${type});
+                  --chkfg: theme(colors.${type}-content);
                   @apply border-${type} [@media(hover:hover)]:hover:border-${type};
                   &:focus-visible {
                     @apply outline-${type};

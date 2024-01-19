@@ -1741,8 +1741,8 @@ exports[`'checkbox' options > snap 1`] = `
 
           
                 &-primary {
-                  --chkbg: theme(colors. primary);
-                  --chkfg: theme(colors. primary-content);
+                  --chkbg: theme(colors.primary);
+                  --chkfg: theme(colors.primary-content);
                   @apply border-primary [@media(hover:hover)]:hover:border-primary;
                   &:focus-visible {
                     @apply outline-primary;
@@ -1756,8 +1756,8 @@ exports[`'checkbox' options > snap 1`] = `
               
 
                 &-success {
-                  --chkbg: theme(colors. success);
-                  --chkfg: theme(colors. success-content);
+                  --chkbg: theme(colors.success);
+                  --chkfg: theme(colors.success-content);
                   @apply border-success [@media(hover:hover)]:hover:border-success;
                   &:focus-visible {
                     @apply outline-success;
@@ -1771,8 +1771,8 @@ exports[`'checkbox' options > snap 1`] = `
               
 
                 &-warning {
-                  --chkbg: theme(colors. warning);
-                  --chkfg: theme(colors. warning-content);
+                  --chkbg: theme(colors.warning);
+                  --chkfg: theme(colors.warning-content);
                   @apply border-warning [@media(hover:hover)]:hover:border-warning;
                   &:focus-visible {
                     @apply outline-warning;
@@ -1786,8 +1786,8 @@ exports[`'checkbox' options > snap 1`] = `
               
 
                 &-error {
-                  --chkbg: theme(colors. error);
-                  --chkfg: theme(colors. error-content);
+                  --chkbg: theme(colors.error);
+                  --chkfg: theme(colors.error-content);
                   @apply border-error [@media(hover:hover)]:hover:border-error;
                   &:focus-visible {
                     @apply outline-error;
@@ -1801,8 +1801,8 @@ exports[`'checkbox' options > snap 1`] = `
               
 
                 &-neutral {
-                  --chkbg: theme(colors. neutral);
-                  --chkfg: theme(colors. neutral-content);
+                  --chkbg: theme(colors.neutral);
+                  --chkfg: theme(colors.neutral-content);
                   @apply border-neutral [@media(hover:hover)]:hover:border-neutral;
                   &:focus-visible {
                     @apply outline-neutral;
@@ -4881,27 +4881,27 @@ exports[`'progress' options > snap 1`] = `
 
           
                 &-primary:indeterminate {
-                  --progress-color: theme(colors. primary);
+                  --progress-color: theme(colors.primary);
                 }
               
 
                 &-success:indeterminate {
-                  --progress-color: theme(colors. success);
+                  --progress-color: theme(colors.success);
                 }
               
 
                 &-warning:indeterminate {
-                  --progress-color: theme(colors. warning);
+                  --progress-color: theme(colors.warning);
                 }
               
 
                 &-error:indeterminate {
-                  --progress-color: theme(colors. error);
+                  --progress-color: theme(colors.error);
                 }
               
 
                 &-neutral:indeterminate {
-                  --progress-color: theme(colors. neutral);
+                  --progress-color: theme(colors.neutral);
                 }
               
 
@@ -5472,27 +5472,27 @@ exports[`'range' options > snap 1`] = `
           }
           
                 &-primary {
-                  --range-shdw: theme(colors. primary);
+                  --range-shdw: theme(colors.primary);
                 }
               
 
                 &-success {
-                  --range-shdw: theme(colors. success);
+                  --range-shdw: theme(colors.success);
                 }
               
 
                 &-warning {
-                  --range-shdw: theme(colors. warning);
+                  --range-shdw: theme(colors.warning);
                 }
               
 
                 &-error {
-                  --range-shdw: theme(colors. error);
+                  --range-shdw: theme(colors.error);
                 }
               
 
                 &-neutral {
-                  --range-shdw: theme(colors. neutral);
+                  --range-shdw: theme(colors.neutral);
                 }
               
         }
@@ -8510,32 +8510,32 @@ exports[`'tooltip' options > snap 1`] = `
         .tooltip {
           
                 &-primary {
-                  --tooltip-color: theme(colors. primary);
-                  --tooltip-text-color: theme(colors. primary-content);
+                  --tooltip-color: theme(colors.primary);
+                  --tooltip-text-color: theme(colors.primary-content);
                 }
               
 
                 &-success {
-                  --tooltip-color: theme(colors. success);
-                  --tooltip-text-color: theme(colors. success-content);
+                  --tooltip-color: theme(colors.success);
+                  --tooltip-text-color: theme(colors.success-content);
                 }
               
 
                 &-warning {
-                  --tooltip-color: theme(colors. warning);
-                  --tooltip-text-color: theme(colors. warning-content);
+                  --tooltip-color: theme(colors.warning);
+                  --tooltip-text-color: theme(colors.warning-content);
                 }
               
 
                 &-error {
-                  --tooltip-color: theme(colors. error);
-                  --tooltip-text-color: theme(colors. error-content);
+                  --tooltip-color: theme(colors.error);
+                  --tooltip-text-color: theme(colors.error-content);
                 }
               
 
                 &-neutral {
-                  --tooltip-color: theme(colors. neutral);
-                  --tooltip-text-color: theme(colors. neutral-content);
+                  --tooltip-color: theme(colors.neutral);
+                  --tooltip-text-color: theme(colors.neutral-content);
                 }
               
         }

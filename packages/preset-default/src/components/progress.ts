@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { GetCssSchemaMethod, css } from '@/types'
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
@@ -28,7 +29,7 @@ const schema: GetCssSchemaMethod = (opts) => {
             .map((type) => {
               return css`
                 &-${type}:indeterminate {
-                  --progress-color: theme(colors. ${type});
+                  --progress-color: theme(colors.${type});
                 }
               `
             })

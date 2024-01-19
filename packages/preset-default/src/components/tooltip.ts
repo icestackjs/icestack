@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+
 import { GetCssSchemaMethod, css } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
@@ -149,8 +151,8 @@ const schema: GetCssSchemaMethod = (opts) => {
             .map((type) => {
               return css`
                 &-${type} {
-                  --tooltip-color: theme(colors. ${type});
-                  --tooltip-text-color: theme(colors. ${type}-content);
+                  --tooltip-color: theme(colors.${type});
+                  --tooltip-text-color: theme(colors.${type}-content);
                 }
               `
             })

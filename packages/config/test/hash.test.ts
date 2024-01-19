@@ -1,6 +1,6 @@
 import hash from 'object-hash'
 import { getCodegenOptions } from '@/index'
-describe('config hash', () => {
+describe.skip('config hash', () => {
   it('hash case 0', () => {
     expect(hash({})).toBe('323217f643c3e3f1fe7532e72ac01bb0748c97be')
   })

@@ -462,23 +462,23 @@ export function createContext(opts?: CodegenOptions | string) {
     })
 
     if (baseFlag) {
-      const duration = await calcDuration(async () => {
-        await buildBase()
+      const duration = await calcDuration(() => {
+        return buildBase()
       })
 
       logger.success('build base finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
     }
     if (utilitiesFlag) {
-      const duration = await calcDuration(async () => {
-        await buildUtilities()
+      const duration = await calcDuration(() => {
+        return buildUtilities()
       })
 
       logger.success('build utilities finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
     }
 
     if (componentsFlag) {
-      const duration = await calcDuration(async () => {
-        await buildComponents()
+      const duration = await calcDuration(() => {
+        return buildComponents()
       })
 
       logger.success('build components finished! ' + kleur.green(`${duration.toFixed(2)}ms`))

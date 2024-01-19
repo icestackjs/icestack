@@ -1,20 +1,12 @@
+import { omitRoot } from './utils'
 import { createContext } from '@/context'
-
 describe('build', () => {
   it('build all', async () => {
     const ctx = createContext({
       dryRun: true
     })
-    const res = await ctx.build()
-    expect(res).toMatchSnapshot()
-  })
-
-  it('build base', async () => {
-    const ctx = createContext({
-      dryRun: true
-    })
-    const base = await ctx.buildBase()
-    expect(base).toMatchSnapshot()
+    await ctx.build()
+    expect(omitRoot(ctx.base)).toMatchSnapshot()
   })
 
   it('build base with custom types', async () => {
@@ -35,8 +27,8 @@ describe('build', () => {
         }
       }
     })
-    const base = await ctx.buildBase()
-    expect(base).toMatchSnapshot()
+    await ctx.buildBase()
+    expect(omitRoot(ctx.base)).toMatchSnapshot()
   })
 
   it('build base change default selector case ', async () => {
@@ -53,8 +45,8 @@ describe('build', () => {
         }
       }
     })
-    const base = await ctx.buildBase()
-    expect(base).toMatchSnapshot()
+    await ctx.buildBase()
+    expect(omitRoot(ctx.base)).toMatchSnapshot()
   })
 
   it('build nothing', async () => {
@@ -71,7 +63,7 @@ describe('build', () => {
         }
       }
     })
-    const base = await ctx.build({ base: false, components: false, config: false, utilities: false })
-    expect(base).toMatchSnapshot()
+    await ctx.build({ base: false, components: false, config: false, utilities: false })
+    expect(omitRoot(ctx.base)).toMatchSnapshot()
   })
 })

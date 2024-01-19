@@ -2,6 +2,9 @@ import postcss from 'postcss'
 import tailwindcss from 'tailwindcss'
 import type { Config } from 'tailwindcss'
 import { defu } from '@icestack/shared'
+import { cloneDeepWith } from 'lodash'
+
+import { Root } from '@/postcss'
 
 export async function getCss(config?: Partial<Config> & { css?: string }) {
   const res = await postcss([
@@ -18,4 +21,12 @@ export async function getCss(config?: Partial<Config> & { css?: string }) {
     from: undefined
   })
   return res
+}
+
+export function omitRoot(obj?: object) {
+  return cloneDeepWith(obj, (v) => {
+    if (v instanceof Root) {
+      return null
+    }
+  })
 }

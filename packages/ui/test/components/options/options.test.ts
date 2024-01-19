@@ -2,7 +2,6 @@
 import { getCodegenOptions } from '@icestack/config'
 import { schemaMap as componentsMap } from '@/components'
 import { createContext } from '@/index'
-import { preprocessCssInJs } from '@/postcss'
 
 describe.skip.each(
   Object.entries(componentsMap).map((x) => {
@@ -22,7 +21,7 @@ describe.skip.each(
     })
     expect({
       selector: xx.selector,
-      defaults: preprocessCssInJs(xx.defaults)
+      defaults: xx.defaults
     }).toMatchSnapshot()
   })
 

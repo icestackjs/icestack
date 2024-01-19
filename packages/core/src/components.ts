@@ -54,7 +54,7 @@ export function preprocessDefaults(de?: Partial<CssSchemaDefaults>) {
     de = {}
   }
   if (typeof de.base === 'string') {
-    de.base = [de.base] // transformCss2Js(de.base)
+    de.base = [de.base]
   } else if (de.base === undefined) {
     de.base = []
   }

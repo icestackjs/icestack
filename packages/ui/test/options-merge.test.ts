@@ -1,3 +1,4 @@
+import { omitRoot } from './utils'
 import { createContext, Config } from '@/index'
 import { removeDefaultComponents } from '@/components'
 import { DeepPartial } from '@/types'
@@ -23,8 +24,9 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    const xa = omitRoot(ctx.components)
+    expect(xa).toMatchSnapshot()
   })
 
   it('merge case 1', async () => {
@@ -52,8 +54,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 2', async () => {
@@ -83,8 +85,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 3', async () => {
@@ -112,8 +114,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 4', async () => {
@@ -135,8 +137,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 5', async () => {
@@ -190,8 +192,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 7', async () => {
@@ -216,8 +218,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 8', async () => {
@@ -248,8 +250,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 9', async () => {
@@ -281,8 +283,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 10', async () => {
@@ -346,8 +348,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 12', async () => {
@@ -376,8 +378,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 13', async () => {
@@ -397,8 +399,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 14', async () => {
@@ -418,8 +420,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 15', async () => {
@@ -439,8 +441,8 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 
   it('merge case 16', async () => {
@@ -460,7 +462,7 @@ describe('options merge', () => {
     }
     const ctx = createContext(options)
 
-    const cssObj = await ctx.buildComponents()
-    expect(cssObj).toMatchSnapshot()
+    await ctx.buildComponents()
+    expect(omitRoot(ctx.components)).toMatchSnapshot()
   })
 })

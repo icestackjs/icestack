@@ -53,6 +53,7 @@
     "object-hash": "^3.0.0",
     "only-allow": "^1.2.1",
     "postcss": "^8.4.33",
+    "postcss-parser-tests": "^8.8.0",
     "prettier": "^3.2.4",
     "sass": "^1.70.0",
     "serialize-javascript": "^6.0.2",

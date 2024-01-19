@@ -58,9 +58,30 @@ export function createCvaWithAddition(opts: UserDefinedOptions = {}) {
 // type Fn = ReturnType<typeof cva>
 
 export function createCva(opts: UserDefinedOptions = {}) {
-  return Object.entries(createCvaWithAddition(opts)).reduce((acc, [name, lib]) => {
-    // @ts-ignore
-    acc[name] = lib.cva
-    return acc
-  }, {})
+  const options = getOptions(opts)
+  return {
+    button: button(options).cva,
+    loading: loading(options).cva,
+    mask: mask(options).cva,
+    link: link(options).cva,
+    checkbox: checkbox(options).cva,
+    input: input(options).cva,
+    radio: radio(options).cva,
+    range: range(options).cva,
+    select: select(options).cva,
+    toggle: toggle(options).cva,
+    badge: badge(options).cva,
+    progress: progress(options).cva,
+    table: table(options).cva,
+    alert: alert(options).cva,
+    skeleton: skeleton(options).cva,
+    textarea: textarea(options).cva,
+    indicator: indicator(options).cva,
+    divider: divider(options).cva,
+    steps: steps(options).cva,
+    tab: tab(options).cva,
+    kbd: kbd(options).cva,
+    toast: toast(options).cva,
+    tooltip: tooltip(options).cva
+  }
 }

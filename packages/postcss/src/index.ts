@@ -2,8 +2,9 @@ import type { PluginCreator, AcceptedPlugin } from 'postcss'
 import { createContext } from '@icestack/core'
 import { loadSync } from '@icestack/config'
 import get from 'lodash/get'
+import { preflightRoot } from './preflight'
 
-const creator: PluginCreator<Partial<{ cwd: string; configFile: string }>> = ({ cwd, configFile } = {}) => {
+const creator: PluginCreator<Partial<{ cwd: string; configFile: string; preflight: boolean }>> = ({ cwd, configFile, preflight = true } = {}) => {
   const o = loadSync({
     configFile,
     cwd
@@ -29,6 +30,9 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string }>> = ({ 
             case 'base': {
               if (valuePath === '') {
                 valuePath = 'index'
+              }
+              if (preflight) {
+                atRule.after(preflightRoot)
               }
               const root = get(ctx.base, valuePath)
               if (root) {

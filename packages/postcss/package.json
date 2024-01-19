@@ -47,6 +47,8 @@
   "dependencies": {
     "@icestack/config": "workspace:^",
     "@icestack/core": "workspace:^",
+    "@icestack/postcss-utils": "workspace:^",
+    "@icestack/types": "workspace:^",
     "lodash": "^4.17.21"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",

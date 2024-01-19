@@ -1,13 +1,13 @@
-import type { GetCssSchemaMethod } from '@/types'
+import { GetCssSchemaMethod, css } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
   return {
     selector,
     defaults: {
-      base: ``,
-      styled: ``,
-      utils: ``
+      base: css``,
+      styled: css``,
+      utils: css``
     }
   }
 }

@@ -1,40 +1,37 @@
-import type { GetCssSchemaMethod } from '@/types'
+import { GetCssSchemaMethod, css } from '@/types'
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
   return {
     selector,
     defaults: {
-      styled: `
-      ${selector} {
-        ${types
-          .map((type) => {
-            return `
-          &-${type}{
-            @apply text-${type} [@media(hover:hover)]:hover:text-${type}-active;
-          }
+      styled: css`
+        ${selector} {
+          ${types
+            .map((type) => {
+              return css`
+                &-${type} {
+                  @apply text-${type} [@media(hover:hover)]:hover:text-${type}-active;
+                }
+              `
+            })
+            .join('\n')}
 
-          `
-          })
-          .join('\n')}
-        
-        &:focus {
-          @apply outline-none;
+          &:focus {
+            @apply outline-none;
+          }
+          &:focus-visible {
+            outline: 2px solid currentColor;
+            outline-offset: 2px;
+          }
         }
-        &:focus-visible {
-          outline: 2px solid currentColor;
-          outline-offset: 2px;
-        }
-      }
-      
       `,
-      base: `
-      ${selector} {
-        @apply cursor-pointer underline;
-        &-hover {
-          @apply no-underline [@media(hover:hover)]:hover:underline;
+      base: css`
+        ${selector} {
+          @apply cursor-pointer underline;
+          &-hover {
+            @apply no-underline [@media(hover:hover)]:hover:underline;
+          }
         }
-      }
-      
       `
     }
   }

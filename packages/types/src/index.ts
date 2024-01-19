@@ -214,3 +214,5 @@ export interface ColorGenerateOptions {
   theme?: 'dark' | 'default'
   backgroundColor?: string
 }
+
+export const css = String.raw

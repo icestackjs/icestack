@@ -1,4 +1,4 @@
-import type { GetCssSchemaMethod } from '@/types'
+import { GetCssSchemaMethod, css } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
@@ -6,52 +6,50 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      styled: `
-      ${selector} {
-        @apply border-base-200 bg-base-100 text-base-content rounded-badge border;
-
-        ${types
-          .map((type) => {
-            return `
-          &-${type} {
-            @apply border-${type} bg-${type} text-${type}-content;
-          }
-          `
-          })
-          .join('\n')}
-
-        &-ghost {
-          @apply border-base-200 bg-base-200 text-base-content;
-        }
-      
-        &-outline {
-          @apply border-current border-opacity-50 bg-transparent text-current;
+      styled: css`
+        ${selector} {
+          @apply border-base-200 bg-base-100 text-base-content rounded-badge border;
 
           ${types
             .map((type) => {
-              return `
-              &.badge-${type} {
-              @apply text-${type};
-            }
-            `
+              return css`
+                &-${type} {
+                  @apply border-${type} bg-${type} text-${type}-content;
+                }
+              `
             })
             .join('\n')}
+
+          &-ghost {
+            @apply border-base-200 bg-base-200 text-base-content;
+          }
+
+          &-outline {
+            @apply border-current border-opacity-50 bg-transparent text-current;
+
+            ${types
+              .map((type) => {
+                return css`
+                  &.badge-${type} {
+                    @apply text-${type};
+                  }
+                `
+              })
+              .join('\n')}
+          }
         }
-      }
-      
       `,
-      base: `
-      ${selector} {
-        @apply inline-flex items-center justify-center transition duration-200 ease-out;
-        @apply h-5 text-sm leading-5;
-        width: fit-content;
-        padding-left: 0.563rem;
-        padding-right: 0.563rem;
-      }
-      
+      base: css`
+        ${selector} {
+          @apply inline-flex items-center justify-center transition duration-200 ease-out;
+          @apply h-5 text-sm leading-5;
+          width: fit-content;
+          padding-left: 0.563rem;
+          padding-right: 0.563rem;
+        }
       `,
-      utils: `
-        ${selector}{
+      utils: css`
+        ${selector} {
           &-xs {
             @apply h-3 text-xs leading-3;
             padding-left: 0.313rem;

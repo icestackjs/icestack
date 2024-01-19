@@ -37,7 +37,7 @@
   "devDependencies": {
     "postcss-js": "^4.0.1",
     "tailwindcss": "^3.4.1",
-    "tsd": "^0.30.3"
+    "tsd": "^0.30.4"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",

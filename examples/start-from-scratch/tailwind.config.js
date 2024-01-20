@@ -15,7 +15,7 @@ export default {
     plugin(({ addComponents }) => {
       addComponents({
         '.xaxa': {
-          color: 'yellow'
+          color: 'green'
         }
       })
     })

@@ -175,6 +175,13 @@
       "request": "launch",
       "type": "node-terminal",
       "cwd": "${workspaceFolder}"
+    },
+    {
+      "command": "npm run dev",
+      "name": "[Example] start-from-scratch dev",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/examples/start-from-scratch"
     }
   ]
 }

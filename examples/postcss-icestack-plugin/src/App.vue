@@ -6,7 +6,7 @@ import IceButton from './components/IceButton.vue';
 <template>
   <div>
     <IceButton>IceButton</IceButton>
-    <IceButton>IceButton</IceButton>
+    <IceButton class="btn-primary">IceButton</IceButton>
   </div>
 </template>
 

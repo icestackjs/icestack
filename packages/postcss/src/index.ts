@@ -1,8 +1,11 @@
-import type { PluginCreator, AcceptedPlugin } from 'postcss'
+import type { PluginCreator, AcceptedPlugin, Result, Root, Document } from 'postcss'
 import { createContext } from '@icestack/core'
 import { loadSync } from '@icestack/config'
+import { logger } from '@icestack/logger'
 import get from 'lodash/get'
 import { preflightRoot } from './preflight'
+
+const postcssPlugin = 'postcss-icestack-plugin'
 
 const creator: PluginCreator<Partial<{ cwd: string; configFile: string; preflight: boolean }>> = ({ cwd, configFile, preflight = true } = {}) => {
   const o = loadSync({
@@ -14,34 +17,53 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
   }
   const { filepath } = o
   const ctx = createContext(filepath)
+  const registerDependencySet = new Set<string>()
+
+  function registerDependency(result: Result<Document | Root>, filepath?: string) {
+    if (filepath && !registerDependencySet.has(filepath)) {
+      result.messages.push({
+        type: 'dependency',
+        plugin: postcssPlugin,
+        file: filepath,
+        parent: result.opts.from
+      })
+      registerDependencySet.add(filepath)
+    }
+  }
+
   const plugins: AcceptedPlugin[] = [
-    async () => {
-      await ctx.build()
-    },
     {
-      postcssPlugin: 'xxx',
-      AtRule(atRule) {
+      postcssPlugin: 'postcss-icestack-pre-atRule-plugin',
+      Once(root, { result }) {
+        registerDependency(result, filepath)
+      },
+      async AtRule(atRule, { result }) {
         if (atRule.name === 'icestack') {
-          // atRule.params
-          // console.log(atRule)
+          registerDependency(result, atRule.source?.input.file)
           const [type, ...query] = atRule.params.split('.')
           let valuePath = query.join('.')
           switch (type) {
             case 'base': {
+              await ctx.buildBase()
+
               if (valuePath === '') {
                 valuePath = 'index'
               }
               if (preflight) {
-                atRule.after(preflightRoot)
+                atRule.before(preflightRoot.clone())
               }
               const root = get(ctx.base, valuePath)
               if (root) {
                 // @ts-ignore
-                atRule.after(root.resolvedCssRoot)
+                atRule.before(root.resolvedCssRoot.clone())
+              } else {
+                logger.warn(`The \`@icestack ${atRule.params}\` directive is not found.`)
               }
               break
             }
             case 'components': {
+              await ctx.buildComponents()
+
               switch (query.length) {
                 case 0: {
                   // @ts-ignore
@@ -49,7 +71,7 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
                     // @ts-ignore
                     return [x.base.resolvedCssRoot, x.styled.resolvedCssRoot, x.utils.resolvedCssRoot]
                   })) {
-                    atRule.after(arr)
+                    atRule.before(arr.map((x) => x.clone()))
                   }
 
                   break
@@ -58,7 +80,9 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
                   const component = get(ctx.components, valuePath)
                   if (component) {
                     // @ts-ignore
-                    atRule.after([component.base.resolvedCssRoot, component.styled.resolvedCssRoot, component.utils.resolvedCssRoot])
+                    atRule.before([component.base.resolvedCssRoot, component.styled.resolvedCssRoot, component.utils.resolvedCssRoot].map((x) => x.clone()))
+                  } else {
+                    logger.warn(`The \`@icestack ${atRule.params}\` directive is not found.`)
                   }
 
                   break
@@ -67,36 +91,38 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
                   const component = get(ctx.components, valuePath)
                   if (component) {
                     // @ts-ignore
-                    atRule.after(component.resolvedCssRoot)
+                    atRule.before(component.resolvedCssRoot.clone())
+                  } else {
+                    logger.warn(`The \`@icestack ${atRule.params}\` directive is not found.`)
                   }
 
                   break
                 }
                 // No default
               }
-
               break
             }
             case 'utilities': {
+              await ctx.buildUtilities()
+
               if (valuePath === '') {
                 valuePath = 'index.resolvedCssRoot'
               }
               const root = get(ctx.utilities, valuePath)
               if (root) {
                 atRule.after(root)
+              } else {
+                logger.warn(`The \`@icestack ${atRule.params}\` directive is not found.`)
               }
-
               break
             }
           }
-          atRule.remove()
-          // path
         }
       }
     }
   ]
   return {
-    postcssPlugin: 'postcss-icestack-plugin',
+    postcssPlugin,
     plugins
   }
 }

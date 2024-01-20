@@ -7,7 +7,12 @@ import IceButton from './components/IceButton.vue';
   <div>
     <IceButton>IceButton</IceButton>
     <IceButton class="btn-primary">IceButton</IceButton>
+    <div class="xxx"></div>
+    <div class="yyy"></div>
   </div>
 </template>
 
-<style lang="scss"></style>
+<style lang="scss">
+@icestack components.xxx.base;
+@icestack components.yyy;
+</style>

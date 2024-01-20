@@ -182,6 +182,13 @@
       "request": "launch",
       "type": "node-terminal",
       "cwd": "${workspaceFolder}/examples/start-from-scratch"
+    },
+    {
+      "command": "npm run dev",
+      "name": "[Example] postcss-icestack-plugin dev",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/examples/postcss-icestack-plugin"
     }
   ]
 }

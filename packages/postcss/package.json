@@ -47,6 +47,7 @@
   "dependencies": {
     "@icestack/config": "workspace:^",
     "@icestack/core": "workspace:^",
+    "@icestack/logger": "workspace:^",
     "@icestack/postcss-utils": "workspace:^",
     "@icestack/types": "workspace:^",
     "lodash": "^4.17.21"

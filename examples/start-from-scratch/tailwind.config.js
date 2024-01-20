@@ -1,4 +1,5 @@
 const path = require('node:path')
+const plugin = require('tailwindcss/plugin')
 const { icestackPlugin } = require('@icestack/tailwindcss')
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -10,6 +11,13 @@ export default {
     icestackPlugin({
       loadConfig: true,
       loadDirectory: path.resolve(__dirname, 'my-ui')
+    }),
+    plugin(({ addComponents }) => {
+      addComponents({
+        '.xaxa': {
+          color: 'yellow'
+        }
+      })
     })
   ]
 }

@@ -62,7 +62,7 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
               break
             }
             case 'components': {
-              await ctx.buildComponents()
+              await ctx.buildComponents({ progressBar: false })
 
               switch (query.length) {
                 case 0: {

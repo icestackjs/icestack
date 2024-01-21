@@ -29,12 +29,21 @@ const config = {
           defaults: {
             base: css`
               ${selector} {
-                @apply flex bg-[#ff0] h-[100px] w-10;
+                @apply flex bg-[#592fa7] h-[100px] w-10;
+                &::before {
+                  content: '我喜欢吃屎';
+                  @apply text-yellow-700 text-2xl flex items-center justify-center;
+                }
               }
             `,
             styled: css`
               ${selector} {
                 @apply h-[200px] w-20;
+              }
+            `,
+            utils: css`
+              ${selector} {
+                @apply h-[300px] w-32;
               }
             `
           }

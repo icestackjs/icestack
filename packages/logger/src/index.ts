@@ -25,7 +25,7 @@ export function createLogger(prefix: string) {
       return this.logFlag && consola.error(`[${prefix}]: ${message}`, ...args)
     },
     createComponentsProgressBar() {
-      const bar = this.logFlag
+      let bar = this.logFlag
         ? new cliProgress.SingleBar(
             {
               format: 'building components: [{bar}] | {componentName} | {value}/{total}'
@@ -36,7 +36,11 @@ export function createLogger(prefix: string) {
             cliProgress.Presets.shades_classic
           )
         : undefined
+
       return {
+        destroy() {
+          bar = undefined
+        },
         start: (total: number, startValue: number, payload?: object) => {
           return bar?.start(total, startValue, payload)
         },

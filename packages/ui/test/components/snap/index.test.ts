@@ -5,7 +5,9 @@ import { names as componentsNames } from '@/components'
 describe.each(componentsNames.map((x) => ({ name: x })))('$name', ({ name: componentName }) => {
   const ctx = createContext()
   it(componentName, async () => {
-    const res = await ctx.buildComponents([componentName])
+    const res = await ctx.buildComponents({
+      include: [componentName]
+    })
     expect(res).toMatchSnapshot()
   })
 })

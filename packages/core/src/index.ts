@@ -8,7 +8,7 @@ import { stages } from '@icestack/shared/constants'
 import { compileScssString } from '@icestack/scss'
 import { logger } from '@icestack/logger'
 import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@icestack/types'
-import { defu, JSONStringify } from '@icestack/shared'
+import { defu, JSONStringify, defuOverrideArray } from '@icestack/shared'
 
 import {
   getPrefixerPlugin,
@@ -359,10 +359,17 @@ export function createContext(opts?: CodegenOptions | string) {
     setHash(layer, hashCode)
   }
 
-  async function buildComponents(componentsNames: string[] = allComponentsNames) {
+  async function buildComponents(opts?: Partial<{ include: string[]; progressBar: boolean }>) {
+    const { include: componentsNames, progressBar } = defuOverrideArray(opts ?? {}, {
+      include: allComponentsNames,
+      progressBar: true
+    })
     const layer: ILayer = 'components'
 
     const b1 = logger.createComponentsProgressBar()
+    if (progressBar === false) {
+      b1.destroy()
+    }
     b1.start(componentsNames.length, 0)
     const hit = getCache(layer)
     const res = hit ?? {}

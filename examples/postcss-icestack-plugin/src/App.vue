@@ -15,4 +15,7 @@ import IceButton from './components/IceButton.vue';
 <style lang="scss">
 @icestack components.xxx.base;
 @icestack components.yyy;
+// @icestack components.yyy.base;
+// @icestack components.yyy.styled;
+// @icestack components.yyy.utils;
 </style>

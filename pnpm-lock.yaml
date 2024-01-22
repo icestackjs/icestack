@@ -1091,6 +1091,9 @@ importers:
       '@icestack/cva':
         specifier: workspace:^
         version: link:../packages/cva
+      '@icestack/postcss':
+        specifier: workspace:^
+        version: link:../packages/postcss
       axios:
         specifier: ^1.6.5
         version: 1.6.5

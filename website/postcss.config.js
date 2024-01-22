@@ -11,6 +11,7 @@ module.exports = {
   plugins: {
     // './custom-postcss-plugin.js': {},
     tailwindcss: {},
+    '@icestack/postcss': {},
     autoprefixer: {}
   }
 }

@@ -1,0 +1,16 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`scss > case 0 1`] = `
+"code {
+  padding: 0.25em;
+  line-height: 0;
+}
+
+ul,ol {
+  text-align: left;
+}
+ul ul,ul ol,ol ul,ol ol {
+  padding-bottom: 0;
+  padding-left: 0;
+}"
+`;

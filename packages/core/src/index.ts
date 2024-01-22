@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import { pathToFileURL } from 'node:url'
 import { set, get, pick, isError } from 'lodash'
 import kleur from 'kleur'
 import { createDefaultTailwindcssExtends } from '@icestack/config/defaults'
@@ -29,6 +30,7 @@ import {
 } from '@icestack/postcss-utils'
 import { LRUCache } from 'lru-cache'
 // import md5 from 'md5'
+import { StringOptions } from 'sass'
 import { name } from '../package.json'
 import { hash } from './hash'
 import { utilitiesNames, utilitiesMap } from './utilities'
@@ -120,7 +122,21 @@ export function createContext(opts?: CodegenOptions | string) {
     }
   }
 
-  const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities, sassOptions, base } = options
+  const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities, sassOptions: _sassOptions, base } = options
+  const sassOptions = defu<StringOptions<'sync'>, StringOptions<'sync'>[]>(
+    _sassOptions,
+    configFilepath
+      ? {
+          importers: [
+            {
+              findFileUrl(url) {
+                return new URL(pathToFileURL(path.resolve(path.dirname(configFilepath!), url)))
+              }
+            }
+          ]
+        }
+      : {}
+  )
   const { prefix: _globalPrefix, varPrefix: _globalVarPrefix, plugins: globalPostcssPlugins } = postcss!
   const cache: {
     base: undefined | object

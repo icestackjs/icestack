@@ -1,5 +1,18 @@
 # @icestack/preset-default
 
+## 1.3.0
+
+### Minor Changes
+
+- [`4647129`](https://github.com/sonofmagic/icestack/commit/4647129503b4f4872a354772d65daf8a42403594) Thanks [@sonofmagic](https://github.com/sonofmagic)! - release postcss usage
+
+### Patch Changes
+
+- Updated dependencies [[`4647129`](https://github.com/sonofmagic/icestack/commit/4647129503b4f4872a354772d65daf8a42403594)]:
+  - @icestack/shared@1.3.0
+  - @icestack/theme-algorithm@1.3.0
+  - @icestack/types@1.3.0
+
 ## 1.2.0
 
 ### Minor Changes

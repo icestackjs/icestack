@@ -80,14 +80,16 @@ export function handleOptions({ extend, selector, schema, params, pick: pickCss 
     params: params ?? {}
   }
 
-  const d: CssSchema | undefined = schema?.(schemaOpts)
-  const de: Partial<CssSchema> = d ?? {}
+  const de: Partial<CssSchema> = schema?.(schemaOpts) ?? {}
+
   // mode: none , no default
   de.defaults = pick(preprocessDefaults(de.defaults), getPickedProps(pickCss))
 
-  const extendDefaults = {
-    selector,
-    defaults: mergeAllOptions(extend as ModeMergeOptions[], schemaOpts)
-  }
-  return defuArrayRight(extendDefaults, de)
+  return defuArrayRight(
+    {
+      selector: de.selector ?? selector,
+      defaults: mergeAllOptions(extend as ModeMergeOptions[], schemaOpts)
+    },
+    de
+  )
 }

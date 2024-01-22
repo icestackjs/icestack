@@ -24,8 +24,6 @@ export function parse(css: string) {
             node.before = '"'
           }
         }
-
-        // node.nodes[0]
       }
     })
 

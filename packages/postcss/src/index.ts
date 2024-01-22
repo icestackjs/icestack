@@ -110,7 +110,8 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
               }
               const root = get(ctx.utilities, valuePath)
               if (root) {
-                atRule.after(root)
+                // @ts-ignore
+                atRule.after(root.clone())
               } else {
                 logger.warn(`The \`@icestack ${atRule.params}\` directive is not found.`)
               }

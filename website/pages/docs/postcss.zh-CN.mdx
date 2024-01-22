@@ -1,0 +1,131 @@
+import { Tabs, Tab, Callout } from 'nextra/components'
+
+# Postcss plugin
+
+`icestack` 同时支持 `postcss` 的使用方式，这个插件可以在特定的文件，展开样式。
+
+## Install
+
+{/* prettier-ignore-start */}
+<Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
+  <Tab>
+```bash 
+pnpm install -D @icestack/postcss
+```
+</Tab>
+  <Tab>
+```bash
+npm install -D @icestack/postcss
+```
+</Tab>
+  <Tab>
+```bash 
+yarn add -D @icestack/postcss
+```
+</Tab>
+  <Tab>
+```bash 
+bun add -D @icestack/postcss
+```
+</Tab>
+</Tabs>
+
+{/* prettier-ignore-end */}
+
+## 注册插件
+
+```js filename="postcss.config.js"
+module.exports = {
+  plugins: {
+    // ...some plugins
+    '@icestack/postcss': {}
+    // ...other plugins
+  }
+}
+```
+
+## Usage
+
+```css
+/* inject base css */
+@icestack base;
+/* inject all components css */
+@icestack components;
+/* inject utilities css */
+@icestack utilities;
+
+/* only inject button */
+@icestack components.button;
+/* only inject button base */
+@icestack components.button.base;
+/* or button styled */
+@icestack components.button.styled;
+/* or button utils */
+@icestack components.button.utils;
+```
+
+## Custom component
+
+### Add component 'yyy'
+
+```js filename="icestack.config.cjs"
+const css = String.raw
+
+/**
+ * @type {import('@icestack/ui').Config}
+ */
+const config = {
+  mode: 'mode',
+  outdir: './my-ui',
+  components: {
+    // a component called yyy
+    yyy: {
+      // it's selector is .yyy
+      selector: '.yyy',
+      schema: ({ selector }) => {
+        return {
+          defaults: {
+            // base css 
+            base: css`
+              ${selector} {
+                @apply flex bg-[#592fa7] h-[100px] w-10;
+                &::before {
+                  content: 'icebreaker';
+                  @apply text-yellow-700 text-2xl flex items-center justify-center;
+                }
+              }
+            `,
+            // styled css
+            styled: css`
+              ${selector} {
+                @apply h-[200px] w-20;
+              }
+            `,
+            // utils css
+            utils: css`
+              ${selector} {
+                @apply h-[300px] w-32;
+              }
+            `
+          }
+        }
+      }
+    }
+  }
+}
+
+module.exports = config
+```
+
+### Usage
+
+```css
+/* inject yyy base+styled+utils */
+@icestack components.yyy;
+/* only inject yyy base */
+@icestack components.yyy.base;
+/* or yyy styled */
+@icestack components.yyy.styled;
+/* or yyy utils */
+@icestack components.yyy.utils;
+```

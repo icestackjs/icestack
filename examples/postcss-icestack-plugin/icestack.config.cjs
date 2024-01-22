@@ -31,7 +31,7 @@ const config = {
               ${selector} {
                 @apply flex bg-[#592fa7] h-[100px] w-10;
                 &::before {
-                  content: '我喜欢吃屎';
+                  content: 'icebreaker';
                   @apply text-yellow-700 text-2xl flex items-center justify-center;
                 }
               }

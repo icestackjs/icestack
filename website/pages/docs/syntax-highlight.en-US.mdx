@@ -22,10 +22,16 @@ Then use this method to wrap it, and there will be highlight:
 
 ![](/syntax-highlight/after.png)
 
-### .vscode/settings.json
+## tailwincss hint
+
+add `.vscode/settings.json`, The content is shown below:
 
 ```json
 {
   "tailwindCSS.experimental.classRegex": ["css`([^`]*)`", "@apply([^`;]*)"]
 }
 ```
+
+Then in the same level of directory，add `tailwind.config.js`, then the `@apply` prompts are available。
+
+![](/syntax-highlight/hint.png)

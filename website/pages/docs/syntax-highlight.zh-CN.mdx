@@ -22,10 +22,16 @@ const css = String.raw
 
 ![](/syntax-highlight/after.png)
 
-### .vscode/settings.json
+## tailwincss 提示
+
+添加 `.vscode/settings.json`, 内容如下所示:
 
 ```json
 {
   "tailwindCSS.experimental.classRegex": ["css`([^`]*)`", "@apply([^`;]*)"]
 }
 ```
+
+然后在同级目录下，新建 `tailwind.config.js`, 这样 `@apply` 的智能提示就有了。
+
+![](/syntax-highlight/hint.png)

@@ -1,7 +1,7 @@
 {
   "name": "@icestack/cli",
   "description": "The cli of @icestack/ui",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

@@ -12,7 +12,7 @@ export const Home: FC = (props) => {
           <Image src={Logo.src} width={Logo.width} height={Logo.height} alt="logo"></Image>
         </div>
         {/* <div></div> */}
-        <div className="font-extrabold text-[max(48px,min(5vw,76px))]">@icestack/ui</div>
+        <div className="font-extrabold text-[max(48px,min(5vw,76px))]">IceStack</div>
         <div className="font-extrabold text-2xl mb-5">{t('home.motto')}</div>
         <ul className="[&_li]:flex [&_li]:items-center [&_i]:mr-1 mb-5">
           <li>

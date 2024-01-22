@@ -44,7 +44,15 @@ export default {
   docsRepositoryBase: 'https://github.com/sonofmagic/icestack/tree/main/website',
   useNextSeoProps() {
     return {
-      titleTemplate: '%s | IceStack, Web UI for Mobile, PC, open-source Css component library generator'
+      titleTemplate: '%s | IceStack, Web UI for Mobile, PC, open-source Css component library generator',
+      description: 'Documentation for IceStack, Web UI for Mobile, PC, open-source Css component library generator',
+      openGraph: {
+        description: 'Documentation for IceStack, Web UI for Mobile, PC, open-source Css component library generator'
+      },
+      twitter: {
+        handle: 'sonofmagic95',
+        site: 'sonofmagic95'
+      }
     }
   },
   components: {},

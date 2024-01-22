@@ -1,5 +1,11 @@
 # @icestack/logger
 
+## 1.3.1
+
+### Patch Changes
+
+- [`dc76f5c`](https://github.com/sonofmagic/icestack/commit/dc76f5c4c3f06aba8f2d0f8982d48ddadf7ec741) Thanks [@sonofmagic](https://github.com/sonofmagic)! - support sass @use and @import
+
 ## 1.3.0
 
 ### Minor Changes

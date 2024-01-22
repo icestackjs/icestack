@@ -1,5 +1,21 @@
 # @icestack/core
 
+## 1.3.1
+
+### Patch Changes
+
+- [`dc76f5c`](https://github.com/sonofmagic/icestack/commit/dc76f5c4c3f06aba8f2d0f8982d48ddadf7ec741) Thanks [@sonofmagic](https://github.com/sonofmagic)! - support sass @use and @import
+
+- Updated dependencies [[`dc76f5c`](https://github.com/sonofmagic/icestack/commit/dc76f5c4c3f06aba8f2d0f8982d48ddadf7ec741)]:
+  - @icestack/config@1.3.1
+  - @icestack/logger@1.3.1
+  - @icestack/postcss-utils@1.3.1
+  - @icestack/preset-default@1.3.1
+  - @icestack/scss@1.3.1
+  - @icestack/shared@1.3.1
+  - @icestack/theme-algorithm@1.3.1
+  - @icestack/types@1.3.1
+
 ## 1.3.0
 
 ### Minor Changes

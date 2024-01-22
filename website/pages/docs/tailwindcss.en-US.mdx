@@ -1,8 +1,8 @@
-import { Tabs, Tab ,Callout } from 'nextra/components'
+import { Tabs, Tab, Callout } from 'nextra/components'
 
 # Tailwindcss plugin
 
-## Install 
+## Install
 
 {/* prettier-ignore-start */}
 <Tabs items={['pnpm', 'npm', 'yarn', 'bun']}>
@@ -59,9 +59,10 @@ module.exports = {
 Then as long as we run the project normally, we can directly use all the `CSS` components in the `my-ui` directory!
 
 <Callout type="info">
-You can find the default [all components list]((./components/overview)) directly here and copy `html` directly
+You can find the default [all components list](/components/overview) directly here and copy `html` directly
 
 If your `class` naming conflicts with the default scheme, you can set [`postcss.prefix`](/config/postcss#postcssprefix) to add a prefix to avoid conflicts.
+
 </Callout>
 
 ## IntelliSense
@@ -89,4 +90,3 @@ The path to load the `@icestack/ui` product
 **Default:** `false`
 
 Inject `tailwindcss` config into `tailwind.config.js`. Only by enabling this option can you use the color types defined in the `@icestack/ui` theme.
-

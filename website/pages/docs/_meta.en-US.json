@@ -1,9 +1,9 @@
 {
   "usage": "Get Started",
   "introduction": "Introduction",
+  "postcss": "Postcss",
   "tailwindcss": "Tailwindcss",
   "unocss": "Unocss",
-  "postcss": "Postcss",
   "syntax-highlight": "Syntax Highlight",
   "core": "Core",
   "start-from-scratch": "Start From Scratch",

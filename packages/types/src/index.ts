@@ -183,6 +183,15 @@ export type CodegenOptions = {
   clean?: boolean
 
   sassOptions?: StringOptions<'sync'>
+
+  cva?: {
+    outdir?: string
+    format?: 'ts' | 'js'
+    // @icestack/cva
+    // '@icestack/cva'
+    importFrom?: string
+    // implementation: string
+  }
 } & (
   | {
       /**

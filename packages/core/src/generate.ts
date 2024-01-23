@@ -42,3 +42,5 @@ export function generateIndexCode(basenames: string[], type: 'components' | 'uti
     return babelGenerate(ast).code
   }
 }
+
+export function generateCva({ format }: { format: 'js' | 'ts' }) {}

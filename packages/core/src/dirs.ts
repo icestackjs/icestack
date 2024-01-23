@@ -5,6 +5,7 @@ export function createResolveDir(base: string) {
   const assetsDir = path.resolve(rootDir, 'assets')
   const scssDir = path.resolve(assetsDir, 'scss')
   const jsDir = path.resolve(assetsDir, 'js')
+  const cvaDir = path.resolve(assetsDir, 'cva')
   const cssDir = path.resolve(assetsDir, 'css')
   const cssResolvedDir = path.resolve(assetsDir, 'css-resolved')
   const pluginsDir = path.resolve(assetsDir, 'plugins')
@@ -22,6 +23,10 @@ export function createResolveDir(base: string) {
 
   function resolveJsDir(dir?: string) {
     return dir ? path.resolve(dir, 'js') : jsDir
+  }
+
+  function resolveCvaDir(dir?: string) {
+    return dir ? path.resolve(dir, 'cva') : cvaDir
   }
 
   function getCssPath(relPath: string, dir?: string) {
@@ -48,6 +53,12 @@ export function createResolveDir(base: string) {
     return jsPath + '.cjs'
   }
 
+  function getCvaPath(relPath: string, dir?: string, format?: string) {
+    const targetJsDir = resolveJsDir(dir)
+    const jsPath = path.resolve(targetJsDir, relPath)
+    return jsPath + '.' + format
+  }
+
   function getPluginsPath(relPath: string, dir?: string) {
     const targetJsDir = dir ? path.resolve(dir, 'js') : pluginsDir
     const jsPath = path.resolve(targetJsDir, relPath)
@@ -67,6 +78,8 @@ export function createResolveDir(base: string) {
     resolveCssDir,
     resolveCssResolvedDir,
     resolveJsDir,
-    getScssPath
+    getScssPath,
+    resolveCvaDir,
+    getCvaPath
   }
 }

@@ -6,12 +6,14 @@ const schema: GetCssSchemaMethod = (opts) => {
     selector,
     defaults: {
       styled: css`
+        // @base
         ${selector} {
           @apply rounded-box border p-4 text-base-content border-base-200;
 
           ${types
             .map((type) => {
               return css`
+                // @v.type="${type}"
                 &-${type} {
                   @apply text-${type}-content border-${type}/20 bg-${type};
                 }

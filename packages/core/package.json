@@ -69,7 +69,8 @@
     "url": "https://github.com/sonofmagic/icestack"
   },
   "devDependencies": {
-    "md5": "^2.3.0",
-    "@types/md5": "^2.3.5"
+    "@icestack/cva": "workspace:^",
+    "@types/md5": "^2.3.5",
+    "md5": "^2.3.0"
   }
 }

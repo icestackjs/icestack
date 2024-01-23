@@ -1,13 +1,10 @@
-import { cva } from 'class-variance-authority'
-import { createTailwindcssContent } from '@/content/index'
-describe('index', () => {
-  it('createTailwindcssContent', () => {
-    const raw = createTailwindcssContent().raw
-    expect(raw).toMatchSnapshot()
-  })
-
-  it('should ', () => {
-    const button = cva(['font-semibold', 'border', 'rounded'], {
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import { generateCva } from '@/generate'
+describe('cva', () => {
+  it('base', async () => {
+    const opt: Parameters<typeof generateCva>[0] = {
+      base: ['font-semibold', 'border', 'rounded'],
       variants: {
         intent: {
           primary: ['bg-blue-500', 'text-white', 'border-transparent', 'hover:bg-blue-600'],
@@ -33,11 +30,15 @@ describe('index', () => {
         intent: 'primary',
         size: 'medium'
       }
-    })
-
-    // button()
-    // => "font-semibold border rounded bg-blue-500 text-white border-transparent hover:bg-blue-600 text-base py-2 px-4 uppercase"
-
-    // button({ intent: 'secondary', size: 'small' })
+    }
+    let code = generateCva(opt)
+    await fs.writeFile(path.resolve(__dirname, './fixtures/cva.base.ts'), code)
+    opt.format = 'js'
+    code = generateCva(opt)
+    await fs.writeFile(path.resolve(__dirname, './fixtures/cva.base.js'), code)
+    opt.importFrom = 'class-variance-authority'
+    opt.format = 'ts'
+    code = generateCva(opt)
+    await fs.writeFile(path.resolve(__dirname, './fixtures/cva.base.import.ts'), code)
   })
 })

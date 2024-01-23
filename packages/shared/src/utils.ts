@@ -1,3 +1,4 @@
+import fs from 'node:fs'
 import merge from 'merge'
 import { createDefu } from 'defu'
 import type { ModeMergeValue } from '@icestack/types'
@@ -105,3 +106,13 @@ export function makeArray<T>(value?: T) {
 }
 
 export const css = String.raw
+
+export function touch(filename: string) {
+  const time = new Date()
+
+  try {
+    fs.utimesSync(filename, time, time)
+  } catch {
+    fs.closeSync(fs.openSync(filename, 'w'))
+  }
+}

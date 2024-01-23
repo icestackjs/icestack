@@ -6,7 +6,15 @@ import dedent from 'dedent'
 import { loadSync } from '@icestack/config'
 import { logger } from '@icestack/logger'
 import { createContext } from '@icestack/core'
-import { getModuleDependencies } from '@icestack/shared'
+import { getModuleDependencies, touch } from '@icestack/shared'
+
+function touchTwConfig(filepath: string) {
+  const dirname = path.dirname(filepath)
+  const configPath = path.resolve(dirname, 'tailwind.config.js')
+  if (fs.existsSync(configPath)) {
+    touch(configPath)
+  }
+}
 
 export const cli = new Command()
 
@@ -38,6 +46,7 @@ async function letUsBuild(options: { clean?: boolean; configFile?: string } = {}
     await ctx.build()
     logger.success('build successfully!')
   }
+  return o
 }
 const defaultOutdir = 'my-ui'
 
@@ -89,7 +98,8 @@ cli
   .action(async (options) => {
     const { clean, config } = options
     const opts = { clean, configFile: config }
-    await letUsBuild(opts)
+    const res = await letUsBuild(opts)
+    res && touchTwConfig(res.filepath)
   })
 
 cli
@@ -117,11 +127,13 @@ cli
     chokidar
       .watch([...getModuleDependencies(filepath)])
       .on('change', async () => {
+        const res = await letUsBuild(opts)
+        res && touchTwConfig(res.filepath)
         logger.success('some changes happened')
-        await letUsBuild(opts)
       })
       .on('ready', async () => {
-        await letUsBuild(opts)
+        const res = await letUsBuild(opts)
+        res && touchTwConfig(res.filepath)
         logger.success('start watching config......')
       })
   })

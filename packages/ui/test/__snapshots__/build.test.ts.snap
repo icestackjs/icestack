@@ -247,6 +247,7 @@ exports[`build > build all 1`] = `
       },
     },
     "cssRoot": null,
+    "cvaParams": undefined,
     "resolvedCss": ":root {
   --ice-primary: 22 119 255;
   --ice-primary-hover: 64 150 255;
@@ -736,6 +737,7 @@ exports[`build > build all 1`] = `
       },
     },
     "cssRoot": null,
+    "cvaParams": undefined,
     "resolvedCss": ":root {
   --ice-primary: 22,119,255;
   --ice-primary-hover: 64,150,255;
@@ -1230,6 +1232,7 @@ exports[`build > build base change default selector case  1`] = `
       },
     },
     "cssRoot": null,
+    "cvaParams": undefined,
     "resolvedCss": "page {
   --ice-primary: 22 119 255;
   --ice-primary-hover: 64 150 255;
@@ -1719,6 +1722,7 @@ exports[`build > build base change default selector case  1`] = `
       },
     },
     "cssRoot": null,
+    "cvaParams": undefined,
     "resolvedCss": "page {
   --ice-primary: 22,119,255;
   --ice-primary-hover: 64,150,255;
@@ -2213,6 +2217,7 @@ exports[`build > build base with custom types 1`] = `
       },
     },
     "cssRoot": null,
+    "cvaParams": undefined,
     "resolvedCss": ":root {
   --ice-primary: 19 194 194;
   --ice-primary-hover: 54 207 201;
@@ -2702,6 +2707,7 @@ exports[`build > build base with custom types 1`] = `
       },
     },
     "cssRoot": null,
+    "cvaParams": undefined,
     "resolvedCss": ":root {
   --ice-primary: 19,194,194;
   --ice-primary-hover: 54,207,201;

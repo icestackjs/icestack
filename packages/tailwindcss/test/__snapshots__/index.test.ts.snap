@@ -11,7 +11,7 @@ exports[`tailwindcss > use plugin case 0 1`] = `
 }.btn:is(input[type=checkbox]):after,.btn:is(input[type=radio]):after {--tw-content: attr(aria-label);content: var(--tw-content)
 }@charset "UTF-8";.btn:focus-visible,.btn.btn-focus-visible {outline-style: solid;outline-width: 2px;outline-offset: 2px
 }.btn:hover,.btn.btn-hover {--tw-border-opacity: 1;border-color: rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity));--tw-bg-opacity: 1;background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity))
-}.btn:active,.btn.btn-hover {--tw-border-opacity: 1;border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));--tw-bg-opacity: 1;background-color: rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))
+}.btn:active,.btn.btn-active {--tw-border-opacity: 1;border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));--tw-bg-opacity: 1;background-color: rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))
 }.btn.glass {--tw-shadow: 0 0 #0000;--tw-shadow-colored: 0 0 #0000;box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);outline-color: currentColor
 }.btn.glass:active,.btn.glass.btn-active {--ice-glass-opacity: 25%； --glass-border-opacity: 15%；
 }.btn.btn-disabled,.btn[disabled],.btn:disabled {--tw-border-opacity: 0;background-color: rgba(var(--ice-neutral) / var(--tw-bg-opacity));--tw-bg-opacity: 0.2;color: rgba(var(--ice-base-content) / var(--tw-text-opacity));--tw-text-opacity: 0.2

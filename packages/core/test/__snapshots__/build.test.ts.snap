@@ -47,7 +47,9 @@ exports[`build > build all 2`] = `
       },
     },
     {
-      "base": [],
+      "base": [
+        "alert",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -78,16 +80,70 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "size": {
+          "lg": [
+            "badge-lg",
+          ],
+          "md": [
+            "badge-md",
+          ],
+          "sm": [
+            "badge-sm",
+          ],
+          "xs": [
+            "badge-xs",
+          ],
+        },
+      },
     },
     {
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "ghost": {
+          "true": [
+            "badge-ghost",
+          ],
+        },
+        "outline": {
+          "true": [
+            "badge-outline",
+          ],
+        },
+        "type": {
+          "accent": [
+            "badge-accent",
+          ],
+          "error": [
+            "badge-error",
+          ],
+          "info": [
+            "badge-info",
+          ],
+          "neutral": [
+            "badge-neutral",
+          ],
+          "primary": [
+            "badge-primary",
+          ],
+          "secondary": [
+            "badge-secondary",
+          ],
+          "success": [
+            "badge-success",
+          ],
+          "warning": [
+            "badge-warning",
+          ],
+        },
+      },
     },
     {
-      "base": [],
+      "base": [
+        "badge",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -98,7 +154,22 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "size": {
+          "lg": [
+            "btm-nav-lg",
+          ],
+          "md": [
+            "btm-nav-md",
+          ],
+          "sm": [
+            "btm-nav-sm",
+          ],
+          "xs": [
+            "btm-nav-xs",
+          ],
+        },
+      },
     },
     {
       "base": [],
@@ -107,7 +178,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "btm-nav",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -221,35 +294,27 @@ exports[`build > build all 2`] = `
         "type": {
           "accent": [
             "btn-accent",
-            "btn-outline",
           ],
           "error": [
             "btn-error",
-            "btn-outline",
           ],
           "info": [
             "btn-info",
-            "btn-outline",
           ],
           "neutral": [
             "btn-neutral",
-            "btn-outline",
           ],
           "primary": [
             "btn-primary",
-            "btn-outline",
           ],
           "secondary": [
             "btn-secondary",
-            "btn-outline",
           ],
           "success": [
             "btn-success",
-            "btn-outline",
           ],
           "warning": [
             "btn-warning",
-            "btn-outline",
           ],
         },
       },

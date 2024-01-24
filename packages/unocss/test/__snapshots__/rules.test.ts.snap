@@ -510,7 +510,7 @@ exports[`index > getRules default 1`] = `
     --un-bg-opacity: 1;
     background-color: rgba(var(--ice-ant-neutral-300),var(--un-bg-opacity))
 }
-.btn:active,.btn.btn-hover {
+.btn:active,.btn.btn-active {
     --un-border-opacity: 1;
     border-color: rgba(var(--ice-ant-neutral-500),var(--un-border-opacity));
     --un-bg-opacity: 1;
@@ -622,12 +622,6 @@ exports[`index > getRules default 1`] = `
     border-color: rgba(var(--ice-ant-neutral-300),var(--un-border-opacity));
     --un-bg-opacity: 1;
     background-color: rgba(var(--ice-ant-neutral-300),var(--un-bg-opacity))
-}
-.btn:active,.btn.btn-hover {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-ant-neutral-500),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-ant-neutral-500),var(--un-bg-opacity))
 }
 .btn-primary:hover,.btn-primary.btn-hover {
     --un-border-opacity: 1;
@@ -751,52 +745,14 @@ exports[`index > getRules default 1`] = `
 }",
   ],
   [
-    "btn-primary",
-    ".btn-primary {
+    "btn-active",
+    ".btn:active,.btn.btn-active {
     --un-border-opacity: 1;
-    border-color: rgba(var(--ice-primary),var(--un-border-opacity));
+    border-color: rgba(var(--ice-ant-neutral-500),var(--un-border-opacity));
     --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-primary),var(--un-bg-opacity));
-    --un-text-opacity: 1;
-    color: rgba(var(--ice-primary-content),var(--un-text-opacity));
-    outline-color: rgba(var(--ice-primary),1)
-}
-.btn-primary:hover,.btn-primary.btn-hover {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-primary-hover),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-primary-hover),var(--un-bg-opacity))
+    background-color: rgba(var(--ice-ant-neutral-500),var(--un-bg-opacity))
 }
 .btn-primary:active,.btn-primary.btn-active {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-primary-active),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-primary-active),var(--un-bg-opacity))
-}
-.btn-outline.btn-primary {
-    --un-text-opacity: 1;
-    color: rgba(var(--ice-primary),var(--un-text-opacity))
-}
-.btn-outline.btn-primary:hover,.btn-outline.btn-primary.btn-hover {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-primary-hover),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-primary-hover),var(--un-bg-opacity));
-    --un-text-opacity: 1;
-    color: rgba(var(--ice-primary-content),var(--un-text-opacity))
-}
-.btn-outline.btn-primary:active,.btn-outline.btn-primary.btn-active {
-    --un-border-opacity: 1;
-    border-color: rgba(var(--ice-primary-active),var(--un-border-opacity));
-    --un-bg-opacity: 1;
-    background-color: rgba(var(--ice-primary-active),var(--un-bg-opacity));
-    --un-text-opacity: 1;
-    color: rgba(var(--ice-primary-content),var(--un-text-opacity))
-}",
-  ],
-  [
-    "btn-active",
-    ".btn-primary:active,.btn-primary.btn-active {
     --un-border-opacity: 1;
     border-color: rgba(var(--ice-primary-active),var(--un-border-opacity));
     --un-bg-opacity: 1;
@@ -928,6 +884,50 @@ exports[`index > getRules default 1`] = `
     background-color: rgba(var(--ice-info-active),var(--un-bg-opacity));
     --un-text-opacity: 1;
     color: rgba(var(--ice-info-content),var(--un-text-opacity))
+}",
+  ],
+  [
+    "btn-primary",
+    ".btn-primary {
+    --un-border-opacity: 1;
+    border-color: rgba(var(--ice-primary),var(--un-border-opacity));
+    --un-bg-opacity: 1;
+    background-color: rgba(var(--ice-primary),var(--un-bg-opacity));
+    --un-text-opacity: 1;
+    color: rgba(var(--ice-primary-content),var(--un-text-opacity));
+    outline-color: rgba(var(--ice-primary),1)
+}
+.btn-primary:hover,.btn-primary.btn-hover {
+    --un-border-opacity: 1;
+    border-color: rgba(var(--ice-primary-hover),var(--un-border-opacity));
+    --un-bg-opacity: 1;
+    background-color: rgba(var(--ice-primary-hover),var(--un-bg-opacity))
+}
+.btn-primary:active,.btn-primary.btn-active {
+    --un-border-opacity: 1;
+    border-color: rgba(var(--ice-primary-active),var(--un-border-opacity));
+    --un-bg-opacity: 1;
+    background-color: rgba(var(--ice-primary-active),var(--un-bg-opacity))
+}
+.btn-outline.btn-primary {
+    --un-text-opacity: 1;
+    color: rgba(var(--ice-primary),var(--un-text-opacity))
+}
+.btn-outline.btn-primary:hover,.btn-outline.btn-primary.btn-hover {
+    --un-border-opacity: 1;
+    border-color: rgba(var(--ice-primary-hover),var(--un-border-opacity));
+    --un-bg-opacity: 1;
+    background-color: rgba(var(--ice-primary-hover),var(--un-bg-opacity));
+    --un-text-opacity: 1;
+    color: rgba(var(--ice-primary-content),var(--un-text-opacity))
+}
+.btn-outline.btn-primary:active,.btn-outline.btn-primary.btn-active {
+    --un-border-opacity: 1;
+    border-color: rgba(var(--ice-primary-active),var(--un-border-opacity));
+    --un-bg-opacity: 1;
+    background-color: rgba(var(--ice-primary-active),var(--un-bg-opacity));
+    --un-text-opacity: 1;
+    color: rgba(var(--ice-primary-content),var(--un-text-opacity))
 }",
   ],
   [

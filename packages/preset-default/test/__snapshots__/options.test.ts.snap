@@ -157,12 +157,12 @@ exports[`'badge' options > raw snap 1`] = `
           
 
           &-ghost {
-            // @v type="ghost"
+            // @v ghost="true"
             @apply border-base-200 bg-base-200 text-base-content;
           }
 
           &-outline {
-            // @v type="outline"
+            // @v outline="true"
             @apply border-current border-opacity-50 bg-transparent text-current;
 
             
@@ -251,12 +251,12 @@ exports[`'badge' options > snap 1`] = `
               
 
           &-ghost {
-            // @v type="ghost"
+            // @v ghost="true"
             @apply border-base-200 bg-base-200 text-base-content;
           }
 
           &-outline {
-            // @v type="outline"
+            // @v outline="true"
             @apply border-current border-opacity-50 bg-transparent text-current;
 
             
@@ -325,6 +325,7 @@ exports[`'bottom-navigation' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .btm-nav {
+          // @b
           @apply fixed bottom-0 left-0 right-0 flex w-full flex-row items-center justify-around;
           padding-bottom: env(safe-area-inset-bottom);
           & > * {
@@ -367,6 +368,7 @@ exports[`'bottom-navigation' options > raw snap 1`] = `
     "utils": "
         .btm-nav {
           &-xs {
+            // @v size="xs"
             @apply h-10;
             & > *:where(.active) {
               @apply border-t-[1px];
@@ -376,6 +378,7 @@ exports[`'bottom-navigation' options > raw snap 1`] = `
             }
           }
           &-sm {
+            // @v size="sm"
             @apply h-12;
             & > *:where(.active) {
               @apply border-t-2;
@@ -385,6 +388,7 @@ exports[`'bottom-navigation' options > raw snap 1`] = `
             }
           }
           &-md {
+            // @v size="md"
             @apply h-16;
             & > *:where(.active) {
               @apply border-t-2;
@@ -394,6 +398,7 @@ exports[`'bottom-navigation' options > raw snap 1`] = `
             }
           }
           &-lg {
+            // @v size="lg"
             @apply h-20;
             & > *:where(.active) {
               @apply border-t-4;
@@ -414,6 +419,7 @@ exports[`'bottom-navigation' options > snap 1`] = `
   "defaults": {
     "base": "
         .btm-nav {
+          // @b
           @apply fixed bottom-0 left-0 right-0 flex w-full flex-row items-center justify-around;
           padding-bottom: env(safe-area-inset-bottom);
           & > * {
@@ -456,6 +462,7 @@ exports[`'bottom-navigation' options > snap 1`] = `
     "utils": "
         .btm-nav {
           &-xs {
+            // @v size="xs"
             @apply h-10;
             & > *:where(.active) {
               @apply border-t-[1px];
@@ -465,6 +472,7 @@ exports[`'bottom-navigation' options > snap 1`] = `
             }
           }
           &-sm {
+            // @v size="sm"
             @apply h-12;
             & > *:where(.active) {
               @apply border-t-2;
@@ -474,6 +482,7 @@ exports[`'bottom-navigation' options > snap 1`] = `
             }
           }
           &-md {
+            // @v size="md"
             @apply h-16;
             & > *:where(.active) {
               @apply border-t-2;
@@ -483,6 +492,7 @@ exports[`'bottom-navigation' options > snap 1`] = `
             }
           }
           &-lg {
+            // @v size="lg"
             @apply h-20;
             & > *:where(.active) {
               @apply border-t-4;
@@ -961,7 +971,6 @@ exports[`'button' options > snap 1`] = `
             }
             
                   &.btn-primary {
-                    // @v type="primary"
                     @apply text-primary;
                     &:hover,
                     &.btn-hover {
@@ -975,7 +984,6 @@ exports[`'button' options > snap 1`] = `
                 
 
                   &.btn-success {
-                    // @v type="success"
                     @apply text-success;
                     &:hover,
                     &.btn-hover {
@@ -989,7 +997,6 @@ exports[`'button' options > snap 1`] = `
                 
 
                   &.btn-warning {
-                    // @v type="warning"
                     @apply text-warning;
                     &:hover,
                     &.btn-hover {
@@ -1003,7 +1010,6 @@ exports[`'button' options > snap 1`] = `
                 
 
                   &.btn-error {
-                    // @v type="error"
                     @apply text-error;
                     &:hover,
                     &.btn-hover {
@@ -1017,7 +1023,6 @@ exports[`'button' options > snap 1`] = `
                 
 
                   &.btn-neutral {
-                    // @v type="neutral"
                     @apply text-neutral;
                     &:hover,
                     &.btn-hover {

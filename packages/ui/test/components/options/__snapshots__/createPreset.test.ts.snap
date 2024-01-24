@@ -6,14 +6,15 @@ exports[`createPreset options > add custom component raw override case 0 1`] = `
     "base": [
       "
         .my-xxx {
+          // @base
           @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
         }
       ",
     ],
     "styled": [
       "
-        // @base
         .my-xxx {
+          // @base
           @apply rounded-box border p-4 text-base-content border-base-200;
 
           
@@ -50,14 +51,15 @@ exports[`createPreset options > alert case 1 1`] = `
     "base": [
       "
         .alert {
+          // @base
           @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
         }
       ",
     ],
     "styled": [
       "
-        // @base
         .alert {
+          // @base
           @apply rounded-box border p-4 text-base-content border-base-200;
 
           
@@ -76,14 +78,15 @@ exports[`createPreset options > alert raw case 1 1`] = `
     "base": [
       "
         .alert {
+          // @base
           @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
         }
       ",
     ],
     "styled": [
       "
-        // @base
         .alert {
+          // @base
           @apply rounded-box border p-4 text-base-content border-base-200;
 
           
@@ -102,6 +105,7 @@ exports[`createPreset options > alert raw override case 0 1`] = `
     "base": [
       "
         .xxx {
+          // @base
           @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
         }
       ",
@@ -123,8 +127,8 @@ exports[`createPreset options > alert raw override case 0 1`] = `
     ],
     "styled": [
       "
-        // @base
         .xxx {
+          // @base
           @apply rounded-box border p-4 text-base-content border-base-200;
 
           

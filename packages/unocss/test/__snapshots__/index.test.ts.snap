@@ -144,11 +144,11 @@ exports[`index > loadPresetOptions default 1`] = `
       [Function],
     ],
     [
-      /\\^btn-primary\\$/,
+      /\\^btn-active\\$/,
       [Function],
     ],
     [
-      /\\^btn-active\\$/,
+      /\\^btn-primary\\$/,
       [Function],
     ],
     [

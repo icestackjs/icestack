@@ -1,5 +1,7 @@
 import type { VarPrefixerOptions, PrefixerOptions } from '@icestack/types'
 import prefixer from './prefixer'
+export { default as extractCvaParamsPlugin } from './extract-cva-params'
+export type { CvaParams, CommentType } from './extract-cva-params'
 export { getPlugin as getCssVarsPrefixerPlugin } from './custom-property-prefixer'
 export { initTailwindcssConfig, resolveTailwindcss } from './tailwindcss'
 

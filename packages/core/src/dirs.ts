@@ -53,7 +53,7 @@ export function createResolveDir(base: string) {
     return jsPath + '.cjs'
   }
 
-  function getCvaPath(relPath: string, dir?: string, format?: string) {
+  function getCvaPath(relPath: string, dir?: string, format: string = 'ts') {
     const targetJsDir = resolveJsDir(dir)
     const jsPath = path.resolve(targetJsDir, relPath)
     return jsPath + '.' + format

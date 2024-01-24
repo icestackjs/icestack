@@ -7,30 +7,33 @@ const schema: GetCssSchemaMethod = (opts) => {
     selector,
     defaults: {
       styled: css`
-        // @base
         ${selector} {
+          // @base
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
-          // @v focus-visible=true
+
           &:focus-visible,
           &${selector}-focus-visible {
+            // @v focusVisible="true"
             @apply outline outline-2 outline-offset-2;
           }
-          // @v hover=true
+
           &:hover,
           &${selector}-hover {
+            // @v hover="true"
             @apply border-ant-neutral-300 bg-ant-neutral-300;
           }
-          // @v active=true
+
           &:active,
           &${selector}-active {
+            // @v active="true"
             @apply border-ant-neutral-500 bg-ant-neutral-500;
           }
           ${types
             .map((type) => {
               return css`
-                // @v type="${type}"
                 &-${type} {
+                  // @v type="${type}"
                   @apply border-${type} bg-${type} text-${type}-content outline-${type};
                   &:hover,
                   &${selector}-hover {
@@ -44,32 +47,36 @@ const schema: GetCssSchemaMethod = (opts) => {
               `
             })
             .join('\n')}
-          // @v glass=true
+
           &.glass {
+            // @v glass="true"
             @apply shadow-none outline-current;
             &:active,
             &${selector}-active {
               --glass-opacity: 25%； --glass-border-opacity: 15%；;
             }
           }
-          // @v ghost=true
+
           &-ghost {
+            // @v ghost="true"
             @apply border border-transparent bg-transparent text-current shadow-none outline-current;
             &:active,
             &${selector}-active {
               @apply border-opacity-0 bg-base-content bg-opacity-20;
             }
           }
-          // @v link=true
+
           &-link {
+            // @v link="true"
             @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
             &:active,
             &${selector}-active {
               @apply border-transparent bg-transparent underline;
             }
           }
-          // @v outline=true
+
           &-outline {
+            // @v outline="true"
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,
             &${selector}-hover {
@@ -82,8 +89,8 @@ const schema: GetCssSchemaMethod = (opts) => {
             ${types
               .map((type) => {
                 return css`
-                  // @v type="${type}"
                   &${selector}-${type} {
+                    // @v type="${type}"
                     @apply text-${type};
                     &:hover,
                     &${selector}-hover {
@@ -99,16 +106,16 @@ const schema: GetCssSchemaMethod = (opts) => {
               .join('\n')}
           }
 
-          // @v disabled=true
           &${selector}-disabled, &[disabled],
           &:disabled {
+            // @v disabled="true"
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
       `,
       base: css`
-        // @base
         ${selector} {
+          // @base
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
@@ -139,38 +146,45 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       `,
       utils: css`
-        // @base
         ${selector} {
-          // @v size="xs"
+          // @base
+
           &-xs {
+            // @v size="xs"
             @apply h-6 min-h-[1.5rem] px-2;
             font-size: 0.75rem;
           }
-          // @v size="sm"
+
           &-sm {
+            // @v size="sm"
             @apply h-8 min-h-[2rem] px-3;
             font-size: 0.875rem;
           }
-          // @v size="md"
+
           &-md {
+            // @v size="md"
             @apply h-12 min-h-[3rem] px-4;
             font-size: 0.875rem;
           }
-          // @v size="lg"
+
           &-lg {
+            // @v size="lg"
             @apply h-16 min-h-[4rem] px-6;
             font-size: 1.125rem;
           }
-          // @v size="wide"
+
           &-wide {
+            // @v size="wide"
             @apply w-64;
           }
-          // @v size="block"
+
           &-block {
+            // @v size="block"
             @apply w-full;
           }
-          // @v shape="square"
+
           &-square {
+            // @v shape="square"
             &:where(${selector}-xs) {
               @apply h-6 w-6 p-0;
             }
@@ -184,8 +198,9 @@ const schema: GetCssSchemaMethod = (opts) => {
               @apply h-16 w-16 p-0;
             }
           }
-          // @v shape="circle"
+
           &-circle {
+            // @v shape="circle"
             &:where(${selector}-xs) {
               @apply h-6 w-6 rounded-full p-0;
             }

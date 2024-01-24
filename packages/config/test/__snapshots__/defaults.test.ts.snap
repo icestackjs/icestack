@@ -444,6 +444,10 @@ exports[`defaults > getCodegenDefaults > default 1`] = `
       "selector": ".tooltip",
     },
   },
+  "cva": {
+    "format": "ts",
+    "importFrom": "@icestack/cva",
+  },
   "dryRun": false,
   "log": true,
   "mode": "preset",
@@ -495,6 +499,10 @@ exports[`defaults > getCodegenDefaults > mode none 1`] = `
     "themes": {},
   },
   "components": {},
+  "cva": {
+    "format": "ts",
+    "importFrom": "@icestack/cva",
+  },
   "dryRun": false,
   "log": true,
   "mode": "preset",

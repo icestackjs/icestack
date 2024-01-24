@@ -404,6 +404,10 @@ exports[`options > getCodegenOptions snap 1`] = `
       "selector": ".tooltip",
     },
   },
+  "cva": {
+    "format": "ts",
+    "importFrom": "@icestack/cva",
+  },
   "dryRun": false,
   "log": true,
   "mode": "preset",
@@ -459,6 +463,10 @@ exports[`options > getCodegenOptions snap merge case 0 1`] = `
     "themes": {},
   },
   "components": {},
+  "cva": {
+    "format": "ts",
+    "importFrom": "@icestack/cva",
+  },
   "dryRun": true,
   "log": true,
   "mode": "none",
@@ -491,6 +499,10 @@ exports[`options > getCodegenOptions snap merge case 1 1`] = `
     "themes": {},
   },
   "components": {},
+  "cva": {
+    "format": "ts",
+    "importFrom": "@icestack/cva",
+  },
   "dryRun": true,
   "log": true,
   "mode": "none",

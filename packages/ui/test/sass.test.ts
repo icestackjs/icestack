@@ -79,7 +79,7 @@ describe('sass', () => {
     }
     `
     const root = mergeRoot([testCase])
-    const result = root.toString()
+    const result = root?.toString() ?? ''
     const css = sass.compileString(result).css
     // expect(result).toEqual(testCase)
     expect(css).toMatchSnapshot('output css')

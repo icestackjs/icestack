@@ -2,9 +2,55 @@
 
 exports[`extract-cva-params > base 1`] = `
 {
-  "base": [],
+  "base": [
+    "btn",
+  ],
   "compoundVariants": [],
   "defaultVariants": {},
   "variants": {},
+}
+`;
+
+exports[`extract-cva-params > cv case1 1`] = `
+{
+  "base": [],
+  "compoundVariants": [
+    {
+      "class": [
+        "bbb",
+        "ccc",
+      ],
+      "intent": "primary",
+    },
+  ],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`extract-cva-params > dv case1 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {
+    "intent": "primary",
+  },
+  "variants": {},
+}
+`;
+
+exports[`extract-cva-params > v case1 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {
+    "intent": {
+      "primary": [
+        "btn",
+        "btn-primary",
+      ],
+    },
+  },
 }
 `;

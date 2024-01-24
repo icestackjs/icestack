@@ -2,6 +2,1090 @@
 
 exports[`build > build all 1`] = `undefined`;
 
+exports[`build > build all 2`] = `
+{
+  "alert": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [
+        "alert",
+      ],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {
+        "type": {
+          "accent": [
+            "alert-accent",
+          ],
+          "error": [
+            "alert-error",
+          ],
+          "info": [
+            "alert-info",
+          ],
+          "neutral": [
+            "alert-neutral",
+          ],
+          "primary": [
+            "alert-primary",
+          ],
+          "secondary": [
+            "alert-secondary",
+          ],
+          "success": [
+            "alert-success",
+          ],
+          "warning": [
+            "alert-warning",
+          ],
+        },
+      },
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "avatar": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "badge": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "bottom-navigation": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "breadcrumbs": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "button": [
+    {
+      "base": [
+        "btn",
+      ],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {
+        "shape": {
+          "circle": [
+            "btn-circle",
+          ],
+          "square": [
+            "btn-square",
+          ],
+        },
+        "size": {
+          "block": [
+            "btn-block",
+          ],
+          "lg": [
+            "btn-lg",
+          ],
+          "md": [
+            "btn-md",
+          ],
+          "sm": [
+            "btn-sm",
+          ],
+          "wide": [
+            "btn-wide",
+          ],
+          "xs": [
+            "btn-xs",
+          ],
+        },
+      },
+    },
+    {
+      "base": [
+        "btn",
+      ],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {
+        "active": {
+          "true": [
+            "btn",
+          ],
+        },
+        "disabled": {
+          "true": [
+            "btn",
+          ],
+        },
+        "focusVisible": {
+          "true": [
+            "btn",
+          ],
+        },
+        "ghost": {
+          "true": [
+            "btn-ghost",
+          ],
+        },
+        "glass": {
+          "true": [
+            "btn",
+          ],
+        },
+        "hover": {
+          "true": [
+            "btn",
+          ],
+        },
+        "link": {
+          "true": [
+            "btn-link",
+          ],
+        },
+        "outline": {
+          "true": [
+            "btn-outline",
+          ],
+        },
+        "type": {
+          "accent": [
+            "btn-accent",
+            "btn-outline",
+          ],
+          "error": [
+            "btn-error",
+            "btn-outline",
+          ],
+          "info": [
+            "btn-info",
+            "btn-outline",
+          ],
+          "neutral": [
+            "btn-neutral",
+            "btn-outline",
+          ],
+          "primary": [
+            "btn-primary",
+            "btn-outline",
+          ],
+          "secondary": [
+            "btn-secondary",
+            "btn-outline",
+          ],
+          "success": [
+            "btn-success",
+            "btn-outline",
+          ],
+          "warning": [
+            "btn-warning",
+            "btn-outline",
+          ],
+        },
+      },
+    },
+    {
+      "base": [
+        "btn",
+      ],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "card": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "carousel": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "chat": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "checkbox": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "collapse": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "countdown": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "diff": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "divider": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "drawer": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "dropdown": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "file-input": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "footer": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "form": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "hero": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "indicator": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "input": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "join": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "kbd": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "link": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "loading": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "mask": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "menu": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "navbar": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "progress": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "radial-progress": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "radio": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "range": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "rating": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "select": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "skeleton": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "stack": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "stat": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "steps": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "swap": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "tab": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "table": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "textarea": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "timeline": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "toast": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "toggle": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+  "tooltip": [
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+    {
+      "base": [],
+      "compoundVariants": [],
+      "defaultVariants": {},
+      "variants": {},
+    },
+  ],
+}
+`;
+
 exports[`build > build base 1`] = `undefined`;
 
 exports[`build > build base change default selector case  > index 1`] = `

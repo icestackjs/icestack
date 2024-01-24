@@ -8,6 +8,7 @@ describe.skipIf(ci.isCI)('build', () => {
     })
     const res = await ctx.build()
     expect(res).toMatchSnapshot()
+    expect(ctx.cva).toMatchSnapshot()
     // console.log(ctx.base)
   })
 

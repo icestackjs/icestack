@@ -25,7 +25,9 @@ import {
   merge,
   mapCssStringToAst,
   objectify,
-  process
+  process,
+  extractCvaParamsPlugin,
+  CvaParams
 } from '@icestack/postcss-utils'
 import { LRUCache } from 'lru-cache'
 // import md5 from 'md5'
@@ -34,10 +36,10 @@ import { name } from '../package.json'
 import { utilitiesNames, utilitiesMap } from './utilities'
 import { handleOptions } from './components'
 import { calcBase } from './base'
-import { generateIndexCode } from '@/generate'
+import { generateIndexCode, generateCva } from '@/generate'
 import { createResolveDir } from '@/dirs'
 
-const { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath } = createResolveDir(name)
+const { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath, getCvaPath } = createResolveDir(name)
 
 function ensureDirSync(p: string) {
   if (!fs.existsSync(p)) {
@@ -64,6 +66,7 @@ export interface BuildOptions {
   utilities?: boolean
   config?: boolean
   components?: boolean
+  cva?: boolean
 }
 
 function getPaths(relPath: string, outdir?: string) {
@@ -120,7 +123,20 @@ export function createContext(opts?: CodegenOptions | string) {
     }
   }
 
-  const { outdir, dryRun, postcss, mode: globalMode, pick: globalPick, components = {}, log, tailwindcssConfig, utilities, sassOptions: _sassOptions, base } = options
+  const {
+    outdir,
+    dryRun,
+    postcss,
+    mode: globalMode,
+    pick: globalPick,
+    components = {},
+    log,
+    tailwindcssConfig,
+    utilities,
+    sassOptions: _sassOptions,
+    base,
+    cva: globalCva
+  } = options
   const sassOptions = defu<StringOptions<'sync'>, StringOptions<'sync'>[]>(
     _sassOptions,
     configFilepath
@@ -143,13 +159,15 @@ export function createContext(opts?: CodegenOptions | string) {
     configHash: string
     tailwindcssConfig: undefined | ReturnType<typeof buildTailwindcssConfig>
     unocssConfig: undefined | ReturnType<typeof buildUnocssConfig>
+    cva: Record<string, CvaParams[]>
   } = {
     base: undefined,
     components: undefined,
     utilities: undefined,
     tailwindcssConfig: undefined,
     unocssConfig: undefined,
-    configHash
+    configHash,
+    cva: {}
   }
   const globalPrefix = resolvePrefixOption(_globalPrefix)
   const globalVarPrefix = resolveVarPrefixOption(_globalVarPrefix)
@@ -208,7 +226,7 @@ export function createContext(opts?: CodegenOptions | string) {
     }
   })
 
-  function preprocessCss(css: string, layer?: ILayer, name?: string) {
+  function preprocessCss(css: string, layer?: ILayer, name?: string, getCvaParams?: (params?: CvaParams) => void) {
     let plugins: AcceptedPlugin[] = []
 
     if (Array.isArray(globalPostcssPlugins)) {
@@ -226,9 +244,17 @@ export function createContext(opts?: CodegenOptions | string) {
         const varPrefixerPlugin = getCssVarsPrefixerPlugin(defu(varPrefixOptions, globalVarPrefix))
         varPrefixerPlugin && plugins.push(varPrefixerPlugin)
         const prefixOptions = resolvePrefixOption(postcss?.prefix)
-        const prefixerPlugin = getPrefixerPlugin(defu(prefixOptions, globalPrefix))
+        const oo = defu(prefixOptions, globalPrefix)
+        const prefixerPlugin = getPrefixerPlugin(oo)
         prefixerPlugin && plugins.push(prefixerPlugin)
 
+        plugins.push(
+          extractCvaParamsPlugin({
+            process: getCvaParams,
+            prefix: oo.prefix,
+            selector
+          })
+        )
         if (Array.isArray(postcss?.plugins)) {
           plugins.push(...postcss.plugins)
         } else if (typeof postcss?.plugins === 'function') {
@@ -251,7 +277,10 @@ export function createContext(opts?: CodegenOptions | string) {
     const scss = root.toString()
 
     const { css } = compileScssString(scss, sassOptions)
-    const { root: cssRoot } = preprocessCss(css, layer, suffixes[0])
+    let cvaParams: CvaParams | undefined
+    const { root: cssRoot } = preprocessCss(css, layer, suffixes[0], (params) => {
+      cvaParams = params
+    })
 
     const { root: resolvedCssRoot, css: resolvedCss } = await resolveTailwindcss({
       css: cssRoot as Root,
@@ -267,6 +296,7 @@ export function createContext(opts?: CodegenOptions | string) {
       relPath,
       resolvedCssRoot: resolvedCssRoot as Root,
       scss
+      // cvaParams
     })
     return {
       root,
@@ -275,7 +305,8 @@ export function createContext(opts?: CodegenOptions | string) {
       cssRoot,
       resolvedCss,
       resolvedCssRoot,
-      cssInJs
+      cssInJs,
+      cvaParams
     }
   }
 
@@ -285,6 +316,7 @@ export function createContext(opts?: CodegenOptions | string) {
     resolvedCssRoot,
     cssInJs,
     scss
+    // cvaParams
   }: {
     relPath: string
     // scssRoot: Root
@@ -292,6 +324,7 @@ export function createContext(opts?: CodegenOptions | string) {
     cssRoot: Root
     resolvedCssRoot: Root
     cssInJs: CssInJs
+    // cvaParams?: CvaParams
   }) {
     const { cssPath, cssResolvedPath, jsPath, scssPath } = getPaths(relPath, outdir)
 
@@ -304,6 +337,15 @@ export function createContext(opts?: CodegenOptions | string) {
     // css -> js
     const data = 'module.exports = ' + JSONStringify(cssInJs)
     writeFile(jsPath, data)
+    // css -> cva
+    // if (cvaParams) {
+    //   // configFilepath
+    //   const code = generateCva({
+    //     ...globalCva,
+    //     ...cvaParams
+    //   })
+    //   writeFile(cvaPath, code)
+    // }
   }
 
   async function buildBase() {
@@ -396,6 +438,7 @@ export function createContext(opts?: CodegenOptions | string) {
         const componentHasChanged = getHash(hashPath) !== componentHashCode
         const componentCache = get(hit, componentName)
         if (isTypesChanged || componentHasChanged || !componentCache) {
+          const cvaParamsArray: CvaParams[] = []
           for (const stage of stages) {
             const suffixes = [componentName, 'defaults', stage]
             const p = suffixes.join('.')
@@ -409,6 +452,9 @@ export function createContext(opts?: CodegenOptions | string) {
                 suffixes,
                 relPath: `${layer}/${componentName}/${stage}`
               })
+              if (result.cvaParams) {
+                cvaParamsArray.unshift(result.cvaParams)
+              }
 
               set(res, `${componentName}.${stage}`, result)
             } catch (error) {
@@ -420,6 +466,7 @@ export function createContext(opts?: CodegenOptions | string) {
               throw error
             }
           }
+          set(cache, `cva.${componentName}`, cvaParamsArray)
         }
         setHash(hashPath, componentHashCode)
       }
@@ -469,17 +516,25 @@ export function createContext(opts?: CodegenOptions | string) {
     return config
   }
 
+  function buildCva() {
+    // const {} = globalCva
+    // for (const [name, cvaParams] of Object.entries(cache.cva)) {
+    // }
+  }
+
   async function build(options?: BuildOptions) {
     const {
       base: baseFlag,
       components: componentsFlag,
       config: configFlag,
-      utilities: utilitiesFlag
+      utilities: utilitiesFlag,
+      cva: cvaFlag
     } = defu<BuildOptions, BuildOptions[]>(options, {
       base: true,
       components: true,
       config: true,
-      utilities: true
+      utilities: true,
+      cva: true
     })
 
     if (baseFlag) {
@@ -515,6 +570,9 @@ export function createContext(opts?: CodegenOptions | string) {
 
       logger.success('build config finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
     }
+
+    if (cvaFlag) {
+    }
   }
 
   return {
@@ -540,7 +598,11 @@ export function createContext(opts?: CodegenOptions | string) {
       return cache.utilities
     },
     hashLru,
-    lru
+    lru,
+    get cva() {
+      return cache.cva
+    },
+    buildCva
   }
 }
 

@@ -100,6 +100,10 @@ export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOption
       },
       atMedia: {},
       selector: {}
+    },
+    cva: {
+      format: 'ts',
+      importFrom: '@icestack/cva'
     }
   }
 }

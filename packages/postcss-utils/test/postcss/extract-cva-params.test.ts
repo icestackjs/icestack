@@ -87,6 +87,13 @@ describe('extract-cva-params', () => {
       
       .btn{
         /* @base */
+        /* @base */
+        color:red;
+      }
+
+      .btn{
+        /* @base */
+        /* @base */
         color:red;
       }
     `)

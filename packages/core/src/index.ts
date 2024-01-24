@@ -554,14 +554,16 @@ export function createContext(opts?: CodegenOptions | string) {
           outputPath = path.resolve(path.dirname(configFilepath), cvaOutdir ?? 'cva', `${name}.${format ?? 'ts'}`)
           // @ts-ignore
           const o = defu(...cvaParams)
-          writeFile(
-            outputPath,
-            generateCva({
-              format,
-              importFrom,
-              ...o
-            })
-          )
+          if (o.base.length > 0 || o.compoundVariants.length > 0 || Object.keys(o.variants).length > 0) {
+            writeFile(
+              outputPath,
+              generateCva({
+                format,
+                importFrom,
+                ...o
+              })
+            )
+          }
         }
       }
     }

@@ -7,6 +7,7 @@ const schema: GetCssSchemaMethod = (opts) => {
     defaults: {
       base: css`
         ${selector} {
+          // @b
           @apply fixed bottom-0 left-0 right-0 flex w-full flex-row items-center justify-around;
           padding-bottom: env(safe-area-inset-bottom);
           & > * {
@@ -49,6 +50,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       utils: css`
         ${selector} {
           &-xs {
+            // @v size="xs"
             @apply h-10;
             & > *:where(.active) {
               @apply border-t-[1px];
@@ -58,6 +60,7 @@ const schema: GetCssSchemaMethod = (opts) => {
             }
           }
           &-sm {
+            // @v size="sm"
             @apply h-12;
             & > *:where(.active) {
               @apply border-t-2;
@@ -67,6 +70,7 @@ const schema: GetCssSchemaMethod = (opts) => {
             }
           }
           &-md {
+            // @v size="md"
             @apply h-16;
             & > *:where(.active) {
               @apply border-t-2;
@@ -76,6 +80,7 @@ const schema: GetCssSchemaMethod = (opts) => {
             }
           }
           &-lg {
+            // @v size="lg"
             @apply h-20;
             & > *:where(.active) {
               @apply border-t-4;

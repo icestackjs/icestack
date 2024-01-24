@@ -5,6 +5,7 @@ exports[`'alert' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .alert {
+          // @base
           @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
         }
       ",
@@ -26,6 +27,7 @@ exports[`'alert' options > snap 1`] = `
   "defaults": {
     "base": "
         .alert {
+          // @base
           @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
         }
       ",
@@ -140,6 +142,7 @@ exports[`'badge' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .badge {
+          // @b
           @apply inline-flex items-center justify-center transition duration-200 ease-out;
           @apply h-5 text-sm leading-5;
           width: fit-content;
@@ -154,10 +157,12 @@ exports[`'badge' options > raw snap 1`] = `
           
 
           &-ghost {
+            // @v type="ghost"
             @apply border-base-200 bg-base-200 text-base-content;
           }
 
           &-outline {
+            // @v type="outline"
             @apply border-current border-opacity-50 bg-transparent text-current;
 
             
@@ -167,21 +172,25 @@ exports[`'badge' options > raw snap 1`] = `
     "utils": "
         .badge {
           &-xs {
+            // @v size="xs"
             @apply h-3 text-xs leading-3;
             padding-left: 0.313rem;
             padding-right: 0.313rem;
           }
           &-sm {
+            // @v size="sm"
             @apply h-4 text-xs leading-4;
             padding-left: 0.438rem;
             padding-right: 0.438rem;
           }
           &-md {
+            // @v size="md"
             @apply h-5 text-sm leading-5;
             padding-left: 0.563rem;
             padding-right: 0.563rem;
           }
           &-lg {
+            // @v size="lg"
             @apply h-6 text-base leading-6;
             padding-left: 0.688rem;
             padding-right: 0.688rem;
@@ -198,6 +207,7 @@ exports[`'badge' options > snap 1`] = `
   "defaults": {
     "base": "
         .badge {
+          // @b
           @apply inline-flex items-center justify-center transition duration-200 ease-out;
           @apply h-5 text-sm leading-5;
           width: fit-content;
@@ -211,35 +221,42 @@ exports[`'badge' options > snap 1`] = `
 
           
                 &-primary {
+                  // @v type="primary"
                   @apply border-primary bg-primary text-primary-content;
                 }
               
 
                 &-success {
+                  // @v type="success"
                   @apply border-success bg-success text-success-content;
                 }
               
 
                 &-warning {
+                  // @v type="warning"
                   @apply border-warning bg-warning text-warning-content;
                 }
               
 
                 &-error {
+                  // @v type="error"
                   @apply border-error bg-error text-error-content;
                 }
               
 
                 &-neutral {
+                  // @v type="neutral"
                   @apply border-neutral bg-neutral text-neutral-content;
                 }
               
 
           &-ghost {
+            // @v type="ghost"
             @apply border-base-200 bg-base-200 text-base-content;
           }
 
           &-outline {
+            // @v type="outline"
             @apply border-current border-opacity-50 bg-transparent text-current;
 
             
@@ -273,21 +290,25 @@ exports[`'badge' options > snap 1`] = `
     "utils": "
         .badge {
           &-xs {
+            // @v size="xs"
             @apply h-3 text-xs leading-3;
             padding-left: 0.313rem;
             padding-right: 0.313rem;
           }
           &-sm {
+            // @v size="sm"
             @apply h-4 text-xs leading-4;
             padding-left: 0.438rem;
             padding-right: 0.438rem;
           }
           &-md {
+            // @v size="md"
             @apply h-5 text-sm leading-5;
             padding-left: 0.563rem;
             padding-right: 0.563rem;
           }
           &-lg {
+            // @v size="lg"
             @apply h-6 text-base leading-6;
             padding-left: 0.688rem;
             padding-right: 0.688rem;

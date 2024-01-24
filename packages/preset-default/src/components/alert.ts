@@ -24,6 +24,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       `,
       base: css`
         ${selector} {
+          // @base
           @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
         }
       `

@@ -90,7 +90,6 @@ const schema: GetCssSchemaMethod = (opts) => {
               .map((type) => {
                 return css`
                   &${selector}-${type} {
-                    // @v type="${type}"
                     @apply text-${type};
                     &:hover,
                     &${selector}-hover {

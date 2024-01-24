@@ -48,10 +48,10 @@ export function generateIndexCode(basenames: string[], type: 'components' | 'uti
 function makeVariants(variants: Record<string, Record<string, string[]>>) {
   const properties = Object.entries(variants).map(([key, value]) => {
     return t.objectProperty(
-      t.identifier(key),
+      t.stringLiteral(key),
       t.objectExpression(
         Object.entries(value).map(([k, v]) => {
-          return t.objectProperty(t.identifier(k), t.arrayExpression(v.map((s) => t.stringLiteral(s))))
+          return t.objectProperty(t.stringLiteral(k), t.arrayExpression(v.map((s) => t.stringLiteral(s))))
         })
       )
     )
@@ -69,7 +69,7 @@ function makeCompoundVariants(compoundVariants: Record<string, string | string[]
             v = [v]
           }
           return t.objectProperty(
-            t.identifier(k),
+            t.stringLiteral(k),
             t.arrayExpression(
               v.map((x) => {
                 return t.stringLiteral(x)
@@ -85,7 +85,7 @@ function makeCompoundVariants(compoundVariants: Record<string, string | string[]
 function makeDefaultVariants(defaultVariants: Record<string, string>) {
   return t.objectExpression(
     Object.entries(defaultVariants).map(([key, value]) => {
-      return t.objectProperty(t.identifier(key), t.stringLiteral(value))
+      return t.objectProperty(t.stringLiteral(key), t.stringLiteral(value))
     })
   )
 }

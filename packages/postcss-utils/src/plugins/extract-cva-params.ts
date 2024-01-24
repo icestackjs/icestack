@@ -133,18 +133,25 @@ export interface CvaParams {
   defaultVariants: Record<string, string>
 }
 
+export interface CvaParamsSet {
+  base: Set<string>
+  variants: Record<string, Record<string, Set<string>>>
+  compoundVariants: Record<string, string | Set<string>>[]
+  defaultVariants: Record<string, string>
+}
+
 const cvaSymbol = Symbol('cva')
 
-// @ts-ignore
-const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (res?: CvaParams) => void }> = ({ selector, process, prefix: _prefix }) => {
-  const result: CvaParams = {
-    base: [],
+const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (res?: CvaParams) => void }> = (opts) => {
+  const { process, prefix: _prefix } = opts ?? {}
+  const result: CvaParamsSet = {
+    base: new Set<string>(),
     variants: {},
     compoundVariants: [],
     defaultVariants: {}
   }
   const prefix = _prefix ?? ''
-  const hashMap = new Map<string, object>()
+  const hashMap = new Map<string, CvaParamsSet['compoundVariants'][number]>()
   const weakMap = new WeakMap()
   return {
     postcssPlugin: 'postcss-icestack-extract-cva-params-plugin',
@@ -180,7 +187,7 @@ const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (re
               value = prefix + value
               switch (type) {
                 case 'base': {
-                  result.base.push(value)
+                  result.base.add(value)
 
                   break
                 }
@@ -189,10 +196,12 @@ const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (re
                     const p = `${p1}.${p2}`
 
                     const arr = get(result.variants, p)
-                    if (Array.isArray(arr)) {
-                      arr.push(value)
+                    if (arr instanceof Set) {
+                      arr.add(value)
                     } else {
-                      set(result.variants, p, [value])
+                      const st = new Set<string>()
+                      st.add(value)
+                      set(result.variants, p, st)
                     }
                   }
 
@@ -201,21 +210,25 @@ const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (re
                 case 'compoundVariant': {
                   const item = hashMap.get(hashCode)
                   if (item) {
-                    hashMap.set(hashCode, {
-                      ...item,
-                      // @ts-ignore
-                      class: [...item.class, value]
-                    })
+                    // @ts-ignore
+                    item.class?.add(value)
+                    // hashMap.set(hashCode, {
+                    //   ...item,
+                    //   // @ts-ignore
+                    //   class: [...item.class, value]
+                    // })
                   } else {
+                    const set = new Set<string>()
+                    set.add(value)
                     hashMap.set(
                       hashCode,
-                      entries.reduce<Record<string, string | string[]>>(
+                      entries.reduce<Record<string, string | Set<string>>>(
                         (acc, [k, { value }]) => {
                           acc[k] = value
                           return acc
                         },
                         {
-                          class: [value]
+                          class: set
                         }
                       )
                     )
@@ -236,9 +249,25 @@ const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (re
       }
     },
     OnceExit() {
-      // @ts-ignore
       result.compoundVariants = [...hashMap.values()]
-      process?.(result)
+
+      process?.({
+        base: [...result.base],
+        compoundVariants: result.compoundVariants.map((x) => {
+          return {
+            ...x,
+            class: [...x.class]
+          }
+        }),
+        defaultVariants: result.defaultVariants,
+        variants: Object.entries(result.variants).reduce<CvaParams['variants']>((acc, [k, v]) => {
+          acc[k] = Object.entries(v).reduce<Record<string, string[]>>((bcc, [k1, v1]) => {
+            bcc[k1] = [...v1]
+            return bcc
+          }, {})
+          return acc
+        }, {})
+      })
     }
   }
 }

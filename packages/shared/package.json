@@ -54,7 +54,8 @@
     "@icestack/types": "workspace:^",
     "defu": "^6.1.4",
     "lodash": "^4.17.21",
-    "merge": "^2.1.1"
+    "merge": "^2.1.1",
+    "object-hash": "^3.0.0"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
@@ -67,6 +68,7 @@
     "url": "https://github.com/sonofmagic/icestack"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.202"
+    "@types/lodash": "^4.14.202",
+    "@types/object-hash": "^3.0.6"
   }
 }

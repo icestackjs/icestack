@@ -58,7 +58,8 @@ exports[`options merge > merge case 1 1`] = `
 {
   "button": {
     "base": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
@@ -126,7 +127,8 @@ exports[`options merge > merge case 1 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
   display: inline-flex;
   height: 3rem;
   min-height: 3rem;
@@ -174,6 +176,7 @@ exports[`options merge > merge case 1 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
@@ -203,9 +206,26 @@ exports[`options merge > merge case 1 1`] = `
     },
     "styled": {
       "css": "@charset "UTF-8";
+/* @base*/
 .btn {
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
@@ -213,7 +233,7 @@ exports[`options merge > merge case 1 1`] = `
 .btn:hover, .btn.btn-hover {
   @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-hover {
+.btn:active, .btn.btn-active {
   @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
@@ -308,6 +328,14 @@ exports[`options merge > merge case 1 1`] = `
 }
 .btn-outline {
   @apply border-current bg-transparent shadow-none text-base-content;
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover, .btn-outline.btn-hover {
   @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
@@ -802,7 +830,7 @@ exports[`options merge > merge case 1 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%；",
         },
-        ".btn:active,.btn.btn-hover": {
+        ".btn:active,.btn.btn-active": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
@@ -823,6 +851,7 @@ exports[`options merge > merge case 1 1`] = `
       },
       "cssRoot": null,
       "resolvedCss": "@charset "UTF-8";
+/* @base*/
 .btn{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
@@ -833,6 +862,22 @@ exports[`options merge > merge case 1 1`] = `
   text-decoration-line: none;
   outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible,.btn.btn-focus-visible{
   outline-style: solid;
@@ -845,7 +890,7 @@ exports[`options merge > merge case 1 1`] = `
   --tw-bg-opacity: 1;
   background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-hover{
+.btn:active,.btn.btn-active{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -1067,6 +1112,14 @@ exports[`options merge > merge case 1 1`] = `
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
@@ -1254,19 +1307,24 @@ exports[`options merge > merge case 1 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
+          /* @v.focus-visible=true*/
           &:focus-visible,&.btn-focus-visible {
             @apply outline outline-2 outline-offset-2;
           }
+          /* @v.hover=true*/
           &:hover,&.btn-hover {
             @apply border-ant-neutral-300 bg-ant-neutral-300;
           }
-          &:active,&.btn-hover {
+          /* @v.active=true*/
+          &:active,&.btn-active {
             @apply border-ant-neutral-500 bg-ant-neutral-500;
           }
           
+                /* @v.type="primary"*/
                 &-primary {
                   @apply border-primary bg-primary text-primary-content outline-primary;
                   &:hover,&.btn-hover {
@@ -1278,6 +1336,7 @@ exports[`options merge > merge case 1 1`] = `
                 }
               
 
+                /* @v.type="success"*/
                 &-success {
                   @apply border-success bg-success text-success-content outline-success;
                   &:hover,&.btn-hover {
@@ -1289,6 +1348,7 @@ exports[`options merge > merge case 1 1`] = `
                 }
               
 
+                /* @v.type="warning"*/
                 &-warning {
                   @apply border-warning bg-warning text-warning-content outline-warning;
                   &:hover,&.btn-hover {
@@ -1300,6 +1360,7 @@ exports[`options merge > merge case 1 1`] = `
                 }
               
 
+                /* @v.type="error"*/
                 &-error {
                   @apply border-error bg-error text-error-content outline-error;
                   &:hover,&.btn-hover {
@@ -1311,6 +1372,7 @@ exports[`options merge > merge case 1 1`] = `
                 }
               
 
+                /* @v.type="neutral"*/
                 &-neutral {
                   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
                   &:hover,&.btn-hover {
@@ -1322,6 +1384,7 @@ exports[`options merge > merge case 1 1`] = `
                 }
               
 
+                /* @v.type="secondary"*/
                 &-secondary {
                   @apply border-secondary bg-secondary text-secondary-content outline-secondary;
                   &:hover,&.btn-hover {
@@ -1333,6 +1396,7 @@ exports[`options merge > merge case 1 1`] = `
                 }
               
 
+                /* @v.type="accent"*/
                 &-accent {
                   @apply border-accent bg-accent text-accent-content outline-accent;
                   &:hover,&.btn-hover {
@@ -1344,6 +1408,7 @@ exports[`options merge > merge case 1 1`] = `
                 }
               
 
+                /* @v.type="info"*/
                 &-info {
                   @apply border-info bg-info text-info-content outline-info;
                   &:hover,&.btn-hover {
@@ -1354,27 +1419,28 @@ exports[`options merge > merge case 1 1`] = `
                   }
                 }
               
-
+          /* @v.glass=true*/
           &.glass {
             @apply shadow-none outline-current;
             &:active,&.btn-active {
               --glass-opacity: 25%； --glass-border-opacity: 15%；;
             }
           }
-
+          /* @v.ghost=true*/
           &-ghost {
             @apply border border-transparent bg-transparent text-current shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-opacity-0 bg-base-content bg-opacity-20;
             }
           }
-
+          /* @v.link=true*/
           &-link {
             @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-transparent bg-transparent underline;
             }
           }
+          /* @v.outline=true*/
           &-outline {
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,&.btn-hover {
@@ -1384,6 +1450,7 @@ exports[`options merge > merge case 1 1`] = `
               @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
             }
             
+                  /* @v.type="primary"*/
                   &.btn-primary {
                     @apply text-primary;
                     &:hover,&.btn-hover {
@@ -1395,6 +1462,7 @@ exports[`options merge > merge case 1 1`] = `
                   }
                 
 
+                  /* @v.type="success"*/
                   &.btn-success {
                     @apply text-success;
                     &:hover,&.btn-hover {
@@ -1406,6 +1474,7 @@ exports[`options merge > merge case 1 1`] = `
                   }
                 
 
+                  /* @v.type="warning"*/
                   &.btn-warning {
                     @apply text-warning;
                     &:hover,&.btn-hover {
@@ -1417,6 +1486,7 @@ exports[`options merge > merge case 1 1`] = `
                   }
                 
 
+                  /* @v.type="error"*/
                   &.btn-error {
                     @apply text-error;
                     &:hover,&.btn-hover {
@@ -1428,6 +1498,7 @@ exports[`options merge > merge case 1 1`] = `
                   }
                 
 
+                  /* @v.type="neutral"*/
                   &.btn-neutral {
                     @apply text-neutral;
                     &:hover,&.btn-hover {
@@ -1439,6 +1510,7 @@ exports[`options merge > merge case 1 1`] = `
                   }
                 
 
+                  /* @v.type="secondary"*/
                   &.btn-secondary {
                     @apply text-secondary;
                     &:hover,&.btn-hover {
@@ -1450,6 +1522,7 @@ exports[`options merge > merge case 1 1`] = `
                   }
                 
 
+                  /* @v.type="accent"*/
                   &.btn-accent {
                     @apply text-accent;
                     &:hover,&.btn-hover {
@@ -1461,6 +1534,7 @@ exports[`options merge > merge case 1 1`] = `
                   }
                 
 
+                  /* @v.type="info"*/
                   &.btn-info {
                     @apply text-info;
                     &:hover,&.btn-hover {
@@ -1473,6 +1547,7 @@ exports[`options merge > merge case 1 1`] = `
                 
           }
 
+          /* @v.disabled=true*/
           &.btn-disabled,&[disabled],&:disabled {
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
@@ -1480,7 +1555,16 @@ exports[`options merge > merge case 1 1`] = `
       ",
     },
     "utils": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -1620,7 +1704,16 @@ exports[`options merge > merge case 1 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -1708,29 +1801,37 @@ exports[`options merge > merge case 1 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
+          /* @v.size="xs"*/
           &-xs {
             @apply h-6 min-h-[1.5rem] px-2;
             font-size: 0.75rem;
           }
+          /* @v.size="sm"*/
           &-sm {
             @apply h-8 min-h-[2rem] px-3;
             font-size: 0.875rem;
           }
+          /* @v.size="md"*/
           &-md {
             @apply h-12 min-h-[3rem] px-4;
             font-size: 0.875rem;
           }
+          /* @v.size="lg"*/
           &-lg {
             @apply h-16 min-h-[4rem] px-6;
             font-size: 1.125rem;
           }
+          /* @v.size="wide"*/
           &-wide {
             @apply w-64;
           }
+          /* @v.size="block"*/
           &-block {
             @apply w-full;
           }
+          /* @v.shape="square"*/
           &-square {
             &:where(.btn-xs) {
               @apply h-6 w-6 p-0;
@@ -1745,6 +1846,7 @@ exports[`options merge > merge case 1 1`] = `
               @apply h-16 w-16 p-0;
             }
           }
+          /* @v.shape="circle"*/
           &-circle {
             &:where(.btn-xs) {
               @apply h-6 w-6 rounded-full p-0;
@@ -1774,7 +1876,8 @@ exports[`options merge > merge case 2 1`] = `
 {
   "button": {
     "base": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
@@ -1842,7 +1945,8 @@ exports[`options merge > merge case 2 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
   display: inline-flex;
   height: 3rem;
   min-height: 3rem;
@@ -1890,6 +1994,7 @@ exports[`options merge > merge case 2 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
@@ -1919,9 +2024,26 @@ exports[`options merge > merge case 2 1`] = `
     },
     "styled": {
       "css": "@charset "UTF-8";
+/* @base*/
 .btn {
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
@@ -1929,7 +2051,7 @@ exports[`options merge > merge case 2 1`] = `
 .btn:hover, .btn.btn-hover {
   @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-hover {
+.btn:active, .btn.btn-active {
   @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
@@ -2024,6 +2146,14 @@ exports[`options merge > merge case 2 1`] = `
 }
 .btn-outline {
   @apply border-current bg-transparent shadow-none text-base-content;
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover, .btn-outline.btn-hover {
   @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
@@ -2518,7 +2648,7 @@ exports[`options merge > merge case 2 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%；",
         },
-        ".btn:active,.btn.btn-hover": {
+        ".btn:active,.btn.btn-active": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
@@ -2539,6 +2669,7 @@ exports[`options merge > merge case 2 1`] = `
       },
       "cssRoot": null,
       "resolvedCss": "@charset "UTF-8";
+/* @base*/
 .btn{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
@@ -2549,6 +2680,22 @@ exports[`options merge > merge case 2 1`] = `
   text-decoration-line: none;
   outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible,.btn.btn-focus-visible{
   outline-style: solid;
@@ -2561,7 +2708,7 @@ exports[`options merge > merge case 2 1`] = `
   --tw-bg-opacity: 1;
   background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-hover{
+.btn:active,.btn.btn-active{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -2783,6 +2930,14 @@ exports[`options merge > merge case 2 1`] = `
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
@@ -2970,19 +3125,24 @@ exports[`options merge > merge case 2 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
+          /* @v.focus-visible=true*/
           &:focus-visible,&.btn-focus-visible {
             @apply outline outline-2 outline-offset-2;
           }
+          /* @v.hover=true*/
           &:hover,&.btn-hover {
             @apply border-ant-neutral-300 bg-ant-neutral-300;
           }
-          &:active,&.btn-hover {
+          /* @v.active=true*/
+          &:active,&.btn-active {
             @apply border-ant-neutral-500 bg-ant-neutral-500;
           }
           
+                /* @v.type="primary"*/
                 &-primary {
                   @apply border-primary bg-primary text-primary-content outline-primary;
                   &:hover,&.btn-hover {
@@ -2994,6 +3154,7 @@ exports[`options merge > merge case 2 1`] = `
                 }
               
 
+                /* @v.type="success"*/
                 &-success {
                   @apply border-success bg-success text-success-content outline-success;
                   &:hover,&.btn-hover {
@@ -3005,6 +3166,7 @@ exports[`options merge > merge case 2 1`] = `
                 }
               
 
+                /* @v.type="warning"*/
                 &-warning {
                   @apply border-warning bg-warning text-warning-content outline-warning;
                   &:hover,&.btn-hover {
@@ -3016,6 +3178,7 @@ exports[`options merge > merge case 2 1`] = `
                 }
               
 
+                /* @v.type="error"*/
                 &-error {
                   @apply border-error bg-error text-error-content outline-error;
                   &:hover,&.btn-hover {
@@ -3027,6 +3190,7 @@ exports[`options merge > merge case 2 1`] = `
                 }
               
 
+                /* @v.type="neutral"*/
                 &-neutral {
                   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
                   &:hover,&.btn-hover {
@@ -3038,6 +3202,7 @@ exports[`options merge > merge case 2 1`] = `
                 }
               
 
+                /* @v.type="secondary"*/
                 &-secondary {
                   @apply border-secondary bg-secondary text-secondary-content outline-secondary;
                   &:hover,&.btn-hover {
@@ -3049,6 +3214,7 @@ exports[`options merge > merge case 2 1`] = `
                 }
               
 
+                /* @v.type="accent"*/
                 &-accent {
                   @apply border-accent bg-accent text-accent-content outline-accent;
                   &:hover,&.btn-hover {
@@ -3060,6 +3226,7 @@ exports[`options merge > merge case 2 1`] = `
                 }
               
 
+                /* @v.type="info"*/
                 &-info {
                   @apply border-info bg-info text-info-content outline-info;
                   &:hover,&.btn-hover {
@@ -3070,27 +3237,28 @@ exports[`options merge > merge case 2 1`] = `
                   }
                 }
               
-
+          /* @v.glass=true*/
           &.glass {
             @apply shadow-none outline-current;
             &:active,&.btn-active {
               --glass-opacity: 25%； --glass-border-opacity: 15%；;
             }
           }
-
+          /* @v.ghost=true*/
           &-ghost {
             @apply border border-transparent bg-transparent text-current shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-opacity-0 bg-base-content bg-opacity-20;
             }
           }
-
+          /* @v.link=true*/
           &-link {
             @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-transparent bg-transparent underline;
             }
           }
+          /* @v.outline=true*/
           &-outline {
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,&.btn-hover {
@@ -3100,6 +3268,7 @@ exports[`options merge > merge case 2 1`] = `
               @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
             }
             
+                  /* @v.type="primary"*/
                   &.btn-primary {
                     @apply text-primary;
                     &:hover,&.btn-hover {
@@ -3111,6 +3280,7 @@ exports[`options merge > merge case 2 1`] = `
                   }
                 
 
+                  /* @v.type="success"*/
                   &.btn-success {
                     @apply text-success;
                     &:hover,&.btn-hover {
@@ -3122,6 +3292,7 @@ exports[`options merge > merge case 2 1`] = `
                   }
                 
 
+                  /* @v.type="warning"*/
                   &.btn-warning {
                     @apply text-warning;
                     &:hover,&.btn-hover {
@@ -3133,6 +3304,7 @@ exports[`options merge > merge case 2 1`] = `
                   }
                 
 
+                  /* @v.type="error"*/
                   &.btn-error {
                     @apply text-error;
                     &:hover,&.btn-hover {
@@ -3144,6 +3316,7 @@ exports[`options merge > merge case 2 1`] = `
                   }
                 
 
+                  /* @v.type="neutral"*/
                   &.btn-neutral {
                     @apply text-neutral;
                     &:hover,&.btn-hover {
@@ -3155,6 +3328,7 @@ exports[`options merge > merge case 2 1`] = `
                   }
                 
 
+                  /* @v.type="secondary"*/
                   &.btn-secondary {
                     @apply text-secondary;
                     &:hover,&.btn-hover {
@@ -3166,6 +3340,7 @@ exports[`options merge > merge case 2 1`] = `
                   }
                 
 
+                  /* @v.type="accent"*/
                   &.btn-accent {
                     @apply text-accent;
                     &:hover,&.btn-hover {
@@ -3177,6 +3352,7 @@ exports[`options merge > merge case 2 1`] = `
                   }
                 
 
+                  /* @v.type="info"*/
                   &.btn-info {
                     @apply text-info;
                     &:hover,&.btn-hover {
@@ -3189,6 +3365,7 @@ exports[`options merge > merge case 2 1`] = `
                 
           }
 
+          /* @v.disabled=true*/
           &.btn-disabled,&[disabled],&:disabled {
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
@@ -3196,7 +3373,16 @@ exports[`options merge > merge case 2 1`] = `
       ",
     },
     "utils": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -3336,7 +3522,16 @@ exports[`options merge > merge case 2 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -3424,29 +3619,37 @@ exports[`options merge > merge case 2 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
+          /* @v.size="xs"*/
           &-xs {
             @apply h-6 min-h-[1.5rem] px-2;
             font-size: 0.75rem;
           }
+          /* @v.size="sm"*/
           &-sm {
             @apply h-8 min-h-[2rem] px-3;
             font-size: 0.875rem;
           }
+          /* @v.size="md"*/
           &-md {
             @apply h-12 min-h-[3rem] px-4;
             font-size: 0.875rem;
           }
+          /* @v.size="lg"*/
           &-lg {
             @apply h-16 min-h-[4rem] px-6;
             font-size: 1.125rem;
           }
+          /* @v.size="wide"*/
           &-wide {
             @apply w-64;
           }
+          /* @v.size="block"*/
           &-block {
             @apply w-full;
           }
+          /* @v.shape="square"*/
           &-square {
             &:where(.btn-xs) {
               @apply h-6 w-6 p-0;
@@ -3461,6 +3664,7 @@ exports[`options merge > merge case 2 1`] = `
               @apply h-16 w-16 p-0;
             }
           }
+          /* @v.shape="circle"*/
           &-circle {
             &:where(.btn-xs) {
               @apply h-6 w-6 rounded-full p-0;
@@ -3490,7 +3694,8 @@ exports[`options merge > merge case 3 1`] = `
 {
   "button": {
     "base": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
@@ -3558,7 +3763,8 @@ exports[`options merge > merge case 3 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
   display: inline-flex;
   height: 3rem;
   min-height: 3rem;
@@ -3606,6 +3812,7 @@ exports[`options merge > merge case 3 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
@@ -3635,9 +3842,26 @@ exports[`options merge > merge case 3 1`] = `
     },
     "styled": {
       "css": "@charset "UTF-8";
+/* @base*/
 .btn {
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
@@ -3645,7 +3869,7 @@ exports[`options merge > merge case 3 1`] = `
 .btn:hover, .btn.btn-hover {
   @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-hover {
+.btn:active, .btn.btn-active {
   @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
@@ -3740,6 +3964,14 @@ exports[`options merge > merge case 3 1`] = `
 }
 .btn-outline {
   @apply border-current bg-transparent shadow-none text-base-content;
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover, .btn-outline.btn-hover {
   @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
@@ -4234,7 +4466,7 @@ exports[`options merge > merge case 3 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%；",
         },
-        ".btn:active,.btn.btn-hover": {
+        ".btn:active,.btn.btn-active": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
@@ -4255,6 +4487,7 @@ exports[`options merge > merge case 3 1`] = `
       },
       "cssRoot": null,
       "resolvedCss": "@charset "UTF-8";
+/* @base*/
 .btn{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
@@ -4265,6 +4498,22 @@ exports[`options merge > merge case 3 1`] = `
   text-decoration-line: none;
   outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible,.btn.btn-focus-visible{
   outline-style: solid;
@@ -4277,7 +4526,7 @@ exports[`options merge > merge case 3 1`] = `
   --tw-bg-opacity: 1;
   background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-hover{
+.btn:active,.btn.btn-active{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -4499,6 +4748,14 @@ exports[`options merge > merge case 3 1`] = `
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
@@ -4686,19 +4943,24 @@ exports[`options merge > merge case 3 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
+          /* @v.focus-visible=true*/
           &:focus-visible,&.btn-focus-visible {
             @apply outline outline-2 outline-offset-2;
           }
+          /* @v.hover=true*/
           &:hover,&.btn-hover {
             @apply border-ant-neutral-300 bg-ant-neutral-300;
           }
-          &:active,&.btn-hover {
+          /* @v.active=true*/
+          &:active,&.btn-active {
             @apply border-ant-neutral-500 bg-ant-neutral-500;
           }
           
+                /* @v.type="primary"*/
                 &-primary {
                   @apply border-primary bg-primary text-primary-content outline-primary;
                   &:hover,&.btn-hover {
@@ -4710,6 +4972,7 @@ exports[`options merge > merge case 3 1`] = `
                 }
               
 
+                /* @v.type="success"*/
                 &-success {
                   @apply border-success bg-success text-success-content outline-success;
                   &:hover,&.btn-hover {
@@ -4721,6 +4984,7 @@ exports[`options merge > merge case 3 1`] = `
                 }
               
 
+                /* @v.type="warning"*/
                 &-warning {
                   @apply border-warning bg-warning text-warning-content outline-warning;
                   &:hover,&.btn-hover {
@@ -4732,6 +4996,7 @@ exports[`options merge > merge case 3 1`] = `
                 }
               
 
+                /* @v.type="error"*/
                 &-error {
                   @apply border-error bg-error text-error-content outline-error;
                   &:hover,&.btn-hover {
@@ -4743,6 +5008,7 @@ exports[`options merge > merge case 3 1`] = `
                 }
               
 
+                /* @v.type="neutral"*/
                 &-neutral {
                   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
                   &:hover,&.btn-hover {
@@ -4754,6 +5020,7 @@ exports[`options merge > merge case 3 1`] = `
                 }
               
 
+                /* @v.type="secondary"*/
                 &-secondary {
                   @apply border-secondary bg-secondary text-secondary-content outline-secondary;
                   &:hover,&.btn-hover {
@@ -4765,6 +5032,7 @@ exports[`options merge > merge case 3 1`] = `
                 }
               
 
+                /* @v.type="accent"*/
                 &-accent {
                   @apply border-accent bg-accent text-accent-content outline-accent;
                   &:hover,&.btn-hover {
@@ -4776,6 +5044,7 @@ exports[`options merge > merge case 3 1`] = `
                 }
               
 
+                /* @v.type="info"*/
                 &-info {
                   @apply border-info bg-info text-info-content outline-info;
                   &:hover,&.btn-hover {
@@ -4786,27 +5055,28 @@ exports[`options merge > merge case 3 1`] = `
                   }
                 }
               
-
+          /* @v.glass=true*/
           &.glass {
             @apply shadow-none outline-current;
             &:active,&.btn-active {
               --glass-opacity: 25%； --glass-border-opacity: 15%；;
             }
           }
-
+          /* @v.ghost=true*/
           &-ghost {
             @apply border border-transparent bg-transparent text-current shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-opacity-0 bg-base-content bg-opacity-20;
             }
           }
-
+          /* @v.link=true*/
           &-link {
             @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-transparent bg-transparent underline;
             }
           }
+          /* @v.outline=true*/
           &-outline {
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,&.btn-hover {
@@ -4816,6 +5086,7 @@ exports[`options merge > merge case 3 1`] = `
               @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
             }
             
+                  /* @v.type="primary"*/
                   &.btn-primary {
                     @apply text-primary;
                     &:hover,&.btn-hover {
@@ -4827,6 +5098,7 @@ exports[`options merge > merge case 3 1`] = `
                   }
                 
 
+                  /* @v.type="success"*/
                   &.btn-success {
                     @apply text-success;
                     &:hover,&.btn-hover {
@@ -4838,6 +5110,7 @@ exports[`options merge > merge case 3 1`] = `
                   }
                 
 
+                  /* @v.type="warning"*/
                   &.btn-warning {
                     @apply text-warning;
                     &:hover,&.btn-hover {
@@ -4849,6 +5122,7 @@ exports[`options merge > merge case 3 1`] = `
                   }
                 
 
+                  /* @v.type="error"*/
                   &.btn-error {
                     @apply text-error;
                     &:hover,&.btn-hover {
@@ -4860,6 +5134,7 @@ exports[`options merge > merge case 3 1`] = `
                   }
                 
 
+                  /* @v.type="neutral"*/
                   &.btn-neutral {
                     @apply text-neutral;
                     &:hover,&.btn-hover {
@@ -4871,6 +5146,7 @@ exports[`options merge > merge case 3 1`] = `
                   }
                 
 
+                  /* @v.type="secondary"*/
                   &.btn-secondary {
                     @apply text-secondary;
                     &:hover,&.btn-hover {
@@ -4882,6 +5158,7 @@ exports[`options merge > merge case 3 1`] = `
                   }
                 
 
+                  /* @v.type="accent"*/
                   &.btn-accent {
                     @apply text-accent;
                     &:hover,&.btn-hover {
@@ -4893,6 +5170,7 @@ exports[`options merge > merge case 3 1`] = `
                   }
                 
 
+                  /* @v.type="info"*/
                   &.btn-info {
                     @apply text-info;
                     &:hover,&.btn-hover {
@@ -4905,6 +5183,7 @@ exports[`options merge > merge case 3 1`] = `
                 
           }
 
+          /* @v.disabled=true*/
           &.btn-disabled,&[disabled],&:disabled {
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
@@ -4912,7 +5191,16 @@ exports[`options merge > merge case 3 1`] = `
       ",
     },
     "utils": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -5052,7 +5340,16 @@ exports[`options merge > merge case 3 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -5140,29 +5437,37 @@ exports[`options merge > merge case 3 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
+          /* @v.size="xs"*/
           &-xs {
             @apply h-6 min-h-[1.5rem] px-2;
             font-size: 0.75rem;
           }
+          /* @v.size="sm"*/
           &-sm {
             @apply h-8 min-h-[2rem] px-3;
             font-size: 0.875rem;
           }
+          /* @v.size="md"*/
           &-md {
             @apply h-12 min-h-[3rem] px-4;
             font-size: 0.875rem;
           }
+          /* @v.size="lg"*/
           &-lg {
             @apply h-16 min-h-[4rem] px-6;
             font-size: 1.125rem;
           }
+          /* @v.size="wide"*/
           &-wide {
             @apply w-64;
           }
+          /* @v.size="block"*/
           &-block {
             @apply w-full;
           }
+          /* @v.shape="square"*/
           &-square {
             &:where(.btn-xs) {
               @apply h-6 w-6 p-0;
@@ -5177,6 +5482,7 @@ exports[`options merge > merge case 3 1`] = `
               @apply h-16 w-16 p-0;
             }
           }
+          /* @v.shape="circle"*/
           &-circle {
             &:where(.btn-xs) {
               @apply h-6 w-6 rounded-full p-0;
@@ -5206,7 +5512,8 @@ exports[`options merge > merge case 4 1`] = `
 {
   "button": {
     "base": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
@@ -5274,7 +5581,8 @@ exports[`options merge > merge case 4 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
   display: inline-flex;
   height: 3rem;
   min-height: 3rem;
@@ -5322,6 +5630,7 @@ exports[`options merge > merge case 4 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
@@ -5351,9 +5660,26 @@ exports[`options merge > merge case 4 1`] = `
     },
     "styled": {
       "css": "@charset "UTF-8";
+/* @base*/
 .btn {
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
@@ -5361,7 +5687,7 @@ exports[`options merge > merge case 4 1`] = `
 .btn:hover, .btn.btn-hover {
   @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-hover {
+.btn:active, .btn.btn-active {
   @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
@@ -5456,6 +5782,14 @@ exports[`options merge > merge case 4 1`] = `
 }
 .btn-outline {
   @apply border-current bg-transparent shadow-none text-base-content;
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover, .btn-outline.btn-hover {
   @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
@@ -5950,7 +6284,7 @@ exports[`options merge > merge case 4 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%；",
         },
-        ".btn:active,.btn.btn-hover": {
+        ".btn:active,.btn.btn-active": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
@@ -5971,6 +6305,7 @@ exports[`options merge > merge case 4 1`] = `
       },
       "cssRoot": null,
       "resolvedCss": "@charset "UTF-8";
+/* @base*/
 .btn{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
@@ -5981,6 +6316,22 @@ exports[`options merge > merge case 4 1`] = `
   text-decoration-line: none;
   outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible,.btn.btn-focus-visible{
   outline-style: solid;
@@ -5993,7 +6344,7 @@ exports[`options merge > merge case 4 1`] = `
   --tw-bg-opacity: 1;
   background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-hover{
+.btn:active,.btn.btn-active{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -6215,6 +6566,14 @@ exports[`options merge > merge case 4 1`] = `
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
@@ -6402,19 +6761,24 @@ exports[`options merge > merge case 4 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
+          /* @v.focus-visible=true*/
           &:focus-visible,&.btn-focus-visible {
             @apply outline outline-2 outline-offset-2;
           }
+          /* @v.hover=true*/
           &:hover,&.btn-hover {
             @apply border-ant-neutral-300 bg-ant-neutral-300;
           }
-          &:active,&.btn-hover {
+          /* @v.active=true*/
+          &:active,&.btn-active {
             @apply border-ant-neutral-500 bg-ant-neutral-500;
           }
           
+                /* @v.type="primary"*/
                 &-primary {
                   @apply border-primary bg-primary text-primary-content outline-primary;
                   &:hover,&.btn-hover {
@@ -6426,6 +6790,7 @@ exports[`options merge > merge case 4 1`] = `
                 }
               
 
+                /* @v.type="success"*/
                 &-success {
                   @apply border-success bg-success text-success-content outline-success;
                   &:hover,&.btn-hover {
@@ -6437,6 +6802,7 @@ exports[`options merge > merge case 4 1`] = `
                 }
               
 
+                /* @v.type="warning"*/
                 &-warning {
                   @apply border-warning bg-warning text-warning-content outline-warning;
                   &:hover,&.btn-hover {
@@ -6448,6 +6814,7 @@ exports[`options merge > merge case 4 1`] = `
                 }
               
 
+                /* @v.type="error"*/
                 &-error {
                   @apply border-error bg-error text-error-content outline-error;
                   &:hover,&.btn-hover {
@@ -6459,6 +6826,7 @@ exports[`options merge > merge case 4 1`] = `
                 }
               
 
+                /* @v.type="neutral"*/
                 &-neutral {
                   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
                   &:hover,&.btn-hover {
@@ -6470,6 +6838,7 @@ exports[`options merge > merge case 4 1`] = `
                 }
               
 
+                /* @v.type="secondary"*/
                 &-secondary {
                   @apply border-secondary bg-secondary text-secondary-content outline-secondary;
                   &:hover,&.btn-hover {
@@ -6481,6 +6850,7 @@ exports[`options merge > merge case 4 1`] = `
                 }
               
 
+                /* @v.type="accent"*/
                 &-accent {
                   @apply border-accent bg-accent text-accent-content outline-accent;
                   &:hover,&.btn-hover {
@@ -6492,6 +6862,7 @@ exports[`options merge > merge case 4 1`] = `
                 }
               
 
+                /* @v.type="info"*/
                 &-info {
                   @apply border-info bg-info text-info-content outline-info;
                   &:hover,&.btn-hover {
@@ -6502,27 +6873,28 @@ exports[`options merge > merge case 4 1`] = `
                   }
                 }
               
-
+          /* @v.glass=true*/
           &.glass {
             @apply shadow-none outline-current;
             &:active,&.btn-active {
               --glass-opacity: 25%； --glass-border-opacity: 15%；;
             }
           }
-
+          /* @v.ghost=true*/
           &-ghost {
             @apply border border-transparent bg-transparent text-current shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-opacity-0 bg-base-content bg-opacity-20;
             }
           }
-
+          /* @v.link=true*/
           &-link {
             @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-transparent bg-transparent underline;
             }
           }
+          /* @v.outline=true*/
           &-outline {
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,&.btn-hover {
@@ -6532,6 +6904,7 @@ exports[`options merge > merge case 4 1`] = `
               @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
             }
             
+                  /* @v.type="primary"*/
                   &.btn-primary {
                     @apply text-primary;
                     &:hover,&.btn-hover {
@@ -6543,6 +6916,7 @@ exports[`options merge > merge case 4 1`] = `
                   }
                 
 
+                  /* @v.type="success"*/
                   &.btn-success {
                     @apply text-success;
                     &:hover,&.btn-hover {
@@ -6554,6 +6928,7 @@ exports[`options merge > merge case 4 1`] = `
                   }
                 
 
+                  /* @v.type="warning"*/
                   &.btn-warning {
                     @apply text-warning;
                     &:hover,&.btn-hover {
@@ -6565,6 +6940,7 @@ exports[`options merge > merge case 4 1`] = `
                   }
                 
 
+                  /* @v.type="error"*/
                   &.btn-error {
                     @apply text-error;
                     &:hover,&.btn-hover {
@@ -6576,6 +6952,7 @@ exports[`options merge > merge case 4 1`] = `
                   }
                 
 
+                  /* @v.type="neutral"*/
                   &.btn-neutral {
                     @apply text-neutral;
                     &:hover,&.btn-hover {
@@ -6587,6 +6964,7 @@ exports[`options merge > merge case 4 1`] = `
                   }
                 
 
+                  /* @v.type="secondary"*/
                   &.btn-secondary {
                     @apply text-secondary;
                     &:hover,&.btn-hover {
@@ -6598,6 +6976,7 @@ exports[`options merge > merge case 4 1`] = `
                   }
                 
 
+                  /* @v.type="accent"*/
                   &.btn-accent {
                     @apply text-accent;
                     &:hover,&.btn-hover {
@@ -6609,6 +6988,7 @@ exports[`options merge > merge case 4 1`] = `
                   }
                 
 
+                  /* @v.type="info"*/
                   &.btn-info {
                     @apply text-info;
                     &:hover,&.btn-hover {
@@ -6621,6 +7001,7 @@ exports[`options merge > merge case 4 1`] = `
                 
           }
 
+          /* @v.disabled=true*/
           &.btn-disabled,&[disabled],&:disabled {
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
@@ -6628,7 +7009,16 @@ exports[`options merge > merge case 4 1`] = `
       ",
     },
     "utils": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -6768,7 +7158,16 @@ exports[`options merge > merge case 4 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -6856,29 +7255,37 @@ exports[`options merge > merge case 4 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
+          /* @v.size="xs"*/
           &-xs {
             @apply h-6 min-h-[1.5rem] px-2;
             font-size: 0.75rem;
           }
+          /* @v.size="sm"*/
           &-sm {
             @apply h-8 min-h-[2rem] px-3;
             font-size: 0.875rem;
           }
+          /* @v.size="md"*/
           &-md {
             @apply h-12 min-h-[3rem] px-4;
             font-size: 0.875rem;
           }
+          /* @v.size="lg"*/
           &-lg {
             @apply h-16 min-h-[4rem] px-6;
             font-size: 1.125rem;
           }
+          /* @v.size="wide"*/
           &-wide {
             @apply w-64;
           }
+          /* @v.size="block"*/
           &-block {
             @apply w-full;
           }
+          /* @v.shape="square"*/
           &-square {
             &:where(.btn-xs) {
               @apply h-6 w-6 p-0;
@@ -6893,6 +7300,7 @@ exports[`options merge > merge case 4 1`] = `
               @apply h-16 w-16 p-0;
             }
           }
+          /* @v.shape="circle"*/
           &-circle {
             &:where(.btn-xs) {
               @apply h-6 w-6 rounded-full p-0;
@@ -6924,7 +7332,8 @@ exports[`options merge > merge case 6 1`] = `
 {
   "button": {
     "base": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
@@ -6992,7 +7401,8 @@ exports[`options merge > merge case 6 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
   display: inline-flex;
   height: 3rem;
   min-height: 3rem;
@@ -7040,6 +7450,7 @@ exports[`options merge > merge case 6 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
@@ -7069,9 +7480,26 @@ exports[`options merge > merge case 6 1`] = `
     },
     "styled": {
       "css": "@charset "UTF-8";
+/* @base*/
 .btn {
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
@@ -7079,7 +7507,7 @@ exports[`options merge > merge case 6 1`] = `
 .btn:hover, .btn.btn-hover {
   @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-hover {
+.btn:active, .btn.btn-active {
   @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
@@ -7174,6 +7602,14 @@ exports[`options merge > merge case 6 1`] = `
 }
 .btn-outline {
   @apply border-current bg-transparent shadow-none text-base-content;
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover, .btn-outline.btn-hover {
   @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
@@ -7668,7 +8104,7 @@ exports[`options merge > merge case 6 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%；",
         },
-        ".btn:active,.btn.btn-hover": {
+        ".btn:active,.btn.btn-active": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
@@ -7689,6 +8125,7 @@ exports[`options merge > merge case 6 1`] = `
       },
       "cssRoot": null,
       "resolvedCss": "@charset "UTF-8";
+/* @base*/
 .btn{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
@@ -7699,6 +8136,22 @@ exports[`options merge > merge case 6 1`] = `
   text-decoration-line: none;
   outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible,.btn.btn-focus-visible{
   outline-style: solid;
@@ -7711,7 +8164,7 @@ exports[`options merge > merge case 6 1`] = `
   --tw-bg-opacity: 1;
   background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-hover{
+.btn:active,.btn.btn-active{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -7933,6 +8386,14 @@ exports[`options merge > merge case 6 1`] = `
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
@@ -8120,19 +8581,24 @@ exports[`options merge > merge case 6 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
+          /* @v.focus-visible=true*/
           &:focus-visible,&.btn-focus-visible {
             @apply outline outline-2 outline-offset-2;
           }
+          /* @v.hover=true*/
           &:hover,&.btn-hover {
             @apply border-ant-neutral-300 bg-ant-neutral-300;
           }
-          &:active,&.btn-hover {
+          /* @v.active=true*/
+          &:active,&.btn-active {
             @apply border-ant-neutral-500 bg-ant-neutral-500;
           }
           
+                /* @v.type="primary"*/
                 &-primary {
                   @apply border-primary bg-primary text-primary-content outline-primary;
                   &:hover,&.btn-hover {
@@ -8144,6 +8610,7 @@ exports[`options merge > merge case 6 1`] = `
                 }
               
 
+                /* @v.type="success"*/
                 &-success {
                   @apply border-success bg-success text-success-content outline-success;
                   &:hover,&.btn-hover {
@@ -8155,6 +8622,7 @@ exports[`options merge > merge case 6 1`] = `
                 }
               
 
+                /* @v.type="warning"*/
                 &-warning {
                   @apply border-warning bg-warning text-warning-content outline-warning;
                   &:hover,&.btn-hover {
@@ -8166,6 +8634,7 @@ exports[`options merge > merge case 6 1`] = `
                 }
               
 
+                /* @v.type="error"*/
                 &-error {
                   @apply border-error bg-error text-error-content outline-error;
                   &:hover,&.btn-hover {
@@ -8177,6 +8646,7 @@ exports[`options merge > merge case 6 1`] = `
                 }
               
 
+                /* @v.type="neutral"*/
                 &-neutral {
                   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
                   &:hover,&.btn-hover {
@@ -8188,6 +8658,7 @@ exports[`options merge > merge case 6 1`] = `
                 }
               
 
+                /* @v.type="secondary"*/
                 &-secondary {
                   @apply border-secondary bg-secondary text-secondary-content outline-secondary;
                   &:hover,&.btn-hover {
@@ -8199,6 +8670,7 @@ exports[`options merge > merge case 6 1`] = `
                 }
               
 
+                /* @v.type="accent"*/
                 &-accent {
                   @apply border-accent bg-accent text-accent-content outline-accent;
                   &:hover,&.btn-hover {
@@ -8210,6 +8682,7 @@ exports[`options merge > merge case 6 1`] = `
                 }
               
 
+                /* @v.type="info"*/
                 &-info {
                   @apply border-info bg-info text-info-content outline-info;
                   &:hover,&.btn-hover {
@@ -8220,27 +8693,28 @@ exports[`options merge > merge case 6 1`] = `
                   }
                 }
               
-
+          /* @v.glass=true*/
           &.glass {
             @apply shadow-none outline-current;
             &:active,&.btn-active {
               --glass-opacity: 25%； --glass-border-opacity: 15%；;
             }
           }
-
+          /* @v.ghost=true*/
           &-ghost {
             @apply border border-transparent bg-transparent text-current shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-opacity-0 bg-base-content bg-opacity-20;
             }
           }
-
+          /* @v.link=true*/
           &-link {
             @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-transparent bg-transparent underline;
             }
           }
+          /* @v.outline=true*/
           &-outline {
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,&.btn-hover {
@@ -8250,6 +8724,7 @@ exports[`options merge > merge case 6 1`] = `
               @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
             }
             
+                  /* @v.type="primary"*/
                   &.btn-primary {
                     @apply text-primary;
                     &:hover,&.btn-hover {
@@ -8261,6 +8736,7 @@ exports[`options merge > merge case 6 1`] = `
                   }
                 
 
+                  /* @v.type="success"*/
                   &.btn-success {
                     @apply text-success;
                     &:hover,&.btn-hover {
@@ -8272,6 +8748,7 @@ exports[`options merge > merge case 6 1`] = `
                   }
                 
 
+                  /* @v.type="warning"*/
                   &.btn-warning {
                     @apply text-warning;
                     &:hover,&.btn-hover {
@@ -8283,6 +8760,7 @@ exports[`options merge > merge case 6 1`] = `
                   }
                 
 
+                  /* @v.type="error"*/
                   &.btn-error {
                     @apply text-error;
                     &:hover,&.btn-hover {
@@ -8294,6 +8772,7 @@ exports[`options merge > merge case 6 1`] = `
                   }
                 
 
+                  /* @v.type="neutral"*/
                   &.btn-neutral {
                     @apply text-neutral;
                     &:hover,&.btn-hover {
@@ -8305,6 +8784,7 @@ exports[`options merge > merge case 6 1`] = `
                   }
                 
 
+                  /* @v.type="secondary"*/
                   &.btn-secondary {
                     @apply text-secondary;
                     &:hover,&.btn-hover {
@@ -8316,6 +8796,7 @@ exports[`options merge > merge case 6 1`] = `
                   }
                 
 
+                  /* @v.type="accent"*/
                   &.btn-accent {
                     @apply text-accent;
                     &:hover,&.btn-hover {
@@ -8327,6 +8808,7 @@ exports[`options merge > merge case 6 1`] = `
                   }
                 
 
+                  /* @v.type="info"*/
                   &.btn-info {
                     @apply text-info;
                     &:hover,&.btn-hover {
@@ -8339,6 +8821,7 @@ exports[`options merge > merge case 6 1`] = `
                 
           }
 
+          /* @v.disabled=true*/
           &.btn-disabled,&[disabled],&:disabled {
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
@@ -8346,7 +8829,16 @@ exports[`options merge > merge case 6 1`] = `
       ",
     },
     "utils": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -8486,7 +8978,16 @@ exports[`options merge > merge case 6 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -8574,29 +9075,37 @@ exports[`options merge > merge case 6 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
+          /* @v.size="xs"*/
           &-xs {
             @apply h-6 min-h-[1.5rem] px-2;
             font-size: 0.75rem;
           }
+          /* @v.size="sm"*/
           &-sm {
             @apply h-8 min-h-[2rem] px-3;
             font-size: 0.875rem;
           }
+          /* @v.size="md"*/
           &-md {
             @apply h-12 min-h-[3rem] px-4;
             font-size: 0.875rem;
           }
+          /* @v.size="lg"*/
           &-lg {
             @apply h-16 min-h-[4rem] px-6;
             font-size: 1.125rem;
           }
+          /* @v.size="wide"*/
           &-wide {
             @apply w-64;
           }
+          /* @v.size="block"*/
           &-block {
             @apply w-full;
           }
+          /* @v.shape="square"*/
           &-square {
             &:where(.btn-xs) {
               @apply h-6 w-6 p-0;
@@ -8611,6 +9120,7 @@ exports[`options merge > merge case 6 1`] = `
               @apply h-16 w-16 p-0;
             }
           }
+          /* @v.shape="circle"*/
           &-circle {
             &:where(.btn-xs) {
               @apply h-6 w-6 rounded-full p-0;
@@ -8640,7 +9150,8 @@ exports[`options merge > merge case 7 1`] = `
 {
   "button": {
     "base": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
@@ -8708,7 +9219,8 @@ exports[`options merge > merge case 7 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
   display: inline-flex;
   height: 3rem;
   min-height: 3rem;
@@ -8756,6 +9268,7 @@ exports[`options merge > merge case 7 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
@@ -8785,9 +9298,26 @@ exports[`options merge > merge case 7 1`] = `
     },
     "styled": {
       "css": "@charset "UTF-8";
+/* @base*/
 .btn {
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
@@ -8795,7 +9325,7 @@ exports[`options merge > merge case 7 1`] = `
 .btn:hover, .btn.btn-hover {
   @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-hover {
+.btn:active, .btn.btn-active {
   @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
@@ -8890,6 +9420,14 @@ exports[`options merge > merge case 7 1`] = `
 }
 .btn-outline {
   @apply border-current bg-transparent shadow-none text-base-content;
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover, .btn-outline.btn-hover {
   @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
@@ -9384,7 +9922,7 @@ exports[`options merge > merge case 7 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%；",
         },
-        ".btn:active,.btn.btn-hover": {
+        ".btn:active,.btn.btn-active": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
@@ -9405,6 +9943,7 @@ exports[`options merge > merge case 7 1`] = `
       },
       "cssRoot": null,
       "resolvedCss": "@charset "UTF-8";
+/* @base*/
 .btn{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
@@ -9415,6 +9954,22 @@ exports[`options merge > merge case 7 1`] = `
   text-decoration-line: none;
   outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible,.btn.btn-focus-visible{
   outline-style: solid;
@@ -9427,7 +9982,7 @@ exports[`options merge > merge case 7 1`] = `
   --tw-bg-opacity: 1;
   background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-hover{
+.btn:active,.btn.btn-active{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -9649,6 +10204,14 @@ exports[`options merge > merge case 7 1`] = `
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
@@ -9836,19 +10399,24 @@ exports[`options merge > merge case 7 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
+          /* @v.focus-visible=true*/
           &:focus-visible,&.btn-focus-visible {
             @apply outline outline-2 outline-offset-2;
           }
+          /* @v.hover=true*/
           &:hover,&.btn-hover {
             @apply border-ant-neutral-300 bg-ant-neutral-300;
           }
-          &:active,&.btn-hover {
+          /* @v.active=true*/
+          &:active,&.btn-active {
             @apply border-ant-neutral-500 bg-ant-neutral-500;
           }
           
+                /* @v.type="primary"*/
                 &-primary {
                   @apply border-primary bg-primary text-primary-content outline-primary;
                   &:hover,&.btn-hover {
@@ -9860,6 +10428,7 @@ exports[`options merge > merge case 7 1`] = `
                 }
               
 
+                /* @v.type="success"*/
                 &-success {
                   @apply border-success bg-success text-success-content outline-success;
                   &:hover,&.btn-hover {
@@ -9871,6 +10440,7 @@ exports[`options merge > merge case 7 1`] = `
                 }
               
 
+                /* @v.type="warning"*/
                 &-warning {
                   @apply border-warning bg-warning text-warning-content outline-warning;
                   &:hover,&.btn-hover {
@@ -9882,6 +10452,7 @@ exports[`options merge > merge case 7 1`] = `
                 }
               
 
+                /* @v.type="error"*/
                 &-error {
                   @apply border-error bg-error text-error-content outline-error;
                   &:hover,&.btn-hover {
@@ -9893,6 +10464,7 @@ exports[`options merge > merge case 7 1`] = `
                 }
               
 
+                /* @v.type="neutral"*/
                 &-neutral {
                   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
                   &:hover,&.btn-hover {
@@ -9904,6 +10476,7 @@ exports[`options merge > merge case 7 1`] = `
                 }
               
 
+                /* @v.type="secondary"*/
                 &-secondary {
                   @apply border-secondary bg-secondary text-secondary-content outline-secondary;
                   &:hover,&.btn-hover {
@@ -9915,6 +10488,7 @@ exports[`options merge > merge case 7 1`] = `
                 }
               
 
+                /* @v.type="accent"*/
                 &-accent {
                   @apply border-accent bg-accent text-accent-content outline-accent;
                   &:hover,&.btn-hover {
@@ -9926,6 +10500,7 @@ exports[`options merge > merge case 7 1`] = `
                 }
               
 
+                /* @v.type="info"*/
                 &-info {
                   @apply border-info bg-info text-info-content outline-info;
                   &:hover,&.btn-hover {
@@ -9936,27 +10511,28 @@ exports[`options merge > merge case 7 1`] = `
                   }
                 }
               
-
+          /* @v.glass=true*/
           &.glass {
             @apply shadow-none outline-current;
             &:active,&.btn-active {
               --glass-opacity: 25%； --glass-border-opacity: 15%；;
             }
           }
-
+          /* @v.ghost=true*/
           &-ghost {
             @apply border border-transparent bg-transparent text-current shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-opacity-0 bg-base-content bg-opacity-20;
             }
           }
-
+          /* @v.link=true*/
           &-link {
             @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-transparent bg-transparent underline;
             }
           }
+          /* @v.outline=true*/
           &-outline {
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,&.btn-hover {
@@ -9966,6 +10542,7 @@ exports[`options merge > merge case 7 1`] = `
               @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
             }
             
+                  /* @v.type="primary"*/
                   &.btn-primary {
                     @apply text-primary;
                     &:hover,&.btn-hover {
@@ -9977,6 +10554,7 @@ exports[`options merge > merge case 7 1`] = `
                   }
                 
 
+                  /* @v.type="success"*/
                   &.btn-success {
                     @apply text-success;
                     &:hover,&.btn-hover {
@@ -9988,6 +10566,7 @@ exports[`options merge > merge case 7 1`] = `
                   }
                 
 
+                  /* @v.type="warning"*/
                   &.btn-warning {
                     @apply text-warning;
                     &:hover,&.btn-hover {
@@ -9999,6 +10578,7 @@ exports[`options merge > merge case 7 1`] = `
                   }
                 
 
+                  /* @v.type="error"*/
                   &.btn-error {
                     @apply text-error;
                     &:hover,&.btn-hover {
@@ -10010,6 +10590,7 @@ exports[`options merge > merge case 7 1`] = `
                   }
                 
 
+                  /* @v.type="neutral"*/
                   &.btn-neutral {
                     @apply text-neutral;
                     &:hover,&.btn-hover {
@@ -10021,6 +10602,7 @@ exports[`options merge > merge case 7 1`] = `
                   }
                 
 
+                  /* @v.type="secondary"*/
                   &.btn-secondary {
                     @apply text-secondary;
                     &:hover,&.btn-hover {
@@ -10032,6 +10614,7 @@ exports[`options merge > merge case 7 1`] = `
                   }
                 
 
+                  /* @v.type="accent"*/
                   &.btn-accent {
                     @apply text-accent;
                     &:hover,&.btn-hover {
@@ -10043,6 +10626,7 @@ exports[`options merge > merge case 7 1`] = `
                   }
                 
 
+                  /* @v.type="info"*/
                   &.btn-info {
                     @apply text-info;
                     &:hover,&.btn-hover {
@@ -10055,6 +10639,7 @@ exports[`options merge > merge case 7 1`] = `
                 
           }
 
+          /* @v.disabled=true*/
           &.btn-disabled,&[disabled],&:disabled {
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
@@ -10062,7 +10647,16 @@ exports[`options merge > merge case 7 1`] = `
       ",
     },
     "utils": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -10202,7 +10796,16 @@ exports[`options merge > merge case 7 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -10290,29 +10893,37 @@ exports[`options merge > merge case 7 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
+          /* @v.size="xs"*/
           &-xs {
             @apply h-6 min-h-[1.5rem] px-2;
             font-size: 0.75rem;
           }
+          /* @v.size="sm"*/
           &-sm {
             @apply h-8 min-h-[2rem] px-3;
             font-size: 0.875rem;
           }
+          /* @v.size="md"*/
           &-md {
             @apply h-12 min-h-[3rem] px-4;
             font-size: 0.875rem;
           }
+          /* @v.size="lg"*/
           &-lg {
             @apply h-16 min-h-[4rem] px-6;
             font-size: 1.125rem;
           }
+          /* @v.size="wide"*/
           &-wide {
             @apply w-64;
           }
+          /* @v.size="block"*/
           &-block {
             @apply w-full;
           }
+          /* @v.shape="square"*/
           &-square {
             &:where(.btn-xs) {
               @apply h-6 w-6 p-0;
@@ -10327,6 +10938,7 @@ exports[`options merge > merge case 7 1`] = `
               @apply h-16 w-16 p-0;
             }
           }
+          /* @v.shape="circle"*/
           &-circle {
             &:where(.btn-xs) {
               @apply h-6 w-6 rounded-full p-0;
@@ -10356,7 +10968,8 @@ exports[`options merge > merge case 8 1`] = `
 {
   "button": {
     "base": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
@@ -10424,7 +11037,8 @@ exports[`options merge > merge case 8 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
   display: inline-flex;
   height: 3rem;
   min-height: 3rem;
@@ -10472,6 +11086,7 @@ exports[`options merge > merge case 8 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
@@ -10501,9 +11116,26 @@ exports[`options merge > merge case 8 1`] = `
     },
     "styled": {
       "css": "@charset "UTF-8";
+/* @base*/
 .btn {
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible, .btn.btn-focus-visible {
   @apply outline outline-2 outline-offset-2;
@@ -10511,7 +11143,7 @@ exports[`options merge > merge case 8 1`] = `
 .btn:hover, .btn.btn-hover {
   @apply border-ant-neutral-300 bg-ant-neutral-300;
 }
-.btn:active, .btn.btn-hover {
+.btn:active, .btn.btn-active {
   @apply border-ant-neutral-500 bg-ant-neutral-500;
 }
 .btn-primary {
@@ -10606,6 +11238,14 @@ exports[`options merge > merge case 8 1`] = `
 }
 .btn-outline {
   @apply border-current bg-transparent shadow-none text-base-content;
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover, .btn-outline.btn-hover {
   @apply border-ant-neutral-900 bg-ant-neutral-900 text-ant-neutral-100;
@@ -11100,7 +11740,7 @@ exports[`options merge > merge case 8 1`] = `
         ".btn.glass:active,.btn.glass.btn-active": {
           "--ice-glass-opacity": "25%； --glass-border-opacity: 15%；",
         },
-        ".btn:active,.btn.btn-hover": {
+        ".btn:active,.btn.btn-active": {
           "--tw-bg-opacity": "1",
           "--tw-border-opacity": "1",
           "backgroundColor": "rgba(var(--ice-ant-neutral-500) / var(--tw-bg-opacity))",
@@ -11121,6 +11761,7 @@ exports[`options merge > merge case 8 1`] = `
       },
       "cssRoot": null,
       "resolvedCss": "@charset "UTF-8";
+/* @base*/
 .btn{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-400) / var(--tw-border-opacity));
@@ -11131,6 +11772,22 @@ exports[`options merge > merge case 8 1`] = `
   text-decoration-line: none;
   outline-color: rgba(var(--ice-ant-neutral-400) / 1);
   border-width: var(--ice-border-btn, 1px);
+  /* @v.focus-visible=true*/
+  /* @v.hover=true*/
+  /* @v.active=true*/
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
+  /* @v.glass=true*/
+  /* @v.ghost=true*/
+  /* @v.link=true*/
+  /* @v.outline=true*/
+  /* @v.disabled=true*/
 }
 .btn:focus-visible,.btn.btn-focus-visible{
   outline-style: solid;
@@ -11143,7 +11800,7 @@ exports[`options merge > merge case 8 1`] = `
   --tw-bg-opacity: 1;
   background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));
 }
-.btn:active,.btn.btn-hover{
+.btn:active,.btn.btn-active{
   --tw-border-opacity: 1;
   border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
   --tw-bg-opacity: 1;
@@ -11365,6 +12022,14 @@ exports[`options merge > merge case 8 1`] = `
   --tw-shadow: 0 0 #0000;
   --tw-shadow-colored: 0 0 #0000;
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  /* @v.type="primary"*/
+  /* @v.type="success"*/
+  /* @v.type="warning"*/
+  /* @v.type="error"*/
+  /* @v.type="neutral"*/
+  /* @v.type="secondary"*/
+  /* @v.type="accent"*/
+  /* @v.type="info"*/
 }
 .btn-outline:hover,.btn-outline.btn-hover{
   --tw-border-opacity: 1;
@@ -11552,19 +12217,24 @@ exports[`options merge > merge case 8 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
+          /* @v.focus-visible=true*/
           &:focus-visible,&.btn-focus-visible {
             @apply outline outline-2 outline-offset-2;
           }
+          /* @v.hover=true*/
           &:hover,&.btn-hover {
             @apply border-ant-neutral-300 bg-ant-neutral-300;
           }
-          &:active,&.btn-hover {
+          /* @v.active=true*/
+          &:active,&.btn-active {
             @apply border-ant-neutral-500 bg-ant-neutral-500;
           }
           
+                /* @v.type="primary"*/
                 &-primary {
                   @apply border-primary bg-primary text-primary-content outline-primary;
                   &:hover,&.btn-hover {
@@ -11576,6 +12246,7 @@ exports[`options merge > merge case 8 1`] = `
                 }
               
 
+                /* @v.type="success"*/
                 &-success {
                   @apply border-success bg-success text-success-content outline-success;
                   &:hover,&.btn-hover {
@@ -11587,6 +12258,7 @@ exports[`options merge > merge case 8 1`] = `
                 }
               
 
+                /* @v.type="warning"*/
                 &-warning {
                   @apply border-warning bg-warning text-warning-content outline-warning;
                   &:hover,&.btn-hover {
@@ -11598,6 +12270,7 @@ exports[`options merge > merge case 8 1`] = `
                 }
               
 
+                /* @v.type="error"*/
                 &-error {
                   @apply border-error bg-error text-error-content outline-error;
                   &:hover,&.btn-hover {
@@ -11609,6 +12282,7 @@ exports[`options merge > merge case 8 1`] = `
                 }
               
 
+                /* @v.type="neutral"*/
                 &-neutral {
                   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
                   &:hover,&.btn-hover {
@@ -11620,6 +12294,7 @@ exports[`options merge > merge case 8 1`] = `
                 }
               
 
+                /* @v.type="secondary"*/
                 &-secondary {
                   @apply border-secondary bg-secondary text-secondary-content outline-secondary;
                   &:hover,&.btn-hover {
@@ -11631,6 +12306,7 @@ exports[`options merge > merge case 8 1`] = `
                 }
               
 
+                /* @v.type="accent"*/
                 &-accent {
                   @apply border-accent bg-accent text-accent-content outline-accent;
                   &:hover,&.btn-hover {
@@ -11642,6 +12318,7 @@ exports[`options merge > merge case 8 1`] = `
                 }
               
 
+                /* @v.type="info"*/
                 &-info {
                   @apply border-info bg-info text-info-content outline-info;
                   &:hover,&.btn-hover {
@@ -11652,27 +12329,28 @@ exports[`options merge > merge case 8 1`] = `
                   }
                 }
               
-
+          /* @v.glass=true*/
           &.glass {
             @apply shadow-none outline-current;
             &:active,&.btn-active {
               --glass-opacity: 25%； --glass-border-opacity: 15%；;
             }
           }
-
+          /* @v.ghost=true*/
           &-ghost {
             @apply border border-transparent bg-transparent text-current shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-opacity-0 bg-base-content bg-opacity-20;
             }
           }
-
+          /* @v.link=true*/
           &-link {
             @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
             &:active,&.btn-active {
               @apply border-transparent bg-transparent underline;
             }
           }
+          /* @v.outline=true*/
           &-outline {
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,&.btn-hover {
@@ -11682,6 +12360,7 @@ exports[`options merge > merge case 8 1`] = `
               @apply border-ant-neutral-1100 bg-ant-neutral-1100 text-ant-neutral-100;
             }
             
+                  /* @v.type="primary"*/
                   &.btn-primary {
                     @apply text-primary;
                     &:hover,&.btn-hover {
@@ -11693,6 +12372,7 @@ exports[`options merge > merge case 8 1`] = `
                   }
                 
 
+                  /* @v.type="success"*/
                   &.btn-success {
                     @apply text-success;
                     &:hover,&.btn-hover {
@@ -11704,6 +12384,7 @@ exports[`options merge > merge case 8 1`] = `
                   }
                 
 
+                  /* @v.type="warning"*/
                   &.btn-warning {
                     @apply text-warning;
                     &:hover,&.btn-hover {
@@ -11715,6 +12396,7 @@ exports[`options merge > merge case 8 1`] = `
                   }
                 
 
+                  /* @v.type="error"*/
                   &.btn-error {
                     @apply text-error;
                     &:hover,&.btn-hover {
@@ -11726,6 +12408,7 @@ exports[`options merge > merge case 8 1`] = `
                   }
                 
 
+                  /* @v.type="neutral"*/
                   &.btn-neutral {
                     @apply text-neutral;
                     &:hover,&.btn-hover {
@@ -11737,6 +12420,7 @@ exports[`options merge > merge case 8 1`] = `
                   }
                 
 
+                  /* @v.type="secondary"*/
                   &.btn-secondary {
                     @apply text-secondary;
                     &:hover,&.btn-hover {
@@ -11748,6 +12432,7 @@ exports[`options merge > merge case 8 1`] = `
                   }
                 
 
+                  /* @v.type="accent"*/
                   &.btn-accent {
                     @apply text-accent;
                     &:hover,&.btn-hover {
@@ -11759,6 +12444,7 @@ exports[`options merge > merge case 8 1`] = `
                   }
                 
 
+                  /* @v.type="info"*/
                   &.btn-info {
                     @apply text-info;
                     &:hover,&.btn-hover {
@@ -11771,6 +12457,7 @@ exports[`options merge > merge case 8 1`] = `
                 
           }
 
+          /* @v.disabled=true*/
           &.btn-disabled,&[disabled],&:disabled {
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
@@ -11778,7 +12465,16 @@ exports[`options merge > merge case 8 1`] = `
       ",
     },
     "utils": {
-      "css": ".btn {
+      "css": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -11918,7 +12614,16 @@ exports[`options merge > merge case 8 1`] = `
         },
       },
       "cssRoot": null,
-      "resolvedCss": ".btn {
+      "resolvedCss": "/* @base*/
+.btn {
+  /* @v.size="xs"*/
+  /* @v.size="sm"*/
+  /* @v.size="md"*/
+  /* @v.size="lg"*/
+  /* @v.size="wide"*/
+  /* @v.size="block"*/
+  /* @v.shape="square"*/
+  /* @v.shape="circle"*/
   border-style: solid;
 }
 .btn-xs {
@@ -12006,29 +12711,37 @@ exports[`options merge > merge case 8 1`] = `
       "resolvedCssRoot": null,
       "root": null,
       "scss": "
+        /* @base*/
         .btn {
+          /* @v.size="xs"*/
           &-xs {
             @apply h-6 min-h-[1.5rem] px-2;
             font-size: 0.75rem;
           }
+          /* @v.size="sm"*/
           &-sm {
             @apply h-8 min-h-[2rem] px-3;
             font-size: 0.875rem;
           }
+          /* @v.size="md"*/
           &-md {
             @apply h-12 min-h-[3rem] px-4;
             font-size: 0.875rem;
           }
+          /* @v.size="lg"*/
           &-lg {
             @apply h-16 min-h-[4rem] px-6;
             font-size: 1.125rem;
           }
+          /* @v.size="wide"*/
           &-wide {
             @apply w-64;
           }
+          /* @v.size="block"*/
           &-block {
             @apply w-full;
           }
+          /* @v.shape="square"*/
           &-square {
             &:where(.btn-xs) {
               @apply h-6 w-6 p-0;
@@ -12043,6 +12756,7 @@ exports[`options merge > merge case 8 1`] = `
               @apply h-16 w-16 p-0;
             }
           }
+          /* @v.shape="circle"*/
           &-circle {
             &:where(.btn-xs) {
               @apply h-6 w-6 rounded-full p-0;

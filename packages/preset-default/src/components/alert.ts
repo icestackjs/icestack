@@ -13,7 +13,7 @@ const schema: GetCssSchemaMethod = (opts) => {
           ${types
             .map((type) => {
               return css`
-                // @v.type="${type}"
+                // @v type="${type}"
                 &-${type} {
                   @apply text-${type}-content border-${type}/20 bg-${type};
                 }

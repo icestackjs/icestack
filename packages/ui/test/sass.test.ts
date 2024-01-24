@@ -67,6 +67,24 @@ describe('sass', () => {
     expect(sass.compileString(result).css).toMatchSnapshot('output css')
   })
 
+  it('compileString comments case', () => {
+    const testCase = `
+    $base-color: #036;
+    @for $i from 1 through 3 {
+      // @hello.world
+      // @hello.world="xxx"
+      ul:nth-child(3n + #{$i}) {
+        background-color: lighten($base-color, $i * 5%);
+      }
+    }
+    `
+    const root = mergeRoot([testCase])
+    const result = root.toString()
+    const css = sass.compileString(result).css
+    // expect(result).toEqual(testCase)
+    expect(css).toMatchSnapshot('output css')
+  })
+
   // it('compileString error', () => {
   //   const testCase = `
   //     .s{

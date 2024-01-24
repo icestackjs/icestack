@@ -12,6 +12,7 @@ exports[`createPreset options > add custom component raw override case 0 1`] = `
     ],
     "styled": [
       "
+        // @base
         .my-xxx {
           @apply rounded-box border p-4 text-base-content border-base-200;
 
@@ -55,6 +56,7 @@ exports[`createPreset options > alert case 1 1`] = `
     ],
     "styled": [
       "
+        // @base
         .alert {
           @apply rounded-box border p-4 text-base-content border-base-200;
 
@@ -80,6 +82,7 @@ exports[`createPreset options > alert raw case 1 1`] = `
     ],
     "styled": [
       "
+        // @base
         .alert {
           @apply rounded-box border p-4 text-base-content border-base-200;
 
@@ -120,6 +123,7 @@ exports[`createPreset options > alert raw override case 0 1`] = `
     ],
     "styled": [
       "
+        // @base
         .xxx {
           @apply rounded-box border p-4 text-base-content border-base-200;
 

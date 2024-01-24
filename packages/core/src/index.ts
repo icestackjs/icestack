@@ -9,7 +9,7 @@ import { stages } from '@icestack/shared/constants'
 import { compileScssString } from '@icestack/scss'
 import { logger } from '@icestack/logger'
 import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@icestack/types'
-import { defu, JSONStringify, defuOverrideArray } from '@icestack/shared'
+import { defu, JSONStringify, defuOverrideArray, objHash } from '@icestack/shared'
 import {
   getPrefixerPlugin,
   getCssVarsPrefixerPlugin,
@@ -31,7 +31,6 @@ import { LRUCache } from 'lru-cache'
 // import md5 from 'md5'
 import { StringOptions } from 'sass'
 import { name } from '../package.json'
-import { hash } from './hash'
 import { utilitiesNames, utilitiesMap } from './utilities'
 import { handleOptions } from './components'
 import { calcBase } from './base'
@@ -95,7 +94,7 @@ export function createContext(opts?: CodegenOptions | string) {
   }
 
   const options = getCodegenOptions(opts as CodegenOptions)
-  const configHash = hash(options)
+  const configHash = objHash(options)
 
   function getCache(key: string) {
     if (configFilepath) {
@@ -193,7 +192,7 @@ export function createContext(opts?: CodegenOptions | string) {
       return acc
     }, {})
   }
-  const typesHash = hash(types)
+  const typesHash = objHash(types)
   const isTypesChanged = getHash('types') !== typesHash
   const presets = createPreset({
     types
@@ -222,7 +221,7 @@ export function createContext(opts?: CodegenOptions | string) {
       const t = components[name]
 
       if (typeof t === 'object') {
-        const { postcss } = t
+        const { postcss, selector } = t
         const varPrefixOptions = resolveVarPrefixOption(postcss?.varPrefix)
         const varPrefixerPlugin = getCssVarsPrefixerPlugin(defu(varPrefixOptions, globalVarPrefix))
         varPrefixerPlugin && plugins.push(varPrefixerPlugin)
@@ -309,7 +308,7 @@ export function createContext(opts?: CodegenOptions | string) {
 
   async function buildBase() {
     const layer: ILayer = 'base'
-    const hashCode = hash(base ?? {})
+    const hashCode = objHash(base ?? {})
     const hasChanged = getHash(layer) !== hashCode
     const hit = getCache(layer)
     if (hasChanged || !hit) {
@@ -335,7 +334,7 @@ export function createContext(opts?: CodegenOptions | string) {
 
   async function buildUtilities() {
     const layer: ILayer = 'utilities'
-    const hashCode = hash(utilities ?? {})
+    const hashCode = objHash(utilities ?? {})
     const hasChanged = getHash(layer) !== hashCode
     const hit = getCache(layer)
     if (hasChanged || !hit) {
@@ -392,7 +391,7 @@ export function createContext(opts?: CodegenOptions | string) {
     for (const componentName of componentsNames) {
       const comOpt = components[componentName]
       if (comOpt) {
-        const componentHashCode = hash(comOpt)
+        const componentHashCode = objHash(comOpt)
         const hashPath = layer + '.' + componentName
         const componentHasChanged = getHash(hashPath) !== componentHashCode
         const componentCache = get(hit, componentName)

@@ -133,6 +133,8 @@ export interface CvaParams {
   defaultVariants: Record<string, string>
 }
 
+const cvaSymbol = Symbol('cva')
+
 // @ts-ignore
 const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (res?: CvaParams) => void }> = ({ selector, process, prefix: _prefix }) => {
   const result: CvaParams = {
@@ -143,13 +145,14 @@ const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (re
   }
   const prefix = _prefix ?? ''
   const hashMap = new Map<string, object>()
-
+  const weakMap = new WeakMap()
   return {
     postcssPlugin: 'postcss-icestack-extract-cva-params-plugin',
     Comment(comment) {
       // comment.text
       const res = pickComment(comment)
       if (res) {
+        weakMap.set(comment, cvaSymbol)
         const { next, suffix, type } = res
         const params = extractParams(suffix)
         const hashCode = objHash(params)
@@ -226,10 +229,11 @@ const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (re
           }
         }
       }
-
-      // console.log(comment)
-      // comment.next()
-      // comment.text
+    },
+    CommentExit(comment) {
+      if (weakMap.get(comment) === cvaSymbol) {
+        comment.remove()
+      }
     },
     OnceExit() {
       // @ts-ignore

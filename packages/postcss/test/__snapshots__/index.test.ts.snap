@@ -712,7 +712,7 @@ outline-offset: 2px;}
 border-color: rgba(var(--ice-ant-neutral-300) / var(--tw-border-opacity));
 --tw-bg-opacity: 1;
 background-color: rgba(var(--ice-ant-neutral-300) / var(--tw-bg-opacity));}
-.btn:active,.btn.btn-hover{
+.btn:active,.btn.btn-active{
 --tw-border-opacity: 1;
 border-color: rgba(var(--ice-ant-neutral-500) / var(--tw-border-opacity));
 --tw-bg-opacity: 1;

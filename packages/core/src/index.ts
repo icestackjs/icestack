@@ -271,17 +271,32 @@ export function createContext(opts?: CodegenOptions | string) {
 
     return postcssProcess(plugins, css)
   }
-
+  const statistics = {
+    compileScssString: 0,
+    preprocessCss: 0,
+    resolveTailwindcss: 0,
+    objectify: 0,
+    internalDump: 0
+  }
   async function internalBuild(opts: { root?: AtRule | Root | Rule; layer: ILayer; suffixes: string[]; relPath: string }) {
     const { layer, suffixes, relPath, root = new Root() } = opts
-
+    let start: number
     const scss = root.toString()
 
+    start = performance.now()
+
     const { css } = compileScssString(scss, sassOptions)
+
+    statistics.compileScssString += performance.now() - start
+
     let cvaParams: CvaParams | undefined
+    start = performance.now()
     const { root: cssRoot } = preprocessCss(css, layer, suffixes[0], (params) => {
       cvaParams = params
     })
+    statistics.preprocessCss += performance.now() - start
+
+    start = performance.now()
 
     const { root: resolvedCssRoot, css: resolvedCss } = await resolveTailwindcss({
       css: cssRoot as Root,
@@ -289,8 +304,15 @@ export function createContext(opts?: CodegenOptions | string) {
       options
     })
 
+    statistics.resolveTailwindcss += performance.now() - start
+
+    start = performance.now()
+
     const cssInJs = objectify(resolvedCssRoot as Root)
 
+    statistics.objectify += performance.now() - start
+
+    start = performance.now()
     internalDump({
       cssInJs,
       cssRoot: cssRoot as Root,
@@ -299,6 +321,8 @@ export function createContext(opts?: CodegenOptions | string) {
       scss
       // cvaParams
     })
+
+    statistics.internalDump += performance.now() - start
     return {
       root,
       scss,
@@ -544,6 +568,10 @@ export function createContext(opts?: CodegenOptions | string) {
   }
 
   async function build(options?: BuildOptions) {
+    for (const key of Object.keys(statistics)) {
+      // @ts-ignore
+      statistics[key] = 0
+    }
     const {
       base: baseFlag,
       components: componentsFlag,
@@ -599,6 +627,7 @@ export function createContext(opts?: CodegenOptions | string) {
 
       logger.success('build cva finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
     }
+    // logger.success(JSON.stringify(statistics))
   }
 
   return {
@@ -628,7 +657,8 @@ export function createContext(opts?: CodegenOptions | string) {
     get cva() {
       return cache.cva
     },
-    buildCva
+    buildCva,
+    statistics
   }
 }
 

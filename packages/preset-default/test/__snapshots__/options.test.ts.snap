@@ -10,6 +10,7 @@ exports[`'alert' options > raw snap 1`] = `
       ",
     "styled": "
         .alert {
+          // @base
           @apply rounded-box border p-4 text-base-content border-base-200;
 
           
@@ -30,30 +31,36 @@ exports[`'alert' options > snap 1`] = `
       ",
     "styled": "
         .alert {
+          // @base
           @apply rounded-box border p-4 text-base-content border-base-200;
 
           
                 &-primary {
+                  // @v type="primary"
                   @apply text-primary-content border-primary/20 bg-primary;
                 }
               
 
                 &-success {
+                  // @v type="success"
                   @apply text-success-content border-success/20 bg-success;
                 }
               
 
                 &-warning {
+                  // @v type="warning"
                   @apply text-warning-content border-warning/20 bg-warning;
                 }
               
 
                 &-error {
+                  // @v type="error"
                   @apply text-error-content border-error/20 bg-error;
                 }
               
 
                 &-neutral {
+                  // @v type="neutral"
                   @apply text-neutral-content border-neutral/20 bg-neutral;
                 }
               
@@ -585,6 +592,7 @@ exports[`'button' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .btn {
+          // @base
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
@@ -616,23 +624,31 @@ exports[`'button' options > raw snap 1`] = `
       ",
     "styled": "
         .btn {
+          // @base
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
+
           &:focus-visible,
           &.btn-focus-visible {
+            // @v focusVisible="true"
             @apply outline outline-2 outline-offset-2;
           }
+
           &:hover,
           &.btn-hover {
+            // @v hover="true"
             @apply border-ant-neutral-300 bg-ant-neutral-300;
           }
+
           &:active,
-          &.btn-hover {
+          &.btn-active {
+            // @v active="true"
             @apply border-ant-neutral-500 bg-ant-neutral-500;
           }
           
 
           &.glass {
+            // @v glass="true"
             @apply shadow-none outline-current;
             &:active,
             &.btn-active {
@@ -641,6 +657,7 @@ exports[`'button' options > raw snap 1`] = `
           }
 
           &-ghost {
+            // @v ghost="true"
             @apply border border-transparent bg-transparent text-current shadow-none outline-current;
             &:active,
             &.btn-active {
@@ -649,13 +666,16 @@ exports[`'button' options > raw snap 1`] = `
           }
 
           &-link {
+            // @v link="true"
             @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
             &:active,
             &.btn-active {
               @apply border-transparent bg-transparent underline;
             }
           }
+
           &-outline {
+            // @v outline="true"
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,
             &.btn-hover {
@@ -670,35 +690,51 @@ exports[`'button' options > raw snap 1`] = `
 
           &.btn-disabled, &[disabled],
           &:disabled {
+            // @v disabled="true"
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
       ",
     "utils": "
         .btn {
+          // @base
+
           &-xs {
+            // @v size="xs"
             @apply h-6 min-h-[1.5rem] px-2;
             font-size: 0.75rem;
           }
+
           &-sm {
+            // @v size="sm"
             @apply h-8 min-h-[2rem] px-3;
             font-size: 0.875rem;
           }
+
           &-md {
+            // @v size="md"
             @apply h-12 min-h-[3rem] px-4;
             font-size: 0.875rem;
           }
+
           &-lg {
+            // @v size="lg"
             @apply h-16 min-h-[4rem] px-6;
             font-size: 1.125rem;
           }
+
           &-wide {
+            // @v size="wide"
             @apply w-64;
           }
+
           &-block {
+            // @v size="block"
             @apply w-full;
           }
+
           &-square {
+            // @v shape="square"
             &:where(.btn-xs) {
               @apply h-6 w-6 p-0;
             }
@@ -712,7 +748,9 @@ exports[`'button' options > raw snap 1`] = `
               @apply h-16 w-16 p-0;
             }
           }
+
           &-circle {
+            // @v shape="circle"
             &:where(.btn-xs) {
               @apply h-6 w-6 rounded-full p-0;
             }
@@ -738,6 +776,7 @@ exports[`'button' options > snap 1`] = `
   "defaults": {
     "base": "
         .btn {
+          // @base
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
@@ -769,22 +808,30 @@ exports[`'button' options > snap 1`] = `
       ",
     "styled": "
         .btn {
+          // @base
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
+
           &:focus-visible,
           &.btn-focus-visible {
+            // @v focusVisible="true"
             @apply outline outline-2 outline-offset-2;
           }
+
           &:hover,
           &.btn-hover {
+            // @v hover="true"
             @apply border-ant-neutral-300 bg-ant-neutral-300;
           }
+
           &:active,
-          &.btn-hover {
+          &.btn-active {
+            // @v active="true"
             @apply border-ant-neutral-500 bg-ant-neutral-500;
           }
           
                 &-primary {
+                  // @v type="primary"
                   @apply border-primary bg-primary text-primary-content outline-primary;
                   &:hover,
                   &.btn-hover {
@@ -798,6 +845,7 @@ exports[`'button' options > snap 1`] = `
               
 
                 &-success {
+                  // @v type="success"
                   @apply border-success bg-success text-success-content outline-success;
                   &:hover,
                   &.btn-hover {
@@ -811,6 +859,7 @@ exports[`'button' options > snap 1`] = `
               
 
                 &-warning {
+                  // @v type="warning"
                   @apply border-warning bg-warning text-warning-content outline-warning;
                   &:hover,
                   &.btn-hover {
@@ -824,6 +873,7 @@ exports[`'button' options > snap 1`] = `
               
 
                 &-error {
+                  // @v type="error"
                   @apply border-error bg-error text-error-content outline-error;
                   &:hover,
                   &.btn-hover {
@@ -837,6 +887,7 @@ exports[`'button' options > snap 1`] = `
               
 
                 &-neutral {
+                  // @v type="neutral"
                   @apply border-neutral bg-neutral text-neutral-content outline-neutral;
                   &:hover,
                   &.btn-hover {
@@ -850,6 +901,7 @@ exports[`'button' options > snap 1`] = `
               
 
           &.glass {
+            // @v glass="true"
             @apply shadow-none outline-current;
             &:active,
             &.btn-active {
@@ -858,6 +910,7 @@ exports[`'button' options > snap 1`] = `
           }
 
           &-ghost {
+            // @v ghost="true"
             @apply border border-transparent bg-transparent text-current shadow-none outline-current;
             &:active,
             &.btn-active {
@@ -866,13 +919,16 @@ exports[`'button' options > snap 1`] = `
           }
 
           &-link {
+            // @v link="true"
             @apply text-primary border-transparent bg-transparent underline shadow-none outline-current;
             &:active,
             &.btn-active {
               @apply border-transparent bg-transparent underline;
             }
           }
+
           &-outline {
+            // @v outline="true"
             @apply border-current bg-transparent shadow-none text-base-content;
             &:hover,
             &.btn-hover {
@@ -884,6 +940,7 @@ exports[`'button' options > snap 1`] = `
             }
             
                   &.btn-primary {
+                    // @v type="primary"
                     @apply text-primary;
                     &:hover,
                     &.btn-hover {
@@ -897,6 +954,7 @@ exports[`'button' options > snap 1`] = `
                 
 
                   &.btn-success {
+                    // @v type="success"
                     @apply text-success;
                     &:hover,
                     &.btn-hover {
@@ -910,6 +968,7 @@ exports[`'button' options > snap 1`] = `
                 
 
                   &.btn-warning {
+                    // @v type="warning"
                     @apply text-warning;
                     &:hover,
                     &.btn-hover {
@@ -923,6 +982,7 @@ exports[`'button' options > snap 1`] = `
                 
 
                   &.btn-error {
+                    // @v type="error"
                     @apply text-error;
                     &:hover,
                     &.btn-hover {
@@ -936,6 +996,7 @@ exports[`'button' options > snap 1`] = `
                 
 
                   &.btn-neutral {
+                    // @v type="neutral"
                     @apply text-neutral;
                     &:hover,
                     &.btn-hover {
@@ -951,35 +1012,51 @@ exports[`'button' options > snap 1`] = `
 
           &.btn-disabled, &[disabled],
           &:disabled {
+            // @v disabled="true"
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
       ",
     "utils": "
         .btn {
+          // @base
+
           &-xs {
+            // @v size="xs"
             @apply h-6 min-h-[1.5rem] px-2;
             font-size: 0.75rem;
           }
+
           &-sm {
+            // @v size="sm"
             @apply h-8 min-h-[2rem] px-3;
             font-size: 0.875rem;
           }
+
           &-md {
+            // @v size="md"
             @apply h-12 min-h-[3rem] px-4;
             font-size: 0.875rem;
           }
+
           &-lg {
+            // @v size="lg"
             @apply h-16 min-h-[4rem] px-6;
             font-size: 1.125rem;
           }
+
           &-wide {
+            // @v size="wide"
             @apply w-64;
           }
+
           &-block {
+            // @v size="block"
             @apply w-full;
           }
+
           &-square {
+            // @v shape="square"
             &:where(.btn-xs) {
               @apply h-6 w-6 p-0;
             }
@@ -993,7 +1070,9 @@ exports[`'button' options > snap 1`] = `
               @apply h-16 w-16 p-0;
             }
           }
+
           &-circle {
+            // @v shape="circle"
             &:where(.btn-xs) {
               @apply h-6 w-6 rounded-full p-0;
             }

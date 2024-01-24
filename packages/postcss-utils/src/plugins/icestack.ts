@@ -36,7 +36,11 @@ const creator: PluginCreator<CodegenOptions> = (options) => {
           }
         },
         Rule(rule) {
-          ruleTransformer.transformSync(rule, { lossless: false, updateSelector: true })
+          if (rule.nodes.length === 0) {
+            rule.remove()
+          } else {
+            ruleTransformer.transformSync(rule, { lossless: false, updateSelector: true })
+          }
         }
       }
     ] as AcceptedPlugin[]

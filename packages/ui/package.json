@@ -60,7 +60,7 @@
     "icestack": "bin/icestack.js"
   },
   "scripts": {
-    "build": "npm run build:plugin && npm run build:all",
+    "build": "npm run build:plugin",
     "build:all": "node scripts/build-scss.js",
     "dev": "npm run clean && npm run build:all && unbuild --sourcemap",
     "bp": "unbuild",

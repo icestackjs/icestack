@@ -25,7 +25,7 @@ import {
   merge,
   mapCssStringToAst,
   objectify,
-  process,
+  postcssProcess,
   extractCvaParamsPlugin,
   CvaParams
 } from '@icestack/postcss-utils'
@@ -137,6 +137,7 @@ export function createContext(opts?: CodegenOptions | string) {
     base,
     cva: globalCva
   } = options
+
   const sassOptions = defu<StringOptions<'sync'>, StringOptions<'sync'>[]>(
     _sassOptions,
     configFilepath
@@ -268,7 +269,7 @@ export function createContext(opts?: CodegenOptions | string) {
       prefixerPlugin && plugins.push(prefixerPlugin)
     }
 
-    return process(plugins, css)
+    return postcssProcess(plugins, css)
   }
 
   async function internalBuild(opts: { root?: AtRule | Root | Rule; layer: ILayer; suffixes: string[]; relPath: string }) {
@@ -517,9 +518,29 @@ export function createContext(opts?: CodegenOptions | string) {
   }
 
   function buildCva() {
-    // const {} = globalCva
-    // for (const [name, cvaParams] of Object.entries(cache.cva)) {
-    // }
+    // eslint-disable-next-line prefer-const
+    let { format, importFrom, outdir: cvaOutdir } = globalCva ?? {}
+    if (cvaOutdir === undefined && outdir) {
+      cvaOutdir = path.join(outdir, 'cva')
+    }
+    for (const [name, cvaParams] of Object.entries(cache.cva)) {
+      if (!dryRun) {
+        let outputPath = ''
+        if (configFilepath) {
+          outputPath = path.resolve(path.dirname(configFilepath), cvaOutdir ?? 'cva', `${name}.${format ?? 'ts'}`)
+          // @ts-ignore
+          const o = defu(...cvaParams)
+          writeFile(
+            outputPath,
+            generateCva({
+              format,
+              importFrom,
+              ...o
+            })
+          )
+        }
+      }
+    }
   }
 
   async function build(options?: BuildOptions) {
@@ -572,6 +593,11 @@ export function createContext(opts?: CodegenOptions | string) {
     }
 
     if (cvaFlag) {
+      const duration = await calcDuration(() => {
+        return buildCva()
+      })
+
+      logger.success('build cva finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
     }
   }
 

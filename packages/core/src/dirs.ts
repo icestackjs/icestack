@@ -54,7 +54,7 @@ export function createResolveDir(base: string) {
   }
 
   function getCvaPath(relPath: string, dir?: string, format: string = 'ts') {
-    const targetJsDir = resolveJsDir(dir)
+    const targetJsDir = resolveCvaDir(dir)
     const jsPath = path.resolve(targetJsDir, relPath)
     return jsPath + '.' + format
   }

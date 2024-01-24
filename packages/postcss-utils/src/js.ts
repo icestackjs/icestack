@@ -22,7 +22,7 @@ export function stringify(cssInJs: CssInJs) {
   return parseJs(cssInJs).toString()
 }
 
-export function process(plugins: AcceptedPlugin[], css: string): LazyResult<Document | Root> {
+export function postcssProcess(plugins: AcceptedPlugin[], css: string): LazyResult<Document | Root> {
   // @ts-ignore
   return postcss(plugins).process(css, {
     from: undefined

@@ -1,5 +1,18 @@
 # @icestack/postcss
 
+## 1.3.2
+
+### Patch Changes
+
+- [`8aafb36`](https://github.com/sonofmagic/icestack/commit/8aafb36725359619bf94a40079b387d747ff02a5) Thanks [@sonofmagic](https://github.com/sonofmagic)! - fix @icestack/preset-default
+
+- Updated dependencies [[`8aafb36`](https://github.com/sonofmagic/icestack/commit/8aafb36725359619bf94a40079b387d747ff02a5)]:
+  - @icestack/config@1.3.2
+  - @icestack/core@1.3.2
+  - @icestack/logger@1.3.2
+  - @icestack/postcss-utils@1.3.2
+  - @icestack/types@1.3.2
+
 ## 1.3.1
 
 ### Patch Changes

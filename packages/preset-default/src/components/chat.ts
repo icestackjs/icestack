@@ -45,6 +45,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       `,
       base: css`
         ${selector} {
+          // @b
           @apply grid grid-cols-2 gap-x-3 py-1;
           &-image {
             @apply row-span-2 self-end;

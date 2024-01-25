@@ -16,6 +16,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       `,
       base: css`
         ${selector} {
+          // @b
           @apply relative inline-flex;
           > div {
             @apply block aspect-square overflow-hidden;

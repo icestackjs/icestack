@@ -7,6 +7,7 @@ const schema: GetCssSchemaMethod = (opts) => {
     defaults: {
       base: css`
         ${selector} {
+          // @b
           @apply inline-flex overflow-x-scroll;
           scroll-snap-type: x mandatory;
           scroll-behavior: smooth;

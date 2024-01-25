@@ -7,6 +7,7 @@ const schema: GetCssSchemaMethod = (opts) => {
     defaults: {
       base: css`
         ${selector} {
+          // @b
           @apply flex flex-row items-center self-stretch;
           &:before,
           &:after {
@@ -34,6 +35,7 @@ const schema: GetCssSchemaMethod = (opts) => {
             .map((type) => {
               return css`
                 &-${type}:before,&-${type}:after {
+                  // @v type="${type}"
                   @apply bg-${type};
                 }
               `
@@ -43,6 +45,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       `,
       utils: css`
         ${selector}-horizontal {
+          // @v direction="horizontal"
           @apply flex-col;
           &:before {
             @apply h-full w-0.5;
@@ -52,6 +55,7 @@ const schema: GetCssSchemaMethod = (opts) => {
           }
         }
         ${selector}-vertical {
+          // @v direction="vertical"
           @apply flex-row;
           &:before {
             @apply h-0.5 w-full;

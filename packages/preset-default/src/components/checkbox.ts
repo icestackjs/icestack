@@ -34,8 +34,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           }
 
           ${types
-            .map((type) => {
-              return css`
+          .map((type) => {
+            return css`
                 &-${type} {
                   --chkbg: theme(colors.${type});
                   --chkfg: theme(colors.${type}-content);
@@ -50,8 +50,8 @@ const schema: GetCssSchemaMethod = (opts) => {
                   }
                 }
               `
-            })
-            .join('\n')}
+          })
+          .join('\n')}
 
           &:disabled {
             @apply bg-base-content cursor-not-allowed border-transparent opacity-20;
@@ -77,21 +77,26 @@ const schema: GetCssSchemaMethod = (opts) => {
       `,
       base: css`
         ${selector} {
+          // @b
           @apply shrink-0;
         }
       `,
       utils: css`
         [type='checkbox']${selector} {
           &-xs {
+            // @v size="xs"
             @apply h-4 w-4;
           }
           &-sm {
+            // @v size="sm"
             @apply h-5 w-5;
           }
           &-md {
+            // @v size="md"
             @apply h-6 w-6;
           }
           &-lg {
+            // @v size="lg"
             @apply h-8 w-8;
           }
         }

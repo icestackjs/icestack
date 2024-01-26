@@ -6,6 +6,16 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
+      base: css`
+        ${selector} {
+          // @b
+          @apply inline-flex items-center justify-center transition duration-200 ease-out;
+          @apply h-5 text-sm leading-5;
+          width: fit-content;
+          padding-left: 0.563rem;
+          padding-right: 0.563rem;
+        }
+      `,
       styled: css`
         ${selector} {
           @apply border-base-200 bg-base-100 text-base-content rounded-badge border;
@@ -40,16 +50,6 @@ const schema: GetCssSchemaMethod = (opts) => {
               })
               .join('\n')}
           }
-        }
-      `,
-      base: css`
-        ${selector} {
-          // @b
-          @apply inline-flex items-center justify-center transition duration-200 ease-out;
-          @apply h-5 text-sm leading-5;
-          width: fit-content;
-          padding-left: 0.563rem;
-          padding-right: 0.563rem;
         }
       `,
       utils: css`

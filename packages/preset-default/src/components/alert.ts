@@ -5,6 +5,12 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
+      base: css`
+        ${selector} {
+          // @b
+          @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
+        }
+      `,
       styled: css`
         ${selector} {
           @apply rounded-box border p-4 text-base-content border-base-200;
@@ -19,12 +25,6 @@ const schema: GetCssSchemaMethod = (opts) => {
               `
             })
             .join('\n')}
-        }
-      `,
-      base: css`
-        ${selector} {
-          // @b
-          @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
         }
       `
     }

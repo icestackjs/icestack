@@ -1,0 +1,672 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`'alert' cva > snap 1`] = `
+{
+  "base": [
+    "alert",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {
+    "type": {
+      "error": [
+        "alert-error",
+      ],
+      "neutral": [
+        "alert-neutral",
+      ],
+      "primary": [
+        "alert-primary",
+      ],
+      "success": [
+        "alert-success",
+      ],
+      "warning": [
+        "alert-warning",
+      ],
+    },
+  },
+}
+`;
+
+exports[`'avatar' cva > snap 1`] = `
+{
+  "base": [
+    "avatar",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'badge' cva > snap 1`] = `
+{
+  "base": [
+    "badge",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {
+    "ghost": {
+      "true": [
+        "badge-ghost",
+      ],
+    },
+    "outline": {
+      "true": [
+        "badge-outline",
+      ],
+    },
+    "size": {
+      "lg": [
+        "badge-lg",
+      ],
+      "md": [
+        "badge-md",
+      ],
+      "sm": [
+        "badge-sm",
+      ],
+      "xs": [
+        "badge-xs",
+      ],
+    },
+    "type": {
+      "error": [
+        "badge-error",
+      ],
+      "neutral": [
+        "badge-neutral",
+      ],
+      "primary": [
+        "badge-primary",
+      ],
+      "success": [
+        "badge-success",
+      ],
+      "warning": [
+        "badge-warning",
+      ],
+    },
+  },
+}
+`;
+
+exports[`'bottom-navigation' cva > snap 1`] = `
+{
+  "base": [
+    "btm-nav",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {
+    "disabled": {
+      "true": [
+        "disabled",
+      ],
+    },
+    "size": {
+      "lg": [
+        "btm-nav-lg",
+      ],
+      "md": [
+        "btm-nav-md",
+      ],
+      "sm": [
+        "btm-nav-sm",
+      ],
+      "xs": [
+        "btm-nav-xs",
+      ],
+    },
+  },
+}
+`;
+
+exports[`'breadcrumbs' cva > snap 1`] = `
+{
+  "base": [
+    "breadcrumbs",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'button' cva > snap 1`] = `
+{
+  "base": [
+    "btn",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {
+    "active": {
+      "true": [
+        "btn",
+      ],
+    },
+    "disabled": {
+      "true": [
+        "btn-disabled",
+      ],
+    },
+    "focusVisible": {
+      "true": [
+        "btn",
+      ],
+    },
+    "ghost": {
+      "true": [
+        "btn-ghost",
+      ],
+    },
+    "glass": {
+      "true": [
+        "btn",
+      ],
+    },
+    "hover": {
+      "true": [
+        "btn",
+      ],
+    },
+    "link": {
+      "true": [
+        "btn-link",
+      ],
+    },
+    "outline": {
+      "true": [
+        "btn-outline",
+      ],
+    },
+    "shape": {
+      "circle": [
+        "btn-circle",
+      ],
+      "square": [
+        "btn-square",
+      ],
+    },
+    "size": {
+      "block": [
+        "btn-block",
+      ],
+      "lg": [
+        "btn-lg",
+      ],
+      "md": [
+        "btn-md",
+      ],
+      "sm": [
+        "btn-sm",
+      ],
+      "wide": [
+        "btn-wide",
+      ],
+      "xs": [
+        "btn-xs",
+      ],
+    },
+    "type": {
+      "error": [
+        "btn-error",
+      ],
+      "neutral": [
+        "btn-neutral",
+      ],
+      "primary": [
+        "btn-primary",
+      ],
+      "success": [
+        "btn-success",
+      ],
+      "warning": [
+        "btn-warning",
+      ],
+    },
+  },
+}
+`;
+
+exports[`'card' cva > snap 1`] = `
+{
+  "base": [
+    "card",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'carousel' cva > snap 1`] = `
+{
+  "base": [
+    "carousel",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'chat' cva > snap 1`] = `
+{
+  "base": [
+    "chat",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'checkbox' cva > snap 1`] = `
+{
+  "base": [
+    "checkbox",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {
+    "size": {
+      "lg": [
+        "checkbox-lg",
+      ],
+      "md": [
+        "checkbox-md",
+      ],
+      "sm": [
+        "checkbox-sm",
+      ],
+      "xs": [
+        "checkbox-xs",
+      ],
+    },
+    "type": {
+      "error": [
+        "checkbox-error",
+      ],
+      "neutral": [
+        "checkbox-neutral",
+      ],
+      "primary": [
+        "checkbox-primary",
+      ],
+      "success": [
+        "checkbox-success",
+      ],
+      "warning": [
+        "checkbox-warning",
+      ],
+    },
+  },
+}
+`;
+
+exports[`'collapse' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'countdown' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'diff' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'divider' cva > snap 1`] = `
+{
+  "base": [
+    "divider",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {
+    "direction": {
+      "horizontal": [
+        "divider-horizontal",
+      ],
+      "vertical": [
+        "divider-vertical",
+      ],
+    },
+    "type": {
+      "error": [
+        "divider-error",
+      ],
+      "neutral": [
+        "divider-neutral",
+      ],
+      "primary": [
+        "divider-primary",
+      ],
+      "success": [
+        "divider-success",
+      ],
+      "warning": [
+        "divider-warning",
+      ],
+    },
+  },
+}
+`;
+
+exports[`'drawer' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'dropdown' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'file-input' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'footer' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'form' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'hero' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'indicator' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'input' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'join' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'kbd' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'link' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'loading' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'mask' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'menu' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'navbar' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'progress' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'radial-progress' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'radio' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'range' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'rating' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'select' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'skeleton' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'stack' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'stat' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'steps' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'swap' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'tab' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'table' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'textarea' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'timeline' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'toast' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'toggle' cva > snap 1`] = `
+{
+  "base": [],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
+exports[`'tooltip' cva > snap 1`] = `
+{
+  "base": [
+    "tooltip",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;

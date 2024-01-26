@@ -5,6 +5,12 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
+      base: css`
+      ${selector} {
+        // @b
+        @apply shrink-0;
+      }
+    `,
       styled: css`
         ${selector} {
           --chkbg: theme(colors.base-content);
@@ -37,6 +43,7 @@ const schema: GetCssSchemaMethod = (opts) => {
           .map((type) => {
             return css`
                 &-${type} {
+                  // @v type="${type}"
                   --chkbg: theme(colors.${type});
                   --chkfg: theme(colors.${type}-content);
                   @apply border-${type} [@media(hover:hover)]:hover:border-${type};
@@ -73,12 +80,6 @@ const schema: GetCssSchemaMethod = (opts) => {
         /* backward compatibility */
         ${selector}-mark {
           @apply hidden;
-        }
-      `,
-      base: css`
-        ${selector} {
-          // @b
-          @apply shrink-0;
         }
       `,
       utils: css`

@@ -6,14 +6,6 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      styled: css`
-        ${selector}-group {
-          @apply flex overflow-hidden;
-          :where(${selector}) {
-            @apply border-base-100 overflow-hidden rounded-full border-4;
-          }
-        }
-      `,
       base: css`
         ${selector} {
           // @b
@@ -28,6 +20,14 @@ const schema: GetCssSchemaMethod = (opts) => {
             > div {
               @apply flex items-center justify-center;
             }
+          }
+        }
+      `,
+      styled: css`
+        ${selector}-group {
+          @apply flex overflow-hidden;
+          :where(${selector}) {
+            @apply border-base-100 overflow-hidden rounded-full border-4;
           }
         }
       `

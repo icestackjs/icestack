@@ -72,6 +72,11 @@
   "dependencies": {
     "@icestack/shared": "workspace:^",
     "@icestack/theme-algorithm": "workspace:^",
-    "@icestack/types": "workspace:^"
+    "@icestack/types": "workspace:^",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@icestack/postcss-utils": "workspace:^",
+    "@icestack/scss": "workspace:^"
   }
 }

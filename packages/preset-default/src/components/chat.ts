@@ -5,44 +5,6 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
-      styled: css`
-        ${selector} {
-          &-bubble {
-            @apply rounded-box;
-            min-height: 2.75rem;
-            min-width: 2.75rem;
-
-            /* default */
-            & {
-              @apply bg-neutral text-neutral-content;
-            }
-
-            ${types
-              .map((type) => {
-                return css`
-                  &-${type} {
-                    @apply bg-${type} text-${type}-content;
-                  }
-                `
-              })
-              .join('\n')}
-          }
-
-          &-start ${selector}-bubble {
-            @apply rounded-es-none;
-            &:before {
-              inset-inline-start: -0.749rem;
-            }
-          }
-
-          &-end ${selector}-bubble {
-            @apply rounded-ee-none;
-            &:before {
-              inset-inline-start: 99.9%;
-            }
-          }
-        }
-      `,
       base: css`
         ${selector} {
           // @b
@@ -110,6 +72,44 @@ const schema: GetCssSchemaMethod = (opts) => {
                   mask-image: url("data:image/svg+xml,%3csvg width='3' height='3' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill='black' d='m 0 3 L 3 3 L 3 0 C 3 1 1 3 0 3'/%3e%3c/svg%3e");
                 }
               }
+            }
+          }
+        }
+      `,
+      styled: css`
+        ${selector} {
+          &-bubble {
+            @apply rounded-box;
+            min-height: 2.75rem;
+            min-width: 2.75rem;
+
+            /* default */
+            & {
+              @apply bg-neutral text-neutral-content;
+            }
+
+            ${types
+              .map((type) => {
+                return css`
+                  &-${type} {
+                    @apply bg-${type} text-${type}-content;
+                  }
+                `
+              })
+              .join('\n')}
+          }
+
+          &-start ${selector}-bubble {
+            @apply rounded-es-none;
+            &:before {
+              inset-inline-start: -0.749rem;
+            }
+          }
+
+          &-end ${selector}-bubble {
+            @apply rounded-ee-none;
+            &:before {
+              inset-inline-start: 99.9%;
             }
           }
         }

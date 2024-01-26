@@ -9,6 +9,7 @@ const schema: GetCssSchemaMethod = (opts) => {
     defaults: {
       base: css`
         ${selector} {
+          // @b
           @apply relative inline-block;
           --tooltip-offset: calc(100% + 1px + var(--tooltip-tail, 0px));
         }

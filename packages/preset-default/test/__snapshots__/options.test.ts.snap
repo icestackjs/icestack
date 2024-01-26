@@ -5,13 +5,12 @@ exports[`'alert' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .alert {
-          // @base
+          // @b
           @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
         }
       ",
     "styled": "
         .alert {
-          // @base
           @apply rounded-box border p-4 text-base-content border-base-200;
 
           
@@ -27,13 +26,12 @@ exports[`'alert' options > snap 1`] = `
   "defaults": {
     "base": "
         .alert {
-          // @base
+          // @b
           @apply grid w-full grid-flow-row content-start items-center justify-items-center gap-4 text-center sm:grid-flow-col sm:grid-cols-[auto_minmax(auto,1fr)] sm:justify-items-start sm:text-left;
         }
       ",
     "styled": "
         .alert {
-          // @base
           @apply rounded-box border p-4 text-base-content border-base-200;
 
           
@@ -78,6 +76,7 @@ exports[`'avatar' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .avatar {
+          // @b
           @apply relative inline-flex;
           > div {
             @apply block aspect-square overflow-hidden;
@@ -110,6 +109,7 @@ exports[`'avatar' options > snap 1`] = `
   "defaults": {
     "base": "
         .avatar {
+          // @b
           @apply relative inline-flex;
           > div {
             @apply block aspect-square overflow-hidden;
@@ -347,8 +347,7 @@ exports[`'bottom-navigation' options > raw snap 1`] = `
             &:where(.active) {
               @apply bg-base-100 border-t-2;
             }
-
-            /* disabled */
+            // @gv disabled="true" ["disabled"]
             &.disabled,
             &[disabled] {
               @apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;
@@ -441,8 +440,7 @@ exports[`'bottom-navigation' options > snap 1`] = `
             &:where(.active) {
               @apply bg-base-100 border-t-2;
             }
-
-            /* disabled */
+            // @gv disabled="true" ["disabled"]
             &.disabled,
             &[disabled] {
               @apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;
@@ -513,6 +511,7 @@ exports[`'breadcrumbs' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .breadcrumbs {
+          // @b
           @apply max-w-full overflow-x-auto;
           & > ul,
           & > ol {
@@ -568,6 +567,7 @@ exports[`'breadcrumbs' options > snap 1`] = `
   "defaults": {
     "base": "
         .breadcrumbs {
+          // @b
           @apply max-w-full overflow-x-auto;
           & > ul,
           & > ol {
@@ -623,11 +623,11 @@ exports[`'button' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .btn {
-          // @base
+          // @b
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
-          /* disabled */
+          // @gv disabled="true" ["btn-disabled"]
           &-disabled,
           &[disabled],
           &:disabled {
@@ -655,7 +655,6 @@ exports[`'button' options > raw snap 1`] = `
       ",
     "styled": "
         .btn {
-          // @base
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
 
@@ -721,15 +720,12 @@ exports[`'button' options > raw snap 1`] = `
 
           &.btn-disabled, &[disabled],
           &:disabled {
-            // @v disabled="true"
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
       ",
     "utils": "
         .btn {
-          // @base
-
           &-xs {
             // @v size="xs"
             @apply h-6 min-h-[1.5rem] px-2;
@@ -807,11 +803,11 @@ exports[`'button' options > snap 1`] = `
   "defaults": {
     "base": "
         .btn {
-          // @base
+          // @b
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
-          /* disabled */
+          // @gv disabled="true" ["btn-disabled"]
           &-disabled,
           &[disabled],
           &:disabled {
@@ -839,7 +835,6 @@ exports[`'button' options > snap 1`] = `
       ",
     "styled": "
         .btn {
-          // @base
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
 
@@ -1038,15 +1033,12 @@ exports[`'button' options > snap 1`] = `
 
           &.btn-disabled, &[disabled],
           &:disabled {
-            // @v disabled="true"
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
       ",
     "utils": "
         .btn {
-          // @base
-
           &-xs {
             // @v size="xs"
             @apply h-6 min-h-[1.5rem] px-2;
@@ -1124,6 +1116,7 @@ exports[`'card' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .card {
+          // @b
           @apply relative flex flex-col;
           &:focus {
             @apply outline-none;
@@ -1270,6 +1263,7 @@ exports[`'card' options > snap 1`] = `
   "defaults": {
     "base": "
         .card {
+          // @b
           @apply relative flex flex-col;
           &:focus {
             @apply outline-none;
@@ -1416,6 +1410,7 @@ exports[`'carousel' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .carousel {
+          // @b
           @apply inline-flex overflow-x-scroll;
           scroll-snap-type: x mandatory;
           scroll-behavior: smooth;
@@ -1454,6 +1449,7 @@ exports[`'carousel' options > snap 1`] = `
   "defaults": {
     "base": "
         .carousel {
+          // @b
           @apply inline-flex overflow-x-scroll;
           scroll-snap-type: x mandatory;
           scroll-behavior: smooth;
@@ -1492,6 +1488,7 @@ exports[`'chat' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .chat {
+          // @b
           @apply grid grid-cols-2 gap-x-3 py-1;
           &-image {
             @apply row-span-2 self-end;
@@ -1600,6 +1597,7 @@ exports[`'chat' options > snap 1`] = `
   "defaults": {
     "base": "
         .chat {
+          // @b
           @apply grid grid-cols-2 gap-x-3 py-1;
           &-image {
             @apply row-span-2 self-end;
@@ -1731,10 +1729,11 @@ exports[`'checkbox' options > raw snap 1`] = `
 {
   "defaults": {
     "base": "
-        .checkbox {
-          @apply shrink-0;
-        }
-      ",
+      .checkbox {
+        // @b
+        @apply shrink-0;
+      }
+    ",
     "styled": "
         .checkbox {
           --chkbg: theme(colors.base-content);
@@ -1790,15 +1789,19 @@ exports[`'checkbox' options > raw snap 1`] = `
     "utils": "
         [type='checkbox'].checkbox {
           &-xs {
+            // @v size="xs"
             @apply h-4 w-4;
           }
           &-sm {
+            // @v size="sm"
             @apply h-5 w-5;
           }
           &-md {
+            // @v size="md"
             @apply h-6 w-6;
           }
           &-lg {
+            // @v size="lg"
             @apply h-8 w-8;
           }
         }
@@ -1812,10 +1815,11 @@ exports[`'checkbox' options > snap 1`] = `
 {
   "defaults": {
     "base": "
-        .checkbox {
-          @apply shrink-0;
-        }
-      ",
+      .checkbox {
+        // @b
+        @apply shrink-0;
+      }
+    ",
     "styled": "
         .checkbox {
           --chkbg: theme(colors.base-content);
@@ -1846,6 +1850,7 @@ exports[`'checkbox' options > snap 1`] = `
 
           
                 &-primary {
+                  // @v type="primary"
                   --chkbg: theme(colors.primary);
                   --chkfg: theme(colors.primary-content);
                   @apply border-primary [@media(hover:hover)]:hover:border-primary;
@@ -1861,6 +1866,7 @@ exports[`'checkbox' options > snap 1`] = `
               
 
                 &-success {
+                  // @v type="success"
                   --chkbg: theme(colors.success);
                   --chkfg: theme(colors.success-content);
                   @apply border-success [@media(hover:hover)]:hover:border-success;
@@ -1876,6 +1882,7 @@ exports[`'checkbox' options > snap 1`] = `
               
 
                 &-warning {
+                  // @v type="warning"
                   --chkbg: theme(colors.warning);
                   --chkfg: theme(colors.warning-content);
                   @apply border-warning [@media(hover:hover)]:hover:border-warning;
@@ -1891,6 +1898,7 @@ exports[`'checkbox' options > snap 1`] = `
               
 
                 &-error {
+                  // @v type="error"
                   --chkbg: theme(colors.error);
                   --chkfg: theme(colors.error-content);
                   @apply border-error [@media(hover:hover)]:hover:border-error;
@@ -1906,6 +1914,7 @@ exports[`'checkbox' options > snap 1`] = `
               
 
                 &-neutral {
+                  // @v type="neutral"
                   --chkbg: theme(colors.neutral);
                   --chkfg: theme(colors.neutral-content);
                   @apply border-neutral [@media(hover:hover)]:hover:border-neutral;
@@ -1945,15 +1954,19 @@ exports[`'checkbox' options > snap 1`] = `
     "utils": "
         [type='checkbox'].checkbox {
           &-xs {
+            // @v size="xs"
             @apply h-4 w-4;
           }
           &-sm {
+            // @v size="sm"
             @apply h-5 w-5;
           }
           &-md {
+            // @v size="md"
             @apply h-6 w-6;
           }
           &-lg {
+            // @v size="lg"
             @apply h-8 w-8;
           }
         }
@@ -2428,6 +2441,7 @@ exports[`'divider' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .divider {
+          // @b
           @apply flex flex-row items-center self-stretch;
           &:before,
           &:after {
@@ -2456,6 +2470,7 @@ exports[`'divider' options > raw snap 1`] = `
       ",
     "utils": "
         .divider-horizontal {
+          // @v direction="horizontal"
           @apply flex-col;
           &:before {
             @apply h-full w-0.5;
@@ -2465,6 +2480,7 @@ exports[`'divider' options > raw snap 1`] = `
           }
         }
         .divider-vertical {
+          // @v direction="vertical"
           @apply flex-row;
           &:before {
             @apply h-0.5 w-full;
@@ -2491,6 +2507,7 @@ exports[`'divider' options > snap 1`] = `
   "defaults": {
     "base": "
         .divider {
+          // @b
           @apply flex flex-row items-center self-stretch;
           &:before,
           &:after {
@@ -2516,26 +2533,31 @@ exports[`'divider' options > snap 1`] = `
           }
           
                 &-primary:before,&-primary:after {
+                  // @v type="primary"
                   @apply bg-primary;
                 }
               
 
                 &-success:before,&-success:after {
+                  // @v type="success"
                   @apply bg-success;
                 }
               
 
                 &-warning:before,&-warning:after {
+                  // @v type="warning"
                   @apply bg-warning;
                 }
               
 
                 &-error:before,&-error:after {
+                  // @v type="error"
                   @apply bg-error;
                 }
               
 
                 &-neutral:before,&-neutral:after {
+                  // @v type="neutral"
                   @apply bg-neutral;
                 }
               
@@ -2543,6 +2565,7 @@ exports[`'divider' options > snap 1`] = `
       ",
     "utils": "
         .divider-horizontal {
+          // @v direction="horizontal"
           @apply flex-col;
           &:before {
             @apply h-full w-0.5;
@@ -2552,6 +2575,7 @@ exports[`'divider' options > snap 1`] = `
           }
         }
         .divider-vertical {
+          // @v direction="vertical"
           @apply flex-row;
           &:before {
             @apply h-0.5 w-full;
@@ -8324,6 +8348,7 @@ exports[`'tooltip' options > raw snap 1`] = `
   "defaults": {
     "base": "
         .tooltip {
+          // @b
           @apply relative inline-block;
           --tooltip-offset: calc(100% + 1px + var(--tooltip-tail, 0px));
         }
@@ -8475,6 +8500,7 @@ exports[`'tooltip' options > snap 1`] = `
   "defaults": {
     "base": "
         .tooltip {
+          // @b
           @apply relative inline-block;
           --tooltip-offset: calc(100% + 1px + var(--tooltip-tail, 0px));
         }

@@ -29,8 +29,7 @@ const schema: GetCssSchemaMethod = (opts) => {
             &:where(.active) {
               @apply bg-base-100 border-t-2;
             }
-
-            /* disabled */
+            // @gv disabled="true" ["disabled"]
             &.disabled,
             &[disabled] {
               @apply bg-neutral text-base-content pointer-events-none border-opacity-0 bg-opacity-10 text-opacity-20;

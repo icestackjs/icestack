@@ -1,14 +1,45 @@
+import { trimStart } from 'lodash'
 import { GetCssSchemaMethod, css } from '@/types'
-
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
 
   return {
     selector,
     defaults: {
+      base: css`
+        ${selector} {
+          // @b
+          @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
+          font-size: 0.875rem;
+          line-height: 1em;
+          // @gv disabled="true" ["${trimStart(selector, '.')}-disabled"]
+          &-disabled,
+          &[disabled],
+          &:disabled {
+            @apply pointer-events-none;
+          }
+
+          /* shapes */
+          &-square {
+            @apply h-12 w-12 p-0;
+          }
+          &-circle {
+            @apply h-12 w-12 rounded-full p-0;
+          }
+        }
+
+        /* radio input and checkbox as button */
+        :where(${selector}:is(input[type="checkbox"])),
+        :where(${selector}:is(input[type="radio"])) {
+          @apply w-auto appearance-none;
+        }
+        ${selector}:is(input[type="checkbox"]):after,
+      ${selector}:is(input[type="radio"]):after {
+          @apply content-[attr(aria-label)];
+        }
+      `,
       styled: css`
         ${selector} {
-          // @base
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
 
@@ -107,47 +138,13 @@ const schema: GetCssSchemaMethod = (opts) => {
 
           &${selector}-disabled, &[disabled],
           &:disabled {
-            // @v disabled="true"
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
       `,
-      base: css`
-        ${selector} {
-          // @base
-          @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
-          font-size: 0.875rem;
-          line-height: 1em;
-          /* disabled */
-          &-disabled,
-          &[disabled],
-          &:disabled {
-            @apply pointer-events-none;
-          }
 
-          /* shapes */
-          &-square {
-            @apply h-12 w-12 p-0;
-          }
-          &-circle {
-            @apply h-12 w-12 rounded-full p-0;
-          }
-        }
-
-        /* radio input and checkbox as button */
-        :where(${selector}:is(input[type="checkbox"])),
-        :where(${selector}:is(input[type="radio"])) {
-          @apply w-auto appearance-none;
-        }
-        ${selector}:is(input[type="checkbox"]):after,
-      ${selector}:is(input[type="radio"]):after {
-          @apply content-[attr(aria-label)];
-        }
-      `,
       utils: css`
         ${selector} {
-          // @base
-
           &-xs {
             // @v size="xs"
             @apply h-6 min-h-[1.5rem] px-2;

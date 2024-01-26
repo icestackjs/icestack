@@ -16,7 +16,7 @@ export const matchAll = (regex: RegExp, str: string) => {
   return arr
 }
 
-function getNextRule(comment: Comment) {
+function getParentRule(comment: Comment) {
   const p = comment.parent
   if (p?.type === 'rule') {
     return p as Rule
@@ -35,11 +35,15 @@ function getNextRule(comment: Comment) {
 
 export const baseRegex = new RegExp(/@b(?:ase)?/.source, 'g')
 
-export const defineBaseRegex = new RegExp(/@db(?:ase)?/.source, 'g')
+export const defineBaseRegex = new RegExp(/@gb(?:ase)?/.source, 'g')
 
 export const variantRegex = new RegExp(/@v(?:ariant)?/.source, 'g')
 
+export const defineVariantRegex = new RegExp(/@gv(?:ariant)?/.source, 'g')
+
 export const compoundVariantRegex = /@(?:cv|compoundVariant)/g
+
+export const defineCompoundVariantRegex = /@(?:gcv|gcompoundVariant)/g
 
 export const defaultVariantRegex = new RegExp(/@(?:dv|defaultVariant)/.source, 'g')
 
@@ -66,13 +70,23 @@ const regexArray: { type: CommentType; regex: RegExp; next: boolean }[] = [
     next: true
   },
   {
-    regex: defaultVariantRegex,
-    type: 'defaultVariant',
+    regex: defineBaseRegex,
+    type: 'base',
     next: false
   },
   {
-    regex: defineBaseRegex,
-    type: 'base',
+    regex: defineVariantRegex,
+    type: 'variant',
+    next: false
+  },
+  {
+    regex: defineCompoundVariantRegex,
+    type: 'compoundVariant',
+    next: false
+  },
+  {
+    regex: defaultVariantRegex,
+    type: 'defaultVariant',
     next: false
   }
 ]
@@ -145,18 +159,28 @@ export function extractParams(text: string) {
 export interface CvaParams {
   base: string[]
   variants: Record<string, Record<string, string[]>>
-  compoundVariants: Record<string, string | string[]>[]
+  compoundVariants: ({ class: string[] } & Record<string, string>)[]
   defaultVariants: Record<string, string>
 }
 
 export interface CvaParamsSet {
   base: Set<string>
   variants: Record<string, Record<string, Set<string>>>
-  compoundVariants: Record<string, string | Set<string>>[]
+  compoundVariants: ({ class: Set<string> } & Record<string, string>)[]
   defaultVariants: Record<string, string>
 }
 
 const cvaSymbol = Symbol('cva')
+
+function setAdd(set: Set<string>, value: string | string[]) {
+  if (Array.isArray(value)) {
+    for (const v of value) {
+      set.add(v)
+    }
+  } else {
+    set.add(value)
+  }
+}
 
 const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (res?: CvaParams) => void }> = (opts) => {
   const { process, prefix: _prefix } = opts ?? {}
@@ -169,6 +193,81 @@ const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (re
   const prefix = _prefix ?? ''
   const hashMap = new Map<string, CvaParamsSet['compoundVariants'][number]>()
   const weakMap = new WeakMap()
+
+  function addBase(value: string | string[]) {
+    setAdd(result.base, value)
+  }
+
+  function addVariant(
+    value: string | string[],
+    entries: [
+      string,
+      {
+        value: string
+      }
+    ][]
+  ) {
+    for (const [p1, { value: p2 }] of entries) {
+      const p = `${p1}.${p2}`
+      const arr = get(result.variants, p)
+
+      if (arr instanceof Set) {
+        setAdd(arr, value)
+      } else {
+        const st = new Set<string>()
+        setAdd(st, value)
+        set(result.variants, p, st)
+      }
+    }
+  }
+
+  function addDefaultVariant(
+    entries: [
+      string,
+      {
+        value: string
+      }
+    ][]
+  ) {
+    for (const [key, { value }] of entries) {
+      set(result.defaultVariants, key, value)
+    }
+  }
+
+  function addCompoundVariant(
+    value: string | string[],
+    entries: [
+      string,
+      {
+        value: string
+      }
+    ][],
+    hashCode: string
+  ) {
+    const item = hashMap.get(hashCode)
+    if (item) {
+      item.class && setAdd(item.class, value)
+    } else {
+      const set = new Set<string>()
+      setAdd(set, value)
+
+      hashMap.set(
+        hashCode,
+        // @ts-ignore
+        entries.reduce(
+          (acc, [k, { value }]) => {
+            // @ts-ignore
+            acc[k] = value
+            return acc
+          },
+          {
+            class: set
+          }
+        )
+      )
+    }
+  }
+
   return {
     postcssPlugin: 'postcss-icestack-extract-cva-params-plugin',
     Comment(comment) {
@@ -182,7 +281,7 @@ const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (re
         const entries = Object.entries(query)
 
         if (next) {
-          const rule = getNextRule(comment)
+          const rule = getParentRule(comment)
 
           if (rule) {
             const ast = defaultParser.astSync(rule.selector)
@@ -194,71 +293,56 @@ const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (re
             })
 
             if (value) {
-              value = prefix + value
+              // value = prefix + value
               switch (type) {
                 case 'base': {
-                  result.base.add(value)
+                  addBase(value)
 
                   break
                 }
                 case 'variant': {
-                  for (const [p1, { value: p2 }] of entries) {
-                    const p = `${p1}.${p2}`
-
-                    const arr = get(result.variants, p)
-                    if (arr instanceof Set) {
-                      arr.add(value)
-                    } else {
-                      const st = new Set<string>()
-                      st.add(value)
-                      set(result.variants, p, st)
-                    }
-                  }
+                  addVariant(value, entries)
 
                   break
                 }
                 case 'compoundVariant': {
-                  const item = hashMap.get(hashCode)
-                  if (item) {
-                    // @ts-ignore
-                    item.class?.add(value)
-                    // hashMap.set(hashCode, {
-                    //   ...item,
-                    //   // @ts-ignore
-                    //   class: [...item.class, value]
-                    // })
-                  } else {
-                    const set = new Set<string>()
-                    set.add(value)
-                    hashMap.set(
-                      hashCode,
-                      entries.reduce<Record<string, string | Set<string>>>(
-                        (acc, [k, { value }]) => {
-                          acc[k] = value
-                          return acc
-                        },
-                        {
-                          class: set
-                        }
-                      )
-                    )
-                  }
+                  addCompoundVariant(value, entries, hashCode)
 
                   break
                 }
-                // No default
               }
             }
           }
-        } else if (type === 'defaultVariant') {
-          for (const [key, { value }] of entries) {
-            set(result.defaultVariants, key, value)
+        } else
+          switch (type) {
+            case 'defaultVariant': {
+              addDefaultVariant(entries)
+
+              break
+            }
+            case 'base': {
+              addBase(params.map((x) => prefix + x))
+
+              break
+            }
+            case 'variant': {
+              addVariant(
+                params.map((x) => prefix + x),
+                entries
+              )
+
+              break
+            }
+            case 'compoundVariant': {
+              addCompoundVariant(
+                params.map((x) => prefix + x),
+                entries,
+                hashCode
+              )
+
+              break
+            }
           }
-        } else if (type === 'base') {
-          for (const param of params) {
-            result.base.add(param)
-          }
-        }
       }
     },
     CommentExit(comment) {
@@ -276,7 +360,7 @@ const creator: PluginCreator<{ selector?: string; prefix?: string; process?: (re
             ...x,
             class: [...x.class]
           }
-        }),
+        }) as CvaParams['compoundVariants'],
         defaultVariants: result.defaultVariants,
         variants: Object.entries(result.variants).reduce<CvaParams['variants']>((acc, [k, v]) => {
           acc[k] = Object.entries(v).reduce<Record<string, string[]>>((bcc, [k1, v1]) => {

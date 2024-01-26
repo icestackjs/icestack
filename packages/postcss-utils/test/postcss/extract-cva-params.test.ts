@@ -114,12 +114,12 @@ describe('extract-cva-params', () => {
     ]).process(`
       
       .btn{
-        /* @dbase ["xx","yyy"] */
+        /* @gbase ["xx","yyy"] */
         color:red;
       }
 
       .btn{
-        /* @db ["yy","yyy"] */
+        /* @gb ["yy","yyy"] */
         color:red;
       }
     `)
@@ -154,6 +154,33 @@ describe('extract-cva-params', () => {
     expect(res).toMatchSnapshot()
   })
 
+  it('gv case1', async () => {
+    let res
+    await postcss([
+      extractCva({
+        process(x) {
+          res = x
+        }
+      })
+      // @ts-ignore
+    ]).process(`
+      
+      .btn{
+        /* @gv intent="primary" ["btn"] */
+        color:red;
+      }
+
+      
+      .btn-primary{
+        /* @gv intent="primary" ["btn","btn-primary"] */
+        color:red;
+      }
+
+    `)
+
+    expect(res).toMatchSnapshot()
+  })
+
   it('cv case1', async () => {
     let res
     await postcss([
@@ -172,6 +199,31 @@ describe('extract-cva-params', () => {
       
       .ccc{
         /* @cv intent="primary" */
+      }
+
+    `)
+
+    expect(res).toMatchSnapshot()
+  })
+
+  it('gcv case1', async () => {
+    let res
+    await postcss([
+      extractCva({
+        process(x) {
+          res = x
+        }
+      })
+      // @ts-ignore
+    ]).process(`
+      
+      .bbb{
+        /* @gcv intent="primary" ["bbb","ccc"] */
+      }
+
+      
+      .ccc{
+        /* @gcv intent="primary" ["aaa","bbb"] */
       }
 
     `)

@@ -28,6 +28,19 @@ exports[`extract-cva-params > cv case1 1`] = `
 }
 `;
 
+exports[`extract-cva-params > define base 1`] = `
+{
+  "base": [
+    "xx",
+    "yyy",
+    "yy",
+  ],
+  "compoundVariants": [],
+  "defaultVariants": {},
+  "variants": {},
+}
+`;
+
 exports[`extract-cva-params > dv case1 1`] = `
 {
   "base": [],

@@ -64,10 +64,11 @@ describe('extract-cva-params', () => {
 
   describe('extractParams', () => {
     it('extractParams case 0', () => {
-      let res = extractParams(' xxx="xx"  yyy="xxx" ')
+      let { query: res } = extractParams(' xxx="xx"  yyy="xxx" ')
       expect(res.xxx.value).toBe('xx')
       expect(res.yyy.value).toBe('xxx')
-      res = extractParams(' xxx=this  yyy="xxx" ')
+      const { query } = extractParams(' xxx=this  yyy="xxx" ')
+      res = query
       expect(res.xxx).toBe(undefined)
       expect(res.yyy.value).toBe('xxx')
       // expect(res.xxx.this).toBe(true)
@@ -94,6 +95,31 @@ describe('extract-cva-params', () => {
       .btn{
         /* @base */
         /* @base */
+        color:red;
+      }
+    `)
+
+    expect(res).toMatchSnapshot()
+  })
+
+  it('define base', async () => {
+    let res
+    await postcss([
+      extractCva({
+        process(x) {
+          res = x
+        }
+      })
+      // @ts-ignore
+    ]).process(`
+      
+      .btn{
+        /* @dbase ["xx","yyy"] */
+        color:red;
+      }
+
+      .btn{
+        /* @db ["yy","yyy"] */
         color:red;
       }
     `)

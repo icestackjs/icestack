@@ -64,7 +64,7 @@
     "@icestack/postcss-utils": "workspace:^",
     "@icestack/shared": "workspace:^",
     "@icestack/types": "workspace:^",
-    "culori": "^4.0.0",
+    "culori": "^4.0.1",
     "lodash": "^4.17.21",
     "picocolors": "^1.0.0"
   }

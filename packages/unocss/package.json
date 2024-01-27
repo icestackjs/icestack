@@ -57,8 +57,8 @@
   "devDependencies": {
     "@icestack/types": "workspace:^",
     "@icestack/ui": "workspace:^",
-    "@unocss/core": "^0.58.3",
-    "unocss": "^0.58.3"
+    "@unocss/core": "^0.58.4",
+    "unocss": "^0.58.4"
   },
   "dependencies": {
     "@icestack/logger": "workspace:^",

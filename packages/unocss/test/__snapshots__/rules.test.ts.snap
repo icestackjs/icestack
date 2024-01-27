@@ -4507,6 +4507,11 @@ exports[`index > getRules default 1`] = `
     z-index: 1;
     content: var(--tw-content);
     --un-content: attr(data-tip);
+    transform: translateX(-50%);
+    top: auto;
+    left: 50%;
+    right: auto;
+    bottom: var(--ice-tooltip-offset);
     max-width: 20rem;
     border-radius: 0.25rem;
     padding-left: 0.5rem;
@@ -4518,13 +4523,6 @@ exports[`index > getRules default 1`] = `
     background-color: var(--tooltip-color);
     color: var(--tooltip-text-color);
     width: max-content
-}
-.tooltip:before,.tooltip-top:before {
-    transform: translateX(-50%);
-    top: auto;
-    left: 50%;
-    right: auto;
-    bottom: var(--ice-tooltip-offset)
 }
 .tooltip:before,.tooltip:after {
     opacity: 0;
@@ -4565,7 +4563,7 @@ exports[`index > getRules default 1`] = `
   ],
   [
     "tooltip-top",
-    ".tooltip:before,.tooltip-top:before {
+    ".tooltip-top:before {
     transform: translateX(-50%);
     top: auto;
     left: 50%;

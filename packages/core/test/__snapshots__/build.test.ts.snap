@@ -12,9 +12,7 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [
-        "alert",
-      ],
+      "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {
@@ -69,7 +67,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "avatar",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -175,7 +175,13 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "disabled": {
+          "true": [
+            "disabled",
+          ],
+        },
+      },
     },
     {
       "base": [
@@ -200,7 +206,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "breadcrumbs",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -208,9 +216,7 @@ exports[`build > build all 2`] = `
   ],
   "button": [
     {
-      "base": [
-        "btn",
-      ],
+      "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {
@@ -245,18 +251,11 @@ exports[`build > build all 2`] = `
       },
     },
     {
-      "base": [
-        "btn",
-      ],
+      "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {
         "active": {
-          "true": [
-            "btn",
-          ],
-        },
-        "disabled": {
           "true": [
             "btn",
           ],
@@ -325,7 +324,13 @@ exports[`build > build all 2`] = `
       ],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "disabled": {
+          "true": [
+            "btn-disabled",
+          ],
+        },
+      },
     },
   ],
   "card": [
@@ -342,7 +347,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "card",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -362,7 +369,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "carousel",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -382,7 +391,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "chat",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -393,16 +404,60 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "size": {
+          "lg": [
+            "checkbox-lg",
+          ],
+          "md": [
+            "checkbox-md",
+          ],
+          "sm": [
+            "checkbox-sm",
+          ],
+          "xs": [
+            "checkbox-xs",
+          ],
+        },
+      },
     },
     {
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "type": {
+          "accent": [
+            "checkbox-accent",
+          ],
+          "error": [
+            "checkbox-error",
+          ],
+          "info": [
+            "checkbox-info",
+          ],
+          "neutral": [
+            "checkbox-neutral",
+          ],
+          "primary": [
+            "checkbox-primary",
+          ],
+          "secondary": [
+            "checkbox-secondary",
+          ],
+          "success": [
+            "checkbox-success",
+          ],
+          "warning": [
+            "checkbox-warning",
+          ],
+        },
+      },
     },
     {
-      "base": [],
+      "base": [
+        "checkbox",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -442,7 +497,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "countdown",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -462,7 +519,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "diff",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -473,16 +532,54 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "direction": {
+          "horizontal": [
+            "divider-horizontal",
+          ],
+          "vertical": [
+            "divider-vertical",
+          ],
+        },
+      },
     },
     {
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "type": {
+          "accent": [
+            "divider-accent",
+          ],
+          "error": [
+            "divider-error",
+          ],
+          "info": [
+            "divider-info",
+          ],
+          "neutral": [
+            "divider-neutral",
+          ],
+          "primary": [
+            "divider-primary",
+          ],
+          "secondary": [
+            "divider-secondary",
+          ],
+          "success": [
+            "divider-success",
+          ],
+          "warning": [
+            "divider-warning",
+          ],
+        },
+      },
     },
     {
-      "base": [],
+      "base": [
+        "divider",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -533,16 +630,75 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "size": {
+          "lg": [
+            "file-input-lg",
+          ],
+          "md": [
+            "file-input-md",
+          ],
+          "sm": [
+            "file-input-sm",
+          ],
+          "xs": [
+            "file-input-xs",
+          ],
+        },
+      },
     },
     {
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "bordered": {
+          "true": [
+            "file-input-bordered",
+          ],
+        },
+        "disabled": {
+          "true": [
+            "file-input-disabled",
+          ],
+        },
+        "ghost": {
+          "true": [
+            "file-input-ghost",
+          ],
+        },
+        "type": {
+          "accent": [
+            "file-input-accent",
+          ],
+          "error": [
+            "file-input-error",
+          ],
+          "info": [
+            "file-input-info",
+          ],
+          "neutral": [
+            "file-input-neutral",
+          ],
+          "primary": [
+            "file-input-primary",
+          ],
+          "secondary": [
+            "file-input-secondary",
+          ],
+          "success": [
+            "file-input-success",
+          ],
+          "warning": [
+            "file-input-warning",
+          ],
+        },
+      },
     },
     {
-      "base": [],
+      "base": [
+        "file-input",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -653,7 +809,16 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "direction": {
+          "horizontal": [
+            "join-horizontal",
+          ],
+          "vertical": [
+            "join-vertical",
+          ],
+        },
+      },
     },
     {
       "base": [],
@@ -662,7 +827,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "join",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -673,7 +840,22 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "size": {
+          "lg": [
+            "kbd-lg",
+          ],
+          "md": [
+            "kbd-md",
+          ],
+          "sm": [
+            "kbd-sm",
+          ],
+          "xs": [
+            "kbd-xs",
+          ],
+        },
+      },
     },
     {
       "base": [],
@@ -682,7 +864,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "kbd",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -699,13 +883,48 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "type": {
+          "accent": [
+            "link-accent",
+          ],
+          "error": [
+            "link-error",
+          ],
+          "info": [
+            "link-info",
+          ],
+          "neutral": [
+            "link-neutral",
+          ],
+          "primary": [
+            "link-primary",
+          ],
+          "secondary": [
+            "link-secondary",
+          ],
+          "success": [
+            "link-success",
+          ],
+          "warning": [
+            "link-warning",
+          ],
+        },
+      },
     },
     {
-      "base": [],
+      "base": [
+        "link",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "hover": {
+          "true": [
+            "link-hover",
+          ],
+        },
+      },
     },
   ],
   "loading": [
@@ -713,7 +932,60 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "shape": {
+          "audio": [
+            "loading-audio",
+          ],
+          "ball-triangle": [
+            "loading-ball-triangle",
+          ],
+          "bars": [
+            "loading-bars",
+          ],
+          "circles": [
+            "loading-circles",
+          ],
+          "grid": [
+            "loading-grid",
+          ],
+          "hearts": [
+            "loading-hearts",
+          ],
+          "oval": [
+            "loading-oval",
+          ],
+          "puff": [
+            "loading-puff",
+          ],
+          "rings": [
+            "loading-rings",
+          ],
+          "spinning-circles": [
+            "loading-spinning-circles",
+          ],
+          "tail-spin": [
+            "loading-tail-spin",
+          ],
+          "three-dots": [
+            "loading-three-dots",
+          ],
+        },
+        "size": {
+          "lg": [
+            "loading-lg",
+          ],
+          "md": [
+            "loading-md",
+          ],
+          "sm": [
+            "loading-sm",
+          ],
+          "xs": [
+            "loading-xs",
+          ],
+        },
+      },
     },
     {
       "base": [],
@@ -722,7 +994,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "loading",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -733,7 +1007,67 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "shape": {
+          "circle": [
+            "mask-circle",
+          ],
+          "decagon": [
+            "mask-decagon",
+          ],
+          "diamond": [
+            "mask-diamond",
+          ],
+          "heart": [
+            "mask-heart",
+          ],
+          "hexagon": [
+            "mask-hexagon",
+          ],
+          "hexagon-2": [
+            "mask-hexagon-2",
+          ],
+          "parallelogram": [
+            "mask-parallelogram",
+          ],
+          "parallelogram-2": [
+            "mask-parallelogram-2",
+          ],
+          "parallelogram-3": [
+            "mask-parallelogram-3",
+          ],
+          "parallelogram-4": [
+            "mask-parallelogram-4",
+          ],
+          "pentagon": [
+            "mask-pentagon",
+          ],
+          "square": [
+            "mask-square",
+          ],
+          "squircle": [
+            "mask-squircle",
+          ],
+          "star": [
+            "mask-star",
+          ],
+          "star-2": [
+            "mask-star-2",
+          ],
+          "triangle": [
+            "mask-triangle",
+          ],
+          "triangle-2": [
+            "mask-triangle-2",
+          ],
+          "triangle-3": [
+            "mask-triangle-3",
+          ],
+          "triangle-4": [
+            "mask-triangle-4",
+          ],
+        },
+      },
     },
     {
       "base": [],
@@ -742,7 +1076,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "mask",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -1033,7 +1369,22 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "size": {
+          "lg": [
+            "table-lg",
+          ],
+          "md": [
+            "table-md",
+          ],
+          "sm": [
+            "table-sm",
+          ],
+          "xs": [
+            "table-xs",
+          ],
+        },
+      },
     },
     {
       "base": [],
@@ -1102,7 +1453,9 @@ exports[`build > build all 2`] = `
       "variants": {},
     },
     {
-      "base": [],
+      "base": [
+        "toast",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -1113,16 +1466,60 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "size": {
+          "lg": [
+            "toggle-lg",
+          ],
+          "md": [
+            "toggle-md",
+          ],
+          "sm": [
+            "toggle-sm",
+          ],
+          "xs": [
+            "toggle-xs",
+          ],
+        },
+      },
     },
     {
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "type": {
+          "accent": [
+            "toggle-accent",
+          ],
+          "error": [
+            "toggle-error",
+          ],
+          "info": [
+            "toggle-info",
+          ],
+          "neutral": [
+            "toggle-neutral",
+          ],
+          "primary": [
+            "toggle-primary",
+          ],
+          "secondary": [
+            "toggle-secondary",
+          ],
+          "success": [
+            "toggle-success",
+          ],
+          "warning": [
+            "toggle-warning",
+          ],
+        },
+      },
     },
     {
-      "base": [],
+      "base": [
+        "toggle",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
       "variants": {},
@@ -1139,13 +1536,36 @@ exports[`build > build all 2`] = `
       "base": [],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "open": {
+          "true": [
+            "tooltip-open",
+          ],
+        },
+      },
     },
     {
-      "base": [],
+      "base": [
+        "tooltip",
+      ],
       "compoundVariants": [],
       "defaultVariants": {},
-      "variants": {},
+      "variants": {
+        "placement": {
+          "bottom": [
+            "tooltip-bottom",
+          ],
+          "left": [
+            "tooltip-left",
+          ],
+          "right": [
+            "tooltip-right",
+          ],
+          "top": [
+            "tooltip-top",
+          ],
+        },
+      },
     },
   ],
 }

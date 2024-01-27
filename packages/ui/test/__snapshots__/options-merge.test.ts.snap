@@ -77,11 +77,11 @@ exports[`options merge > merge case 1 1`] = `
   "button": {
     "base": {
       "css": ".btn {
-  /* @base*/
+  /* @b*/
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
-  /* disabled */
+  /* @gv disabled="true" [".btn-disabled"]*/
   /* shapes */
 }
 .btn-disabled, .btn[disabled], .btn:disabled {
@@ -151,7 +151,13 @@ exports[`options merge > merge case 1 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
-        "variants": {},
+        "variants": {
+          "disabled": {
+            "true": [
+              "btn-disabled",
+            ],
+          },
+        },
       },
       "resolvedCss": ".btn {
   display: inline-flex;
@@ -170,7 +176,6 @@ exports[`options merge > merge case 1 1`] = `
   text-align: center;
   font-size: 0.875rem;
   line-height: 1em
-  /* disabled */
   /* shapes */
 }
 .btn-disabled,.btn[disabled],.btn:disabled {
@@ -202,11 +207,11 @@ exports[`options merge > merge case 1 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
+          /* @b*/
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
-          /* disabled */
+          /* @gv disabled="true" [".btn-disabled"]*/
           &-disabled,&[disabled],&:disabled {
             @apply pointer-events-none;
           }
@@ -232,7 +237,6 @@ exports[`options merge > merge case 1 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  /* @base*/
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
@@ -432,7 +436,6 @@ exports[`options merge > merge case 1 1`] = `
   @apply border-info-active bg-info-active text-info-content;
 }
 .btn.btn-disabled, .btn[disabled], .btn:disabled {
-  /* @v disabled="true"*/
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
 }",
       "cssInJs": {
@@ -868,18 +871,11 @@ exports[`options merge > merge case 1 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
           "active": {
-            "true": [
-              "btn",
-            ],
-          },
-          "disabled": {
             "true": [
               "btn",
             ],
@@ -1375,7 +1371,6 @@ exports[`options merge > merge case 1 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
 
@@ -1614,7 +1609,6 @@ exports[`options merge > merge case 1 1`] = `
           }
 
           &.btn-disabled,&[disabled],&:disabled {
-            /* @v disabled="true"*/
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
@@ -1622,7 +1616,6 @@ exports[`options merge > merge case 1 1`] = `
     },
     "utils": {
       "css": ".btn {
-  /* @base*/
   border-style: solid;
 }
 .btn-xs {
@@ -1775,9 +1768,7 @@ exports[`options merge > merge case 1 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
@@ -1900,8 +1891,6 @@ exports[`options merge > merge case 1 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
-
           &-xs {
             /* @v size="xs"*/
             @apply h-6 min-h-[1.5rem] px-2;
@@ -1983,11 +1972,11 @@ exports[`options merge > merge case 2 1`] = `
   "button": {
     "base": {
       "css": ".btn {
-  /* @base*/
+  /* @b*/
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
-  /* disabled */
+  /* @gv disabled="true" [".btn-disabled"]*/
   /* shapes */
 }
 .btn-disabled, .btn[disabled], .btn:disabled {
@@ -2057,7 +2046,13 @@ exports[`options merge > merge case 2 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
-        "variants": {},
+        "variants": {
+          "disabled": {
+            "true": [
+              "btn-disabled",
+            ],
+          },
+        },
       },
       "resolvedCss": ".btn {
   display: inline-flex;
@@ -2076,7 +2071,6 @@ exports[`options merge > merge case 2 1`] = `
   text-align: center;
   font-size: 0.875rem;
   line-height: 1em
-  /* disabled */
   /* shapes */
 }
 .btn-disabled,.btn[disabled],.btn:disabled {
@@ -2108,11 +2102,11 @@ exports[`options merge > merge case 2 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
+          /* @b*/
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
-          /* disabled */
+          /* @gv disabled="true" [".btn-disabled"]*/
           &-disabled,&[disabled],&:disabled {
             @apply pointer-events-none;
           }
@@ -2138,7 +2132,6 @@ exports[`options merge > merge case 2 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  /* @base*/
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
@@ -2338,7 +2331,6 @@ exports[`options merge > merge case 2 1`] = `
   @apply border-info-active bg-info-active text-info-content;
 }
 .btn.btn-disabled, .btn[disabled], .btn:disabled {
-  /* @v disabled="true"*/
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
 }",
       "cssInJs": {
@@ -2774,18 +2766,11 @@ exports[`options merge > merge case 2 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
           "active": {
-            "true": [
-              "btn",
-            ],
-          },
-          "disabled": {
             "true": [
               "btn",
             ],
@@ -3281,7 +3266,6 @@ exports[`options merge > merge case 2 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
 
@@ -3520,7 +3504,6 @@ exports[`options merge > merge case 2 1`] = `
           }
 
           &.btn-disabled,&[disabled],&:disabled {
-            /* @v disabled="true"*/
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
@@ -3528,7 +3511,6 @@ exports[`options merge > merge case 2 1`] = `
     },
     "utils": {
       "css": ".btn {
-  /* @base*/
   border-style: solid;
 }
 .btn-xs {
@@ -3681,9 +3663,7 @@ exports[`options merge > merge case 2 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
@@ -3806,8 +3786,6 @@ exports[`options merge > merge case 2 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
-
           &-xs {
             /* @v size="xs"*/
             @apply h-6 min-h-[1.5rem] px-2;
@@ -3889,11 +3867,11 @@ exports[`options merge > merge case 3 1`] = `
   "button": {
     "base": {
       "css": ".btn {
-  /* @base*/
+  /* @b*/
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
-  /* disabled */
+  /* @gv disabled="true" [".btn-disabled"]*/
   /* shapes */
 }
 .btn-disabled, .btn[disabled], .btn:disabled {
@@ -3963,7 +3941,13 @@ exports[`options merge > merge case 3 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
-        "variants": {},
+        "variants": {
+          "disabled": {
+            "true": [
+              "btn-disabled",
+            ],
+          },
+        },
       },
       "resolvedCss": ".btn {
   display: inline-flex;
@@ -3982,7 +3966,6 @@ exports[`options merge > merge case 3 1`] = `
   text-align: center;
   font-size: 0.875rem;
   line-height: 1em
-  /* disabled */
   /* shapes */
 }
 .btn-disabled,.btn[disabled],.btn:disabled {
@@ -4014,11 +3997,11 @@ exports[`options merge > merge case 3 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
+          /* @b*/
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
-          /* disabled */
+          /* @gv disabled="true" [".btn-disabled"]*/
           &-disabled,&[disabled],&:disabled {
             @apply pointer-events-none;
           }
@@ -4044,7 +4027,6 @@ exports[`options merge > merge case 3 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  /* @base*/
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
@@ -4244,7 +4226,6 @@ exports[`options merge > merge case 3 1`] = `
   @apply border-info-active bg-info-active text-info-content;
 }
 .btn.btn-disabled, .btn[disabled], .btn:disabled {
-  /* @v disabled="true"*/
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
 }",
       "cssInJs": {
@@ -4680,18 +4661,11 @@ exports[`options merge > merge case 3 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
           "active": {
-            "true": [
-              "btn",
-            ],
-          },
-          "disabled": {
             "true": [
               "btn",
             ],
@@ -5187,7 +5161,6 @@ exports[`options merge > merge case 3 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
 
@@ -5426,7 +5399,6 @@ exports[`options merge > merge case 3 1`] = `
           }
 
           &.btn-disabled,&[disabled],&:disabled {
-            /* @v disabled="true"*/
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
@@ -5434,7 +5406,6 @@ exports[`options merge > merge case 3 1`] = `
     },
     "utils": {
       "css": ".btn {
-  /* @base*/
   border-style: solid;
 }
 .btn-xs {
@@ -5587,9 +5558,7 @@ exports[`options merge > merge case 3 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
@@ -5712,8 +5681,6 @@ exports[`options merge > merge case 3 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
-
           &-xs {
             /* @v size="xs"*/
             @apply h-6 min-h-[1.5rem] px-2;
@@ -5795,11 +5762,11 @@ exports[`options merge > merge case 4 1`] = `
   "button": {
     "base": {
       "css": ".btn {
-  /* @base*/
+  /* @b*/
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
-  /* disabled */
+  /* @gv disabled="true" [".btn-disabled"]*/
   /* shapes */
 }
 .btn-disabled, .btn[disabled], .btn:disabled {
@@ -5869,7 +5836,13 @@ exports[`options merge > merge case 4 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
-        "variants": {},
+        "variants": {
+          "disabled": {
+            "true": [
+              "btn-disabled",
+            ],
+          },
+        },
       },
       "resolvedCss": ".btn {
   display: inline-flex;
@@ -5888,7 +5861,6 @@ exports[`options merge > merge case 4 1`] = `
   text-align: center;
   font-size: 0.875rem;
   line-height: 1em
-  /* disabled */
   /* shapes */
 }
 .btn-disabled,.btn[disabled],.btn:disabled {
@@ -5920,11 +5892,11 @@ exports[`options merge > merge case 4 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
+          /* @b*/
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
-          /* disabled */
+          /* @gv disabled="true" [".btn-disabled"]*/
           &-disabled,&[disabled],&:disabled {
             @apply pointer-events-none;
           }
@@ -5950,7 +5922,6 @@ exports[`options merge > merge case 4 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  /* @base*/
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
@@ -6150,7 +6121,6 @@ exports[`options merge > merge case 4 1`] = `
   @apply border-info-active bg-info-active text-info-content;
 }
 .btn.btn-disabled, .btn[disabled], .btn:disabled {
-  /* @v disabled="true"*/
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
 }",
       "cssInJs": {
@@ -6586,18 +6556,11 @@ exports[`options merge > merge case 4 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
           "active": {
-            "true": [
-              "btn",
-            ],
-          },
-          "disabled": {
             "true": [
               "btn",
             ],
@@ -7093,7 +7056,6 @@ exports[`options merge > merge case 4 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
 
@@ -7332,7 +7294,6 @@ exports[`options merge > merge case 4 1`] = `
           }
 
           &.btn-disabled,&[disabled],&:disabled {
-            /* @v disabled="true"*/
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
@@ -7340,7 +7301,6 @@ exports[`options merge > merge case 4 1`] = `
     },
     "utils": {
       "css": ".btn {
-  /* @base*/
   border-style: solid;
 }
 .btn-xs {
@@ -7493,9 +7453,7 @@ exports[`options merge > merge case 4 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
@@ -7618,8 +7576,6 @@ exports[`options merge > merge case 4 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
-
           &-xs {
             /* @v size="xs"*/
             @apply h-6 min-h-[1.5rem] px-2;
@@ -7703,11 +7659,11 @@ exports[`options merge > merge case 6 1`] = `
   "button": {
     "base": {
       "css": ".btn {
-  /* @base*/
+  /* @b*/
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
-  /* disabled */
+  /* @gv disabled="true" [".btn-disabled"]*/
   /* shapes */
 }
 .btn-disabled, .btn[disabled], .btn:disabled {
@@ -7777,7 +7733,13 @@ exports[`options merge > merge case 6 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
-        "variants": {},
+        "variants": {
+          "disabled": {
+            "true": [
+              "btn-disabled",
+            ],
+          },
+        },
       },
       "resolvedCss": ".btn {
   display: inline-flex;
@@ -7796,7 +7758,6 @@ exports[`options merge > merge case 6 1`] = `
   text-align: center;
   font-size: 0.875rem;
   line-height: 1em
-  /* disabled */
   /* shapes */
 }
 .btn-disabled,.btn[disabled],.btn:disabled {
@@ -7828,11 +7789,11 @@ exports[`options merge > merge case 6 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
+          /* @b*/
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
-          /* disabled */
+          /* @gv disabled="true" [".btn-disabled"]*/
           &-disabled,&[disabled],&:disabled {
             @apply pointer-events-none;
           }
@@ -7858,7 +7819,6 @@ exports[`options merge > merge case 6 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  /* @base*/
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
@@ -8058,7 +8018,6 @@ exports[`options merge > merge case 6 1`] = `
   @apply border-info-active bg-info-active text-info-content;
 }
 .btn.btn-disabled, .btn[disabled], .btn:disabled {
-  /* @v disabled="true"*/
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
 }",
       "cssInJs": {
@@ -8494,18 +8453,11 @@ exports[`options merge > merge case 6 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
           "active": {
-            "true": [
-              "btn",
-            ],
-          },
-          "disabled": {
             "true": [
               "btn",
             ],
@@ -9001,7 +8953,6 @@ exports[`options merge > merge case 6 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
 
@@ -9240,7 +9191,6 @@ exports[`options merge > merge case 6 1`] = `
           }
 
           &.btn-disabled,&[disabled],&:disabled {
-            /* @v disabled="true"*/
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
@@ -9248,7 +9198,6 @@ exports[`options merge > merge case 6 1`] = `
     },
     "utils": {
       "css": ".btn {
-  /* @base*/
   border-style: solid;
 }
 .btn-xs {
@@ -9401,9 +9350,7 @@ exports[`options merge > merge case 6 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
@@ -9526,8 +9473,6 @@ exports[`options merge > merge case 6 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
-
           &-xs {
             /* @v size="xs"*/
             @apply h-6 min-h-[1.5rem] px-2;
@@ -9609,11 +9554,11 @@ exports[`options merge > merge case 7 1`] = `
   "button": {
     "base": {
       "css": ".btn {
-  /* @base*/
+  /* @b*/
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
-  /* disabled */
+  /* @gv disabled="true" [".btn-disabled"]*/
   /* shapes */
 }
 .btn-disabled, .btn[disabled], .btn:disabled {
@@ -9683,7 +9628,13 @@ exports[`options merge > merge case 7 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
-        "variants": {},
+        "variants": {
+          "disabled": {
+            "true": [
+              "btn-disabled",
+            ],
+          },
+        },
       },
       "resolvedCss": ".btn {
   display: inline-flex;
@@ -9702,7 +9653,6 @@ exports[`options merge > merge case 7 1`] = `
   text-align: center;
   font-size: 0.875rem;
   line-height: 1em
-  /* disabled */
   /* shapes */
 }
 .btn-disabled,.btn[disabled],.btn:disabled {
@@ -9734,11 +9684,11 @@ exports[`options merge > merge case 7 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
+          /* @b*/
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
-          /* disabled */
+          /* @gv disabled="true" [".btn-disabled"]*/
           &-disabled,&[disabled],&:disabled {
             @apply pointer-events-none;
           }
@@ -9764,7 +9714,6 @@ exports[`options merge > merge case 7 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  /* @base*/
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
@@ -9964,7 +9913,6 @@ exports[`options merge > merge case 7 1`] = `
   @apply border-info-active bg-info-active text-info-content;
 }
 .btn.btn-disabled, .btn[disabled], .btn:disabled {
-  /* @v disabled="true"*/
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
 }",
       "cssInJs": {
@@ -10400,18 +10348,11 @@ exports[`options merge > merge case 7 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
           "active": {
-            "true": [
-              "btn",
-            ],
-          },
-          "disabled": {
             "true": [
               "btn",
             ],
@@ -10907,7 +10848,6 @@ exports[`options merge > merge case 7 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
 
@@ -11146,7 +11086,6 @@ exports[`options merge > merge case 7 1`] = `
           }
 
           &.btn-disabled,&[disabled],&:disabled {
-            /* @v disabled="true"*/
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
@@ -11154,7 +11093,6 @@ exports[`options merge > merge case 7 1`] = `
     },
     "utils": {
       "css": ".btn {
-  /* @base*/
   border-style: solid;
 }
 .btn-xs {
@@ -11307,9 +11245,7 @@ exports[`options merge > merge case 7 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
@@ -11432,8 +11368,6 @@ exports[`options merge > merge case 7 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
-
           &-xs {
             /* @v size="xs"*/
             @apply h-6 min-h-[1.5rem] px-2;
@@ -11515,11 +11449,11 @@ exports[`options merge > merge case 8 1`] = `
   "button": {
     "base": {
       "css": ".btn {
-  /* @base*/
+  /* @b*/
   @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
   font-size: 0.875rem;
   line-height: 1em;
-  /* disabled */
+  /* @gv disabled="true" [".btn-disabled"]*/
   /* shapes */
 }
 .btn-disabled, .btn[disabled], .btn:disabled {
@@ -11589,7 +11523,13 @@ exports[`options merge > merge case 8 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
-        "variants": {},
+        "variants": {
+          "disabled": {
+            "true": [
+              "btn-disabled",
+            ],
+          },
+        },
       },
       "resolvedCss": ".btn {
   display: inline-flex;
@@ -11608,7 +11548,6 @@ exports[`options merge > merge case 8 1`] = `
   text-align: center;
   font-size: 0.875rem;
   line-height: 1em
-  /* disabled */
   /* shapes */
 }
 .btn-disabled,.btn[disabled],.btn:disabled {
@@ -11640,11 +11579,11 @@ exports[`options merge > merge case 8 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
+          /* @b*/
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
-          /* disabled */
+          /* @gv disabled="true" [".btn-disabled"]*/
           &-disabled,&[disabled],&:disabled {
             @apply pointer-events-none;
           }
@@ -11670,7 +11609,6 @@ exports[`options merge > merge case 8 1`] = `
     "styled": {
       "css": "@charset "UTF-8";
 .btn {
-  /* @base*/
   @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
   border-width: var(--border-btn, 1px);
 }
@@ -11870,7 +11808,6 @@ exports[`options merge > merge case 8 1`] = `
   @apply border-info-active bg-info-active text-info-content;
 }
 .btn.btn-disabled, .btn[disabled], .btn:disabled {
-  /* @v disabled="true"*/
   @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
 }",
       "cssInJs": {
@@ -12306,18 +12243,11 @@ exports[`options merge > merge case 8 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
           "active": {
-            "true": [
-              "btn",
-            ],
-          },
-          "disabled": {
             "true": [
               "btn",
             ],
@@ -12813,7 +12743,6 @@ exports[`options merge > merge case 8 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
           @apply border-ant-neutral-400 bg-ant-neutral-400 text-base-content outline-ant-neutral-400 no-underline;
           border-width: var(--border-btn, 1px);
 
@@ -13052,7 +12981,6 @@ exports[`options merge > merge case 8 1`] = `
           }
 
           &.btn-disabled,&[disabled],&:disabled {
-            /* @v disabled="true"*/
             @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
           }
         }
@@ -13060,7 +12988,6 @@ exports[`options merge > merge case 8 1`] = `
     },
     "utils": {
       "css": ".btn {
-  /* @base*/
   border-style: solid;
 }
 .btn-xs {
@@ -13213,9 +13140,7 @@ exports[`options merge > merge case 8 1`] = `
       },
       "cssRoot": null,
       "cvaParams": {
-        "base": [
-          "btn",
-        ],
+        "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
         "variants": {
@@ -13338,8 +13263,6 @@ exports[`options merge > merge case 8 1`] = `
       "root": null,
       "scss": "
         .btn {
-          /* @base*/
-
           &-xs {
             /* @v size="xs"*/
             @apply h-6 min-h-[1.5rem] px-2;

@@ -7,6 +7,7 @@ const schema: GetCssSchemaMethod = (opts) => {
     defaults: {
       base: css`
         ${selector} {
+          // @b
           @apply h-12 shrink pe-4 text-sm leading-loose;
           &::file-selector-button {
             @apply me-4 inline-flex h-full shrink-0 cursor-pointer select-none flex-wrap items-center justify-center px-4 text-center text-sm transition duration-200 ease-out;
@@ -24,12 +25,14 @@ const schema: GetCssSchemaMethod = (opts) => {
             animation: button-pop var(--animation-btn, 0.25s) ease-out;
           }
           &-bordered {
+            // @v bordered="true"
             @apply border-opacity-20;
           }
           &:focus {
             @apply outline-base-content/20 outline outline-2 outline-offset-2;
           }
           &-ghost {
+            // @v ghost="true"
             @apply bg-opacity-5;
             &:focus {
               @apply text-base-content bg-opacity-100;
@@ -43,6 +46,7 @@ const schema: GetCssSchemaMethod = (opts) => {
             .map((type) => {
               return css`
                 &-${type} {
+                  // @v type="${type}"
                   @apply border-${type};
                   &:focus {
                     @apply outline-${type};
@@ -57,6 +61,7 @@ const schema: GetCssSchemaMethod = (opts) => {
 
           &-disabled,
         &[disabled] {
+            // @v disabled="true"
             @apply border-base-200 bg-base-200 placeholder-base-content cursor-not-allowed text-opacity-20 placeholder-opacity-20;
             &::file-selector-button {
               @apply bg-neutral text-base-content border-opacity-0 bg-opacity-20 text-opacity-20;
@@ -67,6 +72,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       utils: css`
         ${selector} {
           &-xs {
+            // @v size="xs"
             @apply h-6 pe-2 text-xs leading-relaxed;
             &::file-selector-button {
               @apply mr-2;
@@ -74,6 +80,7 @@ const schema: GetCssSchemaMethod = (opts) => {
             }
           }
           &-sm {
+            // @v size="sm"
             @apply h-8 pe-3 text-sm leading-loose;
             &::file-selector-button {
               @apply mr-3;
@@ -81,6 +88,7 @@ const schema: GetCssSchemaMethod = (opts) => {
             }
           }
           &-md {
+            // @v size="md"
             @apply h-12 pe-4 text-sm leading-loose;
             &::file-selector-button {
               @apply mr-4;
@@ -88,6 +96,7 @@ const schema: GetCssSchemaMethod = (opts) => {
             }
           }
           &-lg {
+            // @v size="lg"
             @apply h-16 pe-6 text-lg leading-loose;
             &::file-selector-button {
               @apply mr-6;

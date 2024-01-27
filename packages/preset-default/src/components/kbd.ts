@@ -7,6 +7,7 @@ const schema: GetCssSchemaMethod = (opts) => {
     defaults: {
       base: css`
         ${selector} {
+          // @b
           @apply inline-flex items-center justify-center;
         }
       `,
@@ -21,21 +22,25 @@ const schema: GetCssSchemaMethod = (opts) => {
       utils: css`
         ${selector} {
           &-xs {
+            // @v size="xs"
             @apply px-1 text-xs;
             min-height: 1.2em;
             min-width: 1.2em;
           }
           &-sm {
+            // @v size="sm"
             @apply px-1 text-sm;
             min-height: 1.6em;
             min-width: 1.6em;
           }
           &-md {
+            // @v size="md"
             @apply px-2 text-base;
             min-height: 2.2em;
             min-width: 2.2em;
           }
           &-lg {
+            // @v size="lg"
             @apply px-4 text-lg;
             min-height: 2.5em;
             min-width: 2.5em;

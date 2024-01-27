@@ -9,6 +9,7 @@ const schema: GetCssSchemaMethod = (opts) => {
           line-height: 1em;
         }
         ${selector} {
+          // @b
           display: inline-flex;
           & > * {
             height: 1em;

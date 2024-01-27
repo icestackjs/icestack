@@ -1,4 +1,3 @@
-import { trimStart } from 'lodash'
 import { GetCssSchemaMethod, css } from '@/types'
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
@@ -12,7 +11,7 @@ const schema: GetCssSchemaMethod = (opts) => {
           @apply rounded-btn inline-flex h-12 min-h-[3rem] shrink-0 cursor-pointer select-none flex-wrap items-center justify-center border-transparent px-4 text-center;
           font-size: 0.875rem;
           line-height: 1em;
-          // @gv disabled="true" ["${trimStart(selector, '.')}-disabled"]
+          // @gv disabled="true" ["${selector}-disabled"]
           &-disabled,
           &[disabled],
           &:disabled {

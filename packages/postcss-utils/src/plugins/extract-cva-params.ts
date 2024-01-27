@@ -1,6 +1,6 @@
 import type { PluginCreator, Comment, Rule } from 'postcss'
 import parser from 'postcss-selector-parser'
-import { set, get } from 'lodash'
+import { set, get, trimStart } from 'lodash'
 import { objHash } from '@icestack/shared'
 
 const defaultParser = parser()
@@ -133,7 +133,7 @@ export function extractParams(text: string) {
       .filter(Boolean)
     for (const d of arr) {
       if (d[0] === '"' && d.at(-1) === '"') {
-        params.push(d.slice(1, -1))
+        params.push(trimStart(d.slice(1, -1), '.'))
       }
     }
   }
@@ -145,7 +145,7 @@ export function extractParams(text: string) {
 
     if (d[0] === '"' && d.at(-1) === '"') {
       query[key] = {
-        value: d.slice(1, -1)
+        value: trimStart(d.slice(1, -1), '.')
       }
     }
   }

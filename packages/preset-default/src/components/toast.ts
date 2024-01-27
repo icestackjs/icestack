@@ -7,6 +7,7 @@ const schema: GetCssSchemaMethod = (opts) => {
     defaults: {
       base: css`
         ${selector} {
+          // @b
           @apply fixed flex min-w-fit flex-col whitespace-nowrap;
         }
       `,

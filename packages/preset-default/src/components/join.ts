@@ -7,6 +7,7 @@ const schema: GetCssSchemaMethod = (opts) => {
     defaults: {
       base: css`
         ${selector} {
+          // @b
           @apply inline-flex items-stretch;
           & :where(${selector}-item) {
             border-start-end-radius: 0;
@@ -77,6 +78,8 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
       `,
       utils: css`
+        // @gv direction="vertical" ["${selector}-vertical"]
+
         ${selector}${selector}-vertical {
           @apply flex-col;
           & ${selector}-item:first-child:not(:last-child),
@@ -100,6 +103,8 @@ const schema: GetCssSchemaMethod = (opts) => {
             border-end-end-radius: inherit;
           }
         }
+
+        // @gv direction="horizontal" ["${selector}-horizontal"]
 
         ${selector}${selector}-horizontal {
           @apply flex-row;

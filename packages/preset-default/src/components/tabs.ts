@@ -9,6 +9,16 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
+      base: css`
+        ${selector}s {
+          @apply flex flex-wrap items-end;
+        }
+        ${selector} {
+          @apply relative inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center;
+          @apply h-8 text-sm leading-loose;
+          --tab-padding: 1rem;
+        }
+      `,
       styled: css`
         ${selector} {
           @apply text-opacity-50 [@media(hover:hover)]:hover:text-opacity-100;
@@ -126,16 +136,6 @@ const schema: GetCssSchemaMethod = (opts) => {
           ${selector}-active:not(${selector}-disabled):not([disabled]) {
             @apply bg-primary text-primary-content [@media(hover:hover)]:hover:text-primary-content;
           }
-        }
-      `,
-      base: css`
-        ${selector}s {
-          @apply flex flex-wrap items-end;
-        }
-        ${selector} {
-          @apply relative inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center;
-          @apply h-8 text-sm leading-loose;
-          --tab-padding: 1rem;
         }
       `,
       utils: css`

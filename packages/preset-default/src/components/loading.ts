@@ -15,6 +15,7 @@ const schema: GetCssSchemaMethod = (opts) => {
     defaults: {
       base: css`
         ${selector} {
+          // @b
           @apply pointer-events-none inline-block aspect-square w-6;
           background-color: currentColor;
           mask-size: 100%;
@@ -28,6 +29,7 @@ const schema: GetCssSchemaMethod = (opts) => {
           .map(([key, value]) => {
             return css`
               ${selector}-${key} {
+                // @v shape="${key}"
                 mask-image: ${makeMaskImage(value)};
               }
             `
@@ -35,15 +37,19 @@ const schema: GetCssSchemaMethod = (opts) => {
           .join('\n')}
 
         ${selector}-xs {
+          // @v size="xs"
           @apply w-4;
         }
         ${selector}-sm {
+          // @v size="sm"
           @apply w-5;
         }
         ${selector}-md {
+          // @v size="md"
           @apply w-6;
         }
         ${selector}-lg {
+          // @v size="lg"
           @apply w-10;
         }
       `

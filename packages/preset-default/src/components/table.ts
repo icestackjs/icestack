@@ -8,6 +8,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       @apply text-xs;
     }
     ${selector}-xs :where(th, td) {
+      // @v size="xs"
       @apply px-2 py-1;
     }
   `
@@ -16,6 +17,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       @apply text-sm;
     }
     ${selector}-sm :where(th, td) {
+      // @v size="sm"
       @apply px-3 py-2;
     }
   `
@@ -24,6 +26,7 @@ const schema: GetCssSchemaMethod = (opts) => {
       @apply text-sm;
     }
     ${selector}-md :where(th, td) {
+      // @v size="md"
       @apply px-4 py-3;
     }
   `
@@ -32,13 +35,31 @@ const schema: GetCssSchemaMethod = (opts) => {
       @apply text-base;
     }
     ${selector}-lg :where(th, td) {
+      // @v size="lg"
       @apply px-6 py-4;
     }
   `
-  // const d = baseDefault ?? md
+
   return {
     selector,
     defaults: {
+      base: css`
+        ${selector} {
+          @apply relative w-full;
+          :where(${selector}-pin-rows thead tr) {
+            @apply bg-base-100 sticky top-0 z-[1];
+          }
+          :where(${selector}-pin-rows tfoot tr) {
+            @apply bg-base-100 sticky bottom-0 z-[1];
+          }
+          :where(${selector}-pin-cols tr th) {
+            @apply bg-base-100 sticky left-0 right-0;
+          }
+          &-zebra tbody tr:nth-child(even) :where(${selector}-pin-cols tr th) {
+            @apply bg-base-200;
+          }
+        }
+      `,
       styled: css`
         ${selector} {
           @apply rounded-box text-left text-sm;
@@ -73,23 +94,6 @@ const schema: GetCssSchemaMethod = (opts) => {
           }
           :where(thead, tfoot) {
             @apply text-base-content/60 whitespace-nowrap text-xs font-bold;
-          }
-        }
-      `,
-      base: css`
-        ${selector} {
-          @apply relative w-full;
-          :where(${selector}-pin-rows thead tr) {
-            @apply bg-base-100 sticky top-0 z-[1];
-          }
-          :where(${selector}-pin-rows tfoot tr) {
-            @apply bg-base-100 sticky bottom-0 z-[1];
-          }
-          :where(${selector}-pin-cols tr th) {
-            @apply bg-base-100 sticky left-0 right-0;
-          }
-          &-zebra tbody tr:nth-child(even) :where(${selector}-pin-cols tr th) {
-            @apply bg-base-200;
           }
         }
       `,

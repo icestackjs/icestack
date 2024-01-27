@@ -5,6 +5,12 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
+      base: css`
+        ${selector} {
+          // @b
+          @apply shrink-0;
+        }
+      `,
       styled: css`
         ${selector} {
           --tglbg: theme(colors.base-100);
@@ -55,6 +61,7 @@ const schema: GetCssSchemaMethod = (opts) => {
             .map((type) => {
               return css`
                 &-${type} {
+                  // @v type="${type}"
                   &:focus-visible {
                     @apply outline-${type};
                   }
@@ -79,26 +86,26 @@ const schema: GetCssSchemaMethod = (opts) => {
           @apply hidden;
         }
       `,
-      base: css`
-        ${selector} {
-          @apply shrink-0;
-        }
-      `,
+
       utils: css`
         [type='checkbox']${selector} {
           &-xs {
+            // @v size="xs"
             --handleoffset: 0.5rem;
             @apply h-4 w-6;
           }
           &-sm {
+            // @v size="sm"
             --handleoffset: 0.75rem;
             @apply h-5 w-8;
           }
           &-md {
+            // @v size="md"
             --handleoffset: 1.5rem;
             @apply h-6 w-12;
           }
           &-lg {
+            // @v size="lg"
             --handleoffset: 2rem;
             @apply h-8 w-16;
           }

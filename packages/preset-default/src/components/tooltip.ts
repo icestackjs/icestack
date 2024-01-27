@@ -22,8 +22,18 @@ const schema: GetCssSchemaMethod = (opts) => {
           content: var(--tw-content);
           --tw-content: attr(data-tip);
         }
-        ${selector},
+        
+        ${selector} {
+          &:before {
+            transform: translateX(-50%);
+            top: auto;
+            left: 50%;
+            right: auto;
+            bottom: var(--tooltip-offset);
+          }
+        }
         ${selector}-top {
+          // @v placement="top"
           &:before {
             transform: translateX(-50%);
             top: auto;
@@ -33,6 +43,7 @@ const schema: GetCssSchemaMethod = (opts) => {
           }
         }
         ${selector}-bottom {
+          // @v placement="bottom"
           &:before {
             transform: translateX(-50%);
             top: var(--tooltip-offset);
@@ -42,6 +53,7 @@ const schema: GetCssSchemaMethod = (opts) => {
           }
         }
         ${selector}-left {
+          // @v placement="left"
           &:before {
             transform: translateY(-50%);
             top: 50%;
@@ -51,6 +63,7 @@ const schema: GetCssSchemaMethod = (opts) => {
           }
         }
         ${selector}-right {
+          // @v placement="right"
           &:before {
             transform: translateY(-50%);
             top: 50%;
@@ -81,6 +94,7 @@ const schema: GetCssSchemaMethod = (opts) => {
           color: var(--tooltip-text-color);
           width: max-content;
         }
+         // @gv open="true" ["${selector}-open"]
         ${selector}${selector}-open:before,
         ${selector}${selector}-open:after,
       ${selector}:hover:before,
@@ -149,15 +163,15 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
         ${selector} {
           ${types
-            .map((type) => {
-              return css`
+          .map((type) => {
+            return css`
                 &-${type} {
                   --tooltip-color: theme(colors.${type});
                   --tooltip-text-color: theme(colors.${type}-content);
                 }
               `
-            })
-            .join('\n')}
+          })
+          .join('\n')}
         }
       `
     }

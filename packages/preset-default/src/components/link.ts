@@ -4,12 +4,23 @@ const schema: GetCssSchemaMethod = (opts) => {
   return {
     selector,
     defaults: {
+      base: css`
+        ${selector} {
+          // @b
+          @apply cursor-pointer underline;
+          &-hover {
+            // @v hover="true"
+            @apply no-underline [@media(hover:hover)]:hover:underline;
+          }
+        }
+      `,
       styled: css`
         ${selector} {
           ${types
             .map((type) => {
               return css`
                 &-${type} {
+                  // @v type="${type}"
                   @apply text-${type} [@media(hover:hover)]:hover:text-${type}-active;
                 }
               `
@@ -22,14 +33,6 @@ const schema: GetCssSchemaMethod = (opts) => {
           &:focus-visible {
             outline: 2px solid currentColor;
             outline-offset: 2px;
-          }
-        }
-      `,
-      base: css`
-        ${selector} {
-          @apply cursor-pointer underline;
-          &-hover {
-            @apply no-underline [@media(hover:hover)]:hover:underline;
           }
         }
       `

@@ -319,7 +319,9 @@ exports[`'collapse' cva > snap 1`] = `
 
 exports[`'countdown' cva > snap 1`] = `
 {
-  "base": [],
+  "base": [
+    "countdown",
+  ],
   "compoundVariants": [],
   "defaultVariants": {},
   "variants": {},
@@ -328,7 +330,9 @@ exports[`'countdown' cva > snap 1`] = `
 
 exports[`'diff' cva > snap 1`] = `
 {
-  "base": [],
+  "base": [
+    "diff",
+  ],
   "compoundVariants": [],
   "defaultVariants": {},
   "variants": {},
@@ -392,10 +396,59 @@ exports[`'dropdown' cva > snap 1`] = `
 
 exports[`'file-input' cva > snap 1`] = `
 {
-  "base": [],
+  "base": [
+    "file-input",
+  ],
   "compoundVariants": [],
   "defaultVariants": {},
-  "variants": {},
+  "variants": {
+    "bordered": {
+      "true": [
+        "file-input-bordered",
+      ],
+    },
+    "disabled": {
+      "true": [
+        "file-input-disabled",
+      ],
+    },
+    "ghost": {
+      "true": [
+        "file-input-ghost",
+      ],
+    },
+    "size": {
+      "lg": [
+        "file-input-lg",
+      ],
+      "md": [
+        "file-input-md",
+      ],
+      "sm": [
+        "file-input-sm",
+      ],
+      "xs": [
+        "file-input-xs",
+      ],
+    },
+    "type": {
+      "error": [
+        "file-input-error",
+      ],
+      "neutral": [
+        "file-input-neutral",
+      ],
+      "primary": [
+        "file-input-primary",
+      ],
+      "success": [
+        "file-input-success",
+      ],
+      "warning": [
+        "file-input-warning",
+      ],
+    },
+  },
 }
 `;
 
@@ -446,46 +499,216 @@ exports[`'input' cva > snap 1`] = `
 
 exports[`'join' cva > snap 1`] = `
 {
-  "base": [],
+  "base": [
+    "join",
+  ],
   "compoundVariants": [],
   "defaultVariants": {},
-  "variants": {},
+  "variants": {
+    "direction": {
+      "horizontal": [
+        "join-horizontal",
+      ],
+      "vertical": [
+        "join-vertical",
+      ],
+    },
+  },
 }
 `;
 
 exports[`'kbd' cva > snap 1`] = `
 {
-  "base": [],
+  "base": [
+    "kbd",
+  ],
   "compoundVariants": [],
   "defaultVariants": {},
-  "variants": {},
+  "variants": {
+    "size": {
+      "lg": [
+        "kbd-lg",
+      ],
+      "md": [
+        "kbd-md",
+      ],
+      "sm": [
+        "kbd-sm",
+      ],
+      "xs": [
+        "kbd-xs",
+      ],
+    },
+  },
 }
 `;
 
 exports[`'link' cva > snap 1`] = `
 {
-  "base": [],
+  "base": [
+    "link",
+  ],
   "compoundVariants": [],
   "defaultVariants": {},
-  "variants": {},
+  "variants": {
+    "hover": {
+      "true": [
+        "link-hover",
+      ],
+    },
+    "type": {
+      "error": [
+        "link-error",
+      ],
+      "neutral": [
+        "link-neutral",
+      ],
+      "primary": [
+        "link-primary",
+      ],
+      "success": [
+        "link-success",
+      ],
+      "warning": [
+        "link-warning",
+      ],
+    },
+  },
 }
 `;
 
 exports[`'loading' cva > snap 1`] = `
 {
-  "base": [],
+  "base": [
+    "loading",
+  ],
   "compoundVariants": [],
   "defaultVariants": {},
-  "variants": {},
+  "variants": {
+    "shape": {
+      "audio": [
+        "loading-audio",
+      ],
+      "ball-triangle": [
+        "loading-ball-triangle",
+      ],
+      "bars": [
+        "loading-bars",
+      ],
+      "circles": [
+        "loading-circles",
+      ],
+      "grid": [
+        "loading-grid",
+      ],
+      "hearts": [
+        "loading-hearts",
+      ],
+      "oval": [
+        "loading-oval",
+      ],
+      "puff": [
+        "loading-puff",
+      ],
+      "rings": [
+        "loading-rings",
+      ],
+      "spinning-circles": [
+        "loading-spinning-circles",
+      ],
+      "tail-spin": [
+        "loading-tail-spin",
+      ],
+      "three-dots": [
+        "loading-three-dots",
+      ],
+    },
+    "size": {
+      "lg": [
+        "loading-lg",
+      ],
+      "md": [
+        "loading-md",
+      ],
+      "sm": [
+        "loading-sm",
+      ],
+      "xs": [
+        "loading-xs",
+      ],
+    },
+  },
 }
 `;
 
 exports[`'mask' cva > snap 1`] = `
 {
-  "base": [],
+  "base": [
+    "mask",
+  ],
   "compoundVariants": [],
   "defaultVariants": {},
-  "variants": {},
+  "variants": {
+    "shape": {
+      "circle": [
+        "mask-circle",
+      ],
+      "decagon": [
+        "mask-decagon",
+      ],
+      "diamond": [
+        "mask-diamond",
+      ],
+      "heart": [
+        "mask-heart",
+      ],
+      "hexagon": [
+        "mask-hexagon",
+      ],
+      "hexagon-2": [
+        "mask-hexagon-2",
+      ],
+      "parallelogram": [
+        "mask-parallelogram",
+      ],
+      "parallelogram-2": [
+        "mask-parallelogram-2",
+      ],
+      "parallelogram-3": [
+        "mask-parallelogram-3",
+      ],
+      "parallelogram-4": [
+        "mask-parallelogram-4",
+      ],
+      "pentagon": [
+        "mask-pentagon",
+      ],
+      "square": [
+        "mask-square",
+      ],
+      "squircle": [
+        "mask-squircle",
+      ],
+      "star": [
+        "mask-star",
+      ],
+      "star-2": [
+        "mask-star-2",
+      ],
+      "triangle": [
+        "mask-triangle",
+      ],
+      "triangle-2": [
+        "mask-triangle-2",
+      ],
+      "triangle-3": [
+        "mask-triangle-3",
+      ],
+      "triangle-4": [
+        "mask-triangle-4",
+      ],
+    },
+  },
 }
 `;
 
@@ -620,7 +843,22 @@ exports[`'table' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
-  "variants": {},
+  "variants": {
+    "size": {
+      "lg": [
+        "table-lg",
+      ],
+      "md": [
+        "table-md",
+      ],
+      "sm": [
+        "table-sm",
+      ],
+      "xs": [
+        "table-xs",
+      ],
+    },
+  },
 }
 `;
 
@@ -644,7 +882,9 @@ exports[`'timeline' cva > snap 1`] = `
 
 exports[`'toast' cva > snap 1`] = `
 {
-  "base": [],
+  "base": [
+    "toast",
+  ],
   "compoundVariants": [],
   "defaultVariants": {},
   "variants": {},
@@ -653,10 +893,44 @@ exports[`'toast' cva > snap 1`] = `
 
 exports[`'toggle' cva > snap 1`] = `
 {
-  "base": [],
+  "base": [
+    "toggle",
+  ],
   "compoundVariants": [],
   "defaultVariants": {},
-  "variants": {},
+  "variants": {
+    "size": {
+      "lg": [
+        "toggle-lg",
+      ],
+      "md": [
+        "toggle-md",
+      ],
+      "sm": [
+        "toggle-sm",
+      ],
+      "xs": [
+        "toggle-xs",
+      ],
+    },
+    "type": {
+      "error": [
+        "toggle-error",
+      ],
+      "neutral": [
+        "toggle-neutral",
+      ],
+      "primary": [
+        "toggle-primary",
+      ],
+      "success": [
+        "toggle-success",
+      ],
+      "warning": [
+        "toggle-warning",
+      ],
+    },
+  },
 }
 `;
 
@@ -667,6 +941,26 @@ exports[`'tooltip' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
-  "variants": {},
+  "variants": {
+    "open": {
+      "true": [
+        "tooltip-open",
+      ],
+    },
+    "placement": {
+      "bottom": [
+        "tooltip-bottom",
+      ],
+      "left": [
+        "tooltip-left",
+      ],
+      "right": [
+        "tooltip-right",
+      ],
+      "top": [
+        "tooltip-top",
+      ],
+    },
+  },
 }
 `;

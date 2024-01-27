@@ -6,6 +6,7 @@ const schema: GetCssSchemaMethod = (opts) => {
     defaults: {
       base: css`
         ${selector} {
+          // @b
           @apply relative grid w-full overflow-hidden;
           container-type: inline-size;
           grid-template-columns: auto 1fr;

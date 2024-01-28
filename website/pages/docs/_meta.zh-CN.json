@@ -1,12 +1,16 @@
 {
   "usage": "快速开始",
-  "introduction": "简介",
   "postcss": "Postcss",
   "tailwindcss": "Tailwindcss",
   "unocss": "Unocss",
   "syntax-highlight": "IDE语法高亮",
-  "core": "扩展是核心",
+  "cva-generate": "生成cva函数",
+  "--0": {
+    "type": "separator"
+  },
+  "introduction": "简介",
   "start-from-scratch": "从0开始构建组件库",
+  "core": "扩展是核心",
   "mp": "在微信小程序里使用",
   "contribute": "贡献",
   "--": {

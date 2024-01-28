@@ -1,12 +1,17 @@
 {
   "usage": "Get Started",
-  "introduction": "Introduction",
+  
   "postcss": "Postcss",
   "tailwindcss": "Tailwindcss",
   "unocss": "Unocss",
   "syntax-highlight": "Syntax Highlight",
-  "core": "Core",
+  "cva-generate": "Generate the CVA function",
+  "--0": {
+    "type": "separator"
+  },
+  "introduction": "Introduction",
   "start-from-scratch": "Start From Scratch",
+  "core": "Core",
   "contribute": "Contribute",
   "--": {
     "type": "separator"

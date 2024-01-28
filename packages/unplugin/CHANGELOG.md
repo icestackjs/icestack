@@ -1,5 +1,11 @@
 # @icestack/unplugin
 
+## 1.3.3
+
+### Patch Changes
+
+- [`e72e248`](https://github.com/sonofmagic/icestack/commit/e72e2483416f9d10401f8d2dfb991c158c3d2cce) Thanks [@sonofmagic](https://github.com/sonofmagic)! - add comment to cva
+
 ## 1.3.2
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import { generateCva } from '@/generate'
+import { generateCva } from '@/index'
 describe('cva', () => {
   it('base', async () => {
     const opt: Parameters<typeof generateCva>[0] = {
@@ -32,13 +32,17 @@ describe('cva', () => {
       }
     }
     let code = generateCva(opt)
+    expect(code).toMatchSnapshot()
+    opt.importFrom = '@icestack/cva'
     await fs.writeFile(path.resolve(__dirname, './fixtures/cva.base.ts'), code)
     opt.format = 'js'
     code = generateCva(opt)
+    expect(code).toMatchSnapshot()
     await fs.writeFile(path.resolve(__dirname, './fixtures/cva.base.js'), code)
     opt.importFrom = 'class-variance-authority'
     opt.format = 'ts'
     code = generateCva(opt)
+    expect(code).toMatchSnapshot()
     await fs.writeFile(path.resolve(__dirname, './fixtures/cva.base.import.ts'), code)
   })
 })

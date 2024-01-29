@@ -1,4 +1,4 @@
-import { cva, VariantProps } from "@icestack/cva";
+import { cva, VariantProps } from "class-variance-authority";
 const index = cva(["font-semibold", "border", "rounded"], {
   variants: {
     "intent": {

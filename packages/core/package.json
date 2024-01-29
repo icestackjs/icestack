@@ -44,9 +44,8 @@
     "dist"
   ],
   "dependencies": {
-    "@babel/generator": "^7.23.6",
-    "@babel/types": "^7.23.9",
     "@icestack/config": "workspace:^",
+    "@icestack/generator": "workspace:^",
     "@icestack/logger": "workspace:^",
     "@icestack/postcss-utils": "workspace:^",
     "@icestack/preset-default": "workspace:^",

@@ -1,3 +1,7 @@
+import { Root } from 'postcss'
+
+export type FilterPattern = ReadonlyArray<string | RegExp> | string | RegExp | null
+
 export interface UserDefineOption {
   outdir: string
   prefix: string
@@ -5,6 +9,9 @@ export interface UserDefineOption {
   dryRun: boolean
   cwd: string
   format: string
+  remove: boolean
+  include: FilterPattern
+  exclude: FilterPattern
 }
 
 export interface CvaParams {
@@ -14,6 +21,7 @@ export interface CvaParams {
   defaultVariants: Record<string, string>
   meta: Record<string, string>
   file?: string
+  root: Root
 }
 
 export interface CvaParamsSet {

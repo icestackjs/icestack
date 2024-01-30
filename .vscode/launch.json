@@ -170,6 +170,13 @@
       "cwd": "${workspaceFolder}/examples/unocss-sample-app"
     },
     {
+      "command": "npm run dev",
+      "name": "[nuxt-admin-app] run app",
+      "request": "launch",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}/examples/nuxt-admin-app"
+    },
+    {
       "command": "npm run cpmd",
       "name": "[md] render",
       "request": "launch",

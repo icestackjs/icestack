@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   css: ["~/assets/scss/main.scss"],
   postcss: {
     plugins: {
+      "postcss-cva": {},
       tailwindcss: {},
       autoprefixer: {},
     },

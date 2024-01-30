@@ -1,8 +1,9 @@
 {
   "name": "postcss-cva",
   "description": "generate cva functions by css comment",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "scripts": {
+    "dev": "unbuild --sourcemap",
     "build": "unbuild",
     "test": "vitest run",
     "test:dev": "vitest",
@@ -58,6 +59,7 @@
     "@babel/types": "^7.23.9",
     "@icestack/shared": "workspace:^",
     "lodash": "^4.17.21",
+    "picomatch": "^3.0.1",
     "postcss-selector-parser": "^6.0.15"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
@@ -71,6 +73,7 @@
     "url": "https://github.com/sonofmagic/icestack"
   },
   "devDependencies": {
+    "@types/picomatch": "^2.3.3",
     "postcss": "^8.4.33"
   }
 }

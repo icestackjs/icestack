@@ -1,159 +1,11 @@
-import type { PluginCreator, Comment, Rule } from 'postcss'
-import parser from 'postcss-selector-parser'
-import { set, get, trimStart } from 'lodash'
+import type { PluginCreator } from 'postcss'
+import { set, get } from 'lodash'
 import { objHash } from '@icestack/shared'
-import { matchAll } from './utils'
-import type { CvaParams, CvaParamsSet, CommentType } from './types'
-const defaultParser = parser()
+import type { CvaParams, CvaParamsSet } from './types'
+import { cvaSymbol, defaultParser, extractParams, getParentRule, pickComment, setAdd } from './regex'
 
-function getParentRule(comment: Comment) {
-  const p = comment.parent
-  if (p?.type === 'rule') {
-    return p as Rule
-  }
-}
-// b
-export const baseRegex = new RegExp(/@b/.source, 'g')
-// gb
-export const defineBaseRegex = new RegExp(/@gb/.source, 'g')
-// v
-export const variantRegex = new RegExp(/@v/.source, 'g')
-// gv
-export const defineVariantRegex = new RegExp(/@gv/.source, 'g')
-// cv
-export const compoundVariantRegex = /@cv/g
-// gcv
-export const defineCompoundVariantRegex = /@gcv/g
-// dv
-export const defaultVariantRegex = new RegExp(/@dv/.source, 'g')
-// meta
-export const globalOptionsRegex = new RegExp(/@meta/.source, 'g')
-
-const regexArray: { type: CommentType; regex: RegExp; next: boolean }[] = [
-  {
-    regex: baseRegex,
-    type: 'base',
-    next: true
-  },
-  {
-    regex: variantRegex,
-    type: 'variant',
-    next: true
-  },
-  {
-    regex: compoundVariantRegex,
-    type: 'compoundVariant',
-    next: true
-  },
-  {
-    regex: defineBaseRegex,
-    type: 'base',
-    next: false
-  },
-  {
-    regex: defineVariantRegex,
-    type: 'variant',
-    next: false
-  },
-  {
-    regex: defineCompoundVariantRegex,
-    type: 'compoundVariant',
-    next: false
-  },
-  {
-    regex: defaultVariantRegex,
-    type: 'defaultVariant',
-    next: false
-  },
-  {
-    regex: globalOptionsRegex,
-    type: 'meta',
-    next: false
-  }
-]
-
-export function getSuffix(text: string) {
-  for (const { next, regex, type } of regexArray) {
-    regex.lastIndex = 0
-    const res = regex.test(text)
-    if (res) {
-      return {
-        type,
-        suffix: text.slice(regex.lastIndex),
-        next
-      }
-    }
-  }
-}
-
-export function pickComment(comment: Comment) {
-  const text = comment.text
-  const p = text.indexOf('@')
-  if (p > -1) {
-    return getSuffix(text)
-  }
-}
-
-export function extractParams(text: string) {
-  const params: string[] = []
-
-  const query: Record<
-    string,
-    {
-      value: string
-    }
-  > = {}
-
-  const paramsArray = matchAll(/\[([^\]]*)]/g, text)
-  for (const x of paramsArray) {
-    const arr = x[1]
-      .split(',')
-      .map((x) => x.trim())
-      .filter(Boolean)
-    for (const d of arr) {
-      if (d[0] === '"' && d.at(-1) === '"') {
-        params.push(trimStart(d.slice(1, -1), '.'))
-      }
-    }
-  }
-  const queryArray = matchAll(/([\w-]+)="([^"]+)"/g, text)
-
-  for (const x of queryArray) {
-    // const key = x[1]
-    // const d = x[2]
-
-    // if (d[0] === '"' && d.at(-1) === '"') {
-    //   query[key] = {
-    //     value: trimStart(d.slice(1, -1), '.')
-    //   }
-    // }
-    const key = x[1]
-    const d = x[2]
-    query[key] = {
-      value: trimStart(d, '.')
-    }
-  }
-
-  return {
-    query,
-    params
-  }
-}
-
-const cvaSymbol = Symbol('cva')
-
-function setAdd<T>(set: Set<T>, value: T | T[]) {
-  if (Array.isArray(value)) {
-    for (const v of value) {
-      set.add(v)
-    }
-  } else {
-    set.add(value)
-  }
-}
-
-const creator: PluginCreator<{ prefix?: string; process?: (res?: CvaParams) => void }> = (opts) => {
-  const { process, prefix: _prefix } = opts ?? {}
+const creator: PluginCreator<{ prefix?: string; process?: (res?: CvaParams) => void; remove?: boolean; filter?: (id: unknown) => boolean }> = (opts) => {
+  const { process, prefix: _prefix, remove, filter = () => true } = opts ?? {}
   const result: CvaParamsSet = {
     base: new Set<string>(),
     variants: {},
@@ -241,112 +93,126 @@ const creator: PluginCreator<{ prefix?: string; process?: (res?: CvaParams) => v
 
   return {
     postcssPlugin: 'postcss-icestack-extract-cva-params-plugin',
-    Comment(comment) {
-      const res = pickComment(comment)
-      if (res) {
-        weakMap.set(comment, cvaSymbol)
-        const { next, suffix, type } = res
-        const { query, params } = extractParams(suffix)
-        const hashCode = objHash(query)
-        const entries = Object.entries(query)
+    prepare(res) {
+      const filename = res.root.source?.input.file
+      if (filename) {
+        const skip = !filter(filename)
+        if (skip) {
+          return {}
+        }
+      }
 
-        if (next) {
-          const rule = getParentRule(comment)
+      // res.root
+      return {
+        Comment(comment) {
+          const res = pickComment(comment)
+          if (res) {
+            weakMap.set(comment, cvaSymbol)
+            const { next, suffix, type } = res
+            const { query, params } = extractParams(suffix)
+            const hashCode = objHash(query)
+            const entries = Object.entries(query)
 
-          if (rule) {
-            const ast = defaultParser.astSync(rule.selector)
+            if (next) {
+              const rule = getParentRule(comment)
 
-            let value: string | undefined
-            ast.walkClasses((cls) => {
-              value = cls.value
-              // return false
-            })
+              if (rule) {
+                const ast = defaultParser.astSync(rule.selector)
 
-            if (value) {
-              // value = prefix + value
+                let value: string | undefined
+                ast.walkClasses((cls) => {
+                  value = cls.value
+                  // return false
+                })
+
+                if (value) {
+                  // value = prefix + value
+                  switch (type) {
+                    case 'base': {
+                      addBase(value)
+
+                      break
+                    }
+                    case 'variant': {
+                      addVariant(value, entries)
+
+                      break
+                    }
+                    case 'compoundVariant': {
+                      addCompoundVariant(value, entries, hashCode)
+
+                      break
+                    }
+                  }
+                }
+              }
+            } else
               switch (type) {
+                case 'defaultVariant': {
+                  addDefaultVariant(entries)
+
+                  break
+                }
                 case 'base': {
-                  addBase(value)
+                  addBase(params.map((x) => prefix + x))
 
                   break
                 }
                 case 'variant': {
-                  addVariant(value, entries)
+                  addVariant(
+                    params.map((x) => prefix + x),
+                    entries
+                  )
 
                   break
                 }
                 case 'compoundVariant': {
-                  addCompoundVariant(value, entries, hashCode)
+                  addCompoundVariant(
+                    params.map((x) => prefix + x),
+                    entries,
+                    hashCode
+                  )
 
                   break
                 }
+                case 'meta': {
+                  for (const [key, { value }] of entries) {
+                    result.meta[key] = value
+                  }
+                }
               }
-            }
           }
-        } else
-          switch (type) {
-            case 'defaultVariant': {
-              addDefaultVariant(entries)
+        },
+        CommentExit(comment) {
+          if (remove && weakMap.get(comment) === cvaSymbol) {
+            comment.remove()
+          }
+        },
+        OnceExit(root) {
+          result.compoundVariants = [...hashMap.values()]
 
-              break
-            }
-            case 'base': {
-              addBase(params.map((x) => prefix + x))
-
-              break
-            }
-            case 'variant': {
-              addVariant(
-                params.map((x) => prefix + x),
-                entries
-              )
-
-              break
-            }
-            case 'compoundVariant': {
-              addCompoundVariant(
-                params.map((x) => prefix + x),
-                entries,
-                hashCode
-              )
-
-              break
-            }
-            case 'meta': {
-              for (const [key, { value }] of entries) {
-                result.meta[key] = value
+          process?.({
+            base: [...result.base],
+            compoundVariants: result.compoundVariants.map((x) => {
+              return {
+                ...x,
+                class: [...x.class]
               }
-            }
-          }
+            }) as CvaParams['compoundVariants'],
+            defaultVariants: result.defaultVariants,
+            variants: Object.entries(result.variants).reduce<CvaParams['variants']>((acc, [k, v]) => {
+              acc[k] = Object.entries(v).reduce<Record<string, string[]>>((bcc, [k1, v1]) => {
+                bcc[k1] = [...v1]
+                return bcc
+              }, {})
+              return acc
+            }, {}),
+            meta: result.meta,
+            file: root.source?.input.file,
+            root
+          })
+        }
       }
-    },
-    CommentExit(comment) {
-      if (weakMap.get(comment) === cvaSymbol) {
-        comment.remove()
-      }
-    },
-    OnceExit(root) {
-      result.compoundVariants = [...hashMap.values()]
-
-      process?.({
-        base: [...result.base],
-        compoundVariants: result.compoundVariants.map((x) => {
-          return {
-            ...x,
-            class: [...x.class]
-          }
-        }) as CvaParams['compoundVariants'],
-        defaultVariants: result.defaultVariants,
-        variants: Object.entries(result.variants).reduce<CvaParams['variants']>((acc, [k, v]) => {
-          acc[k] = Object.entries(v).reduce<Record<string, string[]>>((bcc, [k1, v1]) => {
-            bcc[k1] = [...v1]
-            return bcc
-          }, {})
-          return acc
-        }, {}),
-        meta: result.meta,
-        file: root.source?.input.file
-      })
     }
   }
 }

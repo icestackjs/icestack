@@ -10,6 +10,7 @@
     "build:ui": "icestack build --clean"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.0",
     "vue": "^3.4.15"
   },
   "devDependencies": {

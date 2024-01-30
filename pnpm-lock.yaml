@@ -314,6 +314,9 @@ importers:
 
   examples/start-from-scratch:
     dependencies:
+      class-variance-authority:
+        specifier: ^0.7.0
+        version: 0.7.0
       vue:
         specifier: ^3.4.15
         version: 3.4.15(typescript@5.3.3)

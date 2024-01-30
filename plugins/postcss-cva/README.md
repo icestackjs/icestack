@@ -2,6 +2,25 @@
 
 A postcss plugin that generates cva functions based on comments
 
+- [postcss-cva](#postcss-cva)
+  - [What is cva (class-variance-authority)?](#what-is-cva-class-variance-authority)
+  - [Concept](#concept)
+  - [Usage](#usage)
+    - [Install](#install)
+    - [postcss.config.\[c\]js](#postcssconfigcjs)
+  - [References](#references)
+    - [@meta](#meta)
+  - [Options](#options)
+    - [outdir](#outdir)
+    - [importFrom](#importfrom)
+    - [dryRun](#dryrun)
+    - [cwd](#cwd)
+    - [format](#format)
+    - [prefix](#prefix)
+    - [remove](#remove)
+    - [include / exclude](#include--exclude)
+  - [License](#license)
+
 ## What is cva (class-variance-authority)?
 
 The CVA function is an excellent atomic tool function, refer to <https://cva.style/docs>
@@ -61,23 +80,20 @@ pnpm add -D postcss-cva
 
 ### postcss.config.[c]js
 
+add `postcss-cva` to your postcss config:
+
 ```js
 module.exports = {
   plugins: {
     // options
     'postcss-cva': {},
-    //  'postcss-cva': {
-    //   
-    // },
   }
 }
 ```
 
-For example, in this plugin
+Then you can write some comment start with `@` in your css:
 
-`type="primary"` is called `query`, `["shadow-sm"]` is called `params`
-
-> The same `query` will be merged with `params` together
+> tip: `command + /` can get `/* */` quickly
 
 ```css
 /* @meta path="button" */
@@ -100,23 +116,30 @@ For example, in this plugin
 /* @gcv type="primary" size="xs" ["p-1"] */
 ```
 
-will generate:
+> In this plugin, `type="primary"` is called `query`, `["shadow-sm"]` is called `params`
+>
+> The same `query` will be merged with `params` together
+
+Above css will generate `button.ts` at your `$cwd/cva` dir:
 
 ```ts
 import { cva, VariantProps } from 'class-variance-authority'
-//                 @b and @gb
+//                 ⬇️ @b 
+//                 ⬇️ @gb ["rounded"]
 const index = cva(['btn', 'rounded'], {
   variants: {
-    // @v type="primary" and @dv type="primary"
+    // ⬇️ @v type="primary" 
+    // ⬇️ @gv type="primary" ["shadow-sm"]
     type: {
       primary: ['btn-primary', 'shadow-sm']
     },
-    // @v size="xs"
+    // ⬇️ @v size="xs"
     size: {
       xs: ['btn-xs']
     }
   },
-  // @cv type="primary" size="xs" and @gcv type="primary" size="xs" ["p-1"]
+  // ⬇️ @cv type="primary" size="xs" 
+  // ⬇️ @gcv type="primary" size="xs" ["p-1"]
   compoundVariants: [
     {
       class: ['uppercase', 'p-1'],
@@ -124,7 +147,7 @@ const index = cva(['btn', 'rounded'], {
       size: ['xs']
     }
   ],
-  // @dv type="primary"
+  // ⬇️ @dv type="primary"
   defaultVariants: {
     type: 'primary'
   }
@@ -133,9 +156,11 @@ export type Props = VariantProps<typeof index>
 export default index
 ```
 
+> you should install `class-variance-authority`, run `npm i class-variance-authority`
+
 ## References
 
-| keyword | param              | type   | description                                   |
+| keyword | target             | type   | description                                   |
 | ------- | ------------------ | ------ | --------------------------------------------- |
 | `@b`    | `base`             | node   | add current node selector to base             |
 | `@v`    | `variants`         | node   | add current node selector to variants         |
@@ -146,23 +171,23 @@ export default index
 | `@gcv`  | `compoundVariants` | global | define defaultVariants                        |
 | `@meta` | `meta`             | global | define metadata                               |
 
+type `node` will add **current** css node selector (the last `class selector`) to their target.
+
+type `global` will define some `query` and `params`. It can be defined anywhere. The one defined later will overwrite the one defined before.
+
+### @meta
+
 `@meta` query:
 
 ```css
 /* @meta path="{your-cva-filepath}" format="ts/js" */
 ```
 
+`path` is generate cva file path, can be `a/b/c/button`
+
+`format` can be `js` or `ts`
+
 > You can use the `js` variables to dynamically generate functions
-
-### Type explain
-
-#### node
-
-Get the last class node in the current selector and add it to the corresponding results
-
-#### global
-
-It will not be calculated based on the defined position. It can be defined anywhere. The one defined later will overwrite the one defined before.
 
 ## Options
 

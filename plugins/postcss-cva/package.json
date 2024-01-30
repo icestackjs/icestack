@@ -1,7 +1,7 @@
 {
   "name": "postcss-cva",
   "description": "generate cva functions by css comment",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "scripts": {
     "dev": "unbuild --sourcemap",
     "build": "unbuild",

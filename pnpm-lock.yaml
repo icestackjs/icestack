@@ -327,6 +327,9 @@ importers:
       '@vitejs/plugin-vue':
         specifier: ^5.0.3
         version: 5.0.3(vite@5.0.12)(vue@3.4.15)
+      postcss-cva:
+        specifier: workspace:^
+        version: link:../../plugins/postcss-cva
       sass:
         specifier: ^1.70.0
         version: 1.70.0

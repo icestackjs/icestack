@@ -49,13 +49,35 @@ button({ intent: 'secondary', size: 'small' })
 
 ## Usage
 
+### Install
+
+```bash
+npm i -D postcss-cva
+yarn add -D postcss-cva
+pnpm add -D postcss-cva
+```
+
+### postcss.config.[c]js
+
+```js
+module.exports = {
+  plugins: {
+    // options
+    'postcss-cva': {},
+    //  'postcss-cva': {
+    //   
+    // },
+  }
+}
+```
+
 For example, in this plugin
 
 `type="primary"` is called `query`, `["shadow-sm"]` is called `params`
 
 > The same `query` will be merged with `params` together
->
-> Note ⚠ ️: If you use `scss`, you can use the `//` below for comment, otherwise please use `/* */`
+
+<!-- > Note ⚠ ️: If you use `scss`, you can use the `//` below for comment, otherwise please use `/* */` -->
 
 ```css
 /* @meta path="button" */
@@ -177,6 +199,21 @@ Default: `ts`
 
 Type: `string`
 Default: `''`
+
+### remove
+
+Type: `boolean`
+Default: `true`
+
+remove all `@xx` comment
+
+### include / exclude
+
+Type: `String | RegExp | Array[...String|RegExp]`
+
+A valid picomatch pattern, or array of patterns. If options.include is omitted or has zero length, filter will return true by default. Otherwise, an ID must match one or more of the picomatch patterns, and must not match any of the options.exclude patterns.
+
+Note that picomatch patterns are very similar to minimatch patterns, and in most use cases, they are interchangeable. If you have more specific pattern matching needs, you can view this comparison table to learn more about where the libraries differ.
 
 ## License
 

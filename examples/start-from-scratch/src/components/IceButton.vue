@@ -1,4 +1,6 @@
-<template><button class="btn"></button>></template>
+<template>
+  <button class="btn"></button>>
+</template>
 
 <script setup lang="ts"></script>
 

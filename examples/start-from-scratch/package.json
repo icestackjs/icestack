@@ -16,6 +16,7 @@
     "@icestack/tailwindcss": "workspace:^",
     "@icestack/ui": "workspace:^",
     "@vitejs/plugin-vue": "^5.0.3",
+    "postcss-cva": "workspace:^",
     "sass": "^1.70.0",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",

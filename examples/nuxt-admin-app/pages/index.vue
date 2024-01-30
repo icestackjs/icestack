@@ -2,6 +2,7 @@
   <div
     class="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8"
   >
+    <!-- <IceButton>11</IceButton> -->
     <div class="flex flex-col justify-center sm:mx-auto sm:w-full sm:max-w-sm">
       <div class="i-mdi-tailwind mx-auto h-14 w-14 text-primary"></div>
       <h2 class="mt-5 text-center text-2xl font-bold leading-9 tracking-tight">

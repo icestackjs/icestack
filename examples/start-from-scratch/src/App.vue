@@ -1,9 +1,11 @@
 <script setup lang="ts">
-// https://tailwindcomponents.com/component/button-with-hover-effect-and-icon-moves-away
+import IceButton from './components/IceButton.vue';
+
 </script>
 
 <template>
   <div>
+    <IceButton></IceButton>
     <a href="https://icebreaker.top/" target="_blank" class="cbtn">
       Hover Me
     </a>

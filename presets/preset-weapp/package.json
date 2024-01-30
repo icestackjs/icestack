@@ -1,7 +1,7 @@
 {
   "name": "@icestack/preset-weapp",
   "description": "The weapp preset of @icestack/ui",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

@@ -20,12 +20,23 @@ IceStack UI, Web UI for Mobile and PC , open-source Css Headless component libra
 
 ## Repos
 
-### Core
+### Usage
 
 - [@icestack/ui](./packages/ui/) - IceStack UI, Web UI for Mobile and PC , open-source Css Headless component library generator
 - [@icestack/tailwindcss](./packages/tailwindcss/) - IceStack UI For Tailwindcss plugin
 - [@icestack/unocss](./packages/unocss/) - IceStack UI For Unocss plugin
-- [@icestack/postcss](./packages/postcss/) - Postcss plugins hub
+- [@icestack/postcss](./packages/postcss/) - IceStack UI For Postcss plugin
+- [@icestack/cva](./packages/cva/) - The class-variance-authority function collection of IceStack UI
+
+### Plugins
+
+- [css-to-tailwindcss-plugin](./plugins/css-to-tailwindcss-plugin) - Transform your `css/scss` to `tailwindcss plugin`
+- [compose-tailwindcss-plugins](./plugins/compose-tailwindcss-plugins) - Compose your multiple tailwindcss plugins into one
+- [postcss-custom-property-prefixer](./plugins/postcss-custom-property-prefixer) - Add prefix to your css custom-property postcss plugin
+- [postcss-cva](./plugins/postcss-cva) - Generate cva functions base on css comments
+
+### Core
+
 - [@icestack/postcss-utils](./packages/postcss-utils/) - Postcss utils hub
 - [@icestack/preset-default](./packages/preset-default/) - The default preset of @icestack/ui
 - [@icestack/theme-algorithm](./packages/theme-algorithm/) - The default theme-algorithm of @icestack/ui
@@ -33,7 +44,10 @@ IceStack UI, Web UI for Mobile and PC , open-source Css Headless component libra
 - [@icestack/types](./packages/types/) - Typescript types
 - [@icestack/shared](./packages/shared/) - Shared utils
 - [@icestack/logger](./packages/logger/) - Logger
-- (WIP) [@icestack/cva](./packages/cva/) - The class-variance-authority function collection of IceStack UI
+- [@icestack/cli](./packages/cli/) - Cli package
+- [@icestack/config](./packages/config/) - Config package
+- [@icestack/core](./packages/core/) - Core package
+- [@icestack/generator](./packages/generator/) - Code generator package
 
 ### Presets
 
@@ -43,18 +57,12 @@ IceStack UI, Web UI for Mobile and PC , open-source Css Headless component libra
 - (WIP) [@icestack/preset-daisyui](./packages/preset-daisyui/) - Daisyui preset
 - (WIP) [@icestack/preset-unicorn](./packages/preset-unicorn/) - Unicorn preset
 
-### Plugins
-
-- [css-to-tailwindcss-plugin](./plugins/css-to-tailwindcss-plugin) - Transform your `css/scss` to `tailwindcss plugin`
-- [compose-tailwindcss-plugins](./plugins/compose-tailwindcss-plugins) - Compose your multiple tailwindcss plugins into one
-- [postcss-custom-property-prefixer](./plugins/postcss-custom-property-prefixer) - Add prefix to your css custom-property postcss plugin
-
 ### Applications
 
 - [@icestack/app-website](./website/) - Source code of <https://ui.icebreaker.top>
-- [@icestack/app-storybook](./storybook/) - Source code of <https://story.ui.icebreaker.top>
 - [@icestack/app-weapp](./apps/taro-app/) - Source code of weapp "爱思史塔克"
 - [nuxt-admin-app](./examples/nuxt-admin-app/) - Source code of <https://nuxt.icebreaker.top/>
+- [@icestack/app-storybook](./storybook/) - Source code of <https://story.ui.icebreaker.top>
 
 ## License
 

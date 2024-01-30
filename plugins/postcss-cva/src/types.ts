@@ -1,4 +1,4 @@
-import { Root } from 'postcss'
+// import { Root } from 'postcss'
 
 export type FilterPattern = ReadonlyArray<string | RegExp> | string | RegExp | null
 
@@ -21,7 +21,7 @@ export interface CvaParams {
   defaultVariants: Record<string, string>
   meta: Record<string, string>
   file?: string
-  root: Root
+  // root: Root
 }
 
 export interface CvaParamsSet {

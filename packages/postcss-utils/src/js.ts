@@ -28,3 +28,5 @@ export function postcssProcess(plugins: AcceptedPlugin[], css: string): LazyResu
     from: undefined
   })
 }
+
+export { generateCva } from 'postcss-cva/generator'

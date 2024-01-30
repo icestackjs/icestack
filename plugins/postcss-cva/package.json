@@ -1,7 +1,7 @@
 {
   "name": "postcss-cva",
   "description": "generate cva functions by css comment",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "scripts": {
     "dev": "unbuild --sourcemap",
     "build": "unbuild",
@@ -37,6 +37,11 @@
       "types": "./dist/generator.d.ts",
       "import": "./dist/generator.mjs",
       "require": "./dist/generator.cjs"
+    },
+    "./types": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/types.mjs",
+      "require": "./dist/types.cjs"
     },
     "./*": "./*"
   },

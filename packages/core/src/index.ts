@@ -27,7 +27,8 @@ import {
   objectify,
   postcssProcess,
   extractCvaParamsPlugin,
-  CvaParams
+  CvaParams,
+  generateCva
 } from '@icestack/postcss-utils'
 import { LRUCache } from 'lru-cache'
 // import md5 from 'md5'
@@ -36,10 +37,10 @@ import { name } from '../package.json'
 import { utilitiesNames, utilitiesMap } from './utilities'
 import { handleOptions } from './components'
 import { calcBase } from './base'
-import { generateIndexCode, generateCva } from '@/generate'
+import { generateIndexCode } from '@/generate'
 import { createResolveDir } from '@/dirs'
 
-const { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath, getCvaPath } = createResolveDir(name)
+const { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath } = createResolveDir(name)
 
 function ensureDirSync(p: string) {
   if (!fs.existsSync(p)) {
@@ -240,7 +241,7 @@ export function createContext(opts?: CodegenOptions | string) {
       const t = components[name]
 
       if (typeof t === 'object') {
-        const { postcss, selector } = t
+        const { postcss } = t // selector
         const varPrefixOptions = resolveVarPrefixOption(postcss?.varPrefix)
         const varPrefixerPlugin = getCssVarsPrefixerPlugin(defu(varPrefixOptions, globalVarPrefix))
         varPrefixerPlugin && plugins.push(varPrefixerPlugin)
@@ -252,8 +253,8 @@ export function createContext(opts?: CodegenOptions | string) {
         plugins.push(
           extractCvaParamsPlugin({
             process: getCvaParams,
-            prefix: oo.prefix,
-            selector
+            prefix: oo.prefix
+            // selector
           })
         )
         if (Array.isArray(postcss?.plugins)) {
@@ -561,7 +562,7 @@ export function createContext(opts?: CodegenOptions | string) {
                 format,
                 importFrom,
                 ...o
-              })
+              }).code
             )
           }
         }

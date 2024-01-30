@@ -22,6 +22,8 @@ exports[`options merge > merge case 0 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": ".xxx {
@@ -46,6 +48,8 @@ exports[`options merge > merge case 0 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -61,6 +65,8 @@ exports[`options merge > merge case 0 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -151,6 +157,8 @@ exports[`options merge > merge case 1 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "disabled": {
             "true": [
@@ -874,15 +882,17 @@ exports[`options merge > merge case 1 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "active": {
             "true": [
-              "btn",
+              "btn-active",
             ],
           },
           "focusVisible": {
             "true": [
-              "btn",
+              "btn-focus-visible",
             ],
           },
           "ghost": {
@@ -892,12 +902,12 @@ exports[`options merge > merge case 1 1`] = `
           },
           "glass": {
             "true": [
-              "btn",
+              "glass",
             ],
           },
           "hover": {
             "true": [
-              "btn",
+              "btn-hover",
             ],
           },
           "link": {
@@ -1771,6 +1781,8 @@ exports[`options merge > merge case 1 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "shape": {
             "circle": [
@@ -2046,6 +2058,8 @@ exports[`options merge > merge case 2 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "disabled": {
             "true": [
@@ -2769,15 +2783,17 @@ exports[`options merge > merge case 2 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "active": {
             "true": [
-              "btn",
+              "btn-active",
             ],
           },
           "focusVisible": {
             "true": [
-              "btn",
+              "btn-focus-visible",
             ],
           },
           "ghost": {
@@ -2787,12 +2803,12 @@ exports[`options merge > merge case 2 1`] = `
           },
           "glass": {
             "true": [
-              "btn",
+              "glass",
             ],
           },
           "hover": {
             "true": [
-              "btn",
+              "btn-hover",
             ],
           },
           "link": {
@@ -3666,6 +3682,8 @@ exports[`options merge > merge case 2 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "shape": {
             "circle": [
@@ -3941,6 +3959,8 @@ exports[`options merge > merge case 3 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "disabled": {
             "true": [
@@ -4664,15 +4684,17 @@ exports[`options merge > merge case 3 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "active": {
             "true": [
-              "btn",
+              "btn-active",
             ],
           },
           "focusVisible": {
             "true": [
-              "btn",
+              "btn-focus-visible",
             ],
           },
           "ghost": {
@@ -4682,12 +4704,12 @@ exports[`options merge > merge case 3 1`] = `
           },
           "glass": {
             "true": [
-              "btn",
+              "glass",
             ],
           },
           "hover": {
             "true": [
-              "btn",
+              "btn-hover",
             ],
           },
           "link": {
@@ -5561,6 +5583,8 @@ exports[`options merge > merge case 3 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "shape": {
             "circle": [
@@ -5836,6 +5860,8 @@ exports[`options merge > merge case 4 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "disabled": {
             "true": [
@@ -6559,15 +6585,17 @@ exports[`options merge > merge case 4 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "active": {
             "true": [
-              "btn",
+              "btn-active",
             ],
           },
           "focusVisible": {
             "true": [
-              "btn",
+              "btn-focus-visible",
             ],
           },
           "ghost": {
@@ -6577,12 +6605,12 @@ exports[`options merge > merge case 4 1`] = `
           },
           "glass": {
             "true": [
-              "btn",
+              "glass",
             ],
           },
           "hover": {
             "true": [
-              "btn",
+              "btn-hover",
             ],
           },
           "link": {
@@ -7456,6 +7484,8 @@ exports[`options merge > merge case 4 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "shape": {
             "circle": [
@@ -7733,6 +7763,8 @@ exports[`options merge > merge case 6 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "disabled": {
             "true": [
@@ -8456,15 +8488,17 @@ exports[`options merge > merge case 6 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "active": {
             "true": [
-              "btn",
+              "btn-active",
             ],
           },
           "focusVisible": {
             "true": [
-              "btn",
+              "btn-focus-visible",
             ],
           },
           "ghost": {
@@ -8474,12 +8508,12 @@ exports[`options merge > merge case 6 1`] = `
           },
           "glass": {
             "true": [
-              "btn",
+              "glass",
             ],
           },
           "hover": {
             "true": [
-              "btn",
+              "btn-hover",
             ],
           },
           "link": {
@@ -9353,6 +9387,8 @@ exports[`options merge > merge case 6 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "shape": {
             "circle": [
@@ -9628,6 +9664,8 @@ exports[`options merge > merge case 7 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "disabled": {
             "true": [
@@ -10351,15 +10389,17 @@ exports[`options merge > merge case 7 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "active": {
             "true": [
-              "btn",
+              "btn-active",
             ],
           },
           "focusVisible": {
             "true": [
-              "btn",
+              "btn-focus-visible",
             ],
           },
           "ghost": {
@@ -10369,12 +10409,12 @@ exports[`options merge > merge case 7 1`] = `
           },
           "glass": {
             "true": [
-              "btn",
+              "glass",
             ],
           },
           "hover": {
             "true": [
-              "btn",
+              "btn-hover",
             ],
           },
           "link": {
@@ -11248,6 +11288,8 @@ exports[`options merge > merge case 7 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "shape": {
             "circle": [
@@ -11523,6 +11565,8 @@ exports[`options merge > merge case 8 1`] = `
         ],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "disabled": {
             "true": [
@@ -12246,15 +12290,17 @@ exports[`options merge > merge case 8 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "active": {
             "true": [
-              "btn",
+              "btn-active",
             ],
           },
           "focusVisible": {
             "true": [
-              "btn",
+              "btn-focus-visible",
             ],
           },
           "ghost": {
@@ -12264,12 +12310,12 @@ exports[`options merge > merge case 8 1`] = `
           },
           "glass": {
             "true": [
-              "btn",
+              "glass",
             ],
           },
           "hover": {
             "true": [
-              "btn",
+              "btn-hover",
             ],
           },
           "link": {
@@ -13143,6 +13189,8 @@ exports[`options merge > merge case 8 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {
           "shape": {
             "circle": [
@@ -13350,6 +13398,8 @@ exports[`options merge > merge case 9 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13365,6 +13415,8 @@ exports[`options merge > merge case 9 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13393,6 +13445,8 @@ exports[`options merge > merge case 9 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": ".xxx {
@@ -13430,6 +13484,8 @@ exports[`options merge > merge case 11 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13445,6 +13501,8 @@ exports[`options merge > merge case 11 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13473,6 +13531,8 @@ exports[`options merge > merge case 11 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": ".btn::after {
@@ -13510,6 +13570,8 @@ exports[`options merge > merge case 12 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13525,6 +13587,8 @@ exports[`options merge > merge case 12 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13553,6 +13617,8 @@ exports[`options merge > merge case 12 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": ".btn::after {
@@ -13590,6 +13656,8 @@ exports[`options merge > merge case 13 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13605,6 +13673,8 @@ exports[`options merge > merge case 13 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13626,6 +13696,8 @@ exports[`options merge > merge case 13 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": ".content-area {
@@ -13652,6 +13724,8 @@ exports[`options merge > merge case 14 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13667,6 +13741,8 @@ exports[`options merge > merge case 14 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13688,6 +13764,8 @@ exports[`options merge > merge case 14 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": ".content-area {
@@ -13714,6 +13792,8 @@ exports[`options merge > merge case 15 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13729,6 +13809,8 @@ exports[`options merge > merge case 15 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13750,6 +13832,8 @@ exports[`options merge > merge case 15 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": ".btn-blue {
@@ -13776,6 +13860,8 @@ exports[`options merge > merge case 16 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13791,6 +13877,8 @@ exports[`options merge > merge case 16 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": "",
@@ -13812,6 +13900,8 @@ exports[`options merge > merge case 16 1`] = `
         "base": [],
         "compoundVariants": [],
         "defaultVariants": {},
+        "file": undefined,
+        "meta": {},
         "variants": {},
       },
       "resolvedCss": ".btn-blue {

@@ -1,11 +1,26 @@
 import type { PluginCreator } from 'postcss'
 import { set, get } from 'lodash'
-import { objHash } from '@icestack/shared'
+import { objHash, defu } from '@icestack/shared'
 import type { CvaParams, CvaParamsSet } from './types'
 import { cvaSymbol, defaultParser, extractParams, getParentRule, pickComment, setAdd } from './regex'
 
-const creator: PluginCreator<{ prefix?: string; process?: (res?: CvaParams) => void; remove?: boolean; filter?: (id: unknown) => boolean }> = (opts) => {
-  const { process, prefix: _prefix, remove, filter = () => true } = opts ?? {}
+export interface ExtractOption {
+  prefix: string
+  process: (res?: CvaParams) => void
+  remove: boolean
+  filter: (id: unknown) => boolean
+}
+
+const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
+  const {
+    process,
+    prefix: _prefix,
+    remove,
+    filter
+  } = defu<ExtractOption, Partial<ExtractOption>[]>(opts, {
+    filter: () => true,
+    remove: true
+  })
   const result: CvaParamsSet = {
     base: new Set<string>(),
     variants: {},
@@ -208,8 +223,8 @@ const creator: PluginCreator<{ prefix?: string; process?: (res?: CvaParams) => v
               return acc
             }, {}),
             meta: result.meta,
-            file: root.source?.input.file,
-            root
+            file: root.source?.input.file
+            // root
           })
         }
       }

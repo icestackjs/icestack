@@ -7,6 +7,8 @@ exports[`'alert' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "type": {
       "error": [
@@ -36,6 +38,8 @@ exports[`'avatar' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -47,6 +51,8 @@ exports[`'badge' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "ghost": {
       "true": [
@@ -100,6 +106,8 @@ exports[`'bottom-navigation' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "disabled": {
       "true": [
@@ -131,6 +139,8 @@ exports[`'breadcrumbs' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -142,10 +152,12 @@ exports[`'button' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "active": {
       "true": [
-        "btn",
+        "btn-active",
       ],
     },
     "disabled": {
@@ -155,7 +167,7 @@ exports[`'button' cva > snap 1`] = `
     },
     "focusVisible": {
       "true": [
-        "btn",
+        "btn-focus-visible",
       ],
     },
     "ghost": {
@@ -165,12 +177,12 @@ exports[`'button' cva > snap 1`] = `
     },
     "glass": {
       "true": [
-        "btn",
+        "glass",
       ],
     },
     "hover": {
       "true": [
-        "btn",
+        "btn-hover",
       ],
     },
     "link": {
@@ -239,6 +251,8 @@ exports[`'card' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -250,6 +264,8 @@ exports[`'carousel' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -261,6 +277,8 @@ exports[`'chat' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -272,6 +290,8 @@ exports[`'checkbox' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "size": {
       "lg": [
@@ -313,6 +333,8 @@ exports[`'collapse' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -324,6 +346,8 @@ exports[`'countdown' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -335,6 +359,8 @@ exports[`'diff' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -346,6 +372,8 @@ exports[`'divider' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "direction": {
       "horizontal": [
@@ -381,6 +409,8 @@ exports[`'drawer' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -390,6 +420,8 @@ exports[`'dropdown' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -401,6 +433,8 @@ exports[`'file-input' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "bordered": {
       "true": [
@@ -409,7 +443,7 @@ exports[`'file-input' cva > snap 1`] = `
     },
     "disabled": {
       "true": [
-        "file-input-disabled",
+        "file-input",
       ],
     },
     "ghost": {
@@ -457,6 +491,8 @@ exports[`'footer' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -466,6 +502,8 @@ exports[`'form' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -475,6 +513,8 @@ exports[`'hero' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -484,6 +524,8 @@ exports[`'indicator' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -493,6 +535,8 @@ exports[`'input' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -504,6 +548,8 @@ exports[`'join' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "direction": {
       "horizontal": [
@@ -524,6 +570,8 @@ exports[`'kbd' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "size": {
       "lg": [
@@ -550,6 +598,8 @@ exports[`'link' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "hover": {
       "true": [
@@ -584,6 +634,8 @@ exports[`'loading' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "shape": {
       "audio": [
@@ -648,6 +700,8 @@ exports[`'mask' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "shape": {
       "circle": [
@@ -717,6 +771,8 @@ exports[`'menu' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -726,6 +782,8 @@ exports[`'navbar' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -735,6 +793,8 @@ exports[`'progress' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -744,6 +804,8 @@ exports[`'radial-progress' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -753,6 +815,8 @@ exports[`'radio' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -762,6 +826,8 @@ exports[`'range' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -771,6 +837,8 @@ exports[`'rating' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -780,6 +848,8 @@ exports[`'select' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -789,6 +859,8 @@ exports[`'skeleton' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -798,6 +870,8 @@ exports[`'stack' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -807,6 +881,8 @@ exports[`'stat' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -816,6 +892,8 @@ exports[`'steps' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -825,6 +903,8 @@ exports[`'swap' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -834,6 +914,8 @@ exports[`'tab' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -843,6 +925,8 @@ exports[`'table' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "size": {
       "lg": [
@@ -867,6 +951,8 @@ exports[`'textarea' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -876,6 +962,8 @@ exports[`'timeline' cva > snap 1`] = `
   "base": [],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -887,6 +975,8 @@ exports[`'toast' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {},
 }
 `;
@@ -898,6 +988,8 @@ exports[`'toggle' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "size": {
       "lg": [
@@ -941,6 +1033,8 @@ exports[`'tooltip' cva > snap 1`] = `
   ],
   "compoundVariants": [],
   "defaultVariants": {},
+  "file": undefined,
+  "meta": {},
   "variants": {
     "open": {
       "true": [

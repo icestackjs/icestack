@@ -587,6 +587,9 @@ importers:
       postcss-custom-property-prefixer:
         specifier: workspace:^
         version: link:../../plugins/postcss-custom-property-prefixer
+      postcss-cva:
+        specifier: workspace:^
+        version: link:../../plugins/postcss-cva
       postcss-js:
         specifier: ^4.0.1
         version: 4.0.1(postcss@8.4.33)

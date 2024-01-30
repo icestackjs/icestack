@@ -82,6 +82,7 @@
     "lodash": "^4.17.21",
     "postcss": "^8.4.33",
     "postcss-custom-property-prefixer": "workspace:^",
+    "postcss-cva": "workspace:^",
     "postcss-js": "^4.0.1",
     "postcss-scss": "^4.0.9",
     "postcss-selector-parser": "^6.0.15",

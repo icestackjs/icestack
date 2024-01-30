@@ -55,6 +55,8 @@ button({ intent: 'secondary', size: 'small' })
 
 > 同样的 query 会和 params 被一起合并
 
+> 注意⚠️: 如果你使用 `scss` 你可以使用下方的 `//` 进行注释，否则只使用 `css` 的话，请使用 `/*  */`
+
 ```scss
 .btn {
   // @b
@@ -107,12 +109,12 @@ const index = cva(['btn', 'rounded'], {
 
 ## 参考注释
 
-| keyword                      | param              | type   | description                                   |
-| ---------------------------- | ------------------ | ------ | --------------------------------------------- |
-| `@b` / `@base`               | `base`             | node   | add current node selector to base             |
-| `@v` / `@variant`            | `variants`         | node   | add current node selector to variants         |
-| `@cv` / `@compoundVariant`   | `compoundVariants` | node   | add current node selector to compoundVariants |
-| `@dv` / `@defaultVariant`    | `defaultVariants`  | global | define defaultVariants                        |
-| `@gb` / `@gbase`             | `base`             | global | define base                                   |
-| `@gv` / `@gvariant`          | `variants`         | global | define variants                               |
-| `@gcv` / `@gcompoundVariant` | `compoundVariants` | global | define defaultVariants                        |
+| keyword | param              | type   | description                                   |
+| ------- | ------------------ | ------ | --------------------------------------------- |
+| `@b`    | `base`             | node   | add current node selector to base             |
+| `@v`    | `variants`         | node   | add current node selector to variants         |
+| `@cv`   | `compoundVariants` | node   | add current node selector to compoundVariants |
+| `@dv`   | `defaultVariants`  | global | define defaultVariants                        |
+| `@gb`   | `base`             | global | define base                                   |
+| `@gv`   | `variants`         | global | define variants                               |
+| `@gcv`  | `compoundVariants` | global | define defaultVariants                        |

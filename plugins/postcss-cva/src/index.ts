@@ -5,20 +5,38 @@ import { defu } from '@icestack/shared'
 import extract from './extract'
 import { generateCva } from './generator'
 import { ensureDir } from './utils'
+import type { UserDefineOption } from './types'
 
-const creator: PluginCreator<Partial<{ outdir: string; prefix: string }>> = (opts) => {
-  const { outdir, prefix } = defu(opts, {
-    outdir: 'cva'
+const creator: PluginCreator<Partial<UserDefineOption>> = (opts) => {
+  const { outdir, prefix, importFrom, dryRun, cwd, format } = defu(opts, {
+    cwd: process.cwd(),
+    outdir: 'cva',
+    importFrom: 'class-variance-authority',
+    dryRun: false,
+    format: 'ts'
   })
-  const cwd = process.cwd()
+
   const extractPlugin = extract({
     prefix,
     process(res) {
       if (res) {
-        const { code } = generateCva(res)
-        const filepath = path.resolve(cwd, outdir, res.file ?? '')
-        ensureDir(filepath)
-        fs.writeFileSync(filepath, code, 'utf8')
+        const targetFormat = <'js' | 'ts'>res.global.format ?? format
+        const { code } = generateCva({
+          ...res,
+          format: targetFormat,
+          importFrom
+        })
+        const filename = res.global.path ?? res.file
+        if (filename && !dryRun) {
+          const filepath = path.resolve(cwd, outdir, filename)
+          ensureDir(path.dirname(filepath))
+          const extname = path.extname(filename)
+          let file = filepath
+          if (!extname) {
+            file = filepath + '.' + targetFormat
+          }
+          fs.writeFileSync(file, code, 'utf8')
+        }
       }
     }
   })

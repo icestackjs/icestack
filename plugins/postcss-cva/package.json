@@ -2,7 +2,6 @@
   "name": "postcss-cva",
   "description": "generate cva functions by css comment",
   "version": "0.0.0",
-  "private": true,
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

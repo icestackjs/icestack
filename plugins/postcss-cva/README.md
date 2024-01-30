@@ -1,3 +1,7 @@
+# postcss-cva
+
+A postcss plugin that generates cva functions based on comments
+
 <br>
 
 <p align="center">
@@ -10,6 +14,4 @@
 
 ## Documentation
 
-[Documentation](https://ui.icebreaker.top/) | [中文文档](https://ui.icebreaker.top/zh-CN)
-
-
+[Documentation](https://ui.icebreaker.top/docs/cva-generate) | [中文文档](https://ui.icebreaker.top/zh-CN/docs/cva-generate)

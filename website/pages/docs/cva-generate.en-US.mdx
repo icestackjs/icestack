@@ -55,6 +55,8 @@ for example `type="primary"` is called `query`, `["shadow-sm"]` is called `param
 
 > The same `query` will be merged with `params` together
 
+> Note ⚠ ️: If you use `scss`, you can use the `//` below for comment, otherwise please use`/* */`
+
 ```scss
 .btn {
   // @b
@@ -107,12 +109,12 @@ const index = cva(['btn', 'rounded'], {
 
 ## References
 
-| keyword                      | param              | type   | description                                   |
-| ---------------------------- | ------------------ | ------ | --------------------------------------------- |
-| `@b` / `@base`               | `base`             | node   | add current node selector to base             |
-| `@v` / `@variant`            | `variants`         | node   | add current node selector to variants         |
-| `@cv` / `@compoundVariant`   | `compoundVariants` | node   | add current node selector to compoundVariants |
-| `@dv` / `@defaultVariant`    | `defaultVariants`  | global | define defaultVariants                        |
-| `@gb` / `@gbase`             | `base`             | global | define base                                   |
-| `@gv` / `@gvariant`          | `variants`         | global | define variants                               |
-| `@gcv` / `@gcompoundVariant` | `compoundVariants` | global | define defaultVariants                        |
+| keyword | param              | type   | description                                   |
+| ------- | ------------------ | ------ | --------------------------------------------- |
+| `@b`    | `base`             | node   | add current node selector to base             |
+| `@v`    | `variants`         | node   | add current node selector to variants         |
+| `@cv`   | `compoundVariants` | node   | add current node selector to compoundVariants |
+| `@dv`   | `defaultVariants`  | global | define defaultVariants                        |
+| `@gb`   | `base`             | global | define base                                   |
+| `@gv`   | `variants`         | global | define variants                               |
+| `@gcv`  | `compoundVariants` | global | define defaultVariants                        |

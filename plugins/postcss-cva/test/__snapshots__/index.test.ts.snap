@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`index > case 0 1`] = `
+"
+      .btn {
+      }
+      .btn-primary {
+      }
+      .btn-xs {
+      }
+      .uppercase {
+      }
+    "
+`;
+
+exports[`index > case 1 1`] = `
+"
+      .btn {
+      }
+      .btn-primary {
+      }
+      .btn-xs {
+      }
+      .uppercase {
+      }
+    "
+`;
+
+exports[`index > case 2 1`] = `
+"
+      .btn {
+      }
+      .btn-primary {
+      }
+      .btn-xs {
+      }
+      .uppercase {
+      }
+    "
+`;

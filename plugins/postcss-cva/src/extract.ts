@@ -3,6 +3,7 @@ import parser from 'postcss-selector-parser'
 import { set, get, trimStart } from 'lodash'
 import { objHash } from '@icestack/shared'
 import { matchAll } from './utils'
+import type { CvaParams, CvaParamsSet, CommentType } from './types'
 const defaultParser = parser()
 
 function getParentRule(comment: Comment) {
@@ -12,19 +13,19 @@ function getParentRule(comment: Comment) {
   }
 }
 // b
-export const baseRegex = new RegExp(/@b(?:ase)?/.source, 'g')
+export const baseRegex = new RegExp(/@b/.source, 'g')
 // gb
-export const defineBaseRegex = new RegExp(/@gb(?:ase)?/.source, 'g')
+export const defineBaseRegex = new RegExp(/@gb/.source, 'g')
 // v
-export const variantRegex = new RegExp(/@v(?:ariant)?/.source, 'g')
+export const variantRegex = new RegExp(/@v/.source, 'g')
 // gv
-export const defineVariantRegex = new RegExp(/@gv(?:ariant)?/.source, 'g')
+export const defineVariantRegex = new RegExp(/@gv/.source, 'g')
 // cv
-export const compoundVariantRegex = /@(?:cv|compoundVariant)/g
+export const compoundVariantRegex = /@cv/g
 // gcv
-export const defineCompoundVariantRegex = /@(?:gcv|gcompoundVariant)/g
+export const defineCompoundVariantRegex = /@gcv/g
 // dv
-export const defaultVariantRegex = new RegExp(/@(?:dv|defaultVariant)/.source, 'g')
+export const defaultVariantRegex = new RegExp(/@dv/.source, 'g')
 // global
 export const globalOptionsRegex = new RegExp(/@global/.source, 'g')
 // function regexpTest(regex: RegExp, text: string) {
@@ -76,8 +77,6 @@ const regexArray: { type: CommentType; regex: RegExp; next: boolean }[] = [
   }
 ]
 
-export type CommentType = 'base' | 'variant' | 'compoundVariant' | 'defaultVariant' | 'global'
-
 export function getSuffix(text: string) {
   for (const { next, regex, type } of regexArray) {
     regex.lastIndex = 0
@@ -122,16 +121,21 @@ export function extractParams(text: string) {
       }
     }
   }
-  const queryArray = matchAll(/([\w-]+)=([\w"-]+)/g, text)
+  const queryArray = matchAll(/([\w-]+)="([^"]+)"/g, text)
 
   for (const x of queryArray) {
+    // const key = x[1]
+    // const d = x[2]
+
+    // if (d[0] === '"' && d.at(-1) === '"') {
+    //   query[key] = {
+    //     value: trimStart(d.slice(1, -1), '.')
+    //   }
+    // }
     const key = x[1]
     const d = x[2]
-
-    if (d[0] === '"' && d.at(-1) === '"') {
-      query[key] = {
-        value: trimStart(d.slice(1, -1), '.')
-      }
+    query[key] = {
+      value: trimStart(d, '.')
     }
   }
 
@@ -141,27 +145,9 @@ export function extractParams(text: string) {
   }
 }
 
-export interface CvaParams {
-  base: string[]
-  variants: Record<string, Record<string, string[]>>
-  compoundVariants: ({ class: string[] } & Record<string, string>)[]
-  defaultVariants: Record<string, string>
-  global: Record<string, string>
-  file?: string
-}
-
-export interface CvaParamsSet {
-  base: Set<string>
-  variants: Record<string, Record<string, Set<string>>>
-  compoundVariants: ({ class: Set<string> } & Record<string, string>)[]
-  defaultVariants: Record<string, string>
-  global: Record<string, string>
-  file?: string
-}
-
 const cvaSymbol = Symbol('cva')
 
-function setAdd(set: Set<string>, value: string | string[]) {
+function setAdd<T>(set: Set<T>, value: T | T[]) {
   if (Array.isArray(value)) {
     for (const v of value) {
       set.add(v)
@@ -331,6 +317,11 @@ const creator: PluginCreator<{ prefix?: string; process?: (res?: CvaParams) => v
               )
 
               break
+            }
+            case 'global': {
+              for (const [key, { value }] of entries) {
+                result.global[key] = value
+              }
             }
           }
       }

@@ -8,7 +8,8 @@
     "test": "vitest run",
     "test:dev": "vitest",
     "release": "pnpm publish",
-    "sync": "cnpm sync postcss-cva"
+    "sync": "cnpm sync postcss-cva",
+    "md": "node scripts/md.js"
   },
   "keywords": [
     "cva",

@@ -10,7 +10,7 @@ describe('index', () => {
       })
       // @ts-ignore
     ]).process(css`
-      /* @global path="button" */
+      /* @meta path="button" */
       .btn {
         /* @b */
       }
@@ -23,7 +23,6 @@ describe('index', () => {
       .uppercase {
         /* @cv type="primary" size="xs" */
       }
-
       /* @dv type="primary" */
 
       /* @gb ["rounded"] */
@@ -40,7 +39,7 @@ describe('index', () => {
       })
       // @ts-ignore
     ]).process(css`
-      /* @global path="button.js" */
+      /* @meta path="button.js" */
       .btn {
         /* @b */
       }
@@ -70,7 +69,7 @@ describe('index', () => {
       })
       // @ts-ignore
     ]).process(css`
-      /* @global path="in/button.cts" */
+      /* @meta path="in/button.cts" */
       .btn {
         /* @b */
       }

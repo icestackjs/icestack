@@ -26,13 +26,8 @@ export const compoundVariantRegex = /@cv/g
 export const defineCompoundVariantRegex = /@gcv/g
 // dv
 export const defaultVariantRegex = new RegExp(/@dv/.source, 'g')
-// global
-export const globalOptionsRegex = new RegExp(/@global/.source, 'g')
-// function regexpTest(regex: RegExp, text: string) {
-//   const res = regex.test(text)
-//   regex.lastIndex = 0
-//   return res
-// }
+// meta
+export const globalOptionsRegex = new RegExp(/@meta/.source, 'g')
 
 const regexArray: { type: CommentType; regex: RegExp; next: boolean }[] = [
   {
@@ -72,7 +67,7 @@ const regexArray: { type: CommentType; regex: RegExp; next: boolean }[] = [
   },
   {
     regex: globalOptionsRegex,
-    type: 'global',
+    type: 'meta',
     next: false
   }
 ]
@@ -164,7 +159,7 @@ const creator: PluginCreator<{ prefix?: string; process?: (res?: CvaParams) => v
     variants: {},
     compoundVariants: [],
     defaultVariants: {},
-    global: {}
+    meta: {}
   }
   const prefix = _prefix ?? ''
   const hashMap = new Map<string, CvaParamsSet['compoundVariants'][number]>()
@@ -318,9 +313,9 @@ const creator: PluginCreator<{ prefix?: string; process?: (res?: CvaParams) => v
 
               break
             }
-            case 'global': {
+            case 'meta': {
               for (const [key, { value }] of entries) {
-                result.global[key] = value
+                result.meta[key] = value
               }
             }
           }
@@ -350,7 +345,7 @@ const creator: PluginCreator<{ prefix?: string; process?: (res?: CvaParams) => v
           }, {})
           return acc
         }, {}),
-        global: result.global,
+        meta: result.meta,
         file: root.source?.input.file
       })
     }

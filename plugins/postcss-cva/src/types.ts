@@ -12,7 +12,7 @@ export interface CvaParams {
   variants: Record<string, Record<string, string[]>>
   compoundVariants: ({ class: string[] } & Record<string, string>)[]
   defaultVariants: Record<string, string>
-  global: Record<string, string>
+  meta: Record<string, string>
   file?: string
 }
 
@@ -21,8 +21,8 @@ export interface CvaParamsSet {
   variants: Record<string, Record<string, Set<string>>>
   compoundVariants: ({ class: Set<string> } & Record<string, string>)[]
   defaultVariants: Record<string, string>
-  global: Record<string, string>
+  meta: Record<string, string>
   file?: string
 }
 
-export type CommentType = 'base' | 'variant' | 'compoundVariant' | 'defaultVariant' | 'global'
+export type CommentType = 'base' | 'variant' | 'compoundVariant' | 'defaultVariant' | 'meta'

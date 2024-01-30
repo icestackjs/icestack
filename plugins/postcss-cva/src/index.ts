@@ -20,13 +20,13 @@ const creator: PluginCreator<Partial<UserDefineOption>> = (opts) => {
     prefix,
     process(res) {
       if (res) {
-        const targetFormat = <'js' | 'ts'>res.global.format ?? format
+        const targetFormat = <'js' | 'ts'>res.meta.format ?? format
         const { code } = generateCva({
           ...res,
           format: targetFormat,
           importFrom
         })
-        const filename = res.global.path ?? res.file
+        const filename = res.meta.path ?? res.file
         if (filename && !dryRun) {
           const filepath = path.resolve(cwd, outdir, filename)
           ensureDir(path.dirname(filepath))

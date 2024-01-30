@@ -49,13 +49,13 @@ button({ intent: 'secondary', size: 'small' })
 
 ## Usage
 
-For example:
+For example, in this plugin
 
 `type="primary"` is called `query`, `["shadow-sm"]` is called `params`
 
 > The same `query` will be merged with `params` together
-
-> Note ⚠ ️: If you use `scss`, you can use the `//` below for comment, otherwise please use`/* */`
+>
+> Note ⚠ ️: If you use `scss`, you can use the `//` below for comment, otherwise please use `/* */`
 
 ```css
 /* @meta path="button" */
@@ -82,15 +82,19 @@ will generate:
 
 ```ts
 import { cva, VariantProps } from 'class-variance-authority'
+//                 @b and @gb
 const index = cva(['btn', 'rounded'], {
   variants: {
+    // @v type="primary" and @dv type="primary"
     type: {
       primary: ['btn-primary', 'shadow-sm']
     },
+    // @v size="xs"
     size: {
       xs: ['btn-xs']
     }
   },
+  // @cv type="primary" size="xs" and @gcv type="primary" size="xs" ["p-1"]
   compoundVariants: [
     {
       class: ['uppercase', 'p-1'],
@@ -98,6 +102,7 @@ const index = cva(['btn', 'rounded'], {
       size: ['xs']
     }
   ],
+  // @dv type="primary"
   defaultVariants: {
     type: 'primary'
   }
@@ -119,7 +124,23 @@ export default index
 | `@gcv`  | `compoundVariants` | global | define defaultVariants                        |
 | `@meta` | `meta`             | global | define metadata                               |
 
+`@meta` query:
+
+```css
+/* @meta path="{your-cva-filepath}" format="ts/js" */
+```
+
 > You can use the `js` variables to dynamically generate functions
+
+### Type explain
+
+#### node
+
+Get the last class node in the current selector and add it to the corresponding results
+
+#### global
+
+It will not be calculated based on the defined position. It can be defined anywhere. The one defined later will overwrite the one defined before.
 
 ## Options
 
@@ -156,3 +177,7 @@ Default: `ts`
 
 Type: `string`
 Default: `''`
+
+## License
+
+[MIT](../../LICENSE) License &copy; 2023-PRESENT [sonofmagic](https://github.com/sonofmagic)

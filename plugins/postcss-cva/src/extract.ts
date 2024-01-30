@@ -242,7 +242,6 @@ const creator: PluginCreator<{ prefix?: string; process?: (res?: CvaParams) => v
   return {
     postcssPlugin: 'postcss-icestack-extract-cva-params-plugin',
     Comment(comment) {
-      // comment.text
       const res = pickComment(comment)
       if (res) {
         weakMap.set(comment, cvaSymbol)
@@ -260,7 +259,7 @@ const creator: PluginCreator<{ prefix?: string; process?: (res?: CvaParams) => v
             let value: string | undefined
             ast.walkClasses((cls) => {
               value = cls.value
-              return false
+              // return false
             })
 
             if (value) {

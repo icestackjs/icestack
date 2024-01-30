@@ -1,5 +1,5 @@
 import { cva, VariantProps } from "class-variance-authority";
-const index = cva(["btn", "rounded"], {
+const index = cva(["btn", "btn-secondary", "rounded"], {
   variants: {
     "type": {
       "primary": ["btn-primary", "shadow-sm"]

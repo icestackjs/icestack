@@ -10,9 +10,7 @@ import buttonClass, { Props as ButtonProps } from 'cva/btn'
 const props = withDefaults(defineProps<{
   type?: 'primary' | 'secondary',
   size: 'md' | 'sm' | 'xs'
-}>(), {
-
-})
+}>(), {})
 const className = computed(() => {
   return buttonClass(props)
 }) 
@@ -20,7 +18,7 @@ const className = computed(() => {
 
 <style scoped>
 /* @meta path="btn" */
-/* @dv size="md" */
+/* @dv size="md" type="primary" */
 .btn {
   /* @b */
   font-size: 16px;
@@ -41,16 +39,14 @@ const className = computed(() => {
 }
 
 .btn-pointer {
-  /* @cv type="p" size="xs" */
+  /* @cv type="primary" size="md" */
   cursor: pointer;
 }
 
 .btn-disabled {
-  /* @cv type="p" size="md" */
+  /* @cv type="primary" size="xs" */
   cursor: not-allowed;
 }
-
-
 
 .btn-md {
   /* @v size="md" */

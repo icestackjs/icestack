@@ -13,15 +13,16 @@ const index = cva(["btn"], {
   },
   compoundVariants: [{
     "class": ["btn-pointer"],
-    "type": ["p"],
-    "size": ["xs"]
+    "type": ["primary"],
+    "size": ["md"]
   }, {
     "class": ["btn-disabled"],
-    "type": ["p"],
-    "size": ["md"]
+    "type": ["primary"],
+    "size": ["xs"]
   }],
   defaultVariants: {
-    "size": "md"
+    "size": "md",
+    "type": "primary"
   }
 });
 export type Props = VariantProps<typeof index>;

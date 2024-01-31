@@ -8,6 +8,8 @@ A postcss plugin that generates cva functions based on comments
   - [Usage](#usage)
     - [Install](#install)
     - [postcss.config.\[c\]js](#postcssconfigcjs)
+    - [write css first](#write-css-first)
+    - [generate cva function](#generate-cva-function)
   - [References](#references)
     - [@meta](#meta)
   - [Options](#options)
@@ -96,6 +98,8 @@ module.exports = {
 
 Then you can write some comment start with `@` in your css:
 
+### write css first
+
 > tip: `command + /` can get `/* */` quickly
 
 ```css
@@ -119,11 +123,13 @@ Then you can write some comment start with `@` in your css:
 /* @gcv type="primary" size="xs" ["p-1"] */
 ```
 
-> In this plugin, `type="primary"` is called `query`, `["shadow-sm"]` is called `params`
->
-> The same `query` will be merged with `params` together
+Then import it in your app for postcss processing. Some construction tools may be lazily loaded.
 
-Above css will generate `button.ts` at your `$cwd/cva` dir:
+> In this plugin, `type="primary"` is called `query`, `["shadow-sm"]` is called `params`
+
+### generate cva function
+
+Above css will generate `button.ts` at your `$cwd/cva` dir(you can pass `cwd`,`outdir` or `@meta#path` to change it):
 
 ```ts
 import { cva, VariantProps } from 'class-variance-authority'
@@ -166,12 +172,12 @@ export default index
 | keyword | target             | type   | description                                   |
 | ------- | ------------------ | ------ | --------------------------------------------- |
 | `@b`    | `base`             | node   | add current node selector to base             |
-| `@v`    | `variants`         | node   | add current node selector to variants         |
-| `@cv`   | `compoundVariants` | node   | add current node selector to compoundVariants |
-| `@dv`   | `defaultVariants`  | global | define defaultVariants                        |
 | `@gb`   | `base`             | global | define base                                   |
+| `@v`    | `variants`         | node   | add current node selector to variants         |
 | `@gv`   | `variants`         | global | define variants                               |
+| `@cv`   | `compoundVariants` | node   | add current node selector to compoundVariants |
 | `@gcv`  | `compoundVariants` | global | define defaultVariants                        |
+| `@dv`   | `defaultVariants`  | global | define defaultVariants                        |
 | `@meta` | `meta`             | global | define metadata                               |
 
 type `node` will add **current** css node selector (the last `class selector`) to their target.

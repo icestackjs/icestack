@@ -249,4 +249,20 @@ describe('extract-cva-params', () => {
 
     expect(res).toMatchSnapshot()
   })
+
+  it('@meta case0', () => {
+    const res = extractParams(' path="./nest-btn-4"')
+
+    expect(res).toMatchSnapshot()
+  })
+
+  it('@meta case1', () => {
+    const res = extractParams(' path="./nest-btn-4"', {
+      next: false,
+      suffix: '',
+      type: 'meta'
+    })
+
+    expect(res).toMatchSnapshot()
+  })
 })

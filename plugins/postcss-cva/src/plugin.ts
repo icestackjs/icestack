@@ -26,20 +26,33 @@ const creator: PluginCreator<Partial<UserDefineOption>> = (opts) => {
       if (res) {
         const filename = res.meta.path // ?? res.file
         if (filename && !dryRun) {
+          const isRelative = filename.startsWith('.')
           const targetFormat = <'js' | 'ts'>res.meta.format ?? format
           const { code } = generateCva({
             ...res,
             format: targetFormat,
             importFrom
           })
-          const filepath = path.resolve(cwd, outdir, filename)
-          ensureDir(path.dirname(filepath))
           const extname = path.extname(filename)
-          let file = filepath
-          if (!extname) {
-            file = filepath + '.' + targetFormat
+          if (isRelative) {
+            if (res.file) {
+              const filepath = path.resolve(path.dirname(res.file), filename)
+              ensureDir(path.dirname(filepath))
+              let file = filepath
+              if (!extname) {
+                file = filepath + '.' + targetFormat
+              }
+              fs.writeFileSync(file, code, 'utf8')
+            }
+          } else {
+            const filepath = path.resolve(cwd, outdir, filename)
+            ensureDir(path.dirname(filepath))
+            let file = filepath
+            if (!extname) {
+              file = filepath + '.' + targetFormat
+            }
+            fs.writeFileSync(file, code, 'utf8')
           }
-          fs.writeFileSync(file, code, 'utf8')
         }
       }
     },

@@ -2,6 +2,8 @@
 
 A postcss plugin that generates cva functions based on comments
 
+![postcss-cva](https://github.com/sonofmagic/icestack/blob/main/plugins/postcss-cva/img.png)
+
 - [postcss-cva](#postcss-cva)
   - [What is cva (class-variance-authority)?](#what-is-cva-class-variance-authority)
   - [Concept](#concept)
@@ -193,6 +195,8 @@ type `global` will define some `query` and `params`. It can be defined anywhere.
 ```
 
 `path` is generate cva file path, can be `a/b/c/button`
+
+> if you start with a `.` like `./btn`,`./txx/cu`,`../btn`, this will generate cva file relative to the css path.
 
 `format` can be `js` or `ts`
 

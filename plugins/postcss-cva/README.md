@@ -196,6 +196,8 @@ type `global` will define some `query` and `params`. It can be defined anywhere.
 
 `path` is generate cva file path, can be `a/b/c/button`
 
+> if you start with a `.` like `./btn`,`./txx/cu`,`../btn`, this will generate cva file relative to the css path.
+
 `format` can be `js` or `ts`
 
 > You can use the `js` variables to dynamically generate functions

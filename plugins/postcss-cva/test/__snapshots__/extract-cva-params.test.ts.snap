@@ -1,5 +1,27 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`extract-cva-params > @meta case0 1`] = `
+{
+  "params": [],
+  "query": {
+    "path": {
+      "value": "/nest-btn-4",
+    },
+  },
+}
+`;
+
+exports[`extract-cva-params > @meta case1 1`] = `
+{
+  "params": [],
+  "query": {
+    "path": {
+      "value": "./nest-btn-4",
+    },
+  },
+}
+`;
+
 exports[`extract-cva-params > base 1`] = `
 {
   "base": [

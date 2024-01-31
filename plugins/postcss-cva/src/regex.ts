@@ -86,7 +86,8 @@ export function pickComment(comment: Comment) {
   }
 }
 
-export function extractParams(text: string) {
+export function extractParams(text: string, opts?: ReturnType<typeof pickComment>) {
+  const { type } = opts ?? {}
   const params: string[] = []
 
   const query: Record<
@@ -96,6 +97,10 @@ export function extractParams(text: string) {
     }
   > = {}
 
+  function handle(res: string) {
+    return type === 'meta' ? res : trimStart(res, '.')
+  }
+
   const paramsArray = matchAll(/\[([^\]]*)]/g, text)
   for (const x of paramsArray) {
     const arr = x[1]
@@ -104,7 +109,8 @@ export function extractParams(text: string) {
       .filter(Boolean)
     for (const d of arr) {
       if (d[0] === '"' && d.at(-1) === '"') {
-        params.push(trimStart(d.slice(1, -1), '.'))
+        const param = handle(d.slice(1, -1))
+        params.push(param)
       }
     }
   }
@@ -122,7 +128,7 @@ export function extractParams(text: string) {
     const key = x[1]
     const d = x[2]
     query[key] = {
-      value: trimStart(d, '.')
+      value: handle(d)
     }
   }
 

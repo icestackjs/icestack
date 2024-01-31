@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import buttonClass, { Props as ButtonProps } from 'cva/btn'
+import buttonClass, { Props as ButtonProps } from './btn'
 const props = withDefaults(defineProps<{
   type?: 'primary' | 'secondary',
   size: 'md' | 'sm' | 'xs'

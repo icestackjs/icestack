@@ -53,3 +53,18 @@ exports[`index > case 3 1`] = `
       }
     "
 `;
+
+exports[`index > case 4 1`] = `
+"
+      .btn {
+      }
+      .btn-primary {
+      }
+      .btn-xs {
+      }
+      .btn.btn-secondary {
+      }
+      .uppercase {
+      }
+    "
+`;

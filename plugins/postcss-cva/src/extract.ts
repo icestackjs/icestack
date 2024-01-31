@@ -124,7 +124,7 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
           if (res) {
             weakMap.set(comment, cvaSymbol)
             const { next, suffix, type } = res
-            const { query, params } = extractParams(suffix)
+            const { query, params } = extractParams(suffix, res)
             const hashCode = objHash(query)
             const entries = Object.entries(query)
 

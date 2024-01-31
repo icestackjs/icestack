@@ -1,27 +1,27 @@
 import { cva, VariantProps } from "class-variance-authority";
-const index = cva(["com"], {
+const index = cva(["btn"], {
   variants: {
     "type": {
-      "p": ["com-p"],
-      "z": ["com-z"]
+      "primary": ["btn-primary"],
+      "secondary": ["btn-secondary"]
     },
     "size": {
-      "md": ["com-md"],
-      "xs": ["com-xs"]
+      "md": ["btn-md"],
+      "xs": ["btn-xs"],
+      "sm": ["btn-sm"]
     }
   },
   compoundVariants: [{
-    "class": ["com-pointer"],
+    "class": ["btn-pointer"],
     "type": ["p"],
     "size": ["xs"]
   }, {
-    "class": ["com-disabled"],
+    "class": ["btn-disabled"],
     "type": ["p"],
     "size": ["md"]
   }],
   defaultVariants: {
-    "type": "p",
-    "size": "xs"
+    "size": "md"
   }
 });
 export type Props = VariantProps<typeof index>;

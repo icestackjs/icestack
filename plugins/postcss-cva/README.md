@@ -19,6 +19,9 @@ A postcss plugin that generates cva functions based on comments
     - [prefix](#prefix)
     - [remove](#remove)
     - [include / exclude](#include--exclude)
+  - [Troubleshooting](#troubleshooting)
+  - [Vite Config](#vite-config)
+  - [Demo and Sample](#demo-and-sample)
   - [License](#license)
 
 ## What is cva (class-variance-authority)?
@@ -239,6 +242,122 @@ Type: `String | RegExp | Array[...String|RegExp]`
 A valid picomatch pattern, or array of patterns. If options.include is omitted or has zero length, filter will return true by default. Otherwise, an ID must match one or more of the picomatch patterns, and must not match any of the options.exclude patterns.
 
 Note that picomatch patterns are very similar to minimatch patterns, and in most use cases, they are interchangeable. If you have more specific pattern matching needs, you can view this comparison table to learn more about where the libraries differ.
+
+## Troubleshooting
+
+Don't make your `postcss-cva`'s `outdir` path included by `tailwind.config.js`'s content option. This will cause an endless loop of hot updates
+
+## Vite Config
+
+add `cva/*` to your `tsconfig.json`
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "cva/*": [
+        "cva/*"
+      ]
+    }
+  },
+}
+```
+
+add `alias` config to your `vite.config.ts`
+
+```ts
+import path from 'node:path'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  resolve: {
+    alias: [
+      {
+        find: 'cva',
+        replacement: path.resolve(__dirname, './cva')
+      }
+    ]
+  }
+})
+```
+
+## Demo and Sample
+
+[Demo Link](https://github.com/sonofmagic/icestack/blob/main/examples/start-from-scratch/src/components/IceCom.vue)
+
+```html
+<template>
+  <button :class="className">
+    <slot>postcss-cva</slot>
+  </button>
+</template>
+
+<script setup lang="ts">
+import { computed } from 'vue';
+import buttonClass, { Props as ButtonProps } from 'cva/btn'
+const props = withDefaults(defineProps<{
+  type?: 'primary' | 'secondary',
+  size: 'md' | 'sm' | 'xs'
+}>(), {})
+const className = computed(() => {
+  return buttonClass(props)
+}) 
+</script>
+
+<style scoped>
+/* @meta path="btn" */
+/* @dv size="md" */
+.btn {
+  /* @b */
+  font-size: 16px;
+  background: gray;
+  border-radius: 4px;
+}
+
+.btn-primary {
+  /* @v type="primary" */
+  background: blue;
+  color: white;
+}
+
+.btn-secondary {
+  /* @v type="secondary" */
+  font-size: 22px;
+  color: yellow;
+}
+
+.btn-pointer {
+  /* @cv type="p" size="xs" */
+  cursor: pointer;
+}
+
+.btn-disabled {
+  /* @cv type="p" size="md" */
+  cursor: not-allowed;
+}
+
+
+
+.btn-md {
+  /* @v size="md" */
+  padding: 6px 10px;
+  font-size: 16px;
+}
+
+.btn-xs {
+  /* @v size="xs" */
+  padding: 2px 6px;
+  font-size: 14px;
+}
+
+.btn-sm {
+  /* @v size="sm" */
+  padding: 4px 8px;
+  font-size: 12px;
+}
+</style>
+```
 
 ## License
 

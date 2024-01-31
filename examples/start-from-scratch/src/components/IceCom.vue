@@ -1,46 +1,72 @@
 <template>
-  <div :class="className">
-    IceCom
-  </div>
+  <button :class="className">
+    <slot>postcss-cva</slot>
+  </button>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import comClass, { Props as ComProps } from '../../cva/com'
+import buttonClass, { Props as ButtonProps } from 'cva/btn'
 const props = withDefaults(defineProps<{
-  type?: 'p' | 'z'
+  type?: 'primary' | 'secondary',
+  size: 'md' | 'sm' | 'xs'
 }>(), {
 
 })
 const className = computed(() => {
-  return comClass(props)
+  return buttonClass(props)
 }) 
 </script>
 
-<style scoped lang="scss">
-/* @meta path="com" */
-.com {
+<style scoped>
+/* @meta path="btn" */
+/* @dv size="md" */
+.btn {
   /* @b */
-  font-size: 24px;
-  color: red;
+  font-size: 16px;
+  background: gray;
+  border-radius: 4px;
 }
 
-.com-p {
-  /* @v type="p" */
-  font-size: 20px;
-  color: blue;
+.btn-primary {
+  /* @v type="primary" */
+  background: blue;
+  color: white;
 }
 
-.com-z {
-  /* @v type="z" */
+.btn-secondary {
+  /* @v type="secondary" */
   font-size: 22px;
   color: yellow;
 }
 
-.com-disabled {
-  /* @cv type="p" */
+.btn-pointer {
+  /* @cv type="p" size="xs" */
+  cursor: pointer;
+}
+
+.btn-disabled {
+  /* @cv type="p" size="md" */
   cursor: not-allowed;
 }
 
-/* @dv type="p" */
+
+
+.btn-md {
+  /* @v size="md" */
+  padding: 6px 10px;
+  font-size: 16px;
+}
+
+.btn-xs {
+  /* @v size="xs" */
+  padding: 2px 6px;
+  font-size: 14px;
+}
+
+.btn-sm {
+  /* @v size="sm" */
+  padding: 4px 8px;
+  font-size: 12px;
+}
 </style>

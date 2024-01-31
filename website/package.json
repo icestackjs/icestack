@@ -28,6 +28,7 @@
     "@icebreakers/nextra-theme-docs": "^0.0.4",
     "@icestack/cva": "workspace:^",
     "@icestack/postcss": "workspace:^",
+    "ahooks": "^3.7.9",
     "axios": "^1.6.7",
     "cheerio": "1.0.0-rc.12",
     "class-variance-authority": "^0.7.0",

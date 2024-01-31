@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import IceButton from './components/IceButton.vue';
-import IceCom from './components/IceCom.vue';
+import IceButton from '@/components/IceButton.vue';
+import IceCom from '@/components/IceCom.vue';
 </script>
 
 <template>

@@ -2,6 +2,8 @@
 
 A postcss plugin that generates cva functions based on comments
 
+![postcss-cva](https://github.com/sonofmagic/icestack/blob/main/plugins/postcss-cva/img.png)
+
 - [postcss-cva](#postcss-cva)
   - [What is cva (class-variance-authority)?](#what-is-cva-class-variance-authority)
   - [Concept](#concept)

@@ -83,7 +83,7 @@
     "postcss-import": "^16.0.0"
   },
   "devDependencies": {
-    "@babel/standalone": "^7.23.9",
+    "@babel/standalone": "^7.23.10",
     "@types/babel__generator": "^7.6.8",
     "@types/babel__standalone": "^7.1.7",
     "@types/md5": "^2.3.5",

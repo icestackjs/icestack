@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import buttonClass, { Props as ButtonProps } from './btn'
+import buttonClass, { Props as ButtonProps } from './buttonClass'
 const props = withDefaults(defineProps<{
   type?: 'primary' | 'secondary',
   size: 'md' | 'sm' | 'xs'
@@ -17,8 +17,8 @@ const className = computed(() => {
 </script>
 
 <style scoped>
-/* @meta path="btn" */
-/* @dv size="md" type="primary" */
+/* @meta path="./buttonClass" */
+/* @dv size="md" */
 .btn {
   /* @b */
   font-size: 16px;
@@ -36,11 +36,6 @@ const className = computed(() => {
   /* @v type="secondary" */
   font-size: 22px;
   color: yellow;
-}
-
-.btn-pointer {
-  /* @cv type="primary" size="md" */
-  cursor: pointer;
 }
 
 .btn-disabled {

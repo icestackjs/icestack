@@ -228,7 +228,7 @@ export type Props = VariantProps<typeof index>;
 export default index;
 ```
 
-然后，我们就可以直接引入进行封装了！
+Then, we can directly import it for encapsulation!
 
 ```html
 <template>

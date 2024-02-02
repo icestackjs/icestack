@@ -5,25 +5,28 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import buttonClass, { Props as ButtonProps } from './buttonClass'
-const props = withDefaults(defineProps<{
-  type?: 'primary' | 'secondary',
-  size: 'md' | 'sm' | 'xs'
-}>(), {})
+import { computed, useAttrs } from 'vue';
+import buttonClass from './buttonClass'
+// const props = withDefaults(defineProps(), {})
+const attrs = useAttrs()
+defineOptions({
+  name: 'IceCom',
+})
 const className = computed(() => {
-  return buttonClass(props)
+  // @ts-ignore
+  return buttonClass(attrs)
 }) 
 </script>
 
 <style scoped>
 /* @meta path="./buttonClass" */
-/* @dv size="md" */
+
 .btn {
   /* @b */
-  font-size: 16px;
-  background: gray;
-  border-radius: 4px;
+  font-size: 50px;
+  padding: 72px 120px;
+  border-radius: 20px;
+  background: #e5e7eb;
 }
 
 .btn-primary {
@@ -34,30 +37,33 @@ const className = computed(() => {
 
 .btn-secondary {
   /* @v type="secondary" */
-  font-size: 22px;
-  color: yellow;
+  background: yellow;
 }
 
 .btn-disabled {
-  /* @cv type="primary" size="xs" */
   cursor: not-allowed;
+  opacity: 0.15;
 }
+
 
 .btn-md {
   /* @v size="md" */
-  padding: 6px 10px;
-  font-size: 16px;
-}
-
-.btn-xs {
-  /* @v size="xs" */
-  padding: 2px 6px;
-  font-size: 14px;
+  font-size: 50px;
+  padding: 72px 120px;
+  border-radius: 20px;
 }
 
 .btn-sm {
   /* @v size="sm" */
-  padding: 4px 8px;
-  font-size: 12px;
+  font-size: 40px;
+  padding: 60px 100px;
+  border-radius: 16px;
+}
+
+.btn-xs {
+  /* @v size="xs" */
+  font-size: 30px;
+  padding: 50px 80px;
+  border-radius: 12px;
 }
 </style>

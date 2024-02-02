@@ -4,14 +4,17 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run build:ui && cross-env DEBUG=true vite",
+    "dev": "npm run build:ui && vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
-    "build:ui": "icestack build --clean"
+    "build:ui": "icestack build --clean",
+    "_xx": "cross-env DEBUG=true "
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "class-variance-authority": "^0.7.0",
-    "vue": "^3.4.15"
+    "vue": "^3.4.15",
+    "vuetify": "^3.5.2"
   },
   "devDependencies": {
     "@icestack/tailwindcss": "workspace:^",

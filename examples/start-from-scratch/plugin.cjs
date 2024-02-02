@@ -4,12 +4,12 @@
 const plugin = (options = {}) => {
   // const ctx = options.ctx
 
-  console.log('---------------')
+  // console.log('---------------')
   return {
-    postcssPlugin: 'custom-postcss-plugin',
-    Root() {
-      console.log('root:')
-    }
+    postcssPlugin: 'custom-postcss-plugin'
+    // Root() {
+    //   console.log('root:')
+    // }
   }
 }
 plugin.postcss = true

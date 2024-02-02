@@ -76,7 +76,9 @@ export function generateCva(options: {
   // import
   const specifiers: t.ImportSpecifier[] = [t.importSpecifier(t.identifier('cva'), t.identifier('cva'))]
   if (isTs) {
-    specifiers.push(t.importSpecifier(t.identifier('VariantProps'), t.identifier('VariantProps')))
+    const variantPropsNode = t.importSpecifier(t.identifier('VariantProps'), t.identifier('VariantProps'))
+    variantPropsNode.importKind = 'type'
+    specifiers.push(variantPropsNode)
   }
   body.push(t.importDeclaration(specifiers, t.stringLiteral(importFrom)))
   // cva function

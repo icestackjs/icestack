@@ -12,6 +12,12 @@ export interface UserDefineOption {
   remove: boolean
   include: FilterPattern
   exclude: FilterPattern
+  exports: Partial<{
+    base: boolean
+    variants: boolean
+    compoundVariants: boolean
+    defaultVariants: boolean
+  }>
 }
 
 export interface CvaParams {

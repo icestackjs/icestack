@@ -68,3 +68,63 @@ exports[`index > case 4 1`] = `
       }
     "
 `;
+
+exports[`index > exports case 0 1`] = `
+"
+      .btn {
+      }
+      .btn-primary {
+      }
+      .btn-xs {
+      }
+      .btn.btn-secondary {
+      }
+      .uppercase {
+      }
+    "
+`;
+
+exports[`index > exports case 1 1`] = `
+"
+      .btn {
+      }
+      .btn-primary {
+      }
+      .btn-xs {
+      }
+      .btn.btn-secondary {
+      }
+      .uppercase {
+      }
+    "
+`;
+
+exports[`index > exports case 2 1`] = `
+"
+      .btn {
+      }
+      .btn-primary {
+      }
+      .btn-xs {
+      }
+      .btn.btn-secondary {
+      }
+      .uppercase {
+      }
+    "
+`;
+
+exports[`index > exports case 3 1`] = `
+"
+      .btn {
+      }
+      .btn-primary {
+      }
+      .btn-xs {
+      }
+      .btn.btn-secondary {
+      }
+      .uppercase {
+      }
+    "
+`;

@@ -31,6 +31,12 @@ describe('cva', () => {
         size: 'medium'
       }
     }
+    opt.exports = {
+      base: false,
+      compoundVariants: false,
+      defaultVariants: false,
+      variants: false
+    }
     let code = generateCva(opt).code
     expect(code).toMatchSnapshot()
     opt.importFrom = '@icestack/cva'

@@ -10,14 +10,20 @@ import createFilter from './createFilter'
 
 const creator: PluginCreator<Partial<UserDefineOption>> = (opts) => {
   // @ts-ignore
-  const { outdir, prefix, importFrom, dryRun, cwd, format, remove, exclude, include } = defuOverrideArray<UserDefineOption, Partial<UserDefineOption>[]>(opts, {
+  const { outdir, prefix, importFrom, dryRun, cwd, format, remove, exclude, include, exports } = defuOverrideArray<UserDefineOption, Partial<UserDefineOption>[]>(opts, {
     cwd: process.cwd(),
     outdir: 'cva',
     importFrom: 'class-variance-authority',
     dryRun: false,
     format: 'ts',
     remove: true,
-    exclude: [/node_modules/]
+    exclude: [/node_modules/],
+    exports: {
+      base: true,
+      variants: true,
+      compoundVariants: true,
+      defaultVariants: true
+    }
   })
   const filter = createFilter(include, exclude)
   const extractPlugin = extract({
@@ -31,7 +37,8 @@ const creator: PluginCreator<Partial<UserDefineOption>> = (opts) => {
           const { code } = generateCva({
             ...res,
             format: targetFormat,
-            importFrom
+            importFrom,
+            exports
           })
           const extname = path.extname(filename)
           if (isRelative) {

@@ -56,18 +56,34 @@ function makeDefaultVariants(defaultVariants: Record<string, string>) {
 export function generateCva(options: {
   format?: 'js' | 'ts'
   importFrom?: string
+  exports?: Partial<{
+    base: boolean
+    variants: boolean
+    compoundVariants: boolean
+    defaultVariants: boolean
+  }>
   base: string[]
   variants: Record<string, Record<string, string[]>>
   compoundVariants: Record<string, string | string[]>[]
   defaultVariants: Record<string, string>
 }) {
-  const { base, compoundVariants, defaultVariants, format, importFrom, variants } = defu(options, {
+  const baseIdentifier = 'base'
+  const variantsIdentifier = 'variants'
+  const compoundVariantsIdentifier = 'compoundVariants'
+  const defaultVariantsIdentifier = 'defaultVariants'
+  const { base, compoundVariants, defaultVariants, format, importFrom, variants, exports } = defu(options, {
     format: 'ts',
     importFrom: 'class-variance-authority',
     base: [],
     variants: {},
     compoundVariants: [],
-    defaultVariants: {}
+    defaultVariants: {},
+    exports: {
+      base: true,
+      variants: true,
+      compoundVariants: true,
+      defaultVariants: true
+    }
   })
   const isTs = format === 'ts'
   const cvaFnName = 'index'
@@ -80,25 +96,65 @@ export function generateCva(options: {
     variantPropsNode.importKind = 'type'
     specifiers.push(variantPropsNode)
   }
+  // import { cva, type VariantProps } from 'class-variance-authority'
   body.push(t.importDeclaration(specifiers, t.stringLiteral(importFrom)))
+  // cva function
+
+  const baseStringArrayExpression = t.arrayExpression(base.map((x) => t.stringLiteral(x)))
+  const variantsObjectExpression = makeVariants(variants)
+  const compoundVariantsArrayExpression = makeCompoundVariants(compoundVariants)
+  const defaultVariantsObjectExpression = makeDefaultVariants(defaultVariants)
+  if (exports.base) {
+    body.push(t.exportNamedDeclaration(t.variableDeclaration('const', [t.variableDeclarator(t.identifier(baseIdentifier), baseStringArrayExpression)])))
+  }
+
+  if (exports.variants) {
+    body.push(t.exportNamedDeclaration(t.variableDeclaration('const', [t.variableDeclarator(t.identifier(variantsIdentifier), variantsObjectExpression)])))
+  }
+
+  if (exports.compoundVariants) {
+    body.push(t.exportNamedDeclaration(t.variableDeclaration('const', [t.variableDeclarator(t.identifier(compoundVariantsIdentifier), compoundVariantsArrayExpression)])))
+  }
+
+  if (exports.defaultVariants) {
+    body.push(t.exportNamedDeclaration(t.variableDeclaration('const', [t.variableDeclarator(t.identifier(defaultVariantsIdentifier), defaultVariantsObjectExpression)])))
+  }
+
+  function getConfigParams() {
+    const result: t.ObjectProperty[] = []
+    result.push(exports.variants ? t.objectProperty(t.identifier('variants'), t.identifier('variants')) : t.objectProperty(t.identifier('variants'), variantsObjectExpression))
+    if (exports.compoundVariants) {
+      const node = t.objectProperty(t.identifier('compoundVariants'), t.identifier('compoundVariants'))
+      isTs && t.addComment(node, 'leading', ' @ts-ignore', true)
+      result.push(node)
+    } else {
+      result.push(t.objectProperty(t.identifier('compoundVariants'), compoundVariantsArrayExpression))
+    }
+    if (exports.defaultVariants) {
+      const node = t.objectProperty(t.identifier('defaultVariants'), t.identifier('defaultVariants'))
+      isTs && t.addComment(node, 'leading', ' @ts-ignore', true)
+      result.push(node)
+    } else {
+      result.push(t.objectProperty(t.identifier('defaultVariants'), defaultVariantsObjectExpression))
+    }
+
+    return result
+  }
   // cva function
   body.push(
     t.variableDeclaration('const', [
       t.variableDeclarator(
         t.identifier(cvaFnName),
         t.callExpression(t.identifier('cva'), [
-          t.arrayExpression(base.map((x) => t.stringLiteral(x))),
-
-          t.objectExpression([
-            t.objectProperty(t.identifier('variants'), makeVariants(variants)),
-            t.objectProperty(t.identifier('compoundVariants'), makeCompoundVariants(compoundVariants)),
-            t.objectProperty(t.identifier('defaultVariants'), makeDefaultVariants(defaultVariants))
-          ])
+          // cva CallExpression args
+          exports.base ? t.identifier(baseIdentifier) : baseStringArrayExpression,
+          t.objectExpression(getConfigParams())
         ])
       )
     ])
   )
   // cva props
+  // export type Props = VariantProps<typeof index>
   if (isTs) {
     body.push(
       t.exportNamedDeclaration(
@@ -110,7 +166,7 @@ export function generateCva(options: {
       )
     )
   }
-
+  // export default index
   body.push(t.exportDefaultDeclaration(t.identifier(cvaFnName)))
   const ast = t.file(t.program(body))
   return babelGenerate(ast)

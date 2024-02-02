@@ -22,6 +22,7 @@ A postcss plugin that generates cva functions based on comments
     - [format](#format)
     - [prefix](#prefix)
     - [remove](#remove)
+    - [exports](#exports)
     - [include / exclude](#include--exclude)
   - [Troubleshooting](#troubleshooting)
   - [Vite Config](#vite-config)
@@ -244,6 +245,24 @@ Type: `boolean`
 Default: `true`
 
 remove all `@xx` comment
+
+### exports
+
+Type: `Partial<{
+    base: boolean
+    variants: boolean
+    compoundVariants: boolean
+    defaultVariants: boolean
+  }>`
+
+Default: `{
+      base: true,
+      variants: true,
+      compoundVariants: true,
+      defaultVariants: true
+    }`
+
+Export some other variables for use
 
 ### include / exclude
 

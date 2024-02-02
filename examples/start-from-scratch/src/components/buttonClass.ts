@@ -3,9 +3,14 @@ export const base = ["btn"];
 export const variants = {
   "type": {
     "primary": ["btn-primary"],
-    "secondary": ["btn-secondary"]
+    "secondary": ["btn-secondary"],
+    "third": ["btn-third"]
+  },
+  "disabled": {
+    "true": ["btn-disabled"]
   },
   "size": {
+    "lg": ["btn-lg"],
     "md": ["btn-md"],
     "sm": ["btn-sm"],
     "xs": ["btn-xs"]

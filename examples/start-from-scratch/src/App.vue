@@ -38,7 +38,7 @@ const buttonProps = ref<Record<string, string>>({})
             <div class="h-[28px] w-full"></div>
           </div>
           <v-radio-group color="primary" inline v-model="buttonProps[v.key]">
-            <v-radio key="reset" label="(reset)" :value="undefined"></v-radio>
+            <v-radio key="reset" label="(reset)" :value="false"></v-radio>
             <v-radio :key="p" v-for="p in v.value" :label="p" :value="p"></v-radio>
           </v-radio-group>
         </div>

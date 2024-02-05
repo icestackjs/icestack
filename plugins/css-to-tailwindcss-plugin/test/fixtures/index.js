@@ -5,42 +5,35 @@ const css2TwPlugin = _plugin.withOptions(function (_options = {}) {
     withOptionsWalkCSSRuleObject = returnSelfNoop
   } = _options;
   return function ({
-    addBase: addBase,
-    addComponents: addComponents,
-    addUtilities: addUtilities,
-    theme: theme,
-    addVariant: addVariant,
-    config: config,
-    corePlugins: corePlugins,
-    e: e,
-    matchComponents: matchComponents,
-    matchUtilities: matchUtilities,
-    matchVariant: matchVariant
+    addBase: _addBase,
+    addComponents: _addComponents,
+    addUtilities: _addUtilities,
+    theme: _theme
   }) {
     const _baseCss = withOptionsWalkCSSRuleObject({
       "h1": {
-        "font-size": theme("fontSize.2xl")
+        "font-size": _theme("fontSize.2xl")
       },
       "h2": {
-        "font-size": theme("fontSize.xl")
+        "font-size": _theme("fontSize.xl")
       }
     }, "base");
-    addBase(_baseCss);
+    _addBase(_baseCss);
     const _componentsCss = withOptionsWalkCSSRuleObject({
       ".card": {
-        "background-color": theme("colors.white"),
-        "border-radius": theme("borderRadius.lg"),
-        "padding": theme("spacing.6"),
-        "box-shadow": theme("boxShadow.xl")
+        "background-color": _theme("colors.white"),
+        "border-radius": _theme("borderRadius.lg"),
+        "padding": _theme("spacing.6"),
+        "box-shadow": _theme("boxShadow.xl")
       }
     }, "components");
-    addComponents(_componentsCss);
+    _addComponents(_componentsCss);
     const _utilitiesCss = withOptionsWalkCSSRuleObject({
       ".content-auto": {
         "content-visibility": "\"auto\""
       }
     }, "utilities");
-    addUtilities(_utilitiesCss);
+    _addUtilities(_utilitiesCss);
   };
 }, function (_options) {
   return {};

@@ -1,6 +1,6 @@
 {
   "name": "css-to-tailwindcss-plugin",
-  "version": "0.2.5",
+  "version": "0.3.0",
   "description": "css-to-tailwindcss-plugin, transform your `css/scss` to `tailwindcss plugin`",
   "exports": {
     ".": {
@@ -79,7 +79,7 @@
     "cac": "^6.7.14",
     "compose-tailwindcss-plugins": "workspace:^",
     "md5": "^2.3.0",
-    "postcss": "^8.4.33",
+    "postcss": "^8.4.34",
     "postcss-import": "^16.0.0"
   },
   "devDependencies": {

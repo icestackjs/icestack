@@ -14,12 +14,12 @@ export const babelGenerate = _interopDefaultCompat(_babelGenerate) as typeof _ba
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L287
 // resolveThemeValue
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/util/transformThemeValue.js
-const expandAST = ['addBase', 'addComponents', 'addUtilities', 'theme', 'addVariant', 'config', 'corePlugins', 'e', 'matchComponents', 'matchUtilities', 'matchVariant'].map(
-  (x) => {
-    // key : value
-    return t.objectProperty(t.identifier(x), t.identifier(x))
-  }
-)
+// 'config', 'corePlugins', 'e', 'matchComponents', 'matchUtilities', 'matchVariant'
+//  'addVariant'
+const expandAST = ['addBase', 'addComponents', 'addUtilities', 'theme'].map((x) => {
+  // key : value
+  return t.objectProperty(t.identifier(x), t.identifier('_' + x))
+})
 
 function expandAPI() {
   return expandAST
@@ -76,7 +76,7 @@ export function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
             // if (arr.length === 1) {
             const first = arr[0]
             if (first[0] === v) {
-              const ccc = t.callExpression(t.identifier('theme'), [t.stringLiteral(unwrapThemeFunctionArg(first[1]))])
+              const ccc = t.callExpression(t.identifier('_theme'), [t.stringLiteral(unwrapThemeFunctionArg(first[1]))])
               cacc[prop] = important ? t.binaryExpression('+', ccc, t.stringLiteral(' !important')) : ccc
             } else {
               let p = 0
@@ -90,7 +90,7 @@ export function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
                   p = hit.index + hit[0].length
                   // const scope = v.slice(hit.index, p)
                   quasis.push(t.templateElement({ raw }))
-                  expressions.push(t.callExpression(t.identifier('theme'), [t.stringLiteral(unwrapThemeFunctionArg(hit[1]))]))
+                  expressions.push(t.callExpression(t.identifier('_theme'), [t.stringLiteral(unwrapThemeFunctionArg(hit[1]))]))
                   if (i === arr.length - 1) {
                     quasis.push(t.templateElement({ raw: addSuffix(v.slice(p), important) }))
                   }
@@ -144,9 +144,9 @@ function getVarName(layer: LayerEnumType) {
 }
 
 const pluginNameMap: Record<LayerEnumType, string> = {
-  base: 'addBase',
-  components: 'addComponents',
-  utilities: 'addUtilities'
+  base: '_addBase',
+  components: '_addComponents',
+  utilities: '_addUtilities'
 }
 
 function getFnName(key: LayerEnumType) {

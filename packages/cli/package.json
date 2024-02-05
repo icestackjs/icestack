@@ -39,7 +39,7 @@
     "@icestack/logger": "workspace:^",
     "@icestack/shared": "workspace:^",
     "chokidar": "^3.5.3",
-    "commander": "^11.1.0",
+    "commander": "^12.0.0",
     "dedent": "^1.5.1",
     "del": "^7.1.0"
   },

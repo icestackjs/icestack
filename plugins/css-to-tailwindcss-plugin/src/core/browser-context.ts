@@ -2,7 +2,6 @@ import type { AcceptedPlugin } from 'postcss'
 import postcss from 'postcss'
 import defu from 'defu'
 import { extractLayerPlugin, markLayerPlugin, atRulesRenamePlugin } from './extract-layer'
-// import { sassCompileString } from './sass'
 import { BaseContext } from './base-context'
 import type { IProcessOptions, TailwindcssPluginOptions } from '@/types'
 

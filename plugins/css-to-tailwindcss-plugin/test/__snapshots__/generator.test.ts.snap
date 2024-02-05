@@ -8,45 +8,38 @@ const css2TwPlugin = _plugin.withOptions(function (_options = {}) {
     withOptionsWalkCSSRuleObject = returnSelfNoop
   } = _options;
   return function ({
-    addBase: addBase,
-    addComponents: addComponents,
-    addUtilities: addUtilities,
-    theme: theme,
-    addVariant: addVariant,
-    config: config,
-    corePlugins: corePlugins,
-    e: e,
-    matchComponents: matchComponents,
-    matchUtilities: matchUtilities,
-    matchVariant: matchVariant
+    addBase: _addBase,
+    addComponents: _addComponents,
+    addUtilities: _addUtilities,
+    theme: _theme
   }) {
     const _baseCss = withOptionsWalkCSSRuleObject({
       "h1": {
-        "font-size": theme("fontSize.2xl")
+        "font-size": _theme("fontSize.2xl")
       },
       "h2": {
-        "font-size": theme("fontSize.xl")
+        "font-size": _theme("fontSize.xl")
       }
     }, "base");
-    addBase(_baseCss);
+    _addBase(_baseCss);
     const _componentsCss = withOptionsWalkCSSRuleObject({
       ".card": {
-        "background-color": theme("colors.white"),
-        "border-radius": theme("borderRadius.lg"),
-        "padding": theme("spacing.6"),
-        "box-shadow": theme("boxShadow.xl")
+        "background-color": _theme("colors.white"),
+        "border-radius": _theme("borderRadius.lg"),
+        "padding": _theme("spacing.6"),
+        "box-shadow": _theme("boxShadow.xl")
       },
       ".test": {
         "font-size": "99.6px"
       }
     }, "components");
-    addComponents(_componentsCss);
+    _addComponents(_componentsCss);
     const _utilitiesCss = withOptionsWalkCSSRuleObject({
       ".content-auto": {
         "content-visibility": "\\"auto\\""
       }
     }, "utilities");
-    addUtilities(_utilitiesCss);
+    _addUtilities(_utilitiesCss);
   };
 }, function (_options) {
   return {};
@@ -167,21 +160,14 @@ exports[`generator > apply case 0 > generate 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({});
-  addUtilities({
+  _addBase({});
+  _addComponents({});
+  _addUtilities({
     ".a": {
       "--tw-bg-opacity": "1",
       "background-color": "rgb(18 52 86 / var(--tw-bg-opacity))",
@@ -306,21 +292,14 @@ exports[`generator > apply case 1 > generate 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({});
-  addUtilities({
+  _addBase({});
+  _addComponents({});
+  _addUtilities({
     ".a": {
       "--tw-bg-opacity": "1",
       "background-color": "rgb(18 52 86 / var(--tw-bg-opacity))",
@@ -348,21 +327,14 @@ exports[`generator > apply case 2 > generate 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({});
-  addUtilities({
+  _addBase({});
+  _addComponents({});
+  _addUtilities({
     ".a": {
       "--tw-bg-opacity": "1",
       "background-color": "rgb(18 52 86 / var(--tw-bg-opacity))",
@@ -388,21 +360,14 @@ exports[`generator > apply case weapp-tailwindcss/issues/271 > generate 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({});
-  addUtilities({
+  _addBase({});
+  _addComponents({});
+  _addUtilities({
     ".center": {
       "display": "flex",
       "align-items": "center",
@@ -417,21 +382,14 @@ exports[`generator > double-bug 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({});
-  addUtilities({
+  _addBase({});
+  _addComponents({});
+  _addUtilities({
     ".content-auto": {
       "content-visibility": "\\"auto\\""
     }
@@ -444,21 +402,14 @@ exports[`generator > generate 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({});
-  addUtilities({});
+  _addBase({});
+  _addComponents({});
+  _addUtilities({});
 });
 module.exports = css2TwPlugin;"
 `;
@@ -467,35 +418,28 @@ exports[`generator > generate case 0 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({
+  _addBase({
     "h1": {
-      "font-size": theme("fontSize.2xl")
+      "font-size": _theme("fontSize.2xl")
     },
     "h2": {
-      "font-size": theme("fontSize.xl")
+      "font-size": _theme("fontSize.xl")
     }
   });
-  addComponents({
+  _addComponents({
     ".card": {
-      "background-color": theme("colors.white"),
-      "border-radius": theme("borderRadius.lg"),
-      "padding": theme("spacing.6"),
-      "box-shadow": theme("boxShadow.xl")
+      "background-color": _theme("colors.white"),
+      "border-radius": _theme("borderRadius.lg"),
+      "padding": _theme("spacing.6"),
+      "box-shadow": _theme("boxShadow.xl")
     }
   });
-  addUtilities({
+  _addUtilities({
     ".content-auto": {
       "content-visibility": "\\"auto\\""
     }
@@ -508,35 +452,28 @@ exports[`generator > generate case 0 sync 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({
+  _addBase({
     "h1": {
-      "font-size": theme("fontSize.2xl")
+      "font-size": _theme("fontSize.2xl")
     },
     "h2": {
-      "font-size": theme("fontSize.xl")
+      "font-size": _theme("fontSize.xl")
     }
   });
-  addComponents({
+  _addComponents({
     ".card": {
-      "background-color": theme("colors.white"),
-      "border-radius": theme("borderRadius.lg"),
-      "padding": theme("spacing.6"),
-      "box-shadow": theme("boxShadow.xl")
+      "background-color": _theme("colors.white"),
+      "border-radius": _theme("borderRadius.lg"),
+      "padding": _theme("spacing.6"),
+      "box-shadow": _theme("boxShadow.xl")
     }
   });
-  addUtilities({
+  _addUtilities({
     ".content-auto": {
       "content-visibility": "\\"auto\\""
     }
@@ -553,42 +490,35 @@ const css2TwPlugin = _plugin.withOptions(function (_options = {}) {
     withOptionsWalkCSSRuleObject = returnSelfNoop
   } = _options;
   return function ({
-    addBase: addBase,
-    addComponents: addComponents,
-    addUtilities: addUtilities,
-    theme: theme,
-    addVariant: addVariant,
-    config: config,
-    corePlugins: corePlugins,
-    e: e,
-    matchComponents: matchComponents,
-    matchUtilities: matchUtilities,
-    matchVariant: matchVariant
+    addBase: _addBase,
+    addComponents: _addComponents,
+    addUtilities: _addUtilities,
+    theme: _theme
   }) {
     const _baseCss = withOptionsWalkCSSRuleObject({
       "h1": {
-        "font-size": theme("fontSize.2xl")
+        "font-size": _theme("fontSize.2xl")
       },
       "h2": {
-        "font-size": theme("fontSize.xl")
+        "font-size": _theme("fontSize.xl")
       }
     }, "base");
-    addBase(_baseCss);
+    _addBase(_baseCss);
     const _componentsCss = withOptionsWalkCSSRuleObject({
       ".card": {
-        "background-color": theme("colors.white"),
-        "border-radius": theme("borderRadius.lg"),
-        "padding": theme("spacing.6"),
-        "box-shadow": theme("boxShadow.xl")
+        "background-color": _theme("colors.white"),
+        "border-radius": _theme("borderRadius.lg"),
+        "padding": _theme("spacing.6"),
+        "box-shadow": _theme("boxShadow.xl")
       }
     }, "components");
-    addComponents(_componentsCss);
+    _addComponents(_componentsCss);
     const _utilitiesCss = withOptionsWalkCSSRuleObject({
       ".content-auto": {
         "content-visibility": "\\"auto\\""
       }
     }, "utilities");
-    addUtilities(_utilitiesCss);
+    _addUtilities(_utilitiesCss);
   };
 }, function (_options) {
   return {};
@@ -600,46 +530,39 @@ exports[`generator > generate case 1 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({
+  _addBase({});
+  _addComponents({
     ".card0": {
-      "background-color": theme("colors.white"),
-      "border-radius": theme("borderRadius.lg"),
-      "padding": theme("spacing.6"),
-      "box-shadow": theme("boxShadow.xl")
+      "background-color": _theme("colors.white"),
+      "border-radius": _theme("borderRadius.lg"),
+      "padding": _theme("spacing.6"),
+      "box-shadow": _theme("boxShadow.xl")
     },
     ".card1": {
-      "background-color": theme("colors.white"),
-      "border-radius": theme("borderRadius.lg"),
-      "padding": theme("spacing.6"),
-      "box-shadow": theme("boxShadow.xl")
+      "background-color": _theme("colors.white"),
+      "border-radius": _theme("borderRadius.lg"),
+      "padding": _theme("spacing.6"),
+      "box-shadow": _theme("boxShadow.xl")
     },
     ".content-area0": {
-      "height": \`calc(100vh - \${theme("spacing.12")})\`
+      "height": \`calc(100vh - \${_theme("spacing.12")})\`
     },
     ".content-area1": {
-      "height": \`calc(100vh - \${theme("spacing[2.5]")})\`
+      "height": \`calc(100vh - \${_theme("spacing[2.5]")})\`
     },
     ".btn-blue0": {
-      "background-color": theme("colors.blue.500")
+      "background-color": _theme("colors.blue.500")
     },
     ".btn-blue1": {
-      "background-color": theme("colors.blue.500 / 75%")
+      "background-color": _theme("colors.blue.500 / 75%")
     }
   });
-  addUtilities({});
+  _addUtilities({});
 });
 module.exports = css2TwPlugin;"
 `;
@@ -648,39 +571,32 @@ exports[`generator > generate case 2 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({
+  _addBase({
     "h1": {
-      "font-size": theme("fontSize.2xl")
+      "font-size": _theme("fontSize.2xl")
     },
     "h2": {
-      "font-size": theme("fontSize.xl")
+      "font-size": _theme("fontSize.xl")
     },
     ".card1": {
-      "padding": theme("spacing.6"),
-      "box-shadow": theme("boxShadow.xl")
+      "padding": _theme("spacing.6"),
+      "box-shadow": _theme("boxShadow.xl")
     }
   });
-  addComponents({
+  _addComponents({
     ".card": {
-      "background-color": theme("colors.white"),
-      "border-radius": theme("borderRadius.lg"),
-      "padding": theme("spacing.6"),
-      "box-shadow": theme("boxShadow.xl")
+      "background-color": _theme("colors.white"),
+      "border-radius": _theme("borderRadius.lg"),
+      "padding": _theme("spacing.6"),
+      "box-shadow": _theme("boxShadow.xl")
     }
   });
-  addUtilities({
+  _addUtilities({
     ".content-auto": {
       "content-visibility": "\\"auto\\""
     }
@@ -697,42 +613,35 @@ const css2TwPlugin = _plugin.withOptions(function (_options = {}) {
     withOptionsWalkCSSRuleObject = returnSelfNoop
   } = _options;
   return function ({
-    addBase: addBase,
-    addComponents: addComponents,
-    addUtilities: addUtilities,
-    theme: theme,
-    addVariant: addVariant,
-    config: config,
-    corePlugins: corePlugins,
-    e: e,
-    matchComponents: matchComponents,
-    matchUtilities: matchUtilities,
-    matchVariant: matchVariant
+    addBase: _addBase,
+    addComponents: _addComponents,
+    addUtilities: _addUtilities,
+    theme: _theme
   }) {
     const _baseCss = withOptionsWalkCSSRuleObject({
       "h1": {
-        "font-size": theme("fontSize.2xl")
+        "font-size": _theme("fontSize.2xl")
       },
       "h2": {
-        "font-size": theme("fontSize.xl")
+        "font-size": _theme("fontSize.xl")
       }
     }, "base");
-    addBase(_baseCss);
+    _addBase(_baseCss);
     const _componentsCss = withOptionsWalkCSSRuleObject({
       ".card": {
-        "background-color": theme("colors.white"),
-        "border-radius": theme("borderRadius.lg"),
-        "padding": theme("spacing.6"),
-        "box-shadow": theme("boxShadow.xl")
+        "background-color": _theme("colors.white"),
+        "border-radius": _theme("borderRadius.lg"),
+        "padding": _theme("spacing.6"),
+        "box-shadow": _theme("boxShadow.xl")
       }
     }, "components");
-    addComponents(_componentsCss);
+    _addComponents(_componentsCss);
     const _utilitiesCss = withOptionsWalkCSSRuleObject({
       ".content-auto": {
         "content-visibility": "\\"auto\\""
       }
     }, "utilities");
-    addUtilities(_utilitiesCss);
+    _addUtilities(_utilitiesCss);
   };
 }, function (_options) {
   return {};
@@ -744,47 +653,40 @@ exports[`generator > import case 0 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({
+  _addBase({
     "h3": {
-      "font-size": theme("fontSize.2xl")
+      "font-size": _theme("fontSize.2xl")
     },
     "h4": {
-      "font-size": theme("fontSize.xl")
+      "font-size": _theme("fontSize.xl")
     },
     "h1": {
-      "font-size": theme("fontSize.2xl")
+      "font-size": _theme("fontSize.2xl")
     },
     "h2": {
-      "font-size": theme("fontSize.xl")
+      "font-size": _theme("fontSize.xl")
     }
   });
-  addComponents({
+  _addComponents({
     ".card-imported": {
-      "background-color": theme("colors.white"),
-      "border-radius": theme("borderRadius.lg"),
-      "padding": theme("spacing.6"),
-      "box-shadow": theme("boxShadow.xl")
+      "background-color": _theme("colors.white"),
+      "border-radius": _theme("borderRadius.lg"),
+      "padding": _theme("spacing.6"),
+      "box-shadow": _theme("boxShadow.xl")
     },
     ".card": {
-      "background-color": theme("colors.white"),
-      "border-radius": theme("borderRadius.lg"),
-      "padding": theme("spacing.6"),
-      "box-shadow": theme("boxShadow.xl")
+      "background-color": _theme("colors.white"),
+      "border-radius": _theme("borderRadius.lg"),
+      "padding": _theme("spacing.6"),
+      "box-shadow": _theme("boxShadow.xl")
     }
   });
-  addUtilities({
+  _addUtilities({
     ".content-auto-imported": {
       "content-visibility": "\\"auto\\""
     },
@@ -800,19 +702,12 @@ exports[`generator > import case 0 with tailwindcss config 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({
+  _addBase({
     "h3": {
       "font-size": "1.5rem"
     },
@@ -826,7 +721,7 @@ const css2TwPlugin = _plugin(function ({
       "font-size": "1.25rem"
     }
   });
-  addComponents({
+  _addComponents({
     ".card-imported": {
       "background-color": "#fff",
       "border-radius": "0.5rem",
@@ -840,7 +735,7 @@ const css2TwPlugin = _plugin(function ({
       "box-shadow": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
     }
   });
-  addUtilities({
+  _addUtilities({
     ".content-auto-imported": {
       "content-visibility": "\\"auto\\""
     },
@@ -988,19 +883,12 @@ exports[`generator > import case 0 with tailwindcss config case > generate 1`] =
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({
+  _addBase({
     "h3": {
       "font-size": "1.5rem"
     },
@@ -1014,7 +902,7 @@ const css2TwPlugin = _plugin(function ({
       "font-size": "1.25rem"
     }
   });
-  addComponents({
+  _addComponents({
     ".card-imported": {
       "background-color": "#fff",
       "border-radius": "0.5rem",
@@ -1028,7 +916,7 @@ const css2TwPlugin = _plugin(function ({
       "box-shadow": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
     }
   });
-  addUtilities({
+  _addUtilities({
     ".content-auto-imported": {
       "content-visibility": "\\"auto\\""
     },
@@ -1176,19 +1064,12 @@ exports[`generator > import case 0 with tailwindcss config case with content > g
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({
+  _addBase({
     "h3": {
       "font-size": "1.5rem"
     },
@@ -1202,7 +1083,7 @@ const css2TwPlugin = _plugin(function ({
       "font-size": "1.25rem"
     }
   });
-  addComponents({
+  _addComponents({
     ".card-imported": {
       "background-color": "#fff",
       "border-radius": "0.5rem",
@@ -1216,7 +1097,7 @@ const css2TwPlugin = _plugin(function ({
       "box-shadow": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)"
     }
   });
-  addUtilities({
+  _addUtilities({
     ".content-auto-imported": {
       "content-visibility": "\\"auto\\""
     },
@@ -1232,38 +1113,31 @@ exports[`generator > interceptors css 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({
+  _addBase({
     "h1": {
-      "font-size": theme("fontSize.2xl")
+      "font-size": _theme("fontSize.2xl")
     },
     "h2": {
-      "font-size": theme("fontSize.xl")
+      "font-size": _theme("fontSize.xl")
     },
     ".test": {
       "font-size": "99.6px"
     }
   });
-  addComponents({
+  _addComponents({
     ".card": {
-      "background-color": theme("colors.white"),
-      "border-radius": theme("borderRadius.lg"),
-      "padding": theme("spacing.6"),
-      "box-shadow": theme("boxShadow.xl")
+      "background-color": _theme("colors.white"),
+      "border-radius": _theme("borderRadius.lg"),
+      "padding": _theme("spacing.6"),
+      "box-shadow": _theme("boxShadow.xl")
     }
   });
-  addUtilities({
+  _addUtilities({
     ".content-auto": {
       "content-visibility": "\\"auto\\""
     }
@@ -1275,10 +1149,10 @@ module.exports = css2TwPlugin;"
 exports[`generator > makeObjectExpression case 0 1`] = `
 "{
   "h1": {
-    "font-size": theme("fontSize.2xl")
+    "font-size": _theme("fontSize.2xl")
   },
   "h2": {
-    "font-size": theme("fontSize.xl")
+    "font-size": _theme("fontSize.xl")
   }
 }"
 `;
@@ -1287,20 +1161,13 @@ exports[`generator > repeat css case 0 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({
+  _addBase({});
+  _addComponents({
     ".a": {
       "width": "100%",
       "font-size": "100px",
@@ -1308,7 +1175,7 @@ const css2TwPlugin = _plugin(function ({
       "background": "#cccccc !important"
     }
   });
-  addUtilities({});
+  _addUtilities({});
 });
 module.exports = css2TwPlugin;"
 `;
@@ -1317,20 +1184,13 @@ exports[`generator > repeat css case 1 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({
+  _addBase({});
+  _addComponents({
     ".a": {
       "width": "100%",
       "transition": "transform 0.3 ease-in-out",
@@ -1348,7 +1208,7 @@ const css2TwPlugin = _plugin(function ({
       "margin-top": "10px"
     }
   });
-  addUtilities({});
+  _addUtilities({});
 });
 module.exports = css2TwPlugin;"
 `;
@@ -1357,28 +1217,21 @@ exports[`generator > theme case 0 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({
+  _addBase({});
+  _addComponents({
     ".content-area0": {
-      "height": \`calc(100vh - \${theme("spacing.12")})\`
+      "height": \`calc(100vh - \${_theme("spacing.12")})\`
     },
     ".content-area1": {
-      "height": \`calc(100vh - \${theme("spacing[2.5]")})\`
+      "height": \`calc(100vh - \${_theme("spacing[2.5]")})\`
     }
   });
-  addUtilities({});
+  _addUtilities({});
 });
 module.exports = css2TwPlugin;"
 `;
@@ -1387,28 +1240,21 @@ exports[`generator > theme case 1 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({
+  _addBase({});
+  _addComponents({
     ".content-area0": {
-      "height": \`calc(100vh - \${theme("spacing.12")} - \${theme("spacing.1")})\`
+      "height": \`calc(100vh - \${_theme("spacing.12")} - \${_theme("spacing.1")})\`
     },
     ".content-area1": {
-      "height": \`calc(100vh - \${theme("spacing[2.5]")} + \${theme("spacing.6")})\`
+      "height": \`calc(100vh - \${_theme("spacing[2.5]")} + \${_theme("spacing.6")})\`
     }
   });
-  addUtilities({});
+  _addUtilities({});
 });
 module.exports = css2TwPlugin;"
 `;
@@ -1417,23 +1263,16 @@ exports[`generator > theme case 2 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({});
-  addUtilities({
+  _addBase({});
+  _addComponents({});
+  _addUtilities({
     ".a": {
-      "font-size": theme("fontSize.xl")
+      "font-size": _theme("fontSize.xl")
     }
   });
 });
@@ -1444,25 +1283,18 @@ exports[`generator > theme case 3 1`] = `
 "const _plugin = require("tailwindcss/plugin");
 const returnSelfNoop = x => x;
 const css2TwPlugin = _plugin(function ({
-  addBase: addBase,
-  addComponents: addComponents,
-  addUtilities: addUtilities,
-  theme: theme,
-  addVariant: addVariant,
-  config: config,
-  corePlugins: corePlugins,
-  e: e,
-  matchComponents: matchComponents,
-  matchUtilities: matchUtilities,
-  matchVariant: matchVariant
+  addBase: _addBase,
+  addComponents: _addComponents,
+  addUtilities: _addUtilities,
+  theme: _theme
 }) {
-  addBase({});
-  addComponents({
+  _addBase({});
+  _addComponents({
     ".a": {
-      "font-size": theme("fontSize.3xl") + " !important"
+      "font-size": _theme("fontSize.3xl") + " !important"
     }
   });
-  addUtilities({});
+  _addUtilities({});
 });
 module.exports = css2TwPlugin;"
 `;

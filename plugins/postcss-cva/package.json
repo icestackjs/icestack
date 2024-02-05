@@ -80,6 +80,6 @@
   },
   "devDependencies": {
     "@types/picomatch": "^2.3.3",
-    "postcss": "^8.4.33"
+    "postcss": "^8.4.34"
   }
 }

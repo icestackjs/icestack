@@ -50,19 +50,24 @@ async function letUsBuild(options: { clean?: boolean; configFile?: string } = {}
 }
 const defaultOutdir = 'my-ui'
 
-function createJsConfig(outdir: string, format: 'cjs' | 'ts' = 'cjs') {
+function createJsConfig({ outdir, format = 'cjs', mode = 'none' }: { outdir: string; format: 'cjs' | 'ts'; mode: 'none' | 'preset' }) {
   const p = './' + outdir
+  const cssPrefix = dedent`// install vscode-styled-components for css\`\` highlight
+  // https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components
+  const css = String.raw`
   if (format === 'ts') {
     return {
       filename: 'icestack.config.ts',
-      data: dedent`import { defineConfig } from '@icestack/ui'\n\nexport default defineConfig({
+      data: dedent`import { defineConfig } from '@icestack/ui'\n${cssPrefix}\n\nexport default defineConfig({
+        mode: '${mode}',
         outdir: '${p}'
       })\n`
     }
   }
   return {
     filename: 'icestack.config.cjs',
-    data: dedent`/**\n * @type {import('@icestack/ui').Config}\n */\nconst config = {
+    data: dedent`${cssPrefix}\n\n/**\n * @type {import('@icestack/ui').Config}\n */\nconst config = {
+      mode: '${mode}',
       outdir: '${p}'
     }\n\n${'module.exports = config'}\n`
   }
@@ -74,10 +79,15 @@ cli
   .option('--only-config', 'output onlt config')
   .option('--format <format>', 'config file format')
   .option('--outdir <outdir>')
+  .option('--mode <mode>')
   .action(async (options) => {
     const cwd = process.cwd()
-    const { onlyConfig, outdir = defaultOutdir, format = 'cjs' } = options
-    const { data, filename } = createJsConfig(outdir, format)
+    const { onlyConfig, outdir = defaultOutdir, format = 'cjs', mode = 'none' } = options
+    const { data, filename } = createJsConfig({
+      outdir,
+      format,
+      mode
+    })
     const p = path.resolve(cwd, filename)
     fs.writeFileSync(p, data, 'utf8') // ts ? tsT : jsT)
     logger.success(`init ${filename} successfully!`)

@@ -43,9 +43,9 @@ export function parse(css: string) {
 // 从右到左
 export function mergeLeftRight(leftNode: AtRule | Rule | Root, rightNode: AtRule | Rule | Root) {
   // leftNode
-  for (const right of rightNode.nodes) {
+  for (const right of rightNode.nodes ?? []) {
     let insertFlag = true
-    for (const left of leftNode.nodes) {
+    for (const left of leftNode.nodes ?? []) {
       if (left.type === 'rule' && right.type === 'rule' && compressCssSelector(left.selector) === compressCssSelector(right.selector)) {
         mergeLeftRight(left, right)
         insertFlag = false

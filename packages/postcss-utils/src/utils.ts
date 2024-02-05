@@ -1,7 +1,7 @@
 import type { ChildNode } from 'postcss'
 import sassParser from 'postcss-scss'
 import selectorParser from 'postcss-selector-parser'
-import { set, get, isObject } from 'lodash'
+import { set, get } from 'lodash'
 import type { CssValue, CssInJs } from '@icestack/types'
 
 const defaultSelectorParser = selectorParser()
@@ -24,7 +24,7 @@ export function recursiveNodes(nodes: ChildNode[], result: Record<string, any> =
         } else {
           const selector = `@${node.name} ${node.params}`
           result[selector] = {}
-          recursiveNodes(node.nodes, result[selector])
+          recursiveNodes(node.nodes ?? [], result[selector])
         }
 
         break

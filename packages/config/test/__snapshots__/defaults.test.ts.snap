@@ -1,45 +1,5 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`defaults > createDefaultTailwindcssExtends > custom varPrefix 1`] = `
-{
-  "borderRadius": {
-    "badge": "var(--rounded-badge, 1.9rem)",
-    "box": "var(--rounded-box, 1rem)",
-    "btn": "var(--rounded-btn, 0.5rem)",
-  },
-  "lineHeight": {
-    "1": "0.25rem",
-    "2": "0.5rem",
-  },
-  "minHeight": {
-    "12": "3rem",
-    "16": "4rem",
-    "6": "1.5rem",
-    "8": "2rem",
-  },
-}
-`;
-
-exports[`defaults > createDefaultTailwindcssExtends > default 1`] = `
-{
-  "borderRadius": {
-    "badge": "var(--ice-rounded-badge, 1.9rem)",
-    "box": "var(--ice-rounded-box, 1rem)",
-    "btn": "var(--ice-rounded-btn, 0.5rem)",
-  },
-  "lineHeight": {
-    "1": "0.25rem",
-    "2": "0.5rem",
-  },
-  "minHeight": {
-    "12": "3rem",
-    "16": "4rem",
-    "6": "1.5rem",
-    "8": "2rem",
-  },
-}
-`;
-
 exports[`defaults > getCodegenDefaults > default 1`] = `
 {
   "base": {

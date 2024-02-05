@@ -1,5 +1,4 @@
 import { cosmiconfigSync } from 'cosmiconfig'
-import type { CosmiconfigResult } from 'cosmiconfig'
 import { flattenDeep, set, isObject, cloneDeep, omit } from 'lodash'
 import type { CodegenOptions, Preset } from '@icestack/types'
 import { defuOptions, makeArray } from '@icestack/shared'

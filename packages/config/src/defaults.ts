@@ -1,4 +1,3 @@
-import type { Config } from 'tailwindcss'
 import { components as defaultComponents } from '@icestack/preset-default/components'
 import { base as defaultBase } from '@icestack/preset-default/base'
 import { utilities as defaultUtilities } from '@icestack/preset-default/utilities'
@@ -54,27 +53,6 @@ export function injectSchema(defaultComponents: ComponentsOptions, options?: Cod
     acc[key] = innerNone ? {} : opts
     return acc
   }, {})
-}
-
-export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {}): Config['theme'] {
-  const { varPrefix = defaultVarPrefix } = opts
-  return {
-    borderRadius: {
-      box: `var(${varPrefix}rounded-box, 1rem)`,
-      btn: `var(${varPrefix}rounded-btn, 0.5rem)`,
-      badge: `var(${varPrefix}rounded-badge, 1.9rem)`
-    },
-    minHeight: {
-      6: '1.5rem',
-      8: '2rem',
-      12: '3rem',
-      16: '4rem'
-    },
-    lineHeight: {
-      1: '0.25rem',
-      2: '0.5rem'
-    }
-  }
 }
 
 export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOptions, 'outdir'> {

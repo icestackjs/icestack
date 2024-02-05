@@ -1,4 +1,4 @@
-import { createDefaultTailwindcssExtends, getCodegenDefaults, getDefaultBase, injectSchema, sharedExtraColors, sharedExtraVars } from '@/defaults'
+import { getCodegenDefaults, getDefaultBase, injectSchema, sharedExtraColors, sharedExtraVars } from '@/defaults'
 
 describe('defaults', () => {
   describe('shared vars', () => {
@@ -41,16 +41,6 @@ describe('defaults', () => {
       expect(res.themes?.light).toBeFalsy()
       expect(res.themes?.dark).toBeTruthy()
       expect(res).toMatchSnapshot()
-    })
-  })
-
-  describe('createDefaultTailwindcssExtends', () => {
-    it('default', () => {
-      expect(createDefaultTailwindcssExtends()).toMatchSnapshot()
-    })
-
-    it('custom varPrefix', () => {
-      expect(createDefaultTailwindcssExtends({ varPrefix: '--' })).toMatchSnapshot()
     })
   })
 

@@ -43,6 +43,11 @@
       "import": "./dist/utilities.mjs",
       "require": "./dist/utilities.cjs"
     },
+    "./tailwindcss": {
+      "types": "./dist/tailwindcss.d.ts",
+      "import": "./dist/tailwindcss.mjs",
+      "require": "./dist/tailwindcss.cjs"
+    },
     "./*": "./*"
   },
   "main": "./dist/index.cjs",

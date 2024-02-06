@@ -1,5 +1,12 @@
 # postcss-icestack-plugin
 
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies [[`aecf8f1`](https://github.com/sonofmagic/icestack/commit/aecf8f1f58e0dc540d242a96bf45217b9f6ddd3f)]:
+  - @icestack/cva@1.3.7
+
 ## 0.0.7
 
 ### Patch Changes

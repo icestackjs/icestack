@@ -1803,6 +1803,10 @@ exports[`index > loadPresetOptions default 1`] = `
       /\\^hero-content\\$/,
       [Function],
     ],
+    [
+      /\\^no-animation\\$/,
+      [Function],
+    ],
   ],
   "theme": {
     "colors": {

@@ -106,7 +106,7 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
               await ctx.buildUtilities()
 
               if (valuePath === '') {
-                valuePath = 'index.resolvedCssRoot'
+                valuePath = 'custom.resolvedCssRoot'
               }
               const root = get(ctx.utilities, valuePath)
               if (root) {

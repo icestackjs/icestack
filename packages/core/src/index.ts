@@ -438,7 +438,7 @@ export function createContext(opts?: CodegenOptions | string) {
         const suffix = suffixes.join('.')
         const fn = get(utilitiesMap, suffix, () => {})
         // @ts-ignore
-        const css = suffix === 'index' ? fn?.(utilities?.extraCss) : fn?.()
+        const css = fn?.(utilities?.extraCss)
         if (css) {
           const root = parse(css)
           const result = await internalBuild({
@@ -452,11 +452,11 @@ export function createContext(opts?: CodegenOptions | string) {
         }
       }
 
-      // if (!dryRun) {
-      //   const outputPath = path.resolve(resolveJsDir(outdir), 'utilities')
-      //   const code = generateIndexCode(refs, 'utilities')
-      //   writeFile(path.resolve(outputPath, 'index.cjs'), code)
-      // }
+      if (!dryRun) {
+        const outputPath = path.resolve(resolveJsDir(outdir), 'utilities')
+        const code = generateIndexCode(refs, 'utilities')
+        writeFile(path.resolve(outputPath, 'index.cjs'), code)
+      }
 
       cache.utilities = res
       setCache(layer, res)

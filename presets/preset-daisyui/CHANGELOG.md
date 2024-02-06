@@ -1,5 +1,14 @@
 # @icestack/preset-daisyui
 
+## 1.0.8
+
+### Patch Changes
+
+- Updated dependencies [[`ff8f78f`](https://github.com/sonofmagic/icestack/commit/ff8f78f27cf8bf7cbe82b00ea71ae610507991e0)]:
+  - @icestack/postcss-utils@1.3.5
+  - @icestack/shared@1.3.5
+  - @icestack/types@1.3.5
+
 ## 1.0.7
 
 ### Patch Changes

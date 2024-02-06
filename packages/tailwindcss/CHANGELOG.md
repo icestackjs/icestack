@@ -1,5 +1,16 @@
 # @icestack/tailwindcss
 
+## 1.3.5
+
+### Patch Changes
+
+- [`ff8f78f`](https://github.com/sonofmagic/icestack/commit/ff8f78f27cf8bf7cbe82b00ea71ae610507991e0) Thanks [@sonofmagic](https://github.com/sonofmagic)! - release 1.3.5
+
+- Updated dependencies [[`ff8f78f`](https://github.com/sonofmagic/icestack/commit/ff8f78f27cf8bf7cbe82b00ea71ae610507991e0)]:
+  - @icestack/logger@1.3.5
+  - @icestack/postcss@1.3.5
+  - @icestack/shared@1.3.5
+
 ## 1.3.4
 
 ### Patch Changes

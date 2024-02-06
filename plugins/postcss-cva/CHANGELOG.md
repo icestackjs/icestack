@@ -1,5 +1,12 @@
 # postcss-cva
 
+## 0.2.1
+
+### Patch Changes
+
+- Updated dependencies [[`ff8f78f`](https://github.com/sonofmagic/icestack/commit/ff8f78f27cf8bf7cbe82b00ea71ae610507991e0)]:
+  - @icestack/shared@1.3.5
+
 ## 0.1.3
 
 ### Patch Changes

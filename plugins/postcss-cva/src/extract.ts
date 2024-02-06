@@ -21,94 +21,95 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
     filter: () => true,
     remove: true
   })
-  const result: CvaParamsSet = {
-    base: new Set<string>(),
-    variants: {},
-    compoundVariants: [],
-    defaultVariants: {},
-    meta: {}
-  }
-  const prefix = _prefix ?? ''
-  const hashMap = new Map<string, CvaParamsSet['compoundVariants'][number]>()
-  const weakMap = new WeakMap()
-
-  function addBase(value: string | string[]) {
-    setAdd(result.base, value)
-  }
-
-  function addVariant(
-    value: string | string[],
-    entries: [
-      string,
-      {
-        value: string
-      }
-    ][]
-  ) {
-    for (const [p1, { value: p2 }] of entries) {
-      const p = `${p1}.${p2}`
-      const arr = get(result.variants, p)
-
-      if (arr instanceof Set) {
-        setAdd(arr, value)
-      } else {
-        const st = new Set<string>()
-        setAdd(st, value)
-        set(result.variants, p, st)
-      }
-    }
-  }
-
-  function addDefaultVariant(
-    entries: [
-      string,
-      {
-        value: string
-      }
-    ][]
-  ) {
-    for (const [key, { value }] of entries) {
-      set(result.defaultVariants, key, value)
-    }
-  }
-
-  function addCompoundVariant(
-    value: string | string[],
-    entries: [
-      string,
-      {
-        value: string
-      }
-    ][],
-    hashCode: string
-  ) {
-    const item = hashMap.get(hashCode)
-    if (item) {
-      item.class && setAdd(item.class, value)
-    } else {
-      const set = new Set<string>()
-      setAdd(set, value)
-
-      hashMap.set(
-        hashCode,
-        // @ts-ignore
-        entries.reduce(
-          (acc, [k, { value }]) => {
-            // @ts-ignore
-            acc[k] = value
-            return acc
-          },
-          {
-            class: set
-          }
-        )
-      )
-    }
-  }
 
   return {
     postcssPlugin: 'postcss-icestack-extract-cva-params-plugin',
     prepare(res) {
+      const result: CvaParamsSet = {
+        base: new Set<string>(),
+        variants: {},
+        compoundVariants: [],
+        defaultVariants: {},
+        meta: {}
+      }
+      const prefix = _prefix ?? ''
+      const hashMap = new Map<string, CvaParamsSet['compoundVariants'][number]>()
+      const weakMap = new WeakMap()
+
+      function addBase(value: string | string[]) {
+        setAdd(result.base, value)
+      }
+
+      function addVariant(
+        value: string | string[],
+        entries: [
+          string,
+          {
+            value: string
+          }
+        ][]
+      ) {
+        for (const [p1, { value: p2 }] of entries) {
+          const p = `${p1}.${p2}`
+          const arr = get(result.variants, p)
+
+          if (arr instanceof Set) {
+            setAdd(arr, value)
+          } else {
+            const st = new Set<string>()
+            setAdd(st, value)
+            set(result.variants, p, st)
+          }
+        }
+      }
+
+      function addDefaultVariant(
+        entries: [
+          string,
+          {
+            value: string
+          }
+        ][]
+      ) {
+        for (const [key, { value }] of entries) {
+          set(result.defaultVariants, key, value)
+        }
+      }
+
+      function addCompoundVariant(
+        value: string | string[],
+        entries: [
+          string,
+          {
+            value: string
+          }
+        ][],
+        hashCode: string
+      ) {
+        const item = hashMap.get(hashCode)
+        if (item) {
+          item.class && setAdd(item.class, value)
+        } else {
+          const set = new Set<string>()
+          setAdd(set, value)
+
+          hashMap.set(
+            hashCode,
+            // @ts-ignore
+            entries.reduce(
+              (acc, [k, { value }]) => {
+                // @ts-ignore
+                acc[k] = value
+                return acc
+              },
+              {
+                class: set
+              }
+            )
+          )
+        }
+      }
+
       const filename = res.root.source?.input.file
       if (filename) {
         const skip = !filter(filename)

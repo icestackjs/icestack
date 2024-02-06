@@ -1,6 +1,6 @@
 {
   "name": "css-to-tailwindcss-plugin",
-  "version": "1.3.7",
+  "version": "0.3.0",
   "description": "css-to-tailwindcss-plugin, transform your `css/scss` to `tailwindcss plugin`",
   "exports": {
     ".": {

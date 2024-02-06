@@ -1,7 +1,7 @@
 {
   "name": "@icestack/config",
   "description": "The config package of icestack",
-  "version": "1.3.7",
+  "version": "1.3.6",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

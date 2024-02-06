@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { set, get, pick, isError } from 'lodash'
+import { set, get, pick, isError, cloneDeep } from 'lodash'
 import kleur from 'kleur'
 import { createDefaultTailwindcssExtends } from '@icestack/preset-default/tailwindcss'
 import { getCodegenOptions, loadSync } from '@icestack/config'
@@ -28,11 +28,13 @@ import {
   postcssProcess,
   extractCvaParamsPlugin,
   CvaParams,
-  generateCva
+  generateCva,
+  collectClassPlugin
 } from '@icestack/postcss-utils'
 import { LRUCache } from 'lru-cache'
 // import md5 from 'md5'
 import { StringOptions } from 'sass'
+import { Config } from 'tailwindcss'
 import { name } from '../package.json'
 import { utilitiesNames, utilitiesMap } from './utilities'
 import { handleOptions } from './components'
@@ -217,9 +219,10 @@ export function createContext(opts?: CodegenOptions | string) {
   const presets = createPreset({
     types
   })
-
+  // { raw: 'hidden' }
   const allComponentsNames = Object.keys(presets)
   const twConfig = initTailwindcssConfig(tailwindcssConfig, {
+    content: [],
     theme: {
       extend: {
         ...createDefaultTailwindcssExtends({ varPrefix: globalVarPrefix ? globalVarPrefix.varPrefix : '' }),
@@ -228,7 +231,7 @@ export function createContext(opts?: CodegenOptions | string) {
     }
   })
 
-  function preprocessCss(css: string, layer?: ILayer, name?: string, getCvaParams?: (params?: CvaParams) => void) {
+  function preprocessCss(css: string, layer?: ILayer, name?: string, getCvaParams?: (params?: CvaParams) => void, getRawContent?: (classNames: string[]) => void) {
     let plugins: AcceptedPlugin[] = []
 
     if (Array.isArray(globalPostcssPlugins)) {
@@ -263,6 +266,16 @@ export function createContext(opts?: CodegenOptions | string) {
           plugins = postcss?.plugins(plugins)
         }
       }
+    } else if (layer === 'base') {
+      const varPrefixerPlugin = getCssVarsPrefixerPlugin(globalVarPrefix!)
+      varPrefixerPlugin && plugins.push(varPrefixerPlugin)
+      const prefixerPlugin = getPrefixerPlugin(globalPrefix)
+      prefixerPlugin && plugins.push(prefixerPlugin)
+      plugins.push(
+        collectClassPlugin({
+          process: getRawContent
+        })
+      )
     } else {
       const varPrefixerPlugin = getCssVarsPrefixerPlugin(globalVarPrefix!)
       varPrefixerPlugin && plugins.push(varPrefixerPlugin)
@@ -279,6 +292,8 @@ export function createContext(opts?: CodegenOptions | string) {
     objectify: 0,
     internalDump: 0
   }
+
+  const baseClassNameSet = new Set<string>()
   async function internalBuild(opts: { root?: AtRule | Root | Rule; layer: ILayer; suffixes: string[]; relPath: string }) {
     const { layer, suffixes, relPath, root = new Root() } = opts
     let start: number
@@ -292,9 +307,19 @@ export function createContext(opts?: CodegenOptions | string) {
 
     let cvaParams: CvaParams | undefined
     start = performance.now()
-    const { root: cssRoot } = preprocessCss(css, layer, suffixes[0], (params) => {
-      cvaParams = params
-    })
+    const { root: cssRoot } = preprocessCss(
+      css,
+      layer,
+      suffixes[0],
+      (params) => {
+        cvaParams = params
+      },
+      (classNames) => {
+        for (const className of classNames) {
+          baseClassNameSet.add(className)
+        }
+      }
+    )
     statistics.preprocessCss += performance.now() - start
 
     start = performance.now()
@@ -516,7 +541,12 @@ export function createContext(opts?: CodegenOptions | string) {
 
   function buildTailwindcssConfig() {
     if (!dryRun) {
-      const code = 'module.exports = ' + JSONStringify(pick(twConfig, ['theme']))
+      const code =
+        'module.exports = ' +
+        JSONStringify({
+          theme: twConfig.theme,
+          content: [{ raw: [...baseClassNameSet].join(' ') }]
+        })
       const outputDir = path.resolve(resolveJsDir(outdir), 'tailwindcss')
       const outputPath = path.resolve(outputDir, 'config.cjs')
       writeFile(outputPath, code)

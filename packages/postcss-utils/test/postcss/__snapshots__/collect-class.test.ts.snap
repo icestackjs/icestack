@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`collect-class > base 0 1`] = `
+[
+  "btn",
+  "btn1",
+]
+`;
+
+exports[`collect-class > base 1`] = `
+[
+  "btn",
+]
+`;

@@ -4,7 +4,7 @@ import selectorParser from 'postcss-selector-parser'
 import { set, get } from 'lodash'
 import type { CssValue, CssInJs } from '@icestack/types'
 
-const defaultSelectorParser = selectorParser()
+export const defaultSelectorParser = selectorParser()
 
 export function compressCssSelector(selectors: string) {
   return defaultSelectorParser.processSync(selectors, { lossless: false })

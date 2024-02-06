@@ -1,5 +1,23 @@
 # @icestack/ui
 
+## 1.3.8
+
+### Patch Changes
+
+- [`591e6c3`](https://github.com/sonofmagic/icestack/commit/591e6c3c5ae3aa555f13d0f8fa2d6600fbbc0cbb) Thanks [@sonofmagic](https://github.com/sonofmagic)! - fix custom utils
+
+- Updated dependencies [[`591e6c3`](https://github.com/sonofmagic/icestack/commit/591e6c3c5ae3aa555f13d0f8fa2d6600fbbc0cbb)]:
+  - @icestack/cli@1.3.8
+  - @icestack/config@1.3.8
+  - @icestack/core@1.3.8
+  - @icestack/logger@1.3.8
+  - @icestack/postcss-utils@1.3.8
+  - @icestack/preset-default@1.3.8
+  - @icestack/scss@1.3.8
+  - @icestack/shared@1.3.8
+  - @icestack/theme-algorithm@1.3.8
+  - @icestack/types@1.3.8
+
 ## 1.3.7
 
 ### Patch Changes

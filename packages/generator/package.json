@@ -1,7 +1,7 @@
 {
   "name": "@icestack/generator",
   "description": "The generator package of icestack",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",

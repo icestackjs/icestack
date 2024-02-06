@@ -1,5 +1,14 @@
 # @icestack/shared
 
+## 1.3.8
+
+### Patch Changes
+
+- [`591e6c3`](https://github.com/sonofmagic/icestack/commit/591e6c3c5ae3aa555f13d0f8fa2d6600fbbc0cbb) Thanks [@sonofmagic](https://github.com/sonofmagic)! - fix custom utils
+
+- Updated dependencies [[`591e6c3`](https://github.com/sonofmagic/icestack/commit/591e6c3c5ae3aa555f13d0f8fa2d6600fbbc0cbb)]:
+  - @icestack/types@1.3.8
+
 ## 1.3.7
 
 ### Patch Changes

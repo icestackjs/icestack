@@ -1,5 +1,18 @@
 # @icestack/postcss
 
+## 1.3.7
+
+### Patch Changes
+
+- [`aecf8f1`](https://github.com/sonofmagic/icestack/commit/aecf8f1f58e0dc540d242a96bf45217b9f6ddd3f) Thanks [@sonofmagic](https://github.com/sonofmagic)! - fix buildUtilities override index
+
+- Updated dependencies [[`aecf8f1`](https://github.com/sonofmagic/icestack/commit/aecf8f1f58e0dc540d242a96bf45217b9f6ddd3f)]:
+  - @icestack/config@1.3.7
+  - @icestack/core@1.3.7
+  - @icestack/logger@1.3.7
+  - @icestack/postcss-utils@1.3.7
+  - @icestack/types@1.3.7
+
 ## 1.3.6
 
 ### Patch Changes

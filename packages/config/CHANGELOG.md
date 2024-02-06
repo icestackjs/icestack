@@ -1,5 +1,17 @@
 # @icestack/config
 
+## 1.3.7
+
+### Patch Changes
+
+- [`aecf8f1`](https://github.com/sonofmagic/icestack/commit/aecf8f1f58e0dc540d242a96bf45217b9f6ddd3f) Thanks [@sonofmagic](https://github.com/sonofmagic)! - fix buildUtilities override index
+
+- Updated dependencies [[`aecf8f1`](https://github.com/sonofmagic/icestack/commit/aecf8f1f58e0dc540d242a96bf45217b9f6ddd3f)]:
+  - @icestack/preset-default@1.3.7
+  - @icestack/shared@1.3.7
+  - @icestack/theme-algorithm@1.3.7
+  - @icestack/types@1.3.7
+
 ## 1.3.6
 
 ### Patch Changes

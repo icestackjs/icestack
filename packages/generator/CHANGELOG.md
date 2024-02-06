@@ -1,5 +1,14 @@
 # @icestack/generator
 
+## 1.0.4
+
+### Patch Changes
+
+- [`aecf8f1`](https://github.com/sonofmagic/icestack/commit/aecf8f1f58e0dc540d242a96bf45217b9f6ddd3f) Thanks [@sonofmagic](https://github.com/sonofmagic)! - fix buildUtilities override index
+
+- Updated dependencies [[`aecf8f1`](https://github.com/sonofmagic/icestack/commit/aecf8f1f58e0dc540d242a96bf45217b9f6ddd3f)]:
+  - @icestack/shared@1.3.7
+
 ## 1.0.3
 
 ### Patch Changes

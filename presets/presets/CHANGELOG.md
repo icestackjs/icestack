@@ -1,5 +1,13 @@
 # @icestack/presets
 
+## 0.2.30
+
+### Patch Changes
+
+- Updated dependencies []:
+  - @icestack/preset-weapp@1.0.11
+  - @icestack/preset-mockup@1.0.11
+
 ## 0.2.29
 
 ### Patch Changes

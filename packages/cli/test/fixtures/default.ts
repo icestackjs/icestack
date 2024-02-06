@@ -1,11 +1,9 @@
+import { defineConfig } from '@icestack/ui'
 // install vscode-styled-components for css`` highlight
 // https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components
 const css = String.raw
 
-/**
- * @type {import('@icestack/ui').Config}
- */
-const config = {
+export default defineConfig({
   mode: 'none',
   outdir: './my-ui',
   components: {
@@ -79,6 +77,4 @@ const config = {
       }
     }
   }
-}
-
-module.exports = config
+})

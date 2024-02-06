@@ -2,11 +2,11 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { Command } from 'commander'
 import chokidar from 'chokidar'
-import dedent from 'dedent'
 import { loadSync } from '@icestack/config'
 import { logger } from '@icestack/logger'
 import { createContext } from '@icestack/core'
 import { getModuleDependencies, touch } from '@icestack/shared'
+import { createJsConfig } from './config'
 
 function touchTwConfig(filepath: string) {
   const dirname = path.dirname(filepath)
@@ -49,29 +49,6 @@ async function letUsBuild(options: { clean?: boolean; configFile?: string } = {}
   return o
 }
 const defaultOutdir = 'my-ui'
-
-function createJsConfig({ outdir, format = 'cjs', mode = 'none' }: { outdir: string; format: 'cjs' | 'ts'; mode: 'none' | 'preset' }) {
-  const p = './' + outdir
-  const cssPrefix = dedent`// install vscode-styled-components for css\`\` highlight
-  // https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components
-  const css = String.raw`
-  if (format === 'ts') {
-    return {
-      filename: 'icestack.config.ts',
-      data: dedent`import { defineConfig } from '@icestack/ui'\n${cssPrefix}\n\nexport default defineConfig({
-        mode: '${mode}',
-        outdir: '${p}'
-      })\n`
-    }
-  }
-  return {
-    filename: 'icestack.config.cjs',
-    data: dedent`${cssPrefix}\n\n/**\n * @type {import('@icestack/ui').Config}\n */\nconst config = {
-      mode: '${mode}',
-      outdir: '${p}'
-    }\n\n${'module.exports = config'}\n`
-  }
-}
 
 cli
   .command('init')

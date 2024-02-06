@@ -13,5 +13,8 @@
   "devDependencies": {
     "@icestack/presets": "workspace:^",
     "@icestack/ui": "workspace:^"
+  },
+  "dependencies": {
+    "@icestack/cva": "workspace:^"
   }
 }

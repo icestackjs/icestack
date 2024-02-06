@@ -1,6 +1,6 @@
 {
   "name": "compose-tailwindcss-plugins",
-  "version": "0.0.4",
+  "version": "1.3.7",
   "description": "compose your multiple tailwindcss plugins into one",
   "exports": {
     ".": {

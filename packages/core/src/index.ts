@@ -452,11 +452,11 @@ export function createContext(opts?: CodegenOptions | string) {
         }
       }
 
-      if (!dryRun) {
-        const outputPath = path.resolve(resolveJsDir(outdir), 'utilities')
-        const code = generateIndexCode(refs, 'utilities')
-        writeFile(path.resolve(outputPath, 'index.cjs'), code)
-      }
+      // if (!dryRun) {
+      //   const outputPath = path.resolve(resolveJsDir(outdir), 'utilities')
+      //   const code = generateIndexCode(refs, 'utilities')
+      //   writeFile(path.resolve(outputPath, 'index.cjs'), code)
+      // }
 
       cache.utilities = res
       setCache(layer, res)

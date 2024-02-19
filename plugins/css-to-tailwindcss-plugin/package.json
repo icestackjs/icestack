@@ -79,8 +79,8 @@
     "cac": "^6.7.14",
     "compose-tailwindcss-plugins": "workspace:^",
     "md5": "^2.3.0",
-    "postcss": "^8.4.34",
-    "postcss-import": "^16.0.0"
+    "postcss": "^8.4.35",
+    "postcss-import": "^16.0.1"
   },
   "devDependencies": {
     "@babel/standalone": "^7.23.10",
@@ -89,10 +89,10 @@
     "@types/md5": "^2.3.5",
     "@types/object-hash": "^3.0.6",
     "@types/postcss-import": "^14.0.3",
-    "c12": "^1.6.1",
+    "c12": "^1.8.0",
     "del": "^7.1.0",
     "object-hash": "^3.0.0",
-    "sass": "^1.70.0",
+    "sass": "^1.71.0",
     "tailwindcss": "^3.4.1"
   }
 }

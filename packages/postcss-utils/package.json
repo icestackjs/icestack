@@ -80,7 +80,7 @@
     "css-selector-tokenizer": "^0.8.0",
     "defu": "^6.1.4",
     "lodash": "^4.17.21",
-    "postcss": "^8.4.34",
+    "postcss": "^8.4.35",
     "postcss-custom-property-prefixer": "workspace:^",
     "postcss-cva": "workspace:^",
     "postcss-js": "^4.0.1",

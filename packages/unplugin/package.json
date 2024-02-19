@@ -73,7 +73,7 @@
     "dist"
   ],
   "dependencies": {
-    "unplugin": "^1.6.0"
+    "unplugin": "^1.7.1"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",

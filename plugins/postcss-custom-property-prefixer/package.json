@@ -42,7 +42,7 @@
     "sync": "cnpm sync postcss-custom-property-prefixer"
   },
   "devDependencies": {
-    "postcss": "^8.4.34"
+    "postcss": "^8.4.35"
   },
   "publishConfig": {
     "access": "public",

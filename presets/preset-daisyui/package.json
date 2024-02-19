@@ -58,7 +58,7 @@
   "devDependencies": {
     "@icestack/config": "workspace:^",
     "@icestack/ui": "workspace:^",
-    "@types/culori": "^2.0.4"
+    "@types/culori": "^2.1.0"
   },
   "dependencies": {
     "@icestack/postcss-utils": "workspace:^",

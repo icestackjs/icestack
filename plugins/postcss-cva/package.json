@@ -61,12 +61,12 @@
     }
   },
   "dependencies": {
-    "@babel/generator": "^7.23.6",
-    "@babel/types": "^7.23.9",
+    "@babel/generator": "^7.24.4",
+    "@babel/types": "^7.24.0",
     "@icestack/shared": "workspace:^",
     "lodash": "^4.17.21",
-    "picomatch": "^4.0.1",
-    "postcss-selector-parser": "^6.0.15"
+    "picomatch": "^4.0.2",
+    "postcss-selector-parser": "^6.0.16"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",
@@ -80,6 +80,6 @@
   },
   "devDependencies": {
     "@types/picomatch": "^2.3.3",
-    "postcss": "^8.4.35"
+    "postcss": "^8.4.38"
   }
 }

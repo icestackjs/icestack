@@ -42,8 +42,8 @@
     }
   },
   "dependencies": {
-    "@babel/generator": "^7.23.6",
-    "@babel/types": "^7.23.9",
+    "@babel/generator": "^7.24.4",
+    "@babel/types": "^7.24.0",
     "@icestack/shared": "workspace:^"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",

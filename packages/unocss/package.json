@@ -57,14 +57,14 @@
   "devDependencies": {
     "@icestack/types": "workspace:^",
     "@icestack/ui": "workspace:^",
-    "@unocss/core": "^0.58.5",
-    "unocss": "^0.58.5"
+    "@unocss/core": "^0.59.0",
+    "unocss": "^0.59.0"
   },
   "dependencies": {
     "@icestack/logger": "workspace:^",
     "@icestack/shared": "workspace:^",
-    "postcss": "^8.4.35",
+    "postcss": "^8.4.38",
     "postcss-js": "^4.0.1",
-    "postcss-selector-parser": "^6.0.15"
+    "postcss-selector-parser": "^6.0.16"
   }
 }

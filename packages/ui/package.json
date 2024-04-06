@@ -82,19 +82,19 @@
     "watch": "node scripts/watch.js"
   },
   "dependencies": {
-    "@icestack/core": "workspace:^",
+    "@icestack/cli": "workspace:^",
     "@icestack/config": "workspace:^",
+    "@icestack/core": "workspace:^",
     "@icestack/logger": "workspace:^",
     "@icestack/postcss-utils": "workspace:^",
     "@icestack/preset-default": "workspace:^",
     "@icestack/scss": "workspace:^",
     "@icestack/shared": "workspace:^",
     "@icestack/theme-algorithm": "workspace:^",
-    "@icestack/types": "workspace:^",
-    "@icestack/cli": "workspace:^"
+    "@icestack/types": "workspace:^"
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.202"
+    "@types/lodash": "^4.17.0"
   },
   "publishConfig": {
     "access": "public",

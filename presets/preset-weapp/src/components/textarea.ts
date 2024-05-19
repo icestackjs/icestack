@@ -1,5 +1,5 @@
 // import { expandTypes, getSelector } from '../shared'
-import { ComponentsValue } from '@/types'
+import type { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
   extend: ({ selector }) => {
@@ -8,9 +8,9 @@ const options: Partial<ComponentsValue> = {
         ${selector}{
           border-style: solid;
         }
-      `
+      `,
     }
-  }
+  },
 }
 
 export default options

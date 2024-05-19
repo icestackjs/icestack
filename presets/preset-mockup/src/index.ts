@@ -151,10 +151,10 @@ const components: ComponentsOptions = {
             }
           }
           
-          `
-        }
+          `,
+        },
       }
-    }
+    },
   },
   artboard: {
     selector: '.artboard',
@@ -242,16 +242,16 @@ const components: ComponentsOptions = {
             }
           }
           
-          `
-        }
+          `,
+        },
       }
-    }
-  }
+    },
+  },
 }
 
 const mockupPreset: () => Preset = () => {
   return {
-    components
+    components,
   }
 }
 

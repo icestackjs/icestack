@@ -6,7 +6,7 @@ import preset from '@/index'
 describe('presets', () => {
   it('default preset', () => {
     const opt = getCodegenOptions({
-      presets: [preset()]
+      presets: [preset()],
     })
     expect(opt).toMatchSnapshot()
   })
@@ -14,7 +14,7 @@ describe('presets', () => {
   it('default preset all css', async () => {
     const ctx = createContext({
       dryRun: true,
-      presets: [preset()]
+      presets: [preset()],
     })
     const res = await ctx.buildComponents()
     expect(res).toMatchSnapshot()

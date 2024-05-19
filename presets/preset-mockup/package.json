@@ -1,13 +1,16 @@
 {
   "name": "@icestack/preset-mockup",
-  "description": "The mockup preset of @icestack/ui",
   "version": "1.0.11",
-  "scripts": {
-    "build": "unbuild",
-    "test": "vitest run",
-    "test:dev": "vitest",
-    "release": "pnpm publish",
-    "sync": "cnpm sync @icestack/preset-mockup"
+  "description": "The mockup preset of @icestack/ui",
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://ui.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack"
   },
   "keywords": [
     "mockup",
@@ -31,11 +34,15 @@
     "./*": "./*"
   },
   "main": "./dist/index.cjs",
+  "scripts": {
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "sync": "cnpm sync @icestack/preset-mockup"
+  },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "typesVersions": {
     "*": {
       "*": [
@@ -44,20 +51,13 @@
       ]
     }
   },
-  "author": "SonOfMagic <qq1324318532@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sonofmagic/icestack"
-  },
-  "homepage": "https://ui.icebreaker.top",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sonofmagic/icestack"
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@icestack/types": "workspace:^"
   },
   "devDependencies": {
     "@icestack/ui": "workspace:^"
-  },
-  "dependencies": {
-    "@icestack/types": "workspace:^"
   }
 }

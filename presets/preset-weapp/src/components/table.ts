@@ -1,5 +1,4 @@
-import { getSelector } from '@icestack/shared'
-import { ComponentsValue } from '@/types'
+import type { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
   schema: (opts) => {
@@ -67,10 +66,10 @@ const options: Partial<ComponentsValue> = {
               }
             }
           }
-        `
-      }
+        `,
+      },
     }
-  }
+  },
 }
 
 export default options

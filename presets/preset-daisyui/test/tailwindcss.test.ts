@@ -6,7 +6,7 @@ describe('tailwindcss', () => {
   it('config snap', () => {
     const ctx = createContext({
       dryRun: true,
-      presets: [preset()]
+      presets: [preset()],
     })
 
     expect(ctx.tailwindcssConfig).toMatchSnapshot()

@@ -1,10 +1,10 @@
-import { ComponentsValue } from '@/types'
+import type { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
   postcss: {
     prefix: {
-      ignore: ['.wx-radio']
-    }
+      ignore: ['.wx-radio'],
+    },
   },
   schema: (opts) => {
     const { selector, types } = opts
@@ -110,10 +110,10 @@ const options: Partial<ComponentsValue> = {
           }
         }
          
-        `
-      }
+        `,
+      },
     }
-  }
+  },
 }
 
 export default options

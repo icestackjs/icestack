@@ -1,4 +1,4 @@
-import { ComponentsValue } from '@/types'
+import type { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
   schema: ({ selector }) => {
@@ -59,10 +59,10 @@ const options: Partial<ComponentsValue> = {
             padding 0.2s ease-out,
             background-color 0.2s ease-out;
         }
-        `
-      }
+        `,
+      },
     }
-  }
+  },
 }
 
 export default options

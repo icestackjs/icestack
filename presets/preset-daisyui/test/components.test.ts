@@ -1,15 +1,12 @@
-import path from 'node:path'
-import fs from 'node:fs'
 import { createContext } from '@icestack/ui'
 
-import { stages } from '@icestack/shared/constants'
 import preset from '@/index'
 
 describe('components', () => {
   it('daisyui all css obj', async () => {
     const ctx = createContext({
       dryRun: true,
-      presets: [preset()]
+      presets: [preset()],
     })
 
     const res = await ctx.buildComponents()

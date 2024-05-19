@@ -14,34 +14,34 @@ import tab from './tab'
 
 export const components: ComponentsOptions = {
   select: {
-    disabled: true
+    disabled: true,
   },
   diff: {
-    disabled: true
+    disabled: true,
   },
   tooltip: {
-    disabled: true
+    disabled: true,
   },
   swap: {
-    disabled: true
+    disabled: true,
   },
   card: {
-    disabled: true
+    disabled: true,
   },
   timeline: {
-    disabled: true
+    disabled: true,
   },
   menu: {
-    disabled: true
+    disabled: true,
   },
   navbar: {
-    disabled: true
+    disabled: true,
   },
   rating: {
-    disabled: true
+    disabled: true,
   },
   drawer: {
-    disabled: true
+    disabled: true,
   },
   button,
   checkbox,
@@ -54,31 +54,31 @@ export const components: ComponentsOptions = {
   countdown,
   collapse,
   join,
-  tab
+  tab,
 }
 
 export const miniprogramPreset: () => Preset = () => {
   return {
     postcss: {
       atMedia: {
-        hover: false
+        hover: false,
       },
       selector: {
         universal: 'view', // ['view', 'text']
-        root: 'page'
+        root: 'page',
       },
-      pseudo: {}
+      pseudo: {},
     },
     components,
     base: {
       themes: {
         light: {
-          selector: 'page'
+          selector: 'page',
         },
         dark: {
-          selector: '.dark'
-        }
-      }
-    }
+          selector: '.dark',
+        },
+      },
+    },
   }
 }

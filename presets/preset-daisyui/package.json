@@ -1,14 +1,17 @@
 {
   "name": "@icestack/preset-daisyui",
-  "description": "The daisyui preset of @icestack/ui (WIP)",
-  "private": true,
   "version": "1.0.11",
-  "scripts": {
-    "build": "unbuild",
-    "test": "vitest run",
-    "test:dev": "vitest",
-    "release": "pnpm publish",
-    "sync": "cnpm sync @icestack/preset-daisyui"
+  "private": true,
+  "description": "The daisyui preset of @icestack/ui (WIP)",
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://ui.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack"
   },
   "keywords": [
     "daisyui",
@@ -33,10 +36,14 @@
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
+  "scripts": {
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "sync": "cnpm sync @icestack/preset-daisyui"
+  },
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "typesVersions": {
     "*": {
       "*": [
@@ -45,21 +52,9 @@
       ]
     }
   },
-  "author": "SonOfMagic <qq1324318532@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sonofmagic/icestack"
-  },
-  "homepage": "https://ui.icebreaker.top",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sonofmagic/icestack"
-  },
-  "devDependencies": {
-    "@icestack/config": "workspace:^",
-    "@icestack/ui": "workspace:^",
-    "@types/culori": "^2.1.0"
-  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@icestack/postcss-utils": "workspace:^",
     "@icestack/shared": "workspace:^",
@@ -67,5 +62,10 @@
     "culori": "^4.0.1",
     "lodash": "^4.17.21",
     "picocolors": "^1.0.1"
+  },
+  "devDependencies": {
+    "@icestack/config": "workspace:^",
+    "@icestack/ui": "workspace:^",
+    "@types/culori": "^2.1.0"
   }
 }

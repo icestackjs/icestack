@@ -1,14 +1,17 @@
 {
   "name": "@icestack/preset-unicorn",
-  "description": "The unicorn preset of @icestack/ui",
-  "private": true,
   "version": "0.0.23",
-  "scripts": {
-    "build": "unbuild",
-    "test": "vitest run",
-    "test:dev": "vitest",
-    "release": "pnpm publish",
-    "sync": "cnpm sync @icestack/preset-unicorn"
+  "private": true,
+  "description": "The unicorn preset of @icestack/ui",
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://ui.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack"
   },
   "keywords": [
     "unicorn",
@@ -33,10 +36,14 @@
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
+  "scripts": {
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "sync": "cnpm sync @icestack/preset-unicorn"
+  },
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "typesVersions": {
     "*": {
       "*": [
@@ -45,22 +52,15 @@
       ]
     }
   },
-  "author": "SonOfMagic <qq1324318532@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sonofmagic/icestack"
-  },
-  "homepage": "https://ui.icebreaker.top",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sonofmagic/icestack"
-  },
-  "devDependencies": {
-    "@icestack/ui": "workspace:^"
-  },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@icestack/postcss-utils": "workspace:^",
     "@icestack/shared": "workspace:^",
     "@icestack/types": "workspace:^"
+  },
+  "devDependencies": {
+    "@icestack/ui": "workspace:^"
   }
 }

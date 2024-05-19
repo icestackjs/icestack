@@ -1,16 +1,18 @@
 import pc from 'picocolors'
-import { oklch, interpolate, wcagContrast, Oklch } from 'culori'
+import type { Oklch } from 'culori'
+import { interpolate, oklch, wcagContrast } from 'culori'
 import colorNames from './colorNames'
 import themeDefaults from './themeDefaults'
-import { Config } from '@/types'
+import type { Config } from '@/types'
 
-const colorIsInvalid = (input: string) => {
+function colorIsInvalid(input: string) {
   console.error(`├─ ${pc.red('⚠︎')} ${pc.bgRed(' Error ')} Invalid color ${pc.red(input)} in ${pc.green('tailwind.config.js')}`)
 }
-const cutNumber = (number?: number) => {
+function cutNumber(number?: number) {
   try {
     return number ? +number.toFixed(6) : 0
-  } catch {
+  }
+  catch {
     // colorIsInvalid(number)
     return false
   }
@@ -22,38 +24,41 @@ export default {
         return true
       }
       return false
-    } catch {
+    }
+    catch {
       // colorIsInvalid(color)
       return false
     }
   },
 
-  colorObjToString: function (input: Oklch) {
+  colorObjToString(input: Oklch) {
     const { l, c, h } = input
     return `${cutNumber(l)} ${cutNumber(c)} ${cutNumber(h)}`
   },
 
-  generateForegroundColorFrom: function (input: string, percentage = 0.8) {
+  generateForegroundColorFrom(input: string, percentage = 0.8) {
     try {
       const result = interpolate([input, this.isDark(input) ? 'white' : 'black'], 'oklch')(percentage)
       return this.colorObjToString(result)
-    } catch {
+    }
+    catch {
       // colorIsInvalid(input)
       return false
     }
   },
 
-  generateDarkenColorFrom: function (input: string, percentage = 0.07) {
+  generateDarkenColorFrom(input: string, percentage = 0.07) {
     try {
       const result = interpolate([input, 'black'], 'oklch')(percentage)
       return this.colorObjToString(result)
-    } catch {
+    }
+    catch {
       // colorIsInvalid(input)
       return false
     }
   },
 
-  convertColorFormat: function (input: Record<string, string>) {
+  convertColorFormat(input: Record<string, string>) {
     if (typeof input !== 'object' || input === null) {
       return input
     }
@@ -65,11 +70,13 @@ export default {
         try {
           const colorObj = oklch(value)
           resultObj[colorNames[rule]] = this.colorObjToString(colorObj!)
-        } catch {
+        }
+        catch {
           colorIsInvalid(value)
           continue
         }
-      } else {
+      }
+      else {
         resultObj[rule] = value
       }
 
@@ -145,7 +152,7 @@ export default {
     return resultObj
   },
 
-  injectThemes: function (config: Config, themes: Record<string, Record<string, string>>) {
+  injectThemes(config: Config, themes: Record<string, Record<string, string>>) {
     const includedThemesObj: Record<string, any> = {}
     // add default themes
     const themeRoot = config.themeRoot ?? ':root'
@@ -171,13 +178,16 @@ export default {
           for (const customThemeName of Object.keys(theme)) {
             themeOrder.push(customThemeName)
           }
-        } else if (Object.hasOwn(includedThemesObj, theme)) {
+        }
+        else if (Object.hasOwn(includedThemesObj, theme)) {
           themeOrder.push(theme)
         }
       }
-    } else if (config.themes === true) {
+    }
+    else if (config.themes === true) {
       themeOrder = themeDefaults.themeOrder
-    } else {
+    }
+    else {
       themeOrder = ['light', 'dark']
     }
 
@@ -187,38 +197,42 @@ export default {
       if (index === 0) {
         // first theme as root
         themesToInject[themeRoot] = includedThemesObj[themeName]
-      } else if (index === 1) {
+      }
+      else if (index === 1) {
         // auto dark
         if (config.darkTheme) {
           // @ts-ignore
           if (themeOrder[0] !== config.darkTheme && themeOrder.includes(config.darkTheme)) {
             themesToInject['@media (prefers-color-scheme: dark)'] = {
-              [themeRoot]: includedThemesObj[`${config.darkTheme}`]
+              [themeRoot]: includedThemesObj[`${config.darkTheme}`],
             }
           }
-        } else if (config.darkTheme === false) {
+        }
+        else if (config.darkTheme === false) {
           // disables prefers-color-scheme: dark
-        } else if (themeOrder[0] !== 'dark' && themeOrder.includes('dark')) {
+        }
+        else if (themeOrder[0] !== 'dark' && themeOrder.includes('dark')) {
           themesToInject['@media (prefers-color-scheme: dark)'] = {
-            [themeRoot]: includedThemesObj.dark
+            [themeRoot]: includedThemesObj.dark,
           }
         }
         // theme 0 with name
-        themesToInject['[data-theme=' + themeOrder[0] + ']'] = includedThemesObj[themeOrder[0]]
-        themesToInject[themeRoot + ':has(input.theme-controller[value=' + themeOrder[0] + ']:checked)'] = includedThemesObj[themeOrder[0]]
+        themesToInject[`[data-theme=${themeOrder[0]}]`] = includedThemesObj[themeOrder[0]]
+        themesToInject[`${themeRoot}:has(input.theme-controller[value=${themeOrder[0]}]:checked)`] = includedThemesObj[themeOrder[0]]
         // theme 1 with name
-        themesToInject['[data-theme=' + themeOrder[1] + ']'] = includedThemesObj[themeOrder[1]]
-        themesToInject[themeRoot + ':has(input.theme-controller[value=' + themeOrder[1] + ']:checked)'] = includedThemesObj[themeOrder[1]]
-      } else {
-        themesToInject['[data-theme=' + themeName + ']'] = includedThemesObj[themeName]
-        themesToInject[themeRoot + ':has(input.theme-controller[value=' + themeName + ']:checked)'] = includedThemesObj[themeName]
+        themesToInject[`[data-theme=${themeOrder[1]}]`] = includedThemesObj[themeOrder[1]]
+        themesToInject[`${themeRoot}:has(input.theme-controller[value=${themeOrder[1]}]:checked)`] = includedThemesObj[themeOrder[1]]
+      }
+      else {
+        themesToInject[`[data-theme=${themeName}]`] = includedThemesObj[themeName]
+        themesToInject[`${themeRoot}:has(input.theme-controller[value=${themeName}]:checked)`] = includedThemesObj[themeName]
       }
     }
 
     return {
       themesToInject,
       includedThemesObj,
-      themeOrder
+      themeOrder,
     }
-  }
+  },
 }

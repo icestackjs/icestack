@@ -1,4 +1,4 @@
-import { ComponentsValue } from '@/types'
+import type { ComponentsValue } from '@/types'
 
 const options: Partial<ComponentsValue> = {
   extend: ({ selector }) => {
@@ -9,9 +9,9 @@ const options: Partial<ComponentsValue> = {
           line-height: 1em;
         }
       }
-      `
+      `,
     }
-  }
+  },
 }
 
 export default options

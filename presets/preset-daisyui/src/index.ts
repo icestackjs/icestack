@@ -13,6 +13,7 @@ import type { Config } from './types'
 // import { schemaMap } from './components'
 import { colors, general } from './base'
 import { utilities } from './utilities'
+
 const daisyui: (config?: Config) => Preset = (config = {}) => {
   const components = {} // schemaMap
   const extraCss = []
@@ -24,7 +25,7 @@ const daisyui: (config?: Config) => Preset = (config = {}) => {
   return {
     prefix: {
       prefix: config.prefix,
-      ignore: []
+      ignore: [],
     },
     base: {
       extraCss,
@@ -34,14 +35,14 @@ const daisyui: (config?: Config) => Preset = (config = {}) => {
             extraVars: Object.entries(varsObj).reduce<Record<string, any>>((acc, [name, value]) => {
               acc[trimStart(name, '-')] = value
               return acc
-            }, {})
+            }, {}),
           }
           return acc
-        }, {})
-      }
+        }, {}),
+      },
     },
     utilities: {
-      extraCss: [utilities]
+      extraCss: [utilities],
     },
     components,
     tailwindcssConfig: {
@@ -60,12 +61,12 @@ const daisyui: (config?: Config) => Preset = (config = {}) => {
             'neutral-700': '#404040',
             'neutral-800': '#262626',
             'neutral-900': '#171717',
-            'neutral-950': '#0a0a0a'
-          }
+            'neutral-950': '#0a0a0a',
+          },
           // ...utilityClasses
-        }
-      }
-    }
+        },
+      },
+    },
   }
 }
 

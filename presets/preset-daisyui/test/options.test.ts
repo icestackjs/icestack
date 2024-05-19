@@ -5,7 +5,7 @@ import preset from '@/index'
 describe('options', () => {
   it('daisyui options', () => {
     const opt = getCodegenOptions({
-      presets: [preset()]
+      presets: [preset()],
     })
     expect(opt).toMatchSnapshot()
   })

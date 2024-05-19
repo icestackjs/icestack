@@ -4,7 +4,7 @@ const components: ComponentsOptions = {}
 
 const preset: () => Preset = () => {
   return {
-    components
+    components,
   }
 }
 

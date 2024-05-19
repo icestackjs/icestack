@@ -31,7 +31,7 @@ export default {
     'winter',
     'dim',
     'nord',
-    'sunset'
+    'sunset',
   ],
   variables: {
     '--rounded-box': '1rem',
@@ -42,6 +42,6 @@ export default {
     '--btn-focus-scale': '0.95',
     '--border-btn': '1px',
     '--tab-border': '1px',
-    '--tab-radius': '0.5rem'
-  }
+    '--tab-radius': '0.5rem',
+  },
 }

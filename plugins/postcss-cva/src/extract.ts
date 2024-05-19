@@ -1,6 +1,6 @@
 import type { PluginCreator } from 'postcss'
-import { set, get } from 'lodash'
-import { objHash, defu } from '@icestack/shared'
+import { get, set } from 'lodash'
+import { defu, objHash } from '@icestack/shared'
 import type { CvaParams, CvaParamsSet } from './types'
 import { cvaSymbol, defaultParser, extractParams, getParentRule, pickComment, setAdd } from './regex'
 
@@ -16,10 +16,10 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
     process,
     prefix: _prefix,
     remove,
-    filter
+    filter,
   } = defu<ExtractOption, Partial<ExtractOption>[]>(opts, {
     filter: () => true,
-    remove: true
+    remove: true,
   })
 
   return {
@@ -30,7 +30,7 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
         variants: {},
         compoundVariants: [],
         defaultVariants: {},
-        meta: {}
+        meta: {},
       }
       const prefix = _prefix ?? ''
       const hashMap = new Map<string, CvaParamsSet['compoundVariants'][number]>()
@@ -46,8 +46,8 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
           string,
           {
             value: string
-          }
-        ][]
+          },
+        ][],
       ) {
         for (const [p1, { value: p2 }] of entries) {
           const p = `${p1}.${p2}`
@@ -55,7 +55,8 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
 
           if (arr instanceof Set) {
             setAdd(arr, value)
-          } else {
+          }
+          else {
             const st = new Set<string>()
             setAdd(st, value)
             set(result.variants, p, st)
@@ -68,8 +69,8 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
           string,
           {
             value: string
-          }
-        ][]
+          },
+        ][],
       ) {
         for (const [key, { value }] of entries) {
           set(result.defaultVariants, key, value)
@@ -82,14 +83,15 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
           string,
           {
             value: string
-          }
+          },
         ][],
-        hashCode: string
+        hashCode: string,
       ) {
         const item = hashMap.get(hashCode)
         if (item) {
           item.class && setAdd(item.class, value)
-        } else {
+        }
+        else {
           const set = new Set<string>()
           setAdd(set, value)
 
@@ -103,9 +105,9 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
                 return acc
               },
               {
-                class: set
-              }
-            )
+                class: set,
+              },
+            ),
           )
         }
       }
@@ -162,7 +164,8 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
                   }
                 }
               }
-            } else
+            }
+            else {
               switch (type) {
                 case 'defaultVariant': {
                   addDefaultVariant(entries)
@@ -170,23 +173,23 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
                   break
                 }
                 case 'base': {
-                  addBase(params.map((x) => prefix + x))
+                  addBase(params.map(x => prefix + x))
 
                   break
                 }
                 case 'variant': {
                   addVariant(
-                    params.map((x) => prefix + x),
-                    entries
+                    params.map(x => prefix + x),
+                    entries,
                   )
 
                   break
                 }
                 case 'compoundVariant': {
                   addCompoundVariant(
-                    params.map((x) => prefix + x),
+                    params.map(x => prefix + x),
                     entries,
-                    hashCode
+                    hashCode,
                   )
 
                   break
@@ -197,6 +200,7 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
                   }
                 }
               }
+            }
           }
         },
         CommentExit(comment) {
@@ -212,7 +216,7 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
             compoundVariants: result.compoundVariants.map((x) => {
               return {
                 ...x,
-                class: [...x.class]
+                class: [...x.class],
               }
             }) as CvaParams['compoundVariants'],
             defaultVariants: result.defaultVariants,
@@ -224,12 +228,12 @@ const creator: PluginCreator<Partial<ExtractOption>> = (opts) => {
               return acc
             }, {}),
             meta: result.meta,
-            file: root.source?.input.file
+            file: root.source?.input.file,
             // root
           })
-        }
+        },
       }
-    }
+    },
   }
 }
 

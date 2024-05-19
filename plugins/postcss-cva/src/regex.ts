@@ -21,47 +21,47 @@ export const defaultVariantRegex = new RegExp(/@dv/.source, 'g')
 // meta
 export const defineMetaRegex = new RegExp(/@meta/.source, 'g')
 
-const regexArray: { type: CommentType; regex: RegExp; next: boolean }[] = [
+const regexArray: { type: CommentType, regex: RegExp, next: boolean }[] = [
   {
     regex: baseRegex,
     type: 'base',
-    next: true
+    next: true,
   },
   {
     regex: variantRegex,
     type: 'variant',
-    next: true
+    next: true,
   },
   {
     regex: compoundVariantRegex,
     type: 'compoundVariant',
-    next: true
+    next: true,
   },
   {
     regex: defineBaseRegex,
     type: 'base',
-    next: false
+    next: false,
   },
   {
     regex: defineVariantRegex,
     type: 'variant',
-    next: false
+    next: false,
   },
   {
     regex: defineCompoundVariantRegex,
     type: 'compoundVariant',
-    next: false
+    next: false,
   },
   {
     regex: defaultVariantRegex,
     type: 'defaultVariant',
-    next: false
+    next: false,
   },
   {
     regex: defineMetaRegex,
     type: 'meta',
-    next: false
-  }
+    next: false,
+  },
 ]
 
 export function getSuffix(text: string) {
@@ -72,7 +72,7 @@ export function getSuffix(text: string) {
       return {
         type,
         suffix: text.slice(regex.lastIndex),
-        next
+        next,
       }
     }
   }
@@ -101,11 +101,11 @@ export function extractParams(text: string, opts?: ReturnType<typeof pickComment
     return type === 'meta' ? res : trimStart(res, '.')
   }
 
-  const paramsArray = matchAll(/\[([^\]]*)]/g, text)
+  const paramsArray = matchAll(/\[([^\]]*)\]/g, text)
   for (const x of paramsArray) {
     const arr = x[1]
       .split(',')
-      .map((x) => x.trim())
+      .map(x => x.trim())
       .filter(Boolean)
     for (const d of arr) {
       if (d[0] === '"' && d.at(-1) === '"') {
@@ -128,13 +128,13 @@ export function extractParams(text: string, opts?: ReturnType<typeof pickComment
     const key = x[1]
     const d = x[2]
     query[key] = {
-      value: handle(d)
+      value: handle(d),
     }
   }
 
   return {
     query,
-    params
+    params,
   }
 }
 
@@ -154,7 +154,8 @@ export function setAdd<T>(set: Set<T>, value: T | T[]) {
     for (const v of value) {
       set.add(v)
     }
-  } else {
+  }
+  else {
     set.add(value)
   }
 }

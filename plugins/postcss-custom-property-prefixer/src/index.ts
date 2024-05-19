@@ -1,6 +1,6 @@
-import { Declaration, PluginCreator } from 'postcss'
+import type { Declaration, PluginCreator } from 'postcss'
 import { defu } from 'defu'
-import { InternalOptions, UserDefinedOptions } from './types'
+import type { InternalOptions, UserDefinedOptions } from './types'
 import { PropResolvedMarkSymbol, ValueResolvedMarkSymbol } from './symbols'
 import { makeCustomProperty, makePrefixFunction, matchCustomPropertyFromValue, postcssPlugin } from './utils'
 
@@ -13,14 +13,14 @@ const postcssCustomPropertyPrefixer: PluginCreator<UserDefinedOptions> = (option
     transformValue,
     ignoreDecl,
     ignoreValueCustomProperty,
-    propPrefix: _propPrefix
+    propPrefix: _propPrefix,
   } = defu<InternalOptions, Partial<UserDefinedOptions>[]>(options, {
     ignoreProp: () => false,
     ignoreValue: () => false,
     ignoreValueCustomProperty: () => false,
     ignoreDecl: () => false,
     transformProp: true,
-    transformValue: true
+    transformValue: true,
   })
   const prefix = makePrefixFunction(_prefix)
   const propPrefix = _propPrefix === undefined ? prefix : makePrefixFunction(_propPrefix)
@@ -66,9 +66,9 @@ const postcssCustomPropertyPrefixer: PluginCreator<UserDefinedOptions> = (option
             decl.value = value
             addValueResolvedMark(decl)
           }
-        }
+        },
       }
-    }
+    },
   }
 }
 

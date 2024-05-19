@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import process from 'node:process'
 import type { PluginCreator } from 'postcss'
 import { defuOverrideArray } from '@icestack/shared'
 import extract from './extract'
@@ -22,8 +23,8 @@ const creator: PluginCreator<Partial<UserDefineOption>> = (opts) => {
       base: true,
       variants: true,
       compoundVariants: true,
-      defaultVariants: true
-    }
+      defaultVariants: true,
+    },
   })
   const filter = createFilter(include, exclude)
   const extractPlugin = extract({
@@ -38,7 +39,7 @@ const creator: PluginCreator<Partial<UserDefineOption>> = (opts) => {
             ...res,
             format: targetFormat,
             importFrom,
-            exports
+            exports,
           })
           const extname = path.extname(filename)
           if (isRelative) {
@@ -47,16 +48,17 @@ const creator: PluginCreator<Partial<UserDefineOption>> = (opts) => {
               ensureDir(path.dirname(filepath))
               let file = filepath
               if (!extname) {
-                file = filepath + '.' + targetFormat
+                file = `${filepath}.${targetFormat}`
               }
               fs.writeFileSync(file, code, 'utf8')
             }
-          } else {
+          }
+          else {
             const filepath = path.resolve(cwd, outdir, filename)
             ensureDir(path.dirname(filepath))
             let file = filepath
             if (!extname) {
-              file = filepath + '.' + targetFormat
+              file = `${filepath}.${targetFormat}`
             }
             fs.writeFileSync(file, code, 'utf8')
           }
@@ -64,11 +66,11 @@ const creator: PluginCreator<Partial<UserDefineOption>> = (opts) => {
       }
     },
     remove,
-    filter
+    filter,
   })
   return {
     postcssPlugin: 'postcss-cva',
-    plugins: [extractPlugin]
+    plugins: [extractPlugin],
   }
 }
 

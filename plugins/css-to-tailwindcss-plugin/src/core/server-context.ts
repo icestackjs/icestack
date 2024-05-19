@@ -5,10 +5,10 @@ import path from 'node:path'
 import type { AcceptedPlugin } from 'postcss'
 import postcss from 'postcss'
 import atImport from 'postcss-import'
-import { extractLayerPlugin, markLayerPlugin, atRulesRenamePlugin } from './extract-layer'
-import { isExtSassFile, sassCompile, sassCompileSync, sassCompileString } from './sass'
+import { atRulesRenamePlugin, extractLayerPlugin, markLayerPlugin } from './extract-layer'
+import { isExtSassFile, sassCompile, sassCompileString, sassCompileSync } from './sass'
 import { BaseContext } from './base-context'
-import { IProcessOptions } from '@/types'
+import type { IProcessOptions } from '@/types'
 import { getOptions } from '@/options'
 
 export function createContext(opts?: IProcessOptions) {
@@ -57,25 +57,27 @@ export function createContext(opts?: IProcessOptions) {
       const extname = path.extname(entry)
 
       // for more langs support
-      // eslint-disable-next-line unicorn/prefer-ternary
+
       if (isExtSassFile(extname)) {
         // eslint-disable-next-line no-useless-catch
         try {
           css = await sassCompile(entry, sassOptions)
-        } catch (error) {
+        }
+        catch (error) {
           throw error
           // new Error(`file: ${path} is skipped. please confirm you have installed \`sass\`!`)
           // console.log(`file: ${path} is skipped. please confirm you have installed \`sass\`!`)
           // return
         }
-      } else {
+      }
+      else {
         css = await fs.readFile(entry, 'utf8')
         atImportOptions.root = path.dirname(entry)
         plugins.unshift(atImport(atImportOptions))
       }
       const res = await postcss(plugins)
         .process(css, {
-          from: undefined
+          from: undefined,
         })
         .async()
       return res
@@ -90,16 +92,18 @@ export function createContext(opts?: IProcessOptions) {
       const extname = path.extname(entry)
 
       // for more langs support
-      // eslint-disable-next-line unicorn/prefer-ternary
+
       if (isExtSassFile(extname)) {
         // eslint-disable-next-line no-useless-catch
         try {
           css = sassCompileSync(entry, sassOptions)
-        } catch (error) {
+        }
+        catch (error) {
           throw error
           // throw new Error(`file: ${path} is skipped. please confirm you have installed \`sass\`!`)
         }
-      } else {
+      }
+      else {
         css = fss.readFileSync(entry, 'utf8')
         // atImportOptions.root = path.dirname(entry)
         // plugins.unshift(atImport(atImportOptions))
@@ -118,15 +122,15 @@ export function createContext(opts?: IProcessOptions) {
       // for more langs support
       const res = await postcss(plugins)
         .process(css, {
-          from: undefined
+          from: undefined,
         })
         .async()
       return res
     },
-    generate: function () {
+    generate() {
       const { generatorOptions } = options
       return ctx.generator.generate(ctx, generatorOptions)
-    }
+    },
   }
 }
 

@@ -1,4 +1,4 @@
-import { resolve, posix, isAbsolute } from 'node:path'
+import { isAbsolute, posix, resolve } from 'node:path'
 
 import pm from 'picomatch'
 
@@ -36,24 +36,32 @@ const createFilter = function createFilter(include?: FilterPattern, exclude?: Fi
             const result = fn(what)
 
             return result
-          }
+          },
         }
 
-  const includeMatchers = ensureArray(include).map((element) => getMatcher(element))
-  const excludeMatchers = ensureArray(exclude).map((element) => getMatcher(element))
+  const includeMatchers = ensureArray(include).map(element => getMatcher(element))
+  const excludeMatchers = ensureArray(exclude).map(element => getMatcher(element))
 
   return function result(id: string | unknown): boolean {
-    if (typeof id !== 'string') return false
-    if (/\0/.test(id)) return false
+    if (typeof id !== 'string') {
+      return false
+    }
+    if (/\0/.test(id)) {
+      return false
+    }
 
     const pathId = normalizePath(id)
 
     for (const matcher of excludeMatchers) {
-      if (matcher.test(pathId)) return false
+      if (matcher.test(pathId)) {
+        return false
+      }
     }
 
     for (const matcher of includeMatchers) {
-      if (matcher.test(pathId)) return true
+      if (matcher.test(pathId)) {
+        return true
+      }
     }
 
     return includeMatchers.length === 0

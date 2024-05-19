@@ -3,40 +3,40 @@ import postcss from 'postcss'
 import tailwindcss from 'tailwindcss'
 
 import type { Config } from 'tailwindcss'
-import { PluginAPI, PluginCreator } from 'tailwindcss/types/config'
+import type { PluginAPI, PluginCreator } from 'tailwindcss/types/config'
 import type { Mock } from 'vitest'
 import { composePlugins } from '@/index'
 // https://github.com/tailwindlabs/tailwindcss/blob/5542340a75d23396b7c9dca462e2958728415b2d/src/util/resolveConfig.js#L89
 export function getCss(config: string | Config) {
   return postcss([
     tailwindcss({
-      config
-    })
+      config,
+    }),
   ])
     .process('@tailwind base;@tailwind components;@tailwind utilities;')
     .async()
 }
 
 const utilitiesPlugin = plugin(
-  function ({ addUtilities, matchUtilities, theme }) {
+  ({ addUtilities, matchUtilities, theme }) => {
     addUtilities({
       '.content-auto': {
-        'content-visibility': 'auto'
+        'content-visibility': 'auto',
       },
       '.content-hidden': {
-        'content-visibility': 'hidden'
+        'content-visibility': 'hidden',
       },
       '.content-visible': {
-        'content-visibility': 'visible'
-      }
+        'content-visibility': 'visible',
+      },
     })
     matchUtilities(
       {
-        tab: (value) => ({
-          tabSize: value
-        })
+        tab: value => ({
+          tabSize: value,
+        }),
       },
-      { values: theme('tabSize') }
+      { values: theme('tabSize') },
     )
   },
   {
@@ -45,46 +45,46 @@ const utilitiesPlugin = plugin(
         1: '1',
         2: '2',
         4: '4',
-        8: '8'
-      }
-    }
-  }
+        8: '8',
+      },
+    },
+  },
 )
 
-const componentsPlugin = plugin(function ({ addComponents }) {
+const componentsPlugin = plugin(({ addComponents }) => {
   addComponents({
     '.btn': {
       padding: '.5rem 1rem',
       borderRadius: '.25rem',
-      fontWeight: '600'
+      fontWeight: '600',
     },
     '.btn-blue': {
-      backgroundColor: '#3490dc',
-      color: '#fff',
+      'backgroundColor': '#3490dc',
+      'color': '#fff',
       '&:hover': {
-        backgroundColor: '#2779bd'
-      }
+        backgroundColor: '#2779bd',
+      },
     },
     '.btn-red': {
-      backgroundColor: '#e3342f',
-      color: '#fff',
+      'backgroundColor': '#e3342f',
+      'color': '#fff',
       '&:hover': {
-        backgroundColor: '#cc1f1a'
-      }
-    }
+        backgroundColor: '#cc1f1a',
+      },
+    },
   })
 })
 
-const basePlugin = plugin(function ({ addBase, theme }) {
+const basePlugin = plugin(({ addBase, theme }) => {
   addBase({
     h1: { fontSize: theme('fontSize.2xl') },
     h2: { fontSize: theme('fontSize.xl') },
-    h3: { fontSize: theme('fontSize.lg') }
+    h3: { fontSize: theme('fontSize.lg') },
   })
 })
 
 const variants = plugin(
-  function ({ addVariant, matchVariant }) {
+  ({ addVariant, matchVariant }) => {
     addVariant('optional', '&:optional')
     addVariant('hocus', ['&:hover', '&:focus'])
     addVariant('inverted-colors', '@media (inverted-colors: inverted)')
@@ -98,9 +98,9 @@ const variants = plugin(
         values: {
           1: '1',
           2: '2',
-          3: '3'
-        }
-      }
+          3: '3',
+        },
+      },
     )
   },
   {
@@ -109,34 +109,34 @@ const variants = plugin(
         1: '1',
         2: '2',
         4: '4',
-        8: '8'
-      }
-    }
-  }
+        8: '8',
+      },
+    },
+  },
 )
 
 const withOptionsPlugin = plugin.withOptions(
-  function () {
+  () => {
     return function ({ addComponents }) {
       addComponents({
         '.aaa': {
-          color: 'red'
+          color: 'red',
           // ...
-        }
+        },
       })
     }
   },
-  function () {
+  () => {
     return {
       theme: {
         extend: {
           colors: {
-            primary: 'rgba(var(--color-primary), <alpha-value>)'
-          }
-        }
-      }
+            primary: 'rgba(var(--color-primary), <alpha-value>)',
+          },
+        },
+      },
     }
-  }
+  },
 )
 
 const throwErrorPlugin = plugin(() => {
@@ -146,8 +146,8 @@ const throwErrorPlugin = plugin(() => {
 const rawPlugin: PluginCreator = ({ addUtilities }) => {
   addUtilities({
     '.content-auto': {
-      'content-visibility': 'auto'
-    }
+      'content-visibility': 'auto',
+    },
   })
 }
 
@@ -169,18 +169,19 @@ describe('index', () => {
       // @ts-ignore
       theme: vi.fn(),
       // @ts-ignore
-      matchVariant: vi.fn()
+      matchVariant: vi.fn(),
     }
   })
   it('normal register plugins', () => {
     const allPlugins = [utilitiesPlugin, componentsPlugin, basePlugin, variants, withOptionsPlugin({})]
-    for (const x of allPlugins) x.handler(api)
+    for (const x of allPlugins) { x.handler(api) }
     for (const [key, fn] of Object.entries(api)) {
       const mockFn = fn as Mock<any, any>
       const called = mockFn.mock.calls.length > 0
       if (['addBase', 'addComponents', 'addUtilities', 'addVariant', 'matchUtilities', 'theme', 'matchVariant'].includes(key)) {
         expect(called).toBe(true)
-      } else {
+      }
+      else {
         // console.log(key)
         expect(called).toBe(false)
       }
@@ -195,7 +196,8 @@ describe('index', () => {
       const called = mockFn.mock.calls.length > 0
       if (['addBase', 'addComponents', 'addUtilities', 'addVariant', 'matchUtilities', 'theme', 'matchVariant'].includes(key)) {
         expect(called).toBe(true)
-      } else {
+      }
+      else {
         // console.log(key)
         expect(called).toBe(false)
       }
@@ -209,7 +211,8 @@ describe('index', () => {
       const called = mockFn.mock.calls.length > 0
       if (['addBase', 'addComponents', 'addUtilities', 'addVariant', 'matchUtilities', 'theme', 'matchVariant'].includes(key)) {
         expect(called).toBe(true)
-      } else {
+      }
+      else {
         // console.log(key)
         expect(called).toBe(false)
       }
@@ -223,7 +226,8 @@ describe('index', () => {
       const called = mockFn.mock.calls.length > 0
       if (['addBase', 'addComponents', 'addUtilities', 'addVariant', 'matchUtilities', 'theme', 'matchVariant'].includes(key)) {
         expect(called).toBe(true)
-      } else {
+      }
+      else {
         // console.log(key)
         expect(called).toBe(false)
       }
@@ -252,31 +256,31 @@ describe('index', () => {
     <div class="@lg:text-sky-400">
       <!-- ... -->
     </div>
-  </div>`
+  </div>`,
     ].join('\n')
     const { css } = await getCss({
       content: [
         {
-          raw
-        }
+          raw,
+        },
       ],
       plugins: [require('@tailwindcss/typography'), require('@tailwindcss/forms'), require('@tailwindcss/aspect-ratio'), require('@tailwindcss/container-queries')],
       corePlugins: {
-        preflight: false
-      }
+        preflight: false,
+      },
     })
     expect(css).matchSnapshot()
 
     const { css: _css } = await getCss({
       content: [
         {
-          raw
-        }
+          raw,
+        },
       ],
       plugins: [composePlugins(require('@tailwindcss/typography'), require('@tailwindcss/forms'), require('@tailwindcss/aspect-ratio'), require('@tailwindcss/container-queries'))],
       corePlugins: {
-        preflight: false
-      }
+        preflight: false,
+      },
     })
     expect(css).toBe(_css)
   })
@@ -286,12 +290,12 @@ describe('index', () => {
     const { css } = await getCss({
       content: [
         {
-          raw
-        }
+          raw,
+        },
       ],
       corePlugins: {
-        preflight: false
-      }
+        preflight: false,
+      },
     })
     expect(css).not.toContain('ice-card')
     expect(css).not.toContain('ice-flex')
@@ -300,12 +304,12 @@ describe('index', () => {
       prefix: 'ice-',
       content: [
         {
-          raw
-        }
+          raw,
+        },
       ],
       corePlugins: {
-        preflight: false
-      }
+        preflight: false,
+      },
     })
     expect(css0).not.toContain('ice-card')
     expect(css0).toContain('ice-flex')
@@ -314,23 +318,23 @@ describe('index', () => {
       prefix: 'ice-',
       content: [
         {
-          raw
-        }
+          raw,
+        },
       ],
       corePlugins: {
-        preflight: false
+        preflight: false,
       },
       plugins: [
         plugin(({ addComponents }) => {
           addComponents([
             {
               '.card': {
-                padding: '100px'
-              }
-            }
+                padding: '100px',
+              },
+            },
           ])
-        })
-      ]
+        }),
+      ],
     })
     expect(css1).toContain('ice-card')
     expect(css1).toContain('ice-flex')
@@ -339,23 +343,23 @@ describe('index', () => {
       prefix: 'ice-',
       content: [
         {
-          raw: raw + ' ice-tw-card'
-        }
+          raw: `${raw} ice-tw-card`,
+        },
       ],
       corePlugins: {
-        preflight: false
+        preflight: false,
       },
       plugins: [
         plugin(({ addComponents }) => {
           addComponents([
             {
               '.tw-card': {
-                padding: '100px'
-              }
-            }
+                padding: '100px',
+              },
+            },
           ])
-        })
-      ]
+        }),
+      ],
     })
     expect(css2).not.toContain('ice-card')
     expect(css2).toContain('ice-tw-card')

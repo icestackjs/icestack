@@ -1,4 +1,4 @@
-import { PrefixFunction, UserDefinedOptions } from './types'
+import type { PrefixFunction, UserDefinedOptions } from './types'
 
 export function matchCustomPropertyFromValue(str: string, cb: (arr: RegExpExecArray, index: number) => void) {
   let arr: RegExpExecArray | null

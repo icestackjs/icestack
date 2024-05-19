@@ -5,7 +5,8 @@ import type { GeneratorOptions } from '@babel/generator'
 import type { AcceptedPlugin, Root } from 'postcss'
 import type { CSSRuleObject } from 'tailwindcss/types/config'
 import type { BaseContext } from './core/base-context'
-import { LayerEnumType } from './constants'
+import type { LayerEnumType } from './constants'
+
 export interface IProcessOptions {
   tailwindcssResolved?: boolean
 
@@ -13,8 +14,8 @@ export interface IProcessOptions {
     | string
     | Config
     | {
-        config: string | Config
-      }
+      config: string | Config
+    }
     | undefined
   sassOptions?: Options<'sync'>
 

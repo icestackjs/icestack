@@ -1,4 +1,4 @@
-import type { PluginsConfig, Config } from 'tailwindcss/types/config'
+import type { Config, PluginsConfig } from 'tailwindcss/types/config'
 import plugin from 'tailwindcss/plugin'
 import merge from 'merge'
 
@@ -29,7 +29,8 @@ export function composePlugins(...plugins: PluginsConfig | PluginsConfig[]): Ret
           for (const p of userPlugins) {
             p(api)
           }
-        } catch (error) {
+        }
+        catch (error) {
           console.log('[compose-tailwindcss-plugins]', error)
         }
       }
@@ -37,6 +38,6 @@ export function composePlugins(...plugins: PluginsConfig | PluginsConfig[]): Ret
     () => {
       const config = merge.recursive(true, ...allConfigs)
       return config
-    }
+    },
   )
 }

@@ -18,7 +18,7 @@ export const babelGenerate = _interopDefaultCompat(_babelGenerate) as typeof _ba
 //  'addVariant'
 const expandAST = ['addBase', 'addComponents', 'addUtilities', 'theme'].map((x) => {
   // key : value
-  return t.objectProperty(t.identifier(x), t.identifier('_' + x))
+  return t.objectProperty(t.identifier(x), t.identifier(`_${x}`))
 })
 
 function expandAPI() {
@@ -29,7 +29,7 @@ export function unwrapThemeFunctionArg(str: string) {
   if (str) {
     const start = str[0]
     const last = str.at(-1)
-    if ((start === '"' && last === '"') || (start === "'" && last === "'")) {
+    if ((start === '"' && last === '"') || (start === '\'' && last === '\'')) {
       return str.slice(1, -1)
     }
   }
@@ -71,14 +71,15 @@ export function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
           const prop = ccur.prop
           // https://tailwindcss.com/docs/adding-custom-styles#adding-component-classes
           // https://tailwindcss.com/docs/functions-and-directives#theme
-          const arr = [...v.matchAll(/theme\(([^()]+?)\)/g)]
+          const arr = [...v.matchAll(/theme\(([^()]+)\)/g)]
           if (arr.length > 0) {
             // if (arr.length === 1) {
             const first = arr[0]
             if (first[0] === v) {
               const ccc = t.callExpression(t.identifier('_theme'), [t.stringLiteral(unwrapThemeFunctionArg(first[1]))])
               cacc[prop] = important ? t.binaryExpression('+', ccc, t.stringLiteral(' !important')) : ccc
-            } else {
+            }
+            else {
               let p = 0
               const quasis: t.TemplateElement[] = []
               const expressions: (t.Expression | t.TSType)[] = []
@@ -98,7 +99,8 @@ export function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
               }
               cacc[prop] = t.templateLiteral(quasis, expressions)
             }
-          } else {
+          }
+          else {
             cacc[prop] = t.stringLiteral(addSuffix(v, important))
           }
         }
@@ -110,9 +112,10 @@ export function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
         acc[key].push(
           ...Object.entries(value).map(([prop, value]) => {
             return makeObjectProperty(prop, value)
-          })
+          }),
         )
-      } else {
+      }
+      else {
         acc[key] = Object.entries(value).map(([prop, value]) => {
           return makeObjectProperty(prop, value)
         })
@@ -132,9 +135,9 @@ export function makeObjectExpression(nodes: Node[]): t.ObjectProperty[] {
               acc[cur.key.value] = cur
             }
             return acc
-          }, {})
-        )
-      )
+          }, {}),
+        ),
+      ),
     )
   })
 }
@@ -146,7 +149,7 @@ function getVarName(layer: LayerEnumType) {
 const pluginNameMap: Record<LayerEnumType, string> = {
   base: '_addBase',
   components: '_addComponents',
-  utilities: '_addUtilities'
+  utilities: '_addUtilities',
 }
 
 function getFnName(key: LayerEnumType) {
@@ -170,7 +173,7 @@ export function createGenerator() {
   const withOptionsParamsId = '_options'
   const traverseMethodName = 'withOptionsWalkCSSRuleObject'
   const requireStatement = t.variableDeclaration('const', [
-    t.variableDeclarator(t.identifier(callFnId), t.callExpression(t.identifier('require'), [t.stringLiteral('tailwindcss/plugin')]))
+    t.variableDeclarator(t.identifier(callFnId), t.callExpression(t.identifier('require'), [t.stringLiteral('tailwindcss/plugin')])),
   ])
   const exportsStatement = t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('module'), t.identifier('exports')), t.identifier(pluginName)))
 
@@ -181,27 +184,27 @@ export function createGenerator() {
       t.variableDeclaration('const', [
         t.variableDeclarator(
           t.identifier(varName),
-          t.callExpression(t.identifier(traverseMethodName), [t.objectExpression(makeObjectExpression(ctx.getNodes(key))), t.stringLiteral(key)])
-        )
+          t.callExpression(t.identifier(traverseMethodName), [t.objectExpression(makeObjectExpression(ctx.getNodes(key))), t.stringLiteral(key)]),
+        ),
       ]),
-      t.expressionStatement(t.callExpression(t.identifier(fnName), [t.identifier(varName)]))
+      t.expressionStatement(t.callExpression(t.identifier(fnName), [t.identifier(varName)])),
     ]
   }
   function generate(ctx: BaseContext, opt?: GeneratorOptions) {
     function getPluginBody() {
       const statements = ctx.options?.withOptions
         ? layerNodesKeys.flatMap((layer) => {
-            return getLatestStatement(layer, ctx)
-          })
+          return getLatestStatement(layer, ctx)
+        })
         : layerNodesKeys.map((layer) => {
-            return getLegacyStatement(layer, ctx)
-          })
+          return getLegacyStatement(layer, ctx)
+        })
 
       const innerPluginAst = t.functionExpression(
         null,
         [t.objectPattern(expandAPI())],
 
-        t.blockStatement(statements)
+        t.blockStatement(statements),
       )
       if (ctx.options?.withOptions) {
         return t.callExpression(t.memberExpression(t.identifier(callFnId), t.identifier('withOptions')), [
@@ -213,27 +216,27 @@ export function createGenerator() {
               t.variableDeclaration('const', [
                 t.variableDeclarator(
                   t.objectPattern([
-                    t.objectProperty(t.identifier(traverseMethodName), t.assignmentPattern(t.identifier(traverseMethodName), t.identifier(declReturnSelfArrowFnName)))
+                    t.objectProperty(t.identifier(traverseMethodName), t.assignmentPattern(t.identifier(traverseMethodName), t.identifier(declReturnSelfArrowFnName))),
                   ]),
-                  t.identifier(withOptionsParamsId)
-                )
+                  t.identifier(withOptionsParamsId),
+                ),
               ]),
-              t.returnStatement(innerPluginAst)
-            ])
+              t.returnStatement(innerPluginAst),
+            ]),
           ),
-          t.functionExpression(null, [t.identifier(withOptionsParamsId)], t.blockStatement([t.returnStatement(t.objectExpression([]))]))
+          t.functionExpression(null, [t.identifier(withOptionsParamsId)], t.blockStatement([t.returnStatement(t.objectExpression([]))])),
         ])
       }
       return t.callExpression(t.identifier(callFnId), [innerPluginAst])
     }
 
     const ast = t.file(
-      t.program([requireStatement, declReturnSelfArrowFnAst, t.variableDeclaration('const', [t.variableDeclarator(t.identifier(pluginName), getPluginBody())]), exportsStatement])
+      t.program([requireStatement, declReturnSelfArrowFnAst, t.variableDeclaration('const', [t.variableDeclarator(t.identifier(pluginName), getPluginBody())]), exportsStatement]),
     )
     const res = babelGenerate(ast, opt)
     return res.code
   }
   return {
-    generate
+    generate,
   }
 }

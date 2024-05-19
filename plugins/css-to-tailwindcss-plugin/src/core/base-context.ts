@@ -1,7 +1,7 @@
 import type { Node } from 'postcss'
 import { createGenerator } from './generator'
-import { TailwindcssPluginOptions } from '@/types'
-import { LayerEnumType } from '@/constants'
+import type { TailwindcssPluginOptions } from '@/types'
+import type { LayerEnumType } from '@/constants'
 // import { TailwindcssPluginOptions } from '@/types'
 
 export class BaseContext {
@@ -30,7 +30,8 @@ export class BaseContext {
     const arr = this.getNodes(key)
     if (Array.isArray(nodes)) {
       arr.push(...nodes)
-    } else {
+    }
+    else {
       arr.push(nodes)
     }
   }

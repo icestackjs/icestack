@@ -1,5 +1,6 @@
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
+import process from 'node:process'
 import defu from 'defu'
 import type { IProcessOptions, TailwindcssPluginOptions } from './types'
 
@@ -19,16 +20,16 @@ export function getDefaults(): IProcessOptions & { cacheDir?: string } {
           findFileUrl(url) {
             const twUrl = pathToFileURL(path.resolve(nodeModulesPath, url))
             return new URL(twUrl)
-          }
-        }
-      ]
+          },
+        },
+      ],
     },
     tailwindcssResolved: false,
     withOptions: true,
     withOptionsWalkCSSRuleObject(obj) {
       return obj
     },
-    cacheDir: getDefaultCacheDir()
+    cacheDir: getDefaultCacheDir(),
   }
 }
 

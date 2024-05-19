@@ -1,7 +1,9 @@
-import { type PluginCreator } from 'postcss'
+import type { PluginCreator } from 'postcss'
 import type { BaseContext } from './base-context'
 
-import { LayerEnumType, layerNodesKeys, markedLayerKey } from '@/constants'
+import type { LayerEnumType } from '@/constants'
+import { layerNodesKeys, markedLayerKey } from '@/constants'
+
 export interface SharedOptions {
   ctx: BaseContext
 }
@@ -15,7 +17,7 @@ export const atRulesRenamePlugin: PluginCreator<SharedOptions> = () => {
       root.walkAtRules('layer', (rule) => {
         rule.name = atRulesNameFilter
       })
-    }
+    },
   }
 }
 
@@ -29,13 +31,17 @@ export const markLayerPlugin: PluginCreator<SharedOptions> = (options) => {
       root.walkAtRules(atRulesNameFilter, (rule) => {
         if (layerNodesKeys.includes(rule.params as LayerEnumType)) {
           const layerName = rule.params
-          for (const node of rule.nodes) {
-            Object.defineProperty(node, markedLayerKey, {
-              value: layerName,
-              enumerable: false,
-              configurable: true
-            })
+
+          if (Array.isArray(rule.nodes)) {
+            for (const node of rule.nodes) {
+              Object.defineProperty(node, markedLayerKey, {
+                value: layerName,
+                enumerable: false,
+                configurable: true,
+              })
+            }
           }
+
           // may be process by tailwindcss
           rule.parent?.insertBefore(rule, rule.nodes)
 
@@ -51,12 +57,12 @@ export const markLayerPlugin: PluginCreator<SharedOptions> = (options) => {
             Object.defineProperty(rule, markedLayerKey, {
               value: ctx.options?.outSideLayerCss,
               enumerable: false,
-              configurable: true
+              configurable: true,
             })
           }
         })
       }
-    }
+    },
   }
 }
 
@@ -76,11 +82,12 @@ export const extractLayerPlugin: PluginCreator<SharedOptions> = (options) => {
         }
       })
 
-      if (ctx.options?.interceptors?.css)
+      if (ctx.options?.interceptors?.css) {
         for (const fn of ctx.options.interceptors.css) {
           fn(root, ctx)
         }
-    }
+      }
+    },
   }
 }
 

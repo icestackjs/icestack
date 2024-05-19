@@ -1,11 +1,12 @@
 import path from 'node:path'
 import fs from 'node:fs'
+import process from 'node:process'
 import md5 from 'md5'
 // import type { Config } from 'tailwindcss'
 import type { PluginsConfig } from 'tailwindcss/types/config'
 import { composePlugins } from 'compose-tailwindcss-plugins'
 import { createContext } from './core'
-import { IProcessOptions, TailwindcssPluginOptions } from './types'
+import type { IProcessOptions, TailwindcssPluginOptions } from './types'
 import { ensureDir } from './utils'
 import { version } from './constants'
 import { getOptions } from './options'
@@ -47,7 +48,8 @@ export default (opts: TailwindcssPluginOptions) => {
     if (fs.existsSync(indexFilePath)) {
       try {
         hashMap = JSON.parse(fs.readFileSync(indexFilePath, 'utf8'))
-      } catch {
+      }
+      catch {
         console.log(`parse json: ${indexFilePath} failed!`)
       }
     }
@@ -73,7 +75,7 @@ export default (opts: TailwindcssPluginOptions) => {
     // as key
     const fileHash = md5(entry)
     const cssHash = md5(fs.readFileSync(entry))
-    const p = path.resolve(cacheDir, fileHash) + '.js'
+    const p = `${path.resolve(cacheDir, fileHash)}.js`
     // plugin existed
     if (isSameVersion && fs.existsSync(p)) {
       // css entry content changed
@@ -81,7 +83,8 @@ export default (opts: TailwindcssPluginOptions) => {
         generateTempPlugin(entry, p, options)
         hashMap[fileHash] = cssHash
       }
-    } else {
+    }
+    else {
       // css entry content add
       generateTempPlugin(entry, p, options)
       hashMap[fileHash] = cssHash

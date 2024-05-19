@@ -1,5 +1,7 @@
 import path from 'node:path'
 import fs from 'node:fs'
+import process from 'node:process'
+
 export function resolvePath(p: string, cwd: string = process.cwd()) {
   return path.isAbsolute(p) ? p : path.resolve(cwd, p)
 }
@@ -10,7 +12,8 @@ export function ensureDir(dir: string) {
     if (!stat.isDirectory()) {
       fs.mkdirSync(dir)
     }
-  } else {
+  }
+  else {
     fs.mkdirSync(dir)
   }
 }

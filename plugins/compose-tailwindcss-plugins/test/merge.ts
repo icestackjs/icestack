@@ -1,4 +1,4 @@
-import { Config } from 'tailwindcss/types/config'
+import type { Config } from 'tailwindcss/types/config'
 
 /* eslint-disable no-prototype-builtins */
 export function mergeThemes(themes: Partial<Config>[]) {
@@ -7,7 +7,7 @@ export function mergeThemes(themes: Partial<Config>[]) {
 
     // In order to resolve n config objects, we combine all of their `extend` properties
     // into arrays instead of objects so they aren't overridden.
-    extend: collectExtends(themes)
+    extend: collectExtends(themes),
   }
 }
 
@@ -36,7 +36,8 @@ function mergeWith(target: any, ...sources: any[]) {
 
       if (merged === undefined) {
         target[k] = isPlainObject(target[k]) && isPlainObject(source[k]) ? mergeWith({}, target[k], source[k], customizer) : source[k]
-      } else {
+      }
+      else {
         target[k] = merged
       }
     }

@@ -1,7 +1,7 @@
 import type { AcceptedPlugin } from 'postcss'
 import postcss from 'postcss'
 import defu from 'defu'
-import { extractLayerPlugin, markLayerPlugin, atRulesRenamePlugin } from './extract-layer'
+import { atRulesRenamePlugin, extractLayerPlugin, markLayerPlugin } from './extract-layer'
 import { BaseContext } from './base-context'
 import type { IProcessOptions, TailwindcssPluginOptions } from '@/types'
 
@@ -12,7 +12,7 @@ export function getDefaults(): IProcessOptions & { cacheDir?: string } {
     withOptions: true,
     withOptionsWalkCSSRuleObject(obj) {
       return obj
-    }
+    },
   }
 }
 
@@ -46,14 +46,14 @@ export function createContext(opts?: IProcessOptions) {
       // const css = await sassCompileString(rawCss, sassOptions)
       // for more langs support
       const res = await postcss(plugins).process(rawCss, {
-        from: undefined
+        from: undefined,
       })
       return res
     },
-    generate: function () {
+    generate() {
       const { generatorOptions } = options
       return ctx.generator.generate(ctx, generatorOptions)
-    }
+    },
   }
 }
 

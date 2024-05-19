@@ -34,7 +34,7 @@
   ],
   "dependencies": {
     "@ant-design/colors": "^7.0.2",
-    "@ctrl/tinycolor": "^4.0.3"
+    "@ctrl/tinycolor": "^4.1.0"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",

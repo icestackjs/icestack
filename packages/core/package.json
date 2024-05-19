@@ -55,7 +55,7 @@
     "@icestack/types": "workspace:^",
     "kleur": "^4.1.5",
     "lodash": "^4.17.21",
-    "lru-cache": "^10.2.0"
+    "lru-cache": "^10.2.2"
   },
   "author": "SonOfMagic <qq1324318532@gmail.com>",
   "license": "MIT",

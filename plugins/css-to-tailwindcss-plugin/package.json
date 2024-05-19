@@ -74,8 +74,8 @@
     "url": "https://github.com/sonofmagic/icestack"
   },
   "dependencies": {
-    "@babel/generator": "^7.24.4",
-    "@babel/types": "^7.24.0",
+    "@babel/generator": "^7.24.5",
+    "@babel/types": "^7.24.5",
     "cac": "^6.7.14",
     "compose-tailwindcss-plugins": "workspace:^",
     "md5": "^2.3.0",
@@ -83,7 +83,7 @@
     "postcss-import": "^16.1.0"
   },
   "devDependencies": {
-    "@babel/standalone": "^7.24.4",
+    "@babel/standalone": "^7.24.5",
     "@types/babel__generator": "^7.6.8",
     "@types/babel__standalone": "^7.1.7",
     "@types/md5": "^2.3.5",
@@ -92,7 +92,7 @@
     "c12": "^1.10.0",
     "del": "^7.1.0",
     "object-hash": "^3.0.0",
-    "sass": "^1.74.1",
+    "sass": "^1.77.2",
     "tailwindcss": "^3.4.3"
   }
 }

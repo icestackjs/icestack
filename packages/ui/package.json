@@ -94,7 +94,7 @@
     "@icestack/types": "workspace:^"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.0"
+    "@types/lodash": "^4.17.4"
   },
   "publishConfig": {
     "access": "public",

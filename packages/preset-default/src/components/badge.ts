@@ -1,4 +1,5 @@
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
@@ -79,11 +80,11 @@ const schema: GetCssSchemaMethod = (opts) => {
             padding-right: 0.688rem;
           }
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

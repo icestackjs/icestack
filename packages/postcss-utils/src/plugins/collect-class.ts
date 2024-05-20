@@ -1,6 +1,7 @@
 import type { PluginCreator } from 'postcss'
 import parser from 'postcss-selector-parser'
 import { defu } from '@icestack/shared'
+
 const defaultParser = parser()
 
 const creator: PluginCreator<{
@@ -17,7 +18,7 @@ const creator: PluginCreator<{
     },
     RootExit() {
       process?.([...result])
-    }
+    },
   }
 }
 

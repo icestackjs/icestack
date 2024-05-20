@@ -33,7 +33,7 @@ type defuArrayRight<T> = (...args: T[]) => T
 
 export { defuOverrideArray, defuOptions, defuArrayRight }
 
-export function expandTypes(types: string[], fn: (typeName: string) => { key: string; value: object }) {
+export function expandTypes(types: string[], fn: (typeName: string) => { key: string, value: object }) {
   return types.reduce<Record<string, object>>((acc, cur) => {
     const { key, value } = fn(cur)
     acc[key] = value
@@ -71,7 +71,8 @@ export function groupBy<T>(arr: T[], cb: (arg: T) => string): Record<string, T[]
 
     if (Array.isArray(bucket)) {
       result[bucketCategory].push(item)
-    } else {
+    }
+    else {
       result[bucketCategory] = [item]
     }
   }
@@ -84,8 +85,8 @@ export function JSONStringify(value: any) {
 }
 
 export function arrMatch(matchArr?: (string | RegExp)[], str?: string) {
-  if (!Array.isArray(matchArr)) return
-  if (typeof str !== 'string') return
+  if (!Array.isArray(matchArr)) { return }
+  if (typeof str !== 'string') { return }
   return matchArr.some((regex) => {
     if (typeof regex === 'string') {
       return str.includes(regex)
@@ -112,7 +113,8 @@ export function touch(filename: string) {
 
   try {
     fs.utimesSync(filename, time, time)
-  } catch {
+  }
+  catch {
     fs.closeSync(fs.openSync(filename, 'w'))
   }
 }

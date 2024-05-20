@@ -1,4 +1,5 @@
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
@@ -63,11 +64,11 @@ const schema: GetCssSchemaMethod = (opts) => {
             @apply px-6 py-4 text-lg leading-loose;
           }
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

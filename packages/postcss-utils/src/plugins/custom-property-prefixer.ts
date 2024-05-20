@@ -2,8 +2,12 @@ import creator from 'postcss-custom-property-prefixer'
 import type { VarPrefixerOptions } from '@icestack/types'
 
 export function arrMatch(matchArr?: (string | RegExp)[], str?: string) {
-  if (!Array.isArray(matchArr)) return
-  if (typeof str !== 'string') return
+  if (!Array.isArray(matchArr)) {
+    return
+  }
+  if (typeof str !== 'string') {
+    return
+  }
   return matchArr.some((regex) => {
     if (typeof regex === 'string') {
       return str.includes(regex)
@@ -23,9 +27,10 @@ export function getPlugin(options?: string | false | VarPrefixerOptions) {
         },
         ignoreValueCustomProperty(customProperty) {
           return customProperty.startsWith('--tw-')
-        }
+        },
       })
-    } else {
+    }
+    else {
       const { varPrefix, ignoreProp: ignorePropArr, ignoreValueCustomProperty: ignoreValueCustomPropertyArr } = options
       if (varPrefix) {
         return creator({
@@ -41,7 +46,7 @@ export function getPlugin(options?: string | false | VarPrefixerOptions) {
               return true
             }
             return customProperty.startsWith('--tw-')
-          }
+          },
         })
       }
     }

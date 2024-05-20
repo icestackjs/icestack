@@ -20,7 +20,8 @@ export function groupBy<T, R = T>(arr: T[], cb: (arg: T) => string, mapper?: (ar
     const x = mapper ? mapper(item) : (item as unknown as R)
     if (Array.isArray(bucket)) {
       result[bucketCategory].push(x)
-    } else {
+    }
+    else {
       result[bucketCategory] = [x]
     }
   }

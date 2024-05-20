@@ -1,4 +1,5 @@
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
@@ -89,11 +90,11 @@ const schema: GetCssSchemaMethod = (opts) => {
       ${selector}-flip input:indeterminate ~ ${selector}-indeterminate {
           transform: rotateY(0deg);
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

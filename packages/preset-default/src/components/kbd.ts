@@ -1,4 +1,5 @@
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
@@ -46,11 +47,11 @@ const schema: GetCssSchemaMethod = (opts) => {
             min-width: 2.5em;
           }
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

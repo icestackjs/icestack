@@ -1,4 +1,5 @@
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
 /**
  * @deprecated
  * @param opts
@@ -157,11 +158,11 @@ const schema: GetCssSchemaMethod = (opts) => {
         ${selector}-rounded-lg {
           --tab-radius: 0.5rem;
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

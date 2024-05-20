@@ -1,5 +1,5 @@
 import postcss from 'postcss'
-import { parse, type CssInJs } from 'postcss-js'
+import { type CssInJs, parse } from 'postcss-js'
 import { mergeRClone } from '@icestack/shared'
 import parser from 'postcss-selector-parser'
 import { groupBy, requireLib } from './utils'
@@ -14,8 +14,8 @@ const processor = postcss([
       decl.value = decl.value.replace(/rgba?\((.*?)\/(.*)\)/, (m, p1, p2) => {
         return replacePrefix(`rgba(${p1.trim()},${p2.trim()})`)
       })
-    }
-  }
+    },
+  },
 ])
 
 const process = (object: CssInJs) => processor.process(object, { parser: parse })
@@ -57,7 +57,8 @@ export function getRules(loadDirectory: string, keyframes: string[] = []) {
               }
             }
           }
-        } else if (r.type === 'rule') {
+        }
+        else if (r.type === 'rule') {
           const ast = defaultParser.astSync(r.selector)
           const set = new Set<string>()
           ast.walkClasses((rule) => {
@@ -87,7 +88,7 @@ export function getRules(loadDirectory: string, keyframes: string[] = []) {
     },
     (x) => {
       return x[1]
-    }
+    },
   )
   const rrr = Object.entries(res).map(([key, css]) => {
     return [key, css.join('\n')]

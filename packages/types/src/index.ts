@@ -1,14 +1,14 @@
 import type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 import type { AcceptedPlugin } from 'postcss'
 import type { StringOptions } from 'sass'
-import type { GetCssSchemaMethod, GetCssSchemaMethodOptions, CssValue } from './shared'
+import type { CssValue, GetCssSchemaMethod, GetCssSchemaMethodOptions } from './shared'
 import type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 
 export type { CreatePresetOptions, GetCssSchemaMethod, CssSchemaDefaults, CssSchema, GetCssSchemaMethodOptions, CssValue, CssInJs } from './shared'
 export type { PrefixerOptions, VarPrefixerOptions } from './postcss'
 export type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 
-export type ThemeOptions = {
+export interface ThemeOptions {
   selector: string
   extraColors: Record<string, string>
   extraVars: Record<string, string>
@@ -19,7 +19,7 @@ export type ThemeOptions = {
 
 export type Themes = Record<string, false | Partial<ThemeOptions>>
 
-export type BaseOptions = {
+export interface BaseOptions {
   themes: Themes
 
   extraCss: CssValue
@@ -31,7 +31,7 @@ export type BaseOptions = {
   generateColors: (key: string, ...args: any[]) => Record<string, string>
 }
 
-export type ModeMergeValue = {
+export interface ModeMergeValue {
   base?: CssValue
   styled?: CssValue
   utils?: CssValue
@@ -39,7 +39,7 @@ export type ModeMergeValue = {
 
 export type ModeMergeOptions = string | ModeMergeValue | ((opts: Partial<GetCssSchemaMethodOptions>) => string | ModeMergeValue)
 
-export type ComponentsValue<Params extends Record<string, any> = any> = {
+export interface ComponentsValue<Params extends Record<string, any> = any> {
   mode: CodegenMode
 
   pick: PickCss
@@ -77,7 +77,7 @@ export type ComponentsValue<Params extends Record<string, any> = any> = {
 
 export type ComponentsOptions = Record<string, false | Partial<ComponentsValue>>
 
-export type UtilitiesOptions = {
+export interface UtilitiesOptions {
   extraCss: CssValue
 }
 
@@ -85,7 +85,7 @@ export type CodegenMode = 'preset' | 'none'
 
 export type Preset = Partial<Pick<CodegenOptions, 'base' | 'components' | 'utilities' | 'postcss' | 'tailwindcssConfig'>>
 
-export type PostcssOptions = {
+export interface PostcssOptions {
   /**
    * @type PrefixerOptions
    * @description PrefixerOptions, set prefix to your class and ignore class
@@ -117,7 +117,7 @@ export type PostcssOptions = {
   plugins?: AcceptedPlugin[] | ((plugins: AcceptedPlugin[]) => AcceptedPlugin[])
 }
 
-export type PickCss = {
+export interface PickCss {
   base?: boolean
   styled?: boolean
   utils?: boolean
@@ -194,14 +194,14 @@ export type CodegenOptions = {
   }
 } & (
   | {
-      /**
-       * @description required! set output dir path.
-       */
-      outdir: string
-    }
+    /**
+     * @description required! set output dir path.
+     */
+    outdir: string
+  }
   | {
-      dryRun: true
-    }
+    dryRun: true
+  }
 )
 
 export type Config = CodegenOptions

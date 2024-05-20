@@ -4,13 +4,13 @@ import { getTheme } from './theme'
 import { getRules } from './rules'
 import { getPreflightCss } from './preflights'
 
-export type UnocssPluginOptions = {
+export interface UnocssPluginOptions {
   loadDirectory: string
   loadConfig?: boolean | string
 }
 
 const defaultOptions: Partial<UnocssPluginOptions> = {
-  loadConfig: false
+  loadConfig: false,
 }
 
 export function loadPresetOptions(opts: UnocssPluginOptions) {
@@ -28,7 +28,7 @@ export function loadPresetOptions(opts: UnocssPluginOptions) {
   return {
     theme,
     rules,
-    preflights
+    preflights,
   }
 }
 
@@ -38,6 +38,6 @@ export const icestackPreset: (opts: UnocssPluginOptions) => Preset = (opts) => {
     name: 'unocss-preset-icestack',
     preflights,
     theme,
-    rules
+    rules,
   }
 }

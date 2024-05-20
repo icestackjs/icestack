@@ -1,4 +1,6 @@
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
+
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
   return {
@@ -182,11 +184,11 @@ const schema: GetCssSchemaMethod = (opts) => {
         :where(${selector}-horizontal:not(:has(${selector}-middle)) :last-child > hr:first-child) {
           @apply rounded-e-badge rounded-s-none;
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

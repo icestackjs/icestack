@@ -1,5 +1,6 @@
 import { loading as loading64Map } from './assets/svg.json'
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
 
 function makeMaskImage(base64: string) {
   return `url("${base64}")`
@@ -52,11 +53,11 @@ const schema: GetCssSchemaMethod = (opts) => {
           // @v size="lg"
           @apply w-10;
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

@@ -1,11 +1,12 @@
-import postcss, { LazyResult, Result, Root } from 'postcss'
+import type { LazyResult, Result, Root } from 'postcss'
+import postcss from 'postcss'
 import tailwindcss from 'tailwindcss'
 import type { Config } from 'tailwindcss/types/config'
 import type { CodegenOptions, DeepPartial } from '@icestack/types'
 import { defuOverrideArray } from '@icestack/shared'
 import gloablPostcss from './icestack'
 
-export function resolveTailwindcss(opts: { css: LazyResult | Result | Root | string; config: Config; options: CodegenOptions }) {
+export function resolveTailwindcss(opts: { css: LazyResult | Result | Root | string, config: Config, options: CodegenOptions }) {
   const { config, css, options } = opts
 
   // process.env.JEST_WORKER_ID = 'mock'
@@ -15,7 +16,7 @@ export function resolveTailwindcss(opts: { css: LazyResult | Result | Root | str
     // @ts-ignore
     // '@tailwind components;\n@tailwind utilities;\n' +
     .process(css, {
-      from: undefined
+      from: undefined,
     })
     .async()
   // delete process.env.JEST_WORKER_ID
@@ -27,11 +28,11 @@ export function initTailwindcssConfig(config?: DeepPartial<Config>, ...defaults:
   const cfg = defuOverrideArray<DeepPartial<Config>, DeepPartial<Config>[]>(config!, ...defus, {
     content: [{ raw: 'hidden' }],
     theme: {
-      extend: {}
+      extend: {},
     },
     corePlugins: {
-      preflight: false
-    }
+      preflight: false,
+    },
   })
   return cfg as Config
 }

@@ -17,28 +17,30 @@ export function generateIndexCode(basenames: string[], type: 'components' | 'uti
           const node = t.objectProperty(t.stringLiteral(stage), t.callExpression(t.identifier('require'), [t.stringLiteral(`./${name}/${stage}.cjs`)]))
           if (acc[name]) {
             acc[name].push(node)
-          } else {
+          }
+          else {
             acc[name] = [node]
           }
         }
         return acc
-      }, {})
+      }, {}),
     ).map(([key, props]) => {
       return t.objectProperty(t.stringLiteral(key), t.objectExpression(props))
     })
 
     const ast = t.file(
-      t.program([t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('module'), t.identifier('exports')), t.objectExpression(props)))])
+      t.program([t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('module'), t.identifier('exports')), t.objectExpression(props)))]),
     )
 
     return babelGenerate(ast).code
-  } else {
+  }
+  else {
     const props = basenames.map((basename) => {
       return t.objectProperty(t.stringLiteral(basename), t.callExpression(t.identifier('require'), [t.stringLiteral(`./${basename}.cjs`)]))
     })
 
     const ast = t.file(
-      t.program([t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('module'), t.identifier('exports')), t.objectExpression(props)))])
+      t.program([t.expressionStatement(t.assignmentExpression('=', t.memberExpression(t.identifier('module'), t.identifier('exports')), t.objectExpression(props)))]),
     )
 
     return babelGenerate(ast).code

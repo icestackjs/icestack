@@ -1,4 +1,5 @@
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
@@ -135,11 +136,11 @@ const schema: GetCssSchemaMethod = (opts) => {
         ${selector}${selector}-horizontal > :where(*:not(:first-child)) {
           @apply my-0 -ms-px;
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

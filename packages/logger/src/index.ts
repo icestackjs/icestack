@@ -1,4 +1,5 @@
 import readline from 'node:readline'
+import process from 'node:process'
 import { createConsola } from 'consola'
 import { pkgName } from '@icestack/shared/constants'
 import cliProgress from 'cli-progress'
@@ -9,7 +10,8 @@ function clearLine(rowCount = 1) {
   try {
     readline.moveCursor(process.stdout, 0, -rowCount)
     readline.clearLine(process.stdout, 1)
-  } catch {}
+  }
+  catch {}
 }
 
 export function createLogger(prefix: string) {
@@ -27,14 +29,14 @@ export function createLogger(prefix: string) {
     createComponentsProgressBar() {
       let bar = this.logFlag
         ? new cliProgress.SingleBar(
-            {
-              format: 'building components: [{bar}] | {componentName} | {value}/{total}'
-              // barCompleteChar: '\u2588',
-              // barIncompleteChar: '\u2591'
-              // hideCursor: true
-            },
-            cliProgress.Presets.shades_classic
-          )
+          {
+            format: 'building components: [{bar}] | {componentName} | {value}/{total}',
+            // barCompleteChar: '\u2588',
+            // barIncompleteChar: '\u2591'
+            // hideCursor: true
+          },
+          cliProgress.Presets.shades_classic,
+        )
         : undefined
 
       return {
@@ -52,9 +54,9 @@ export function createLogger(prefix: string) {
         },
         update: (current: number, payload?: object) => {
           return bar?.update(current, payload)
-        }
+        },
       }
-    }
+    },
   }
 }
 

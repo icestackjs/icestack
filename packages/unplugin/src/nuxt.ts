@@ -9,7 +9,7 @@ export interface ModuleOptions extends Options {}
 export default defineNuxtModule<ModuleOptions>({
   meta: {
     name: 'icestack-nuxt-unplugin',
-    configKey: 'unpluginIcestack'
+    configKey: 'unpluginIcestack',
   },
   defaults: {
     // ...default options
@@ -19,5 +19,5 @@ export default defineNuxtModule<ModuleOptions>({
     addWebpackPlugin(() => webpack(options))
 
     // ...
-  }
+  },
 })

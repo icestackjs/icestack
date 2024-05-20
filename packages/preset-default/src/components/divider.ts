@@ -1,4 +1,5 @@
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
@@ -71,11 +72,11 @@ const schema: GetCssSchemaMethod = (opts) => {
         ${selector}-vertical {
           @apply mx-0 my-4 h-4 w-auto;
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

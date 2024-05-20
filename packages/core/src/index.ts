@@ -1,42 +1,44 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { set, get, pick, isError, cloneDeep } from 'lodash'
+import { cloneDeep, get, isError, pick, set } from 'lodash'
 import kleur from 'kleur'
 import { createDefaultTailwindcssExtends } from '@icestack/preset-default/tailwindcss'
 import { getCodegenOptions, loadSync } from '@icestack/config'
 import { stages } from '@icestack/shared/constants'
 import { compileScssString } from '@icestack/scss'
 import { logger } from '@icestack/logger'
-import type { CodegenOptions, ILayer, CssInJs, CreatePresetOptions } from '@icestack/types'
-import { defu, JSONStringify, defuOverrideArray, objHash } from '@icestack/shared'
-import {
-  getPrefixerPlugin,
-  getCssVarsPrefixerPlugin,
-  resolveTailwindcss,
-  initTailwindcssConfig,
-  resolvePrefixOption,
-  resolveVarPrefixOption,
+import type { CodegenOptions, CreatePresetOptions, CssInJs, ILayer } from '@icestack/types'
+import { JSONStringify, defu, defuOverrideArray, objHash } from '@icestack/shared'
+import type {
   AcceptedPlugin,
-  Root,
-  Rule,
   AtRule,
-  parse,
-  merge,
-  mapCssStringToAst,
-  objectify,
-  postcssProcess,
-  extractCvaParamsPlugin,
   CvaParams,
+  Rule,
+} from '@icestack/postcss-utils'
+import {
+  Root,
+  collectClassPlugin,
+  extractCvaParamsPlugin,
   generateCva,
-  collectClassPlugin
+  getCssVarsPrefixerPlugin,
+  getPrefixerPlugin,
+  initTailwindcssConfig,
+  mapCssStringToAst,
+  merge,
+  objectify,
+  parse,
+  postcssProcess,
+  resolvePrefixOption,
+  resolveTailwindcss,
+  resolveVarPrefixOption,
 } from '@icestack/postcss-utils'
 import { LRUCache } from 'lru-cache'
 // import md5 from 'md5'
-import { StringOptions } from 'sass'
+import type { StringOptions } from 'sass'
 import { Config } from 'tailwindcss'
 import { name } from '../package.json'
-import { utilitiesNames, utilitiesMap } from './utilities'
+import { utilitiesMap, utilitiesNames } from './utilities'
 import { handleOptions } from './components'
 import { calcBase } from './base'
 import { generateIndexCode } from '@/generate'
@@ -47,7 +49,7 @@ const { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath } =
 function ensureDirSync(p: string) {
   if (!fs.existsSync(p)) {
     fs.mkdirSync(p, {
-      recursive: true
+      recursive: true,
     })
   }
 }
@@ -82,7 +84,7 @@ function getPaths(relPath: string, outdir?: string) {
     cssPath,
     jsPath,
     cssResolvedPath,
-    scssPath
+    scssPath,
   }
 }
 
@@ -90,7 +92,7 @@ export function createContext(opts?: CodegenOptions | string) {
   let configFilepath: string | undefined
   if (typeof opts === 'string') {
     const o = loadSync({
-      configFile: opts
+      configFile: opts,
     })
     if (o) {
       const { config, filepath } = o
@@ -104,25 +106,25 @@ export function createContext(opts?: CodegenOptions | string) {
 
   function getCache(key: string) {
     if (configFilepath) {
-      return lru.get(configFilepath + '#' + key)
+      return lru.get(`${configFilepath}#${key}`)
     }
   }
 
   function setCache(key: string, value: object) {
     if (configFilepath) {
-      return lru.set(configFilepath + '#' + key, value)
+      return lru.set(`${configFilepath}#${key}`, value)
     }
   }
 
   function setHash(key: string, value: string) {
     if (configFilepath) {
-      return hashLru.set(configFilepath + '#' + key, value)
+      return hashLru.set(`${configFilepath}#${key}`, value)
     }
   }
 
   function getHash(key: string) {
     if (configFilepath) {
-      return hashLru.get(configFilepath + '#' + key)
+      return hashLru.get(`${configFilepath}#${key}`)
     }
   }
 
@@ -138,7 +140,7 @@ export function createContext(opts?: CodegenOptions | string) {
     utilities,
     sassOptions: _sassOptions,
     base,
-    cva: globalCva
+    cva: globalCva,
   } = options
 
   const sassOptions = defu<StringOptions<'sync'>, StringOptions<'sync'>[]>(
@@ -149,11 +151,11 @@ export function createContext(opts?: CodegenOptions | string) {
             {
               findFileUrl(url) {
                 return new URL(pathToFileURL(path.resolve(path.dirname(configFilepath!), url)))
-              }
-            }
-          ]
+              },
+            },
+          ],
         }
-      : {}
+      : {},
   )
   const { prefix: _globalPrefix, varPrefix: _globalVarPrefix, plugins: globalPostcssPlugins } = postcss!
   const cache: {
@@ -171,7 +173,7 @@ export function createContext(opts?: CodegenOptions | string) {
     tailwindcssConfig: undefined,
     unocssConfig: undefined,
     configHash,
-    cva: {}
+    cva: {},
   }
   const globalPrefix = resolvePrefixOption(_globalPrefix)
   const globalVarPrefix = resolveVarPrefixOption(_globalVarPrefix)
@@ -180,7 +182,7 @@ export function createContext(opts?: CodegenOptions | string) {
   }
   const bases = {
     index: calcBase(options),
-    legacy: calcBase(options, { slash: false })
+    legacy: calcBase(options, { slash: false }),
   }
   const { types, colors: tailwindcssColors } = bases.index
 
@@ -217,7 +219,7 @@ export function createContext(opts?: CodegenOptions | string) {
   const typesHash = objHash(types)
   const isTypesChanged = getHash('types') !== typesHash
   const presets = createPreset({
-    types
+    types,
   })
   // { raw: 'hidden' }
   const allComponentsNames = Object.keys(presets)
@@ -226,9 +228,9 @@ export function createContext(opts?: CodegenOptions | string) {
     theme: {
       extend: {
         ...createDefaultTailwindcssExtends({ varPrefix: globalVarPrefix ? globalVarPrefix.varPrefix : '' }),
-        colors: tailwindcssColors
-      }
-    }
+        colors: tailwindcssColors,
+      },
+    },
   })
 
   function preprocessCss(css: string, layer?: ILayer, name?: string, getCvaParams?: (params?: CvaParams) => void, getRawContent?: (classNames: string[]) => void) {
@@ -236,7 +238,8 @@ export function createContext(opts?: CodegenOptions | string) {
 
     if (Array.isArray(globalPostcssPlugins)) {
       plugins.push(...globalPostcssPlugins)
-    } else if (typeof globalPostcssPlugins === 'function') {
+    }
+    else if (typeof globalPostcssPlugins === 'function') {
       plugins = globalPostcssPlugins(plugins)
     }
 
@@ -256,27 +259,30 @@ export function createContext(opts?: CodegenOptions | string) {
         plugins.push(
           extractCvaParamsPlugin({
             process: getCvaParams,
-            prefix: oo.prefix
+            prefix: oo.prefix,
             // selector
-          })
+          }),
         )
         if (Array.isArray(postcss?.plugins)) {
           plugins.push(...postcss.plugins)
-        } else if (typeof postcss?.plugins === 'function') {
+        }
+        else if (typeof postcss?.plugins === 'function') {
           plugins = postcss?.plugins(plugins)
         }
       }
-    } else if (layer === 'base') {
+    }
+    else if (layer === 'base') {
       const varPrefixerPlugin = getCssVarsPrefixerPlugin(globalVarPrefix!)
       varPrefixerPlugin && plugins.push(varPrefixerPlugin)
       const prefixerPlugin = getPrefixerPlugin(globalPrefix)
       prefixerPlugin && plugins.push(prefixerPlugin)
       plugins.push(
         collectClassPlugin({
-          process: getRawContent
-        })
+          process: getRawContent,
+        }),
       )
-    } else {
+    }
+    else {
       const varPrefixerPlugin = getCssVarsPrefixerPlugin(globalVarPrefix!)
       varPrefixerPlugin && plugins.push(varPrefixerPlugin)
       const prefixerPlugin = getPrefixerPlugin(globalPrefix)
@@ -290,11 +296,11 @@ export function createContext(opts?: CodegenOptions | string) {
     preprocessCss: 0,
     resolveTailwindcss: 0,
     objectify: 0,
-    internalDump: 0
+    internalDump: 0,
   }
 
   const baseClassNameSet = new Set<string>()
-  async function internalBuild(opts: { root?: AtRule | Root | Rule; layer: ILayer; suffixes: string[]; relPath: string }) {
+  async function internalBuild(opts: { root?: AtRule | Root | Rule, layer: ILayer, suffixes: string[], relPath: string }) {
     const { layer, suffixes, relPath, root = new Root() } = opts
     let start: number
     const scss = root.toString()
@@ -318,7 +324,7 @@ export function createContext(opts?: CodegenOptions | string) {
         for (const className of classNames) {
           baseClassNameSet.add(className)
         }
-      }
+      },
     )
     statistics.preprocessCss += performance.now() - start
 
@@ -327,7 +333,7 @@ export function createContext(opts?: CodegenOptions | string) {
     const { root: resolvedCssRoot, css: resolvedCss } = await resolveTailwindcss({
       css: cssRoot as Root,
       config: twConfig,
-      options
+      options,
     })
 
     statistics.resolveTailwindcss += performance.now() - start
@@ -344,7 +350,7 @@ export function createContext(opts?: CodegenOptions | string) {
       cssRoot: cssRoot as Root,
       relPath,
       resolvedCssRoot: resolvedCssRoot as Root,
-      scss
+      scss,
       // cvaParams
     })
 
@@ -357,7 +363,7 @@ export function createContext(opts?: CodegenOptions | string) {
       resolvedCss,
       resolvedCssRoot,
       cssInJs,
-      cvaParams
+      cvaParams,
     }
   }
 
@@ -366,7 +372,7 @@ export function createContext(opts?: CodegenOptions | string) {
     cssRoot,
     resolvedCssRoot,
     cssInJs,
-    scss
+    scss,
     // cvaParams
   }: {
     relPath: string
@@ -386,7 +392,7 @@ export function createContext(opts?: CodegenOptions | string) {
     // css -> css
     writeFile(cssResolvedPath, resolvedCssRoot.toString())
     // css -> js
-    const data = 'module.exports = ' + JSONStringify(cssInJs)
+    const data = `module.exports = ${JSONStringify(cssInJs)}`
     writeFile(jsPath, data)
     // css -> cva
     // if (cvaParams) {
@@ -411,13 +417,14 @@ export function createContext(opts?: CodegenOptions | string) {
           root: bases[x as keyof typeof bases].root,
           layer,
           suffixes: [x],
-          relPath: `${layer}/${x}`
+          relPath: `${layer}/${x}`,
         })
       }
 
       cache.base = res
       setCache(layer, res)
-    } else {
+    }
+    else {
       cache.base = hit
     }
 
@@ -445,7 +452,7 @@ export function createContext(opts?: CodegenOptions | string) {
             root,
             layer,
             suffixes,
-            relPath: `${layer}/${utilityName}`
+            relPath: `${layer}/${utilityName}`,
           })
           refs.push(utilityName)
           set(res, utilityName, result)
@@ -460,16 +467,17 @@ export function createContext(opts?: CodegenOptions | string) {
 
       cache.utilities = res
       setCache(layer, res)
-    } else {
+    }
+    else {
       cache.utilities = hit
     }
     setHash(layer, hashCode)
   }
 
-  async function buildComponents(opts?: Partial<{ include: string[]; progressBar: boolean }>) {
+  async function buildComponents(opts?: Partial<{ include: string[], progressBar: boolean }>) {
     const { include: componentsNames, progressBar } = defuOverrideArray(opts ?? {}, {
       include: allComponentsNames,
-      progressBar: true
+      progressBar: true,
     })
     const layer: ILayer = 'components'
 
@@ -485,7 +493,7 @@ export function createContext(opts?: CodegenOptions | string) {
       const comOpt = components[componentName]
       if (comOpt) {
         const componentHashCode = objHash(comOpt)
-        const hashPath = layer + '.' + componentName
+        const hashPath = `${layer}.${componentName}`
         const componentHasChanged = getHash(hashPath) !== componentHashCode
         const componentCache = get(hit, componentName)
         if (isTypesChanged || componentHasChanged || !componentCache) {
@@ -501,17 +509,18 @@ export function createContext(opts?: CodegenOptions | string) {
                 root,
                 layer,
                 suffixes,
-                relPath: `${layer}/${componentName}/${stage}`
+                relPath: `${layer}/${componentName}/${stage}`,
               })
               if (result.cvaParams) {
                 cvaParamsArray.unshift(result.cvaParams)
               }
 
               set(res, `${componentName}.${stage}`, result)
-            } catch (error) {
+            }
+            catch (error) {
               if (isError(error)) {
                 throw new Error(error.message, {
-                  cause: p
+                  cause: p,
                 })
               }
               throw error
@@ -523,7 +532,7 @@ export function createContext(opts?: CodegenOptions | string) {
       }
 
       b1.update(++idx, {
-        componentName
+        componentName,
       })
     }
 
@@ -541,12 +550,12 @@ export function createContext(opts?: CodegenOptions | string) {
 
   function buildTailwindcssConfig() {
     if (!dryRun) {
-      const code =
-        'module.exports = ' +
-        JSONStringify({
+      const code
+        = `module.exports = ${
+         JSONStringify({
           theme: twConfig.theme,
-          content: [{ raw: [...baseClassNameSet].join(' ') }]
-        })
+          content: [{ raw: [...baseClassNameSet].join(' ') }],
+        })}`
       const outputDir = path.resolve(resolveJsDir(outdir), 'tailwindcss')
       const outputPath = path.resolve(outputDir, 'config.cjs')
       writeFile(outputPath, code)
@@ -558,11 +567,11 @@ export function createContext(opts?: CodegenOptions | string) {
   function buildUnocssConfig() {
     const config = {
       theme: {
-        colors: unocssColors
-      }
+        colors: unocssColors,
+      },
     }
     if (!dryRun) {
-      const code = 'module.exports = ' + JSONStringify(config)
+      const code = `module.exports = ${JSONStringify(config)}`
       const outputDir = path.resolve(resolveJsDir(outdir), 'unocss')
 
       const outputPath = path.resolve(outputDir, 'config.cjs')
@@ -573,7 +582,6 @@ export function createContext(opts?: CodegenOptions | string) {
   }
 
   function buildCva() {
-    // eslint-disable-next-line prefer-const
     let { format, importFrom, outdir: cvaOutdir } = globalCva ?? {}
     if (cvaOutdir === undefined && outdir) {
       cvaOutdir = path.join(outdir, 'cva')
@@ -591,8 +599,8 @@ export function createContext(opts?: CodegenOptions | string) {
               generateCva({
                 format,
                 importFrom,
-                ...o
-              }).code
+                ...o,
+              }).code,
             )
           }
         }
@@ -610,13 +618,13 @@ export function createContext(opts?: CodegenOptions | string) {
       components: componentsFlag,
       config: configFlag,
       utilities: utilitiesFlag,
-      cva: cvaFlag
+      cva: cvaFlag,
     } = defu<BuildOptions, BuildOptions[]>(options, {
       base: true,
       components: true,
       config: true,
       utilities: true,
-      cva: true
+      cva: true,
     })
 
     if (baseFlag) {
@@ -624,14 +632,14 @@ export function createContext(opts?: CodegenOptions | string) {
         return buildBase()
       })
 
-      logger.success('build base finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
+      logger.success(`build base finished! ${kleur.green(`${duration.toFixed(2)}ms`)}`)
     }
     if (utilitiesFlag) {
       const duration = await calcDuration(() => {
         return buildUtilities()
       })
 
-      logger.success('build utilities finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
+      logger.success(`build utilities finished! ${kleur.green(`${duration.toFixed(2)}ms`)}`)
     }
 
     if (componentsFlag) {
@@ -639,7 +647,7 @@ export function createContext(opts?: CodegenOptions | string) {
         return buildComponents()
       })
 
-      logger.success('build components finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
+      logger.success(`build components finished! ${kleur.green(`${duration.toFixed(2)}ms`)}`)
     }
 
     if (configFlag) {
@@ -650,7 +658,7 @@ export function createContext(opts?: CodegenOptions | string) {
         cache.unocssConfig = unocssConfig
       })
 
-      logger.success('build config finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
+      logger.success(`build config finished! ${kleur.green(`${duration.toFixed(2)}ms`)}`)
     }
 
     if (cvaFlag) {
@@ -658,7 +666,7 @@ export function createContext(opts?: CodegenOptions | string) {
         return buildCva()
       })
 
-      logger.success('build cva finished! ' + kleur.green(`${duration.toFixed(2)}ms`))
+      logger.success(`build cva finished! ${kleur.green(`${duration.toFixed(2)}ms`)}`)
     }
     // logger.success(JSON.stringify(statistics))
   }
@@ -691,7 +699,7 @@ export function createContext(opts?: CodegenOptions | string) {
       return cache.cva
     },
     buildCva,
-    statistics
+    statistics,
   }
 }
 

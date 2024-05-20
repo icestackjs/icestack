@@ -1,5 +1,6 @@
-import type { VarPrefixerOptions, PrefixerOptions } from '@icestack/types'
+import type { PrefixerOptions, VarPrefixerOptions } from '@icestack/types'
 import prefixer from './prefixer'
+
 export { default as extractCvaParamsPlugin } from './extract-cva-params'
 export type { CvaParams, CommentType } from './extract-cva-params'
 export { getPlugin as getCssVarsPrefixerPlugin } from './custom-property-prefixer'
@@ -13,7 +14,7 @@ export function resolvePrefixOption(options?: false | string | PrefixerOptions) 
   }
   return typeof options === 'string'
     ? {
-        prefix: options
+        prefix: options,
       }
     : options
 }
@@ -24,7 +25,7 @@ export function resolveVarPrefixOption(options?: false | string | VarPrefixerOpt
   }
   return typeof options === 'string'
     ? {
-        varPrefix: options
+        varPrefix: options,
       }
     : options
 }
@@ -32,9 +33,10 @@ export function resolveVarPrefixOption(options?: false | string | VarPrefixerOpt
 export function getPrefixerPlugin(prefix?: false | string | PrefixerOptions) {
   if (typeof prefix === 'string') {
     return prefixer({
-      prefix
+      prefix,
     })
-  } else if (typeof prefix === 'object') {
+  }
+  else if (typeof prefix === 'object') {
     return prefixer(prefix)
   }
 }

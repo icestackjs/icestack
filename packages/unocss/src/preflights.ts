@@ -8,11 +8,11 @@ export function getPreflightCss(loadDirectory: string, keyframes: string[]) {
     {
       getCSS() {
         return preflightCss
-      }
+      },
     },
     {
-      getCSS: () => keyframes.join('\n')
-    }
+      getCSS: () => keyframes.join('\n'),
+    },
   ]
   return preflights
 }

@@ -17,7 +17,7 @@ export function sizePrefix(prefix: string, arr: string[] = SizesEnum) {
   return addPrefix(prefix, arr)
 }
 
-export const expands = (args: string[]) => {
+export function expands(args: string[]) {
   return args.reduce<Record<string, string>>((acc, cur) => {
     acc[cur] = cur
     return acc

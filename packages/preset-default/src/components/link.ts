@@ -1,4 +1,6 @@
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
+
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector, types } = opts
   return {
@@ -35,11 +37,11 @@ const schema: GetCssSchemaMethod = (opts) => {
             outline-offset: 2px;
           }
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

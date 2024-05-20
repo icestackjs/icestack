@@ -1,4 +1,4 @@
-import type { PluginCreator, AcceptedPlugin, Result, Root, Document } from 'postcss'
+import type { AcceptedPlugin, Document, PluginCreator, Result, Root } from 'postcss'
 import { createContext } from '@icestack/core'
 import { loadSync } from '@icestack/config'
 import { logger } from '@icestack/logger'
@@ -7,10 +7,10 @@ import { preflightRoot } from './preflight'
 
 const postcssPlugin = 'postcss-icestack-plugin'
 
-const creator: PluginCreator<Partial<{ cwd: string; configFile: string; preflight: boolean }>> = ({ cwd, configFile, preflight = true } = {}) => {
+const creator: PluginCreator<Partial<{ cwd: string, configFile: string, preflight: boolean }>> = ({ cwd, configFile, preflight = true } = {}) => {
   const o = loadSync({
     configFile,
-    cwd
+    cwd,
   })
   if (!o) {
     throw new Error('fail to load config')
@@ -25,7 +25,7 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
         type: 'dependency',
         plugin: postcssPlugin,
         file: filepath,
-        parent: result.opts.from
+        parent: result.opts.from,
       })
       registerDependencySet.add(filepath)
     }
@@ -56,7 +56,8 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
               if (root) {
                 // @ts-ignore
                 atRule.before(root.resolvedCssRoot.clone())
-              } else {
+              }
+              else {
                 logger.warn(`The \`@icestack ${atRule.params}\` directive is not found.`)
               }
               break
@@ -71,7 +72,7 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
                     // @ts-ignore
                     return [x.base.resolvedCssRoot, x.styled.resolvedCssRoot, x.utils.resolvedCssRoot]
                   })) {
-                    atRule.before(arr.map((x) => x.clone()))
+                    atRule.before(arr.map(x => x.clone()))
                   }
 
                   break
@@ -80,8 +81,9 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
                   const component = get(ctx.components, valuePath)
                   if (component) {
                     // @ts-ignore
-                    atRule.before([component.base.resolvedCssRoot, component.styled.resolvedCssRoot, component.utils.resolvedCssRoot].map((x) => x.clone()))
-                  } else {
+                    atRule.before([component.base.resolvedCssRoot, component.styled.resolvedCssRoot, component.utils.resolvedCssRoot].map(x => x.clone()))
+                  }
+                  else {
                     logger.warn(`The \`@icestack ${atRule.params}\` directive is not found.`)
                   }
 
@@ -92,7 +94,8 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
                   if (component) {
                     // @ts-ignore
                     atRule.before(component.resolvedCssRoot.clone())
-                  } else {
+                  }
+                  else {
                     logger.warn(`The \`@icestack ${atRule.params}\` directive is not found.`)
                   }
 
@@ -112,19 +115,20 @@ const creator: PluginCreator<Partial<{ cwd: string; configFile: string; prefligh
               if (root) {
                 // @ts-ignore
                 atRule.after(root.clone())
-              } else {
+              }
+              else {
                 logger.warn(`The \`@icestack ${atRule.params}\` directive is not found.`)
               }
               break
             }
           }
         }
-      }
-    }
+      },
+    },
   ]
   return {
     postcssPlugin,
-    plugins
+    plugins,
   }
 }
 

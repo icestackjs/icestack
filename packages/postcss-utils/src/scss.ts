@@ -1,5 +1,5 @@
 import { parse as scssParse } from 'postcss-scss'
-import { type AtRule, type Root, type Rule } from 'postcss'
+import type { AtRule, Root, Rule } from 'postcss'
 import valueParser from 'postcss-value-parser'
 import { compressCssSelector } from '@/utils'
 
@@ -19,7 +19,7 @@ export function parse(css: string) {
           const fc = first.quote ?? first.value[0]
           // @ts-ignore
           const lc = last.quote ?? last.value.at(-1)
-          if (fc !== '"' && lc !== '"' && fc !== "'" && lc !== "'") {
+          if (fc !== '"' && lc !== '"' && fc !== '\'' && lc !== '\'') {
             node.after = '"'
             node.before = '"'
           }
@@ -49,14 +49,17 @@ export function mergeLeftRight(leftNode: AtRule | Rule | Root, rightNode: AtRule
       if (left.type === 'rule' && right.type === 'rule' && compressCssSelector(left.selector) === compressCssSelector(right.selector)) {
         mergeLeftRight(left, right)
         insertFlag = false
-      } else if (left.type === 'atrule' && right.type === 'atrule' && left.params === right.params && left.name === right.name) {
+      }
+      else if (left.type === 'atrule' && right.type === 'atrule' && left.params === right.params && left.name === right.name) {
         if (left.name === 'apply' && right.name === 'apply') {
           left.after(right)
-        } else {
+        }
+        else {
           mergeLeftRight(left, right)
         }
         insertFlag = false
-      } else if (left.type === 'decl' && right.type === 'decl' && left.prop === right.prop) {
+      }
+      else if (left.type === 'decl' && right.type === 'decl' && left.prop === right.prop) {
         left.value = right.value
         left.important = right.important
         insertFlag = false

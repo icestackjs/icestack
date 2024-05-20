@@ -1,11 +1,11 @@
 import defu from 'defu'
 import tableData from '@/table.js'
-import { ComponentNames, CreateTailwindcssContentOptions } from '@/types'
+import type { ComponentNames, CreateTailwindcssContentOptions } from '@/types'
 import { addPrefix } from '@/shared'
 
 export function getOptions(opts: CreateTailwindcssContentOptions = {}) {
   const options: CreateTailwindcssContentOptions = defu<CreateTailwindcssContentOptions, CreateTailwindcssContentOptions[]>(opts, {
-    prefix: ''
+    prefix: '',
   })
   return options
 }
@@ -20,7 +20,7 @@ export function isComponentIncluded(componentName: string, components: CreateTai
   return true
 }
 
-export function createTailwindcssContent(opts: CreateTailwindcssContentOptions = {}): { raw: string; extension?: string } {
+export function createTailwindcssContent(opts: CreateTailwindcssContentOptions = {}): { raw: string, extension?: string } {
   const { prefix, components } = getOptions(opts)
   return {
     raw: Object.entries(tableData)
@@ -32,7 +32,7 @@ export function createTailwindcssContent(opts: CreateTailwindcssContentOptions =
         }
         return acc
       }, [])
-      .join('\n')
+      .join('\n'),
   }
 }
 

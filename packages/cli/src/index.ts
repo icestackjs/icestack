@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import process from 'node:process'
 import { Command } from 'commander'
 import chokidar from 'chokidar'
 import { loadSync } from '@icestack/config'
@@ -18,13 +19,13 @@ function touchTwConfig(filepath: string) {
 
 export const cli = new Command()
 
-async function letUsBuild(options: { clean?: boolean; configFile?: string } = {}) {
+async function letUsBuild(options: { clean?: boolean, configFile?: string } = {}) {
   const { clean, configFile } = options
   if (configFile) {
     logger.success(`load config from ${configFile}`)
   }
   const o = await loadSync({
-    configFile
+    configFile,
   })
   if (!o) {
     logger.error('load options fail!')
@@ -63,7 +64,7 @@ cli
     const { data, filename } = createJsConfig({
       outdir,
       format,
-      mode
+      mode,
     })
     const p = path.resolve(cwd, filename)
     fs.writeFileSync(p, data, 'utf8') // ts ? tsT : jsT)
@@ -100,7 +101,7 @@ cli
     const cwd = process.cwd()
     const o = await loadSync({
       cwd,
-      configFile
+      configFile,
     })
     if (!o) {
       logger.error('load options fail!')

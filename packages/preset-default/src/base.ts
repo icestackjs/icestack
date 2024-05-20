@@ -1,5 +1,5 @@
 import type { BaseOptions } from '@icestack/types'
-import { generateColors, presetPrimaryColors, gray } from '@icestack/theme-algorithm'
+import { generateColors, gray, presetPrimaryColors } from '@icestack/theme-algorithm'
 
 // https://github.com/ant-design/ant-design/blob/5393d9ce36821e64590d3f0d07daa0d393a4c299/.dumi/theme/common/Color/ColorStyle.tsx#L13
 export const sharedExtraColors = {
@@ -11,7 +11,7 @@ export const sharedExtraColors = {
     ...Object.values(gray).reduce<Record<string, string>>((acc, value, idx) => {
       acc[`ant-neutral-${idx + 1}00`] = value
       return acc
-    }, {})
+    }, {}),
   },
   dark: {
     'base-100': '#1d232a',
@@ -21,8 +21,8 @@ export const sharedExtraColors = {
     ...Object.values(gray).reduce<Record<string, string>>((acc, value, idx) => {
       acc[`ant-neutral-${13 - idx}00`] = value
       return acc
-    }, {})
-  }
+    }, {}),
+  },
 }
 
 export const sharedExtraVars = {
@@ -34,7 +34,7 @@ export const sharedExtraVars = {
   'skeleton-duration': '1.2s',
   'border-btn': '1px',
   'tab-border': '1px',
-  'tab-radius': '0.5rem'
+  'tab-radius': '0.5rem',
 }
 
 export const base: Partial<BaseOptions> = {
@@ -52,9 +52,9 @@ export const base: Partial<BaseOptions> = {
         // add secondary accent info like daisyui
         secondary: generateColors('secondary', presetPrimaryColors.magenta),
         accent: generateColors('accent', presetPrimaryColors.cyan),
-        info: generateColors('info', presetPrimaryColors.geekblue)
+        info: generateColors('info', presetPrimaryColors.geekblue),
         // default: generateColors('default', presetPrimaryColors.grey)
-      }
+      },
     },
     dark: {
       selector: '[data-mode="dark"]',
@@ -69,10 +69,10 @@ export const base: Partial<BaseOptions> = {
         // add secondary accent info like daisyui
         secondary: generateColors('secondary', presetPrimaryColors.magenta, true),
         accent: generateColors('accent', presetPrimaryColors.cyan, true),
-        info: generateColors('info', presetPrimaryColors.geekblue, true)
+        info: generateColors('info', presetPrimaryColors.geekblue, true),
 
         // default: generateColors('default', presetPrimaryColors.grey, true)
-      }
-    }
-  }
+      },
+    },
+  },
 }

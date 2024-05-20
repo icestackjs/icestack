@@ -1,5 +1,5 @@
 import { pick } from 'lodash'
-import type { ComponentsValue, GetCssSchemaMethodOptions, CreatePresetOptions, CssSchema, ModeMergeOptions, PickCss, CssSchemaDefaults } from '@icestack/types'
+import type { ComponentsValue, CreatePresetOptions, CssSchema, CssSchemaDefaults, GetCssSchemaMethodOptions, ModeMergeOptions, PickCss } from '@icestack/types'
 import { defuArrayRight, isModeMergeValue, makeArray } from '@icestack/shared'
 
 function getPickedProps(pickCss?: PickCss) {
@@ -36,16 +36,16 @@ export function mergeAllOptions(input: ModeMergeOptions[], opts: Partial<GetCssS
         return {
           base: resolvedFunctionArray(x.base, opts),
           styled: resolvedFunctionArray(x.styled, opts),
-          utils: resolvedFunctionArray(x.utils, opts)
+          utils: resolvedFunctionArray(x.utils, opts),
         }
       }
 
       return {
         utils: makeArray(x),
         base: [],
-        styled: []
+        styled: [],
       }
-    })
+    }),
   )
 }
 
@@ -55,18 +55,21 @@ export function preprocessDefaults(de?: Partial<CssSchemaDefaults>) {
   }
   if (typeof de.base === 'string') {
     de.base = [de.base]
-  } else if (de.base === undefined) {
+  }
+  else if (de.base === undefined) {
     de.base = []
   }
 
   if (typeof de.styled === 'string') {
     de.styled = [de.styled]
-  } else if (de.styled === undefined) {
+  }
+  else if (de.styled === undefined) {
     de.styled = []
   }
   if (typeof de.utils === 'string') {
     de.utils = [de.utils]
-  } else if (de.utils === undefined) {
+  }
+  else if (de.utils === undefined) {
     de.utils = []
   }
 
@@ -77,7 +80,7 @@ export function handleOptions({ extend, selector, schema, params, pick: pickCss 
   const schemaOpts: GetCssSchemaMethodOptions = {
     types,
     selector: selector ?? '',
-    params: params ?? {}
+    params: params ?? {},
   }
 
   const de: Partial<CssSchema> = schema?.(schemaOpts) ?? {}
@@ -88,8 +91,8 @@ export function handleOptions({ extend, selector, schema, params, pick: pickCss 
   return defuArrayRight(
     {
       selector: de.selector ?? selector,
-      defaults: mergeAllOptions(extend as ModeMergeOptions[], schemaOpts)
+      defaults: mergeAllOptions(extend as ModeMergeOptions[], schemaOpts),
     },
-    de
+    de,
   )
 }

@@ -94,7 +94,7 @@ const schemaMap = {
   drawer,
   footer,
   hero,
-  rating
+  rating,
 } as const
 
 const componentNames = Object.keys(schemaMap) as (keyof typeof schemaMap)[] // as unknown as keyof typeof _schemaMap
@@ -107,163 +107,163 @@ const removeDefaultComponents = componentNames.reduce<Record<string, false>>((ac
 // removeDefaultComponents
 
 const components: ComponentsOptions = {
-  alert: {
-    selector: '.alert'
+  'alert': {
+    selector: '.alert',
   },
-  avatar: {
-    selector: '.avatar'
+  'avatar': {
+    selector: '.avatar',
   },
-  badge: {
-    selector: '.badge'
+  'badge': {
+    selector: '.badge',
   },
-  button: {
-    selector: '.btn'
+  'button': {
+    selector: '.btn',
   },
-  chat: {
-    selector: '.chat'
+  'chat': {
+    selector: '.chat',
   },
-  checkbox: {
-    selector: '.checkbox'
+  'checkbox': {
+    selector: '.checkbox',
   },
-  input: {
-    selector: '.input'
+  'input': {
+    selector: '.input',
   },
-  link: {
-    selector: '.link'
+  'link': {
+    selector: '.link',
   },
-  progress: {
-    selector: '.progress'
+  'progress': {
+    selector: '.progress',
   },
-  radio: {
-    selector: '.radio'
+  'radio': {
+    selector: '.radio',
   },
-  range: {
-    selector: '.range'
+  'range': {
+    selector: '.range',
   },
-  select: {
-    selector: '.select'
+  'select': {
+    selector: '.select',
   },
-  textarea: {
-    selector: '.textarea'
+  'textarea': {
+    selector: '.textarea',
   },
-  toggle: {
-    selector: '.toggle'
+  'toggle': {
+    selector: '.toggle',
   },
-  loading: {
-    selector: '.loading'
+  'loading': {
+    selector: '.loading',
   },
-  mask: {
-    selector: '.mask'
+  'mask': {
+    selector: '.mask',
   },
-  table: {
-    selector: '.table'
+  'table': {
+    selector: '.table',
   },
-  skeleton: {
-    selector: '.skeleton'
+  'skeleton': {
+    selector: '.skeleton',
   },
-  form: {},
+  'form': {},
   'radial-progress': {
     selector: '.radial-progress',
     postcss: {
       varPrefix: {
         ignoreProp: ['--size', '--thickness', '--value'],
-        ignoreValueCustomProperty: ['--size', '--thickness', '--value']
-      }
-    }
+        ignoreValueCustomProperty: ['--size', '--thickness', '--value'],
+      },
+    },
   },
-  countdown: {
+  'countdown': {
     selector: '.countdown',
     postcss: {
       varPrefix: {
         ignoreProp: ['--value'],
-        ignoreValueCustomProperty: ['--value']
-      }
-    }
+        ignoreValueCustomProperty: ['--value'],
+      },
+    },
   },
-  diff: {
-    selector: '.diff'
+  'diff': {
+    selector: '.diff',
   },
-  kbd: {
-    selector: '.kbd'
+  'kbd': {
+    selector: '.kbd',
   },
-  tooltip: {
+  'tooltip': {
     selector: '.tooltip',
     postcss: {
       varPrefix: {
         ignoreProp: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset'],
-        ignoreValueCustomProperty: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset']
-      }
-    }
+        ignoreValueCustomProperty: ['--tooltip-tail', '--tooltip-color', '--tooltip-text-color', '--tooltip-tail-offset'],
+      },
+    },
   },
-  toast: {
-    selector: '.toast'
+  'toast': {
+    selector: '.toast',
   },
-  steps: {
-    selector: '.step'
+  'steps': {
+    selector: '.step',
   },
-  collapse: {
-    selector: '.collapse'
+  'collapse': {
+    selector: '.collapse',
   },
-  join: {
-    selector: '.join'
+  'join': {
+    selector: '.join',
   },
-  indicator: {
-    selector: '.indicator'
+  'indicator': {
+    selector: '.indicator',
   },
-  divider: {
-    selector: '.divider'
+  'divider': {
+    selector: '.divider',
   },
-  stack: {
-    selector: '.stack'
+  'stack': {
+    selector: '.stack',
   },
-  tab: {
-    selector: '.tab'
+  'tab': {
+    selector: '.tab',
   },
-  dropdown: {
-    selector: '.dropdown'
+  'dropdown': {
+    selector: '.dropdown',
   },
-  swap: {
-    selector: '.swap'
+  'swap': {
+    selector: '.swap',
   },
-  card: {
-    selector: '.card'
+  'card': {
+    selector: '.card',
   },
-  carousel: {
-    selector: '.carousel'
+  'carousel': {
+    selector: '.carousel',
   },
-  stat: {
-    selector: '.stat'
+  'stat': {
+    selector: '.stat',
   },
-  timeline: {
-    selector: '.timeline'
+  'timeline': {
+    selector: '.timeline',
   },
-  breadcrumbs: {
-    selector: '.breadcrumbs'
+  'breadcrumbs': {
+    selector: '.breadcrumbs',
   },
   'bottom-navigation': {
-    selector: '.btm-nav'
+    selector: '.btm-nav',
   },
-  menu: {
-    selector: '.menu'
+  'menu': {
+    selector: '.menu',
   },
-  navbar: {
-    selector: '.navbar'
+  'navbar': {
+    selector: '.navbar',
   },
   'file-input': {
-    selector: '.file-input'
+    selector: '.file-input',
   },
-  rating: {
-    selector: '.rating'
+  'rating': {
+    selector: '.rating',
   },
-  drawer: {
-    selector: '.drawer'
+  'drawer': {
+    selector: '.drawer',
   },
-  footer: {
-    selector: '.footer'
+  'footer': {
+    selector: '.footer',
   },
-  hero: {
-    selector: '.hero'
-  }
+  'hero': {
+    selector: '.hero',
+  },
 }
 for (const [name, { schema }] of Object.entries(schemaMap)) {
   if (components[name]) {

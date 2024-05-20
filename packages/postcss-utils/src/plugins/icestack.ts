@@ -1,4 +1,4 @@
-import type { PluginCreator, AcceptedPlugin, AtRule } from 'postcss'
+import type { AcceptedPlugin, AtRule, PluginCreator } from 'postcss'
 import parser from 'postcss-selector-parser'
 import type { CodegenOptions } from '@icestack/types'
 
@@ -38,12 +38,13 @@ const creator: PluginCreator<CodegenOptions> = (options) => {
         Rule(rule) {
           if (rule.nodes.length === 0) {
             rule.remove()
-          } else {
+          }
+          else {
             ruleTransformer.transformSync(rule, { lossless: false, updateSelector: true })
           }
-        }
-      }
-    ] as AcceptedPlugin[]
+        },
+      },
+    ] as AcceptedPlugin[],
   }
 }
 

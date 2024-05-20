@@ -40,10 +40,10 @@ function resolveWithExtension(file: string, extensions: string[]) {
 function* _getModuleDependencies(filename: string, base: string, seen: Set<string>, ext = path.extname(filename)) {
   // Try to find the file
   const absoluteFile = resolveWithExtension(path.resolve(base, filename), jsExtensions.has(ext) ? jsResolutionOrder : tsResolutionOrder)
-  if (absoluteFile === null) return // File doesn't exist
+  if (absoluteFile === null) { return } // File doesn't exist
 
   // Prevent infinite loops when there are circular dependencies
-  if (seen.has(absoluteFile)) return // Already seen
+  if (seen.has(absoluteFile)) { return } // Already seen
   seen.add(absoluteFile)
 
   // Mark the file as a dependency
@@ -57,18 +57,18 @@ function* _getModuleDependencies(filename: string, base: string, seen: Set<strin
 
   // Find imports/requires
   for (const match of [
-    ...contents.matchAll(/import[\S\s]*?["'](.{3,}?)["']/gi),
-    ...contents.matchAll(/import[\S\s]*from[\S\s]*?["'](.{3,}?)["']/gi),
-    ...contents.matchAll(/require\(["'`](.+)["'`]\)/gi)
+    ...contents.matchAll(/import[\s\S]*?["'](.{3,}?)["']/gi),
+    ...contents.matchAll(/import[\s\S]*from[\s\S]*?["'](.{3,}?)["']/gi),
+    ...contents.matchAll(/require\(["'`](.+)["'`]\)/gi),
   ]) {
     // Bail out if it's not a relative file
-    if (!match[1].startsWith('.')) continue
+    if (!match[1].startsWith('.')) { continue }
 
-    yield* _getModuleDependencies(match[1], base, seen, ext)
+    yield * _getModuleDependencies(match[1], base, seen, ext)
   }
 }
 
 export function getModuleDependencies(absoluteFilePath: string): Set<string> {
-  if (absoluteFilePath === null) return new Set()
+  if (absoluteFilePath === null) { return new Set() }
   return new Set(_getModuleDependencies(absoluteFilePath, path.dirname(absoluteFilePath), new Set()))
 }

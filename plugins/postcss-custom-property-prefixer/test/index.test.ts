@@ -8,8 +8,8 @@ describe('postcssCustomPropertyPrefixer', () => {
   it('add Prefix', async () => {
     const { css } = await postcss([
       creator({
-        prefix: defaultVarPrefix.slice(2)
-      })
+        prefix: defaultVarPrefix.slice(2),
+      }),
     ])
       .process(
         // @ts-ignore
@@ -38,8 +38,8 @@ describe('postcssCustomPropertyPrefixer', () => {
       }
       `,
         {
-          from: undefined
-        }
+          from: undefined,
+        },
       )
       .async()
 
@@ -49,8 +49,8 @@ describe('postcssCustomPropertyPrefixer', () => {
   it('add Prefix case 0', async () => {
     const { css } = await postcss([
       creator({
-        prefix: defaultVarPrefix.slice(2)
-      })
+        prefix: defaultVarPrefix.slice(2),
+      }),
     ])
       .process(
         // @ts-ignore
@@ -61,8 +61,8 @@ describe('postcssCustomPropertyPrefixer', () => {
       }
       `,
         {
-          from: undefined
-        }
+          from: undefined,
+        },
       )
       .async()
 
@@ -75,8 +75,8 @@ describe('postcssCustomPropertyPrefixer', () => {
         prefix: defaultVarPrefix.slice(2),
         ignoreValueCustomProperty(cp) {
           return cp.startsWith('--tw-')
-        }
-      })
+        },
+      }),
     ])
       .process(
         `.a {
@@ -86,8 +86,8 @@ describe('postcssCustomPropertyPrefixer', () => {
       }
       `,
         {
-          from: undefined
-        }
+          from: undefined,
+        },
       )
       .async()
 
@@ -101,8 +101,8 @@ describe('postcssCustomPropertyPrefixer', () => {
         ignoreValueCustomProperty(cp) {
           return cp.startsWith('--tw-')
         },
-        propPrefix: 'xx-'
-      })
+        propPrefix: 'xx-',
+      }),
     ])
       .process(
         `.a {
@@ -112,8 +112,8 @@ describe('postcssCustomPropertyPrefixer', () => {
       }
       `,
         {
-          from: undefined
-        }
+          from: undefined,
+        },
       )
       .async()
 
@@ -131,8 +131,8 @@ describe('postcssCustomPropertyPrefixer', () => {
             return 'bbb-'
           }
           return ''
-        }
-      })
+        },
+      }),
     ])
       .process(
         `.a {
@@ -141,8 +141,8 @@ describe('postcssCustomPropertyPrefixer', () => {
       }
       `,
         {
-          from: undefined
-        }
+          from: undefined,
+        },
       )
       .async()
     expect(css).toMatchSnapshot()
@@ -158,8 +158,8 @@ describe('postcssCustomPropertyPrefixer', () => {
         propPrefix: 'xx-',
         ignoreDecl(decl) {
           return decl.prop === '--tab-color' || decl.value.includes('hsl(var(--b1)')
-        }
-      })
+        },
+      }),
     ])
       .process(
         `.a {
@@ -169,8 +169,8 @@ describe('postcssCustomPropertyPrefixer', () => {
       }
       `,
         {
-          from: undefined
-        }
+          from: undefined,
+        },
       )
       .async()
 
@@ -187,8 +187,8 @@ describe('postcssCustomPropertyPrefixer', () => {
         propPrefix: 'xx-',
         ignoreProp(decl) {
           return decl.prop === '--tab-color'
-        }
-      })
+        },
+      }),
     ])
       .process(
         `.a {
@@ -198,8 +198,8 @@ describe('postcssCustomPropertyPrefixer', () => {
       }
       `,
         {
-          from: undefined
-        }
+          from: undefined,
+        },
       )
       .async()
 
@@ -216,8 +216,8 @@ describe('postcssCustomPropertyPrefixer', () => {
         propPrefix: 'xx-',
         ignoreValue(decl) {
           return decl.value.includes('hsl(var(--b3)')
-        }
-      })
+        },
+      }),
     ])
       .process(
         `.a {
@@ -227,8 +227,8 @@ describe('postcssCustomPropertyPrefixer', () => {
       }
       `,
         {
-          from: undefined
-        }
+          from: undefined,
+        },
       )
       .async()
 
@@ -241,8 +241,8 @@ describe('postcssCustomPropertyPrefixer', () => {
         prefix: defaultVarPrefix.slice(2),
         ignoreProp: (decl) => {
           return decl.prop.startsWith('--tw-')
-        }
-      })
+        },
+      }),
     ])
       .process(
         // @ts-ignore
@@ -255,8 +255,8 @@ describe('postcssCustomPropertyPrefixer', () => {
       }
       `,
         {
-          from: undefined
-        }
+          from: undefined,
+        },
       )
       .async()
 
@@ -272,7 +272,8 @@ describe('matchCustomPropertyFromValue', () => {
       if (idx === 0) {
         expect(arr[0] === 'var(--bc').toBe(true)
         expect(arr[1] === '--bc').toBe(true)
-      } else if (idx === 1) {
+      }
+      else if (idx === 1) {
         expect(arr[0] === 'var(--tw-text-opacity').toBe(true)
         expect(arr[1] === '--tw-text-opacity').toBe(true)
       }
@@ -311,7 +312,8 @@ describe('matchCustomPropertyFromValue', () => {
       if (idx === 0) {
         expect(arr[0] === 'var(--custom-prop').toBe(true)
         expect(arr[1] === '--custom-prop').toBe(true)
-      } else if (idx === 1) {
+      }
+      else if (idx === 1) {
         expect(arr[0] === 'var(--default-value').toBe(true)
         expect(arr[1] === '--default-value').toBe(true)
       }
@@ -326,7 +328,8 @@ describe('matchCustomPropertyFromValue', () => {
       if (idx === 0) {
         expect(arr[0] === 'var(         --custom-prop').toBe(true)
         expect(arr[1] === '--custom-prop').toBe(true)
-      } else if (idx === 1) {
+      }
+      else if (idx === 1) {
         expect(arr[0] === 'var(  --default-value').toBe(true)
         expect(arr[1] === '--default-value').toBe(true)
       }

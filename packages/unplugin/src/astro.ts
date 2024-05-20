@@ -8,6 +8,6 @@ export default (options: Options) => ({
     'astro:config:setup': (astro: any) => {
       astro.config.vite.plugins ||= []
       astro.config.vite.plugins.push(unplugin.vite(options))
-    }
-  }
+    },
+  },
 })

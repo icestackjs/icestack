@@ -1,16 +1,16 @@
 import { sharedExtraColors, sharedExtraVars } from '@icestack/preset-default/base'
-import { makeRgbaValue, composeVarsObject } from '@icestack/theme-algorithm'
-import { CodegenOptions, CssInJs, VarPrefixerOptions } from '@icestack/types'
-import { mergeRClone, makeArray } from '@icestack/shared'
-import { parseJs, merge, parse } from '@icestack/postcss-utils'
+import { composeVarsObject, makeRgbaValue } from '@icestack/theme-algorithm'
+import type { CodegenOptions, CssInJs, VarPrefixerOptions } from '@icestack/types'
+import { makeArray, mergeRClone } from '@icestack/shared'
+import { merge, parse, parseJs } from '@icestack/postcss-utils'
 
-export const calcBase = (options: Partial<CodegenOptions>, { slash }: { slash: boolean } = { slash: true }) => {
+export function calcBase(options: Partial<CodegenOptions>, { slash }: { slash: boolean } = { slash: true }) {
   const { base, postcss } = options
   const { varPrefix: varPrefixOptions } = postcss ?? {}
   const { varPrefix } = (varPrefixOptions ?? {}) as Partial<VarPrefixerOptions>
   const colors: Record<string, string> = {
     transparent: 'transparent',
-    current: 'currentColor'
+    current: 'currentColor',
   }
   const { themes, extraCss: globalExtraCss, themeSelectorTemplate, mediaDarkTheme, generateColors } = base ?? {}
 
@@ -53,7 +53,7 @@ export const calcBase = (options: Partial<CodegenOptions>, { slash }: { slash: b
         addColors(obj as Record<string, string>)
         return {
           ...acc,
-          ...(obj as Record<string, string>)
+          ...(obj as Record<string, string>),
         }
       }, {})
       const css = mergeRClone(composeVarsObject(typesColors, { ...(extraColors ?? sharedExtraColors.light), ...(extraVars ?? sharedExtraVars) }, slash), extraCss)
@@ -64,8 +64,8 @@ export const calcBase = (options: Partial<CodegenOptions>, { slash }: { slash: b
         if (defaultSelector) {
           prependNodes.push({
             '@media (prefers-color-scheme: dark)': {
-              [defaultSelector]: css
-            }
+              [defaultSelector]: css,
+            },
           })
         }
       }
@@ -87,13 +87,13 @@ export const calcBase = (options: Partial<CodegenOptions>, { slash }: { slash: b
     root.insertAfter(0, parseJs(node))
   }
   if (globalExtraCss) {
-    merge(root, ...makeArray(globalExtraCss).map((x) => parse(x)))
+    merge(root, ...makeArray(globalExtraCss).map(x => parse(x)))
   }
 
   return {
     presets,
     types: [...typesSet],
     colors,
-    root
+    root,
   }
 }

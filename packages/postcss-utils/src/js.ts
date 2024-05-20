@@ -1,12 +1,14 @@
-import postcssJs, { CssInJs } from 'postcss-js'
-import postcss, { Root, AcceptedPlugin, LazyResult, Document } from 'postcss'
+import type { CssInJs } from 'postcss-js'
+import postcssJs from 'postcss-js'
+import type { AcceptedPlugin, Document, LazyResult, Root } from 'postcss'
+import postcss from 'postcss'
 
-const noop: <T>(x: T) => T = (x) => x
+const noop: <T>(x: T) => T = x => x
 export function getJsProcess() {
   return {
     baseProcess: noop, // postcssJs.sync(basePlugins),
     componentsProcess: noop, // postcssJs.sync(componentsPlugins),
-    utilitiesProcess: noop //  postcssJs.sync(utilitiesPlugins)
+    utilitiesProcess: noop, //  postcssJs.sync(utilitiesPlugins)
   }
 }
 
@@ -25,7 +27,7 @@ export function stringify(cssInJs: CssInJs) {
 export function postcssProcess(plugins: AcceptedPlugin[], css: string): LazyResult<Document | Root> {
   // @ts-ignore
   return postcss(plugins).process(css, {
-    from: undefined
+    from: undefined,
   })
 }
 

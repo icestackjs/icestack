@@ -1,4 +1,5 @@
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
@@ -72,11 +73,11 @@ const schema: GetCssSchemaMethod = (opts) => {
         ${selector}s-vertical {
           @apply divide-x-0 divide-y overflow-y-auto;
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

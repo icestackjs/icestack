@@ -1,4 +1,5 @@
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
 
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
@@ -52,11 +53,11 @@ const schema: GetCssSchemaMethod = (opts) => {
         ${selector}:where(${selector}-top) {
           @apply bottom-auto top-0 translate-y-0;
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

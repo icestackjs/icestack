@@ -1,4 +1,6 @@
-import { GetCssSchemaMethod, css } from '@/types'
+import type { GetCssSchemaMethod } from '@/types'
+import { css } from '@/types'
+
 const schema: GetCssSchemaMethod = (opts) => {
   const { selector } = opts
   return {
@@ -43,11 +45,11 @@ const schema: GetCssSchemaMethod = (opts) => {
         ${selector}-item-2 {
           @apply border-base-100 border-r-2;
         }
-      `
-    }
+      `,
+    },
   }
 }
 
 export default {
-  schema
+  schema,
 }

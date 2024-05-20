@@ -6,10 +6,10 @@ import type { CssInJs } from 'postcss-js'
 import type { CSSRuleObject, PluginCreator } from 'tailwindcss/types/config'
 
 import { createLogger } from '@icestack/logger'
-import { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss'
 import { name as pkgName } from '../package.json'
 
-export type TailwindcssPluginOptions = {
+export interface TailwindcssPluginOptions {
   loadDirectory: string
   loadConfig?: boolean | string
 }
@@ -20,7 +20,7 @@ function requireLib(id: string, basedir: string) {
   return require(path.resolve(basedir, id))
 }
 
-export type IcestackCSSRule = {
+export interface IcestackCSSRule {
   base: CSSRuleObject | CSSRuleObject[]
   styled: CSSRuleObject | CSSRuleObject[]
   utils: CSSRuleObject | CSSRuleObject[]
@@ -29,7 +29,7 @@ export type IcestackCSSRule = {
 const noop: PluginCreator = () => {}
 
 export const icestackPlugin = plugin.withOptions(
-  function (opts: TailwindcssPluginOptions) {
+  (opts: TailwindcssPluginOptions) => {
     try {
       if (opts && opts.loadDirectory) {
         const { loadDirectory } = opts
@@ -72,13 +72,14 @@ export const icestackPlugin = plugin.withOptions(
       }
 
       return noop
-    } catch (error) {
+    }
+    catch (error) {
       logger.warn(error)
 
       return noop
     }
   },
-  function (opts: TailwindcssPluginOptions) {
+  (opts: TailwindcssPluginOptions) => {
     try {
       if (opts && opts.loadDirectory) {
         const { loadConfig, loadDirectory } = opts
@@ -86,15 +87,17 @@ export const icestackPlugin = plugin.withOptions(
           if (loadConfig === true) {
             const config = requireLib('js/tailwindcss/config.cjs', loadDirectory) as Config
             return config
-          } else if (typeof loadConfig === 'string') {
+          }
+          else if (typeof loadConfig === 'string') {
             return require(loadConfig)
           }
         }
       }
       return {}
-    } catch (error) {
+    }
+    catch (error) {
       logger.warn(error)
       return {}
     }
-  }
+  },
 )

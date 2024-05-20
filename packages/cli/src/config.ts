@@ -1,7 +1,7 @@
 import dedent from 'dedent'
 
-export function createJsConfig({ outdir, format = 'cjs', mode = 'none' }: { outdir: string; format?: 'cjs' | 'ts'; mode?: 'none' | 'preset' }) {
-  const p = './' + outdir
+export function createJsConfig({ outdir, format = 'cjs', mode = 'none' }: { outdir: string, format?: 'cjs' | 'ts', mode?: 'none' | 'preset' }) {
+  const p = `./${outdir}`
   const cssPrefix = `// install vscode-styled-components for css\`\` highlight
   // https://marketplace.visualstudio.com/items?itemName=styled-components.vscode-styled-components
   const css = String.raw`
@@ -87,7 +87,7 @@ export function createJsConfig({ outdir, format = 'cjs', mode = 'none' }: { outd
     ${helloWorldSample}`
         : ''
     }
-})\n`
+})\n`,
     }
   }
   return {
@@ -100,6 +100,6 @@ export function createJsConfig({ outdir, format = 'cjs', mode = 'none' }: { outd
     ${helloWorldSample}`
         : ''
     }
-}\n\n${'module.exports = config'}\n`
+}\n\n${'module.exports = config'}\n`,
   }
 }

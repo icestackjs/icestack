@@ -29,7 +29,7 @@
     "@icestack/cva": "workspace:^",
     "@icestack/postcss": "workspace:^",
     "ahooks": "^3.7.11",
-    "axios": "^1.6.8",
+    "axios": "^1.7.0",
     "cheerio": "1.0.0-rc.12",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

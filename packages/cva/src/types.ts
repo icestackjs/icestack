@@ -1,4 +1,4 @@
-import componentsTable from './table'
+import type componentsTable from './table'
 
 export interface UserDefinedOptions {
   prefix?: string

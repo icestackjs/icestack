@@ -32,37 +32,37 @@ export function createResolveDir(base: string) {
   function getCssPath(relPath: string, dir?: string) {
     const cssDir = resolveCssDir(dir)
     const cssPath = path.resolve(cssDir, relPath)
-    return cssPath + '.css'
+    return `${cssPath}.css`
   }
 
   function getScssPath(relPath: string, dir?: string) {
     const scssDir = resolveScssDir(dir)
     const cssPath = path.resolve(scssDir, relPath)
-    return cssPath + '.scss'
+    return `${cssPath}.scss`
   }
 
   function getCssResolvedPath(relPath: string, dir?: string) {
     const cssDir = resolveCssResolvedDir(dir)
     const cssPath = path.resolve(cssDir, relPath)
-    return cssPath + '.css'
+    return `${cssPath}.css`
   }
 
   function getJsPath(relPath: string, dir?: string) {
     const targetJsDir = resolveJsDir(dir)
     const jsPath = path.resolve(targetJsDir, relPath)
-    return jsPath + '.cjs'
+    return `${jsPath}.cjs`
   }
 
   function getCvaPath(relPath: string, dir?: string, format: string = 'ts') {
     const targetJsDir = resolveCvaDir(dir)
     const jsPath = path.resolve(targetJsDir, relPath)
-    return jsPath + '.' + format
+    return `${jsPath}.${format}`
   }
 
   function getPluginsPath(relPath: string, dir?: string) {
     const targetJsDir = dir ? path.resolve(dir, 'js') : pluginsDir
     const jsPath = path.resolve(targetJsDir, relPath)
-    return jsPath + '.cjs'
+    return `${jsPath}.cjs`
   }
   return {
     assetsDir,
@@ -80,6 +80,6 @@ export function createResolveDir(base: string) {
     resolveJsDir,
     getScssPath,
     resolveCvaDir,
-    getCvaPath
+    getCvaPath,
   }
 }

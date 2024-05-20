@@ -1,5 +1,6 @@
+import process from 'node:process'
 import { cosmiconfigSync } from 'cosmiconfig'
-import { flattenDeep, set, isObject, cloneDeep, omit } from 'lodash'
+import { cloneDeep, flattenDeep, isObject, omit, set } from 'lodash'
 import type { CodegenOptions, Preset } from '@icestack/types'
 import { defuOptions, makeArray } from '@icestack/shared'
 import { getCodegenDefaults } from './defaults'
@@ -48,14 +49,14 @@ export function getCodegenOptions(options?: CodegenOptions) {
   let expandPresets: Preset[] = []
 
   if (presets && Array.isArray(presets)) {
-    expandPresets =
-      flattenDeep(
+    expandPresets
+      = flattenDeep(
         presets.map((x) => {
           if (typeof x === 'function') {
             return x()
           }
           return x
-        })
+        }),
       ).filter(Boolean) ?? []
   }
 
@@ -72,7 +73,7 @@ export type LoadConfigResult = {
   isEmpty?: boolean
 } | null
 
-export function loadSync(options?: { cwd?: string; configFile?: string }) {
+export function loadSync(options?: { cwd?: string, configFile?: string }) {
   const { configFile, cwd = process.cwd() } = options ?? {}
   const explorerSync = cosmiconfigSync('icestack')
   if (configFile) {

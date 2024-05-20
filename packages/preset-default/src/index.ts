@@ -12,8 +12,8 @@ const defaultPreset: (opts: { varPrefix?: string }) => Preset = (opts) => {
     components,
     utilities,
     tailwindcssConfig: {
-      theme: createDefaultTailwindcssExtends({ varPrefix })
-    }
+      theme: createDefaultTailwindcssExtends({ varPrefix }),
+    },
   }
 }
 

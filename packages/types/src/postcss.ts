@@ -3,7 +3,7 @@ export interface PrefixerOptions {
   ignore?: ReadonlyArray<RegExp | string>
 }
 
-export type VarPrefixerOptions = {
+export interface VarPrefixerOptions {
   varPrefix?: string // | PrefixFunction
   ignoreProp?: (RegExp | string)[]
   ignoreValueCustomProperty?: (RegExp | string)[]

@@ -1,8 +1,8 @@
 import type { ChildNode } from 'postcss'
 import sassParser from 'postcss-scss'
 import selectorParser from 'postcss-selector-parser'
-import { set, get } from 'lodash'
-import type { CssValue, CssInJs } from '@icestack/types'
+import { get, set } from 'lodash'
+import type { CssInJs, CssValue } from '@icestack/types'
 
 export const defaultSelectorParser = selectorParser()
 
@@ -18,10 +18,12 @@ export function recursiveNodes(nodes: ChildNode[], result: Record<string, any> =
           const v = get(result, 'apply')
           if (Array.isArray(v)) {
             v.push(node.params)
-          } else {
+          }
+          else {
             set(result, 'apply', [node.params])
           }
-        } else {
+        }
+        else {
           const selector = `@${node.name} ${node.params}`
           result[selector] = {}
           recursiveNodes(node.nodes ?? [], result[selector])
@@ -60,7 +62,7 @@ export function transformCss2Js<T>(css: T) {
 
 export function mapCss2JsArray(value?: CssValue) {
   if (value) {
-    return Array.isArray(value) ? value.map((x) => transformCss2Js(x)) : [transformCss2Js(value)]
+    return Array.isArray(value) ? value.map(x => transformCss2Js(x)) : [transformCss2Js(value)]
   }
   return []
 }

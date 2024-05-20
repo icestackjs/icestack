@@ -6,18 +6,18 @@ export interface CreatePresetOptions {
   types: string[]
 }
 
-export type CssSchemaDefaults = {
+export interface CssSchemaDefaults {
   styled: CssValue
   base: CssValue
   utils: CssValue
 }
 
-export type CssSchema = {
+export interface CssSchema {
   selector?: string
   defaults: Partial<CssSchemaDefaults>
 }
 // baseDefault: CssValue
-export type GetCssSchemaMethodOptions<T extends Record<string, any> = Record<string, any>> = CreatePresetOptions & { selector: string; params: T }
+export type GetCssSchemaMethodOptions<T extends Record<string, any> = Record<string, any>> = CreatePresetOptions & { selector: string, params: T }
 
 export type GetCssSchemaMethod<T extends Record<string, any> = Record<string, any>> = (opts: GetCssSchemaMethodOptions<T>) => CssSchema
 

@@ -3,7 +3,7 @@ import { base as defaultBase } from '@icestack/preset-default/base'
 import { utilities as defaultUtilities } from '@icestack/preset-default/utilities'
 import { defaultVarPrefix } from '@icestack/shared/constants'
 import { generateColors } from '@icestack/theme-algorithm'
-import type { CodegenOptions, BaseOptions, ComponentsOptions, ComponentsValue } from '@icestack/types'
+import type { BaseOptions, CodegenOptions, ComponentsOptions, ComponentsValue } from '@icestack/types'
 
 export function getDefaultBase(options?: CodegenOptions) {
   const { base: baseOptions, mode: globalMode } = options ?? {}
@@ -19,7 +19,7 @@ export function getDefaultBase(options?: CodegenOptions) {
       return `[data-mode="${theme}"]`
     },
     generateColors,
-    mediaDarkTheme: false // 'dark'
+    mediaDarkTheme: false, // 'dark'
   }
   if (globalMode !== 'none') {
     if (themes?.light !== false) {
@@ -65,7 +65,7 @@ export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOption
     pick: {
       base: true,
       styled: true,
-      utils: true
+      utils: true,
     },
     log: true,
     dryRun: false,
@@ -74,15 +74,15 @@ export function getCodegenDefaults(options?: CodegenOptions): Omit<CodegenOption
     utilities,
     postcss: {
       varPrefix: {
-        varPrefix: defaultVarPrefix
+        varPrefix: defaultVarPrefix,
       },
       atMedia: {},
-      selector: {}
+      selector: {},
     },
     cva: {
       format: 'ts',
-      importFrom: '@icestack/cva'
-    }
+      importFrom: '@icestack/cva',
+    },
   }
 }
 

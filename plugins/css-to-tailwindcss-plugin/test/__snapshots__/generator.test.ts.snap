@@ -95,7 +95,11 @@ exports[`generator > apply case 0 > css 1`] = `
     --tw-backdrop-invert:  ;
     --tw-backdrop-opacity:  ;
     --tw-backdrop-saturate:  ;
-    --tw-backdrop-sepia:  
+    --tw-backdrop-sepia:  ;
+    --tw-contain-size:  ;
+    --tw-contain-layout:  ;
+    --tw-contain-paint:  ;
+    --tw-contain-style:  
 }
 ::backdrop {
     --tw-border-spacing-x: 0;
@@ -144,7 +148,11 @@ exports[`generator > apply case 0 > css 1`] = `
     --tw-backdrop-invert:  ;
     --tw-backdrop-opacity:  ;
     --tw-backdrop-saturate:  ;
-    --tw-backdrop-sepia:  
+    --tw-backdrop-sepia:  ;
+    --tw-contain-size:  ;
+    --tw-contain-layout:  ;
+    --tw-contain-paint:  ;
+    --tw-contain-style:  
 }
 .a {
     --tw-bg-opacity: 1;
@@ -228,7 +236,11 @@ exports[`generator > apply case 1 > css 1`] = `
     --tw-backdrop-invert:  ;
     --tw-backdrop-opacity:  ;
     --tw-backdrop-saturate:  ;
-    --tw-backdrop-sepia:  
+    --tw-backdrop-sepia:  ;
+    --tw-contain-size:  ;
+    --tw-contain-layout:  ;
+    --tw-contain-paint:  ;
+    --tw-contain-style:  
 }
 ::backdrop {
     --tw-border-spacing-x: 0;
@@ -277,7 +289,11 @@ exports[`generator > apply case 1 > css 1`] = `
     --tw-backdrop-invert:  ;
     --tw-backdrop-opacity:  ;
     --tw-backdrop-saturate:  ;
-    --tw-backdrop-sepia:  
+    --tw-backdrop-sepia:  ;
+    --tw-contain-size:  ;
+    --tw-contain-layout:  ;
+    --tw-contain-paint:  ;
+    --tw-contain-style:  
 }
 .a {
     --tw-bg-opacity: 1;
@@ -796,6 +812,10 @@ exports[`generator > import case 0 with tailwindcss config case > css 1`] = `
     --tw-backdrop-opacity:  ;
     --tw-backdrop-saturate:  ;
     --tw-backdrop-sepia:  ;
+    --tw-contain-size:  ;
+    --tw-contain-layout:  ;
+    --tw-contain-paint:  ;
+    --tw-contain-style:  ;
 }
 ::backdrop {
     --tw-border-spacing-x: 0;
@@ -845,6 +865,10 @@ exports[`generator > import case 0 with tailwindcss config case > css 1`] = `
     --tw-backdrop-opacity:  ;
     --tw-backdrop-saturate:  ;
     --tw-backdrop-sepia:  ;
+    --tw-contain-size:  ;
+    --tw-contain-layout:  ;
+    --tw-contain-paint:  ;
+    --tw-contain-style:  ;
 }
 h3 {
     font-size: 1.5rem;
@@ -977,6 +1001,10 @@ exports[`generator > import case 0 with tailwindcss config case with content > c
     --tw-backdrop-opacity:  ;
     --tw-backdrop-saturate:  ;
     --tw-backdrop-sepia:  ;
+    --tw-contain-size:  ;
+    --tw-contain-layout:  ;
+    --tw-contain-paint:  ;
+    --tw-contain-style:  ;
 }
 ::backdrop {
     --tw-border-spacing-x: 0;
@@ -1026,6 +1054,10 @@ exports[`generator > import case 0 with tailwindcss config case with content > c
     --tw-backdrop-opacity:  ;
     --tw-backdrop-saturate:  ;
     --tw-backdrop-sepia:  ;
+    --tw-contain-size:  ;
+    --tw-contain-layout:  ;
+    --tw-contain-paint:  ;
+    --tw-contain-style:  ;
 }
 h3 {
     font-size: 1.5rem;

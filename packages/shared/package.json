@@ -68,7 +68,7 @@
     "url": "https://github.com/sonofmagic/icestack"
   },
   "devDependencies": {
-    "@types/lodash": "^4.17.4",
+    "@types/lodash": "^4.17.5",
     "@types/object-hash": "^3.0.6"
   }
 }

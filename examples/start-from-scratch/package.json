@@ -13,18 +13,18 @@
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "class-variance-authority": "^0.7.0",
-    "vue": "^3.4.29",
-    "vuetify": "^3.6.9"
+    "vue": "^3.4.37",
+    "vuetify": "^3.6.14"
   },
   "devDependencies": {
     "@icestack/tailwindcss": "workspace:^",
     "@icestack/ui": "workspace:^",
-    "@vitejs/plugin-vue": "^5.0.5",
+    "@vitejs/plugin-vue": "^5.1.2",
     "postcss-cva": "workspace:^",
-    "sass": "^1.77.5",
-    "tailwindcss": "^3.4.4",
-    "typescript": "^5.4.5",
-    "vite": "^5.3.1",
-    "vue-tsc": "^2.0.21"
+    "sass": "^1.77.8",
+    "tailwindcss": "^3.4.9",
+    "typescript": "^5.5.4",
+    "vite": "^5.4.0",
+    "vue-tsc": "^2.0.29"
   }
 }

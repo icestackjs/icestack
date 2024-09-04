@@ -2,6 +2,27 @@
   "name": "css-to-tailwindcss-plugin",
   "version": "0.3.0",
   "description": "css-to-tailwindcss-plugin, transform your `css/scss` to `tailwindcss plugin`",
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/sonofmagic/icestack/tree/main/packages/css-to-tailwindcss-plugin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack/tree/main/packages/css-to-tailwindcss-plugin"
+  },
+  "keywords": [
+    "css-to-tailwindcss",
+    "generate",
+    "css-to-tailwindcss-plugin",
+    "tailwindcss",
+    "plugin",
+    "transform",
+    "css",
+    "sass",
+    "scss"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -10,13 +31,13 @@
     },
     "./tailwindcss": {
       "types": "./dist/tailwindcss.d.ts",
-      "require": "./dist/tailwindcss.cjs",
-      "import": "./dist/tailwindcss.mjs"
+      "import": "./dist/tailwindcss.mjs",
+      "require": "./dist/tailwindcss.cjs"
     },
     "./browser": {
       "types": "./dist/browser.d.ts",
-      "require": "./dist/browser.cjs",
-      "import": "./dist/browser.mjs"
+      "import": "./dist/browser.mjs",
+      "require": "./dist/browser.cjs"
     },
     "./*": "./*"
   },
@@ -31,6 +52,14 @@
       ]
     }
   },
+  "bin": {
+    "css2plugin": "bin/css2plugin.js",
+    "css2twplugin": "bin/css2plugin.js"
+  },
+  "files": [
+    "bin",
+    "dist"
+  ],
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --watch --sourcemap",
@@ -43,35 +72,6 @@
     "raw": "node bin/css2plugin.js build ./file.css aaa.scss --out ./twplugins --resolved -c ./t.c.js",
     "raw0": "node bin/css2plugin.js build theme-mutiple.css common.css --out ./twplugins --cwd ./test/fixtures",
     "sync": "cnpm sync css-to-tailwindcss-plugin"
-  },
-  "bin": {
-    "css2plugin": "bin/css2plugin.js",
-    "css2twplugin": "bin/css2plugin.js"
-  },
-  "files": [
-    "bin",
-    "dist"
-  ],
-  "keywords": [
-    "css-to-tailwindcss",
-    "generate",
-    "css-to-tailwindcss-plugin",
-    "tailwindcss",
-    "plugin",
-    "transform",
-    "css",
-    "sass",
-    "scss"
-  ],
-  "author": "SonOfMagic <qq1324318532@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sonofmagic/icestack/tree/main/packages/css-to-tailwindcss-plugin"
-  },
-  "homepage": "https://github.com/sonofmagic/icestack/tree/main/packages/css-to-tailwindcss-plugin",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sonofmagic/icestack"
   },
   "dependencies": {
     "@babel/generator": "^7.25.0",
@@ -93,6 +93,6 @@
     "del": "^7.1.0",
     "object-hash": "^3.0.0",
     "sass": "^1.77.8",
-    "tailwindcss": "^3.4.9"
+    "tailwindcss": "^3.4.10"
   }
 }

@@ -1,8 +1,8 @@
 {
   "name": "start-from-scratch",
-  "private": true,
-  "version": "0.0.0",
   "type": "module",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
     "dev": "npm run build:ui && vite",
     "build": "vue-tsc && vite build",
@@ -22,7 +22,7 @@
     "@vitejs/plugin-vue": "^5.1.2",
     "postcss-cva": "workspace:^",
     "sass": "^1.77.8",
-    "tailwindcss": "^3.4.9",
+    "tailwindcss": "^3.4.10",
     "typescript": "^5.5.4",
     "vite": "^5.4.0",
     "vue-tsc": "^2.0.29"

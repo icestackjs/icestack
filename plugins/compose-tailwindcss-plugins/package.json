@@ -2,6 +2,28 @@
   "name": "compose-tailwindcss-plugins",
   "version": "0.0.4",
   "description": "compose your multiple tailwindcss plugins into one",
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/sonofmagic/icestack/tree/main/packages/compose-tailwindcss-plugins",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack/tree/main/packages/compose-tailwindcss-plugins"
+  },
+  "keywords": [
+    "compose-tailwindcss-plugins",
+    "css-to-tailwindcss",
+    "generate",
+    "css-to-tailwindcss-plugin",
+    "tailwindcss",
+    "plugin",
+    "transform",
+    "css",
+    "sass",
+    "scss"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -21,6 +43,9 @@
       ]
     }
   },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --watch --sourcemap",
@@ -32,31 +57,6 @@
     "test:dev": "vitest --coverage",
     "sync": "cnpm sync compose-tailwindcss-plugins"
   },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "compose-tailwindcss-plugins",
-    "css-to-tailwindcss",
-    "generate",
-    "css-to-tailwindcss-plugin",
-    "tailwindcss",
-    "plugin",
-    "transform",
-    "css",
-    "sass",
-    "scss"
-  ],
-  "author": "SonOfMagic <qq1324318532@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sonofmagic/icestack/tree/main/packages/compose-tailwindcss-plugins"
-  },
-  "homepage": "https://github.com/sonofmagic/icestack/tree/main/packages/compose-tailwindcss-plugins",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sonofmagic/icestack"
-  },
   "devDependencies": {
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/container-queries": "^0.1.1",
@@ -64,6 +64,6 @@
     "@tailwindcss/typography": "^0.5.14",
     "merge": "^2.1.1",
     "postcss": "^8.4.41",
-    "tailwindcss": "^3.4.9"
+    "tailwindcss": "^3.4.10"
   }
 }

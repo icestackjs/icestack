@@ -88,7 +88,7 @@
     "simple-git": "^3.26.0",
     "svg64": "^2.0.0",
     "tailwind-config-viewer": "^2.0.4",
-    "tailwindcss": "3.4.9",
+    "tailwindcss": "3.4.10",
     "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "tslib": "^2.7.0",

@@ -20,11 +20,7 @@
         "^build"
       ]
     },
-    "test:dev": {
-      "dependsOn": [
-        "^build"
-      ]
-    },
+    "test:dev": {},
     "release": {},
     "sync": {}
   }

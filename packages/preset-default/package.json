@@ -54,13 +54,6 @@
     "./*": "./*"
   },
   "main": "./dist/index.cjs",
-  "scripts": {
-    "build": "unbuild",
-    "test": "vitest run",
-    "test:dev": "vitest",
-    "release": "pnpm publish",
-    "sync": "cnpm sync @icestack/preset-default"
-  },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "typesVersions": {
@@ -74,6 +67,13 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "sync": "cnpm sync @icestack/preset-default"
+  },
   "dependencies": {
     "@icestack/shared": "workspace:^",
     "@icestack/theme-algorithm": "workspace:^",

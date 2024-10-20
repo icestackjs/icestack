@@ -31,6 +31,10 @@
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",
@@ -38,10 +42,6 @@
     "release": "pnpm publish",
     "sync": "cnpm sync @icestack/scss"
   },
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "dependencies": {
     "@icestack/shared": "workspace:^",
     "immutable": "^4.3.7",

@@ -32,14 +32,6 @@
     "./*": "./*"
   },
   "main": "./dist/index.cjs",
-  "scripts": {
-    "dev": "unbuild --sourcemap",
-    "build": "unbuild",
-    "test": "vitest run",
-    "test:dev": "vitest",
-    "release": "pnpm publish",
-    "sync": "cnpm sync @icestack/core"
-  },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "typesVersions": {
@@ -53,6 +45,14 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "dev": "unbuild --sourcemap",
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "sync": "cnpm sync @icestack/core"
+  },
   "dependencies": {
     "@icestack/config": "workspace:^",
     "@icestack/generator": "workspace:^",

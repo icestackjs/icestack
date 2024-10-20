@@ -32,6 +32,11 @@
     }
   },
   "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",
@@ -39,11 +44,6 @@
     "release": "pnpm publish",
     "sync": "cnpm sync @icestack/logger"
   },
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "dependencies": {
     "@types/cli-progress": "^3.11.6",
     "cli-progress": "^3.12.0",

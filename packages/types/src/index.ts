@@ -210,7 +210,6 @@ export type DeepPartial<T> = {
   [P in keyof T]?: T[P] extends object ? DeepPartial<T[P]> : Partial<T[P]>
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
 // export type DeepPartial<T> = T extends Function ? T : T extends Record<string, any> ? { [P in keyof T]?: DeepPartial<T[P]> } : T
 
 export type DeepRequired<T> = Required<{

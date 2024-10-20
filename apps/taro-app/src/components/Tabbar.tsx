@@ -1,21 +1,21 @@
-import { View } from '@tarojs/components'
-import { FC } from 'react'
-import './Tabbar.scss'
-import SafeBottom from './SafeBottom'
+import type { FC } from 'react'
 import { useIndexTabbar } from '@/store/index'
+import { View } from '@tarojs/components'
 import { cx } from 'class-variance-authority'
+import SafeBottom from './SafeBottom'
+import './Tabbar.scss'
 
 const Tabbar: FC = () => {
   const { index, setIndex } = useIndexTabbar()
   const list = [
     {
       icon: 'i-mdi-document',
-      text: 'Docs'
+      text: 'Docs',
     },
     {
       icon: 'i-mdi-code-array',
-      text: 'Code'
-    }
+      text: 'Code',
+    },
   ]
   return (
     <>
@@ -34,7 +34,7 @@ const Tabbar: FC = () => {
                 <View
                   className={cx({
                     'rounded-md bg-sky-300/[0.15] px-12 py-2 text-sky-500 dark:text-sky-400':
-                      isActive
+                      isActive,
                   })}
                 >
                   <View className={cx('flex items-center')}>

@@ -26,18 +26,18 @@ describe.skip('utilities', () => {
         extraCss: [
           `.custom{
             @apply font-display;
-          }`
-        ]
+          }`,
+        ],
       },
       tailwindcssConfig: {
         theme: {
           extend: {
             fontFamily: {
-              display: 'Oswald, ui-serif'
-            }
-          }
-        }
-      }
+              display: 'Oswald, ui-serif',
+            },
+          },
+        },
+      },
     })
     const res = await ctx.buildUtilities()
     expect(res.custom).toMatchSnapshot()

@@ -3,6 +3,6 @@
   content: attr(class);
 }
 
-.xxx::before{
+.xxx::before {
   content: attr(data-sid);
 }

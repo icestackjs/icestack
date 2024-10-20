@@ -1,9 +1,9 @@
-import 'tailwindcss/tailwind.css'
-import i18n from './i18next'
-import { withThemeByDataAttribute } from '@storybook/addon-themes'
 import type { Preview } from '@storybook/html'
+import { withThemeByDataAttribute } from '@storybook/addon-themes'
 import { addons } from '@storybook/preview-api'
 import { themes } from '@storybook/theming'
+import i18n from './i18next'
+import 'tailwindcss/tailwind.css'
 
 // import type { Renderer, ProjectAnnotations } from '@storybook/types';
 // import i18n from 'storybook-i18n/preview';
@@ -32,8 +32,8 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/i
-      }
+        date: /Date$/i,
+      },
     },
     docs: {
       toc: {
@@ -43,20 +43,20 @@ const preview: Preview = {
         title: 'Table of Contents',
         disable: false,
         unsafeTocbotOptions: {
-          orderedList: false
-        }
+          orderedList: false,
+        },
       },
       source: {
-        state: 'open'
-      }
+        state: 'open',
+      },
     },
     darkMode: {
       // Override the default dark theme
-      dark: { ...themes.dark }, //, appBg: 'black' },
+      dark: { ...themes.dark }, // , appBg: 'black' },
       // Override the default light theme
-      light: { ...themes.normal } //, appBg: 'red' }
-    }
-  }
+      light: { ...themes.normal }, // , appBg: 'red' }
+    },
+  },
 
   // ...i18n,
   // decorators: [...i18nDecorators]
@@ -66,11 +66,11 @@ export const decorators = [
   withThemeByDataAttribute({
     themes: {
       light: 'light',
-      dark: 'dark'
+      dark: 'dark',
     },
     defaultTheme: 'light',
-    attributeName: 'data-mode'
-  })
+    attributeName: 'data-mode',
+  }),
 ]
 
 export default preview

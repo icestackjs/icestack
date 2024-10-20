@@ -1,9 +1,9 @@
-import { defu } from '@icestack/shared'
-import { components } from './components'
-import { base } from './base'
-import { utilities } from './utilities'
-import { createDefaultTailwindcssExtends } from './tailwindcss'
 import type { Preset } from '@/types'
+import { defu } from '@icestack/shared'
+import { base } from './base'
+import { components } from './components'
+import { createDefaultTailwindcssExtends } from './tailwindcss'
+import { utilities } from './utilities'
 
 const defaultPreset: (opts: { varPrefix?: string }) => Preset = (opts) => {
   const { varPrefix } = defu(opts, {})

@@ -1,7 +1,7 @@
-import { createContext } from '@icestack/ui'
-import { getCodegenOptions } from '@icestack/ui/config'
-
 import preset from '@/index'
+import { createContext } from '@icestack/ui'
+
+import { getCodegenOptions } from '@icestack/ui/config'
 
 describe('presets', () => {
   it('default preset', () => {

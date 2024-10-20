@@ -1,7 +1,7 @@
 // import { initReactI18next } from 'react-i18next';
-import i18n from 'i18next';
-import Backend from 'i18next-http-backend';
-import LanguageDetector from 'i18next-browser-languagedetector';
+import i18n from 'i18next'
+import LanguageDetector from 'i18next-browser-languagedetector'
+import Backend from 'i18next-http-backend'
 
 // const ns = ['common'];
 // const supportedLngs = ['en', 'zh'];
@@ -28,15 +28,15 @@ i18n// .use(initReactI18next)
     resources: {
       en: {
         translation: {
-          "key": "hello world"
-        }
+          key: 'hello world',
+        },
       },
       zh: {
         translation: {
-          "key": "你好世界"
-        }
-      }
-    }
-  });
+          key: '你好世界',
+        },
+      },
+    },
+  })
 
-export default i18n;
+export default i18n

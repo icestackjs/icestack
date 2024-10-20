@@ -1,17 +1,18 @@
 import { components } from '@/components'
+
 const types = ['primary', 'success', 'warning', 'error', 'neutral']
 describe.each(
   Object.entries(components).map((x) => {
     return {
       name: x[0],
-      value: x[1]
+      value: x[1],
     }
-  })
+  }),
 )('$name options', ({ name, value }) => {
   it('snap', () => {
     const xx = value?.schema({
       selector: value.selector,
-      types
+      types,
     })
     expect(xx).toMatchSnapshot()
   })
@@ -20,8 +21,8 @@ describe.each(
     expect(
       value?.schema({
         selector: value.selector,
-        types: []
-      })
+        types: [],
+      }),
     ).toMatchSnapshot()
   })
 })

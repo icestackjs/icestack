@@ -34,13 +34,6 @@
     "./*": "./*"
   },
   "main": "./dist/index.cjs",
-  "scripts": {
-    "build": "unbuild",
-    "test": "vitest run",
-    "test:dev": "vitest",
-    "release": "pnpm publish",
-    "sync": "cnpm sync @icestack/preset-weapp"
-  },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "typesVersions": {
@@ -54,6 +47,13 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "sync": "cnpm sync @icestack/preset-weapp"
+  },
   "dependencies": {
     "@icestack/shared": "workspace:^",
     "@icestack/types": "workspace:^"

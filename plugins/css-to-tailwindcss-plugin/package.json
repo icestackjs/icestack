@@ -74,25 +74,25 @@
     "sync": "cnpm sync css-to-tailwindcss-plugin"
   },
   "dependencies": {
-    "@babel/generator": "^7.25.0",
-    "@babel/types": "^7.25.2",
+    "@babel/generator": "^7.25.7",
+    "@babel/types": "^7.25.8",
     "cac": "^6.7.14",
     "compose-tailwindcss-plugins": "workspace:^",
     "md5": "^2.3.0",
-    "postcss": "^8.4.41",
+    "postcss": "^8.4.47",
     "postcss-import": "^16.1.0"
   },
   "devDependencies": {
-    "@babel/standalone": "^7.25.3",
+    "@babel/standalone": "^7.25.8",
     "@types/babel__generator": "^7.6.8",
     "@types/babel__standalone": "^7.1.7",
     "@types/md5": "^2.3.5",
     "@types/object-hash": "^3.0.6",
     "@types/postcss-import": "^14.0.3",
-    "c12": "^1.11.1",
-    "del": "^7.1.0",
+    "c12": "^2.0.1",
+    "del": "^8.0.0",
     "object-hash": "^3.0.0",
-    "sass": "^1.77.8",
-    "tailwindcss": "^3.4.10"
+    "sass": "^1.80.3",
+    "tailwindcss": "^3.4.14"
   }
 }

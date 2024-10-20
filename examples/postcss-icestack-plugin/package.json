@@ -1,8 +1,8 @@
 {
   "name": "postcss-icestack-plugin",
-  "private": true,
-  "version": "0.0.9",
   "type": "module",
+  "version": "0.0.9",
+  "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
@@ -11,15 +11,15 @@
   },
   "dependencies": {
     "@icestack/cva": "workspace:^",
-    "vue": "^3.4.37"
+    "vue": "^3.5.12"
   },
   "devDependencies": {
     "@icestack/postcss": "workspace:^",
     "@icestack/ui": "workspace:^",
-    "@vitejs/plugin-vue": "^5.1.2",
-    "sass": "^1.77.8",
-    "typescript": "^5.5.4",
-    "vite": "^5.4.0",
-    "vue-tsc": "^2.0.29"
+    "@vitejs/plugin-vue": "^5.1.4",
+    "sass": "^1.80.3",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.9",
+    "vue-tsc": "^2.1.6"
   }
 }

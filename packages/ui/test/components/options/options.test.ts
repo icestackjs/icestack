@@ -1,15 +1,15 @@
-// @ts-nocheck
-import { getCodegenOptions } from '@icestack/config'
 import { schemaMap as componentsMap } from '@/components'
 import { createContext } from '@/index'
+// @ts-nocheck
+import { getCodegenOptions } from '@icestack/config'
 
 describe.skip.each(
   Object.entries(componentsMap).map((x) => {
     return {
       name: x[0],
-      value: x[1]
+      value: x[1],
     }
-  })
+  }),
 )('$name options', ({ name, value }) => {
   it('snap', () => {
     const opts = getCodegenOptions()
@@ -17,11 +17,11 @@ describe.skip.each(
       // options: opts,
       types: [],
       // @ts-ignore
-      selector: opts.components[name]?.selector
+      selector: opts.components[name]?.selector,
     })
     expect({
       selector: xx.selector,
-      defaults: xx.defaults
+      defaults: xx.defaults,
     }).toMatchSnapshot()
   })
 
@@ -32,8 +32,8 @@ describe.skip.each(
         // options: opts,
         types: [],
         // @ts-ignore
-        selector: opts.components[name]?.selector
-      })
+        selector: opts.components[name]?.selector,
+      }),
     ).toMatchSnapshot()
   })
 })
@@ -63,12 +63,12 @@ describe.skip('no schema', () => {
                     @apply translate-x-[50%];
                   }
                 }
-                `
-              }
+                `,
+              },
             }
-          }
-        }
-      }
+          },
+        },
+      },
     }
     // @ts-ignore
     const ctx = createContext(config)
@@ -101,13 +101,13 @@ describe.skip('no schema', () => {
                     @apply translate-x-[50%];
                   }
                 }
-                `
-                ]
-              }
+                `,
+                ],
+              },
             }
-          }
-        }
-      }
+          },
+        },
+      },
     }
     // @ts-ignore
     const ctx = createContext(config)

@@ -1,6 +1,6 @@
-import { loading as loading64Map } from './assets/svg.json'
 import type { GetCssSchemaMethod } from '@/types'
 import { css } from '@/types'
+import { loading as loading64Map } from './assets/svg.json'
 
 function makeMaskImage(base64: string) {
   return `url("${base64}")`

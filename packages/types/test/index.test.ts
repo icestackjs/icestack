@@ -2,10 +2,10 @@ import type { Config } from '@/index'
 
 describe('index', () => {
   const c: Config = {
-    dryRun: true
+    dryRun: true,
   }
   const a: Config = {
-    outdir: '.'
+    outdir: '.',
   }
   it('true', () => {
     expect(a).toBeTruthy()

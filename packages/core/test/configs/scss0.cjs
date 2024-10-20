@@ -15,12 +15,12 @@ const config = {
             base: css`
               @use 'foundation/code';
               @use 'foundation/lists';
-            `
-          }
+            `,
+          },
         }
-      }
-    }
-  }
+      },
+    },
+  },
 }
 
 module.exports = config

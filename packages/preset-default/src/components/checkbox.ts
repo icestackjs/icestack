@@ -42,8 +42,8 @@ const schema: GetCssSchemaMethod = (opts) => {
           }
 
           ${types
-          .map((type) => {
-            return css`
+            .map((type) => {
+              return css`
                 &-${type} {
                   // @v type="${type}"
                   --chkbg: theme(colors.${type});
@@ -59,8 +59,8 @@ const schema: GetCssSchemaMethod = (opts) => {
                   }
                 }
               `
-          })
-          .join('\n')}
+            })
+            .join('\n')}
 
           &:disabled {
             @apply bg-base-content cursor-not-allowed border-transparent opacity-20;

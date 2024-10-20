@@ -1,13 +1,16 @@
 {
   "name": "@icestack/config",
-  "description": "The config package of icestack",
   "version": "1.3.8",
-  "scripts": {
-    "build": "unbuild",
-    "test": "vitest run",
-    "test:dev": "vitest",
-    "release": "pnpm publish",
-    "sync": "cnpm sync @icestack/config"
+  "description": "The config package of icestack",
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://ui.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack"
   },
   "keywords": [
     "config",
@@ -34,11 +37,15 @@
     "./*": "./*"
   },
   "main": "./dist/index.cjs",
+  "scripts": {
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "sync": "cnpm sync @icestack/config"
+  },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "typesVersions": {
     "*": {
       "*": [
@@ -47,6 +54,9 @@
       ]
     }
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@icestack/preset-default": "workspace:^",
     "@icestack/shared": "workspace:^",
@@ -54,15 +64,5 @@
     "@icestack/types": "workspace:^",
     "cosmiconfig": "^9.0.0",
     "lodash": "^4.17.21"
-  },
-  "author": "SonOfMagic <qq1324318532@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sonofmagic/icestack"
-  },
-  "homepage": "https://ui.icebreaker.top",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sonofmagic/icestack"
   }
 }

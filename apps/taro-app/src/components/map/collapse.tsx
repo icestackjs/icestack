@@ -1,6 +1,7 @@
-import { View, Text, Button, ViewProps } from '@tarojs/components'
 import CodeRender from '@/components/CodeRender'
+import { View } from '@tarojs/components'
 import { useState } from 'react'
+
 export default () => {
   const [a, seta] = useState(false)
   const [idx, setIdx] = useState(-1)
@@ -40,18 +41,23 @@ export default () => {
                 className="collapse-title p-2 text-lg"
                 onClick={() => {
                   setIdx((y) => {
-                    if(y === x){
+                    if (y === x) {
                       return -1
                     }
                     return x
                   })
                 }}
               >
-                第{x}个切换显示和隐藏
+                第
+                {x}
+                个切换显示和隐藏
               </View>
               <View className="collapse-content">
                 <View className="p-2 pt-0">
-                  <View>content{x}</View>
+                  <View>
+                    content
+                    {x}
+                  </View>
                 </View>
               </View>
             </View>

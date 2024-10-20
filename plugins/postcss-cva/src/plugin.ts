@@ -1,13 +1,13 @@
+import type { PluginCreator } from 'postcss'
+import type { UserDefineOption } from './types'
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
-import type { PluginCreator } from 'postcss'
 import { defuOverrideArray } from '@icestack/shared'
+import createFilter from './createFilter'
 import extract from './extract'
 import { generateCva } from './generator'
 import { ensureDir } from './utils'
-import type { UserDefineOption } from './types'
-import createFilter from './createFilter'
 
 const creator: PluginCreator<Partial<UserDefineOption>> = (opts) => {
   // @ts-ignore

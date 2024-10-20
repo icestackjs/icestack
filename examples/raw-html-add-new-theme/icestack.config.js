@@ -6,9 +6,9 @@ const config = {
   outdir: './my-ui',
   base: {
     themes: {
-      ...customThemes
-    }
-  }
+      ...customThemes,
+    },
+  },
 }
 
 module.exports = config

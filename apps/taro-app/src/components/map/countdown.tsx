@@ -1,6 +1,6 @@
-import { View, Text, Button, ViewProps } from '@tarojs/components'
-import { useEffect, useState } from 'react'
 import CodeRender from '@/components/CodeRender'
+import { View } from '@tarojs/components'
+import { useEffect, useState } from 'react'
 
 export default () => {
   const [value, setValue] = useState(60)
@@ -9,7 +9,8 @@ export default () => {
       setValue((x) => {
         if (x <= 0) {
           return 99
-        } else {
+        }
+        else {
           return x - 1
         }
       })
@@ -20,39 +21,43 @@ export default () => {
   }, [])
   return (
     <View>
-      <View className='subtitle'>基础展示</View>
-      <CodeRender className='grid grid-cols-1 gap-2'>
-        <View className='countdown text-4xl'>
+      <View className="subtitle">基础展示</View>
+      <CodeRender className="grid grid-cols-1 gap-2">
+        <View className="countdown text-4xl">
           💣💥⌚️:
           <View
             style={{
-              '--value': value
+              '--value': value,
             }}
-          ></View>
+          >
+          </View>
           s
         </View>
 
-        <View className='countdown text-xs flex items-center gap-1'>
+        <View className="countdown text-xs flex items-center gap-1">
           <View
-            className='text-xl'
+            className="text-xl"
             style={{
-              '--value': 100 - value
+              '--value': 100 - value,
             }}
-          ></View>
+          >
+          </View>
           -
           <View
-            className='text-xl'
+            className="text-xl"
             style={{
-              '--value': value
+              '--value': value,
             }}
-          ></View>
+          >
+          </View>
           -
           <View
-            className='text-xl'
+            className="text-xl"
             style={{
-              '--value': 100 - value
+              '--value': 100 - value,
             }}
-          ></View>
+          >
+          </View>
         </View>
       </CodeRender>
     </View>

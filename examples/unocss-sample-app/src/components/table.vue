@@ -6,7 +6,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th></th>
+            <th />
             <th>Name</th>
             <th>Job</th>
             <th>Favorite Color</th>
@@ -39,7 +39,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th></th>
+            <th />
             <th>Name</th>
             <th>Job</th>
             <th>Favorite Color</th>
@@ -72,7 +72,7 @@
       <table class="table">
         <thead>
           <tr>
-            <th></th>
+            <th />
             <th>Name</th>
             <th>Job</th>
             <th>Favorite Color</th>
@@ -105,7 +105,7 @@
       <table class="table table-zebra">
         <thead>
           <tr>
-            <th></th>
+            <th />
             <th>Name</th>
             <th>Job</th>
             <th>Favorite Color</th>
@@ -139,123 +139,155 @@
         <thead>
           <tr>
             <th>
-              <label><input type="checkbox" class="checkbox" /></label>
+              <label><input type="checkbox" class="checkbox"></label>
             </th>
             <th>Name</th>
             <th>Job</th>
             <th>Favorite Color</th>
-            <th></th>
+            <th />
           </tr>
         </thead>
         <tbody>
           <tr>
             <th>
-              <label><input type="checkbox" class="checkbox" /></label>
+              <label><input type="checkbox" class="checkbox"></label>
             </th>
             <td>
               <div class="flex items-center gap-3">
                 <div class="avatar">
                   <div class="w-12 h-12 mask mask-squircle">
-                    <img src="/pig.jpg" alt="Avatar Tailwind CSS Component" />
+                    <img src="/pig.jpg" alt="Avatar Tailwind CSS Component">
                   </div>
                 </div>
                 <div>
-                  <div class="font-bold">Hart Hagerty</div>
-                  <div class="text-sm opacity-50">United States</div>
+                  <div class="font-bold">
+                    Hart Hagerty
+                  </div>
+                  <div class="text-sm opacity-50">
+                    United States
+                  </div>
                 </div>
               </div>
             </td>
             <td>
               Zemlak, Daniel and Leannon
-              <br />
+              <br>
               <span class="badge badge-ghost badge-sm">Desktop Support Technician</span>
             </td>
             <td>Purple</td>
-            <th><button class="btn btn-ghost btn-xs">details</button></th>
+            <th>
+              <button class="btn btn-ghost btn-xs">
+                details
+              </button>
+            </th>
           </tr>
           <tr>
             <th>
-              <label><input type="checkbox" class="checkbox" /></label>
+              <label><input type="checkbox" class="checkbox"></label>
             </th>
             <td>
               <div class="flex items-center gap-3">
                 <div class="avatar">
                   <div class="w-12 h-12 mask mask-squircle">
-                    <img src="/pig.jpg" alt="Avatar Tailwind CSS Component" />
+                    <img src="/pig.jpg" alt="Avatar Tailwind CSS Component">
                   </div>
                 </div>
                 <div>
-                  <div class="font-bold">Brice Swyre</div>
-                  <div class="text-sm opacity-50">China</div>
+                  <div class="font-bold">
+                    Brice Swyre
+                  </div>
+                  <div class="text-sm opacity-50">
+                    China
+                  </div>
                 </div>
               </div>
             </td>
             <td>
               Carroll Group
-              <br />
+              <br>
               <span class="badge badge-ghost badge-sm">Tax Accountant</span>
             </td>
             <td>Red</td>
-            <th><button class="btn btn-ghost btn-xs">details</button></th>
+            <th>
+              <button class="btn btn-ghost btn-xs">
+                details
+              </button>
+            </th>
           </tr>
           <tr>
             <th>
-              <label><input type="checkbox" class="checkbox" /></label>
+              <label><input type="checkbox" class="checkbox"></label>
             </th>
             <td>
               <div class="flex items-center gap-3">
                 <div class="avatar">
                   <div class="w-12 h-12 mask mask-squircle">
-                    <img src="/pig.jpg" alt="Avatar Tailwind CSS Component" />
+                    <img src="/pig.jpg" alt="Avatar Tailwind CSS Component">
                   </div>
                 </div>
                 <div>
-                  <div class="font-bold">Marjy Ferencz</div>
-                  <div class="text-sm opacity-50">Russia</div>
+                  <div class="font-bold">
+                    Marjy Ferencz
+                  </div>
+                  <div class="text-sm opacity-50">
+                    Russia
+                  </div>
                 </div>
               </div>
             </td>
             <td>
               Rowe-Schoen
-              <br />
+              <br>
               <span class="badge badge-ghost badge-sm">Office Assistant I</span>
             </td>
             <td>Crimson</td>
-            <th><button class="btn btn-ghost btn-xs">details</button></th>
+            <th>
+              <button class="btn btn-ghost btn-xs">
+                details
+              </button>
+            </th>
           </tr>
           <tr>
             <th>
-              <label><input type="checkbox" class="checkbox" /></label>
+              <label><input type="checkbox" class="checkbox"></label>
             </th>
             <td>
               <div class="flex items-center gap-3">
                 <div class="avatar">
                   <div class="w-12 h-12 mask mask-squircle">
-                    <img src="/pig.jpg" alt="Avatar Tailwind CSS Component" />
+                    <img src="/pig.jpg" alt="Avatar Tailwind CSS Component">
                   </div>
                 </div>
                 <div>
-                  <div class="font-bold">Yancy Tear</div>
-                  <div class="text-sm opacity-50">Brazil</div>
+                  <div class="font-bold">
+                    Yancy Tear
+                  </div>
+                  <div class="text-sm opacity-50">
+                    Brazil
+                  </div>
                 </div>
               </div>
             </td>
             <td>
               Wyman-Ledner
-              <br />
+              <br>
               <span class="badge badge-ghost badge-sm">Community Outreach Specialist</span>
             </td>
             <td>Indigo</td>
-            <th><button class="btn btn-ghost btn-xs">details</button></th>
+            <th>
+              <button class="btn btn-ghost btn-xs">
+                details
+              </button>
+            </th>
           </tr>
         </tbody>
         <tfoot>
           <tr>
-            <th></th>
+            <th />
             <th>Name</th>
             <th>Job</th>
             <th>Favorite Color</th>
-            <th></th>
+            <th />
           </tr>
         </tfoot>
       </table>
@@ -265,7 +297,7 @@
       <table class="table table-xs">
         <thead>
           <tr>
-            <th></th>
+            <th />
             <th>Name</th>
             <th>Job</th>
             <th>company</th>
@@ -458,7 +490,7 @@
         </tbody>
         <tfoot>
           <tr>
-            <th></th>
+            <th />
             <th>Name</th>
             <th>Job</th>
             <th>company</th>
@@ -605,14 +637,14 @@
       <table class="table table-xs table-pin-rows table-pin-cols">
         <thead>
           <tr>
-            <th></th>
+            <th />
             <td>Name</td>
             <td>Job</td>
             <td>company</td>
             <td>location</td>
             <td>Last Login</td>
             <td>Favorite Color</td>
-            <th></th>
+            <th />
           </tr>
         </thead>
         <tbody>
@@ -819,14 +851,14 @@
         </tbody>
         <tfoot>
           <tr>
-            <th></th>
+            <th />
             <td>Name</td>
             <td>Job</td>
             <td>company</td>
             <td>location</td>
             <td>Last Login</td>
             <td>Favorite Color</td>
-            <th></th>
+            <th />
           </tr>
         </tfoot>
       </table>

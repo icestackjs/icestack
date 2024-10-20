@@ -1,6 +1,6 @@
+import type { CodegenOptions } from '@icestack/types'
 import type { AcceptedPlugin, AtRule, PluginCreator } from 'postcss'
 import parser from 'postcss-selector-parser'
-import type { CodegenOptions } from '@icestack/types'
 
 function isAtMediaHover(atRule: AtRule) {
   return /media\(\s*hover\s*:\s*hover\s*\)/.test(atRule.name) || (atRule.name === 'media' && /\(\s*hover\s*:\s*hover\s*\)/.test(atRule.params))

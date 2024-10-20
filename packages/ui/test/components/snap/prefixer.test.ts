@@ -1,6 +1,3 @@
-import path from 'node:path'
-import fg from 'fast-glob'
-import { scssDir } from '@/dirs'
 // import { compileScss } from '@/sass'
 // import { getCodegenOptions } from '@icestack/config'
 
@@ -24,6 +21,6 @@ import { scssDir } from '@/dirs'
 //   // })
 // })
 
-describe('Name of the group', () => {
+describe('name of the group', () => {
   it('should ', () => {})
 })

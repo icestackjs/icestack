@@ -1,6 +1,6 @@
 import type { Config, PluginsConfig } from 'tailwindcss/types/config'
-import plugin from 'tailwindcss/plugin'
 import merge from 'merge'
+import plugin from 'tailwindcss/plugin'
 
 export interface UserDefinedOptions {}
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L736

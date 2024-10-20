@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import Logo from '../../assets/logo.svg'
 import { useI18n } from '../locales'
+
 export const Home: FC = (props) => {
   const t = useI18n()
   return (

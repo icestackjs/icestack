@@ -1,7 +1,7 @@
-@use "sass:string";
-@use "sass:math";
-@use "sass:meta";
-@use "sass:map";
+@use 'sass:string';
+@use 'sass:math';
+@use 'sass:meta';
+@use 'sass:map';
 
 // https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/rgb()
 @function getRgbaString($color) {
@@ -11,7 +11,7 @@
     @if ($alpha == 1 or $alpha == 0) {
       @return #{color.red($color) color.green($color) color.blue($color)};
     } @else {
-      @return #{color.red($color) color.green($color) color.blue($color) "/" color.alpha($color)};
+      @return #{color.red($color) color.green($color) color.blue($color) '/' color.alpha($color)};
     }
   } @else {
     @return $color;
@@ -28,24 +28,24 @@
 
 $globalAtMediaHover: globalAtMediaHover();
 
-@function getSelector($type, $prefix: "-") {
-  @if ($type == "") {
-    @return "";
+@function getSelector($type, $prefix: '-') {
+  @if ($type == '') {
+    @return '';
   } @else {
-    @return "#{$prefix}#{$type}";
+    @return '#{$prefix}#{$type}';
   }
 }
 
 @function removeBorderPrefix($str) {
-  @return removePrefix($str, "border-");
+  @return removePrefix($str, 'border-');
 }
 
 @function removeBgPrefix($str) {
-  @return removePrefix($str, "bg-");
+  @return removePrefix($str, 'bg-');
 }
 
 @function removeTextPrefix($str) {
-  @return removePrefix($str, "text-");
+  @return removePrefix($str, 'text-');
 }
 
 @function removePrefix($str, $prefix) {
@@ -64,7 +64,7 @@ $globalAtMediaHover: globalAtMediaHover();
 
 @function ApplyAtMediaHover($str) {
   @if ($globalAtMediaHover) {
-    @return "[@media(hover:hover)]:#{$str}";
+    @return '[@media(hover:hover)]:#{$str}';
   } @else {
     @return $str;
   }

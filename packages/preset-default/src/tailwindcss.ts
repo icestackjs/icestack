@@ -1,5 +1,5 @@
-import { defaultVarPrefix } from '@icestack/shared/constants'
 import type { Config } from 'tailwindcss'
+import { defaultVarPrefix } from '@icestack/shared/constants'
 
 export function createDefaultTailwindcssExtends(opts: { varPrefix?: string } = {}): Config['theme'] {
   const { varPrefix = defaultVarPrefix } = opts

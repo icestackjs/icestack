@@ -3,7 +3,7 @@
  */
 const config = {
   mode: 'none',
-  outdir: './my-ui'
+  outdir: './my-ui',
 }
 
 module.exports = config

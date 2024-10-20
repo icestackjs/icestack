@@ -1,9 +1,10 @@
-import { omitRoot } from './utils'
 import { createContext } from '@/context'
+import { omitRoot } from './utils'
+
 describe('build', () => {
   it('build all', async () => {
     const ctx = createContext({
-      dryRun: true
+      dryRun: true,
     })
     await ctx.build()
     expect(omitRoot(ctx.base)).toMatchSnapshot()
@@ -16,16 +17,16 @@ describe('build', () => {
         themes: {
           light: {
             types: {
-              primary: '#13c2c2'
-            }
+              primary: '#13c2c2',
+            },
           },
           dark: {
             types: {
-              primary: '#13a8a8'
-            }
-          }
-        }
-      }
+              primary: '#13a8a8',
+            },
+          },
+        },
+      },
     })
     await ctx.buildBase()
     expect(omitRoot(ctx.base)).toMatchSnapshot()
@@ -37,13 +38,13 @@ describe('build', () => {
       base: {
         themes: {
           light: {
-            selector: 'page'
+            selector: 'page',
           },
           dark: {
-            selector: '.dark'
-          }
-        }
-      }
+            selector: '.dark',
+          },
+        },
+      },
     })
     await ctx.buildBase()
     expect(omitRoot(ctx.base)).toMatchSnapshot()
@@ -55,13 +56,13 @@ describe('build', () => {
       base: {
         themes: {
           light: {
-            selector: 'page'
+            selector: 'page',
           },
           dark: {
-            selector: '.dark'
-          }
-        }
-      }
+            selector: '.dark',
+          },
+        },
+      },
     })
     await ctx.build({ base: false, components: false, config: false, utilities: false })
     expect(omitRoot(ctx.base)).toMatchSnapshot()

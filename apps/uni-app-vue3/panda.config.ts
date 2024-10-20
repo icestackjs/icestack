@@ -12,10 +12,10 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {}
+    extend: {},
   },
 
   // The output directory for your css system
   outdir: 'src/styled-system',
-  jsxFramework: 'vue'
+  jsxFramework: 'vue',
 })

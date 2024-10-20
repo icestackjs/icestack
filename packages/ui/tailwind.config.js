@@ -7,10 +7,10 @@ module.exports = {
     colors: {},
     extend: {
       colors: {
-        ...colors
-      }
-    }
+        ...colors,
+      },
+    },
   },
   plugins: [],
-  presets: []
+  presets: [],
 }

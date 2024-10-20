@@ -1,5 +1,6 @@
 const { get } = require('lodash')
 const { group: groupData, i18n: i18nZhMap } = require('../group')
+
 function getGroupedComponents() {
   return groupData
 }
@@ -7,38 +8,38 @@ function getGroupedComponents() {
 const i18nMap = {
   'zh-CN': i18nZhMap,
   'en-US': {
-    overview: 'overview',
-    General: 'General',
-    button: 'button',
-    loading: 'loading',
-    mask: 'mask',
-    Layout: 'Layout',
-    Navigation: 'Navigation',
-    link: 'link',
+    'overview': 'overview',
+    'General': 'General',
+    'button': 'button',
+    'loading': 'loading',
+    'mask': 'mask',
+    'Layout': 'Layout',
+    'Navigation': 'Navigation',
+    'link': 'link',
     'Data Entry': 'Data Entry',
-    checkbox: 'checkbox',
-    input: 'input',
-    radio: 'radio',
-    range: 'range',
-    select: 'select',
-    textarea: 'textarea',
-    toggle: 'toggle',
+    'checkbox': 'checkbox',
+    'input': 'input',
+    'radio': 'radio',
+    'range': 'range',
+    'select': 'select',
+    'textarea': 'textarea',
+    'toggle': 'toggle',
     'Data Display': 'Data Display',
-    avatar: 'avatar',
-    badge: 'badge',
-    chat: 'chat',
-    progress: 'progress',
-    Feedback: 'Feedback',
-    alert: 'alert',
-    Other: 'Other',
+    'avatar': 'avatar',
+    'badge': 'badge',
+    'chat': 'chat',
+    'progress': 'progress',
+    'Feedback': 'Feedback',
+    'alert': 'alert',
+    'Other': 'Other',
     'Class Table': 'Default Class Table',
     'Demo and Playground': 'Demo and Playground',
     'Css Schema': 'Css Schema',
     'Go to Storybook': 'Go to Storybook',
-    skeleton: 'skeleton',
-    Demo: 'Demo',
-    Playground: 'Playground'
-  }
+    'skeleton': 'skeleton',
+    'Demo': 'Demo',
+    'Playground': 'Playground',
+  },
 }
 
 function createT(local) {
@@ -53,5 +54,5 @@ module.exports = {
   getGroupedComponents,
   i18nMap,
   createT,
-  groupedComponents
+  groupedComponents,
 }

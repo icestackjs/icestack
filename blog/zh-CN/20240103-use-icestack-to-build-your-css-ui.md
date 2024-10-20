@@ -225,7 +225,7 @@ const config = {
               }`
               })
               .join('\n')}
-            
+
             `
           }
         }

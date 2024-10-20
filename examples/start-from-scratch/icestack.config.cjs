@@ -26,12 +26,12 @@ const config = {
                   @apply translate-x-[50%];
                 }
               }
-            `
-          }
+            `,
+          },
         }
-      }
-    }
-  }
+      },
+    },
+  },
 }
 
 module.exports = config

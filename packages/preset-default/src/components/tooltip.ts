@@ -164,15 +164,15 @@ const schema: GetCssSchemaMethod = (opts) => {
         }
         ${selector} {
           ${types
-          .map((type) => {
-            return css`
+            .map((type) => {
+              return css`
                 &-${type} {
                   --tooltip-color: theme(colors.${type});
                   --tooltip-text-color: theme(colors.${type}-content);
                 }
               `
-          })
-          .join('\n')}
+            })
+            .join('\n')}
         }
       `,
     },

@@ -1,7 +1,7 @@
-import type { StoryObj, Meta } from '@storybook/html'
+import type { Meta, StoryObj } from '@storybook/html'
 import { formatHtml } from '../share'
 
-const create = () => {
+function create() {
   return formatHtml(`<div class="form-control w-64">
   <label class="cursor-pointer label">
     <span class="label-text">Remember me</span>
@@ -17,7 +17,7 @@ const meta: Meta<object> = {
     return create()
   },
   argTypes: {},
-  parameters: {}
+  parameters: {},
 }
 
 type Story = StoryObj<object>
@@ -26,7 +26,7 @@ export const Default: Story = {
   args: {},
   render: () => {
     return formatHtml(`<input type="checkbox" checked="checked" class="checkbox" />`)
-  }
+  },
 }
 
 export default meta

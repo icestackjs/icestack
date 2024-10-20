@@ -1,5 +1,6 @@
-import postcss from 'postcss'
 import gloablPostcss from '@/plugins/icestack'
+import postcss from 'postcss'
+
 describe('global', () => {
   it('at media hover', () => {
     const { css } = postcss([gloablPostcss]).process(`@media (hover: hover) {
@@ -16,10 +17,10 @@ describe('global', () => {
         dryRun: true,
         postcss: {
           selector: {
-            universal: 'view'
-          }
-        }
-      })
+            universal: 'view',
+          },
+        },
+      }),
     ]).process(`.btm-nav > * {
       border-color: currentColor
     }`)
@@ -32,10 +33,10 @@ describe('global', () => {
         dryRun: true,
         postcss: {
           selector: {
-            root: 'page'
-          }
-        }
-      })
+            root: 'page',
+          },
+        },
+      }),
     ]).process(`:root .countdown {
       line-height: 1em;
     }`)

@@ -1,12 +1,12 @@
-import { View, Text, Button, ViewProps } from '@tarojs/components'
-// import { useLoad } from '@tarojs/taro'
-import React, { useState, useMemo } from 'react'
-import Taro, { useLoad } from '@tarojs/taro'
-import { upperFirst } from 'lodash-es'
-import ThemeProvider from '@/components/ThemeProvider'
 import map from '@/components/map'
 import Navbar from '@/components/Navbar'
 import ThemeButton from '@/components/ThemeButton'
+import ThemeProvider from '@/components/ThemeProvider'
+import { View } from '@tarojs/components'
+import Taro, { useLoad } from '@tarojs/taro'
+import { upperFirst } from 'lodash-es'
+// import { useLoad } from '@tarojs/taro'
+import React, { useMemo, useState } from 'react'
 
 export default function Index() {
   const [com, setCom] = useState('')
@@ -15,7 +15,7 @@ export default function Index() {
     if (params.id) {
       const t = upperFirst(params.id)
       Taro.setNavigationBarTitle({
-        title: t
+        title: t,
       })
       setTitle(t)
       setCom(params.id)

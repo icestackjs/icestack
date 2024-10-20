@@ -1,6 +1,5 @@
-import postcss from 'postcss'
 import creator from '@/index'
-import { matchCustomPropertyFromValue } from '@/utils'
+import postcss from 'postcss'
 
 const defaultVarPrefix = '--ice-'
 
@@ -8,8 +7,8 @@ describe('sync usage', () => {
   it('add Prefix', () => {
     const result = postcss([
       creator({
-        prefix: defaultVarPrefix.slice(2)
-      })
+        prefix: defaultVarPrefix.slice(2),
+      }),
     ]).process(
       // @ts-ignore
       `.no-animation {
@@ -37,8 +36,8 @@ describe('sync usage', () => {
       }
       `,
       {
-        from: undefined
-      }
+        from: undefined,
+      },
     )
     //  .sync()
 
@@ -48,8 +47,8 @@ describe('sync usage', () => {
   it('add Prefix case 0', () => {
     const { css } = postcss([
       creator({
-        prefix: defaultVarPrefix.slice(2)
-      })
+        prefix: defaultVarPrefix.slice(2),
+      }),
     ]).process(
       // @ts-ignore
       `.a {
@@ -59,8 +58,8 @@ describe('sync usage', () => {
       }
       `,
       {
-        from: undefined
-      }
+        from: undefined,
+      },
     )
 
     expect(css).toMatchSnapshot()
@@ -72,8 +71,8 @@ describe('sync usage', () => {
         prefix: defaultVarPrefix.slice(2),
         ignoreValueCustomProperty(cp) {
           return cp.startsWith('--tw-')
-        }
-      })
+        },
+      }),
     ]).process(
       `.a {
           --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1));
@@ -82,8 +81,8 @@ describe('sync usage', () => {
       }
       `,
       {
-        from: undefined
-      }
+        from: undefined,
+      },
     )
 
     expect(css).toMatchSnapshot()
@@ -96,8 +95,8 @@ describe('sync usage', () => {
         ignoreValueCustomProperty(cp) {
           return cp.startsWith('--tw-')
         },
-        propPrefix: 'xx-'
-      })
+        propPrefix: 'xx-',
+      }),
     ]).process(
       `.a {
           --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1));
@@ -106,8 +105,8 @@ describe('sync usage', () => {
       }
       `,
       {
-        from: undefined
-      }
+        from: undefined,
+      },
     )
 
     expect(css).toMatchSnapshot()
@@ -124,8 +123,8 @@ describe('sync usage', () => {
             return 'bbb-'
           }
           return ''
-        }
-      })
+        },
+      }),
     ]).process(
       `.a {
           --bg-red: hsl(var(--text-red-100));
@@ -133,8 +132,8 @@ describe('sync usage', () => {
       }
       `,
       {
-        from: undefined
-      }
+        from: undefined,
+      },
     )
 
     expect(css).toMatchSnapshot()
@@ -150,8 +149,8 @@ describe('sync usage', () => {
         propPrefix: 'xx-',
         ignoreDecl(decl) {
           return decl.prop === '--tab-color' || decl.value.includes('hsl(var(--b1)')
-        }
-      })
+        },
+      }),
     ]).process(
       `.a {
           --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1));
@@ -160,8 +159,8 @@ describe('sync usage', () => {
       }
       `,
       {
-        from: undefined
-      }
+        from: undefined,
+      },
     )
 
     expect(css).toMatchSnapshot()
@@ -177,8 +176,8 @@ describe('sync usage', () => {
         propPrefix: 'xx-',
         ignoreProp(decl) {
           return decl.prop === '--tab-color'
-        }
-      })
+        },
+      }),
     ]).process(
       `.a {
           --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1));
@@ -187,8 +186,8 @@ describe('sync usage', () => {
       }
       `,
       {
-        from: undefined
-      }
+        from: undefined,
+      },
     )
 
     expect(css).toMatchSnapshot()
@@ -204,8 +203,8 @@ describe('sync usage', () => {
         propPrefix: 'xx-',
         ignoreValue(decl) {
           return decl.value.includes('hsl(var(--b3)')
-        }
-      })
+        },
+      }),
     ]).process(
       `.a {
           --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1));
@@ -214,8 +213,8 @@ describe('sync usage', () => {
       }
       `,
       {
-        from: undefined
-      }
+        from: undefined,
+      },
     )
 
     expect(css).toMatchSnapshot()
@@ -227,8 +226,8 @@ describe('sync usage', () => {
         prefix: defaultVarPrefix.slice(2),
         ignoreProp: (decl) => {
           return decl.prop.startsWith('--tw-')
-        }
-      })
+        },
+      }),
     ]).process(
       // @ts-ignore
       `.no-animation {
@@ -240,8 +239,8 @@ describe('sync usage', () => {
       }
       `,
       {
-        from: undefined
-      }
+        from: undefined,
+      },
     )
 
     expect(css).toMatchSnapshot()

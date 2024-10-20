@@ -1,53 +1,53 @@
-@use "true" as *;
-@use "sass:meta";
-@use "../scss/utils/index.scss" as *;
-@use "./utils.scss" as *;
+@use 'true' as *;
+@use 'sass:meta';
+@use '../scss/utils/index.scss' as *;
+@use './utils.scss' as *;
 // https://www.oddbird.net/true/docs/
-@include test-module("sass") {
-  @include test("removePrefix") {
+@include test-module('sass') {
+  @include test('removePrefix') {
     // Assert the expected results
     @include assert-equal(removePrefix(border-content, border-), content);
   }
 
-  @include test("removeBorderPrefix") {
+  @include test('removeBorderPrefix') {
     // Assert the expected results
     @include assert-equal(removeBorderPrefix(border-content), content);
   }
 
-  @include test("removeBgPrefix") {
+  @include test('removeBgPrefix') {
     // Assert the expected results
     @include assert-equal(removeBgPrefix(bg-content), content);
   }
 
-  @include test("removeTextPrefix") {
+  @include test('removeTextPrefix') {
     // Assert the expected results
     @include assert-equal(removeTextPrefix(text-content), content);
   }
 
-  @include test("injectFn case 0") {
+  @include test('injectFn case 0') {
     $a: meta.call(injectFn(1), 0);
     @debug $a;
-    @include assert-equal($a, "111");
+    @include assert-equal($a, '111');
   }
 
-  @include test("injectFn case 1") {
+  @include test('injectFn case 1') {
     $a: meta.call(injectFn(1), 1, 2);
     @debug $a;
-    @include assert-equal($a, "111");
+    @include assert-equal($a, '111');
   }
 
-  @include test("composeStringArray case 0") {
+  @include test('composeStringArray case 0') {
     $a: composeStringArray(abc def); // meta.call(composeStringArray, (abc def)); //composeStringArray()
     @debug $a;
     // $expected: abc def;
-    @include assert-equal($a, "abc def");
+    @include assert-equal($a, 'abc def');
   }
 
-  @include test("composeStringArray case 1") {
-    $a: composeStringArray("abc" "def"); // meta.call(composeStringArray, ("abc" "def")); //composeStringArray()
+  @include test('composeStringArray case 1') {
+    $a: composeStringArray('abc' 'def'); // meta.call(composeStringArray, ("abc" "def")); //composeStringArray()
     @debug $a;
     // $expected: "abc" "def";
-    @include assert-equal($a, "abc def");
+    @include assert-equal($a, 'abc def');
   }
 
   // @include it("resolve case 1") {

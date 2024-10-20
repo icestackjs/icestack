@@ -1,5 +1,5 @@
-import { View, Text, Button, ViewProps } from '@tarojs/components'
 import CodeRender from '@/components/CodeRender'
+import { View } from '@tarojs/components'
 import { useEffect, useState } from 'react'
 
 export default () => {
@@ -9,7 +9,8 @@ export default () => {
       setValue((x) => {
         if (x <= 0) {
           return 99
-        } else {
+        }
+        else {
           return x - 1
         }
       })
@@ -20,66 +21,71 @@ export default () => {
   }, [])
   return (
     <View>
-      <View className='subtitle'>默认使用</View>
-      <CodeRender className='grid grid-cols-3 gap-2'>
+      <View className="subtitle">默认使用</View>
+      <CodeRender className="grid grid-cols-3 gap-2">
         <View
-          className='radial-progress'
+          className="radial-progress"
           style={{
-            '--value': 100 - value
+            '--value': 100 - value,
           }}
         >
-          {100 - value}%
+          {100 - value}
+          %
         </View>
         <View
-          className='radial-progress text-sky-400'
+          className="radial-progress text-sky-400"
           style={{
-            '--value': 120 - value
+            '--value': 120 - value,
           }}
         >
-          {120 - value}%
+          {120 - value}
+          %
         </View>
         <View
-          className='radial-progress text-green-400'
+          className="radial-progress text-green-400"
           style={{
-            '--value': 160 - value
+            '--value': 160 - value,
           }}
         >
-          {160 - value}%
+          {160 - value}
+          %
         </View>
         <View
-          className='radial-progress text-pink-400'
+          className="radial-progress text-pink-400"
           style={{
-            '--value': 180 - value
+            '--value': 180 - value,
           }}
         >
-          {180 - value}%
+          {180 - value}
+          %
         </View>
         <View
-          className='radial-progress text-orange-400'
+          className="radial-progress text-orange-400"
           style={{
-            '--value': value
+            '--value': value,
           }}
         >
-          {value}%
+          {value}
+          %
         </View>
       </CodeRender>
 
-      <View className='subtitle'>更改颜色</View>
-      <CodeRender className='grid grid-cols-2 gap-2'>
-        <View className='radial-progress text-pink-400' style='--value:20;'>
+      <View className="subtitle">更改颜色</View>
+      <CodeRender className="grid grid-cols-2 gap-2">
+        <View className="radial-progress text-pink-400" style="--value:20;">
           20%
         </View>
-        <View className='radial-progress bg-pink-400 text-sky-400 border-pink-400 border-8' style='--value:60;'>
+        <View className="radial-progress bg-pink-400 text-sky-400 border-pink-400 border-8" style="--value:60;">
           60%
         </View>
       </CodeRender>
 
-      <View className='subtitle'>更改大小</View>
-      <CodeRender className='grid grid-cols-2 gap-2'>
-        <View className='radial-progress' style='--value:80;--size:10rem;--thickness:2rem'>
+      <View className="subtitle">更改大小</View>
+      <CodeRender className="grid grid-cols-2 gap-2">
+        <View className="radial-progress" style="--value:80;--size:10rem;--thickness:2rem">
           80%
         </View>
-        <View className='radial-progress' style='--value:100;--thickness: 1px;'>
+        <View className="radial-progress" style="--value:100;--thickness: 1px;">
           100%
         </View>
       </CodeRender>

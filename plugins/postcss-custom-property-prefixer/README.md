@@ -30,7 +30,7 @@ module.exports = {
   plugins: {
     // ...
     'postcss-custom-property-prefixer': {
-      // prefix option must be passed! 
+      // prefix option must be passed!
       prefix: 'ice-'
     }
     // ...
@@ -142,11 +142,11 @@ Before:
 ```css
 .a {
   /* prop === --tab-color , this decl will be ignored */
-  --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1)); 
+  --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1));
   /* value.includes('hsl(var(--b1)') , this will be ignored */
-  --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1)); 
+  --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1));
   /* will be transformed */
-  --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1)); 
+  --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1));
 }
 ```
 
@@ -179,9 +179,9 @@ Before:
 ```css
 .a {
   /* ⬇ only ignore the prop , not value ⬇ */
-  --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1)); 
-  --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1)); 
-  --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1)); 
+  --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1));
+  --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1));
+  --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1));
 }
 ```
 
@@ -214,8 +214,8 @@ Before:
 
 ```css
 .a {
-  --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1)); 
-  --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1));  
+  --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1));
+  --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1));
   /*                       ⬇ target value , ignored*/
   --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1));
 }
@@ -289,9 +289,9 @@ you can pass different prefix to `prop` and `value`:
 
 ```css
 .a {
-  --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1)); 
-  --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1));  
-  --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1)); 
+  --tab-color: hsl(var(--bc) / var(--tw-text-opacity, 1));
+  --tab-bg: hsl(var(--b1) / var(--tw-bg-opacity, 1));
+  --tab-border-color: hsl(var(--b3) / var(--tw-bg-opacity, 1));
 }
 ```
 

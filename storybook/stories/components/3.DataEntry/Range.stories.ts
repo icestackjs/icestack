@@ -1,7 +1,8 @@
-import type { StoryObj, Meta } from '@storybook/html'
+import type { Meta, StoryObj } from '@storybook/html'
 import type { VariantProps } from 'class-variance-authority'
 import { formatHtml } from '../share'
 import Cva from '../style'
+
 type Props = VariantProps<typeof com>
 
 const types = Cva.range.types
@@ -10,7 +11,7 @@ const sizes = Cva.range.sizes
 
 const com = Cva.range.cva
 
-const create = (props: Props) => {
+function create(props: Props) {
   return formatHtml(`<input type="range" min="0" max="100" value="40" class="${com(props)}" />`)
 }
 
@@ -22,14 +23,14 @@ const meta: Meta<Props> = {
   },
   argTypes: {
     size: { control: 'inline-radio', options: sizes },
-    type: { control: 'inline-radio', options: types }
-  }
+    type: { control: 'inline-radio', options: types },
+  },
 }
 
 type Story = StoryObj<Props>
 
 export const Default: Story = {
-  args: {}
+  args: {},
 }
 
 export default meta

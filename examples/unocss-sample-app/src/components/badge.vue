@@ -4,27 +4,55 @@
   <div>
     <span class="badge">Badge</span>
 
-    <div class="badge">default</div>
-    <div class="badge badge-neutral">neutral</div>
-    <div class="badge badge-primary">primary</div>
-    <div class="badge badge-secondary">secondary</div>
-    <div class="badge badge-accent">accent</div>
-    <div class="badge badge-ghost">ghost</div>
+    <div class="badge">
+      default
+    </div>
+    <div class="badge badge-neutral">
+      neutral
+    </div>
+    <div class="badge badge-primary">
+      primary
+    </div>
+    <div class="badge badge-secondary">
+      secondary
+    </div>
+    <div class="badge badge-accent">
+      accent
+    </div>
+    <div class="badge badge-ghost">
+      ghost
+    </div>
 
-    <div class="badge badge-outline">default</div>
-    <div class="badge badge-primary badge-outline">primary</div>
-    <div class="badge badge-secondary badge-outline">secondary</div>
-    <div class="badge badge-accent badge-outline">accent</div>
+    <div class="badge badge-outline">
+      default
+    </div>
+    <div class="badge badge-primary badge-outline">
+      primary
+    </div>
+    <div class="badge badge-secondary badge-outline">
+      secondary
+    </div>
+    <div class="badge badge-accent badge-outline">
+      accent
+    </div>
 
-    <div class="badge badge-lg">987,654</div>
-    <div class="badge badge-md">987,654</div>
-    <div class="badge badge-sm">987,654</div>
-    <div class="badge badge-xs">987,654</div>
+    <div class="badge badge-lg">
+      987,654
+    </div>
+    <div class="badge badge-md">
+      987,654
+    </div>
+    <div class="badge badge-sm">
+      987,654
+    </div>
+    <div class="badge badge-xs">
+      987,654
+    </div>
 
-    <div class="badge badge-primary badge-lg"></div>
-    <div class="badge badge-primary badge-md"></div>
-    <div class="badge badge-primary badge-sm"></div>
-    <div class="badge badge-primary badge-xs"></div>
+    <div class="badge badge-primary badge-lg" />
+    <div class="badge badge-primary badge-md" />
+    <div class="badge badge-primary badge-sm" />
+    <div class="badge badge-primary badge-xs" />
 
     <div class="badge badge-info gap-2">
       <svg
@@ -38,7 +66,7 @@
           stroke-linejoin="round"
           stroke-width="2"
           d="M6 18L18 6M6 6l12 12"
-        ></path>
+        />
       </svg>
       info
     </div>
@@ -54,7 +82,7 @@
           stroke-linejoin="round"
           stroke-width="2"
           d="M6 18L18 6M6 6l12 12"
-        ></path>
+        />
       </svg>
       success
     </div>
@@ -70,7 +98,7 @@
           stroke-linejoin="round"
           stroke-width="2"
           d="M6 18L18 6M6 6l12 12"
-        ></path>
+        />
       </svg>
       warning
     </div>
@@ -86,7 +114,7 @@
           stroke-linejoin="round"
           stroke-width="2"
           d="M6 18L18 6M6 6l12 12"
-        ></path>
+        />
       </svg>
       error
     </div>
@@ -110,11 +138,15 @@
 
     <button class="btn">
       Inbox
-      <div class="badge">+99</div>
+      <div class="badge">
+        +99
+      </div>
     </button>
     <button class="btn">
       Inbox
-      <div class="badge badge-secondary">+99</div>
+      <div class="badge badge-secondary">
+        +99
+      </div>
     </button>
   </div>
 </template>

@@ -1,16 +1,16 @@
-<template>
-  <button :class="classname">
-    <slot></slot>
-  </button>
-</template>
-
 <script setup lang="ts">
-import button, { Props as ButtonProps } from '../../cva/button'
+import button from '../../cva/button'
 
 const classname = button({
-  class: ['flex']
+  class: ['flex'],
 })
 </script>
+
+<template>
+  <button :class="classname">
+    <slot />
+  </button>
+</template>
 
 <style scoped lang="scss">
 /* @meta path="button" */

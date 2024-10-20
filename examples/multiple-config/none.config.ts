@@ -6,8 +6,8 @@ export default defineConfig({
   base: {
     themes: {
       light: false,
-      dark: false
-    }
+      dark: false,
+    },
   },
-  clean: true
+  clean: true,
 })

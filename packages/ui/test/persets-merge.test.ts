@@ -1,6 +1,6 @@
-import { createContext, Config } from '@/index'
+import type { Config } from '@/index'
 import { removeDefaultComponents } from '@/components'
-import { DeepPartial } from '@/types'
+import { createContext } from '@/index'
 
 describe('presets merge', () => {
   it('merge case 0', async () => {
@@ -8,7 +8,7 @@ describe('presets merge', () => {
       // mode: 'none',
       components: {
         ...removeDefaultComponents,
-        xxx: {}
+        xxx: {},
       },
       dryRun: true,
       presets: [
@@ -32,14 +32,14 @@ describe('presets merge', () => {
                       @apply bg-red-500;
                       @apply text-blue-500 #{!important};
                       border-width:var(--bw);
-                    }`
-                  }
+                    }`,
+                  },
                 }
-              }
-            }
-          }
-        }
-      ]
+              },
+            },
+          },
+        },
+      ],
       // outdir
     }
     const ctx = createContext(options)
@@ -53,7 +53,7 @@ describe('presets merge', () => {
       // mode: 'none',
       components: {
         ...removeDefaultComponents,
-        xxx: {}
+        xxx: {},
       },
       dryRun: true,
       presets: [
@@ -68,7 +68,7 @@ describe('presets merge', () => {
                     @apply text-sky-500 #{!important};
                     border-width:var(--ee-bw);
                     font-size: 12px;
-                  }`
+                  }`,
                 }
               },
               schema: ({ selector }) => {
@@ -79,14 +79,14 @@ describe('presets merge', () => {
                       @apply bg-red-500;
                       @apply text-blue-500 #{!important};
                       border-width:var(--bw);
-                    }`
-                  }
+                    }`,
+                  },
                 }
-              }
-            }
-          }
-        }
-      ]
+              },
+            },
+          },
+        },
+      ],
       // outdir
     }
     const ctx = createContext(options)
@@ -100,7 +100,7 @@ describe('presets merge', () => {
       // mode: 'none',
       components: {
         ...removeDefaultComponents,
-        xxx: {}
+        xxx: {},
       },
       dryRun: true,
       presets: [
@@ -115,7 +115,7 @@ describe('presets merge', () => {
                     @apply text-sky-500 #{!important};
                     border-width:var(--ee-bw);
                     font-size: 12px;
-                  }`
+                  }`,
                 }
               },
               schema: ({ selector }) => {
@@ -126,14 +126,14 @@ describe('presets merge', () => {
                       @apply bg-red-500;
                       @apply text-blue-500 #{!important};
                       border-width:var(--bw);
-                    }`
-                  }
+                    }`,
+                  },
                 }
-              }
-            }
-          }
-        }
-      ]
+              },
+            },
+          },
+        },
+      ],
       // outdir
     }
     const ctx = createContext(options)
@@ -156,11 +156,11 @@ describe('presets merge', () => {
                 @apply text-sky-900 #{!important};
                 border-width:var(--xx-ee-bw);
                 font-size: 16px;
-              }`
+              }`,
               }
-            }
-          ]
-        }
+            },
+          ],
+        },
       },
       dryRun: true,
       presets: [
@@ -175,7 +175,7 @@ describe('presets merge', () => {
                     @apply text-sky-500 #{!important};
                     border-width:var(--ee-bw);
                     font-size: 12px;
-                  }`
+                  }`,
                 }
               },
               schema: ({ selector }) => {
@@ -186,14 +186,14 @@ describe('presets merge', () => {
                       @apply bg-red-500;
                       @apply text-blue-500 #{!important};
                       border-width:var(--bw);
-                    }`
-                  }
+                    }`,
+                  },
                 }
-              }
-            }
-          }
-        }
-      ]
+              },
+            },
+          },
+        },
+      ],
       // outdir
     }
     const ctx = createContext(options)
@@ -216,11 +216,11 @@ describe('presets merge', () => {
                 @apply text-sky-900 #{!important};
                 border-width:var(--xx-ee-bw);
                 font-size: 16px;
-              }`
+              }`,
               }
-            }
-          ]
-        }
+            },
+          ],
+        },
       },
       dryRun: true,
       presets: [
@@ -235,7 +235,7 @@ describe('presets merge', () => {
                     @apply text-sky-500 #{!important};
                     border-width:var(--ee-bw);
                     font-size: 12px;
-                  }`
+                  }`,
                 }
               },
               schema: ({ selector }) => {
@@ -246,14 +246,14 @@ describe('presets merge', () => {
                       @apply bg-red-500;
                       @apply text-blue-500 #{!important};
                       border-width:var(--bw);
-                    }`
-                  }
+                    }`,
+                  },
                 }
-              }
-            }
-          }
-        }
-      ]
+              },
+            },
+          },
+        },
+      ],
       // outdir
     }
     const ctx = createContext(options)

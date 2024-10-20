@@ -43,22 +43,27 @@ So if we use styles to control these, we usually write like this:
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+  import { computed } from 'vue'
 
-function getButtonClass(props){
-  let classNames = [/* base */]
-  // do something with props like push, splice, unshift ...
-  return classNames.join(' ')
-}
+  function getButtonClass(props) {
+    let classNames = [
+      /* base */
+    ]
+    // do something with props like push, splice, unshift ...
+    return classNames.join(' ')
+  }
 
-const props = withDefaults(defineProps<{
-  // ...
-}>(), {
-  // ... 
-})
-const className = computed(() => {
-  return getButtonClass(props)
-})
+  const props = withDefaults(
+    defineProps<{
+      // ...
+    }>(),
+    {
+      // ...
+    },
+  )
+  const className = computed(() => {
+    return getButtonClass(props)
+  })
 </script>
 ```
 
@@ -202,30 +207,30 @@ At the same time, the file output directory of the `cva` function is also define
 In this way, when we run the main function and introduce the `css` file where the `vue` component/comment is located, a `cva` function is generated:
 
 ```ts
-import { cva, VariantProps } from "class-variance-authority";
-const index = cva(["btn"], {
+import { cva, VariantProps } from 'class-variance-authority'
+const index = cva(['btn'], {
   variants: {
-    "type": {
-      "primary": ["btn-primary"],
-      "secondary": ["btn-secondary"]
+    type: {
+      primary: ['btn-primary'],
+      secondary: ['btn-secondary']
     },
-    "size": {
-      "md": ["btn-md"],
-      "xs": ["btn-xs"],
-      "sm": ["btn-sm"]
+    size: {
+      md: ['btn-md'],
+      xs: ['btn-xs'],
+      sm: ['btn-sm']
     }
   },
   compoundVariants: [{
-    "class": ["btn-disabled"],
-    "type": ["primary"],
-    "size": ["xs"]
+    class: ['btn-disabled'],
+    type: ['primary'],
+    size: ['xs']
   }],
   defaultVariants: {
-    "size": "md"
+    size: 'md'
   }
-});
-export type Props = VariantProps<typeof index>;
-export default index;
+})
+export type Props = VariantProps<typeof index>
+export default index
 ```
 
 Then, we can directly import it for encapsulation!
@@ -238,17 +243,20 @@ Then, we can directly import it for encapsulation!
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import buttonClass, { Props as ButtonProps } from './buttonClass'
+  import { computed } from 'vue'
+  import buttonClass, { Props as ButtonProps } from './buttonClass'
 
-const props = withDefaults(defineProps<{
-  // ButtonProps
-  type?: 'primary' | 'secondary',
-  size?: 'md' | 'sm' | 'xs'
-}>(), {})
-const className = computed(() => {
-  return buttonClass(props)
-}) 
+  const props = withDefaults(
+    defineProps<{
+      // ButtonProps
+      type?: 'primary' | 'secondary'
+      size?: 'md' | 'sm' | 'xs'
+    }>(),
+    {},
+  )
+  const className = computed(() => {
+    return buttonClass(props)
+  })
 </script>
 ```
 

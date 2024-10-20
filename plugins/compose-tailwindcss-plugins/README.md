@@ -16,9 +16,9 @@
 ## Usage
 
 ```js
-const { composePlugins } = require('compose-tailwindcss-plugins') 
+const { composePlugins } = require('compose-tailwindcss-plugins')
 
-const myComposedPlugin = composePlugins(plugin0,plugin1,[plugin2,plugin3])
+const myComposedPlugin = composePlugins(plugin0, plugin1, [plugin2, plugin3])
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -32,7 +32,7 @@ module.exports = {
 it works like:
 
 ```diff
-const { composePlugins } = require('compose-tailwindcss-plugins') 
+const { composePlugins } = require('compose-tailwindcss-plugins')
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {

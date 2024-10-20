@@ -1,4 +1,4 @@
-import { CodegenOptions, ComponentsOptions } from '@icestack/types'
+import type { ComponentsOptions } from '@icestack/types'
 import { removeDefaultComponents } from '@/components'
 import { createContext } from '@/context'
 
@@ -18,13 +18,13 @@ describe.skip('extend', () => {
                   @apply bg-gray-100;
                 }
           }
-          `
-        }
-      }
+          `,
+        },
+      },
     }
     const ctx = createContext({
       components,
-      dryRun: true
+      dryRun: true,
     })
     const res = await ctx.buildComponents()
     expect(res.button).toMatchSnapshot()
@@ -39,7 +39,7 @@ describe.skip('extend', () => {
           base: `.custom{
             @apply bg-red-200;
             color: red;
-          }`
+          }`,
         },
         schema: ({ selector }) => {
           return {
@@ -49,15 +49,15 @@ describe.skip('extend', () => {
               ${selector}{
                 @apply bg-red-300;
                 color: blue;
-              }`
-            }
+              }`,
+            },
           }
-        }
-      }
+        },
+      },
     }
     const ctx = createContext({
       components,
-      dryRun: true
+      dryRun: true,
     })
     const res = await ctx.buildComponents()
     expect(res.custom).toMatchSnapshot()
@@ -72,13 +72,13 @@ describe.skip('extend', () => {
           base: `.custom{
             @apply bg-red-200;
             color: red;
-          }`
-        }
-      }
+          }`,
+        },
+      },
     }
     const ctx = createContext({
       components,
-      dryRun: true
+      dryRun: true,
     })
     const res = await ctx.buildComponents()
     expect(res.custom).toMatchSnapshot()

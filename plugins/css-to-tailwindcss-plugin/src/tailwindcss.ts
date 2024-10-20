@@ -1,15 +1,15 @@
-import path from 'node:path'
 import fs from 'node:fs'
+import path from 'node:path'
 import process from 'node:process'
 import md5 from 'md5'
 // import type { Config } from 'tailwindcss'
 import type { PluginsConfig } from 'tailwindcss/types/config'
-import { composePlugins } from 'compose-tailwindcss-plugins'
-import { createContext } from './core'
 import type { IProcessOptions, TailwindcssPluginOptions } from './types'
-import { ensureDir } from './utils'
+import { composePlugins } from 'compose-tailwindcss-plugins'
 import { version } from './constants'
+import { createContext } from './core'
 import { getOptions } from './options'
+import { ensureDir } from './utils'
 // https://tailwindcss.com/docs/plugins
 // https://github.com/tailwindlabs/tailwindcss/blob/master/src/lib/setupContextUtils.js#L723
 function generateTempPlugin(entry: string, p: string, opts?: IProcessOptions) {

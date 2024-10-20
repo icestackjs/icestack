@@ -2,7 +2,7 @@
 // https://github.com/postcss/postcss-load-config#ordering
 module.exports = {
   plugins: {
-    tailwindcss: {},
+    'tailwindcss': {},
     'postcss-rem-to-responsive-pixel': {
       // 32 意味着 1rem = 32rpx
       rootValue: 32,
@@ -14,7 +14,7 @@ module.exports = {
     // autoprefixer: {},
     // '@pandacss/dev/postcss': {},
     // 'weapp-pandacss/postcss': {}
-  }
+  },
   // [
   //   require('@pandacss/dev/postcss')(),
   //   require('@csstools/postcss-cascade-layers')()

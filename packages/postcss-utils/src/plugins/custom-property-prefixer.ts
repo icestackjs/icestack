@@ -1,5 +1,5 @@
-import creator from 'postcss-custom-property-prefixer'
 import type { VarPrefixerOptions } from '@icestack/types'
+import creator from 'postcss-custom-property-prefixer'
 
 export function arrMatch(matchArr?: (string | RegExp)[], str?: string) {
   if (!Array.isArray(matchArr)) {

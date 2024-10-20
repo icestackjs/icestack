@@ -1,12 +1,12 @@
-import path from 'node:path'
-import fs from 'node:fs'
-import plugin from 'tailwindcss/plugin'
-import { mergeRClone } from '@icestack/shared'
 import type { CssInJs } from 'postcss-js'
-import type { CSSRuleObject, PluginCreator } from 'tailwindcss/types/config'
-
-import { createLogger } from '@icestack/logger'
 import type { Config } from 'tailwindcss'
+import type { CSSRuleObject, PluginCreator } from 'tailwindcss/types/config'
+import fs from 'node:fs'
+import path from 'node:path'
+import { createLogger } from '@icestack/logger'
+
+import { mergeRClone } from '@icestack/shared'
+import plugin from 'tailwindcss/plugin'
 import { name as pkgName } from '../package.json'
 
 export interface TailwindcssPluginOptions {

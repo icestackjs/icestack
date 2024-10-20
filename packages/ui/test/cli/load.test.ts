@@ -1,10 +1,11 @@
 import path from 'node:path'
-import ci from 'ci-info'
 import { loadSync } from '@icestack/config'
+import ci from 'ci-info'
+
 describe.skipIf(ci.isCI)('load config', () => {
   it('load ts config', async () => {
     const { config } = await loadSync({
-      cwd: path.resolve(__dirname, 'ts')
+      cwd: path.resolve(__dirname, 'ts'),
     })
     expect(config?.log).toBe(false)
     expect(config).toMatchSnapshot()
@@ -12,7 +13,7 @@ describe.skipIf(ci.isCI)('load config', () => {
 
   it('load js config', async () => {
     const { config } = await loadSync({
-      cwd: path.resolve(__dirname, 'js')
+      cwd: path.resolve(__dirname, 'js'),
     })
     expect(config?.log).toBe(false)
     expect(config).toMatchSnapshot()
@@ -20,7 +21,7 @@ describe.skipIf(ci.isCI)('load config', () => {
 
   it.skip('load mjs config', async () => {
     const { config } = await loadSync({
-      cwd: path.resolve(__dirname, 'esm')
+      cwd: path.resolve(__dirname, 'esm'),
     })
     expect(config?.log).toBe(false)
     expect(config).toMatchSnapshot()
@@ -28,7 +29,7 @@ describe.skipIf(ci.isCI)('load config', () => {
 
   it('load cjs config', async () => {
     const { config } = await loadSync({
-      cwd: path.resolve(__dirname, 'cjs')
+      cwd: path.resolve(__dirname, 'cjs'),
     })
     expect(config?.log).toBe(false)
     expect(config).toMatchSnapshot()

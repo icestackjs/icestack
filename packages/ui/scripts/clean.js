@@ -8,8 +8,8 @@ async function main() {
       return path.resolve(__dirname, '..', `assets/${x}`)
     }),
     {
-      force: true
-    }
+      force: true,
+    },
   )
   console.log(res)
 }

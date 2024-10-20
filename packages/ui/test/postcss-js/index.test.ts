@@ -1,5 +1,5 @@
-import postcssJs from 'postcss-js'
 import postcss from 'postcss'
+import postcssJs from 'postcss-js'
 // import baseJsObj from '../../assets/js/base'
 // import countdownJsObj from '../../assets/js/components/styled/countdown'
 // import globalPostcss from '@/postcss/global'

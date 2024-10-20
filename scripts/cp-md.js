@@ -1,5 +1,5 @@
-const path = require('node:path')
 const fs = require('node:fs')
+const path = require('node:path')
 
 function render(target, dirPath) {
   const dirs = fs.readdirSync(dirPath)
@@ -12,7 +12,8 @@ function render(target, dirPath) {
       if (fs.existsSync(templatePath)) {
         const template = fs.readFileSync(templatePath, 'utf8')
         data = data.replace('{{replace}}', template)
-      } else {
+      }
+      else {
         data = data.replace('{{replace}}', '')
       }
 

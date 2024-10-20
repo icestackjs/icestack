@@ -1,5 +1,5 @@
-import { create } from 'zustand'
 import Taro from '@tarojs/taro'
+import { create } from 'zustand'
 
 export const systemInfo = Taro.getSystemInfoSync()
 export interface IThemeState {
@@ -15,10 +15,9 @@ const initMode: IThemeState['mode'] = Taro.getStorageSync(themeKey) || 'light'
 // console.log(initMode, typeof initMode, initMode === '')
 
 export const useThemeStore = create<IThemeState>((set) => {
-
   function setMode(mode: IThemeState['mode']) {
     set({
-      mode
+      mode,
     })
     Taro.setStorageSync(themeKey, mode)
   }
@@ -31,10 +30,10 @@ export const useThemeStore = create<IThemeState>((set) => {
         const mode = state.mode === 'light' ? 'dark' : 'light'
         Taro.setStorageSync(themeKey, mode)
         return {
-          mode
+          mode,
         }
       })
-    }
+    },
   }
 })
 
@@ -42,16 +41,15 @@ export const useIndexTabbar = create<{
   index: number
   setIndex: (index: number) => void
 }>((set) => {
+      function setIndex(index: number) {
+        set({
+          index,
+        })
+      }
 
-  function setIndex(index: number) {
-    set({
-      index
+      return {
+        index: 0,
+        setIndex,
+
+      }
     })
-  }
-
-  return {
-    index: 0,
-    setIndex,
-
-  }
-})

@@ -1,6 +1,6 @@
-const { icestackPlugin } = require('@icestack/tailwindcss')
+const path = require('node:path')
 const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
-const path = require('path')
+const { icestackPlugin } = require('@icestack/tailwindcss')
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ['./index.html', './src/**/*.{html,js,ts,jsx,tsx,vue}'],
@@ -12,15 +12,15 @@ module.exports = {
   // plugins: [require('@icestack/ui')({})],
   plugins: [
     iconsPlugin({
-      collections: getIconCollections(['mdi', 'grommet-icons'])
+      collections: getIconCollections(['mdi', 'grommet-icons']),
     }),
     icestackPlugin({
       loadDirectory: path.resolve(__dirname, './my-ui'),
-      loadConfig: true
-    })
+      loadConfig: true,
+    }),
 
   ],
   corePlugins: {
-    preflight: false
-  }
+    preflight: false,
+  },
 }

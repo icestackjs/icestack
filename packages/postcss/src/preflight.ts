@@ -1,5 +1,5 @@
-import { css } from '@icestack/types'
 import { parse } from '@icestack/postcss-utils'
+import { css } from '@icestack/types'
 
 export const preflightRoot = parse(css`
   /*

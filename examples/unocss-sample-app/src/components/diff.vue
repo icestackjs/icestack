@@ -3,9 +3,13 @@
 <template>
   <div>
     <div class="diff rounded-btn aspect-[16/9]">
-      <div class="diff-item-1"><img alt="IceStack" src="/pig.jpg" /></div>
-      <div class="diff-item-2"><img alt="IceStack" src="/pig.jpg" /></div>
-      <div class="diff-resizer"></div>
+      <div class="diff-item-1">
+        <img alt="IceStack" src="/pig.jpg">
+      </div>
+      <div class="diff-item-2">
+        <img alt="IceStack" src="/pig.jpg">
+      </div>
+      <div class="diff-resizer" />
     </div>
 
     <div class="diff rounded-btn aspect-[16/9]">
@@ -21,7 +25,7 @@
           IceStack
         </div>
       </div>
-      <div class="diff-resizer"></div>
+      <div class="diff-resizer" />
     </div>
   </div>
 </template>

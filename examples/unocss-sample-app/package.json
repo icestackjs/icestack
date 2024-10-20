@@ -15,21 +15,21 @@
     "@icestack/shared": "workspace:^",
     "@icestack/types": "workspace:^",
     "parsel-js": "^1.1.2",
-    "postcss": "^8.4.41",
+    "postcss": "^8.4.47",
     "postcss-js": "^4.0.1",
     "postcss-selector-parser": "^6.1.1",
-    "vue": "^3.4.37"
+    "vue": "^3.5.12"
   },
   "devDependencies": {
     "@icestack/ui": "workspace:^",
     "@icestack/unocss": "workspace:^",
-    "@unocss/reset": "^0.62.3",
-    "@vitejs/plugin-vue": "^5.1.2",
-    "postcss-color-functional-notation": "^7.0.0",
-    "typescript": "^5.5.4",
-    "unocss": "^0.62.3",
+    "@unocss/reset": "^0.63.4",
+    "@vitejs/plugin-vue": "^5.1.4",
+    "postcss-color-functional-notation": "^7.0.3",
+    "typescript": "^5.6.3",
+    "unocss": "^0.63.4",
     "unplugin-vue-components": "^0.27.3",
-    "vite": "^5.4.0",
-    "vue-tsc": "^2.0.29"
+    "vite": "^5.4.9",
+    "vue-tsc": "^2.1.6"
   }
 }

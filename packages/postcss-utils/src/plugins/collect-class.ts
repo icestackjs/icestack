@@ -1,6 +1,6 @@
 import type { PluginCreator } from 'postcss'
-import parser from 'postcss-selector-parser'
 import { defu } from '@icestack/shared'
+import parser from 'postcss-selector-parser'
 
 const defaultParser = parser()
 

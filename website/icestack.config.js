@@ -9,8 +9,8 @@ const config = {
   outdir: './my-ui',
   base: {
     themes: {
-      ...themes
-    }
+      ...themes,
+    },
   },
   components: {
     ...components,
@@ -57,12 +57,12 @@ const config = {
               ${selector}-lg {
                 @apply px-8 py-3 rounded-lg;
               }
-            `
-          }
+            `,
+          },
         }
-      }
-    }
+      },
+    },
   },
-  presets: [mockupPreset()]
+  presets: [mockupPreset()],
 }
 module.exports = config

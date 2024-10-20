@@ -1,5 +1,6 @@
-import { parse } from 'postcss'
 import { objectify } from '@/js'
+import { parse } from 'postcss'
+
 describe('postcss', () => {
   it('objectify case 0', () => {
     const root = parse(`

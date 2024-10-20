@@ -1,9 +1,9 @@
-import { components as defaultComponents } from '@icestack/preset-default/components'
+import type { BaseOptions, CodegenOptions, ComponentsOptions, ComponentsValue } from '@icestack/types'
 import { base as defaultBase } from '@icestack/preset-default/base'
+import { components as defaultComponents } from '@icestack/preset-default/components'
 import { utilities as defaultUtilities } from '@icestack/preset-default/utilities'
 import { defaultVarPrefix } from '@icestack/shared/constants'
 import { generateColors } from '@icestack/theme-algorithm'
-import type { BaseOptions, CodegenOptions, ComponentsOptions, ComponentsValue } from '@icestack/types'
 
 export function getDefaultBase(options?: CodegenOptions) {
   const { base: baseOptions, mode: globalMode } = options ?? {}

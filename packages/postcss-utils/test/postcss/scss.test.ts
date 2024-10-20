@@ -1,6 +1,6 @@
-import type { Node, Rule, ChildNode, Root, AtRule, Declaration, Comment } from 'postcss'
-import { parse, merge as mergeArray } from '@/scss'
+import type { AtRule, Comment, Declaration, Root, Rule } from 'postcss'
 import { compressCssSelector } from '@/index'
+import { merge as mergeArray, parse } from '@/scss'
 
 function getKey(node: AtRule | Rule | Root | Comment | Declaration) {
   switch (node.type) {
@@ -8,7 +8,7 @@ function getKey(node: AtRule | Rule | Root | Comment | Declaration) {
       return '#'
     }
     case 'atrule': {
-      return '@' + node.name + ' ' + node.params
+      return `@${node.name} ${node.params}`
     }
     case 'rule': {
       return compressCssSelector(node.selector)
@@ -118,7 +118,7 @@ describe('scss', () => {
         color: pp;
         basd:fdsa;
       }
-    }`)
+    }`),
     )
 
     expect(root.toString()).toMatchSnapshot()

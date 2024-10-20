@@ -1,8 +1,8 @@
-// @ts-nocheck
-import Tokenizer from 'css-selector-tokenizer'
+import type { PrefixerOptions } from '@icestack/types'
 import type { PluginCreator } from 'postcss'
 import { defuOverrideArray } from '@icestack/shared'
-import type { PrefixerOptions } from '@icestack/types'
+// @ts-nocheck
+import Tokenizer from 'css-selector-tokenizer'
 
 function itMatchesOne(arr, term) {
   return arr.some(i => term.search(i) >= 0)

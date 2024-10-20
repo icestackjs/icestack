@@ -4,9 +4,9 @@ describe('calcBase', () => {
   it('types case 0', () => {
     const { types } = calcBase({
       base: {
-        themes: {}
+        themes: {},
       },
-      postcss: {}
+      postcss: {},
     })
     expect(types.length).toBe(0)
   })
@@ -17,25 +17,25 @@ describe('calcBase', () => {
         themes: {
           light: {
             types: {
-              p: '#123456'
-            }
+              p: '#123456',
+            },
           },
           dark: {
             types: {
-              d: '#123456'
-            }
+              d: '#123456',
+            },
           },
           dark0: {
             types: {
-              d: '#123456'
-            }
-          }
+              d: '#123456',
+            },
+          },
         },
         themeSelectorTemplate(theme) {
           return `[data-mode="${theme}"]`
-        }
+        },
       },
-      postcss: {}
+      postcss: {},
     })
     expect(types.length).toBe(2)
   })

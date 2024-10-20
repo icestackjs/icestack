@@ -1,6 +1,6 @@
-export * from './utils'
 export * from './ast'
 export * from './js'
 export * from './plugins'
 export * from './scss'
 export * from './types'
+export * from './utils'

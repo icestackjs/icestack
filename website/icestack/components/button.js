@@ -27,8 +27,8 @@ const config = {
              @apply min-h-32 h-32 px-14;
              font-size: 2rem;
            }`
-      }
-    ]
-  }
+      },
+    ],
+  },
 }
 module.exports = config

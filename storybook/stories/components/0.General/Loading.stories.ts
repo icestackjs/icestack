@@ -1,14 +1,15 @@
-import type { StoryObj, Meta } from '@storybook/html'
 import type { VariantProps } from '@icestack/cva'
+import type { Meta, StoryObj } from '@storybook/html'
 import { formatHtml } from '../share'
 import Cva from '../style'
+
 type Props = VariantProps<typeof c> & { color?: string }
 
 const sizes = Cva.loading.sizes
 const shapes = Cva.loading.shapes
 const c = Cva.loading.cva
 
-const create = (props: Props) => {
+function create(props: Props) {
   let co = ''
   if (props.color) {
     co = `style="color:${props.color}"`
@@ -23,8 +24,8 @@ const meta: Meta<Props> = {
     return create(args)
   },
   argTypes: {
-    color: { control: { type: 'color' } }
-  }
+    color: { control: { type: 'color' } },
+  },
 }
 
 type Story = StoryObj<Props>
@@ -39,15 +40,15 @@ export const Default: Story = {
           create({
             shape,
             size,
-            color
-          })
+            color,
+          }),
         )
       }
     }
     const xx = formatHtml(`<div class="grid grid-cols-8 gap-4 items-center">${strs.join('')}</div>`)
 
     return xx
-  }
+  },
 }
 
 export default meta

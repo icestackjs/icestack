@@ -1,5 +1,5 @@
-@use "sass:string";
-@use "sass:meta";
+@use 'sass:string';
+@use 'sass:meta';
 
 @function composeStringArray($list) {
   $result: null;
@@ -17,9 +17,9 @@
 @mixin spread($map, $depth: 0) {
   @if (meta.type-of($map) == map) {
     @each $s, $m in $map {
-      @if ($s == "css" or $s == "apply" or $s == "sort") {
+      @if ($s == 'css' or $s == 'apply' or $s == 'sort') {
         @if ($depth > 0) {
-          @if ($s == "apply") {
+          @if ($s == 'apply') {
             @if ($m != null) {
               @if (meta.type-of($m) == string) {
                 @apply #{$m};
@@ -33,7 +33,7 @@
                 }
               }
             }
-          } @else if($s == "css") {
+          } @else if($s == 'css') {
             @if ($m!=null and meta.type-of($m) == map) {
               @each $name, $value in $m {
                 #{$name}: $value;
@@ -42,8 +42,8 @@
           }
         }
       } @else {
-        @if (string.index($s, "@") == 1) {
-          $spaceIdx: string.index($s, " ");
+        @if (string.index($s, '@') == 1) {
+          $spaceIdx: string.index($s, ' ');
           @#{string.slice($s, 2,$spaceIdx - 1)} #{string.slice($s, $spaceIdx+1)} {
             @include spread($m, $depth + 1);
           }

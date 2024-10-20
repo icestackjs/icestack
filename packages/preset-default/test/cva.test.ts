@@ -1,20 +1,21 @@
-import { postcssProcess, extractCvaParamsPlugin, parse } from '@icestack/postcss-utils'
-import { compileScssString } from '@icestack/scss'
 import { components } from '@/components'
+import { extractCvaParamsPlugin, parse, postcssProcess } from '@icestack/postcss-utils'
+import { compileScssString } from '@icestack/scss'
+
 const types = ['primary', 'success', 'warning', 'error', 'neutral']
 describe.each(
   Object.entries(components).map((x) => {
     return {
       name: x[0],
-      value: x[1]
+      value: x[1],
     }
-  })
+  }),
 )('$name cva', ({ name, value }) => {
   it('snap', async () => {
     // try {
     const xx = value?.schema({
       selector: value.selector,
-      types
+      types,
     })
 
     const scss = (xx.defaults.base ?? '') + (xx.defaults.styled ?? '') + (xx.defaults.utils ?? '')
@@ -25,10 +26,10 @@ describe.each(
         extractCvaParamsPlugin({
           process(xx) {
             res = xx
-          }
-        })
+          },
+        }),
       ],
-      css
+      css,
     )
     expect(res).toMatchSnapshot()
     // } catch (error) {

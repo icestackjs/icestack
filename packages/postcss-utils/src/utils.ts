@@ -1,8 +1,8 @@
+import type { CssInJs, CssValue } from '@icestack/types'
 import type { ChildNode } from 'postcss'
+import { get, set } from 'lodash'
 import sassParser from 'postcss-scss'
 import selectorParser from 'postcss-selector-parser'
-import { get, set } from 'lodash'
-import type { CssInJs, CssValue } from '@icestack/types'
 
 export const defaultSelectorParser = selectorParser()
 

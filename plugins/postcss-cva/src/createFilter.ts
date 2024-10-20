@@ -1,10 +1,10 @@
+import type { FilterPattern } from './types'
+
 import { isAbsolute, posix, resolve } from 'node:path'
 
 import pm from 'picomatch'
-
-import type { FilterPattern } from './types'
-import ensureArray from './utils/ensureArray'
 import normalizePath from './normalizePath'
+import ensureArray from './utils/ensureArray'
 
 function getMatcherString(id: string, resolutionBase: string | false | null | undefined) {
   if (resolutionBase === false || isAbsolute(id) || id.startsWith('**')) {

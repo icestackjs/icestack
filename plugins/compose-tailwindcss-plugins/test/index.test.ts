@@ -1,11 +1,11 @@
-import plugin from 'tailwindcss/plugin'
-import postcss from 'postcss'
-import tailwindcss from 'tailwindcss'
-
 import type { Config } from 'tailwindcss'
 import type { PluginAPI, PluginCreator } from 'tailwindcss/types/config'
 import type { Mock } from 'vitest'
+
 import { composePlugins } from '@/index'
+import postcss from 'postcss'
+import tailwindcss from 'tailwindcss'
+import plugin from 'tailwindcss/plugin'
 // https://github.com/tailwindlabs/tailwindcss/blob/5542340a75d23396b7c9dca462e2958728415b2d/src/util/resolveConfig.js#L89
 export function getCss(config: string | Config) {
   return postcss([

@@ -1,6 +1,6 @@
-import { createContext } from '@icestack/ui'
-
 import preset from '@/index'
+
+import { createContext } from '@icestack/ui'
 
 describe('components', () => {
   it('daisyui all css obj', async () => {

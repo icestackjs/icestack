@@ -1,8 +1,8 @@
 import type { Comment, Rule } from 'postcss'
-import parser from 'postcss-selector-parser'
-import { trimStart } from 'lodash'
-import { matchAll } from './utils'
 import type { CommentType } from './types'
+import { trimStart } from 'lodash'
+import parser from 'postcss-selector-parser'
+import { matchAll } from './utils'
 
 // b
 export const baseRegex = new RegExp(/@b/.source, 'g')

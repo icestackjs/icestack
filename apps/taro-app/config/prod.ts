@@ -2,7 +2,7 @@ import { defineConfig } from '@tarojs/cli'
 
 export default defineConfig({
   env: {
-    NODE_ENV: '"production"'
+    NODE_ENV: '"production"',
   },
   defineConstants: {
   },
@@ -35,6 +35,6 @@ export default defineConfig({
     //       postProcess: (context) => ({ ...context, outputPath: path.join(staticDir, 'index.html') })
     //     }))
     // }
-  }
-}
+  },
+},
 )

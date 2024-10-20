@@ -1,10 +1,11 @@
 import path from 'node:path'
-import ci from 'ci-info'
 import { createContext } from '@/index'
+import ci from 'ci-info'
+
 describe.skipIf(ci.isCI)('build', () => {
   it('build all', async () => {
     const ctx = createContext({
-      dryRun: true
+      dryRun: true,
     })
     const res = await ctx.build()
     expect(res).toMatchSnapshot()
@@ -14,7 +15,7 @@ describe.skipIf(ci.isCI)('build', () => {
 
   it('build base', async () => {
     const ctx = createContext({
-      dryRun: true
+      dryRun: true,
     })
     const base = await ctx.buildBase()
     expect(base).toMatchSnapshot()
@@ -27,16 +28,16 @@ describe.skipIf(ci.isCI)('build', () => {
         themes: {
           light: {
             types: {
-              primary: '#13c2c2'
-            }
+              primary: '#13c2c2',
+            },
           },
           dark: {
             types: {
-              primary: '#13a8a8'
-            }
-          }
-        }
-      }
+              primary: '#13a8a8',
+            },
+          },
+        },
+      },
     })
     const base = await ctx.buildBase()
     expect(base).toMatchSnapshot()
@@ -48,13 +49,13 @@ describe.skipIf(ci.isCI)('build', () => {
       base: {
         themes: {
           light: {
-            selector: 'page'
+            selector: 'page',
           },
           dark: {
-            selector: '.dark'
-          }
-        }
-      }
+            selector: '.dark',
+          },
+        },
+      },
     })
     await ctx.buildBase()
     expect(ctx.base.index.resolvedCss).toMatchSnapshot('index')
@@ -67,13 +68,13 @@ describe.skipIf(ci.isCI)('build', () => {
       base: {
         themes: {
           light: {
-            selector: 'page'
+            selector: 'page',
           },
           dark: {
-            selector: '.dark'
-          }
-        }
-      }
+            selector: '.dark',
+          },
+        },
+      },
     })
     const base = await ctx.build({ base: false, components: false, config: false, utilities: false })
     expect(base).toMatchSnapshot()

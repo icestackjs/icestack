@@ -1,19 +1,20 @@
-import postcss from 'postcss'
-import * as t from '@babel/types'
-import { fixturesResolve, defaultTailwindConfig, getTwCtx } from './utils'
 import { createContext } from '@/core'
-import { unwrapThemeFunctionArg, makeObjectExpression, babelGenerate } from '@/core/generator'
+import { babelGenerate, makeObjectExpression, unwrapThemeFunctionArg } from '@/core/generator'
+import * as t from '@babel/types'
+import postcss from 'postcss'
+import { defaultTailwindConfig, fixturesResolve, getTwCtx } from './utils'
+
 describe('generator', () => {
   let ctx: ReturnType<typeof createContext>
   let twCtx: ReturnType<typeof createContext>
   beforeEach(() => {
     ctx = createContext({
-      withOptions: false
+      withOptions: false,
     })
     twCtx = createContext({
       tailwindcssResolved: true,
       tailwindcssConfig: defaultTailwindConfig,
-      withOptions: false
+      withOptions: false,
     })
   })
 
@@ -22,7 +23,7 @@ describe('generator', () => {
     expect(unwrapThemeFunctionArg('spacing[2.5]')).toBe('spacing[2.5]')
     expect(unwrapThemeFunctionArg('colors.blue.500')).toBe('colors.blue.500')
     expect(unwrapThemeFunctionArg('colors.blue.500 / 75%')).toBe('colors.blue.500 / 75%')
-    expect(unwrapThemeFunctionArg("'colors.white'")).toBe('colors.white')
+    expect(unwrapThemeFunctionArg('\'colors.white\'')).toBe('colors.white')
   })
 
   it('generate', () => {
@@ -47,7 +48,7 @@ describe('generator', () => {
 
   it('generate case 0 withOptions', async () => {
     const ctx = createContext({
-      withOptions: true
+      withOptions: true,
     })
     await ctx.process(fixturesResolve('common.scss'))
     expect(ctx.generate()).toMatchSnapshot()
@@ -61,7 +62,7 @@ describe('generator', () => {
   it('generate case 2', async () => {
     const ctx = createContext({
       outSideLayerCss: 'base',
-      withOptions: false
+      withOptions: false,
     })
     await ctx.process(fixturesResolve('common-outside.scss'))
     expect(ctx.generate()).toMatchSnapshot()
@@ -108,9 +109,9 @@ describe('generator', () => {
     const twCtx0 = getTwCtx({
       content: [
         {
-          raw: 'card content-auto'
-        }
-      ]
+          raw: 'card content-auto',
+        },
+      ],
     })
     const { css } = await twCtx0.process(fixturesResolve('import-case.css'))
     expect(twCtx0.generate()).toMatchSnapshot('generate')
@@ -158,14 +159,14 @@ describe('generator', () => {
                 nodes: [
                   postcss.decl({
                     prop: 'font-size',
-                    value: '99.6px'
-                  })
-                ]
-              })
+                    value: '99.6px',
+                  }),
+                ],
+              }),
             )
-          }
-        ]
-      }
+          },
+        ],
+      },
     })
     await ctx.process(fixturesResolve('common.scss'))
     expect(ctx.generate()).toMatchSnapshot()
@@ -184,14 +185,14 @@ describe('generator', () => {
                 nodes: [
                   postcss.decl({
                     prop: 'font-size',
-                    value: '99.6px'
-                  })
-                ]
-              })
+                    value: '99.6px',
+                  }),
+                ],
+              }),
             )
-          }
+          },
         })
-      }
+      },
     })
     await ctx.process(fixturesResolve('common.scss'))
     expect(ctx.generate()).toMatchSnapshot()

@@ -1,12 +1,12 @@
 /**
  * @type {import('postcss').PluginCreator}
  */
-const plugin = (options = {}) => {
+function plugin(options = {}) {
   // const ctx = options.ctx
 
   // console.log('---------------')
   return {
-    postcssPlugin: 'custom-postcss-plugin'
+    postcssPlugin: 'custom-postcss-plugin',
     // Root() {
     //   console.log('root:')
     // }

@@ -1,9 +1,10 @@
+import type { Config } from 'tailwindcss'
 import fs from 'node:fs/promises'
 import path from 'node:path'
-import tailwindcss, { Config } from 'tailwindcss'
+import { createContext } from '@/core'
 import defu from 'defu'
 import postcss from 'postcss'
-import { createContext } from '@/core'
+import tailwindcss from 'tailwindcss'
 
 const fixturesPath = path.resolve(__dirname, 'fixtures')
 
@@ -29,15 +30,15 @@ export function getTwCtx(config?: Config) {
   return createContext({
     tailwindcssResolved: true,
     tailwindcssConfig: defu(config, defaultTailwindConfig),
-    withOptions: false
+    withOptions: false,
   })
 }
 
 export function getCss(config: string | Config) {
   return postcss([
     tailwindcss({
-      config
-    })
+      config,
+    }),
   ])
     .process('@tailwind base;@tailwind components;@tailwind utilities;')
     .async()

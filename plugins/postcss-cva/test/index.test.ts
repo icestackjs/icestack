@@ -1,6 +1,7 @@
 import path from 'node:path'
-import postcss from 'postcss'
 import postcssCva from '@/index'
+import postcss from 'postcss'
+
 const css = String.raw
 describe('index', () => {
   it('case 0', async () => {
@@ -11,9 +12,9 @@ describe('index', () => {
           base: false,
           compoundVariants: false,
           defaultVariants: false,
-          variants: false
-        }
-      })
+          variants: false,
+        },
+      }),
       // @ts-ignore
     ]).process(css`
       /* @meta path="button" */
@@ -46,9 +47,9 @@ describe('index', () => {
           base: false,
           compoundVariants: false,
           defaultVariants: false,
-          variants: false
-        }
-      })
+          variants: false,
+        },
+      }),
       // @ts-ignore
     ]).process(css`
       /* @meta path="button.js" */
@@ -82,9 +83,9 @@ describe('index', () => {
           base: false,
           compoundVariants: false,
           defaultVariants: false,
-          variants: false
-        }
-      })
+          variants: false,
+        },
+      }),
       // @ts-ignore
     ]).process(css`
       /* @meta path="in/button.cts" */
@@ -118,9 +119,9 @@ describe('index', () => {
           base: false,
           compoundVariants: false,
           defaultVariants: false,
-          variants: false
-        }
-      })
+          variants: false,
+        },
+      }),
       // @ts-ignore
     ]).process(css`
       /* @meta path="nest-btn" */
@@ -157,9 +158,9 @@ describe('index', () => {
           base: false,
           compoundVariants: false,
           defaultVariants: false,
-          variants: false
-        }
-      })
+          variants: false,
+        },
+      }),
       // @ts-ignore
     ]).process(css`
       /* @meta path="./nest-btn-4" */
@@ -190,8 +191,8 @@ describe('index', () => {
   it('exports case 0', async () => {
     const { css: code } = await postcss([
       postcssCva({
-        cwd: path.resolve(__dirname, './fixtures')
-      })
+        cwd: path.resolve(__dirname, './fixtures'),
+      }),
       // @ts-ignore
     ]).process(css`
       /* @meta path="export-btn-0" */
@@ -224,9 +225,9 @@ describe('index', () => {
       postcssCva({
         cwd: path.resolve(__dirname, './fixtures'),
         exports: {
-          base: false
-        }
-      })
+          base: false,
+        },
+      }),
       // @ts-ignore
     ]).process(css`
       /* @meta path="export-btn-1" */
@@ -260,9 +261,9 @@ describe('index', () => {
         cwd: path.resolve(__dirname, './fixtures'),
         exports: {
           base: false,
-          variants: false
-        }
-      })
+          variants: false,
+        },
+      }),
       // @ts-ignore
     ]).process(css`
       /* @meta path="export-btn-2" */
@@ -297,9 +298,9 @@ describe('index', () => {
         exports: {
           base: false,
           variants: false,
-          compoundVariants: false
-        }
-      })
+          compoundVariants: false,
+        },
+      }),
       // @ts-ignore
     ]).process(css`
       /* @meta path="export-btn-3" */

@@ -1,6 +1,6 @@
-import { cva } from 'class-variance-authority'
 import type { VariantProps } from 'class-variance-authority'
 import type { FC, PropsWithChildren } from 'react'
+import { cva } from 'class-variance-authority'
 
 const getButtonClassname = cva(['btn'], {
   variants: {
@@ -8,10 +8,10 @@ const getButtonClassname = cva(['btn'], {
       primary: ['btn-primary'],
       success: ['btn-success'],
       warning: ['btn-warning'],
-      error: ['btn-error']
+      error: ['btn-error'],
     },
     outline: {
-      true: 'btn-outline'
+      true: 'btn-outline',
     },
     size: {
       xs: ['btn-xs'],
@@ -19,20 +19,20 @@ const getButtonClassname = cva(['btn'], {
       md: ['btn-md'],
       lg: ['btn-lg'],
       wide: ['btn-wide'],
-      block: ['btn-block']
+      block: ['btn-block'],
     },
     glass: {
-      true: 'glass'
+      true: 'glass',
     },
     disabled: {
-      true: 'btn-disabled'
+      true: 'btn-disabled',
     },
     shape: {
       square: ['btn-square'],
-      circle: ['btn-circle']
-    }
+      circle: ['btn-circle'],
+    },
   },
-  defaultVariants: {}
+  defaultVariants: {},
 })
 
 export type ButtonProps = PropsWithChildren<VariantProps<typeof getButtonClassname>>

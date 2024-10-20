@@ -30,18 +30,18 @@ function main() {
       styled: [...getSelectors(styled)].filter((x) => {
         return !baseSet.has(x)
       }),
-      utils: [...getSelectors(utils)]
+      utils: [...getSelectors(utils)],
     }
   }
 
   const p = path.resolve(__dirname, 'table.js')
   fs.writeFileSync(
     p,
-    `module.exports = ` +
+    `module.exports = ${
       serialize(result, {
-        space: 2
-      }),
-    'utf8'
+        space: 2,
+      })}`,
+    'utf8',
   )
 
   fs.copyFileSync(p, path.resolve(root, 'storybook/table.js'))

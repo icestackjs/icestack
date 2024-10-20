@@ -21,7 +21,7 @@ function getMap(base) {
 function main() {
   const componentsPath = path.resolve(__dirname, './stories/components')
   const dirs = klaw(componentsPath, {
-    nodir: true
+    nodir: true,
   })
   for (const { path: p, stats } of dirs) {
     if (stats.isFile() && /stories\.ts$/.test(p)) {

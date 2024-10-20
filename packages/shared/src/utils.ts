@@ -1,7 +1,7 @@
-import fs from 'node:fs'
-import merge from 'merge'
-import { createDefu } from 'defu'
 import type { ModeMergeValue } from '@icestack/types'
+import fs from 'node:fs'
+import { createDefu } from 'defu'
+import merge from 'merge'
 
 const defuOverrideArray = createDefu((obj, key, value) => {
   if (Array.isArray(obj[key]) && Array.isArray(value)) {
@@ -31,7 +31,7 @@ const defuArrayRight = createDefu((obj, key, value) => {
 })
 type defuArrayRight<T> = (...args: T[]) => T
 
-export { defuOverrideArray, defuOptions, defuArrayRight }
+export { defuArrayRight, defuOptions, defuOverrideArray }
 
 export function expandTypes(types: string[], fn: (typeName: string) => { key: string, value: object }) {
   return types.reduce<Record<string, object>>((acc, cur) => {

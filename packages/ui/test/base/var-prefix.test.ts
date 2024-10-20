@@ -6,9 +6,9 @@ describe('var-prefix', () => {
       dryRun: true,
       postcss: {
         varPrefix: {
-          varPrefix: '--som-'
-        }
-      }
+          varPrefix: '--som-',
+        },
+      },
     })
     const res = ctx.buildBase()
 

@@ -1,1 +1,1 @@
-export { schemaMap, componentNames as names, removeDefaultComponents } from '@icestack/preset-default/components'
+export { componentNames as names, removeDefaultComponents, schemaMap } from '@icestack/preset-default/components'

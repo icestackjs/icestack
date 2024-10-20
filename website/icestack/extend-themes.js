@@ -5,11 +5,11 @@ const { defu } = require('@icestack/ui/shared')
  */
 const overrideDefaultSelector = {
   light: {
-    selector: 'html,:root'
+    selector: 'html,:root',
   },
   dark: {
-    selector: '.dark'
-  }
+    selector: '.dark',
+  },
 }
 
 /**
@@ -22,8 +22,8 @@ const extendColorsTypes = {
 
       info: '#2dd4bf',
       accent: '#22c55e',
-      secondary: '#2f54eb'
-    }
+      secondary: '#2f54eb',
+    },
   },
   dark: {
     types: {
@@ -33,18 +33,18 @@ const extendColorsTypes = {
         '#22c55e',
         {
           theme: 'dark',
-          backgroundColor: '#000000'
-        }
+          backgroundColor: '#000000',
+        },
       ],
       // full control
       secondary: {
-        secondary: '#2f54eb',
+        'secondary': '#2f54eb',
         'secondary-content': '#ffffff',
         'secondary-hover': '#263ea0',
-        'secondary-active': '#5273e0'
-      }
-    }
-  }
+        'secondary-active': '#5273e0',
+      },
+    },
+  },
 }
 
 function extendThemes(...args) {
@@ -55,5 +55,5 @@ function extendThemes(...args) {
  * @returns {import('@icestack/ui/types').Themes}
  */
 module.exports = {
-  extendThemes
+  extendThemes,
 }

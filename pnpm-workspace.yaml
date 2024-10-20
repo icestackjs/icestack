@@ -1,10 +1,10 @@
 packages:
   #  - "apps/*"
-  - "plugins/*"
-  - "packages/*"
-  - "presets/*"
-  - "examples/*"
-  - "frameworks/*"
-  - "!playground/*"
-  - "website"
-  - "storybook"
+  - 'plugins/*'
+  - 'packages/*'
+  - 'presets/*'
+  - 'examples/*'
+  - 'frameworks/*'
+  - '!playground/*'
+  - website
+  - storybook

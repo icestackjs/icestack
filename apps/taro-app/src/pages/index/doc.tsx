@@ -1,62 +1,62 @@
-import { View, Text, Button, ViewProps } from '@tarojs/components'
+import levelI18n from '#docs/_meta.zh-CN.json'
 
-import ThemeProvider from '@/components/ThemeProvider'
-import Navbar from '@/components/Navbar'
-import ThemeButton from '@/components/ThemeButton'
-import Taro, { useLoad } from '@tarojs/taro'
-import { useMemo, useState } from 'react'
-// https://webpack.js.org/guides/asset-modules/
-import introduction from '#docs/introduction.zh-CN.mdx'
 import contribute from '#docs/contribute.zh-CN.mdx'
 import core from '#docs/core.zh-CN.mdx'
-import options from '#docs/options.zh-CN.mdx'
-import usage from '#docs/usage.zh-CN.mdx'
-import levelI18n from '#docs/_meta.zh-CN.json'
-import level2Usage18n from '#docs/usage/_meta.zh-CN.json'
 import level2Core18n from '#docs/core/_meta.zh-CN.json'
-import cli from '#docs/usage/cli.zh-CN.mdx'
-import mp from '#docs/usage/mp.zh-CN.mdx'
-import nodejs from '#docs/usage/nodejs.zh-CN.mdx'
-import tailwindcss from '#docs/usage/tailwindcss.zh-CN.mdx'
-
 import composeClass from '#docs/core/composeClass.zh-CN.mdx'
 import extraComponent from '#docs/core/extraComponent.zh-CN.mdx'
 import override from '#docs/core/override.zh-CN.mdx'
 import preset from '#docs/core/preset.zh-CN.mdx'
 import theme from '#docs/core/theme.zh-CN.mdx'
 import variant from '#docs/core/variant.zh-CN.mdx'
+import Navbar from '@/components/Navbar'
+import ThemeButton from '@/components/ThemeButton'
+import ThemeProvider from '@/components/ThemeProvider'
+import { Button, View } from '@tarojs/components'
+import Taro, { useLoad } from '@tarojs/taro'
+import { useMemo, useState } from 'react'
+// https://webpack.js.org/guides/asset-modules/
+import introduction from '#docs/introduction.zh-CN.mdx'
+import options from '#docs/options.zh-CN.mdx'
+
+import usage from '#docs/usage.zh-CN.mdx'
+import level2Usage18n from '#docs/usage/_meta.zh-CN.json'
+import cli from '#docs/usage/cli.zh-CN.mdx'
+import mp from '#docs/usage/mp.zh-CN.mdx'
+import nodejs from '#docs/usage/nodejs.zh-CN.mdx'
+import tailwindcss from '#docs/usage/tailwindcss.zh-CN.mdx'
 
 const map = {
   introduction,
-  usage
+  usage,
 }
 const langMap = {
-  ...levelI18n
+  ...levelI18n,
 }
 
 for (const [k, v] of Object.entries({
   cli,
   tailwindcss,
   nodejs,
-  mp
+  mp,
 })) {
   map[['usage', k].join('.')] = v
   langMap[['usage', k].join('.')] = level2Usage18n[k]
 }
-map['core'] = core
+map.core = core
 for (const [k, v] of Object.entries({
   variant,
   theme,
   override,
   preset,
   composeClass,
-  extraComponent
+  extraComponent,
 })) {
   map[['core', k].join('.')] = v
   langMap[['core', k].join('.')] = level2Core18n[k]
 }
-map['contribute'] = contribute
-map['options'] = options
+map.contribute = contribute
+map.options = options
 
 const kkkkkkks = Object.keys(map) // orderBy()
 
@@ -64,10 +64,10 @@ export default function Index() {
   const [id, setId] = useState('')
   const title = useMemo(() => {
     const t = langMap[id] ?? ''
-    t &&
-      Taro.setNavigationBarTitle({
-        title: t
-      })
+    t
+    && Taro.setNavigationBarTitle({
+      title: t,
+    })
     return t
   }, [id])
 
@@ -95,7 +95,7 @@ export default function Index() {
     return {
       current: id,
       prev,
-      next
+      next,
     }
   }, [id])
   // console.log(current)
@@ -104,7 +104,7 @@ export default function Index() {
     setId(prev)
     Taro.pageScrollTo({
       scrollTop: 0,
-      duration: 300
+      duration: 300,
     })
   }
 
@@ -112,7 +112,7 @@ export default function Index() {
     setId(next)
     Taro.pageScrollTo({
       scrollTop: 0,
-      duration: 300
+      duration: 300,
     })
   }
   return (
@@ -135,7 +135,9 @@ export default function Index() {
         <View>
           {next && (
             <Button onClick={goNext} className="btn btn-primary text-sm">
-              {langMap[next]} <View className="i-mdi-arrow-right-bold"></View>
+              {langMap[next]}
+              {' '}
+              <View className="i-mdi-arrow-right-bold"></View>
             </Button>
           )}
         </View>

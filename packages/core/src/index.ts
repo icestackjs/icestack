@@ -1,23 +1,16 @@
-import fs from 'node:fs'
-import path from 'node:path'
-import { pathToFileURL } from 'node:url'
-import { cloneDeep, get, isError, pick, set } from 'lodash'
-import kleur from 'kleur'
-import { createDefaultTailwindcssExtends } from '@icestack/preset-default/tailwindcss'
-import { getCodegenOptions, loadSync } from '@icestack/config'
-import { stages } from '@icestack/shared/constants'
-import { compileScssString } from '@icestack/scss'
-import { logger } from '@icestack/logger'
-import type { CodegenOptions, CreatePresetOptions, CssInJs, ILayer } from '@icestack/types'
-import { JSONStringify, defu, defuOverrideArray, objHash } from '@icestack/shared'
 import type {
   AcceptedPlugin,
   AtRule,
   CvaParams,
   Rule,
 } from '@icestack/postcss-utils'
+import type { CodegenOptions, CreatePresetOptions, CssInJs, ILayer } from '@icestack/types'
+import fs from 'node:fs'
+import path from 'node:path'
+import { pathToFileURL } from 'node:url'
+import { getCodegenOptions, loadSync } from '@icestack/config'
+import { logger } from '@icestack/logger'
 import {
-  Root,
   collectClassPlugin,
   extractCvaParamsPlugin,
   generateCva,
@@ -32,17 +25,23 @@ import {
   resolvePrefixOption,
   resolveTailwindcss,
   resolveVarPrefixOption,
+  Root,
 } from '@icestack/postcss-utils'
+import { createDefaultTailwindcssExtends } from '@icestack/preset-default/tailwindcss'
+import { compileScssString } from '@icestack/scss'
+import { defu, defuOverrideArray, JSONStringify, objHash } from '@icestack/shared'
+import { stages } from '@icestack/shared/constants'
+import kleur from 'kleur'
+import { get, isError, set } from 'lodash'
 import { LRUCache } from 'lru-cache'
 // import md5 from 'md5'
 import type { StringOptions } from 'sass'
-import { Config } from 'tailwindcss'
-import { name } from '../package.json'
-import { utilitiesMap, utilitiesNames } from './utilities'
-import { handleOptions } from './components'
-import { calcBase } from './base'
-import { generateIndexCode } from '@/generate'
 import { createResolveDir } from '@/dirs'
+import { generateIndexCode } from '@/generate'
+import { name } from '../package.json'
+import { calcBase } from './base'
+import { handleOptions } from './components'
+import { utilitiesMap, utilitiesNames } from './utilities'
 
 const { resolveJsDir, getCssPath, getJsPath, getCssResolvedPath, getScssPath } = createResolveDir(name)
 
@@ -552,10 +551,10 @@ export function createContext(opts?: CodegenOptions | string) {
     if (!dryRun) {
       const code
         = `module.exports = ${
-         JSONStringify({
-          theme: twConfig.theme,
-          content: [{ raw: [...baseClassNameSet].join(' ') }],
-        })}`
+          JSONStringify({
+            theme: twConfig.theme,
+            content: [{ raw: [...baseClassNameSet].join(' ') }],
+          })}`
       const outputDir = path.resolve(resolveJsDir(outdir), 'tailwindcss')
       const outputPath = path.resolve(outputDir, 'config.cjs')
       writeFile(outputPath, code)

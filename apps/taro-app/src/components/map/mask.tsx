@@ -1,7 +1,7 @@
-import { View, Text, Button, ViewProps, Image } from '@tarojs/components'
-import panda from '../../assets/panda.jpg'
-import { cx } from 'class-variance-authority'
 import CodeRender from '@/components/CodeRender'
+import { Image, View } from '@tarojs/components'
+import { cx } from 'class-variance-authority'
+import panda from '../../assets/panda.jpg'
 
 const list = [
   'mask-squircle',
@@ -22,15 +22,15 @@ const list = [
   'mask-triangle',
   'mask-triangle-2',
   'mask-triangle-3',
-  'mask-triangle-4'
+  'mask-triangle-4',
 ]
 export default () => {
   return (
     <View>
-      <View className='subtitle'>遮罩类型</View>
-      <CodeRender className='grid grid-cols-3 gap-2'>
+      <View className="subtitle">遮罩类型</View>
+      <CodeRender className="grid grid-cols-3 gap-2">
         {list.map((x) => {
-          return <Image key={x} className={cx('w-full mask', x)} mode='widthFix' src={panda}></Image>
+          return <Image key={x} className={cx('w-full mask', x)} mode="widthFix" src={panda}></Image>
         })}
       </CodeRender>
     </View>

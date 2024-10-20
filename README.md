@@ -6,7 +6,7 @@
 
 <h1 align="center">IceStack</h1>
 
- [![npm][npm]][npm-url] [![][license]][license-url]  [![][stars]][gh-url] [![][dl]][npm-url] [![codecov][codecov]][codecov-url]
+[![npm][npm]][npm-url] [![][license]][license-url] [![][stars]][gh-url] [![][dl]][npm-url] [![codecov][codecov]][codecov-url]
 
 IceStack UI, Web UI for Mobile and PC , open-source Css Headless component library generator
 

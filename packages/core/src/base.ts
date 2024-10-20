@@ -1,8 +1,8 @@
-import { sharedExtraColors, sharedExtraVars } from '@icestack/preset-default/base'
-import { composeVarsObject, makeRgbaValue } from '@icestack/theme-algorithm'
 import type { CodegenOptions, CssInJs, VarPrefixerOptions } from '@icestack/types'
-import { makeArray, mergeRClone } from '@icestack/shared'
 import { merge, parse, parseJs } from '@icestack/postcss-utils'
+import { sharedExtraColors, sharedExtraVars } from '@icestack/preset-default/base'
+import { makeArray, mergeRClone } from '@icestack/shared'
+import { composeVarsObject, makeRgbaValue } from '@icestack/theme-algorithm'
 
 export function calcBase(options: Partial<CodegenOptions>, { slash }: { slash: boolean } = { slash: true }) {
   const { base, postcss } = options

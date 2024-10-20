@@ -3,12 +3,12 @@
 <template>
   <div>
     <div class="drawer h-56 rounded overflow-hidden">
-      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+      <input id="my-drawer" type="checkbox" class="drawer-toggle">
       <div class="flex flex-col items-center justify-center drawer-content">
         <label for="my-drawer" class="btn btn-primary drawer-button">Open drawer</label>
       </div>
       <div class="drawer-side h-full absolute">
-        <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
+        <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay" />
         <ul class="menu p-4 w-60 md:w-80 min-h-full bg-base-200 text-base-content">
           <li><button>Sidebar Item 1</button></li>
           <li><button>Sidebar Item 2</button></li>
@@ -17,12 +17,12 @@
     </div>
 
     <div class="drawer lg:drawer-open h-56 rounded overflow-hidden">
-      <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+      <input id="my-drawer-2" type="checkbox" class="drawer-toggle">
       <div class="flex flex-col items-center justify-center drawer-content">
         <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
       </div>
       <div class="drawer-side h-full absolute">
-        <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+        <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay" />
         <ul class="menu p-4 w-60 md:w-80 min-h-full bg-base-200 text-base-content">
           <li><button>Sidebar Item 1</button></li>
           <li><button>Sidebar Item 2</button></li>
@@ -31,7 +31,7 @@
     </div>
 
     <div class="drawer h-56 rounded overflow-hidden">
-      <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+      <input id="my-drawer-3" type="checkbox" class="drawer-toggle">
       <div class="flex flex-col drawer-content">
         <div class="w-full navbar bg-base-300">
           <div class="flex-none lg:hidden">
@@ -47,11 +47,13 @@
                   stroke-linejoin="round"
                   stroke-width="2"
                   d="M4 6h16M4 12h16M4 18h16"
-                ></path>
+                />
               </svg>
             </label>
           </div>
-          <div class="flex-1 px-2 mx-2">Navbar Title</div>
+          <div class="flex-1 px-2 mx-2">
+            Navbar Title
+          </div>
           <div class="flex-none hidden lg:block">
             <ul class="menu menu-horizontal">
               <li><button>Navbar Item 1</button></li>
@@ -59,10 +61,12 @@
             </ul>
           </div>
         </div>
-        <div class="flex justify-center items-center flex-grow">Content</div>
+        <div class="flex justify-center items-center flex-grow">
+          Content
+        </div>
       </div>
       <div class="drawer-side h-full absolute">
-        <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
+        <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay" />
         <ul class="p-4 menu w-60 md:w-80 min-h-full bg-base-200">
           <li><button>Sidebar Item 1</button></li>
           <li><button>Sidebar Item 2</button></li>
@@ -71,12 +75,12 @@
     </div>
 
     <div class="drawer drawer-end h-56 rounded overflow-hidden">
-      <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+      <input id="my-drawer-4" type="checkbox" class="drawer-toggle">
       <div class="flex flex-col items-center justify-center drawer-content">
         <label for="my-drawer-4" class="btn btn-primary drawer-button">Open drawer</label>
       </div>
       <div class="drawer-side h-full absolute ms-[-54rem] w-[stretch]">
-        <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
+        <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay" />
         <ul class="menu p-4 w-60 md:w-80 min-h-full bg-base-200 text-base-content">
           <li><button>Sidebar Item 1</button></li>
           <li><button>Sidebar Item 2</button></li>

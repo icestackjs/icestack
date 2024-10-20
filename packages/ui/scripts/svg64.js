@@ -1,15 +1,16 @@
-const { resolve, basename } = require('node:path')
 const { readFileSync, writeFileSync } = require('node:fs')
+const { resolve, basename } = require('node:path')
 
-const { svg64 } = require('svg64')
 const klaw = require('klaw-sync')
+const { svg64 } = require('svg64')
+
 const arr = klaw(resolve(__dirname, 'svg'))
 
 const res = {
-  loading: {}
+  loading: {},
 }
 const keys = {
-  loading: []
+  loading: [],
 }
 
 for (const { path } of arr) {
@@ -22,7 +23,7 @@ for (const { path } of arr) {
 
 writeFileSync(
   resolve(__dirname, '../src/components/assets/svg.json'),
-  JSON.stringify(res, null, 2)
+  JSON.stringify(res, null, 2),
   //   `module.exports = {
   //   loading: ${JSON.stringify(res.loading, null, 2)}
   // }`
@@ -30,7 +31,7 @@ writeFileSync(
 
 writeFileSync(
   resolve(__dirname, 'keys.json'),
-  JSON.stringify(keys, null, 2)
+  JSON.stringify(keys, null, 2),
   //   `module.exports = {
   //   loading: ${JSON.stringify(res.loading, null, 2)}
   // }`

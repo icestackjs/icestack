@@ -1,7 +1,7 @@
-import type { CssInJs } from 'postcss-js'
-import postcssJs from 'postcss-js'
 import type { AcceptedPlugin, Document, LazyResult, Root } from 'postcss'
+import type { CssInJs } from 'postcss-js'
 import postcss from 'postcss'
+import postcssJs from 'postcss-js'
 
 const noop: <T>(x: T) => T = x => x
 export function getJsProcess() {

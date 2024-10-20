@@ -1,6 +1,6 @@
 import fs from 'node:fs'
-import { fixturesResolve } from './utils'
 import { createContext } from '@/core'
+import { fixturesResolve } from './utils'
 
 describe('index', () => {
   it('default', async () => {

@@ -1,9 +1,8 @@
+import type { OutputAsset, RollupOutput } from 'rollup'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { build } from 'vite'
-import { endsWith } from 'lodash'
-import type { RollupOutput, OutputAsset } from 'rollup'
 import plugin from '@/vite'
+import { endsWith } from 'lodash'
+import { build } from 'vite'
 
 function endWithCss(filename: string) {
   return endsWith(filename, '.css')
@@ -11,9 +10,9 @@ function endWithCss(filename: string) {
 
 function getCss(res: RollupOutput | RollupOutput[] | RollupWatcher) {
   const xxx = res as RollupOutput
-  const css =
-    Array.isArray(xxx.output) &&
-    xxx.output
+  const css
+    = Array.isArray(xxx.output)
+    && xxx.output
       .filter((x) => {
         return x.type === 'asset' && endWithCss(x.fileName)
       })
@@ -31,9 +30,9 @@ describe('vite', () => {
     const res = await build({
       root: path.resolve(__dirname, './vite-app'),
       build: {
-        modulePreload: false
+        modulePreload: false,
       },
-      plugins: [plugin()]
+      plugins: [plugin()],
     })
 
     expect(getCss(res)).toMatchSnapshot()
@@ -43,9 +42,9 @@ describe('vite', () => {
     const res = await build({
       root: path.resolve(__dirname, './vite-import-css-app'),
       build: {
-        modulePreload: false
+        modulePreload: false,
       },
-      plugins: [plugin()]
+      plugins: [plugin()],
     })
 
     expect(getCss(res)).toMatchSnapshot()

@@ -1,5 +1,6 @@
 import { addCustomThemes } from '../add-customs-themes'
 import { extendThemes } from '../extend-themes'
+
 describe('index', () => {
   it('addCustomThemes', () => {
     expect(addCustomThemes()).toMatchSnapshot()

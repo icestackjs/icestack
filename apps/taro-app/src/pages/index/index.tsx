@@ -1,29 +1,29 @@
-import { View, Text } from '@tarojs/components'
-import Taro from '@tarojs/taro'
-import { upperFirst } from 'lodash-es'
-import { ReactNode, useState } from 'react'
-import ThemeProvider from '@/components/ThemeProvider'
-import { group, i18n } from '../../group'
-import ThemeButton from '@/components/ThemeButton'
-import Navbar from '@/components/Navbar'
+import type { ReactNode } from 'react'
+import levelI18n from '#docs/_meta.zh-CN.json'
+import level2Core18n from '#docs/core/_meta.zh-CN.json'
+import level2Usage18n from '#docs/usage/_meta.zh-CN.json'
 import Footer from '@/components/Footer'
 import HomeTitle from '@/components/HomeTitle'
+import Navbar from '@/components/Navbar'
 import Tabbar from '@/components/Tabbar'
+import ThemeButton from '@/components/ThemeButton'
+import ThemeProvider from '@/components/ThemeProvider'
 import { useIndexTabbar } from '@/store/index'
+import { View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
 import { cx } from 'class-variance-authority'
-import levelI18n from '#docs/_meta.zh-CN.json'
-import level2Usage18n from '#docs/usage/_meta.zh-CN.json'
-import level2Core18n from '#docs/core/_meta.zh-CN.json'
+import { upperFirst } from 'lodash-es'
+import { group, i18n } from '../../group'
 
 const aliasMap = {
   range: 'Slider',
-  toggle: 'Switch'
+  toggle: 'Switch',
 }
 
 function getAlias(componentName: string) {
   const x = aliasMap[componentName]
   if (x) {
-    return '/' + x
+    return `/${x}`
   }
   return ''
 }
@@ -37,14 +37,14 @@ function mapChildItem(children: [string, string][], x: string) {
             key={y}
             onClick={() => {
               Taro.navigateTo({
-                url: 'doc?id=' + [x, y].join('.')
+                url: `doc?id=${[x, y].join('.')}`,
               })
             }}
             className={cx(
               ' flex items-center justify-between border-b border-solid py-1 pl-5 pr-3.5 text-sm',
               idx !== children.length - 1
                 ? 'border-slate-200/50 dark:border-sky-200/[0.15]'
-                : 'border-transparent'
+                : 'border-transparent',
             )}
             hoverClass="bg-slate-300/50 dark:bg-sky-500/50"
           >
@@ -81,7 +81,7 @@ function DocsIndex() {
               <View
                 onClick={() => {
                   Taro.navigateTo({
-                    url: 'doc?id=' + x
+                    url: `doc?id=${x}`,
                   })
                 }}
                 className=" flex  items-center justify-between py-2.5 pl-5 pr-3.5"
@@ -110,11 +110,11 @@ function CodeIndex() {
               <View
                 className={cx(
                   idx === 0 ? '' : 'mt-6 ',
-                  'mb-2 ml-4 text-sm text-slate-600 dark:text-slate-400'
+                  'mb-2 ml-4 text-sm text-slate-600 dark:text-slate-400',
                 )}
               >
                 {i18n[groupName]}
-              </View>
+              </View>,
             )
             // space-y-3
             const res: ReactNode[] = []
@@ -129,16 +129,18 @@ function CodeIndex() {
                   key={componentName}
                   onClick={() => {
                     Taro.navigateTo({
-                      url: 'component?id=' + componentName
+                      url: `component?id=${componentName}`,
                     })
                   }}
                 >
                   <View className="text-sm text-slate-700 dark:text-slate-400">
                     {upperFirst(componentName)}
-                    {getAlias(componentName)} {i18n[componentName]}
+                    {getAlias(componentName)}
+                    {' '}
+                    {i18n[componentName]}
                   </View>
                   <View className="i-mdi-chevron-right text-slate-700 dark:text-slate-400"></View>
-                </View>
+                </View>,
               )
             }
             acc.push(<View className="space-y-3">{res}</View>)
@@ -146,7 +148,7 @@ function CodeIndex() {
 
           return acc
         },
-        []
+        [],
       )}
     </>
   )
@@ -161,7 +163,7 @@ export default function Index() {
           className="flex h-full items-center pl-4 text-center text-lg"
           onClick={() => {
             Taro.setClipboardData({
-              data: 'https://github.com/sonofmagic/icestack'
+              data: 'https://github.com/sonofmagic/icestack',
             })
           }}
         >

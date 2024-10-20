@@ -1,7 +1,7 @@
-import type { PluginCreator } from 'postcss'
-import type { BaseContext } from './base-context'
-
 import type { LayerEnumType } from '@/constants'
+import type { PluginCreator } from 'postcss'
+
+import type { BaseContext } from './base-context'
 import { layerNodesKeys, markedLayerKey } from '@/constants'
 
 export interface SharedOptions {

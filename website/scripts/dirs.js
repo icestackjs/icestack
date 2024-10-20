@@ -23,5 +23,5 @@ module.exports = {
   unocssVueDir,
   resolveComponent,
   resolveDemo,
-  resolveUnocssVueDir
+  resolveUnocssVueDir,
 }

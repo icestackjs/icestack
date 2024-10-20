@@ -1,7 +1,7 @@
 /**
  * @type {import('postcss').PluginCreator}
  */
-const plugin = (options = {}) => {
+function plugin(options = {}) {
   const ctx = options.ctx
   console.log(ctx)
   return {
@@ -19,7 +19,7 @@ const plugin = (options = {}) => {
       if (rule.selector.includes(':disabled')) {
         rule.remove()
       }
-    }
+    },
   }
 }
 plugin.postcss = true

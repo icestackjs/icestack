@@ -1,6 +1,6 @@
 import type { StorybookConfig } from '@storybook/html-vite'
 // import remarkGfm from 'remark-gfm'
-import { join, dirname } from 'path'
+import { dirname, join } from 'node:path'
 import rehypeHighlight from 'rehype-highlight'
 // import '@storybook/addon-docs'
 /**
@@ -39,18 +39,18 @@ const config: StorybookConfig = {
           },
         },
       },
-    }
+    },
     // 'storybook-react-i18next'
   ],
   framework: {
     name: getAbsolutePath('@storybook/html-vite'),
-    options: {}
+    options: {},
   },
   docs: {
-    autodocs: 'tag'
+    autodocs: 'tag',
   },
-  
-  managerHead: (head) => `
+
+  managerHead: head => `
     ${head}
     ${`<!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JN32H8ZXRF"></script>

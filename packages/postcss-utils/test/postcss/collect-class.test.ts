@@ -1,5 +1,5 @@
-import postcss from 'postcss'
 import { collectClassPlugin } from '@/plugins'
+import postcss from 'postcss'
 
 describe('collect-class', () => {
   it('base', async () => {
@@ -8,8 +8,8 @@ describe('collect-class', () => {
       collectClassPlugin({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -31,8 +31,8 @@ describe('collect-class', () => {
       collectClassPlugin({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       

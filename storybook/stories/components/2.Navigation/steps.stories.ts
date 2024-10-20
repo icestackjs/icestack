@@ -1,4 +1,4 @@
-import type { StoryObj, Meta } from '@storybook/html'
+import type { Meta, StoryObj } from '@storybook/html'
 import type { VariantProps } from 'class-variance-authority'
 import { formatHtml } from '../share'
 import Cva from '../style'
@@ -9,7 +9,7 @@ type Props = VariantProps<typeof Cva.steps.cva.parent> & VariantProps<typeof Cva
 
 // const positions = Cva.steps.positions
 
-const create = (props: Props) => {
+function create(props: Props) {
   const parent = Cva.steps.cva.parent(props)
   const child = Cva.steps.cva.child(props)
   return formatHtml(`<ul class="${parent}">
@@ -30,19 +30,19 @@ const meta: Meta<Props> = {
   argTypes: {
     position: {
       options: Cva.steps.positions,
-      control: { type: 'inline-radio' }
+      control: { type: 'inline-radio' },
     },
     type: {
       options: Cva.steps.types,
-      control: { type: 'inline-radio' }
-    }
-  }
+      control: { type: 'inline-radio' },
+    },
+  },
 }
 
 type Story = StoryObj<Props>
 
 export const Default: Story = {
-  args: {}
+  args: {},
 }
 
 export const Types: Story = {
@@ -53,12 +53,12 @@ export const Types: Story = {
       strs.push(
         create({
           type,
-          ...args
-        })
+          ...args,
+        }),
       )
     }
     return formatHtml(`<div class="grid grid-cols-3 gap-4">${strs.join('')}</div>`)
-  }
+  },
 }
 
 export default meta

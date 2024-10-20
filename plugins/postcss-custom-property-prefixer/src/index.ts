@@ -1,6 +1,6 @@
 import type { Declaration, PluginCreator } from 'postcss'
-import { defu } from 'defu'
 import type { InternalOptions, UserDefinedOptions } from './types'
+import { defu } from 'defu'
 import { PropResolvedMarkSymbol, ValueResolvedMarkSymbol } from './symbols'
 import { makeCustomProperty, makePrefixFunction, matchCustomPropertyFromValue, postcssPlugin } from './utils'
 

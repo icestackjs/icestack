@@ -1,7 +1,7 @@
+import type { FC, PropsWithChildren } from 'react'
 import { View } from '@tarojs/components'
-import './SafeBottom.scss'
-import { FC, PropsWithChildren } from 'react'
 import { cx } from 'class-variance-authority'
+import './SafeBottom.scss'
 
 const SafeBottom: FC<
   PropsWithChildren<{

@@ -1,20 +1,20 @@
-import { defuOverrideArray, defu, defuArrayRight } from '@/utils'
+import { defu, defuArrayRight, defuOverrideArray } from '@/utils'
 
 describe('defu', () => {
   it('defuOverrideArray case 0', () => {
     const a = {
       a: {
         b: {
-          c: [1, 2]
-        }
-      }
+          c: [1, 2],
+        },
+      },
     }
     const b = {
       a: {
         b: {
-          c: [3, 4]
-        }
-      }
+          c: [3, 4],
+        },
+      },
     }
     expect(defuOverrideArray(b, a)).toEqual(b)
   })
@@ -24,24 +24,24 @@ describe('defu', () => {
       a: {
         b: {
           a: [-1, 1],
-          c: [1, 2]
-        }
-      }
+          c: [1, 2],
+        },
+      },
     }
     const b = {
       a: {
         b: {
-          c: [3, 4]
-        }
-      }
+          c: [3, 4],
+        },
+      },
     }
     expect(defuOverrideArray(b, a)).toEqual({
       a: {
         b: {
           a: [-1, 1],
-          c: [3, 4]
-        }
-      }
+          c: [3, 4],
+        },
+      },
     })
   })
 

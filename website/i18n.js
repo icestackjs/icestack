@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig['i18n']} */
 module.exports = {
   locales: ['zh-CN', 'en-US'], // ,
-  defaultLocale: 'en-US'
+  defaultLocale: 'en-US',
   // domains: [
   //   {
   //     domain: 'ui.icebreaker.top',

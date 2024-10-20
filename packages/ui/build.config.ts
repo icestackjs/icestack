@@ -12,13 +12,13 @@ export default defineBuildConfig({
     cjsBridge: true,
     dts: {
       // https://github.com/unjs/unbuild/issues/135
-      respectExternal: false
+      respectExternal: false,
     },
     commonjs: {
       // ignore: (id) => {
       //   return id.startsWith('../assets/')
       // }
-    }
+    },
     // resolve: {
     //   resolveOnly: (module) => !module.startsWith('../assets/')
     // }
@@ -32,9 +32,9 @@ export default defineBuildConfig({
   },
   alias: {
     // 别名
-    '@': path.resolve(__dirname, './src')
+    '@': path.resolve(__dirname, './src'),
   },
   // dts
-  declaration: true
+  declaration: true,
   // externals: [/^tailwindcss/, /^\.\.\/assets\//, /^unocss/]
 })

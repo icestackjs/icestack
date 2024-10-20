@@ -1,10 +1,9 @@
-import { Meta, StoryObj } from '@storybook/html'
-import { VariantProps } from 'class-variance-authority'
+import type { Meta, StoryObj } from '@storybook/html'
 import { formatHtml } from '../share'
-import Cva from '../style'
-type Props = { textContent?: string }
 
-const create = (props: Props) => {
+interface Props { textContent?: string }
+
+function create(props: Props) {
   return formatHtml(`<div tabindex="0" class="collapse bg-base-200"> 
   <div class="collapse-title text-xl font-medium">
     Focus me to see content
@@ -22,13 +21,13 @@ const meta: Meta<Props> = {
     return create(args)
   },
   args: {
-    textContent: 'Collapse'
+    textContent: 'Collapse',
   },
   argTypes: {
     textContent: {
-      control: { type: 'text' }
-    }
-  }
+      control: { type: 'text' },
+    },
+  },
 }
 
 type Story = StoryObj<Props>
@@ -44,7 +43,7 @@ export const Default: Story = {
       <p>tabindex="0" attribute is necessary to make the div focusable</p>
     </div>
   </div>`
-  }
+  },
 }
 
 export const WithCheckbox: Story = {
@@ -59,7 +58,7 @@ export const WithCheckbox: Story = {
       <p>hello</p>
     </div>
   </div>`
-  }
+  },
 }
 
 export default meta

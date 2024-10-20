@@ -6,11 +6,11 @@ export default defineProject({
     alias: [
       {
         find: '@',
-        replacement: path.resolve(__dirname, './src')
-      }
+        replacement: path.resolve(__dirname, './src'),
+      },
     ],
     globals: true,
     testTimeout: 10_000,
-    setupFiles: []
-  }
+    setupFiles: [],
+  },
 })

@@ -1,20 +1,20 @@
 {
   "name": "weapp",
-  "private": true,
   "version": "1.0.4",
+  "private": true,
   "description": "",
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
   "main": "index.js",
   "scripts": {
     "build:ui": "icestack build"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "dependencies": {
+    "@icestack/cva": "workspace:^"
+  },
   "devDependencies": {
     "@icestack/presets": "workspace:^",
     "@icestack/ui": "workspace:^"
-  },
-  "dependencies": {
-    "@icestack/cva": "workspace:^"
   }
 }

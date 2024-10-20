@@ -1,6 +1,6 @@
 import type { AcceptedPlugin, Document, PluginCreator, Result, Root } from 'postcss'
-import { createContext } from '@icestack/core'
 import { loadSync } from '@icestack/config'
+import { createContext } from '@icestack/core'
 import { logger } from '@icestack/logger'
 import get from 'lodash/get'
 import { preflightRoot } from './preflight'

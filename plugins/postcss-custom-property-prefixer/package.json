@@ -2,6 +2,21 @@
   "name": "postcss-custom-property-prefixer",
   "version": "1.0.6",
   "description": "Add prefix to your css custom-property",
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/sonofmagic/icestack/tree/main/packages/postcss-custom-property-prefixer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sonofmagic/icestack.git"
+  },
+  "keywords": [
+    "prefixer",
+    "custom",
+    "custom-property",
+    "plugin",
+    "css",
+    "postcss"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -12,24 +27,9 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "keywords": [
-    "prefixer",
-    "custom",
-    "custom-property",
-    "plugin",
-    "css",
-    "postcss"
-  ],
   "files": [
     "dist"
   ],
-  "author": "SonOfMagic <qq1324318532@gmail.com>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sonofmagic/icestack.git"
-  },
-  "homepage": "https://github.com/sonofmagic/icestack/tree/main/packages/postcss-custom-property-prefixer",
-  "license": "MIT",
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --watch",
@@ -42,7 +42,7 @@
     "sync": "cnpm sync postcss-custom-property-prefixer"
   },
   "devDependencies": {
-    "postcss": "^8.4.41"
+    "postcss": "^8.4.47"
   },
   "publishConfig": {
     "access": "public",

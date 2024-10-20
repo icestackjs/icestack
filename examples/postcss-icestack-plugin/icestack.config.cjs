@@ -16,10 +16,10 @@ const config = {
               ${selector} {
                 @apply flex bg-[#000] h-[100px] w-10;
               }
-            `
-          }
+            `,
+          },
         }
-      }
+      },
     },
     yyy: {
       selector: '.yyy',
@@ -45,12 +45,12 @@ const config = {
               ${selector} {
                 @apply h-[300px] w-32;
               }
-            `
-          }
+            `,
+          },
         }
-      }
-    }
-  }
+      },
+    },
+  },
 }
 
 module.exports = config

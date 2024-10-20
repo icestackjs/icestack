@@ -1,6 +1,6 @@
-import { getCodegenOptions } from '@icestack/config'
-
 import preset from '@/index'
+
+import { getCodegenOptions } from '@icestack/config'
 
 describe('options', () => {
   it('daisyui options', () => {

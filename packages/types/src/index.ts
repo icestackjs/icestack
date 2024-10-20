@@ -1,11 +1,11 @@
-import type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 import type { AcceptedPlugin } from 'postcss'
 import type { StringOptions } from 'sass'
-import type { CssValue, GetCssSchemaMethod, GetCssSchemaMethodOptions } from './shared'
+import type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 import type { PrefixerOptions, VarPrefixerOptions } from './postcss'
+import type { CssValue, GetCssSchemaMethod, GetCssSchemaMethodOptions } from './shared'
 
-export type { CreatePresetOptions, GetCssSchemaMethod, CssSchemaDefaults, CssSchema, GetCssSchemaMethodOptions, CssValue, CssInJs } from './shared'
 export type { PrefixerOptions, VarPrefixerOptions } from './postcss'
+export type { CreatePresetOptions, CssInJs, CssSchema, CssSchemaDefaults, CssValue, GetCssSchemaMethod, GetCssSchemaMethodOptions } from './shared'
 export type { Config as TailwindcssConfig } from 'tailwindcss/types/config'
 
 export interface ThemeOptions {

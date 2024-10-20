@@ -1,8 +1,8 @@
-import readline from 'node:readline'
 import process from 'node:process'
-import { createConsola } from 'consola'
+import readline from 'node:readline'
 import { pkgName } from '@icestack/shared/constants'
 import cliProgress from 'cli-progress'
+import { createConsola } from 'consola'
 
 export const consola = createConsola()
 

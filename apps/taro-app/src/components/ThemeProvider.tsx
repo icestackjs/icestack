@@ -1,7 +1,8 @@
-import React, { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
+import { useThemeStore } from '@/store/index'
 import { View } from '@tarojs/components'
 import { cx } from 'class-variance-authority'
-import { useThemeStore } from '@/store/index'
+import React from 'react'
 
 export default function ThemeProvider(props: PropsWithChildren<{}>) {
   const { mode } = useThemeStore()

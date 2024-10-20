@@ -1,9 +1,8 @@
 import path from 'node:path'
-import sassTrue from 'sass-true'
-import * as sass from 'sass'
+import { mergeRoot, transformJsToSass } from '@/sass'
 import scssParser from 'postcss-scss'
-import { Value } from 'sass'
-import { transformJsToSass, compileScssString, mergeRoot } from '@/sass'
+import * as sass from 'sass'
+import sassTrue from 'sass-true'
 // https://sass-lang.com/documentation/at-rules/mixin/#content-blocks
 
 // const cc = "dsadsa($a,$b)"
@@ -21,15 +20,16 @@ describe('sass', () => {
           return new sass.SassFunction('fn($a1,$a2:null)', (args1: sass.Value[]) => {
             if (args1[1] === sass.sassNull) {
               expect(args1[0].assertNumber().value).toBe(0)
-            } else {
+            }
+            else {
               expect(args1[0].assertNumber().value).toBe(1)
               expect(args1[1].assertNumber().value).toBe(2)
             }
 
             return new sass.SassString('111')
           })
-        }
-      }
+        },
+      },
     })
   })
 
@@ -105,7 +105,7 @@ describe('sass', () => {
   // })
 
   describe('transformJsToSass', () => {
-    describe('Primitives', () => {
+    describe('primitives', () => {
       it('string', () => {
         const v = transformJsToSass('1111')
         expect(v instanceof sass.SassString).toBe(true)
@@ -139,7 +139,7 @@ describe('sass', () => {
       })
     })
 
-    describe('Complex', () => {
+    describe('complex', () => {
       it('object case 0', () => {
         const v = transformJsToSass({})
         expect(v instanceof sass.SassMap).toBe(true)

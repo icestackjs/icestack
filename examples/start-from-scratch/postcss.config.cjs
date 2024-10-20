@@ -1,8 +1,8 @@
 module.exports = {
   plugins: {
     'postcss-cva': {},
-    tailwindcss: {},
-    autoprefixer: {},
-    './plugin.cjs': {}
-  }
+    'tailwindcss': {},
+    'autoprefixer': {},
+    './plugin.cjs': {},
+  },
 }

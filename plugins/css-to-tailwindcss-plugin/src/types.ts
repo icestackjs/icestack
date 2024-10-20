@@ -1,11 +1,11 @@
-import type { Options } from 'sass'
-import type { Config } from 'tailwindcss'
-import type { AtImportOptions } from 'postcss-import'
 import type { GeneratorOptions } from '@babel/generator'
 import type { AcceptedPlugin, Root } from 'postcss'
+import type { AtImportOptions } from 'postcss-import'
+import type { Options } from 'sass'
+import type { Config } from 'tailwindcss'
 import type { CSSRuleObject } from 'tailwindcss/types/config'
-import type { BaseContext } from './core/base-context'
 import type { LayerEnumType } from './constants'
+import type { BaseContext } from './core/base-context'
 
 export interface IProcessOptions {
   tailwindcssResolved?: boolean

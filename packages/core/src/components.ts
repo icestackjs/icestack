@@ -1,6 +1,6 @@
-import { pick } from 'lodash'
 import type { ComponentsValue, CreatePresetOptions, CssSchema, CssSchemaDefaults, GetCssSchemaMethodOptions, ModeMergeOptions, PickCss } from '@icestack/types'
 import { defuArrayRight, isModeMergeValue, makeArray } from '@icestack/shared'
+import { pick } from 'lodash'
 
 function getPickedProps(pickCss?: PickCss) {
   if (pickCss === undefined) {

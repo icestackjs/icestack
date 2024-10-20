@@ -1,13 +1,16 @@
 {
   "name": "@icestack/scss",
-  "description": "The scss utils of @icestack/ui",
   "version": "1.3.8",
-  "scripts": {
-    "build": "unbuild",
-    "test": "vitest run",
-    "test:dev": "vitest",
-    "release": "pnpm publish",
-    "sync": "cnpm sync @icestack/scss"
+  "description": "The scss utils of @icestack/ui",
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://ui.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack"
   },
   "keywords": [
     "scss",
@@ -28,6 +31,13 @@
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
+  "scripts": {
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "sync": "cnpm sync @icestack/scss"
+  },
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
@@ -35,17 +45,7 @@
   "dependencies": {
     "@icestack/shared": "workspace:^",
     "immutable": "^4.3.7",
-    "sass": "^1.77.8"
-  },
-  "author": "SonOfMagic <qq1324318532@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sonofmagic/icestack"
-  },
-  "homepage": "https://ui.icebreaker.top",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sonofmagic/icestack"
+    "sass": "^1.80.3"
   },
   "devDependencies": {
     "@icestack/postcss-utils": "workspace:^"

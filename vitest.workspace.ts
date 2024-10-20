@@ -5,7 +5,7 @@ export default defineWorkspace([
   'presets/*',
   'plugins/*',
   'storybook',
-  'website'
+  'website',
   // {
   //   // add "extends" to merge two configs together
   //   extends: './vite.config.js',

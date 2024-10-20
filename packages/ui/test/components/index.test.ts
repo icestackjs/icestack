@@ -5,8 +5,8 @@ describe('components new', () => {
     const ctx = createContext({
       dryRun: true,
       base: {
-        mediaDarkTheme: 'dark'
-      }
+        mediaDarkTheme: 'dark',
+      },
     })
     // ['radio']
     const res = await ctx.buildComponents()

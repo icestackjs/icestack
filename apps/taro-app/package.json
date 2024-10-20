@@ -8,6 +8,7 @@
     "typescript": true,
     "css": "sass"
   },
+  "author": "",
   "scripts": {
     "dev": "npm run list && npm run ui && npm run dev:weapp",
     "build": "npm run ui && npm run build:weapp",
@@ -41,7 +42,6 @@
     "Android >= 4.1",
     "ios >= 8"
   ],
-  "author": "",
   "dependencies": {
     "@babel/runtime": "^7.23.7",
     "@faker-js/faker": "^8.3.1",

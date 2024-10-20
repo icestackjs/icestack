@@ -1,5 +1,5 @@
-const fs = require('node:fs/promises')
 const fss = require('node:fs')
+const fs = require('node:fs/promises')
 const path = require('node:path')
 const prettier = require('prettier')
 // const jb = require('js-beautify')
@@ -27,19 +27,19 @@ function generateMetaJson(options) {
 
         acc[key] = {
           type: 'separator',
-          title: t(groupName)
+          title: t(groupName),
         }
         // acc[key].display = 'hidden'
         for (const componentName of componentNames) {
-          acc[componentName] = isZh ? upperFirst(componentName) + ' ' + t(componentName) : upperFirst(componentName)
+          acc[componentName] = isZh ? `${upperFirst(componentName)} ${t(componentName)}` : upperFirst(componentName)
         }
       }
 
       return acc
     },
     {
-      overview: t('overview')
-    }
+      overview: t('overview'),
+    },
   )
 }
 
@@ -49,10 +49,10 @@ function generateOverview(options) {
   const isZh = local === 'zh-CN'
   return groupedComponents.reduce((acc, [groupName, componentNames]) => {
     if (componentNames.length > 0) {
-      acc.push('\n' + t(groupName))
+      acc.push(`\n${t(groupName)}`)
 
       for (const componentName of componentNames) {
-        acc.push(`- [${isZh ? upperFirst(componentName) + ' ' + t(componentName) : upperFirst(componentName)}](./${componentName})`)
+        acc.push(`- [${isZh ? `${upperFirst(componentName)} ${t(componentName)}` : upperFirst(componentName)}](./${componentName})`)
       }
     }
 
@@ -63,7 +63,7 @@ function generateOverview(options) {
 async function main() {
   const ctx = createContext({
     dryRun: true,
-    log: false
+    log: false,
   })
   const map = await ctx.buildComponents()
   const CssSchemaNames = ['base', 'styled', 'utils']
@@ -88,7 +88,8 @@ async function main() {
         if (!flag) {
           try {
             fss.mkdirSync(path.dirname(demoPath))
-          } catch {}
+          }
+          catch {}
 
           fss.writeFileSync(demoPath, `import CodeRender from '../../CodeRender'\n`, 'utf8')
         }
@@ -103,7 +104,7 @@ async function main() {
                     parser: 'css',
                     tabWidth: 2,
                     htmlWhitespaceSensitivity: 'ignore',
-                    printWidth: 100
+                    printWidth: 100,
                   })
                   return `
 ### ${upperFirst(x)}
@@ -123,7 +124,7 @@ ${css}
 </div>
 
 `
-                })
+                }),
               )
             ).join('\n')
           : ''
@@ -150,7 +151,7 @@ ${
 
 ${cssSchemaString}
 
-`
+`,
         )
       }
     }

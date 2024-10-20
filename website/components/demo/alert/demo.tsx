@@ -15,7 +15,7 @@ function matchAll(regex: RegExp, str: string) {
 }
 
 export default function Index() {
-  const regex = /```html(.*?)```/gms
+  const regex = /```html(.*?)```/gs
   const mdRaw: string = `\`\`\`html
   <div role="alert" class="alert">
     <i class="i-mdi-info-outline"></i>

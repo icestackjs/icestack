@@ -1,11 +1,11 @@
-import { AppProps } from 'next/app'
+import type { AppProps } from 'next/app'
 import Script from 'next/script'
 import { I18nProvider } from '../locales'
 import '@icebreakers/nextra-theme-docs/style.css'
 // import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import '../globals.scss'
 
-const MyApp = ({ Component, pageProps }: AppProps) => {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <I18nProvider locale={pageProps.locale}>
       <Component {...pageProps} />
@@ -19,13 +19,15 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           gtag('config', 'G-03BGG90X2C');
         `}
       </Script>
-      <Script id="baidu-analytics">{`var _hmt = _hmt || [];
+      <Script id="baidu-analytics">
+        {`var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?05397e75aea8e6211394440e776de61f";
   var s = document.getElementsByTagName("script")[0]; 
   s.parentNode.insertBefore(hm, s);
-})();`}</Script>
+})();`}
+      </Script>
     </I18nProvider>
   )
 }

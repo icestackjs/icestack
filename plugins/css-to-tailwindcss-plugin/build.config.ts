@@ -13,17 +13,17 @@ export default defineBuildConfig([
       cjsBridge: true,
       dts: {
         // https://github.com/unjs/unbuild/issues/135
-        respectExternal: false
-      }
+        respectExternal: false,
+      },
     },
     alias: {
       // 别名
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
     },
     // dts
     declaration: true,
     externals: [/^tailwindcss/, 'sass'],
-    failOnWarn: false
+    failOnWarn: false,
   },
   {
     entries: ['./src/browser.ts'],
@@ -36,16 +36,16 @@ export default defineBuildConfig([
       // cjsBridge: true,
       dts: {
         // https://github.com/unjs/unbuild/issues/135
-        respectExternal: false
-      }
+        respectExternal: false,
+      },
     },
     alias: {
       // 别名
-      '@': path.resolve(__dirname, './src')
+      '@': path.resolve(__dirname, './src'),
     },
 
     // dts
     declaration: true,
-    externals: [/^tailwindcss/, 'sass', '@babel/standalone']
-  }
+    externals: [/^tailwindcss/, 'sass', '@babel/standalone'],
+  },
 ])

@@ -1,7 +1,7 @@
-import { parse as scssParse } from 'postcss-scss'
 import type { AtRule, Root, Rule } from 'postcss'
-import valueParser from 'postcss-value-parser'
 import { compressCssSelector } from '@/utils'
+import { parse as scssParse } from 'postcss-scss'
+import valueParser from 'postcss-value-parser'
 
 export function parse(css: string) {
   const root = scssParse(css)

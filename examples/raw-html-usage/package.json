@@ -12,6 +12,6 @@
   },
   "devDependencies": {
     "@icestack/ui": "workspace:^",
-    "tailwindcss": "^3.4.10"
+    "tailwindcss": "^3.4.14"
   }
 }

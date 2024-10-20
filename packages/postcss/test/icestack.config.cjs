@@ -3,6 +3,6 @@
  */
 const config = {
   outdir: './my-ui',
-  dryRun: true
+  dryRun: true,
 }
 module.exports = config

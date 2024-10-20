@@ -1,7 +1,7 @@
-const path = require('node:path')
 const fs = require('node:fs')
-const klaw = require('klaw')
+const path = require('node:path')
 const { translate } = require('bing-translate-api')
+const klaw = require('klaw')
 const { JSONStringify } = require('./utils')
 
 const HAN_REGEX = /[\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u3005\u3007\u3021-\u3029\u3038-\u303B\u3400-\u4DB5\u4E00-\u9FD5\uF900-\uFA6D\uFA70-\uFAD9]/
@@ -11,7 +11,7 @@ function containsChinese(text) {
     return false
   }
 
-  if (typeof text !== 'string') text = text.toString()
+  if (typeof text !== 'string') { text = text.toString() }
 
   return HAN_REGEX.test(text)
 }
@@ -34,7 +34,8 @@ async function main() {
               const rrr = await translate(ttt, 'zh-Hans', 'en')
               if (rrr) {
                 arr.push(rrr.translation)
-              } else {
+              }
+              else {
                 arr.push(ttt)
               }
 
@@ -42,14 +43,16 @@ async function main() {
               end = pt + intervalNumber
             }
             res = arr.join('\n')
-          } else {
+          }
+          else {
             const { translation } = await translate(content, 'zh-Hans', 'en')
             res = translation
           }
         }
 
         fs.writeFileSync(file.path.replace(/zh-CN/, 'en-US'), res, 'utf8')
-      } else if (/\.zh-CN\.json$/.test(file.path)) {
+      }
+      else if (/\.zh-CN\.json$/.test(file.path)) {
         // console.log(file.path)
         const content = fs.readFileSync(file.path, 'utf8')
         const target = await Object.entries(JSON.parse(content)).reduce(async (acc, [k, v]) => {
@@ -58,10 +61,12 @@ async function main() {
             try {
               const { translation } = await translate(v, 'zh-Hans', 'en')
               x[k] = translation
-            } catch {
+            }
+            catch {
               x[k] = v
             }
-          } else {
+          }
+          else {
             x[k] = v
           }
 

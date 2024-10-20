@@ -21,30 +21,30 @@
 ```css
 @layer base {
   h1 {
-    font-size: theme("fontSize.2xl");
+    font-size: theme('fontSize.2xl');
   }
   h2 {
-    font-size: theme("fontSize.xl");
+    font-size: theme('fontSize.xl');
   }
 }
 
 @layer components {
   .card {
-    background-color: theme("colors.white");
-    border-radius: theme("borderRadius.lg");
-    padding: theme("spacing.6");
-    box-shadow: theme("boxShadow.xl");
+    background-color: theme('colors.white');
+    border-radius: theme('borderRadius.lg');
+    padding: theme('spacing.6');
+    box-shadow: theme('boxShadow.xl');
   }
 }
 
 @layer utilities {
   .content-auto {
-    content-visibility: "auto";
+    content-visibility: 'auto';
   }
 }
 /* this will be abandoned unless you set the `outSideLayerCss` option */
 /* 默认情况下，不在@layer里的会被抛弃，除非设置了 `outSideLayerCss` 配置项 */
-.btn{
+.btn {
   background: #ffffff;
 }
 ```
@@ -53,9 +53,9 @@
 
 ```js
 const _plugin = require('tailwindcss/plugin')
-const returnSelfNoop = (x) => x
+const returnSelfNoop = x => x
 const css2TwPlugin = _plugin.withOptions(
-  function (_options = {}) {
+  (_options = {}) => {
     const { withOptionsWalkCSSRuleObject = returnSelfNoop } = _options
     return function ({ addBase, addComponents, addUtilities, theme, addVariant, config, corePlugins, e, matchComponents, matchUtilities, matchVariant }) {
       const _baseCss = withOptionsWalkCSSRuleObject(
@@ -75,7 +75,7 @@ const css2TwPlugin = _plugin.withOptions(
           '.card': {
             'background-color': theme('colors.white'),
             'border-radius': theme('borderRadius.lg'),
-            padding: theme('spacing.6'),
+            'padding': theme('spacing.6'),
             'box-shadow': theme('boxShadow.xl')
           }
         },
@@ -93,7 +93,7 @@ const css2TwPlugin = _plugin.withOptions(
       addUtilities(_utilitiesCss)
     }
   },
-  function (_options) {
+  (_options) => {
     return {}
   }
 )
@@ -148,13 +148,14 @@ const ctx = createContext({
   withOptions: true,
   // custom handler
   interceptors: {
-    css:[
-    (root,ctx)=>{
+    css: [
+      (root, ctx) => {
       // do sth
-    }
-  ]},
+      }
+    ]
+  },
 
-  postcssPlugins:(plugins)=>{
+  postcssPlugins: (plugins) => {
     // plugins.push / splice ...
   }
 })
@@ -180,16 +181,15 @@ module.exports = {
     require('css-to-tailwindcss-plugin/tailwindcss')({
       entries: [
         // your css entry path
-        path.resolve(__dirname, './theme-multiple.css'), 
-        path.resolve(__dirname, './common.scss'
-      )],
+        path.resolve(__dirname, './theme-multiple.css'),
+        path.resolve(__dirname, './common.scss')
+      ],
       // tmp plugins cache dir, default path is `process.cwd() + node_modules/.css-to-tailwindcss-plugin`
       // cacheDir: string
 
       // other options same to createContext
       // ...options
       // note: `tailwindcssResolved` is invalid in `tailwindcss plugin`, because `tailwindcss` is an async postcss plugin, while `tailwindcss plugin` **MUST** be sync!
-      
 
       // you can use this method to intercept plugin with `withOptions`
       withOptionsWalkCSSRuleObject(cssObj, layer) {

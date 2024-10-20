@@ -1,6 +1,7 @@
 import path from 'node:path'
-import ci from 'ci-info'
 import { getRules } from '@/rules'
+import ci from 'ci-info'
+
 const loadDirectory = path.resolve(__dirname, '../my-ui')
 describe.skipIf(ci.isCI)('index', () => {
   it('getRules default', () => {
@@ -13,7 +14,7 @@ describe.skipIf(ci.isCI)('index', () => {
   it('getRules get tab', () => {
     const a: string[] = []
     const options = getRules(loadDirectory, a)
-    expect(options.find((x) => x[0] === 'tab')).toMatchSnapshot()
+    expect(options.find(x => x[0] === 'tab')).toMatchSnapshot()
     expect(a).toMatchSnapshot('keyframes')
   })
 })

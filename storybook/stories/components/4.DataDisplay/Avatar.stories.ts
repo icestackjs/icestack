@@ -1,19 +1,19 @@
-import { type StoryObj, type Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
+import type { Meta, StoryObj } from '@storybook/html'
 import type { VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 import Pig from '../../assets/image/pig.jpg'
 import { formatHtml } from '../share'
 
-type AvatarProps = VariantProps<typeof avatar> & { textContent?: string; wrapperClassName?: string }
+type AvatarProps = VariantProps<typeof avatar> & { textContent?: string, wrapperClassName?: string }
 
 // export const allTypes = typePrefix('avatar-')
 
 const avatar = cva(['avatar'], {
   variants: {},
-  defaultVariants: {}
+  defaultVariants: {},
 })
 
-const createAvatar = (props: AvatarProps) => {
+function createAvatar(props: AvatarProps) {
   return formatHtml(`<div class="${avatar(props)}">
   <div class="${props.wrapperClassName ?? 'w-24 rounded'}">
   <img src="${Pig}"/></div>
@@ -25,13 +25,13 @@ const meta: Meta<AvatarProps> = {
   render: (args) => {
     return createAvatar(args)
   },
-  argTypes: {}
+  argTypes: {},
 }
 
 type Story = StoryObj<AvatarProps>
 
 export const Default: Story = {
-  args: {}
+  args: {},
 }
 
 export const Sizes: Story = {
@@ -40,17 +40,17 @@ export const Sizes: Story = {
     return formatHtml(`<div class="space-x-2">
     ${[
       createAvatar({
-        wrapperClassName: 'w-32 rounded'
+        wrapperClassName: 'w-32 rounded',
       }),
       createAvatar({
-        wrapperClassName: 'w-16 rounded'
+        wrapperClassName: 'w-16 rounded',
       }),
       createAvatar({
-        wrapperClassName: 'w-8 rounded'
-      })
+        wrapperClassName: 'w-8 rounded',
+      }),
     ].join('\n')}
     </div>`)
-  }
+  },
 }
 
 export const Shapes: Story = {
@@ -59,20 +59,20 @@ export const Shapes: Story = {
     return formatHtml(`<div class="space-x-2">
     ${[
       createAvatar({
-        wrapperClassName: 'w-32 rounded-full'
+        wrapperClassName: 'w-32 rounded-full',
       }),
       createAvatar({
-        wrapperClassName: 'w-32 mask mask-squircle'
+        wrapperClassName: 'w-32 mask mask-squircle',
       }),
       createAvatar({
-        wrapperClassName: 'w-32 mask mask-hexagon'
+        wrapperClassName: 'w-32 mask mask-hexagon',
       }),
       createAvatar({
-        wrapperClassName: 'w-32 mask mask-triangle'
-      })
+        wrapperClassName: 'w-32 mask mask-triangle',
+      }),
     ].join('\n')}
     </div>`)
-  }
+  },
 }
 
 export const Grouped: Story = {
@@ -81,20 +81,20 @@ export const Grouped: Story = {
     return formatHtml(`<div class="avatar-group -space-x-6">
     ${[
       createAvatar({
-        wrapperClassName: 'w-10 rounded-full'
+        wrapperClassName: 'w-10 rounded-full',
       }),
       createAvatar({
-        wrapperClassName: 'w-10 rounded-full'
+        wrapperClassName: 'w-10 rounded-full',
       }),
       createAvatar({
-        wrapperClassName: 'w-10 rounded-full'
+        wrapperClassName: 'w-10 rounded-full',
       }),
       createAvatar({
-        wrapperClassName: 'w-10 rounded-full'
-      })
+        wrapperClassName: 'w-10 rounded-full',
+      }),
     ].join('\n')}
     </div>`)
-  }
+  },
 }
 
 export default meta

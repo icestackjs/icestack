@@ -1,14 +1,14 @@
 import path from 'node:path'
+import { icestackPlugin } from '@/index'
 import { createContext } from '@icestack/ui'
 import ci from 'ci-info'
 import { getCss } from './utils'
-import { icestackPlugin } from '@/index'
 
 describe.skipIf(ci.isCI)('tailwindcss', () => {
   const outdir = path.resolve(__dirname, 'assets')
   beforeAll(async () => {
     const ctx = createContext({
-      outdir
+      outdir,
     })
     await ctx.build()
   })
@@ -22,14 +22,14 @@ describe.skipIf(ci.isCI)('tailwindcss', () => {
     const { css } = await getCss({
       content: [
         {
-          raw: 'btn'
-        }
+          raw: 'btn',
+        },
       ],
       plugins: [
         icestackPlugin({
-          loadDirectory: outdir
-        })
-      ]
+          loadDirectory: outdir,
+        }),
+      ],
     })
     expect(css).toMatchSnapshot()
   })

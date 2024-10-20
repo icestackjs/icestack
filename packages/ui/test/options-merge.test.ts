@@ -1,7 +1,8 @@
-import { omitRoot } from './utils'
-import { createContext, Config } from '@/index'
+import type { Config } from '@/index'
+import type { DeepPartial } from '@/types'
 import { removeDefaultComponents } from '@/components'
-import { DeepPartial } from '@/types'
+import { createContext } from '@/index'
+import { omitRoot } from './utils'
 
 describe('options merge', () => {
   it('merge case 0', async () => {
@@ -14,12 +15,12 @@ describe('options merge', () => {
               base: `.xxx{
                 @apply bg-red-300 text-sm leading-4 #{!important};
                 color: red;
-              }`
+              }`,
             }
-          }
-        }
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
       // outdir
     }
     const ctx = createContext(options)
@@ -44,12 +45,12 @@ describe('options merge', () => {
               ${selector}{
                 border-style: solid;
               }
-              `
+              `,
             }
-          }
-        }
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
       // outdir
     }
     const ctx = createContext(options)
@@ -74,13 +75,13 @@ describe('options merge', () => {
                 ${selector}{
                   border-style: solid;
                 }
-                `
+                `,
               }
-            }
-          ]
-        }
+            },
+          ],
+        },
       },
-      dryRun: true
+      dryRun: true,
       // outdir
     }
     const ctx = createContext(options)
@@ -105,12 +106,12 @@ describe('options merge', () => {
               ${selector}{
                 border-style: solid;
               }
-              `
-            }
-          ]
-        }
+              `,
+            },
+          ],
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -130,10 +131,10 @@ describe('options merge', () => {
           .btn{
             border-style:solid;
           }
-          `
-        }
+          `,
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -154,11 +155,11 @@ describe('options merge', () => {
           .btn{
             border-style:solid;
           }
-          `
-          ]
-        }
+          `,
+          ],
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -183,12 +184,12 @@ describe('options merge', () => {
              .btn{
                 border-style: solid;
               }
-              `
-            }
-          ]
-        }
+              `,
+            },
+          ],
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -210,11 +211,11 @@ describe('options merge', () => {
           `,
             `.btn{
             border-style:solid;
-          }`
-          ]
-        }
+          }`,
+          ],
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -240,13 +241,13 @@ describe('options merge', () => {
                 ${selector}{
                   border-style: solid;
                 }
-                `
+                `,
               }
-            }
-          ]
-        }
+            },
+          ],
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -273,13 +274,13 @@ describe('options merge', () => {
                 ${selector}{
                   border-style: solid;
                 }
-                `
+                `,
               }
-            }
-          ]
-        }
+            },
+          ],
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -307,12 +308,12 @@ describe('options merge', () => {
                   border-style: solid;
                 }
                 `
-              }
-            ]
-          }
-        }
+              },
+            ],
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -339,12 +340,12 @@ describe('options merge', () => {
                 }
                 
                 `
-              }
-            ]
-          }
-        }
+              },
+            ],
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -370,11 +371,11 @@ describe('options merge', () => {
               }
               
               `
-            }
-          }
-        }
+            },
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -391,11 +392,11 @@ describe('options merge', () => {
           extend: {
             utils: `.content-area {
               height: calc(100vh - theme(spacing.12));
-            }`
-          }
-        }
+            }`,
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -412,11 +413,11 @@ describe('options merge', () => {
           extend: {
             utils: `.content-area {
               height: calc(100vh - theme(spacing[2.5]));
-            }`
-          }
-        }
+            }`,
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -433,11 +434,11 @@ describe('options merge', () => {
           extend: {
             utils: `.btn-blue {
               background-color: theme(colors.blue.500);
-            }`
-          }
-        }
+            }`,
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 
@@ -454,11 +455,11 @@ describe('options merge', () => {
           extend: {
             utils: `.btn-blue {
               background-color: theme(colors.blue.500 / 75%);
-            }`
-          }
-        }
+            }`,
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
     }
     const ctx = createContext(options)
 

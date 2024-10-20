@@ -11,7 +11,7 @@ describe('log', () => {
   it('xx', () => {
     consola.log('your message')
     // @ts-ignore
-    const consolaMessages = consola.log.mock.calls.map((c) => c[0])
+    const consolaMessages = consola.log.mock.calls.map(c => c[0])
     expect(consolaMessages).toContain('your message')
   })
 })

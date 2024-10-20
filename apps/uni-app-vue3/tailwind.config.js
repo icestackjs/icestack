@@ -9,13 +9,13 @@ module.exports = {
     // colors: {}
   },
   plugins: [
-    plugin(function ({ addVariant }) {
+    plugin(({ addVariant }) => {
       addVariant('deep', ':is(.deep &)')
       addVariant('fantasy', ':is(.fantasy &)')
-    })
+    }),
   ], // [require('@icestack/ui')({})],
   corePlugins: {
     preflight: false,
-    container: false
-  }
+    container: false,
+  },
 }

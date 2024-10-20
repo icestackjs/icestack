@@ -60,11 +60,15 @@
       </div>
     </div>
 
-    <div class="flex justify-center w-full"><kbd class="kbd">▲</kbd></div>
+    <div class="flex justify-center w-full">
+      <kbd class="kbd">▲</kbd>
+    </div>
     <div class="flex justify-center gap-12 w-full">
       <kbd class="kbd">◀︎</kbd>
       <kbd class="kbd">▶︎</kbd>
     </div>
-    <div class="flex justify-center w-full"><kbd class="kbd">▼</kbd></div>
+    <div class="flex justify-center w-full">
+      <kbd class="kbd">▼</kbd>
+    </div>
   </div>
 </template>

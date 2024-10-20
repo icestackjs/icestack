@@ -1,4 +1,4 @@
-import { CodegenOptions } from '@icestack/types'
+import type { CodegenOptions } from '@icestack/types'
 import { preHandleOptions } from '@/index'
 
 describe('index', () => {
@@ -10,8 +10,8 @@ describe('index', () => {
     it('preHandleOptions case 0', () => {
       const res: Partial<CodegenOptions> = {
         base: {
-          extraCss: '.xxx{}'
-        }
+          extraCss: '.xxx{}',
+        },
       }
       const r = preHandleOptions(res)
       expect(Array.isArray(r.base?.extraCss)).toBe(true)
@@ -23,10 +23,10 @@ describe('index', () => {
         base: {
           themes: {
             light: {
-              extraCss: '--ce:#123243;'
-            }
-          }
-        }
+              extraCss: '--ce:#123243;',
+            },
+          },
+        },
       }
       const r = preHandleOptions(res)
       expect(Array.isArray(r.base?.themes?.light?.extraCss)).toBe(true)
@@ -36,8 +36,8 @@ describe('index', () => {
     it('preHandleOptions case 2', () => {
       const res: Partial<CodegenOptions> = {
         utilities: {
-          extraCss: `.xx{}`
-        }
+          extraCss: `.xx{}`,
+        },
       }
       const r = preHandleOptions(res)
       expect(Array.isArray(r.utilities?.extraCss)).toBe(true)
@@ -48,9 +48,9 @@ describe('index', () => {
       const res: Partial<CodegenOptions> = {
         components: {
           ds: {
-            extend: `.xx{}`
-          }
-        }
+            extend: `.xx{}`,
+          },
+        },
       }
       const r = preHandleOptions(res)
       expect(Array.isArray(r.components?.ds?.extend)).toBe(true)

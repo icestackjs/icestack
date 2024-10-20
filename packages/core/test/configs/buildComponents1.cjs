@@ -6,9 +6,9 @@ const config = {
   outdir: './my-ui',
   components: {
     alert: {
-      xx: 'xx'
-    }
-  }
+      xx: 'xx',
+    },
+  },
 }
 
 module.exports = config

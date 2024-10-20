@@ -1,1 +1,1 @@
-export { Root, AtRule, Rule, Declaration, Comment } from 'postcss'
+export { AtRule, Comment, Declaration, Root, Rule } from 'postcss'

@@ -1,6 +1,6 @@
+import { defu } from '@icestack/shared'
 import { OrderedMap } from 'immutable'
 import * as sass from 'sass'
-import { defu } from '@icestack/shared'
 
 export interface TransformJsToSassOptions {
   quotes?: boolean

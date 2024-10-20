@@ -1,5 +1,5 @@
 import type { Config } from '@icestack/ui'
-import type { BaseOptions, ComponentsOptions, ComponentsValue } from '@icestack/ui/types'
+
 const config: Config = {
   base: {
     themes: {
@@ -8,9 +8,9 @@ const config: Config = {
         extraCss: {},
         extraVars: {},
         selector: '',
-        types: {}
-      }
-    }
+        types: {},
+      },
+    },
   },
   components: {
     button: {
@@ -23,10 +23,10 @@ const config: Config = {
       schema: ({ params, selector, types }) => {
         return {
           defaults: {},
-          selector
+          selector,
         }
       },
-      selector: '.xxx'
-    }
-  }
+      selector: '.xxx',
+    },
+  },
 }

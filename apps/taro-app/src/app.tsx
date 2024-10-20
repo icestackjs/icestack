@@ -1,5 +1,4 @@
-import { PropsWithChildren } from 'react'
-import { useLaunch } from '@tarojs/taro'
+import type { PropsWithChildren } from 'react'
 import './app.scss'
 // import { WebSocket } from 'weapp-websocket'
 

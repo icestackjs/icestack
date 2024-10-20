@@ -5,8 +5,8 @@ describe('index new', () => {
     const ctx = createContext({
       dryRun: true,
       base: {
-        mediaDarkTheme: 'dark'
-      }
+        mediaDarkTheme: 'dark',
+      },
     })
     const res = await ctx.buildBase()
     expect(res).toMatchSnapshot()

@@ -1,8 +1,9 @@
-import type { StoryObj, Meta } from '@storybook/html'
+import type { Meta, StoryObj } from '@storybook/html'
 import type { VariantProps } from 'class-variance-authority'
 import { formatHtml } from '../share'
 import Cva from '../style'
-type Props = VariantProps<typeof com> & { disabled?: boolean; placeholder?: string }
+
+type Props = VariantProps<typeof com> & { disabled?: boolean, placeholder?: string }
 
 const types = Cva.textarea.types
 
@@ -10,7 +11,7 @@ const sizes = Cva.textarea.sizes
 
 const com = Cva.textarea.cva
 
-const create = (props: Props) => {
+function create(props: Props) {
   return formatHtml(`<textarea class="${com(props)}" placeholder="Bio" ${props.disabled ? 'disabled' : ''}></textarea>`)
 }
 
@@ -26,14 +27,14 @@ const meta: Meta<Props> = {
     type: { control: 'inline-radio', options: types },
     bordered: { control: 'boolean' },
     ghost: { control: 'boolean' },
-    disabled: { control: 'boolean' }
-  }
+    disabled: { control: 'boolean' },
+  },
 }
 
 type Story = StoryObj<Props>
 
 export const Default: Story = {
-  args: {}
+  args: {},
 }
 
 export default meta

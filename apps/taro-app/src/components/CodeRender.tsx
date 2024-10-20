@@ -1,11 +1,12 @@
-import { FC, PropsWithChildren, useMemo, useState } from 'react'
-import dedent from 'dedent'
-import reactElementToJSXString from 'react-element-to-jsx-string'
+import type { FC, PropsWithChildren } from 'react'
 import { View } from '@tarojs/components'
 import { cx } from 'class-variance-authority'
+import dedent from 'dedent'
+import { useMemo, useState } from 'react'
+import reactElementToJSXString from 'react-element-to-jsx-string'
 
 function makeCodeBlock(res: string, lang: string) {
-  return '```' + (lang || '') + '\n' + res + '\n```'
+  return `\`\`\`${lang || ''}\n${res}\n\`\`\``
 }
 
 const CodeRender: FC<
@@ -25,15 +26,17 @@ const CodeRender: FC<
         res = makeCodeBlock(res, lang)
       }
       return res
-    } else {
+    }
+    else {
       if (Array.isArray(children)) {
-        let htmls: string[] = []
+        const htmls: string[] = []
         for (const child of children) {
           const html = reactElementToJSXString(child).replace(/className/g, 'class')
           htmls.push(html)
         }
         return makeCodeBlock(htmls.join('\n'), lang)
-      } else {
+      }
+      else {
         const html = reactElementToJSXString(children).replace(/className/g, 'class')
 
         return makeCodeBlock(html, lang)
@@ -43,17 +46,17 @@ const CodeRender: FC<
   return (
     <>
       <View className={className}>{children}</View>
-      <View className='mt-4'>
+      <View className="mt-4">
         <View
           style={{
-            display: codeVisible ? 'block' : 'none'
+            display: codeVisible ? 'block' : 'none',
           }}
         >
           <md markdown content={innerContent}></md>
         </View>
 
         <View
-          className='flex justify-center items-center rounded-md border border-solid border-[rgba(31,35,40,0.15)] bg-[rgb(246,248,250)] dark:border-[rgba(205,217,229,0.1)] dark:bg-[rgb(55,62,71)] px-2 py-1 text-slate-900 dark:text-white'
+          className="flex justify-center items-center rounded-md border border-solid border-[rgba(31,35,40,0.15)] bg-[rgb(246,248,250)] dark:border-[rgba(205,217,229,0.1)] dark:bg-[rgb(55,62,71)] px-2 py-1 text-slate-900 dark:text-white"
           onClick={() => {
             setCodeVisible((x) => {
               return !x
@@ -61,8 +64,11 @@ const CodeRender: FC<
           }}
         >
           <View className={cx(codeVisible ? 'i-mdi-chevron-double-up' : 'i-mdi-chevron-double-down', 'mr-2')}></View>
-          <View className='text-sm'>{codeVisible ? '收起' : '展开'}代码</View>
-          <View className='i-mdi-code ml-1'></View>
+          <View className="text-sm">
+            {codeVisible ? '收起' : '展开'}
+            代码
+          </View>
+          <View className="i-mdi-code ml-1"></View>
         </View>
       </View>
     </>

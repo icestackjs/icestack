@@ -1,6 +1,6 @@
+import { mergeRClone } from '@icestack/shared'
 import postcss from 'postcss'
 import { type CssInJs, parse } from 'postcss-js'
-import { mergeRClone } from '@icestack/shared'
 import parser from 'postcss-selector-parser'
 import { groupBy, requireLib } from './utils'
 

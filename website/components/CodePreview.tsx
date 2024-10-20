@@ -1,7 +1,8 @@
-import { Tabs } from 'nextra/components'
 import type { FC, PropsWithChildren, ReactElement } from 'react'
-import { useMemo } from 'react'
 import { groupBy, upperFirst } from 'lodash-es'
+import { Tabs } from 'nextra/components'
+import { useMemo } from 'react'
+
 export const CodePreview: FC = (props: PropsWithChildren) => {
   const { children } = props
 
@@ -16,16 +17,18 @@ export const CodePreview: FC = (props: PropsWithChildren) => {
   }, [children])
 
   const tabItems = useMemo(() => {
-    return Object.keys(dic).map((x) => upperFirst(x))
+    return Object.keys(dic).map(x => upperFirst(x))
   }, [dic])
 
   return (
     <Tabs items={tabItems}>
-      {dic.preview ? (
-        <Tabs.Tab>
-          <div className="space-x-2">{dic.preview}</div>
-        </Tabs.Tab>
-      ) : undefined}
+      {dic.preview
+        ? (
+            <Tabs.Tab>
+              <div className="space-x-2">{dic.preview}</div>
+            </Tabs.Tab>
+          )
+        : undefined}
       {dic.html ? <Tabs.Tab>{dic.html}</Tabs.Tab> : undefined}
       {dic.jsx ? <Tabs.Tab>{dic.jsx}</Tabs.Tab> : undefined}
     </Tabs>

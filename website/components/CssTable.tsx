@@ -14,7 +14,7 @@ const Com: FC<{ name: string }> = (props) => {
     return {
       base: [],
       styled: [],
-      utils: []
+      utils: [],
     }
   }, [name])
   return (

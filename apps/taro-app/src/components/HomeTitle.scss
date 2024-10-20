@@ -5,7 +5,7 @@ $green: #6abc4e;
 $blue: #2599d8;
 
 .home-title {
-  @apply font-extrabold;// text-slate-900 dark:text-white;
+  @apply font-extrabold; // text-slate-900 dark:text-white;
 
   font-family: Oswald, sans-serif;
   line-height: 1;
@@ -21,7 +21,7 @@ $blue: #2599d8;
   &:after,
   .inner-text:before,
   .inner-text:after {
-    content: "@icestack/ui"; // attr(data-heading);
+    content: '@icestack/ui'; // attr(data-heading);
     position: absolute;
     overflow: hidden;
     left: 0;

@@ -6,10 +6,10 @@ import type { Preset } from '@icestack/types'
 // // @ts-ignore
 // import utilityClasses from 'daisyui/src/lib/utility-classes'
 
-import { trimStart } from 'lodash'
-import themes from './themes'
-import colorFunctions from './functions'
 import type { Config } from './types'
+import { trimStart } from 'lodash'
+import colorFunctions from './functions'
+import themes from './themes'
 // import { schemaMap } from './components'
 import { colors, general } from './base'
 import { utilities } from './utilities'

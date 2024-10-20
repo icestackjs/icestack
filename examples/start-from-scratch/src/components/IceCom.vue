@@ -1,22 +1,23 @@
+<script setup lang="ts">
+import { computed, useAttrs } from 'vue'
+import buttonClass from './buttonClass'
+
+defineOptions({
+  name: 'IceCom',
+})
+// const props = withDefaults(defineProps(), {})
+const attrs = useAttrs()
+const className = computed(() => {
+  // @ts-ignore
+  return buttonClass(attrs)
+})
+</script>
+
 <template>
   <button :class="className">
     <slot>postcss-cva</slot>
   </button>
 </template>
-
-<script setup lang="ts">
-import { computed, useAttrs } from 'vue';
-import buttonClass from './buttonClass'
-// const props = withDefaults(defineProps(), {})
-const attrs = useAttrs()
-defineOptions({
-  name: 'IceCom',
-})
-const className = computed(() => {
-  // @ts-ignore
-  return buttonClass(attrs)
-}) 
-</script>
 
 <style scoped>
 /* @meta path="./buttonClass" */

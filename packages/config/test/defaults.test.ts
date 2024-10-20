@@ -22,7 +22,7 @@ describe('defaults', () => {
     it('mode none', () => {
       const res = getDefaultBase({
         mode: 'none',
-        dryRun: true
+        dryRun: true,
       })
       expect(res.themes?.light).toBeFalsy()
       expect(res.themes?.dark).toBeFalsy()
@@ -34,9 +34,9 @@ describe('defaults', () => {
         dryRun: true,
         base: {
           themes: {
-            light: false
-          }
-        }
+            light: false,
+          },
+        },
       })
       expect(res.themes?.light).toBeFalsy()
       expect(res.themes?.dark).toBeTruthy()
@@ -53,8 +53,8 @@ describe('defaults', () => {
       expect(
         getCodegenDefaults({
           mode: 'none',
-          dryRun: true
-        })
+          dryRun: true,
+        }),
       ).toMatchSnapshot()
     })
   })
@@ -67,8 +67,8 @@ describe('defaults', () => {
     it('injectSchema button', () => {
       expect(
         injectSchema({
-          button: {}
-        })
+          button: {},
+        }),
       ).toMatchSnapshot()
     })
 
@@ -76,13 +76,13 @@ describe('defaults', () => {
       expect(
         injectSchema(
           {
-            button: {}
+            button: {},
           },
           {
             mode: 'none',
-            dryRun: true
-          }
-        )
+            dryRun: true,
+          },
+        ),
       ).toMatchSnapshot()
     })
 
@@ -98,13 +98,13 @@ describe('defaults', () => {
                 mode: 'preset',
                 schema: () => {
                   return {
-                    defaults: {}
+                    defaults: {},
                   }
-                }
-              }
-            }
-          }
-        )
+                },
+              },
+            },
+          },
+        ),
       ).toMatchSnapshot()
     })
   })

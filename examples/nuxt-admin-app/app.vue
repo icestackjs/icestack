@@ -1,3 +1,5 @@
+<script setup lang="ts"></script>
+
 <template>
   <div>
     <NuxtLayout>
@@ -5,7 +7,7 @@
     </NuxtLayout>
   </div>
 </template>
-<script setup lang="ts"></script>
+
 <style lang="scss">
 :root {
   @apply bg-base-100 text-base-content;

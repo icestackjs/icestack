@@ -3,5 +3,5 @@ function JSONStringify(value) {
 }
 
 module.exports = {
-  JSONStringify
+  JSONStringify,
 }

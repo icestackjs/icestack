@@ -1,7 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { deleteAsync } from 'del'
-import { withPluginTailwindConfig, getCss, fixturesResolve } from './utils'
+import { fixturesResolve, getCss, withPluginTailwindConfig } from './utils'
+
 describe('tw-plugin', () => {
   it('run plugin', async () => {
     // const dir = path.dirname(require.resolve('css-to-tailwindcss-plugin/package.json'))
@@ -12,8 +13,8 @@ describe('tw-plugin', () => {
     withPluginTailwindConfig.plugins.push(
       require('../dist/tailwindcss.cjs')({
         entries: [fixturesResolve('theme-mutiple.css'), fixturesResolve('common.scss')],
-        cacheDir
-      })
+        cacheDir,
+      }),
     )
     await getCss(withPluginTailwindConfig)
 

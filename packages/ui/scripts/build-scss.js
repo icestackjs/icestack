@@ -1,7 +1,8 @@
 const { createContext } = require('../')
+
 async function main() {
   const ctx = createContext({
-    clean: true
+    clean: true,
   })
   await ctx.build()
 }

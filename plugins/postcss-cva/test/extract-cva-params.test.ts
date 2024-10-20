@@ -1,7 +1,7 @@
-import postcss, { comment } from 'postcss'
 import extractCva from '@/extract'
-import { baseRegex, compoundVariantRegex, defaultVariantRegex, variantRegex, pickComment, extractParams } from '@/regex'
+import { baseRegex, defaultVariantRegex, extractParams, pickComment, variantRegex } from '@/regex'
 import { matchAll } from '@/utils'
+import postcss, { comment } from 'postcss'
 
 describe('extract-cva-params', () => {
   describe('baseRegex', () => {
@@ -55,8 +55,8 @@ describe('extract-cva-params', () => {
     it('pickComment base case 0', () => {
       const res = pickComment(
         comment({
-          text: '@b v'
-        })
+          text: '@b v',
+        }),
       )
       expect(res?.type).toBe('base')
       expect(res?.next).toBe(true)
@@ -83,8 +83,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -110,8 +110,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -135,8 +135,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -162,8 +162,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -189,8 +189,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -214,8 +214,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -238,8 +238,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       /* @dv intent="primary" */
@@ -260,7 +260,7 @@ describe('extract-cva-params', () => {
     const res = extractParams(' path="./nest-btn-4"', {
       next: false,
       suffix: '',
-      type: 'meta'
+      type: 'meta',
     })
 
     expect(res).toMatchSnapshot()

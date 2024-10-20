@@ -1,12 +1,12 @@
-import { getCss } from './utils'
 import { mergeRClone } from '@/shared'
+import { getCss } from './utils'
 
 describe('main', () => {
   it('default', async () => {
     const result = await getCss({
       corePlugins: {
-        preflight: true
-      }
+        preflight: true,
+      },
     })
     expect(result.css).toMatchSnapshot()
   })
@@ -21,7 +21,7 @@ describe('main', () => {
       css: `.btn{
         @apply flex items-center bg-teal-600 text-yellow-500 !important;
         line-height: 20px;
-      }`
+      }`,
     })
     expect(result.css).toMatchSnapshot()
   })
@@ -34,11 +34,11 @@ describe('main', () => {
       theme: {
         extend: {
           colors: {
-            primary: 'rgb(var(--primary) / <alpha-value>)',
-            'primary-content': 'rgb(var(--primary-color) / <alpha-value>)'
-          }
-        }
-      }
+            'primary': 'rgb(var(--primary) / <alpha-value>)',
+            'primary-content': 'rgb(var(--primary-color) / <alpha-value>)',
+          },
+        },
+      },
     })
     expect(result.css).toMatchSnapshot()
   })

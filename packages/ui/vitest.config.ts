@@ -6,15 +6,15 @@ export default defineProject({
     alias: [
       {
         find: '@',
-        replacement: path.resolve(__dirname, './src')
+        replacement: path.resolve(__dirname, './src'),
       },
       {
         find: '#test',
-        replacement: path.resolve(__dirname, './test')
-      }
+        replacement: path.resolve(__dirname, './test'),
+      },
     ],
     globals: true,
     testTimeout: 60_000,
-    setupFiles: ['./vitest.setup.ts']
-  }
+    setupFiles: ['./vitest.setup.ts'],
+  },
 })

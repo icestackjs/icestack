@@ -1,17 +1,17 @@
-import { View, Text } from '@tarojs/components'
+import { Text, View } from '@tarojs/components'
 import './HomeTitle.scss'
 
-const HomeTitle = () => {
+function HomeTitle() {
   return (
-    <View className='relative mb-3 flex justify-center'>
-      <View className='home-title'>
-        <Text className='inner-text'>@icestack/ui</Text>
+    <View className="relative mb-3 flex justify-center">
+      <View className="home-title">
+        <Text className="inner-text">@icestack/ui</Text>
       </View>
       <View
-        className='invisible'
+        className="invisible"
         style={{
           fontSize: '10vw',
-          lineHeight: 1
+          lineHeight: 1,
         }}
       >
         @icestack/ui

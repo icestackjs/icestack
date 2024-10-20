@@ -113,4 +113,4 @@ interface DaisyUIConfig {
   themeRoot?: string
 }
 
-export type { DaisyUIConfig as Config, Theme, CustomTheme }
+export type { CustomTheme, DaisyUIConfig as Config, Theme }

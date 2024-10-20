@@ -6,10 +6,10 @@ const config = {
   components: {
     tab: {
       postcss: {
-        prefix: 'ice-'
-      }
-    }
-  }
+        prefix: 'ice-',
+      },
+    },
+  },
 }
 
 module.exports = config

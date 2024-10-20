@@ -1,7 +1,7 @@
-import defu from 'defu'
-import tableData from '@/table.js'
 import type { ComponentNames, CreateTailwindcssContentOptions } from '@/types'
 import { addPrefix } from '@/shared'
+import tableData from '@/table.js'
+import defu from 'defu'
 
 export function getOptions(opts: CreateTailwindcssContentOptions = {}) {
   const options: CreateTailwindcssContentOptions = defu<CreateTailwindcssContentOptions, CreateTailwindcssContentOptions[]>(opts, {

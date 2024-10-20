@@ -1,3 +1,3 @@
-@use "./utils/index.scss" as *;
+@use './utils/index.scss' as *;
 
 @include spread(inject());

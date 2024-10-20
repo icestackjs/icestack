@@ -1,7 +1,5 @@
-import type { StoryObj, Meta } from '@storybook/html'
-import { cva } from 'class-variance-authority'
-import type { VariantProps } from 'class-variance-authority'
-import { expands, formatHtml, typePrefix } from '../share'
+import type { Meta, StoryObj } from '@storybook/html'
+import { formatHtml } from '../share'
 
 // type AlertProps = VariantProps<typeof alert> & { textContent?: string }
 
@@ -14,7 +12,7 @@ import { expands, formatHtml, typePrefix } from '../share'
 //   defaultVariants: {}
 // })
 
-const create = (props: AlertProps) => {
+function create(props: AlertProps) {
   return formatHtml(`<div class="chat chat-start">
   <div class="chat-bubble">It's over Anakin, <br/>I have the high ground.</div>
 </div>
@@ -35,13 +33,13 @@ const meta: Meta<object> = {
     //   options: allTypes,
     //   control: { type: 'inline-radio' }
     // }
-  }
+  },
 }
 
 type Story = StoryObj<object>
 
 export const Default: Story = {
-  args: {}
+  args: {},
 }
 
 export default meta

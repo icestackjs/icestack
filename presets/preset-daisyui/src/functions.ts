@@ -1,9 +1,9 @@
-import pc from 'picocolors'
+import type { Config } from '@/types'
 import type { Oklch } from 'culori'
 import { interpolate, oklch, wcagContrast } from 'culori'
+import pc from 'picocolors'
 import colorNames from './colorNames'
 import themeDefaults from './themeDefaults'
-import type { Config } from '@/types'
 
 function colorIsInvalid(input: string) {
   console.error(`├─ ${pc.red('⚠︎')} ${pc.bgRed(' Error ')} Invalid color ${pc.red(input)} in ${pc.green('tailwind.config.js')}`)

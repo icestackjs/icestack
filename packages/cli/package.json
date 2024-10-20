@@ -1,13 +1,16 @@
 {
   "name": "@icestack/cli",
-  "description": "The cli of @icestack/ui",
   "version": "1.3.8",
-  "scripts": {
-    "build": "unbuild",
-    "test": "vitest run",
-    "test:dev": "vitest",
-    "release": "pnpm publish",
-    "sync": "cnpm sync @icestack/cli"
+  "description": "The cli of @icestack/ui",
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://ui.icebreaker.top",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack"
   },
   "keywords": [
     "cli",
@@ -33,24 +36,21 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "sync": "cnpm sync @icestack/cli"
+  },
   "dependencies": {
     "@icestack/config": "workspace:^",
     "@icestack/core": "workspace:^",
     "@icestack/logger": "workspace:^",
     "@icestack/shared": "workspace:^",
-    "chokidar": "^3.6.0",
+    "chokidar": "^4.0.1",
     "commander": "^12.1.0",
     "dedent": "^1.5.3",
-    "del": "^7.1.0"
-  },
-  "author": "SonOfMagic <qq1324318532@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sonofmagic/icestack"
-  },
-  "homepage": "https://ui.icebreaker.top",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sonofmagic/icestack"
+    "del": "^8.0.0"
   }
 }

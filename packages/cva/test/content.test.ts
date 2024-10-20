@@ -8,8 +8,8 @@ describe('content', () => {
   it('add prefix to all component', () => {
     expect(
       createTailwindcssContent({
-        prefix: 'ice-'
-      })
+        prefix: 'ice-',
+      }),
     ).toMatchSnapshot()
   })
 
@@ -18,10 +18,10 @@ describe('content', () => {
       createTailwindcssContent({
         components: {
           ...removeAllComponents,
-          tooltip: true
-        }
+          tooltip: true,
+        },
         // prefix: 'ice-'
-      })
+      }),
     ).toMatchSnapshot()
   })
 
@@ -30,10 +30,10 @@ describe('content', () => {
       createTailwindcssContent({
         components: {
           ...removeAllComponents,
-          tooltip: true
+          tooltip: true,
         },
-        prefix: 'ice-'
-      })
+        prefix: 'ice-',
+      }),
     ).toMatchSnapshot()
   })
 })

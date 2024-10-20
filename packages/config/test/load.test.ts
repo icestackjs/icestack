@@ -1,10 +1,11 @@
 import path from 'node:path'
-import ci from 'ci-info'
 import { loadSync } from '@/.'
+import ci from 'ci-info'
+
 describe.skipIf(ci.isCI)('load config', () => {
   it('load ts config', () => {
     const config = loadSync({
-      cwd: path.resolve(__dirname, 'ts')
+      cwd: path.resolve(__dirname, 'ts'),
     })
     expect(config?.config.log).toBe(false)
     expect(config.config).toMatchSnapshot()
@@ -12,7 +13,7 @@ describe.skipIf(ci.isCI)('load config', () => {
 
   it('load js config', () => {
     const config = loadSync({
-      cwd: path.resolve(__dirname, 'js')
+      cwd: path.resolve(__dirname, 'js'),
     })
     expect(config?.config.log).toBe(false)
     expect(config.config).toMatchSnapshot()
@@ -21,7 +22,7 @@ describe.skipIf(ci.isCI)('load config', () => {
   // https://www.npmjs.com/package/cosmiconfig?activeTab=readme
   it.skip('load mjs config', () => {
     const config = loadSync({
-      cwd: path.resolve(__dirname, 'esm')
+      cwd: path.resolve(__dirname, 'esm'),
     })
     expect(config?.config.log).toBe(false)
     expect(config.config).toMatchSnapshot()
@@ -29,7 +30,7 @@ describe.skipIf(ci.isCI)('load config', () => {
 
   it('load cjs config', () => {
     const config = loadSync({
-      cwd: path.resolve(__dirname, 'cjs')
+      cwd: path.resolve(__dirname, 'cjs'),
     })
     expect(config?.config.log).toBe(false)
     expect(config.config).toMatchSnapshot()

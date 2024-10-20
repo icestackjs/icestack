@@ -1,9 +1,9 @@
-import type { AcceptedPlugin } from 'postcss'
-import postcss from 'postcss'
-import defu from 'defu'
-import { atRulesRenamePlugin, extractLayerPlugin, markLayerPlugin } from './extract-layer'
-import { BaseContext } from './base-context'
 import type { IProcessOptions, TailwindcssPluginOptions } from '@/types'
+import type { AcceptedPlugin } from 'postcss'
+import defu from 'defu'
+import postcss from 'postcss'
+import { BaseContext } from './base-context'
+import { atRulesRenamePlugin, extractLayerPlugin, markLayerPlugin } from './extract-layer'
 
 export function getDefaults(): IProcessOptions & { cacheDir?: string } {
   return {

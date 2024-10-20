@@ -1,12 +1,13 @@
 import path from 'node:path'
-import postcss from 'postcss'
 import plugin from '@/index'
+import postcss from 'postcss'
+
 describe('index', () => {
   it('plugin case base 0', async () => {
     const res = await postcss([
       plugin({
-        configFile: path.resolve(__dirname, 'icestack.config.cjs')
-      })
+        configFile: path.resolve(__dirname, 'icestack.config.cjs'),
+      }),
       // @ts-ignore
     ]).process(`
     @icestack base;
@@ -17,8 +18,8 @@ describe('index', () => {
   it('plugin case components 0', async () => {
     const res = await postcss([
       plugin({
-        configFile: path.resolve(__dirname, 'icestack.config.cjs')
-      })
+        configFile: path.resolve(__dirname, 'icestack.config.cjs'),
+      }),
       // @ts-ignore
     ]).process(`
     @icestack components;
@@ -29,8 +30,8 @@ describe('index', () => {
   it('plugin case components name 0', async () => {
     const res = await postcss([
       plugin({
-        configFile: path.resolve(__dirname, 'icestack.config.cjs')
-      })
+        configFile: path.resolve(__dirname, 'icestack.config.cjs'),
+      }),
       // @ts-ignore
     ]).process(`
     @icestack components.alert;
@@ -41,8 +42,8 @@ describe('index', () => {
   it('plugin case components name base 0', async () => {
     const res = await postcss([
       plugin({
-        configFile: path.resolve(__dirname, 'icestack.config.cjs')
-      })
+        configFile: path.resolve(__dirname, 'icestack.config.cjs'),
+      }),
       // @ts-ignore
     ]).process(`
     @icestack components.alert.base;
@@ -53,8 +54,8 @@ describe('index', () => {
   it('plugin case utilities 0', async () => {
     const res = await postcss([
       plugin({
-        configFile: path.resolve(__dirname, 'icestack.config.cjs')
-      })
+        configFile: path.resolve(__dirname, 'icestack.config.cjs'),
+      }),
       // @ts-ignore
     ]).process(`
     @icestack utilities;

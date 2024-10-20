@@ -11,9 +11,9 @@ const config = {
         height: auto;
         min-height: auto;
       }
-      `
-    }
-  }
+      `,
+    },
+  },
 }
 
 module.exports = config

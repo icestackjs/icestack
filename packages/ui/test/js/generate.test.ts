@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { generateIndexCode } from '@/js/generate'
+
 describe.skipIf(path.sep === '\\')('generate', () => {
   it('writeFileSync', () => {})
   // it('case 0', () => {

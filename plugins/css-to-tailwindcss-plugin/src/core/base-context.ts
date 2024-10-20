@@ -1,7 +1,7 @@
+import type { LayerEnumType } from '@/constants'
+import type { TailwindcssPluginOptions } from '@/types'
 import type { Node } from 'postcss'
 import { createGenerator } from './generator'
-import type { TailwindcssPluginOptions } from '@/types'
-import type { LayerEnumType } from '@/constants'
 // import { TailwindcssPluginOptions } from '@/types'
 
 export class BaseContext {

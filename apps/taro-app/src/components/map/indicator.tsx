@@ -1,5 +1,5 @@
-import { View, Text, Button, ViewProps } from '@tarojs/components'
 import CodeRender from '@/components/CodeRender'
+import { Button, Text, View } from '@tarojs/components'
 
 export default () => {
   return (

@@ -1,8 +1,9 @@
-import type { StoryObj, Meta } from '@storybook/html'
+import type { Meta, StoryObj } from '@storybook/html'
 import type { VariantProps } from 'class-variance-authority'
 import { formatHtml } from '../share'
 import Cva from '../style'
-type Props = VariantProps<typeof com> & { disabled?: boolean; checked?: boolean }
+
+type Props = VariantProps<typeof com> & { disabled?: boolean, checked?: boolean }
 
 const types = Cva.checkbox.types
 
@@ -10,7 +11,7 @@ const sizes = Cva.checkbox.sizes
 
 const com = Cva.checkbox.cva
 
-const create = (props: Props) => {
+function create(props: Props) {
   return formatHtml(`<input type="checkbox" class="${com(props)}" ${props.disabled ? 'disabled' : ''} ${props.checked ? 'checked' : ''}  />`)
 }
 
@@ -24,14 +25,14 @@ const meta: Meta<Props> = {
     checked: { control: 'boolean' },
     disabled: { control: 'boolean' },
     size: { control: 'inline-radio', options: sizes },
-    type: { control: 'inline-radio', options: types }
-  }
+    type: { control: 'inline-radio', options: types },
+  },
 }
 
 type Story = StoryObj<Props>
 
 export const Default: Story = {
-  args: {}
+  args: {},
 }
 
 export const Form: Story = {
@@ -43,7 +44,7 @@ export const Form: Story = {
       ${create(args)}
     </label>
   </div>`
-  }
+  },
 }
 
 export default meta

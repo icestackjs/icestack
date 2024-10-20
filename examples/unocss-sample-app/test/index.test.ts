@@ -1,5 +1,6 @@
 import path from 'node:path'
 import { getConfig, getPreflightCss, getRules } from '../preset'
+
 const loadDirectory = path.resolve(__dirname, '../my-ui')
 describe('unocss', () => {
   it('getConfig', () => {

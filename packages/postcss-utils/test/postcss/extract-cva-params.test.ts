@@ -1,5 +1,5 @@
-import postcss, { comment } from 'postcss'
 import extractCva from '@/plugins/extract-cva-params'
+import postcss from 'postcss'
 
 describe('extract-cva-params', () => {
   it('base', async () => {
@@ -8,8 +8,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -35,8 +35,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -60,8 +60,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -87,8 +87,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -114,8 +114,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -139,8 +139,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       
@@ -163,8 +163,8 @@ describe('extract-cva-params', () => {
       extractCva({
         process(x) {
           res = x
-        }
-      })
+        },
+      }),
       // @ts-ignore
     ]).process(`
       /* @dv intent="primary" */

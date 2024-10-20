@@ -1,5 +1,5 @@
-import { getCodegenOptions } from '@icestack/config'
 import { createContext } from '@/context'
+import { getCodegenOptions } from '@icestack/config'
 // import { calcBase } from '@/base'
 describe('createPreset options', () => {
   // it.skip('case 0', () => {
@@ -28,7 +28,7 @@ describe('createPreset options', () => {
 
     // const { allTypes } = calcBase(options)
     const res = ctx.createPreset({
-      types: []
+      types: [],
     })
     expect(res.alert).toMatchSnapshot()
   })
@@ -38,14 +38,14 @@ describe('createPreset options', () => {
       mode: 'raw',
       components: {
         alert: {
-          mode: 'styled'
-        }
-      }
+          mode: 'styled',
+        },
+      },
     })
     const ctx = createContext(options)
     // const { allTypes } = calcBase(options)
     const res = ctx.createPreset({
-      types: []
+      types: [],
     })
     expect(res.alert).toMatchSnapshot()
   })
@@ -59,32 +59,32 @@ describe('createPreset options', () => {
           extend: {
             base: {
               '.xxx': {
-                apply: ['bg-red-800']
+                apply: ['bg-red-800'],
               },
               '.ccc': {
                 css: {
-                  color: 'red'
+                  color: 'red',
                 },
-                apply: ['bg-blue-500']
-              }
-            }
+                apply: ['bg-blue-500'],
+              },
+            },
           },
           override: {
             base: {
               '.xxx': {
-                apply: ['bg-red-900']
-              }
-            }
+                apply: ['bg-red-900'],
+              },
+            },
           },
 
-          selector: '.xxx'
-        }
-      }
+          selector: '.xxx',
+        },
+      },
     })
     const ctx = createContext(options)
     // const { allTypes } = calcBase(options)
     const res = ctx.createPreset({
-      types: []
+      types: [],
     })
     expect(res.alert).toMatchSnapshot()
   })
@@ -99,27 +99,27 @@ describe('createPreset options', () => {
             utils: {
               '.alert': {
                 '.my-xxx': {
-                  css: {
-                    color: 'red'
+                  'css': {
+                    color: 'red',
                   },
-                  apply: ['bg-blue-500'],
+                  'apply': ['bg-blue-500'],
                   '&:hover': {
                     css: {
-                      color: 'blue'
-                    }
-                  }
-                }
-              }
-            }
+                      color: 'blue',
+                    },
+                  },
+                },
+              },
+            },
           },
-          selector: '.my-xxx'
-        }
-      }
+          selector: '.my-xxx',
+        },
+      },
     })
     const ctx = createContext(options)
     // const { allTypes } = calcBase(options)
     const res = ctx.createPreset({
-      types: []
+      types: [],
     })
     expect(res.alert).toMatchSnapshot()
   })

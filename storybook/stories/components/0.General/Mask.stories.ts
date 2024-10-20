@@ -1,16 +1,17 @@
-import type { StoryObj, Meta } from '@storybook/html'
+import type { Meta, StoryObj } from '@storybook/html'
 
 import type { VariantProps } from 'class-variance-authority'
+import Panda from '../../assets/image/panda.jpg'
 import { formatHtml } from '../share'
 import Cva from '../style'
-import Panda from '../../assets/image/panda.jpg'
+
 type Props = VariantProps<typeof C>
 
 const shapes = Cva.mask.shapes
 
 const C = Cva.mask.cva
 
-const create = (props: Props) => {
+function create(props: Props) {
   return formatHtml(`<img class="${C(props)} w-20" src="${Panda}" />`)
 }
 
@@ -20,7 +21,7 @@ const meta: Meta<Props> = {
   render: (props) => {
     return create(props)
   },
-  argTypes: {}
+  argTypes: {},
 }
 
 type Story = StoryObj<Props>
@@ -32,12 +33,12 @@ export const Default: Story = {
     for (const shape of shapes) {
       strs.push(
         create({
-          shape
-        })
+          shape,
+        }),
       )
     }
     return formatHtml(`<div class="grid grid-cols-6 gap-4">${strs.join('')}</div>`)
-  }
+  },
 }
 
 export default meta

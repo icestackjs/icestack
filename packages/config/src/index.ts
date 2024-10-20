@@ -1,8 +1,8 @@
+import type { CodegenOptions, Preset } from '@icestack/types'
 import process from 'node:process'
+import { defuOptions, makeArray } from '@icestack/shared'
 import { cosmiconfigSync } from 'cosmiconfig'
 import { cloneDeep, flattenDeep, isObject, omit, set } from 'lodash'
-import type { CodegenOptions, Preset } from '@icestack/types'
-import { defuOptions, makeArray } from '@icestack/shared'
 import { getCodegenDefaults } from './defaults'
 
 export function defineConfig(options?: CodegenOptions) {

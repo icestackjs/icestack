@@ -1,15 +1,16 @@
 {
   "name": "postcss-cva",
-  "description": "generate cva functions by css comment",
   "version": "0.2.5",
-  "scripts": {
-    "dev": "unbuild --sourcemap",
-    "build": "unbuild",
-    "test": "vitest run",
-    "test:dev": "vitest",
-    "release": "pnpm publish",
-    "sync": "cnpm sync postcss-cva",
-    "md": "node scripts/md.js"
+  "description": "generate cva functions by css comment",
+  "author": "SonOfMagic <qq1324318532@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://ui.icebreaker.top/docs/cva-generate",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonofmagic/icestack"
+  },
+  "bugs": {
+    "url": "https://github.com/sonofmagic/icestack"
   },
   "keywords": [
     "cva",
@@ -47,11 +48,17 @@
     "./*": "./*"
   },
   "main": "./dist/index.cjs",
+  "scripts": {
+    "dev": "unbuild --sourcemap",
+    "build": "unbuild",
+    "test": "vitest run",
+    "test:dev": "vitest",
+    "release": "pnpm publish",
+    "sync": "cnpm sync postcss-cva",
+    "md": "node scripts/md.js"
+  },
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "typesVersions": {
     "*": {
       "*": [
@@ -60,26 +67,19 @@
       ]
     }
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
-    "@babel/generator": "^7.25.0",
-    "@babel/types": "^7.25.2",
+    "@babel/generator": "^7.25.7",
+    "@babel/types": "^7.25.8",
     "@icestack/shared": "workspace:^",
     "lodash": "^4.17.21",
     "picomatch": "^4.0.2",
     "postcss-selector-parser": "^6.1.1"
   },
-  "author": "SonOfMagic <qq1324318532@gmail.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sonofmagic/icestack"
-  },
-  "homepage": "https://ui.icebreaker.top/docs/cva-generate",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sonofmagic/icestack"
-  },
   "devDependencies": {
     "@types/picomatch": "^3.0.1",
-    "postcss": "^8.4.41"
+    "postcss": "^8.4.47"
   }
 }

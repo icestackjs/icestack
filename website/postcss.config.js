@@ -10,8 +10,8 @@
 module.exports = {
   plugins: {
     // './custom-postcss-plugin.js': {},
-    tailwindcss: {},
+    'tailwindcss': {},
     '@icestack/postcss': {},
-    autoprefixer: {}
-  }
+    'autoprefixer': {},
+  },
 }

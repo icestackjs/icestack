@@ -7,8 +7,8 @@
         "src/*"
       ]
     },
-    "allowJs": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "allowJs": true
   },
   "include": [
     "src",

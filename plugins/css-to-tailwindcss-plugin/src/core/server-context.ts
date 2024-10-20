@@ -1,15 +1,15 @@
+import type { IProcessOptions } from '@/types'
+import type { AcceptedPlugin } from 'postcss'
+import fss from 'node:fs'
 // dispose base components utilities
 import fs from 'node:fs/promises'
-import fss from 'node:fs'
 import path from 'node:path'
-import type { AcceptedPlugin } from 'postcss'
+import { getOptions } from '@/options'
 import postcss from 'postcss'
 import atImport from 'postcss-import'
+import { BaseContext } from './base-context'
 import { atRulesRenamePlugin, extractLayerPlugin, markLayerPlugin } from './extract-layer'
 import { isExtSassFile, sassCompile, sassCompileString, sassCompileSync } from './sass'
-import { BaseContext } from './base-context'
-import type { IProcessOptions } from '@/types'
-import { getOptions } from '@/options'
 
 export function createContext(opts?: IProcessOptions) {
   const ctx = new BaseContext()

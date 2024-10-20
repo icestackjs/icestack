@@ -1,6 +1,6 @@
 import path from 'node:path'
-import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import { defineConfig } from 'vite'
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [vue()],
@@ -8,12 +8,12 @@ export default defineConfig({
     alias: [
       {
         find: '@',
-        replacement: path.resolve(__dirname, './src')
+        replacement: path.resolve(__dirname, './src'),
       },
       {
         find: 'cva',
-        replacement: path.resolve(__dirname, './cva')
-      }
-    ]
-  }
+        replacement: path.resolve(__dirname, './cva'),
+      },
+    ],
+  },
 })

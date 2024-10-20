@@ -1,8 +1,8 @@
-import path from 'node:path'
-import { pathToFileURL } from 'node:url'
-import process from 'node:process'
-import defu from 'defu'
 import type { IProcessOptions, TailwindcssPluginOptions } from './types'
+import path from 'node:path'
+import process from 'node:process'
+import { pathToFileURL } from 'node:url'
+import defu from 'defu'
 
 function getDefaultCacheDir() {
   return path.resolve(process.cwd(), 'node_modules', '.css-to-tailwindcss-plugin')

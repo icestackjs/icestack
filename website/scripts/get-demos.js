@@ -1,19 +1,19 @@
-const path = require('node:path')
 const fs = require('node:fs')
+const path = require('node:path')
 const axios = require('axios')
 const cheerio = require('cheerio')
-const prettier = require('prettier')
-const { default: MagicString } = require('magic-string')
 const walk = require('klaw-sync')
+const { default: MagicString } = require('magic-string')
+const prettier = require('prettier')
 const { resolveDemo, demosDir, resolveUnocssVueDir } = require('./dirs')
 
 require('dotenv').config({
-  path: path.resolve(__dirname, '../.env')
+  path: path.resolve(__dirname, '../.env'),
 })
 
 const dirs = walk(demosDir, {
   depthLimit: 0,
-  nofile: true
+  nofile: true,
 })
 
 const componentsArray = dirs.map((x) => {
@@ -35,7 +35,7 @@ ${html}
 async function main() {
   //
   for (const name of componentsArray) {
-    const res = await axios.default.get('http://localhost:3000/components/' + name)
+    const res = await axios.default.get(`http://localhost:3000/components/${name}`)
     const m = cheerio.load(res.data)
     const html = m('body .drawer-content .prose').html()
     const $ = cheerio.load(html)
@@ -54,7 +54,7 @@ async function main() {
       // html.replaceAll(/src="\/[\w/]*"/g, 'src="/pig.jpg"')
       result.push({
         title: text,
-        html: html.toString()
+        html: html.toString(),
       })
     })
     for (const xxx of result) {
@@ -62,7 +62,7 @@ async function main() {
         parser: 'html',
         tabWidth: 2,
         htmlWhitespaceSensitivity: 'ignore',
-        printWidth: 100
+        printWidth: 100,
       })
     }
 
@@ -70,10 +70,10 @@ async function main() {
       resolveDemo(name, 'base.mdx'),
       `import CodeRender from '../../CodeRender'
 
-${result.map((x) => makeAAA(x)).join('\n')}   
+${result.map(x => makeAAA(x)).join('\n')}   
 
     `,
-      'utf8'
+      'utf8',
     )
     const vueCode = await prettier.format(
       `<script setup lang="ts">
@@ -82,7 +82,7 @@ ${result.map((x) => makeAAA(x)).join('\n')}
     
     <template>
     <div>
-    ${result.map((x) => x.html).join('\n')}
+    ${result.map(x => x.html).join('\n')}
     </div>   
     </template>
     `,
@@ -90,11 +90,11 @@ ${result.map((x) => makeAAA(x)).join('\n')}
         parser: 'vue',
         tabWidth: 2,
         htmlWhitespaceSensitivity: 'ignore',
-        printWidth: 100
-      }
+        printWidth: 100,
+      },
     )
-    fs.writeFileSync(resolveUnocssVueDir(name + '.vue'), vueCode, 'utf8')
-    console.log(name + ' finished!')
+    fs.writeFileSync(resolveUnocssVueDir(`${name}.vue`), vueCode, 'utf8')
+    console.log(`${name} finished!`)
   }
 
   console.log('finished!')

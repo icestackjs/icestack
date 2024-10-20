@@ -1,7 +1,7 @@
 const path = require('node:path')
-const { icestackPlugin } = require('@icestack/tailwindcss')
 const { iconsPlugin, getIconCollections } = require('@egoist/tailwindcss-icons')
 const { createTailwindcssContent } = require('@icestack/cva')
+const { icestackPlugin } = require('@icestack/tailwindcss')
 // const plugin = require('tailwindcss/plugin')
 // const plugin = require('tailwindcss/plugin')
 /** @type {import('tailwindcss').Config} */
@@ -12,9 +12,9 @@ module.exports = {
     './theme.config.jsx',
     {
       // https://github.com/tailwindlabs/tailwindcss/issues/11134
-      raw: 'dark'
+      raw: 'dark',
     },
-    createTailwindcssContent()
+    createTailwindcssContent(),
   ],
   theme: {},
   plugins: [
@@ -39,16 +39,16 @@ module.exports = {
     // }),
     icestackPlugin({
       loadDirectory: path.resolve(__dirname, './my-ui'),
-      loadConfig: true
+      loadConfig: true,
     }),
     iconsPlugin({
-      collections: getIconCollections(['mdi'])
-    })
+      collections: getIconCollections(['mdi']),
+    }),
 
     // plugin.withOptions(() => {
     //   const a = require('lodash')
     //   a.add(1, 2)
     //   return () => {}
     // })
-  ]
+  ],
 }

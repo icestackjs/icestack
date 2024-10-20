@@ -18,31 +18,31 @@ const config = {
 
       // your new theme can be write here
       dimmed: {
-        selector: '[data-mode="dimmed"]'
-      }
+        selector: '[data-mode="dimmed"]',
+      },
     },
     types: {
       primary: {
         // 新的主题声明
         dimmed: {
-          primary: '#1677ff',
+          'primary': '#1677ff',
           'primary-content': '#ffffff',
           'primary-hover': '#4096ff',
-          'primary-active': '#0958d9'
-        }
-      }
+          'primary-active': '#0958d9',
+        },
+      },
       // ...
     },
     extraColors: {
       // you can set light or dark or custom
       // 新的主题声明
-      dimmed: sharedExtraColors.dark
+      dimmed: sharedExtraColors.dark,
     },
     extraVars: {
       // 新的主题声明
-      dimmed: sharedExtraVars
-    }
-  }
+      dimmed: sharedExtraVars,
+    },
+  },
 }
 
 module.exports = config

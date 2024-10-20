@@ -1,7 +1,7 @@
 {
   "name": "uni-app-vite-vue3",
-  "private": true,
   "version": "0.0.1",
+  "private": true,
   "scripts": {
     "dev": "uni -p mp-weixin",
     "dev:app": "uni -p app",

@@ -1,15 +1,15 @@
-import path from 'node:path'
 import fs from 'node:fs'
+import path from 'node:path'
+import { removeDefaultComponents } from '@/components'
 import { createContext } from '@/context'
 import { getCodegenOptions } from '@icestack/config'
-import { removeDefaultComponents } from '@/components'
 
 describe('cutsom', () => {
   it('custom component case 0', async () => {
     const outdir = path.resolve(__dirname, './outdir')
     const options = {
       postcss: {
-        prefix: 'ice-'
+        prefix: 'ice-',
       },
 
       components: {
@@ -17,10 +17,10 @@ describe('cutsom', () => {
         subtitle: {
           extend: `.subtitle {
             @apply text-gray-600 text-sm pt-5 pb-4;
-          }`
-        }
+          }`,
+        },
       },
-      outdir
+      outdir,
     }
     const ctx = createContext(options)
     expect(ctx.presets.subtitle).toBeTruthy()
@@ -33,28 +33,28 @@ describe('cutsom', () => {
     // const outdir = path.resolve(__dirname, './outdir')
     const options = getCodegenOptions({
       postcss: {
-        prefix: 'ice-'
+        prefix: 'ice-',
       },
       components: {
         ...removeDefaultComponents,
         subtitle: {
           extend: `.subtitle {
             @apply text-gray-600 text-sm pt-5 pb-4;
-          }`
+          }`,
         },
         tips: {
           postcss: {
             prefix: {
-              prefix: 'som-'
-            }
+              prefix: 'som-',
+            },
           },
 
           extend: `.tips {
             @apply text-gray-500 text-xs pt-3 pb-2;
-          }`
-        }
+          }`,
+        },
       },
-      dryRun: true
+      dryRun: true,
       // outdir
     })
     const ctx = createContext(options)
@@ -67,7 +67,7 @@ describe('cutsom', () => {
     // const outdir = path.resolve(__dirname, './outdir')
     const options = getCodegenOptions({
       postcss: {
-        prefix: 'ice-'
+        prefix: 'ice-',
       },
 
       components: {
@@ -75,8 +75,8 @@ describe('cutsom', () => {
         checkbox: {
           postcss: {
             prefix: {
-              ignore: ['.wx-checkbox-input']
-            }
+              ignore: ['.wx-checkbox-input'],
+            },
           },
 
           schema: ({ selector, types }) => {
@@ -105,13 +105,13 @@ describe('cutsom', () => {
                   transform: translate(-50%, -50%) scale(1);
                   -webkit-transform: translate(-50%, -50%) scale(1);
                 }
-                `
-              }
+                `,
+              },
             }
-          }
-        }
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
       // outdir
     })
     const ctx = createContext(options)
@@ -132,11 +132,11 @@ describe('cutsom', () => {
               @apply bg-red-300 text-sm;
               color: red;
             }
-            `
-          }
-        }
+            `,
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
       // outdir
     })
     const ctx = createContext(options)
@@ -158,11 +158,11 @@ describe('cutsom', () => {
               @apply leading-4 #{!important};
               color: red;
             }
-            `
-          }
-        }
+            `,
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
       // outdir
     })
     const ctx = createContext(options)
@@ -183,11 +183,11 @@ describe('cutsom', () => {
               @apply bg-red-300 text-sm leading-4 #{!important};
               color: red !important;
             }
-            `
-          }
-        }
+            `,
+          },
+        },
       },
-      dryRun: true
+      dryRun: true,
       // outdir
     })
     const ctx = createContext(options)

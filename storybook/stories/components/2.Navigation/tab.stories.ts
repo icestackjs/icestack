@@ -1,11 +1,11 @@
-import type { StoryObj, Meta } from '@storybook/html'
+import type { Meta, StoryObj } from '@storybook/html'
 import type { VariantProps } from 'class-variance-authority'
 import { formatHtml } from '../share'
 import Cva from '../style'
 
 type Props = VariantProps<typeof Cva.tab.cva.parent> & VariantProps<typeof Cva.tab.cva.child> & { textContent?: string }
 
-const create = (props: Props) => {
+function create(props: Props) {
   const parent = Cva.tab.cva.parent(props)
   const child = Cva.tab.cva.child(props)
   return formatHtml(`<div role="tablist" class="${parent}">
@@ -25,19 +25,19 @@ const meta: Meta<Props> = {
   argTypes: {
     shape: {
       options: Cva.tab.shapes,
-      control: { type: 'inline-radio' }
+      control: { type: 'inline-radio' },
     },
     size: {
       options: Cva.tab.sizes,
-      control: { type: 'inline-radio' }
-    }
-  }
+      control: { type: 'inline-radio' },
+    },
+  },
 }
 
 type Story = StoryObj<Props>
 
 export const Default: Story = {
-  args: {}
+  args: {},
 }
 
 export const Types: Story = {
@@ -48,12 +48,12 @@ export const Types: Story = {
       strs.push(
         create({
           type,
-          ...args
-        })
+          ...args,
+        }),
       )
     }
     return formatHtml(`<div class="grid grid-cols-3 gap-4">${strs.join('')}</div>`)
-  }
+  },
 }
 
 export default meta

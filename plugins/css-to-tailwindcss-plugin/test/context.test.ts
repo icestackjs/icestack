@@ -1,9 +1,9 @@
-import path from 'node:path'
-import { pathToFileURL } from 'node:url'
-import { rule, decl } from 'postcss'
-import { fixturesResolve, defaultTailwindConfig } from './utils'
-import { createContext, IContext } from '@/core'
+import type { IContext } from '@/core'
+import { createContext } from '@/core'
 import { BaseContext } from '@/core/base-context'
+import { decl, rule } from 'postcss'
+import { fixturesResolve } from './utils'
+
 describe('context', () => {
   let ctx: IContext
   let baseCtx: BaseContext
@@ -32,10 +32,10 @@ describe('context', () => {
         nodes: [
           decl({
             prop: 'color',
-            value: 'red'
-          })
-        ]
-      })
+            value: 'red',
+          }),
+        ],
+      }),
     )
     expect(baseCtx.getNodes('base').length).toBe(1)
     // @ts-ignore
@@ -50,20 +50,20 @@ describe('context', () => {
           nodes: [
             decl({
               prop: 'color',
-              value: 'red'
-            })
-          ]
+              value: 'red',
+            }),
+          ],
         }),
         rule({
           selector: '.b',
           nodes: [
             decl({
               prop: 'color',
-              value: 'red'
-            })
-          ]
-        })
-      ]
+              value: 'red',
+            }),
+          ],
+        }),
+      ],
     )
     // @ts-ignore
     expect(baseCtx.getNodes('xxx').length).toBe(2)

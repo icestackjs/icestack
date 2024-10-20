@@ -3,10 +3,11 @@ import fs from 'node:fs'
 export function ensureDir(dir: string) {
   try {
     fs.mkdirSync(dir, { recursive: true })
-  } catch {}
+  }
+  catch {}
 }
 
-export const matchAll = (regex: RegExp, str: string) => {
+export function matchAll(regex: RegExp, str: string) {
   const arr = []
   let res
   do {

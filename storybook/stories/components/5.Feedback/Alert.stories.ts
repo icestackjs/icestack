@@ -1,13 +1,14 @@
-import type { StoryObj, Meta } from '@storybook/html'
+import type { Meta, StoryObj } from '@storybook/html'
 import type { VariantProps } from 'class-variance-authority'
 import Cva from '../style'
+
 type AlertProps = VariantProps<typeof alert> & { textContent?: string }
 
 const allTypes = Cva.alert.types
 
 const alert = Cva.alert.cva
 
-const createAlert = (props: AlertProps) => {
+function createAlert(props: AlertProps) {
   const div = document.createElement('div')
   div.className = alert(props)
   const icon = document.createElement('i')
@@ -29,15 +30,15 @@ const meta: Meta<AlertProps> = {
   argTypes: {
     type: {
       options: allTypes,
-      control: { type: 'inline-radio' }
-    }
-  }
+      control: { type: 'inline-radio' },
+    },
+  },
 }
 
 type Story = StoryObj<AlertProps>
 
 export const Default: Story = {
-  args: {}
+  args: {},
 }
 
 export default meta

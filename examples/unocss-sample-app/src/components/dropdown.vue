@@ -3,7 +3,9 @@
 <template>
   <div>
     <details class="dropdown mb-32">
-      <summary class="m-1 btn">open or close</summary>
+      <summary class="m-1 btn">
+        open or close
+      </summary>
       <ul class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><button>Item 1</button></li>
         <li><button>Item 2</button></li>
@@ -11,9 +13,13 @@
     </details>
 
     <div>
-      <div class="text-sm mb-4 text-center">Click outside to close</div>
+      <div class="text-sm mb-4 text-center">
+        Click outside to close
+      </div>
       <div class="dropdown mb-32">
-        <div tabindex="0" role="button" class="m-1 btn">Click to open</div>
+        <div tabindex="0" role="button" class="m-1 btn">
+          Click to open
+        </div>
         <ul
           tabindex="0"
           class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52"
@@ -25,7 +31,9 @@
     </div>
 
     <div class="dropdown dropdown-end mb-32">
-      <div tabindex="0" role="button" class="m-1 btn">Click</div>
+      <div tabindex="0" role="button" class="m-1 btn">
+        Click
+      </div>
       <ul tabindex="0" class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><button>Item 1</button></li>
         <li><button>Item 2</button></li>
@@ -33,7 +41,9 @@
     </div>
 
     <div class="dropdown dropdown-top mt-32">
-      <div tabindex="0" role="button" class="m-1 btn">Click</div>
+      <div tabindex="0" role="button" class="m-1 btn">
+        Click
+      </div>
       <ul tabindex="0" class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><button>Item 1</button></li>
         <li><button>Item 2</button></li>
@@ -41,7 +51,9 @@
     </div>
 
     <div class="dropdown dropdown-top dropdown-end mt-32">
-      <div tabindex="0" role="button" class="m-1 btn">Click</div>
+      <div tabindex="0" role="button" class="m-1 btn">
+        Click
+      </div>
       <ul tabindex="0" class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><button>Item 1</button></li>
         <li><button>Item 2</button></li>
@@ -49,7 +61,9 @@
     </div>
 
     <div class="dropdown dropdown-bottom mb-32">
-      <div tabindex="0" class="m-1 btn">Click</div>
+      <div tabindex="0" class="m-1 btn">
+        Click
+      </div>
       <ul tabindex="0" class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><button>Item 1</button></li>
         <li><button>Item 2</button></li>
@@ -57,7 +71,9 @@
     </div>
 
     <div class="dropdown dropdown-bottom dropdown-end mb-32">
-      <div tabindex="0" role="button" class="m-1 btn">Click</div>
+      <div tabindex="0" role="button" class="m-1 btn">
+        Click
+      </div>
       <ul tabindex="0" class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><button>Item 1</button></li>
         <li><button>Item 2</button></li>
@@ -65,7 +81,9 @@
     </div>
 
     <div class="dropdown dropdown-left mb-16">
-      <div tabindex="0" role="button" class="m-1 btn">Click</div>
+      <div tabindex="0" role="button" class="m-1 btn">
+        Click
+      </div>
       <ul tabindex="0" class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><button>Item 1</button></li>
         <li><button>Item 2</button></li>
@@ -73,7 +91,9 @@
     </div>
 
     <div class="dropdown dropdown-left dropdown-end mt-16">
-      <div tabindex="0" role="button" class="m-1 btn">Click</div>
+      <div tabindex="0" role="button" class="m-1 btn">
+        Click
+      </div>
       <ul tabindex="0" class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><button>Item 1</button></li>
         <li><button>Item 2</button></li>
@@ -81,7 +101,9 @@
     </div>
 
     <div class="dropdown dropdown-right mb-16">
-      <div tabindex="0" role="button" class="m-1 btn">Click</div>
+      <div tabindex="0" role="button" class="m-1 btn">
+        Click
+      </div>
       <ul tabindex="0" class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><button>Item 1</button></li>
         <li><button>Item 2</button></li>
@@ -89,7 +111,9 @@
     </div>
 
     <div class="dropdown dropdown-right dropdown-end mt-16">
-      <div tabindex="0" role="button" class="m-1 btn">Click</div>
+      <div tabindex="0" role="button" class="m-1 btn">
+        Click
+      </div>
       <ul tabindex="0" class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><button>Item 1</button></li>
         <li><button>Item 2</button></li>
@@ -97,7 +121,9 @@
     </div>
 
     <div class="dropdown dropdown-hover mb-32">
-      <div tabindex="0" role="button" class="m-1 btn">Hover</div>
+      <div tabindex="0" role="button" class="m-1 btn">
+        Hover
+      </div>
       <ul tabindex="0" class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><button>Item 1</button></li>
         <li><button>Item 2</button></li>
@@ -105,7 +131,9 @@
     </div>
 
     <div class="dropdown dropdown-open mb-32">
-      <div tabindex="0" role="button" class="m-1 btn">Button</div>
+      <div tabindex="0" role="button" class="m-1 btn">
+        Button
+      </div>
       <ul tabindex="0" class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52">
         <li><button>Item 1</button></li>
         <li><button>Item 2</button></li>
@@ -113,13 +141,17 @@
     </div>
 
     <div class="dropdown mb-32">
-      <div tabindex="0" role="button" class="m-1 btn">Click</div>
+      <div tabindex="0" role="button" class="m-1 btn">
+        Click
+      </div>
       <div
         tabindex="0"
         class="w-64 p-2 shadow card card-compact dropdown-content z-[1] bg-primary text-primary-content"
       >
         <div class="card-body">
-          <h3 class="card-title">Card title!</h3>
+          <h3 class="card-title">
+            Card title!
+          </h3>
           <p>you can use any element as a dropdown.</p>
         </div>
       </div>
@@ -127,13 +159,19 @@
 
     <div class="navbar mb-40 bg-base-300 rounded-box w-full">
       <div class="flex-1 px-2 lg:flex-none">
-        <button class="text-lg font-bold">IceStack</button>
+        <button class="text-lg font-bold">
+          IceStack
+        </button>
       </div>
       <div class="flex justify-end flex-1 px-2">
         <div class="flex items-stretch">
-          <button class="btn btn-ghost rounded-btn">Button</button>
+          <button class="btn btn-ghost rounded-btn">
+            Button
+          </button>
           <div class="dropdown dropdown-end">
-            <div tabindex="0" role="button" class="btn btn-ghost rounded-btn">Dropdown</div>
+            <div tabindex="0" role="button" class="btn btn-ghost rounded-btn">
+              Dropdown
+            </div>
             <ul
               tabindex="0"
               class="p-2 shadow menu dropdown-content z-[1] bg-base-100 rounded-box w-52 mt-4"
@@ -162,7 +200,7 @@
               stroke-linejoin="round"
               stroke-width="2"
               d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            ></path>
+            />
           </svg>
         </div>
         <div
@@ -170,7 +208,9 @@
           class="shadow card compact dropdown-content z-[1] bg-base-100 rounded-box w-64"
         >
           <div tabindex="0" class="card-body">
-            <h2 class="card-title">You needed more info?</h2>
+            <h2 class="card-title">
+              You needed more info?
+            </h2>
             <p>Here is a description!</p>
           </div>
         </div>

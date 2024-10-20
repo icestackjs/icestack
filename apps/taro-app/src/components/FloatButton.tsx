@@ -1,8 +1,10 @@
-import { BaseEventOrig, MovableArea, MovableView, MovableViewProps, View } from '@tarojs/components'
-import { FC, PropsWithChildren, useCallback, useEffect, useMemo, useState } from 'react'
-import debounce from 'lodash.debounce'
-import Taro from '@tarojs/taro'
+import type { BaseEventOrig, MovableViewProps } from '@tarojs/components'
+import type { FC, PropsWithChildren } from 'react'
 import { systemInfo } from '@/store/index'
+import { MovableArea, MovableView, View } from '@tarojs/components'
+import Taro from '@tarojs/taro'
+import debounce from 'lodash.debounce'
+import { useCallback, useState } from 'react'
 
 // console.log(systemInfo)
 function rpx2px(size: number) {
@@ -33,12 +35,13 @@ const FloatBtn: FC<
           initY = js.y
         }
       }
-    } catch (error) {}
+    }
+    catch (error) {}
   }
 
   const [position, setPosition] = useState({
     x: initX,
-    y: initY
+    y: initY,
   })
 
   const resetToYaxis = useCallback(
@@ -46,12 +49,12 @@ const FloatBtn: FC<
       if (source) {
         setPosition({
           x,
-          y
+          y,
         })
       }
       // console.log('[Final]', x, y, source)
     }, 100),
-    [setPosition]
+    [setPosition],
   )
   const half = (windowWidth - btnWidth - edgeWidth * 2) / 2
 
@@ -62,7 +65,7 @@ const FloatBtn: FC<
         resetToYaxis(x, y, source)
       }
     },
-    [resetToYaxis]
+    [resetToYaxis],
   )
 
   const onTouchEnd = useCallback(() => {
@@ -72,12 +75,13 @@ const FloatBtn: FC<
         if (x > half) {
           return {
             x: windowWidth,
-            y
+            y,
           }
-        } else {
+        }
+        else {
           return {
             x: 0,
-            y
+            y,
           }
         }
       })
@@ -92,25 +96,25 @@ const FloatBtn: FC<
   }, [half, position, storeKey, windowWidth])
   return (
     <View
-      className='pointer-events-none fixed z-50'
+      className="pointer-events-none fixed z-50"
       style={{
         top: padding[0],
         right: padding[1],
         bottom: padding[2],
-        left: padding[3]
+        left: padding[3],
       }}
     >
-      <MovableArea className='h-full w-full'>
+      <MovableArea className="h-full w-full">
         <MovableView
           animation
-          direction='all'
+          direction="all"
           onChange={onChange}
           onTouchEnd={onTouchEnd}
           x={position.x}
           y={position.y}
           style={{
             height: `${btnW}rpx`,
-            width: `${btnW}rpx`
+            width: `${btnW}rpx`,
           }}
         >
           {children}

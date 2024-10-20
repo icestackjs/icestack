@@ -1,6 +1,8 @@
-<template><button class="btn"></button>></template>
-
 <script setup lang="ts"></script>
+
+<template>
+  <button class="btn" />>
+</template>
 
 <style scoped lang="scss">
 /* @meta path="button" */

@@ -1,5 +1,5 @@
 module.exports = {
   plugins: {
-    '@icestack/postcss': {}
-  }
+    '@icestack/postcss': {},
+  },
 }

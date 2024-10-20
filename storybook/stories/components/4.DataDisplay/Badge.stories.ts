@@ -1,7 +1,8 @@
-import { Meta, StoryObj } from '@storybook/html'
-import { VariantProps } from 'class-variance-authority'
+import type { Meta, StoryObj } from '@storybook/html'
+import type { VariantProps } from 'class-variance-authority'
 import { formatHtml } from '../share'
 import Cva from '../style'
+
 type BadgeProps = VariantProps<typeof badge> & { textContent?: string }
 
 const allTypes = Cva.badge.types
@@ -9,7 +10,7 @@ const allSizes = Cva.badge.sizes
 
 const badge = Cva.badge.cva
 
-const create = (props: BadgeProps) => {
+function create(props: BadgeProps) {
   return formatHtml(`<div class="${badge(props)}">
   ${props.textContent ?? 'Badge'}
     </div>`)
@@ -22,33 +23,33 @@ const meta: Meta<BadgeProps> = {
     return create(args)
   },
   args: {
-    textContent: 'Badge'
+    textContent: 'Badge',
   },
   argTypes: {
     type: {
       options: allTypes,
-      control: { type: 'inline-radio' }
+      control: { type: 'inline-radio' },
     },
     outline: {
       description: 'badge-outline',
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     size: {
       description: '',
       options: allSizes,
       control: { type: 'inline-radio' },
-      type: 'string'
+      type: 'string',
     },
     textContent: {
-      control: { type: 'text' }
-    }
-  }
+      control: { type: 'text' },
+    },
+  },
 }
 
 type Story = StoryObj<BadgeProps>
 
 export const Default: Story = {
-  args: {}
+  args: {},
 }
 
 export default meta

@@ -1,7 +1,8 @@
-import { View, Text, Slider } from '@tarojs/components'
+import { View } from '@tarojs/components'
 // import './range.scss'
 import CodeRender from '@/components/CodeRender'
 import './steps.scss'
+
 export default () => {
   return (
     <View>

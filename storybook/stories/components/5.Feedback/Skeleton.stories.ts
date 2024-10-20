@@ -1,14 +1,15 @@
-import type { StoryObj, Meta } from '@storybook/html'
+import type { Meta, StoryObj } from '@storybook/html'
 import type { VariantProps } from 'class-variance-authority'
 import { formatHtml } from '../share'
 import Cva from '../style'
+
 type SkeletonProps = VariantProps<typeof skeleton>
 
 const shapes = Cva.skeleton.shapes
 
 const skeleton = Cva.skeleton.cva
 
-const createSkeleton = (props: SkeletonProps) => {
+function createSkeleton(props: SkeletonProps) {
   return `<div class="${skeleton(props)}"></div>`
 }
 
@@ -20,14 +21,14 @@ const meta: Meta<SkeletonProps> = {
     return createSkeleton(args)
   },
   args: {
-    shape: 'skeleton-title'
+    shape: 'skeleton-title',
   },
   argTypes: {
     shape: {
       options: shapes,
-      control: { type: 'inline-radio' }
-    }
-  }
+      control: { type: 'inline-radio' },
+    },
+  },
 }
 
 type Story = StoryObj<SkeletonProps>
@@ -47,11 +48,11 @@ export const Default: Story = {
     </div>
     </div>`)
     return div
-  }
+  },
 }
 
 export const Single: Story = {
-  args: {}
+  args: {},
 }
 
 export default meta

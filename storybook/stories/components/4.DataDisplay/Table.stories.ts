@@ -1,8 +1,9 @@
-import { Meta, StoryObj } from '@storybook/html'
-import { VariantProps } from 'class-variance-authority'
+import type { Meta, StoryObj } from '@storybook/html'
+import type { VariantProps } from 'class-variance-authority'
 import { faker } from '@faker-js/faker'
 import { formatHtml } from '../share'
 import Cva from '../style'
+
 type TableProps = VariantProps<typeof table> & { rowsCount: number }
 const allSizes = Cva.table.sizes
 
@@ -30,7 +31,7 @@ function makeRows(num: number) {
   return res
 }
 
-const create = (props: TableProps) => {
+function create(props: TableProps) {
   const body = makeRows(props.rowsCount)
   return formatHtml(`<div class="overflow-x-auto">
   <table class="${table(props)}">
@@ -56,29 +57,29 @@ const meta: Meta<TableProps> = {
     return create(args)
   },
   args: {
-    rowsCount: 5
+    rowsCount: 5,
   },
   argTypes: {
     zebra: {
       description: 'table-zebra',
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     size: {
       description: '',
       options: allSizes,
       control: { type: 'inline-radio' },
-      type: 'string'
+      type: 'string',
     },
     rowsCount: {
-      control: { type: 'number', min: 1, max: 30, step: 1 }
-    }
-  }
+      control: { type: 'number', min: 1, max: 30, step: 1 },
+    },
+  },
 }
 
 type Story = StoryObj<TableProps>
 
 export const Default: Story = {
-  args: {}
+  args: {},
 }
 
 export default meta

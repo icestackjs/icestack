@@ -10,15 +10,15 @@ describe('options', () => {
       dryRun: true,
       mode: 'none',
       base: {
-        extraCss: `:host{color:red;}`
+        extraCss: `:host{color:red;}`,
       },
       presets: [
         {
           base: {
-            extraCss: `.aaa{color:blue;}`
-          }
-        }
-      ]
+            extraCss: `.aaa{color:blue;}`,
+          },
+        },
+      ],
     })
     expect(options).toMatchSnapshot()
   })
@@ -28,15 +28,15 @@ describe('options', () => {
       dryRun: true,
       mode: 'none',
       base: {
-        extraCss: `:host{color:red;}`
+        extraCss: `:host{color:red;}`,
       },
       presets: [
         {
           base: {
-            extraCss: `:host{color:blue;}`
-          }
-        }
-      ]
+            extraCss: `:host{color:blue;}`,
+          },
+        },
+      ],
     })
     expect(options).toMatchSnapshot()
   })
@@ -46,17 +46,17 @@ describe('options', () => {
       dryRun: true,
       mode: 'none',
       base: {
-        extraCss: `:host{color:red;}`
+        extraCss: `:host{color:red;}`,
       },
       presets: [
         {
           base: {
             extraCss: `:host{color:blue;}
             
-            .d{color:red;}`
-          }
-        }
-      ]
+            .d{color:red;}`,
+          },
+        },
+      ],
     })
     // expect(opts).toMatchSnapshot()
     expect(opts?.base?.extraCss).toMatchSnapshot()
@@ -69,21 +69,21 @@ describe('options', () => {
       base: {
         themes: {
           xxx: {
-            extraCss: `.a{color:red}`
-          }
-        }
+            extraCss: `.a{color:red}`,
+          },
+        },
       },
       presets: [
         {
           base: {
             themes: {
               xxx: {
-                extraCss: `.a{color:yellow} .b{color:blue}`
-              }
-            }
-          }
-        }
-      ]
+                extraCss: `.a{color:yellow} .b{color:blue}`,
+              },
+            },
+          },
+        },
+      ],
     })
     // expect(opts).toMatchSnapshot()
     expect(opts.base.themes).toMatchSnapshot()

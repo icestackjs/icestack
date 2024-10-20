@@ -1,10 +1,9 @@
-import { addons } from '@storybook/manager-api';
-import { STORIES_EXPAND_ALL } from '@storybook/core-events'
-import iceTheme from './ice-theme';
+import { addons } from '@storybook/manager-api'
+import iceTheme from './ice-theme'
 
 addons.setConfig({
   theme: iceTheme,
-});
+})
 
 // addons.setConfig({
 //   sidebar: {
@@ -16,7 +15,7 @@ addons.setConfig({
 //   if (!hasExpanded) {
 //     setTimeout(() => {
 //       api.emit(STORIES_EXPAND_ALL)
-//     }, 0) 
+//     }, 0)
 //     hasExpanded = true;
 //   }
 // })

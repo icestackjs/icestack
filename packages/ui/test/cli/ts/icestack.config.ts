@@ -5,11 +5,11 @@ export default {
   base: {
     themes: {
       light: {
-        selector: 'page'
+        selector: 'page',
       },
       dark: {
-        selector: '.dark'
-      }
-    }
-  }
+        selector: '.dark',
+      },
+    },
+  },
 } // defineConfig()

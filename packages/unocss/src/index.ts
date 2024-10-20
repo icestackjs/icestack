@@ -1,8 +1,8 @@
 import type { Preset, Rule } from '@unocss/core'
 import { defu } from '@icestack/shared'
-import { getTheme } from './theme'
-import { getRules } from './rules'
 import { getPreflightCss } from './preflights'
+import { getRules } from './rules'
+import { getTheme } from './theme'
 
 export interface UnocssPluginOptions {
   loadDirectory: string

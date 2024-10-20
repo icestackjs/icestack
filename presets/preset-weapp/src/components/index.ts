@@ -1,16 +1,16 @@
 import type { ComponentsOptions, Preset } from '@icestack/types'
 import button from './button'
 import checkbox from './checkbox'
-import radio from './radio'
+import collapse from './collapse'
+import countdown from './countdown'
 import input from './input'
+import join from './join'
+import radio from './radio'
 import range from './range'
+import tab from './tab'
+import table from './table'
 import textarea from './textarea'
 import toggle from './toggle'
-import table from './table'
-import countdown from './countdown'
-import collapse from './collapse'
-import join from './join'
-import tab from './tab'
 
 export const components: ComponentsOptions = {
   select: {

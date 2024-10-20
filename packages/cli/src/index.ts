@@ -1,12 +1,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import process from 'node:process'
-import { Command } from 'commander'
-import chokidar from 'chokidar'
 import { loadSync } from '@icestack/config'
-import { logger } from '@icestack/logger'
 import { createContext } from '@icestack/core'
+import { logger } from '@icestack/logger'
 import { getModuleDependencies, touch } from '@icestack/shared'
+import chokidar from 'chokidar'
+import { Command } from 'commander'
 import { createJsConfig } from './config'
 
 function touchTwConfig(filepath: string) {

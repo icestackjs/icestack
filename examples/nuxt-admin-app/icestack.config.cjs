@@ -1,16 +1,16 @@
-const customThemes = require("./themes.cjs");
+const customThemes = require('./themes.cjs')
 
 /**
  * @type {import('@icestack/ui').Config}
  */
 const config = {
-  outdir: "./my-ui",
+  outdir: './my-ui',
   base: {
     themes: {
       ...customThemes,
     },
-    mediaDarkTheme: "dim",
+    mediaDarkTheme: 'dim',
   },
-};
+}
 
-module.exports = config;
+module.exports = config

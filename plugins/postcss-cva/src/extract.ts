@@ -1,7 +1,7 @@
 import type { PluginCreator } from 'postcss'
-import { get, set } from 'lodash'
-import { defu, objHash } from '@icestack/shared'
 import type { CvaParams, CvaParamsSet } from './types'
+import { defu, objHash } from '@icestack/shared'
+import { get, set } from 'lodash'
 import { cvaSymbol, defaultParser, extractParams, getParentRule, pickComment, setAdd } from './regex'
 
 export interface ExtractOption {

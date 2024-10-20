@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming/create';
+import { create } from '@storybook/theming/create'
 
 export default create({
   base: 'light',
@@ -6,5 +6,5 @@ export default create({
   // brandUrl: 'https://example.com',
   // brandImage: 'https://storybook.js.org/images/placeholders/350x150.png',
   brandTarget: '_self',
-  
+
 })

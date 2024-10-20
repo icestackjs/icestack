@@ -1,4 +1,5 @@
-import { createContext, IContext } from '@/core/server-context'
+import type { IContext } from '@/core/server-context'
+import { createContext } from '@/core/server-context'
 
 describe('server', () => {
   let ctx: IContext

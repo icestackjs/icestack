@@ -73,12 +73,12 @@ const config = {
                 padding: 50px 80px;
                 border-radius: 12px;
               }
-            `
-          }
+            `,
+          },
         }
-      }
-    }
-  }
+      },
+    },
+  },
 }
 
 module.exports = config

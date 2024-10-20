@@ -27,21 +27,13 @@
   ],
   "sideEffects": false,
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
-    },
-    "./constants": {
-      "types": "./dist/constants.d.ts",
-      "import": "./dist/constants.mjs",
-      "require": "./dist/constants.cjs"
-    },
+    ".": "./src/index.ts",
+    "./constants": "./src/constants.ts",
     "./*": "./*"
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "main": "./src/index.ts",
+  "module": "./src/index.ts",
+  "types": "./src/index.ts",
   "typesVersions": {
     "*": {
       "*": [
@@ -67,8 +59,22 @@
     "merge": "^2.1.1",
     "object-hash": "^3.0.0"
   },
-  "devDependencies": {
-    "@types/lodash": "^4.17.12",
-    "@types/object-hash": "^3.0.6"
+  "publishConfig": {
+    "exports": {
+      ".": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.mjs",
+        "require": "./dist/index.cjs"
+      },
+      "./constants": {
+        "types": "./dist/constants.d.ts",
+        "import": "./dist/constants.mjs",
+        "require": "./dist/constants.cjs"
+      },
+      "./*": "./*"
+    },
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.mjs",
+    "types": "./dist/index.d.ts"
   }
 }

@@ -111,9 +111,10 @@ cli
     if (configFile) {
       logger.success(`load config from ${configFile}`)
     }
+    const paths = await getModuleDependencies(filepath)
     // path.resolve(cwd, 'icestack.config.{js,ts,cjs}')
     chokidar
-      .watch([...getModuleDependencies(filepath)])
+      .watch(paths)
       .on('change', async () => {
         const res = await letUsBuild(opts)
         res && touchTwConfig(res.filepath)

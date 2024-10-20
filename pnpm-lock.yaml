@@ -736,13 +736,6 @@ importers:
       object-hash:
         specifier: ^3.0.0
         version: 3.0.0
-    devDependencies:
-      '@types/lodash':
-        specifier: ^4.17.12
-        version: 4.17.12
-      '@types/object-hash':
-        specifier: ^3.0.6
-        version: 3.0.6
 
   packages/tailwindcss:
     dependencies:

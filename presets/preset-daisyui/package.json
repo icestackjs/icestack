@@ -66,6 +66,6 @@
   "devDependencies": {
     "@icestack/config": "workspace:^",
     "@icestack/ui": "workspace:^",
-    "@types/culori": "^2.1.1"
+    "@types/culori": "^4.0.0"
   }
 }

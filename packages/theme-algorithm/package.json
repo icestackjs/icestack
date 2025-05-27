@@ -31,6 +31,10 @@
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "unbuild",
     "test": "vitest run",
@@ -38,12 +42,8 @@
     "release": "pnpm publish",
     "sync": "cnpm sync @icestack/theme-algorithm"
   },
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
   "dependencies": {
-    "@ant-design/colors": "^7.1.0",
+    "@ant-design/colors": "^7.2.1",
     "@ctrl/tinycolor": "^4.1.0"
   }
 }

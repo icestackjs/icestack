@@ -40,8 +40,8 @@
   },
   "dependencies": {
     "@icestack/shared": "workspace:^",
-    "immutable": "^4.3.7",
-    "sass": "^1.80.3"
+    "immutable": "^5.1.2",
+    "sass": "^1.89.0"
   },
   "devDependencies": {
     "@icestack/postcss-utils": "workspace:^"

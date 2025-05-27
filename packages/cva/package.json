@@ -55,6 +55,6 @@
     "sync": "cnpm sync @icestack/cva"
   },
   "dependencies": {
-    "class-variance-authority": "^0.7.0"
+    "class-variance-authority": "^0.7.1"
   }
 }

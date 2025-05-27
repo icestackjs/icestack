@@ -48,9 +48,9 @@
     "@icestack/core": "workspace:^",
     "@icestack/logger": "workspace:^",
     "@icestack/shared": "workspace:^",
-    "chokidar": "^4.0.1",
-    "commander": "^12.1.0",
-    "dedent": "^1.5.3",
+    "chokidar": "^4.0.3",
+    "commander": "^14.0.0",
+    "dedent": "^1.6.0",
     "del": "^8.0.0"
   }
 }

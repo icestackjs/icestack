@@ -83,6 +83,6 @@
     "sync": "cnpm sync @icestack/unplugin"
   },
   "dependencies": {
-    "unplugin": "^1.14.1"
+    "unplugin": "^2.3.4"
   }
 }

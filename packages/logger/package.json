@@ -47,7 +47,7 @@
   "dependencies": {
     "@types/cli-progress": "^3.11.6",
     "cli-progress": "^3.12.0",
-    "consola": "^3.2.3"
+    "consola": "^3.4.2"
   },
   "devDependencies": {
     "@icestack/shared": "workspace:^"

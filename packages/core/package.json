@@ -65,7 +65,7 @@
     "@icestack/types": "workspace:^",
     "kleur": "^4.1.5",
     "lodash": "^4.17.21",
-    "lru-cache": "^11.0.1"
+    "lru-cache": "^11.1.0"
   },
   "devDependencies": {
     "@icestack/cva": "workspace:^",
